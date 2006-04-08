@@ -1,0 +1,20 @@
+<html>
+<head>
+<link rel="stylesheet" href="margintest.css">
+<title>HTML Margin test</title>
+</head>
+<body>
+<h1>HTML Margin test</h1>
+<p>This page is meant to demonstrate what happens when a margin is set on the HTML tag itself.
+This is achieved by the user of some CSS in <tt>margintest.css</tt> which looks like this:</p>
+<pre>html {
+    margin: 1em;
+}</pre>
+<p>This should put a <tt>1em</tt> margin around the entire page which should not be clipped by
+the window at any point; nor should it cause the links to be offset etc.</p>
+<p>Before if this is broken/a problem then the following link's
+hotspot within browser windows will be offset up/left by <tt>1em</tt> and the window itself
+will not scroll properly to the bottom.</p>
+<p>Here is a <a href="margintest.html">link</a> to myself.</p>
+</body>
+</html>

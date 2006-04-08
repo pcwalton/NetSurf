@@ -1,0 +1,23 @@
+NSTheme
+=======
+This application allows the creation and editing of !NetSurf themes.
+
+
+
+Theme file format
+-----------------
+[+0]	'NSTM'	(0x4d54534e)
+[+4]	Minimum theme parser version required
+[+8]	Theme name (32 chars, null terminated)
+[+40]	Theme author (64 chars, null terminated)
+[+104]	Browser toolbar background (0x00-0x0f)
+[+105]	Hotlist toolbar background (0x00-0x0f)
+[+106]	Status bar background (0x00-0x0f)
+[+107]	Status bar foreground (0x00-0x0f)
+[+108]	Throbber is on the right (0x00) or left (0xff)
+[+109]	Reserved for future expansion (0x00)
+[+110]	Reserved for future expansion (0x00)
+[+111]	Reserved for future expansion (0x00)
+[+112]	Size of compressed sprite data
+[+116]	Size of uncompressed sprite data
+[+120]	Start of compressed sprite data

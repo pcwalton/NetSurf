@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+        "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>NetSurf | User Information</title>
+<link rel="stylesheet" type="text/css" href="netsurf.css">
+</head>
+
+<body>
+<p class="banner"><a href="/"><img src="netsurf.png" alt="NetSurf"></a></p>
+<p class="languages"><a href="info.de">Deutsch</a> · <a href="info.en">English</a> · Français · <a href="info.nl">Nederlands</a></p>
+
+<h1>Guide utilisateur</h1>
+
+<ul>
+<li><a href="#GettingStarted">Premier contact</a>
+<ul>
+<li><a href="#GettingStartedInstallation">Installation</a></li>
+<li><a href="#GettingStartedRequirements">Configuration logicielle nécessaire</a></li>
+<li><a href="#GettingStartedAdditionalResources">Ressources supplémentaires</a></li>
+</ul></li>
+<li><a href="#Upgrading">Mise à jour de NetSurf</a></li>
+<li><a href="#ContactDevelopers">Contacter les développeurs</a></li>
+<li><a href="#Bugs">Signalement des bogues</a></li>
+<li><a href="#FeatureRequests">Demandes de fonctionnalités nouvelles</a></li>
+<li><a href="#JavaScript">JavaScript</a></li>
+</ul>
+
+<p class="updated">Dernière mise à jour 15 Décembre 2004</p>
+
+<h2 id="GettingStarted">Premier contact</h2>
+
+<h3 id="GettingStartedInstallation">Installation</h3>
+
+<p>NetSurf nécessite RISC OS 3 ou plus et des versions sont disponibles sur le <a href="http://netsurf.sourceforge.net/">site web</a> du projet. Trois versions sont disponibles. Pour la plupart des utilisateurs, la version &quot;NetSurf&quot; est recommandée. La version &quot;NetSurf allégé&quot; n'a pas certaines caractéristiques de la version principale et est destinée aux systèmes ayant peu de mémoire. La version &quot;NCNetSurf&quot; est destinée seulement aux utilisateurs de Netcomputers (NCs).</p>
+
+<p>Pour installer les versions &quot;NetSurf&quot; ou &quot;NetSurf allégé&quot;, copiez simplement le répertoire d'application !NetSurf de l'archive vers l'endroit où vous souhaitez installer le programme puis démarrez celui-ci de cet endroit. L'installation de &quot;NCNetSurf&quot; n'est pas encore documentée.</p>
+
+<h3 id="GettingStartedRequirements">Configuration logicielle nécessaire</h3>
+
+<p>Quand NetSurf est lancé, il recherchera toutes les ressources nécessaires pour fonctionner normalement et si quoi que ce soit est manquant, il affichera un message d'erreur précisant la ressource introuvable sur votre système. Si un tel message s'affiche, NetSurf a probablement besoin de l'une des ressources suivantes.</p>
+
+<dl>
+<dt><a href="http://sudden.recoil.org/others/">Acorn URI</a></dt>
+<dd>Le module Acorn URI est utilisé pour transmettre les URIs (dont les URLs ne sont qu'un exemple) entre diverses applications.</dd>
+<dt><a href="http://gccsdk.riscos.info/downloads/sharedunixlib/">SharedUnixLibrary</a></dt>
+<dd>C'est un module de support pour les programmes compilés avec UnixLib.</dd>
+<dt><a href="http://www.tinct.net/tinct.asp">Tinct</a></dt>
+<dd>Tinct est utilisé pour l'affichage d'images. Il fournit le support d'affichage pour les sprites avec canal alpha.</dd>
+<dt>Window Manager 3.80 ou plus</dt>
+<dd>NetSurf utilise le Nested Wimp qui fait partie du Gestionnaire de fenêtres. Vous l'avez d'office avec RISC OS 4, les utilisateurs de RISC OS 3 doivent installer <a href="http://acorn.riscos.com/riscos/releases/UniBoot/">la séquence de Boot Universelle</a></dd>
+</dl>
+
+<p>Si NetSurf démarre sans problème, il n'y a pas besoin de mettre à jour de ressources sur votre système.</p>
+
+<h3 id="GettingStartedAdditionalResources">Ressources supplémentaires</h3>
+
+<p>Les ressources suivantes ne sont pas nécessaires pour le bon fonctionnement de NetSurf mais apportent des fonctionnalités supplémentaires.</p>
+
+<dl> 
+<dt><a href="http://moose.mine.nu:6888/iconv_latest.zip">Iconv</a></dt> 
+<dd>Ce module fournit un support amélioré sur l'encodage des caractères.</dd>
+<dt><a href="http://www.ecs.soton.ac.uk/~jmb202/">Le plugin Flash</a></dt> 
+<dd>Vous permet de voir des fichiers Flash sur les sites Web.</dd> 
+</dl> 
+
+<h2 id="Upgrading">Mise à jour de NetSurf</h2>
+
+<p>Si vous mettez à jour une ancienne version de NetSurf, quittez d'abord NetSurf puis supprimez l'ancienne version (Note du traducteur: je recommande plutôt de mettre l'ancienne version dans une archive de sauvegarde ou une corbeille). Copiez l'application !NetSurf vers la destination de votre choix. NetSurf stocke vos préférences, vos cookies et votre liste de favoris dans <em>Choices:WWW.NetSurf</em>, donc le repertoire d'application !NetSurf peut être supprimé sans risque de perte de votre configuration de NetSurf.</p>
+
+<p>Il est possible de copier la nouvelle version de NetSurf par-dessus votre ancienne version pour accomplir la mise à jour. Toutefois, cela pourrait laisser des fichiers inutiles dans votre copie de NetSurf même si en pratique cela ne devrait pas poser de problèmes.</p>
+
+<h2 id="ContactDevelopers">Contacter les développeurs</h2>
+<p>Tout signalement de bogues ou question sur NetSurf peut être adressé aux forums suivants.</p>
+
+<h3>Liste de diffusion</h3>
+<p>La liste de diffusion <a href="http://lists.sourceforge.net/lists/listinfo/netsurf-develop">netsurf-develop</a> permet de discuter de NetSurf. Si le développement de NetSurf vous intéresse, abonnez-vous à cette liste SVP. Notez bien que tout message posté sur la liste de diffusion est lu et pris en compte par l'équipe de développement, même si nous ne répondons pas.</p>
+
+<h3>Canal IRC</h3>
+<p>La canal IRC #netsurf sur le réseau <a href="http://freenode.net/">Freenode</a> est utilisé pour discuter du développement de NetSurf.</p>
+
+<h3>Traqueur de bogues</h3>
+<p>Envoyez tout signalement de bogue au <a href="http://sourceforge.net/tracker/?group_id=51719&amp;atid=464312">traqueur de bogues</a>.</p>
+
+<p>Si vous voulez contribuer au projet NetSurf, contactez SVP les développeurs sur la liste de diffusion ou sur IRC.</p>
+
+<h2 id="Bugs">Signalement des bogues</h2>
+<p>Les développeurs de NetSurf sont tout à fait ouvert aux rapports de bogues. Suivez ces règles simples SVP.</p>
+
+<p>Avant de signaler une bogue, veuillez s'il vous plaît:</p>
+
+<ol>
+<li>vérifier que la bogue se produit aussi avec la dernière version <a href="http://netsurf.sourceforge.net/builds/">disponible en téléchargement</a>.</li>
+<li>essayer de trouver un moyen de déclenchement reproductible de la bogue.</li>
+<li>vérifier la page d'<a href="progress">avancement</a> et <a href="http://cvs.semichrome.net/netsurf/Docs/">les listes TODO</a> pour vérifier que quelque chose a bien été implémenté.</li>
+</ol>
+
+<p>Lors du rapport de bogues, veuillez s'il vous plaît:</p>
+
+<ol>
+<li>mentionner le numéro de version de NetSurf que vous utilisez.</li>
+<li>dire quel est votre matériel et système d'exploitation.</li>
+<li>expliquer clairement et de manière concise la nature précise du problème. (p.ex. est-ce que l'ordinateur est gelé, NetSurf se plante ou signale une erreur ou y'a t'il un problème de présentation sur un site particulier ? Si la présentation est incorrecte, expliquez ce qui cloche)</li>
+<li>si un site particulier pose problème, donnez l'URL complète.</li>
+<li>dressez la liste des étapes exactes pour faire apparaître la bogue.</li>
+<li>si vous pouvez réduire une bogue à un cas minimal, alors ce sera super. Dans ce cas, donnez-le puisque cela accélera les chances de voir ce problème réparé. (Ne vous inquiétez pas si vous n'y arrivez pas.)</li>
+</ol>
+
+<p>Suivre les recommendations ci-dessus économisera du temps aux développeurs et accélèrera le développement de NetSurf.</p>
+
+<h2 id="FeatureRequests">Demandes de fonctionnalités nouvelles</h2>
+
+<p>L'équipe de NetSurf accueille toute suggestion ou idée innovatrice afin d'améliorer le confort de navigation. Avant de faire des suggestions, allez d'abord voir la page d'<a href="progress">avancement</a> et <a href="http://cvs.semichrome.net/netsurf/Docs/">les listes TODO</a> pour vérifier que la fonctionnalité n'est pas déjà prévue. Des suggestions peuvent être faites sur la <a href="#Devel">liste de diffusion</a>. Veuillez noter que tous les messages postés sur la liste de diffusion sont lus et enregistrés par les développeurs de NetSurf, même si vous n'obtenez aucune réponse.</p>
+
+<h2 id="JavaScript">JavaScript</h2>
+
+<p>Pour l'instant, NetSurf n'a aucune capacité JavaScript. Sans Javascript, NetSurf peut fournir un accès à la plupart des sites du Web. Certains sites, cependant, ne s'afficheront pas correctement ou seront impraticables à cause d'une trop forte dépendance à ce standard.</p>
+
+<p>Comme cela est indiqué sur la page d'<a href="progress">avancement</a> Javascript n'est pour l'instant &quot;pas prévu&quot;. Ceci est principalement dû à l'énorme quantité de travail nécessaire pour implémenter Javascript et le manque de temps libre des développeurs de NetSurf. Inutile de préciser que si un volontaire a le temps et la motivation pour implémenter Javascript, il recevra le soutien total des développeurs actuels de NetSurf.</p>
+
+<div class="footer">
+<p class="breadcrumbs"><a href="/">NetSurf</a> » 
+<a href="docs">Documentation</a> » Guide Utilisateur</p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,10 @@
+| Application system variables
+Set NSTheme$Help <Obey$Dir>.!Help
+Set NSTheme$Version "0.01 (04 Sep 2004)"
+Set NSTheme$Web "http://netsurf.sourceforge.net/"
+Set NSTheme$Title "NSTheme"
+Set NSTheme$Publisher "The NetSurf Developers"
+Set NSTheme$Description "NetSurf theme editor"
+
+| NSTheme Sprites
+If "<Boot$OSVersion>" < "436" Then IconSprites <Obey$Dir>.!Sprites Else If "<Boot$OSVersion>" < "500" Then IconSprites <Obey$Dir>.ASprites Else IconSprites <Obey$Dir>.5Sprites

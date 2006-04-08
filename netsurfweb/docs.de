@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+        "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>NetSurf | Dokumentation</title>
+<link rel="stylesheet" type="text/css" href="netsurf.css">
+</head>
+
+<body>
+<p class="banner"><a href="/"><img src="netsurf.png" alt="NetSurf"></a></p>
+<p class="languages">Deutsch · <a href="docs.en">English</a> · <a href="docs.fr">Français</a> · <a href="docs.nl">Nederlands</a></p>
+
+<h1>NetSurf Dokumentation</h1>
+
+<p>Die NetSurf Dokumentation ist in folgende Abschnitte unterteilt.</p>
+
+<ul class="docsections">
+<li><strong><a href="info">Allgemeine Informationen</a></strong>
+<ul>
+<li><a href="info#GettingStarted">Einfach beginnen</a>
+<ul>
+<li><a href="info#GettingStartedInstallation">Installation</a></li>
+<li><a href="info#GettingStartedRequirements">Systemvoraussetzungen</a></li>
+<li><a href="info#GettingStartedAdditionalResources">Erweiterungen</a></li>
+</ul></li>
+<li><a href="info#Upgrading">NetSurf upgraden</a></li>
+<li><a href="info#ContactDevelopers">Entwickler kontaktieren</a></li>
+<li><a href="info#Bugs">Fehler und Probleme melden</a></li>
+<li><a href="info#FeatureRequests">Vorschläge für neue Features</a></li>
+<li><a href="info#Unicode">Schriftarten in NetSurf</a>
+<ul>
+<li><a href="info#UnicodeInstallingFonts">Weitere Schriften installieren</a></li>
+<li><a href="info#UnicodeProblems">Probleme und nicht implementierte Funktionen</a></li>
+</ul></li>
+<li><a href="info#JavaScript">JavaScript</a></li>
+</ul></li>
+
+<li><strong><a href="guide">Handbuch</a></strong>
+<ul>
+<li><a href="guide#UsingNetSurf">NetSurf starten</a></li>
+<li><a href="guide#Help">Interaktive Hilfe</a></li>
+<li><a href="guide#BrowserWindow">Das Browserfenster</a>
+<ul>
+<li><a href="guide#BrowserWindowToolbar">Anzeigen und Leisten</a></li>
+<li><a href="guide#BrowserWindowURLBar">Adressleiste</a></li>
+<li><a href="guide#BrowserWindowStatusBar">Statusanzeige</a></li>
+<li><a href="guide#BrowserWindowMenus">Menüs</a></li>
+</ul></li>
+<li><a href="guide#FileTypes">Dateitypen</a></li>
+<li><a href="guide#DownloadWindow">Download von Dateien</a></li>
+<li><a href="guide#History">History</a></li>
+<li><a href="guide#Hotlist">Die Hotlist</a>
+<ul>
+<li><a href="guide#HotlistToolbar">Symbolleiste</a></li>
+<li><a href="guide#HotlistMenus">Menüs</a></li>
+</ul></li>
+<li><a href="guide#Configuration">NetSurf konfigurieren</a></li>
+<li><a href="guide#Keys">Tastaturkürzel (Shortcuts)</a></li>
+</ul></li>
+
+<li><strong><a href="progress">Stand der Entwicklung</a></strong>
+<ul>
+<li><a href="progress#Web">Web Standards</a>
+<li><a href="progress#CSSandHTML">Wichtige CSS und HTML Funktionen</a>
+<li><a href="progress#Images">Bildausgabe</a>
+<li><a href="progress#ROStandards">RISC OS spezifische Funktionen</a>
+<li><a href="progress#NSF">NetSurf Features</a>
+</ul></li>
+</ul>
+
+<div class="footer">
+<p class="breadcrumbs"><a href="/">NetSurf</a> » Dokumentation</p>
+</div>
+
+</body>
+</html>

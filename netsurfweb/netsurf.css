@@ -1,0 +1,82 @@
+html, body { margin: 0; padding: 0; }
+h1, h2, h3, h4, h5, .breadcrumbs { font-family: sans-serif; }
+h1, h2, h3, h4, h5, p, dl, table, ul, ol, pre, address, div.footer { margin: 0 5mm 5mm 5mm; }
+h2, div.footer, .thanks { padding-top: 5mm; border-top: thin solid black; }
+img { border: none; }
+dl { display: block; padding-left: 0em; }
+dd { display: block; padding-left: 1.5em; margin-left: 0; }
+dd dl, dd p { margin: 3mm 0; }
+ul ul { margin: 0; }
+.banner { margin: 0 0 5mm 0; padding: 0; border-bottom: medium solid black; background-color: #94adff; color: black; text-align: left; }
+.banner img { vertical-align: middle; }
+div.main { display: table-cell; vertical-align: top; }
+div.links { display: table-cell; border-left: thin solid black; vertical-align: top; }
+.screenshot { float:right; padding:0 5mm 3mm 5mm; }
+.award { margin: 0 0 5mm 5mm; }
+.award > a, .award > p { display: table-cell; padding: 0 5mm 0 0; vertical-align: top; }
+.thanks { margin-top: 5mm; text-align: right; }
+.thanks img { vertical-align: middle; }
+.breadcrumbs { float: left; margin: 0 }
+.sourceforge { text-align: right; margin: 0 }
+p.footer { font-size: small; text-align: right; margin-top: 5mm; font-style: italic; }
+.icon { float: left; padding: 1mm; }
+.languages { margin: -4mm 5mm 3mm 5mm; text-align: right; }
+.updated { margin: -4mm 5mm 1mm 5mm; text-align: right; }
+.iconinfo { clear: left; }
+.headnote { color: #777; font-style: italic; }
+.note { width: 80%; background-color: #d2ffd2; padding: 0.8em; border: 4px ridge #d2ffd2; margin-left: auto; margin-right: auto; }
+
+th { font-weight: bold; padding: 3px; text-align: left; }
+td { padding: 3px; }
+
+.progress, .screenshots { width: 90%; border-spacing: 2px; margin-left: auto; margin-right: auto; }
+
+.docsections > li { margin-bottom: 1em; }
+
+.notplanned { background-color: #eee; color: #333; font-style: italic; }
+.notstarted { background-color: #ffd4d4; }
+.juststarted { background-color: #ffe8d2; }
+.inprogress { background-color: #ffffd0; }
+.nearlydone { background-color: #e6ffce; }
+.complete { background-color: #ccffcc; }
+
+.action { font-family: monospace; color: #600; }
+
+.submenu { border-bottom: thin solid #ddd; }
+.menupath { margin-bottom: 0; font-weight: bold; color: #555; }
+.menuitem { margin-top: 0; }
+.menu { border-spacing: 0px; margin-left: auto; margin-right: auto; border: 1px solid black; }
+.menu a { text-decoration: none; }
+.menutitle { background-color: #ccc; font-variant: small-caps; text-align: center; border-bottom: 1px solid black; font-weight: normal; }
+.menusplit { border-top: 1px dashed black; }
+.menuarrow { text-align: right; }
+
+.themename { padding-top: 5mm; margin-bottom: 3mm; border-top: thin solid #ddd; }
+.themeimage { padding-bottom: 3mm; margin-bottom: 0; }
+.themeauthor { padding: 2px; float: left; background-color: #fff; }
+.themeinstall { padding: 2px; text-align: right; white-space: nowrap; font-weight: bold; }
+.themeinstall a { color: #0b0; }
+
+.download tr { border-bottom: thin solid #bbb; }
+
+.toolbarsprites { font-size: 90%; display: table-cell; padding: 0 0 0 5mm; vertical-align: top; }
+.toolbarsprites th, .toolbarsprites td { padding: 1px 6px 1px 0; }
+.toolbarsprites th[colspan] { text-align: center; }
+.toolbarsprites + .toolbarsprites { border-left: thin solid #bbb; }
+.toolbarsprites + p { margin-top: 5mm; }
+
+.changelog p { margin-top: 0.2em; margin-bottom: 0em; }
+.entry + .entry .meta { border-top: thin solid #bbb; padding-top: 0.2em;  }
+.msg { padding-left: 5em; }
+.date { font-weight: normal; }
+.author { color: #005; }
+.files, .files a { color: #888; }
+#newtonetsurf { border: solid medium black; padding: 0.4em; }
+.highlight { background-color: #ffd0aa; }
+
+.newsitem { margin: 0 5mm 3mm 5mm; }
+.newsitem em { color: #005; }
+.newsitem + .newsitem { border-top: thin solid #bbb; padding-top: 0.2em; }
+.newsitem p { margin: 0; }
+.newsitem p + p { padding: 0 0 0 4em; color: #666; }
+.newsitem .more { text-align: right; font-weight: bold; }

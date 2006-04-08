@@ -1,0 +1,70 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+        "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>NetSurf | Open Source Web Browser für RISC OS</title>
+<link rel="stylesheet" type="text/css" href="netsurf.css">
+</head>
+
+<body>
+<h1 class="banner"><img src="netsurf.png" alt="NetSurf"></h1>
+<p class="languages">Deutsch · <a href="index.en">English</a> · <a href="index.fr">Français</a></p>
+
+<div class="main">
+<p>NetSurf ist ein Open-Source Web-Browser für RISC OS. Ziel dieses Projektes ist es, die Standards HTML&nbsp;4 und CSS auf der RISC OS Plattform zur Verfügung zu stellen.</p>
+
+<h2>Aktueller Status</h2>
+<p><strong>NetSurf befindet sich noch in der Entwicklung.</strong> Testversionen stehen zum <a href="http://netsurf.sourceforge.net/builds/">Download</a> bereit. Genaue Informationen zum <a href="progress">Stand der Entwicklung</a> gibt es auf der gleichnamigen Seite.</p>
+
+<h2>Bildschirmfotos</h2>
+<p>Hier ein aktuelles Bildschirmfoto:</p>
+<p class="screenshot"><a href="screenshots/"><img src="screenshots/w3cs.png" alt=""></a></p>
+<p>Mehr <a href="screenshots/">Bildschirmfotos</a> sind abrufbar.</p>
+
+<h2>Mailing-Liste</h2>
+<p>Die Projektentwicklung wird in der
+<a href="http://lists.sourceforge.net/lists/listinfo/netsurf-develop">Entwickler Mailing-Liste</a> diskutiert. Bei Interesse zum Gelingen des Projektes NetSurf beizutragen, bitte einfach über diese Liste Kontakt aufnehmen.</p>
+</div>
+
+<div class="links">
+<h3>Links</h3>
+
+<dl>
+<dt><a href="docs">Dokumentation</a></dt>
+<dd>Allgemeine Informationen und Handbuch</dd>
+
+<dt><a href="http://sourceforge.net/projects/netsurf/">SourceForge Projektseite</a></dt>
+<dd>SourceForge stellt die Mailing-Liste, den Bug-Tracker und andere Dienste zur Verfügung</dd>
+
+<dt><a href="http://netsurf.sourceforge.net/builds/">Testversionen</a></dt>
+<dd>Werden regelmäßig aus dem aktuellen Sourcecode erzeugt</dd>
+
+<dt><a href="/themes/">Themen</a></dt>
+<dd>Themen ändern das Aussehen der Nutzeroberfläche von NetSurf</dd>
+
+<dt><a href="http://sourceforge.net/tracker/?atid=464312&amp;group_id=51719">Bug-Tracker</a></dt>
+<dd>Fehler bitte an den Bug-Tracker übermitteln oder über die Mailing-Liste mitteilen</dd>
+
+<dt><a href="http://lists.sourceforge.net/lists/listinfo/netsurf-develop">Entwickler Mailing-Liste</a></dt>
+<dd>Bitte hier anmelden, um als Tester oder Entwickler mitzuarbeiten</dd>
+
+<dt><a href="develop">Entwicklerinformationen</a></dt>
+<dd>Für Entwickler und alle am Projekt Beteiligten</dd>
+</dl>
+
+</div>
+
+<p class="thanks"><a href="http://sourceforge.net/"><img
+src="http://sourceforge.net/sflogo.php?group_id=51719&amp;type=1"
+alt="SourceForge.net"></a> -
+<a href="http://curl.haxx.se/libcurl/"><img src="libcurl.png" alt="libcurl"></a> -
+<a href="http://gccsdk.riscos.info/">GCCSDK</a> -
+<a href="http://www.openssl.org/">OpenSSL</a> -
+<a href="http://ro-oslib.sourceforge.net/">OSLib</a> -
+<a href="http://www.libmng.com/">libmng</a> -
+<a href="http://www.xmlsoft.org/"><img src="libxml2.png" alt="Powered by Libxml2"></a>
+</p>
+
+</body>
+</html>
+

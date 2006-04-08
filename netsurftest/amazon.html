@@ -1,0 +1,147 @@
+<html>
+<head>
+<title>Amazon.co.uk Test 1</title>
+<style type="text/css">
+<!--
+.nav {
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-size: 9px;
+line-height: 10px;
+font-weight: bold;
+text-transform: uppercase;
+color: #FFFFFF;
+vertical-align: middle;
+}
+.navinner {
+border-style: solid;
+border-width: 1px;
+border-color: #3399CC;
+padding: 2px 2px 2px 2px;
+}
+.navouter {
+border-style: solid;
+border-width: 1px;
+border-color: #003366;
+padding: 1px 1px 1px 1px;
+}
+-->
+</style>
+</head>
+
+<body>
+
+<table><tr bgcolor="#006699" align="center">
+<td height="28">
+<table border="0" cellpadding="0" cellspacing="0">
+<style type="text/css">
+<!--
+.subnav {
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-size: 9px;
+line-height: 10px;
+font-weight: bold;
+text-transform: uppercase;
+color: #FFFFFF;
+vertical-align: middle;
+}
+.currentlink{
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-size: 9px;
+line-height: 10px;
+font-weight: bold;
+text-transform: uppercase;
+color: #FFCC66;
+vertical-align: middle;
+text-decoration: none;}
+A.subnav:link {
+text-decoration: none;
+}
+A.subnav:visited { text-decoration: none;
+}
+A.subnav:hover { text-decoration: underline;
+}
+.gateway-subnav-inner-border {
+border-style: solid;
+border-width: 1px;
+border-color: #3399CC;
+padding: 2px 2px 2px 2px;
+}
+.gateway-subnav-outer-border {
+border-style: solid;
+border-width: 1px;
+border-color: #003366;
+padding: 1px 1px 1px 1px;
+}
+.subnav-sup {
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-size: 8px;
+line-height: 14px;
+font-weight: bold;
+text-transform: uppercase;
+vertical-align: top;
+}
+-->
+</style>
+<tr align="center">
+<td class="gateway-subnav-outer-border" cellpadding="0" cellspacing="0" valign="middle" nowrap>
+<div class="gateway-subnav-inner-border">&nbsp;<img src="3.gif" align="absmiddle"><a href="moo" class="subnav">INTERNATIONAL</a>&nbsp;</div>
+</td>
+<td class="gateway-subnav-outer-border" cellpadding="0" cellspacing="0" valign="middle" nowrap>
+<div class="gateway-subnav-inner-border">&nbsp;<img src="3.gif" align="absmiddle"><a href="moo" class="subnav">HOW TO ORDER</a>&nbsp;</div>
+</td>
+<td class="gateway-subnav-outer-border" cellpadding="0" cellspacing="0" valign="middle" nowrap>
+<div class="gateway-subnav-inner-border">&nbsp;<img src="3.gif" align="absmiddle"><a href="moo" class="subnav">GIFT CERTIFICATES</a>&nbsp;</div>
+</td>
+<td class="gateway-subnav-outer-border" cellpadding="0" cellspacing="0" valign="middle" nowrap>
+<div class="gateway-subnav-inner-border">&nbsp;<img src="3.gif" align="absmiddle"><a href="moo" class="subnav">SELL YOUR STUFF</a>&nbsp;</div>
+</td>
+<td class="gateway-subnav-outer-border" cellpadding="0" cellspacing="0" valign="middle" nowrap>
+<div class="gateway-subnav-inner-border">&nbsp;<img src="3.gif" align="absmiddle"><a href="moo" class="subnav">STAR WARS</a>&nbsp;</div>
+</td>
+<td class="gateway-subnav-outer-border" cellpadding="0" cellspacing="0" valign="middle" nowrap>
+<div class="gateway-subnav-inner-border">&nbsp;<img src="3.gif" align="absmiddle"><a href="moo" class="subnav">HARRY POTTER</a>&nbsp;</div>
+</td>
+</tr></table>
+
+</td>
+</tr></table>
+
+<p>Above is part of amazon.co.uk. There are two issues involved here.</p>
+<ol><li>There is a blank line above the content and the style information for the links is not used.</li>
+<li>The yellow arrows are not on the same line as the links.</li></ol>
+<p>The first issue is because there is a STYLE tag inside the table that surrounds the links. It should be in HEAD anyway. The following shows the same table, but with the STYLE tag in HEAD rather than in the table:</p>
+
+<table><tr bgcolor="#006699" align="center">
+<td height="28">
+<table border="0" cellpadding="0" cellspacing="0">
+<tr align="center">
+<td class="navouter" cellpadding="0" cellspacing="0" valign="middle" nowrap>
+<div class="navinner">&nbsp;<img src="3.gif" align="absmiddle"><a href="moo" class="nav">INTERNATIONAL</a>&nbsp;</div>
+</td>
+<td class="navouter" cellpadding="0" cellspacing="0" valign="middle" nowrap>
+<div class="navinner">&nbsp;<img src="3.gif" align="absmiddle"><a href="moo" class="nav">HOW TO ORDER</a>&nbsp;</div>
+</td>
+<td class="navouter" cellpadding="0" cellspacing="0" valign="middle" nowrap>
+<div class="navinner">&nbsp;<img src="3.gif" align="absmiddle"><a href="moo" class="nav">GIFT CERTIFICATES</a>&nbsp;</div>
+</td>
+<td class="navouter" cellpadding="0" cellspacing="0" valign="middle" nowrap>
+<div class="navinner">&nbsp;<img src="3.gif" align="absmiddle"><a href="moo" class="nav">SELL YOUR STUFF</a>&nbsp;</div>
+</td>
+<td class="navouter" cellpadding="0" cellspacing="0" valign="middle" nowrap>
+<div class="navinner">&nbsp;<img src="3.gif" align="absmiddle"><a href="moo" class="nav">STAR WARS</a>&nbsp;</div>
+</td>
+<td class="navouter" cellpadding="0" cellspacing="0" valign="middle" nowrap>
+<div class="navinner">&nbsp;<img src="3.gif" align="absmiddle"><a href="moo" class="nav">HARRY POTTER</a>&nbsp;</div>
+</td>
+</tr></table>
+
+</td>
+</tr></table>
+
+<p>The second issue is that the nowrap attribute is set for each TD that contains one of the links. In each cell, there is a DIV, which contains the arrow image and links. The white-space property should be inherited, so the DIV tag should also have white-space: nowrap. The inheriting seems to work here, as the link text (e.g. HOW TO ORDER) isn't broken when you make the window narrow. It seems white-space: nowrap isn't working with text and images.</p>
+
+<p style="white-space:nowrap;">This long line of text contains an image and it is also has white-space:nowrap set. <img src="3.gif"> However, the line will break at the image.</p>
+
+<p style="white-space:nowrap;">This long line of text does not contain an image and it is also has white-space:nowrap set. The line breaks at other tags as well as IMG, e.g. EM and STRONG.</p>
+
+</body></html>

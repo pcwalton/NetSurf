@@ -1,0 +1,22 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+        "http://www.w3.org/TR/html4/strict.dtd">
+<html><head><title>Table containing inline with padding, border and margin</title></head>
+
+<body>
+
+<table>
+<tr>
+<td style="width: 10em; border: 1px solid #021; background-color:#cfe;">
+
+<img src="waves.gif" style="border: 0.5em dotted #f00; padding: 1em; margin:1em;">
+
+</td>
+</tr>
+</table>
+
+<p>The IMG element has thick padding, border and margin. These are not taken into account when calculating the width of the containing table cell. The table cell does expand enough to cover the actual image's width.</p>
+
+<p>The table cell height calculation does correctly take into account the IMG element's padding and border, but not the margin.</p>
+
+</body>
+</html>

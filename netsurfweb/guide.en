@@ -1,0 +1,1120 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+        "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>NetSurf | User Guide</title>
+<link rel="stylesheet" type="text/css" href="netsurf.css">
+</head>
+
+<body>
+<p class="banner"><a href="/"><img src="netsurf.png" alt="NetSurf: Web Browser for RISC OS"></a></p>
+<p class="languages"><a href="guide.de">Deutsch</a> · English · <a href="guide.nl">Nederlands</a></p>
+
+<p class="headnote">As NetSurf is under constant development the features described below are subject to change without warning.</p>
+
+<h1>User Guide</h1>
+
+<ul>
+<li><a href="#UsingNetSurf">Using NetSurf</a></li>
+<li><a href="#Help">Interactive help</a></li>
+<li><a href="#BrowserWindow">Browser window</a>
+<ul>
+<li><a href="#BrowserWindowToolbar">Toolbar</a></li>
+<li><a href="#BrowserWindowURLBar">URL bar</a></li>
+<li><a href="#BrowserWindowStatusBar">Status bar</a></li>
+<li><a href="#BrowserWindowContent">Content area</a></li>
+<li><a href="#BrowserWindowMenus">Menus</a></li>
+</ul></li>
+<li><a href="#FileTypes">File types</a></li>
+<li><a href="#DownloadWindow">Download window</a></li>
+<li><a href="#History">History</a>
+<ul>
+<li><a href="#HistoryLocal">Local history window</a></li>
+<li><a href="#HistoryGlobal">Global history window</a>
+<ul>
+<li><a href="#HistoryGlobalToolbar">Toolbar</a></li>
+<li><a href="#HistoryGlobalMenus">Menus</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#Hotlist">Hotlist management window</a>
+<ul>
+<li><a href="#HotlistToolbar">Toolbar</a></li>
+<li><a href="#HotlistMenus">Menus</a></li>
+</ul></li>
+<li><a href="#Configuration">Configuration</a>
+<ul>
+<li><a href="#ConfigurationGlobal">Global choices</a></li>
+<li><a href="#ConfigurationToolbar">Toolbar customization</a></li>
+</ul></li>
+<li><a href="#Keys">Keyboard shortcuts</a></li>
+</ul>
+
+<p class="updated">Last updated 26 April 2005</p>
+
+<h2 id="UsingNetSurf">Using NetSurf</h2>
+
+<p>To run <em>NetSurf</em>, simply double click on the NetSurf application. This will cause the NetSurf icon to appear on the iconbar. Select clicking on this icon will open a <a href="#BrowserWindow">browser window</a>. Adjust clicking on NetSurf's iconbar icon opens the <a href="#Hotlist">hotlist management window</a>.</p>
+
+<h3 id="IconbarMenu">Iconbar Menu</h3>
+
+<p>The iconbar menu contains options which concern the application as a whole.</p>
+
+<table class="menu">
+<tr><th class="menutitle" colspan="2">NetSurf</th></tr>
+<tr><td><a href="#IconbarMenuInfo">Info</a></td><td class="menuarrow">&gt;</td></tr>
+<tr><td><a href="#IconbarMenuHelp">Help</a></td><td></td></tr>
+<tr><td><a href="#IconbarMenuOpen">Open</a></td><td class="menuarrow">&gt;</td></tr>
+<tr><td><a href="#IconbarMenuChoices">Choices</a></td><td></td></tr>
+<tr><td><a href="#IconbarMenuQuit">Quit</a></td><td></td></tr>
+</table>
+
+<p class="menupath" id="IconbarMenuInfo">NetSurf &gt; Info</p>
+<p class="menuitem">This option provides a little information about NetSurf. More information about the application can be found on the <a href="#BrowserWindowMenuHelpAbout">about page</a>.</p>
+
+<p class="menupath" id="IconbarMenuHelp">NetSurf &gt; Help</p>
+<p class="menuitem">This option opens the <a href="docs">documentation contents page</a> in a new window.</p>
+
+<p class="menupath" id="IconbarMenuOpen">NetSurf &gt; Open</p>
+<p class="menuitem">This option allows various windows to be opened. The options available are:</p>
+
+<table class="menu">
+<tr><th class="menutitle" colspan="2">Open</th></tr>
+<tr><td><a href="#IconbarMenuOpenURL">Open URL</a></td><td class="menuarrow">&gt;</td></tr>
+<tr><td><a href="#IconbarMenuOpenHotlist">Show hotlist</a></td><td></td></tr>
+<tr><td><a href="#IconbarMenuOpenHistory">Show global history</a></td><td></td></tr>
+</table>
+
+<p class="menupath" id="IconbarMenuOpenURL">NetSurf &gt; Open &gt; Open URL</p>
+<p class="menuitem">This option opens a dialogue box, allowing an address (URL) to be entered and visited.</p>
+
+<p class="menupath" id="IconbarMenuOpenHotlist">NetSurf &gt; Open &gt; Show hotlist</p>
+<p class="menuitem">This option opens the <a href="#Hotlist">hotlist management window</a>.</p>
+
+<p class="menupath" id="IconbarMenuOpenHistory">NetSurf &gt; Open &gt; Show global history</p>
+<p class="menuitem">This option opens the <a href="#HistoryGlobal">global history window</a>.</p>
+
+<p class="menupath" id="IconbarMenuChoices">NetSurf &gt; Choices</p>
+<p class="menuitem">This option opens NetSurf's <a href="#Configuration">configuration</a> window.</p>
+
+<p class="menupath" id="IconbarMenuQuit">NetSurf &gt; Quit</p>
+<p class="menuitem">This option will exit the program and close all browser windows. NetSurf will prompt for confirmation if there are any active or unsaved downloads. NetSurf provides no facility for continuing unfinished or aborted downloads. When NetSurf is quitted the <a href="#HistoryGlobal">global history</a> and <a href="#BrowserWindowURLCompletion">URL complete</a> records are saved.</p>
+
+<h2 id="Help">Interactive Help</h2>
+
+<p>Instant on-line help is available throughout the software, in the form of interactive help. This offers quick help information, in bullet point format, about the item under the pointer.</p>
+
+<p>To use interactive help, suitable software must be running. The program 'Help' is shipped with all RISC OS computers and it can be run from NetSurf's <a href="#BrowserWindowMenuHelpInteractive">Help &gt; Interactive help</a> menu item.</p>
+
+<h2 id="BrowserWindow">Browser Window</h2>
+
+<p>The browser window is used to fetch and display web pages and other content available on the World Wide Web. It can also display files that are stored locally on your computer. The <a href="#FileTypes">file types</a> that NetSurf can handle include HTML, CSS and various image formats.</p>
+
+<p class="screenshot"><img src="images/bwin.en" title="Browser Window" alt=""></p>
+
+<p>The area at the top of the browser window is called the <a href="#BrowserWindowToolbar">toolbar</a>. At the bottom, it can be seen that the horizontal scroll bar does not cover the full width of the window. Next to the horizontal scroll bar, is the <a href="#BrowserWindowStatusBar">status bar</a>. The main section in the middle of the window is the most important part, the content area.</p>
+
+<p>The <a href="#BrowserWindowContent">content area</a> displays web pages and other material, such as images. Web pages contain hyperlinks (often just called 'links') which can point to another part of the page, to a different page or to any other type of file. Links pointing to types of files that NetSurf doesn't recognise will open a <a href="#DownloadWindow">download window</a>. Placing the pointer over a link changes the pointer to a 'clicking hand', to indicate that the item can be clicked on.</p>
+
+<h3 id="BrowserWindowToolbar">Toolbar</h3>
+
+<p>The section at the top of the window is called the toolbar. It allows quick access to various commonly used features. Many more functions are available through the <a href="#BrowserWindowMenus">menus</a>. The toolbar can be customized to contain only the icons you want, in the order you want, in toolbar edit mode. This is covered in the <a href="#ConfigurationToolbar">toolbar customization</a> section. Available icons are listed below.</p>
+
+<p></p>
+
+<h3>Toolbar Icons</h3>
+
+<p class="iconinfo"><strong><img src="images/back" alt="Back" title="Back Button" class="icon"></strong> Clicking on this button makes NetSurf go back to the previous page in the local history list. Select click to view the previous page in the current window. Adjust click to view it in a new window. Form information is not resubmitted.</p>
+
+<p class="iconinfo"><strong><img src="images/forward" class="icon" alt="Forward" title="Forward Button"></strong> Clicking on this button allows you to advance through the local history list. Select click to view the next page in the current window. Adjust click to view it in a new window. Form information is not resubmitted.</p>
+
+<p class="iconinfo"><strong><img src="images/history" class="icon" alt="History" title="History Button"></strong> Select clicking on this button opens a window containing the local history tree. Adjust clicking opens the global history window. More detailed information can be found in the <a href="#History">History</a> section.</p>
+
+<p class="iconinfo"><strong><img src="images/home" class="icon" alt="Home" title="Home Button"></strong> Clicking on this button returns to the configured home page.</p>
+
+<p class="iconinfo"><strong><img src="images/hotlist" class="icon" alt="Hotlist" title="Hotlist Button"></strong> Select clicking on this button opens the hotlist management window. Adjust clicking adds the current location to the hotlist.</p>
+
+<p class="iconinfo"><strong><img src="images/print" class="icon" alt="Print" title="Print Button"></strong> Clicking on this button will open the print dialogue box.</p>
+
+<p class="iconinfo"><strong><img src="images/reload" class="icon" alt="reload" title="Reload Button"></strong> Select clicking on this button will make NetSurf fetch and redraw the current page again. Adjust clicking forces NetSurf to fetch the current page as well as any objects it contains, such as images and style sheets.</p>
+
+<p class="iconinfo"><strong><img src="images/save" class="icon" alt="Save" title="Save Button"></strong> Clicking on this button will open a save dialogue box, to allow you to save the page for future reference.</p>
+
+<p class="iconinfo"><strong><img src="images/scale" class="icon" alt="Scale" title="Scale Button"></strong> Clicking on this button will open the scale view window. It allows you to scale documents, affecting both text and pictures.</p>
+
+<p class="iconinfo"><strong><img src="images/search" class="icon" alt="Search" title="Search Button"></strong> Clicking on this button opens the find text window. It allows you to search for a string of text within a document.</p>
+
+<p class="iconinfo"><strong><img src="images/stop" class="icon" alt="Stop" title="Stop Button"></strong> Clicking on this button stops whatever process the window is doing.</p>
+
+<!-- <p class="iconinfo"><strong><img src="images/up" class="icon" alt="Up" title="Up Button"></strong> Clicking on this button moves up the directory tree. For example, if you are looking at <em>http://www.domain.com/directory/page.html</em>, clicking on the up icon takes you to <em>http://www.domain.com/directory/</em> and a further click would result in a location of <em>http://www.domain.com/</em>.</p> -->
+
+<p>Icons that are greyed out indicate that their function is unavailable. This happens when a new browser window is first opened. Since the window will be displaying its first page, there would be no previous page and the back button is grayed out. Also, as this is the first page, the forward button is also grayed out.</p>
+
+<p><strong>Throbber:</strong> This NetSurf logo animates while a page is downloading or rendering. It indicates that NetSurf is doing something.</p>
+
+<h3 id="BrowserWindowURLBar">URL Bar</h3>
+
+<p>The white writable icon on the toolbar is called the URL Bar and it shows the location of the current page. Here, you can enter the address of the page you want to view next. Text files dropped onto the URL bar are treated as URLs.</p>
+
+<p>Next to the URL bar is a pop-up menu button which opens a list of URLs previously typed into the URL bar. Clicking on one of the URLs opens the page.</p>
+
+<p>The current URL can be dragged from the URL bar to be saved or dropped onto other applications. A <span class="action">Ctrl drag</span> saves the URL in Text format and a <span class="action">Shift drag</span> saves it in ANT URL format. Systems that don't support text selection in writable icons (i.e. non RISC OS Select systems) allow the URL to be dragged out in Text format without the use of either <span class="action">Ctrl</span> or <span class="action">Shift</span>.</p>
+
+<h4 id="BrowserWindowURLCompletion">URL Completion</h4>
+
+<p>When typing into the URL bar, NetSurf opens a window below displaying suggestions for the full address. If the address you want is not shown, the box can be ignored. If the intended address is shown, select clicking on it will complete the address and open the page automatically. An adjust click on a URL copies it into the URL but does not load the page. The Up and Down cursor keys can be used to select an address from the list and the Return key opens the page. Escape closes the URL completion window. The function of other keys in the URL bar, such as the Left and Right cursor keys, is unaffected by this feature.</p>
+
+<h3 id="BrowserWindowStatusBar">Status Bar</h3>
+
+<p>The status bar, at the bottom of the window, displays information to the user. When you move the pointer over a link, the status bar will display the URL that the link points to. The status bar also displays information about NetSurf's progress while retrieving a page.</p>
+
+<p>Between the status bar and the horizontal scroll bar is the status bar resizer. Over this widget, the pointer changes to a double headed arrow and you can drag the status bar resizer to set the width of the status bar.</p>
+
+<h3 id="BrowserWindowContent">Content Area</h3>
+
+<p>The content area is the main part of the browser window; it displays documents and images. Various types of action can be performed in the content area, including:</p>
+
+<ul>
+<li><a href="#BrowserWindowContentTextSelection">Text selection</a></li>
+<li><a href="#BrowserWindowContentDragScrolling">Drag scrolling</a></li>
+<li><a href="#BrowserWindowContentLinkHandling">Link handling</a></li>
+<li><a href="#BrowserWindowContentDragSaving">Drag saving</a></li>
+<li><a href="#BrowserWindowContentFormCompletion">Form completion</a></li>
+</ul>
+
+<p>Some operations, such as a dragging and clicking will behave differently depending on the content over which the action is carried out. For example, dragging over text initiates text selection whereas dragging over non-textual content will drag-scroll the page.</p>
+
+<p>Further options are available through the <a href="#BrowserWindowMenus">menu</a>, some of which are only available when menu is clicked over certain types of content. For example the <a href="#BrowserWindowMenuObject">Object</a> submenu is available only when menu is clicked over an object, such as an image.</p>
+
+<h4 id="BrowserWindowContentTextSelection">Text Selection</h4>
+
+<p>Textual content on pages can be selected and copied. Text in <a href="#BrowserWindowContentFormCompletionTextArea">text areas</a> can be selected and then cut or copied to the global clipboard. The global clipboard contents can also be pasted into text areas.</p>
+
+<ul>
+<li><span class="action">Select click</span> clears previous selections.</li>
+<li><span class="action">Select drag</span> over text clears previous selection and creates new selection.</li>
+<li><span class="action">Adjust click</span> adds to selection. If Adjust was clicked outside the selection the nearest end of the selection is moved to where adjust was clicked. If Adjust was clicked inside the current selection, the second (last) end of the selection is moved to where Adjust was clicked. If Adjust is clicked on a link, the selection is not modified and <a href="#BrowserWindowContentLinkHandling">link handling</a> behaviour is followed.</li>
+<li><span class="action">Adjust drag</span> over text dynamically does the same as repeatedly doing an <span class="action">Adjust click</span> as you move the mouse, except, <span class="action">Adjust drag</span> over links modifies the selection and does not follow the link.</li>
+</ul>
+
+<p><span class="action">Ctrl+C</span> copies selected text to the global clipboard. <span class="action">Ctrl+A</span> selects all text, while <span class="action">Ctrl+Z</span> clears the selection.</p>
+
+<h4 id="BrowserWindowContentDragScrolling">Drag Scrolling</h4>
+
+<p>The page can be scrolled by dragging non-textual areas up and down. During a drag scroll action, the pointer changes to a hand.</p>
+
+<ul>
+<li><span class="action">Select drag</span> on any non textual area of the page (except plugin areas and <code>overflow: scroll</code> scrollbars) drags the page.</li>
+<li><span class="action">Adjust drag</span> on any part of the page, including text, provided there is no selection drags the page. Page drag scrolling is not possible over plugin areas or scrollbars, such as those for <a href="#BrowserWindowContentFormCompletionTextArea">text areas</a> or <code>overflow: scroll</code>.</li>
+</ul>
+
+<h4 id="BrowserWindowContentLinkHandling">Link Handling</h4>
+
+<!-- <p>Links are not followed until <span class="action">click release</span>, so link actions can be avoided if a drag operation is started. This allows initiation of <a href="#BrowserWindowContentTextSelection">text selection</a> in link text and <a href="#BrowserWindowContentDragScrolling">page drag scrolling</a> from link images.</p> -->
+
+<ul>
+<li><span class="action">Select click</span> on a link follows the link in current window.</li>
+<li><span class="action">Adjust click</span> on a link opens the link in new window.</li>
+<li><span class="action">Shift+Select click</span> on a link opens a <a href="#DownloadWindow">download dialogue box</a> for the link target.</li>
+<li><span class="action">Shift+Adjust click</span> on a link opens a save box for saving link the target address as a URL file.</li>
+<!--<li><span class="action">Shift+Select drag</span> from a link to a filer window or another application opens a <a href="#DownloadWindow">download dialogue box</a> with the local destination automatically set.</li>
+<li><span class="action">Shift+Adjust drag</span> from a link to a filer window or another app saves the link target address as a URL file.</li> -->
+</ul>
+
+<h4 id="BrowserWindowContentDragSaving">Drag Saving</h4>
+
+<p>Content can be dragged directly from the page to a filer window with the <span class="action">Ctrl</span> key.</p>
+
+<ul>
+<li><span class="action">Ctrl+Select drag</span> saves the item under the pointer to a filer window or another application. The item is saved in its original format.</li>
+<li><span class="action">Ctrl+Adjust drag</span> saves the item under the pointer to a filer window or another application. Generally it saves it in the most applicable RISC OS format.</li>
+</ul>
+
+<p>Different items are treated as follows.</p>
+
+<ul>
+<li>If the content drag save is initiated on a <em>bitmap image</em>, it is saved in its original format with <span class="action">Select</span>. With <span class="action">Adjust</span> it is saved as a sprite.</li>
+<!-- <li>If the content drag save is initiated on a <em>vector image</em>, it is saved in its original format with <span class="action">Select</span>. With <span class="action">Adjust</span> it is saved as a drawfile if possible, otherwise in the original format.</li> -->
+<li>If the content drag save is initiated on a <a href="#BrowserWindowContentTextSelection">text selection</a>, it is saved as text, whether it comes from an HTML page, CSS file or whatever. <span class="action">Select</span> / <span class="action">Adjust</span> usage makes no difference.</li>
+<li>If the content drag save is initiated on a part of a <em>web page</em> that is neither image or selection, the page is saved as a &quot;full save&quot; with <span class="action">Select</span>. With <span class="action">Adjust</span>, the HTML is saved only.</li>
+<!-- <li>If the content drag save is initiated on a displayed <em><code>text/css</code></em> document, it is saved as CSS with <span class="action">Select</span>. With <span class="action">Adjust</span> it is saved as text.</li> -->
+<li><em><code>text/plain</code></em> is always saved as text.</li>
+</ul>
+
+<!-- <p>Content drag saving for links is covered in the <a href="#BrowserWindowContentLinkHandling">link handling</a> section.</p> -->
+
+<h4 id="BrowserWindowContentFormCompletion">Form Completion</h4>
+
+<p>Forms allow information to be entered and submitted to an agent such as a web server or mail server. Some form controls can be styled by web pages, so they may look quite different from one page to the next. Some common form controls are described below.</p>
+
+<dl>
+<dt id="BrowserWindowContentFormCompletionButtons">Buttons</dt>
+<dd>Buttons trigger some action when selected. Common button actions are to <em>submit</em> or <em>reset</em> the form.</dd>
+
+<dt id="BrowserWindowContentFormCompletionCheckboxes">Checkboxes</dt>
+<dd>Checkboxes are on/off switches that can be toggled. Checkboxes containing a red square are &quot;on&quot;.</dd>
+
+<dt id="BrowserWindowContentFormCompletionRadioButtons">Radio Buttons</dt>
+<dd>Radio buttons are like checkboxes except that groups of radio buttons are mutually exclusive: when one is switched &quot;on&quot;, all others with the same name are switched &quot;off&quot;. Radio buttons containing a red circle are &quot;on&quot;.</dd>
+
+<dt id="BrowserWindowContentFormCompletionSelectionMenus">Selection Menus</dt>
+<dd>Selection menus open a menu, from which an item, or in some cases several items, can be selected. Selected items are displayed with a tick (&#10003;) next to them. The pointer changes to indicate a pop-up menu is available over selection menu controls.</dd>
+
+<dt id="BrowserWindowContentFormCompletionTextInput">TextInput</dt>
+<dd>A text input allows a single line of text to be entered and edited. Pressing <span class="action">Return</span> in a text input will submit the form.</dd>
+
+<dt id="BrowserWindowContentFormCompletionFileInput">File Input</dt>
+<dd>File inputs say &quot;Drop file here&quot; and allow local files to be submitted. Dragging a file to them sets the path to the file.</dd>
+
+<dt id="BrowserWindowContentFormCompletionTextArea">Text Area</dt>
+<dd>Text areas are similar to text inputs but they allow multiple lines to be edited. Pressing <span class="action">Return</span> in a text area moves the caret to the next line.</dd>
+</dl>
+
+<p><span class="action">Tab</span> can be used to move the caret to the next text input or text area control. <span class="action">Shift+Tab</span> moves input focus back to the previous text box.</p>
+
+<h3 id="BrowserWindowMenus">Menus</h3>
+
+<p>The browser window menu contains options relating to the content of the current window. Some of these options are unavailable at present as this area of NetSurf is not complete. The following options are available:</p>
+
+<table class="menu">
+<tr><th class="menutitle" colspan="2">NetSurf</th></tr>
+<tr><td><a href="#BrowserWindowMenuPage">Page</a></td><td class="menuarrow">&gt;</td></tr>
+<tr><td><a href="#BrowserWindowMenuObject">Object</a></td><td class="menuarrow">&gt;</td></tr>
+<tr><td><a href="#BrowserWindowMenuNavigate">Navigate</a></td><td class="menuarrow">&gt;</td></tr>
+<tr><td><a href="#BrowserWindowMenuDisplay">Display</a></td><td class="menuarrow">&gt;</td></tr>
+<tr><td><a href="#BrowserWindowMenuUtilities">Utilities</a></td><td class="menuarrow">&gt;</td></tr>
+<tr><td><a href="#BrowserWindowMenuHelp">Help</a></td><td class="menuarrow">&gt;</td></tr>
+</table>
+
+<h4 id="BrowserWindowMenuPage" class="submenu">Page Submenu</h4>
+
+<p>The Page submenu contains the following options relevant to the current page.</p>
+
+<table class="menu">
+<tr><th class="menutitle" colspan="2">Page</th></tr>
+<tr><td><a href="#BrowserWindowMenuPageInfo">Info</a></td><td class="menuarrow">&gt;</td></tr>
+<tr><td><a href="#BrowserWindowMenuPageSave">Save</a></td><td class="menuarrow">&gt;</td></tr>
+<tr><td><a href="#BrowserWindowMenuPageFullSave">Full save</a></td><td class="menuarrow">&gt;</td></tr>
+<tr><td><a href="#BrowserWindowMenuPageExport">Export</a></td><td class="menuarrow">&gt;</td></tr>
+<tr><td><a href="#BrowserWindowMenuPageSaveLocation">Save location</a></td><td class="menuarrow">&gt;</td></tr>
+<tr><td><a href="#BrowserWindowMenuPagePrint">Print</a></td><td></td></tr>
+<tr><td class="menusplit"><a href="#BrowserWindowMenuPageNewwindow">New window</a></td><td class="menusplit"></td></tr>
+<tr><td><a href="#BrowserWindowMenuPageViewSource">View source</a></td><td class="menuarrow"></td></tr>
+</table>
+
+<p class="menupath" id="BrowserWindowMenuPageInfo">Page &gt; Info</p>
+<p class="menuitem">This option displays information about the current page.</p>
+
+<p class="menupath" id="BrowserWindowMenuPageSave">Page &gt; Save</p>
+<p class="menuitem">This option opens a save dialogue box, allowing the source code of the current page to be saved to disc.</p>
+
+<p class="menupath" id="BrowserWindowMenuPageFullSave">Page &gt; Full save</p>
+<p class="menuitem">This option opens a save dialogue box, allowing current page to be saved to disc, including any CSS files or images etc that the page contains.</p>
+
+<p class="menupath" id="BrowserWindowMenuPageExport">Page &gt; Export</p>
+<p class="menuitem">This option offers various export options for the current page. The options available are:</p>
+
+<table class="menu">
+<tr><th class="menutitle" colspan="2">Export as</th></tr>
+<tr><td><a href="#BrowserWindowMenuPageExportDraw">Draw</a></td><td class="menuarrow">&gt;</td></tr>
+<tr><td><a href="#BrowserWindowMenuPageExportText">Text</a></td><td class="menuarrow">&gt;</td></tr>
+</table>
+
+<p class="menupath" id="BrowserWindowMenuPageExportDraw">Page &gt; Export &gt; Draw</p>
+<p class="menuitem">This option opens a save dialogue box, allowing the current page to be saved as a drawfile.</p>
+
+<p class="menupath" id="BrowserWindowMenuPageExportText">Page &gt; Export &gt; Text</p>
+<p class="menuitem">This option opens a save dialogue box, allowing the current page to be saved as a text file.</p>
+
+<p class="menupath" id="BrowserWindowMenuPageSaveLocation">Page &gt; Save location</p>
+<p class="menuitem">This option allows the address of the current page to be saved in various formats. The options available are:</p>
+
+<table class="menu">
+<tr><th class="menutitle" colspan="2">Link</th></tr>
+<tr><td><a href="#BrowserWindowMenuPageSaveLocationAcorn">Acorn URI</a></td><td class="menuarrow">&gt;</td></tr>
+<tr><td><a href="#BrowserWindowMenuPageSaveLocationAnt">Ant URL</a></td><td class="menuarrow">&gt;</td></tr>
+<tr><td><a href="#BrowserWindowMenuPageSaveLocationText">Text</a></td><td class="menuarrow">&gt;</td></tr>
+</table>
+
+<p class="menupath" id="BrowserWindowMenuPageSaveLocationAcorn">Page &gt; Save location &gt; Acorn URI</p>
+<p class="menuitem">This option opens a save dialogue box, allowing the address of the current page to be saved to disc in Acorn URI format.</p>
+
+<p class="menupath" id="BrowserWindowMenuPageSaveLocationAnt">Page &gt; Save location &gt; Ant URL</p>
+<p class="menuitem">This option opens a save dialogue box, allowing the address of the current page to be saved to disc in Ant URL format.</p>
+
+<p class="menupath" id="BrowserWindowMenuPageSaveLocationText">Page &gt; Save location &gt; Text</p>
+<p class="menuitem">This option opens a save dialogue box, allowing the address of the current page to be saved to disc in plain text format.</p>
+
+<p class="menupath" id="BrowserWindowMenuPagePrint">Page &gt; Print</p>
+<p class="menuitem">This option opens a print dialogue box.</p>
+
+<p class="menupath" id="BrowserWindowMenuPageNewwindow">Page &gt; New window</p>
+<p class="menuitem">This option opens the current page in a new window.</p>
+
+<p class="menupath" id="BrowserWindowMenuPageViewSource">Page &gt; View source</p>
+<p class="menuitem">This option opens the source code of the current page in a text editor window.</p>
+
+<h4 id="BrowserWindowMenuObject" class="submenu">Object Submenu</h4>
+
+<p>The Object submenu contains the following options relevant to the current object. This submenu is only available when the pointer is placed over an object such as an image.</p>
+
+<table class="menu">
+<tr><th class="menutitle" colspan="2">Object</th></tr>
+<tr><td><a href="#BrowserWindowMenuObjectInfo">Info</a></td><td class="menuarrow">&gt;</td></tr>
+<tr><td><a href="#BrowserWindowMenuObjectSave">Save</a></td><td class="menuarrow">&gt;</td></tr>
+<tr><td><a href="#BrowserWindowMenuObjectExport">Export</a></td><td class="menuarrow">&gt;</td></tr>
+<tr><td><a href="#BrowserWindowMenuObjectSaveLocation">Save location</a></td><td class="menuarrow">&gt;</td></tr>
+<tr><td class="menusplit"><a href="#BrowserWindowMenuObjectReload">Reload</a></td><td class="menusplit"></td></tr>
+</table>
+
+<p class="menupath" id="BrowserWindowMenuObjectInfo">Object &gt; Info</p>
+<p class="menuitem">This option displays information about the current object.</p>
+
+<p class="menupath" id="BrowserWindowMenuObjectSave">Object &gt; Save</p>
+<p class="menuitem">This option opens a save dialogue box, allowing the object under the pointer to be saved in its original format.</p>
+
+<p class="menupath" id="BrowserWindowMenuObjectExport">Object &gt; Export</p>
+<p class="menuitem">This option offers various export options for the current object. The options available are:</p>
+
+<table class="menu">
+<tr><th class="menutitle" colspan="2">Export as</th></tr>
+<tr><td><a href="#BrowserWindowMenuObjectExportSprite">Sprite</a></td><td class="menuarrow">&gt;</td></tr>
+</table>
+
+<p class="menupath" id="BrowserWindowMenuObjectExportSprite">Object &gt; Export &gt; Sprite</p>
+<p class="menuitem">This option opens a save dialogue box, allowing the current object to be saved as a sprite.</p>
+
+<p class="menupath" id="BrowserWindowMenuObjectSaveLocation">Object &gt; Save location</p>
+<p class="menuitem">This option allows the address of the current object to be saved in various formats. The options available are:</p>
+
+<table class="menu">
+<tr><th class="menutitle" colspan="2">Link</th></tr>
+<tr><td><a href="#BrowserWindowMenuObjectSaveLocationAcorn">Acorn URI</a></td><td class="menuarrow">&gt;</td></tr>
+<tr><td><a href="#BrowserWindowMenuObjectSaveLocationAnt">Ant URL</a></td><td class="menuarrow">&gt;</td></tr>
+<tr><td><a href="#BrowserWindowMenuObjectSaveLocationText">Text</a></td><td class="menuarrow">&gt;</td></tr>
+</table>
+
+<p class="menupath" id="BrowserWindowMenuObjectSaveLocationAcorn">Object &gt; Save location &gt; Acorn URI</p>
+<p class="menuitem">This option opens a save dialogue box, allowing the address of the current object to be saved to disc in Acorn URI format.</p>
+
+<p class="menupath" id="BrowserWindowMenuObjectSaveLocationAnt">Object &gt; Save location &gt; Ant URL</p>
+<p class="menuitem">This option opens a save dialogue box, allowing the address of the current object to be saved to disc in Ant URL format.</p>
+
+<p class="menupath" id="BrowserWindowMenuObjectSaveLocationText">Object &gt; Save location &gt; Text</p>
+<p class="menuitem">This option opens a save dialogue box, allowing the address of the current object to be saved to disc in plain text format.</p>
+
+<p class="menupath" id="BrowserWindowMenuObjectReload">Object &gt; Reload</p>
+<p class="menuitem">This option reloads the current page and any objects that the page contains.</p>
+
+<h4 id="BrowserWindowMenuNavigate" class="submenu">Navigate Submenu</h4>
+
+<p>The Navigate submenu contains the following options, useful for navigating the web.</p>
+
+<table class="menu">
+<tr><th class="menutitle" colspan="2">Navigate</th></tr>
+<tr><td><a href="#BrowserWindowMenuNavigateHome">Home page</a></td><td class="menuarrow"></td></tr>
+<tr><td><a href="#BrowserWindowMenuNavigateBack">Back one page</a></td><td class="menuarrow"></td></tr>
+<tr><td><a href="#BrowserWindowMenuNavigateForward">Forward one page</a></td><td class="menuarrow"></td></tr>
+<tr><td class="menusplit"><a href="#BrowserWindowMenuNavigateReload">Reload this page</a></td><td></td></tr>
+<tr><td><a href="#BrowserWindowMenuNavigateStop">Stop loading this page</a></td><td class="menuarrow"></td></tr>
+</table>
+
+<p class="menupath" id="BrowserWindowMenuNavigateHome">Navigate &gt; Home page</p>
+<p class="menuitem">This option takes you back to the NetSurf home page. The same function is available on the <a href="#BrowserWindowToolbar">toolbar</a>.</p>
+
+<p class="menupath" id="BrowserWindowMenuNavigateBack">Navigate &gt; Back one page</p>
+<p class="menuitem">This option takes you back one page in the local history. Any form information will not be resubmitted. The same function is available on the <a href="#BrowserWindowToolbar">toolbar</a>.</p>
+
+<p class="menupath" id="BrowserWindowMenuNavigateForward">Navigate &gt; Forward one page</p>
+<p class="menuitem">This option takes you forward one page in the local history. Any form information will not be resubmitted. The same function is available on the <a href="#BrowserWindowToolbar">toolbar</a>.</p>
+
+<p class="menupath" id="BrowserWindowMenuNavigateReload">Navigate &gt; Reload this page</p>
+<p class="menuitem"> This fetches and displays the current page again. Any copy of the page that exists in the local cache will be overwritten. The same function is available on the <a href="#BrowserWindowToolbar">toolbar</a>.</p>
+
+<p class="menupath" id="BrowserWindowMenuNavigateStop">Navigate &gt; Stop loading this page</p>
+<p class="menuitem"> This stops the current page from continuing to load. The same function is available on the <a href="#BrowserWindowToolbar">toolbar</a>.</p>
+
+<h4 id="BrowserWindowMenuDisplay" class="submenu">Display Submenu</h4>
+
+<p>The Display submenu contains the various options which affect the rendering of the current window. Other configuration options are described in the <a href="#Configuration">configuration</a> section.</p>
+
+<table class="menu">
+<tr><th class="menutitle" colspan="2">Display</th></tr>
+<tr><td><a href="#BrowserWindowMenuDisplayScale">Scale view</a></td><td class="menuarrow">&gt;</td></tr>
+<tr><td><a href="#BrowserWindowMenuDisplayImages">Images</a></td><td class="menuarrow">&gt;</td></tr>
+<tr><td><a href="#BrowserWindowMenuDisplayToolbars">Toolbars</a></td><td class="menuarrow">&gt;</td></tr>
+<tr><td><a href="#BrowserWindowMenuDisplayRender">Render</a></td><td class="menuarrow">&gt;</td></tr>
+<tr><td class="menusplit"><a href="#BrowserWindowMenuDisplaySetDefault">Set as default</a></td><td></td></tr>
+</table>
+
+<p class="menupath" id="BrowserWindowMenuDisplayScale">Display &gt; Scale View</p>
+<p class="menuitem">This option allows you to scale the current page affecting both text and images. The scale is represented by a percentage, with 100% always referring to the pre-scaled state of the document. The same function is available on the <a href="#BrowserWindowToolbar">toolbar</a>.</p>
+
+<p class="menupath" id="BrowserWindowMenuDisplayImages">Display &gt; Images</p>
+<p class="menuitem">The Images submenu allows you to control the way images are displayed. The options available here only affect the local browser window.</p>
+
+<table class="menu">
+<tr><th class="menutitle" colspan="2">Images</th></tr>
+<tr><td><a href="#BrowserWindowMenuDisplayImagesForeground">Foreground images</a></td><td class="menuarrow"></td></tr>
+<tr><td><a href="#BrowserWindowMenuDisplayImagesBackground">Background images</a></td><td class="menuarrow"></td></tr>
+</table>
+
+<p class="menupath" id="BrowserWindowMenuDisplayImagesForeground">Display &gt; Images &gt; Foreground images</p>
+<p class="menuitem">This option allows you to toggle the display of foreground images. When foreground images are enabled, a tick appears to the left of the menu entry. If foreground images are disabled, any alternate text that the page provides will be shown instead.</p>
+
+<p class="menupath" id="BrowserWindowMenuDisplayImagesBackground">Display &gt; Images &gt; Background images</p>
+<p class="menuitem">This option allows you to toggle the display of background images. When background images are enabled, a tick appears to the left of the menu entry. If background images are disabled, any background colour specified by the document will be used instead.</p>
+
+<p class="menupath" id="BrowserWindowMenuDisplayToolbars">Display &gt; Toolbars</p>
+<p class="menuitem">The Toolbars submenu allows you to control the way NetSurf's toolbars are displayed. The options available here only affect the local browser window.</p>
+
+<table class="menu">
+<tr><th class="menutitle" colspan="2">Toolbars</th></tr>
+<tr><td><a href="#BrowserWindowMenuDisplayToolbarsButtons">Buttons</a></td><td class="menuarrow"></td></tr>
+<tr><td><a href="#BrowserWindowMenuDisplayToolbarsAddress">Address bar</a></td><td class="menuarrow"></td></tr>
+<tr><td><a href="#BrowserWindowMenuDisplayToolbarsThrobber">Throbber</a></td><td class="menuarrow"></td></tr>
+<tr><td class="menusplit"><a href="#BrowserWindowMenuDisplayToolbarsStatus">Status bar</a></td><td></td></tr>
+</table>
+
+<p class="menupath" id="BrowserWindowMenuDisplayToolbarsButtons">Display &gt; Toolbars &gt; Buttons</p>
+<p class="menuitem">This option toggles the display of the buttons on NetSurf's toolbar at the top of the window. When the buttons are turned off, the URL bar (if enabled) stretches to fill the extra space.</p>
+
+<p class="menupath" id="BrowserWindowMenuDisplayToolbarsAddress">Display &gt; Toolbars &gt; Address bar</p>
+<p class="menuitem">This option toggles the display of the address (URL) bar on NetSurf's toolbar at the top of the window.</p>
+
+<p class="menupath" id="BrowserWindowMenuDisplayToolbarsThrobber">Display &gt; Toolbars &gt; Throbber</p>
+<p class="menuitem">This option toggles the display of the throbber on NetSurf's toolbar at the top of the window. When the throbber is turned off, the URL bar (if enabled) stretches to fill the extra space.</p>
+
+<p>If the buttons, URL bar and throbber are all disabled, the toolbar at the top of the window is removed, leaving more space for the main content area.</p>
+
+<p class="menupath" id="BrowserWindowMenuDisplayToolbarsStatus">Display &gt; Toolbars &gt; Status bar</p>
+<p class="menuitem">This option toggles the display of the status bar at the bottom of the NetSurf window. When the status bar is turned off, the horizontal scroll bar stretches to the full width of the window.</p>
+
+<p class="menupath" id="BrowserWindowMenuDisplayRender">Display &gt; Render</p>
+<p class="menuitem">The Render submenu allows you to control the way NetSurf draws content to the screen.</p>
+
+<table class="menu">
+<tr><th class="menutitle" colspan="2">Render</th></tr>
+<tr><td><a href="#BrowserWindowMenuDisplayRenderBlend">Blend text to background</a></td><td class="menuarrow"></td></tr>
+<tr><td class="menusplit"><a href="#BrowserWindowMenuDisplayRenderBufferAnim">Buffer animations</a></td><td></td></tr>
+<tr><td><a href="#BrowserWindowMenuDisplayRenderBufferAll">Buffer all rendering</a></td><td class="menuarrow"></td></tr>
+</table>
+
+<p class="menupath" id="BrowserWindowMenuDisplayRenderBlend">Display &gt; Render &gt; Blend text to background</p>
+<p class="menuitem">This option improves the edges of any text that is rendered over a background image. This facility is only available on RISC OS 3.7 or later.</p>
+
+<p class="menupath" id="BrowserWindowMenuDisplayRenderBufferAnim">Display &gt; Render &gt; Buffer animations</p>
+<p class="menuitem">This option buffers anything that NetSurf forces to be redrawn, other than redrawing a part of the window which has been obscured. Things like text areas, which are redrawn after typing, and animations are buffered. This has the effect of stopping these items from flickering.</p>
+
+<p class="menupath" id="BrowserWindowMenuDisplayRenderBufferAll">Display &gt; Render &gt; Buffer all rendering</p>
+<p class="menuitem">This option is highly advantageous on complex pages because it only draws the page once, rather than building it up in layers. In use its effect is to stop the flicker caused by gradual redraw of pages, for example when resizing or scrolling a window, and present a more pleasant browsing experience. Buffer all rendering is configured off by default as it is best suited to fast hardware, such as the Iyonix.</p>
+
+<p class="menupath" id="BrowserWindowMenuDisplaySetDefault">Display &gt; Set as default</p>
+<p class="menuitem">This option makes NetSurf use the display options you have set up for the current window as the default options.</p>
+
+<h4 id="BrowserWindowMenuUtilities" class="submenu">Utilities Submenu</h4>
+
+<p>The Utilities submenu allows you to access some of NetSurf's extra features.</p>
+
+<table class="menu">
+<tr><th class="menutitle" colspan="2">Utilities</th></tr>
+<tr><td><a href="#BrowserWindowMenuUtilitiesHotlist">Hotlist</a></td><td class="menuarrow">&gt;</td></tr>
+<tr><td><a href="#BrowserWindowMenuUtilitiesHistory">History</a></td><td class="menuarrow">&gt;</td></tr>
+<tr><td><a href="#BrowserWindowMenuUtilitiesWindow">Window</a></td><td class="menuarrow">&gt;</td></tr>
+<tr><td><a href="#BrowserWindowMenuUtilitiesFindText">Find text</a></td><td class="menuarrow">&gt;</td></tr>
+</table>
+
+<p class="menupath" id="BrowserWindowMenuUtilitiesHotlist">Utilities &gt; Hotlist</p>
+<p class="menuitem">The Hotlist submenu allows you to manage the hotlist.</p>
+
+<table class="menu">
+<tr><th class="menutitle" colspan="2">Hotlist</th></tr>
+<tr><td><a href="#BrowserWindowMenuUtilitiesHotlistAdd">Add to hotlist</a></td><td class="menuarrow"></td></tr>
+<tr><td><a href="#BrowserWindowMenuUtilitiesHotlistShow">Show hotlist</a></td><td class="menuarrow"></td></tr>
+</table>
+
+<p class="menupath" id="BrowserWindowMenuUtilitiesHotlistAdd">Utilities &gt; Hotlist &gt; Add to hotlist</p>
+<p class="menuitem">This option adds the current page to the bottom of your hotlist. The same function is available on the <a href="#BrowserWindowToolbar">toolbar</a>.</p>
+
+<p class="menupath" id="BrowserWindowMenuUtilitiesHotlistShow">Utilities &gt; Hotlist &gt; Show hotlist</p>
+<p class="menuitem">This option opens the <a href="#HotlistWindow">hotlist management window</a>. The same function is available on the <a href="#BrowserWindowToolbar">toolbar</a>.</p>
+
+<p class="menupath" id="BrowserWindowMenuUtilitiesHistory">Utilities &gt; History</p>
+<p class="menuitem">The History submenu allows you to access NetSurf's history features.</p>
+
+<table class="menu">
+<tr><th class="menutitle" colspan="2">History</th></tr>
+<tr><td><a href="#BrowserWindowMenuUtilitiesHistoryLocal">Show local history</a></td><td class="menuarrow"></td></tr>
+<tr><td><a href="#BrowserWindowMenuUtilitiesHistoryGlobal">Show global history</a></td><td class="menuarrow"></td></tr>
+</table>
+
+<p class="menupath" id="BrowserWindowMenuUtilitiesHistoryLocal">Utilities &gt; History &gt; Show local History</p>
+<p class="menuitem">This option opens the <a href="#HistoryLocal">local history window</a>. The same function is available on the <a href="#BrowserWindowToolbar">toolbar</a>.</p>
+
+<p class="menupath" id="BrowserWindowMenuUtilitiesHistoryGlobal">Utilities &gt; History &gt; Show global History</p>
+<p class="menuitem">This option opens the <a href="#HistoryGlobal">global history window</a>. The same function is available on the <a href="#BrowserWindowToolbar">toolbar</a>.</p>
+
+<p class="menupath" id="BrowserWindowMenuUtilitiesWindow">Utilities &gt; Window</p>
+<p class="menuitem">The Window submenu allows you to control the size and positioning of new windows.</p>
+
+<table class="menu">
+<tr><th class="menutitle" colspan="2">Window</th></tr>
+<tr><td><a href="#BrowserWindowMenuUtilitiesWindowSetdefault">Set as default position</a></td><td class="menuarrow"></td></tr>
+<tr><td><a href="#BrowserWindowMenuUtilitiesWindowStagger">Stagger window position</a></td><td class="menuarrow"></td></tr>
+<tr><td><a href="#BrowserWindowMenuUtilitiesWindowCopyposition">Copy window position</a></td><td class="menuarrow"></td></tr>
+<tr><td class="menusplit"><a href="#BrowserWindowMenuUtilitiesWindowResetdefault">Reset default position</a></td><td></td></tr>
+</table>
+
+<p class="menupath" id="BrowserWindowMenuUtilitiesWindowSetdefault">Utilities &gt; Window &gt; Set as default position</p>
+<p class="menuitem">This option sets the size and position of the current window to be the default size and position for new browser windows. If no default position is set, NetSurf opens new windows in the centre of the screen.</p>
+
+<p class="menupath" id="BrowserWindowMenuUtilitiesWindowStagger">Utilities &gt; Window &gt; Stagger window position</p>
+<p class="menuitem">This option toggles staggered window opening positions for new windows. When turned on, this option means that new windows will open with a small offset from the position of the previously opened window. This option is only available when a user defined default window position has been set.</p>
+
+<p class="menupath" id="BrowserWindowMenuUtilitiesWindowCopyposition">Utilities &gt; Window &gt; Copy window position</p>
+<p class="menuitem">This option toggles the copy window position feature. When the feature is turned off, all newly opened windows open at the default position. With this feature enabled, browser windows opened from other browser windows (by adjust clicking on a link), will inherit the size and position of the parent window, rather than use the default position.</p>
+
+<p class="menupath" id="BrowserWindowMenuUtilitiesWindowResetdefault">Utilities &gt; Window &gt; Reset default position</p>
+<p class="menuitem">This option removes any user defined default window position. The option is only available when a user defined default window position has been set.</p>
+
+<p class="menupath" id="BrowserWindowMenuUtilitiesFindText">Utilities &gt; Find text</p>
+<p class="menuitem">This option allows you to search the current page for a text string. The same function is available on the <a href="#BrowserWindowToolbar">toolbar</a>.</p>
+
+<h4 id="BrowserWindowMenuHelp" class="submenu">Help Submenu</h4>
+
+<p>The Help submenu contains options for fast access to help and information while you're using NetSurf.</p>
+
+<table class="menu">
+<tr><th class="menutitle" colspan="2">Help</th></tr>
+<tr><td><a href="#BrowserWindowMenuHelpContents">Contents</a></td><td class="menuarrow"></td></tr>
+<tr><td><a href="#BrowserWindowMenuHelpGuide">User guide</a></td><td class="menuarrow"></td></tr>
+<tr><td><a href="#BrowserWindowMenuHelpInfo">User information</a></td><td class="menuarrow"></td></tr>
+<tr><td class="menusplit"><a href="#BrowserWindowMenuHelpAbout">About NetSurf</a></td><td></td></tr>
+<tr><td class="menusplit"><a href="#BrowserWindowMenuHelpInteractive">Interactive help</a></td><td></td></tr>
+</table>
+
+<p class="menupath" id="BrowserWindowMenuHelpContents">Help &gt; Contents</p>
+<p class="menuitem">This option opens the <a href="docs">documentation contents page</a> in a new window.</p>
+
+<p class="menupath" id="BrowserWindowMenuHelpGuide">Help &gt; User guide</p>
+<p class="menuitem">This option opens this page in a new window!</p>
+
+<p class="menupath" id="BrowserWindowMenuHelpInfo">Help &gt; User information</p>
+<p class="menuitem">This option opens the <a href="info">user information page</a> in a new window.</p>
+
+<p class="menupath" id="BrowserWindowMenuHelpAbout">Help &gt; About NetSurf</p>
+<p class="menuitem">This opens NetSurf's about page in a new window. The about page contains a list of people who have contributed to the NetSurf project and a credits for the libraries NetSurf uses.</p>
+
+<p class="menupath" id="BrowserWindowMenuHelpInteractive">Help &gt; Interactive help</p>
+<p class="menuitem">This option loads Help, if it hasn't already been loaded, to display interactive help messages.</p>
+
+<h2 id="FileTypes">File Types</h2>
+
+<p>When NetSurf encounters a file type it does not recognise, it opens a <a href="#DownloadWindow">download window</a> to allow the file to be saved to disc. (Note, NetSurf ignores local files of unrecognised file types.) The file types that NetSurf understands are listed below, with their RISC OS file type and MIME type(s) .</p>
+
+<table>
+<tr><th>Name</th><th>Type</th><th>MIME type(s)</th></tr>
+<tr><td>Acorn URI</td><td>&amp;f91</td><td><abbr title="Not Applicable">N/A</abbr></td></tr>
+<tr><td>ANT URL</td><td>&amp;b28</td><td><abbr title="Not Applicable">N/A</abbr></td></tr>
+<tr><td>CSS</td><td>&amp;f79</td><td>text/css</td></tr>
+<tr><td>Drawfile</td><td>&amp;aff</td><td>application/drawfile<br>application/x-drawfile<br>image/drawfile<br>image/x-drawfile</td></tr>
+<tr><td>Flash</td><td>&amp;188</td><td>application/x-shockwave-flash</td></tr>
+<tr><td>GIF</td><td>&amp;695</td><td>image/gif</td></tr>
+<tr><td>HTML</td><td>&amp;faf</td><td>text/html</td></tr>
+<tr><td>IEURL</td><td>&amp;1ba</td><td><abbr title="Not Applicable">N/A</abbr></td></tr>
+<tr><td>JNG</td><td>&amp;f78</td><td>image/jng<br>image/x-jng</td></tr>
+<tr><td>JPEG</td><td>&amp;c85</td><td>image/jpeg<br>image/pjpeg</td></tr>
+<tr><td>MNG</td><td>&amp;f83</td><td>image/mng<br>image/x-mng<br>video/mng<br>video/x-mng</td></tr>
+<tr><td>NetSurf Theme</td><td><abbr title="Not Applicable">N/A</abbr></td><td>application/x-netsurf-theme</td></tr>
+<tr><td>PNG</td><td>&amp;b60</td><td>image/png</td></tr>
+<tr><td>Sprite</td><td>&amp;ff9</td><td>image/x-riscos-sprite</td></tr>
+<tr><td>Text</td><td>&amp;fff</td><td>text/plain</td></tr>
+</table>
+
+<p>Flash files are not handled by NetSurf directly but are displayed by an <a href="info#GettingStartedAdditionalResources">external plugin</a>.</p>
+
+<p>NetSurf recognises different file types by their RISC OS file type for local files and by their content-type header for files sourced from the internet. Files are not identified by their extension or content. This means that for a file to be displayed, servers must be configured to send the correct content-type header and local files must have the correct RISC OS file type set.</p>
+
+<h2 id="DownloadWindow">Download Window</h2>
+
+<p>Whenever you follow a link to a file that NetSurf doesn't know how to handle, NetSurf opens the download window. This allows you to save a local copy of the file. The download window is shown below.</p>
+
+<p class="screenshot"><img src="images/dwnld.en" title="Download Window" alt=""></p>
+
+<p>As soon as the download window opens, NetSurf starts downloading the file to your Scrap directory. At any time, either as the file downloads or after it has finished, it is possible drag the file icon at the top of the window to the directory where you wish to keep the file. This action causes the file to be moved to your desired location from Scrap and if the download is incomplete, the remainder of the file will also go to the new location.</p>
+
+<p>The Source field indicates the location of the file being downloaded.</p>
+
+<p>Initially, the Destination field allows the local filename of the file being downloaded to be set. Once the local destination of the file has been set, by dragging the icon to a filer window, the local path is shown here. Clicking on it will open the associated directory.</p>
+
+<p>The bottom part of the download window displays information about the download's progress. On the left, the amount already downloaded and the total size are displayed. In the middle, the download speed is indicated and that the right, and estimated time remaining is shown. A beige progress bar indicates the download's progress visually.</p>
+
+<h2 id="History">History</h2>
+
+<p>While browsing the World Wide Web, you may come across interesting pages and some time later, you may wish to return to them. NetSurf's history stores the addresses (URLs) of the web pages you visit so that you can return to a page without having to remember the URL or how you first came across it.</p>
+
+<p>NetSurf supports two distinct types of history; local and global. Local history contains only the pages that are visited in any particular window. Global history contains all the pages that have been visited in NetSurf and is remembered when NetSurf is restarted.</p>
+
+<h3 id="HistoryLocal">Local History Window</h3>
+
+<p>NetSurf's local history window provides a diagrammatical overview of the browsing history of a particular window. Each web page that is visited is represented by a thumbnail in a tree diagram. Beneath each thumbnail the page title is shown. Clicking on a thumbnail will cause the NetSurf browser window to return to that particular page.</p>
+
+<h3 id="HistoryGlobal">Global History Window</h3>
+
+<p>NetSurf's global history stores the addresses (URLs) of all the web pages you visit. To open the global history window, you can adjust click on the history toolbar button on a <a href="#BrowserWindow">browser window</a>, use the browser window <a href="#BrowserWindowMenuUtilitiesHistoryGlobal">menu option</a> or use the <a href="#IconbarMenu">iconbar menu</a>. The global history is made up from &quot;addresses&quot; and &quot;directories&quot;.</p>
+
+<p>An address consists of a name and a URL. Addresses in the global history can point to any kind of file and double clicking on one will launch the URL in NetSurf. Addresses also store the date the URL was visited. By default, addresses are listed in the order they were visited and they are grouped by date within directories.</p>
+
+<p>Directories store groups of addresses. In the default global history view, there are directories for each day up to the beginning of last week and further directories for previous weeks. The global history is expired after a maximum of four weeks.</p>
+
+<p>The global history display works in a similar way to a filer window, although there are some important differences. Directories are not opened in new windows. Instead, the whole of the history is displayed in one window and directories represented by branches in a tree diagram. Double clicking on a closed directory will open it, displaying its contents as a new branch. Double clicking on an open directory will close it. When addresses are double clicked on, their URL is launched by NetSurf.</p>
+
+<p>Next to the address and directory icons there are toggle boxes, which can be used to expand and collapse branches in the history tree. Clicking on the branch toggle boxes next to directories has exactly the same effect as double clicking on a directory. Expanding an address with the branch toggle box displays the other information it contains. (The URL and the time it was visited.) The space bar can also be used to expand or collapse selected addresses.</p>
+
+<p>As with filer windows, selections can be made by dragging selection boxes and adjust clicking can be used to add or remove items from the selection.</p>
+
+<h4 id="HistoryGlobalToolbar">Toolbar</h4>
+
+<p>The global history toolbar allows quick access to various commonly used features. More functions are available through the <a href="#HistoryGlobalMenus">menus</a>. The toolbar can be customized to contain only the icons you want, in the order you want, in toolbar edit mode. This is covered in the <a href="#ConfigurationToolbar">toolbar customization</a> section. Available icons are listed below.</p>
+
+<p class="iconinfo"><strong><img src="images/delete" class="icon" alt="Delete Selection" title="Delete Selection Button"></strong> Clicking on this button deletes any selected directories or addresses from the global history.</p>
+
+<p class="iconinfo"><strong><img src="images/expand" class="icon" alt="Expand Addresses" title="Expand Addresses Button"></strong> Select clicking on this button expands any addresses that are being shown, to display additional information about each one. Adjust clicking hides the additional information for any expanded addresses.</p>
+
+<p class="iconinfo"><strong><img src="images/launch" class="icon" alt="Launch Selection" title="Launch Selection Button"></strong> Clicking on this button launches all selected addresses in separate <a href="#BrowserWindow">browser windows</a>. If a directory is selected any addresses it contains will be launched.</p>
+
+<p class="iconinfo"><strong><img src="images/open" class="icon" alt="Open Directories" title="Open Directories Button"></strong> Select clicking on this button opens every directory in the global history. Adjust clicking closes any open directories.</p>
+
+<h4 id="HistoryGlobalMenus">Menus</h4>
+
+<p>The global history menu contains options which allow you to manage the content of your global history. The options available are:</p>
+
+<table class="menu">
+<tr><th class="menutitle" colspan="2">History</th></tr>
+<tr><td><a href="#HistoryGlobalMenuHistory">History</a></td><td class="menuarrow">&gt;</td></tr>
+<tr><td><a href="#HistoryGlobalMenuSelection">Selection</a></td><td class="menuarrow">&gt;</td></tr>
+<tr><td><a href="#HistoryGlobalMenuSelectAll">Select all</a></td><td></td></tr>
+<tr><td><a href="#HistoryGlobalMenuClearSelection">Clear selection</a></td><td></td></tr>
+</table>
+
+<h5 id="HistoryGlobalMenuHistory" class="submenu">History Submenu</h5>
+
+<p>The Hotlist submenu contains the following options which apply to the hotlist in general.</p>
+
+<table class="menu">
+<tr><th class="menutitle" colspan="2">History</th></tr>
+<tr><td><a href="#HistoryGlobalMenuHistoryExport">Export</a></td><td class="menuarrow">&gt;</td></tr>
+<tr><td class="menusplit"><a href="#HistoryGlobalMenuHistoryExpand">Expand</a></td><td class="menuarrow">&gt;</td></tr>
+<tr><td><a href="#HistoryGlobalMenuHistoryCollapse">Collapse</a></td><td class="menuarrow">&gt;</td></tr>
+<tr><td><a href="#HistoryGlobalMenuHistoryToolbars">Toolbars</a></td><td class="menuarrow">&gt;</td></tr>
+</table>
+
+<p class="menupath" id="HistoryGlobalMenuHistoryExport">Hotlist &gt; Export</p>
+<p class="menuitem">This option allows you to export the global history as an HTML file. The directory structure is represented by nested unordered lists and addresses are converted to clickable links.</p>
+
+<p class="menupath" id="HistoryGlobalMenuHistoryExpand">Hotlist &gt; Expand</p>
+<p class="menuitem">This option allows various parts of the global history to be shown.</p>
+
+<table class="menu">
+<tr><th class="menutitle" colspan="2">Expand</th></tr>
+<tr><td><a href="#HistoryGlobalMenuHistoryExpandAll">All</a></td><td class="menuarrow"></td></tr>
+<tr><td><a href="#HistoryGlobalMenuHistoryExpandDirectories">Directories</a></td><td class="menuarrow"></td></tr>
+<tr><td><a href="#HistoryGlobalMenuHistoryEdpandAddresses">Addresses</a></td><td class="menuarrow"></td></tr>
+</table>
+
+<p class="menupath" id="HistoryGlobalMenuHistoryExpandAll">History &gt; Expand &gt; All</p>
+<p class="menuitem">This option opens all directories and expands all addresses in the global history, making the entire directory structure and all address information visible.</p>
+
+<p class="menupath" id="HistoryGlobalMenuHistoryExpandDirectories">History &gt; Expand &gt; Directories</p>
+<p class="menuitem">This option opens all of the directories in the global history, making the entire directory structure visible.</p>
+
+<p class="menupath" id="HistoryGlobalMenuHistoryExpandAddresses">History &gt; Expand &gt; Addresses</p>
+<p class="menuitem">This option expands all of the addresses which are presently being displayed in the global history. Their URLs and additional usage information are made visible.</p>
+
+<p class="menupath" id="HistoryGlobalMenuHistoryCollapse">History &gt; Collapse</p>
+<p class="menuitem">This option allows various parts of the global history to be hidden.</p>
+
+<table class="menu">
+<tr><th class="menutitle" colspan="2">Collapse</th></tr>
+<tr><td><a href="#HistoryGlobalMenuHistoryCollapseAll">All</a></td><td class="menuarrow"></td></tr>
+<tr><td><a href="#HistoryGlobalMenuHistoryCollapseDirectories">Directories</a></td><td class="menuarrow"></td></tr>
+<tr><td><a href="#HistoryGlobalMenuHistoryCollapseAddresses">Addresses</a></td><td class="menuarrow"></td></tr>
+</table>
+
+<p class="menupath" id="HistoryGlobalMenuHistoryCollapseAll">History &gt; Collapse &gt; All</p>
+<p class="menuitem">This option closes all directories and collapses all addresses in the global history, reducing the display to the contents of the root directory.</p>
+
+<p class="menupath" id="HistoryGlobalMenuHistoryCollapseDirectories">History &gt; Collapse &gt; Directories</p>
+<p class="menuitem">This option closes all of the directories in the global history, hiding the directory structure.</p>
+
+<p class="menupath" id="HistoryGlobalMenuHistoryCollapseAddresses">History &gt; Collapse &gt; Addresses</p>
+<p class="menuitem">This option reduces all of the displayed addresses to just their name, hiding their URLs and additional usage information.</p>
+
+<p class="menupath" id="HistoryGlobalMenuHistoryToolbars">Display &gt; Toolbars</p>
+<p class="menuitem">The Toolbars submenu allows you to control the way NetSurf's global history toolbar is displayed.</p>
+
+<table class="menu">
+<tr><th class="menutitle" colspan="2">Toolbars</th></tr>
+<tr><td><a href="#HistoryGlobalMenuHistoryToolbarsButtons">Buttons</a></td><td class="menuarrow"></td></tr>
+</table>
+
+<p class="menupath" id="HistoryGlobalMenuHistoryToolbarsButtons">Display &gt; Toolbars &gt; Buttons</p>
+<p class="menuitem">This option toggles the display of the buttons on NetSurf's global history toolbar at the top of the window.</p>
+
+<h5 id="HistoryGlobalMenuSelection" class="submenu">Selection Submenu</h5>
+
+<p>The selection submenu, which is only available when a selection has been made in the global history window, contains the following options.</p>
+
+<table class="menu">
+<tr><th class="menutitle" colspan="2">Selection</th></tr>
+<tr><td><a href="#HistoryGlobalMenuSelectionLaunch">Launch</a></td><td></td></tr>
+<tr><td><a href="#HistoryGlobalMenuSelectionDelete">Delete</a></td><td></td></tr>
+</table>
+
+<p class="menupath" id="HistoryGlobalMenuSelectionLaunch">Selection &gt; Launch</p>
+<p class="menuitem">This option allows you to launch all of the selected addresses in separate NetSurf browser windows. This option is also available on the global history window <a href="#HistoryGlobalToolbar">toolbar</a>.</p>
+
+<p class="menupath" id="HistoryGlobalMenuSelectionDelete">Selection &gt; Delete</p>
+<p class="menuitem">This option deletes the current selection from the global history. This option is also available on the global history window <a href="#HistoryGlobalToolbar">toolbar</a>.</p>
+
+<p class="menupath" id="HistoryGlobalMenuSelectAll">Select all</p>
+<p class="menuitem">This option allows you to select all the addresses and directories in the global history window.</p>
+
+<p class="menupath" id="HistoryGlobalMenuClearSelection">Clear selection</p>
+<p class="menuitem">This option allows you to deselect any selected items.</p>
+
+<h2 id="Hotlist">Hotlist Management Window</h2>
+
+<p>While browsing the World Wide Web, you may come across pages that you wish to return to. NetSurf's hotlist provides a convenient way of storing these addresses (URLs) so that you can return to the page without having to remember the URL or how you first came across the page. To open the hotlist management window, you can adjust click on NetSurf's iconbar icon or select click on the Hotlist toolbar button in a <a href="#BrowserWindow">browser window</a>. Hotlists are made up from &quot;addresses&quot; and &quot;directories&quot;. There can be as many of each of these as you like.</p>
+
+<p>An address consists of a name and a URL. Hotlist addresses can point to any kind of file and double clicking on one will launch the URL in NetSurf. The name can be anything but, for web pages, it is set to the page title by default. The simplest way to add an address to the hotlist is to adjust click on the Hotlist <a href="#BrowserWindowToolbar">toolbar button</a> in a browser window. This adds the URL of the current page to the hotlist. Additionally, files on your hard disc can be added by dragging them to the hotlist from a filer window. Addresses also store other usage information, such as the date the address was added to the hotlist, when it was last visited and how many times it has been visited in total.</p>
+
+<p>Directories are used to group related addresses to allow for easy location of the address you want. They can be nested and contain a mixture of addresses and other directories.</p>
+
+<p>The hotlist display works in a similar way to a filer window, although there are some important differences. Directories are not opened in new windows. Instead, the whole hotlist is displayed in one window and directories represented by branches in a tree diagram. Double clicking on a closed directory will open it, displaying its contents as a new branch. Double clicking on an open directory will close it. When addresses are double clicked on, their URL is launched by NetSurf.</p>
+
+<p>Next to the address and directory icons there are toggle boxes, which can be used to expand and collapse branches in the hotlist tree. Clicking on the branch toggle boxes next to directories has exactly the same effect as double clicking on a directory. Expanding an address with the branch toggle box displays the other information it contains, such as the URL and it's usage statistics. The space bar can also be used to expand or collapse selected addresses.</p>
+
+<p>As with filer windows, selections can be made by dragging selection boxes and adjust clicking can be used to add or remove items from the selection. Selections can then be dragged and dropped within the hotlist management window to move them around. It is possible to drop a selection into a closed directory by releasing it over the bottom half of the target directory. Dropping the selection over the top half of a directory or address will insert the selection above that item. Finally, dropping a selection over the lower half of an address will move it below the address.</p>
+
+<p>Renaming of addresses and directories can by achieved by clicking on an item with the <em>Alt</em> key held down. The URLs within expanded address entries can also be altered in this way. Selected items can be deleted from the <a href="#HotlistToolbar">toolbar</a>, <a href="#HotlistMenuSelectionDelete">menus</a> or with Ctrl+X</p>
+
+<p>NetSurf's hotlist is stored as an HTML file which can be found in <em>Choices:WWW.NetSurf</em>. This means the hotlist file can be loaded into a NetSurf browser window and used as a links page or set to your default home page. The hotlist file is saved when you quit NetSurf.</p>
+
+<h3 id="HotlistToolbar">Toolbar</h3>
+
+<p>The hotlist toolbar allows quick access to various commonly used features. More functions are available through the <a href="#HotlistMenus">menus</a>. The toolbar can be customized to contain only the icons you want, in the order you want, in toolbar edit mode. This is covered in the <a href="#ConfigurationToolbar">toolbar customization</a> section. Available icons are listed below.</p>
+
+<h4>Toolbar Icons</h4>
+
+<p class="iconinfo"><strong><img src="images/create" alt="Create Directory" title="Create Directory Button" class="icon"></strong> Clicking on this button adds a new directory to the bottom of the hotlist. The cursor is placed at the name of the new directory. Either type Ctrl-U and rename it or press Return to accept the default name.</p>
+
+<p class="iconinfo"><strong><img src="images/delete" class="icon" alt="Delete Selection" title="Delete Selection Button"></strong> Clicking on this button deletes any selected directories or addresses from the hotlist.</p>
+
+<p class="iconinfo"><strong><img src="images/expand" class="icon" alt="Expand Addresses" title="Expand Addresses Button"></strong> Select clicking on this button expands any addresses that are being shown, to display additional information about each one. Adjust clicking hides the additional information for any expanded addresses.</p>
+
+<p class="iconinfo"><strong><img src="images/launch" class="icon" alt="Launch Selection" title="Launch Selection Button"></strong> Clicking on this button launches all selected addresses in separate <a href="#BrowserWindow">browser windows</a>. If a directory is selected any addresses it contains will be launched.</p>
+
+<p class="iconinfo"><strong><img src="images/open" class="icon" alt="Open Directories" title="Open Directories Button"></strong> Select clicking on this button opens every directory in the hotlist. Adjust clicking closes any open directories.</p>
+
+<p>Icons that are greyed out indicate that their function is unavailable.</p>
+
+<h3 id="HotlistMenus">Menus</h3>
+
+<p>The hotlist menu contains options which allow you to manage the content of your hotlist. The options available are:</p>
+
+<table class="menu">
+<tr><th class="menutitle" colspan="2">Hotlist</th></tr>
+<tr><td><a href="#HotlistMenuHotlist">Hotlist</a></td><td class="menuarrow">&gt;</td></tr>
+<tr><td><a href="#HotlistMenuSelection">Selection</a></td><td class="menuarrow">&gt;</td></tr>
+<tr><td><a href="#HotlistMenuSelectAll">Select all</a></td><td></td></tr>
+<tr><td><a href="#HotlistMenuClearSelection">Clear selection</a></td><td></td></tr>
+</table>
+
+<h4 id="HotlistMenuHotlist" class="submenu">Hotlist Submenu</h4>
+
+<p>The Hotlist submenu contains the following options which apply to the hotlist in general.</p>
+
+<table class="menu">
+<tr><th class="menutitle" colspan="2">Hotlist</th></tr>
+<tr><td><a href="#HotlistMenuHotlistNew">New</a></td><td class="menuarrow">&gt;</td></tr>
+<tr><td><a href="#HotlistMenuHotlistExport">Export</a></td><td class="menuarrow">&gt;</td></tr>
+<tr><td class="menusplit"><a href="#HotlistMenuHotlistExpand">Expand</a></td><td class="menuarrow">&gt;</td></tr>
+<tr><td><a href="#HotlistMenuHotlistCollapse">Collapse</a></td><td class="menuarrow">&gt;</td></tr>
+<tr><td><a href="#HotlistMenuHotlistToolbars">Toolbars</a></td><td class="menuarrow">&gt;</td></tr>
+</table>
+
+<p class="menupath" id="HotlistMenuHotlistNew">Hotlist &gt; New</p>
+<p class="menuitem">This option allows the creation of new addresses or directories.</p>
+
+<table class="menu">
+<tr><th class="menutitle" colspan="2">New</th></tr>
+<tr><td><a href="#HotlistMenuHotlistNewDirectory">Directory</a></td><td class="menuarrow">&gt;</td></tr>
+<tr><td><a href="#HotlistMenuHotlistNewAddress">Address</a></td><td class="menuarrow">&gt;</td></tr>
+</table>
+
+<p class="menupath" id="HotlistMenuHotlistNewDirectory">Hotlist &gt; New &gt; Directory</p>
+<p class="menuitem">This option allows you to create a new directory, which is added to the bottom of the hotlist. The name of the directory can be set and once created, it can be dragged to a different location in the hotlist and <a href="#HotlistMenuSelectionEdit">renamed</a>. Directories can be nested and there is no limit to the number of sub directories. This option is also available on the hotlist management window <a href="#HotlistToolbar">toolbar</a>.</p>
+
+<p class="menupath" id="HotlistMenuHotlistNewAddress">Hotlist &gt; New &gt; Address</p>
+<p class="menuitem">This option allows you to create a new address. Its name and URL must be set before it is added to the bottom of the hotlist. The address can later be moved around in the hotlist and <a href="#HotlistMenuSelectionEdit">edited</a>. This option is also available on the hotlist management window <a href="#HotlistToolbar">toolbar</a>.</p>
+
+<p class="menupath" id="HotlistMenuHotlistExport">Hotlist &gt; Export</p>
+<p class="menuitem">This option allows you to export the hotlist as an HTML file. The directory structure is represented by nested unordered lists and addresses are converted to clickable links.</p>
+
+<p class="menupath" id="HotlistMenuHotlistExpand">Hotlist &gt; Expand</p>
+<p class="menuitem">This option allows various parts of the hotlist to be shown.</p>
+
+<table class="menu">
+<tr><th class="menutitle" colspan="2">Expand</th></tr>
+<tr><td><a href="#HotlistMenuHotlistExpandAll">All</a></td><td class="menuarrow"></td></tr>
+<tr><td><a href="#HotlistMenuHotlistExpandDirectories">Directories</a></td><td class="menuarrow"></td></tr>
+<tr><td><a href="#HotlistMenuHotlistEdpandAddresses">Addresses</a></td><td class="menuarrow"></td></tr>
+</table>
+
+<p class="menupath" id="HotlistMenuHotlistExpandAll">Hotlist &gt; Expand &gt; All</p>
+<p class="menuitem">This option opens all directories and expands all addresses in the hotlist, making the entire directory structure and all address information visible.</p>
+
+<p class="menupath" id="HotlistMenuHotlistExpandDirectories">Hotlist &gt; Expand &gt; Directories</p>
+<p class="menuitem">This option opens all of the directories in the hotlist, making the entire directory structure visible.</p>
+
+<p class="menupath" id="HotlistMenuHotlistExpandAddresses">Hotlist &gt; Expand &gt; Addresses</p>
+<p class="menuitem">This option expands all of the addresses which are presently being displayed in the hotlist. Their URLs and additional usage information are made visible.</p>
+
+<p class="menupath" id="HotlistMenuHotlistCollapse">Hotlist &gt; Collapse</p>
+<p class="menuitem">This option allows various parts of the hotlist to be hidden.</p>
+
+<table class="menu">
+<tr><th class="menutitle" colspan="2">Collapse</th></tr>
+<tr><td><a href="#HotlistMenuHotlistCollapseAll">All</a></td><td class="menuarrow"></td></tr>
+<tr><td><a href="#HotlistMenuHotlistCollapseDirectories">Directories</a></td><td class="menuarrow"></td></tr>
+<tr><td><a href="#HotlistMenuHotlistCollapseAddresses">Addresses</a></td><td class="menuarrow"></td></tr>
+</table>
+
+<p class="menupath" id="HotlistMenuHotlistCollapseAll">Hotlist &gt; Collapse &gt; All</p>
+<p class="menuitem">This option closes all directories and collapses all addresses in the hotlist, reducing the display to the contents of the hotlist root directory.</p>
+
+<p class="menupath" id="HotlistMenuHotlistCollapseDirectories">Hotlist &gt; Collapse &gt; Directories</p>
+<p class="menuitem">This option closes all of the directories in the hotlist, hiding the directory structure.</p>
+
+<p class="menupath" id="HotlistMenuHotlistCollapseAddresses">Hotlist &gt; Collapse &gt; Addresses</p>
+<p class="menuitem">This option reduces all of the hotlist addresses to just their name, hiding their URLs and additional usage information.</p>
+
+<p class="menupath" id="HotlistMenuHotlistToolbars">Display &gt; Toolbars</p>
+<p class="menuitem">The Toolbars submenu allows you to control the way NetSurf's hotlist toolbar is displayed.</p>
+
+<table class="menu">
+<tr><th class="menutitle" colspan="2">Toolbars</th></tr>
+<tr><td><a href="#HotlistMenuHotlistToolbarsButtons">Buttons</a></td><td class="menuarrow"></td></tr>
+</table>
+
+<p class="menupath" id="HotlistMenuHotlistToolbarsButtons">Display &gt; Toolbars &gt; Buttons</p>
+<p class="menuitem">This option toggles the display of the buttons on NetSurf's hotlist toolbar at the top of the window.</p>
+
+<h4 id="HotlistMenuSelection" class="submenu">Selection Submenu</h4>
+
+<p>The selection submenu, which is only available when a selection has been made in the hotlist management window, contains the following options.</p>
+
+<table class="menu">
+<tr><th class="menutitle" colspan="2">Selection</th></tr>
+<tr><td><a href="#HotlistMenuSelectionEdit">Edit</a></td><td class="menuarrow">&gt;</td></tr>
+<tr><td><a href="#HotlistMenuSelectionLaunch">Launch</a></td><td></td></tr>
+<tr><td><a href="#HotlistMenuSelectionDelete">Delete</a></td><td></td></tr>
+<tr><td><a href="#HotlistMenuSelectionResetStatistics">Reset statistics</a></td><td></td></tr>
+</table>
+
+<p class="menupath" id="HotlistMenuSelectionEdit">Selection &gt; Edit</p>
+<p class="menuitem">This option allows you to edit the currently selected item and is only available when either one directory or one item is selected. The names of directories can addresses can be altered. Addresses' URLs can also be changed.</p>
+
+<p>Addresses added to the hotlist from a NetSurf browser window have a default name set. For HTML files, this is the page title.</p>
+
+<p class="menupath" id="HotlistMenuSelectionLaunch">Selection &gt; Launch</p>
+<p class="menuitem">This option allows you to launch all of the selected addresses in separate NetSurf browser windows. This option is also available on the hotlist management window <a href="#HotlistToolbar">toolbar</a>.</p>
+
+<p class="menupath" id="HotlistMenuSelectionDelete">Selection &gt; Delete</p>
+<p class="menuitem">This option deletes the current selection from the hotlist. This option is also available on the hotlist management window <a href="#HotlistToolbar">toolbar</a>.</p>
+
+<p class="menupath" id="HotlistMenuSelectionResetStatistics">Selection &gt; Reset statistics</p>
+<p class="menuitem">This option resets the usage information for all selected addresses. The hotlist's last visited record and total visit counter are removed. The URL and the date the address was added to the hotlist are left untouched.</p>
+
+<p class="menupath" id="HotlistMenuSelectAll">Select all</p>
+<p class="menuitem">This option allows you to select all the addresses and directories in the hotlist.</p>
+
+<p class="menupath" id="HotlistMenuClearSelection">Clear selection</p>
+<p class="menuitem">This option allows you to deselect any selected items.</p>
+
+<h2 id="Configuration">Configuring NetSurf</h2>
+
+<p>NetSurf can be tailored to suit your needs by configuring the way it looks and behaves. Most of NetSurf's configuration options are available from the <a href="#ConfigurationGlobal">global choices</a> panel. Display options for browser windows are set up for an individual browser window and then saved globally in the <a href="#BrowserWindowMenuDisplay">browser window menus</a>.</p>
+
+<p>Toolbars can be customized to contain only the icons you want, in the order you want, in toolbar edit mode. This is covered in the <a href="#ConfigurationToolbar">toolbar customization</a> section.</p>
+
+<h3 id="ConfigurationGlobal">Global Choices</h3>
+
+<p>The configuration panel is opened from the <a href="#IconbarMenuChoices">iconbar menu</a>.</p>
+
+<p>The Cancel button will close the window, discarding any changes you've made. Clicking on OK will save the new settings and close the window. The configuration options have been split into the following groups.</p>
+
+<ul>
+<li><a href="#ConfigurationGlobalBrowser">Browser</a></li>
+<li><a href="#ConfigurationGlobalNetwork">Network</a></li>
+<li><a href="#ConfigurationGlobalThemes">Themes</a></li>
+<li><a href="#ConfigurationGlobalFonts">Fonts</a></li>
+<li><a href="#ConfigurationGlobalImages">Images</a></li>
+</ul>
+
+<h4 id="ConfigurationGlobalBrowser">Browser</h4>
+
+<p>The Browser configuration section contains options that apply to general usage of the browser. The following options are available.</p>
+
+<dl>
+<dt>Interface language</dt>
+<dd>This option allows the NetSurf's user interface language to be set. This includes menus, dialogue boxes and interactive help text.</dd>
+<dt>Preferred language of web pages</dt>
+<dd>Some web sites are available in a variety of languages. NetSurf will request that web servers send pages in the language of your choice. If your desired language is unavailable, the server will ignore the request and use a default language.</dd>
+<dt>Home page</dt>
+<dd>The home page is the page that loads when a new browser window is opened or when the &quot;Home&quot; <a href="#BrowserWindowToolbar">toolbar icon</a> is used. If this option is left blank NetSurf's welcome page is used by default.</dd>
+<dt>Open browser window on startup</dt>
+<dd>When this option is enabled a <a href="#BrowserWindow">browser window</a> is opened when NetSurf is run.</dd>
+<dt>Block advertisements</dt>
+<dd>When this option is enabled NetSurf tries to remove adverts from web pages. This can be desirable as adverts can be distracting.</dd>
+<dt>Don't start plugins</dt>
+<dd>Disable this option if you wish to use plugins with NetSurf. Plugins are external applications that handle certain file types.</dd>
+</dl>
+
+<h4 id="ConfigurationGlobalNetwork">Network</h4>
+
+<p>The Network configuration window contains the following options.</p>
+
+<dl>
+<dt>Use HTTP proxy</dt>
+<dd>
+<p>If your Internet Service Provider has a proxy server, enter the address and port number. If authentication is required, enter the relevant information. Your ISP will provide this information if applicable.</p>
+</dd>
+<dt>Send HTTP referer</dt>
+<dd><p>When this option is enabled, NetSurf will report referer information to remote web servers. This means that when you visit a page and click on a link to another page, the web server for the second page will be told the address of the page that you came from.</p>
+</dd>
+</dl>
+
+<h4 id="ConfigurationGlobalThemes">Themes</h4>
+
+<p>NetSurf allows you to change the 'look and feel' of its interface. This is done by installing and selecting themes.</p>
+
+<dl>
+<dt>Manage themes</dt>
+<dd>This button opens the <em>!NetSurf.Themes</em> directory in a filer window. Drag NetSurf themes to the directory to install them. Themes can also be removed by deleting them from this directory.</dd>
+<dt>Get themes</dt>
+<dd>This button launches the <a href="http://netsurf.sourceforge.net/themes/">NetSurf themes page</a> in a new <a href="#BrowserWindow">browser window</a>.</dd>
+</dl>
+
+<p>Themes are selected with radio buttons. If a theme you have just installed does not appear for selection, NetSurf needs to be told to re-scan the themes directory. It is re-scanned when the choices window is opened or by adjust clicking on the Cancel button. The currently loaded theme is cached so any updates to that theme will not be loaded until NetSurf is restarted. Alternatively, it is possible to switch to another theme, re-scan themes and then switch back.</p>
+
+<h4 id="ConfigurationGlobalFonts">Fonts</h4>
+
+<p>The font configuration section allows you to alter the fonts NetSurf uses to display web pages. To get the best out of NetSurf's font handling capabilities, please read the <a href="info#Unicode">Fonts in NetSurf</a> section of the <a href="info">User Information</a> page.</p>
+
+<dl>
+<dt>Font faces</dt>
+<dd>
+<p>The font NetSurf uses for various generic families (eg. sans-serif and monospace) can be configured. Additionally, the font used by default is set here.</p>
+</dd>
+<dt>Font size</dt>
+<dd><p>If you find the size of the text on web pages uncomfortable, it can be configured, to suit your requirements.</p>
+<dl>
+<dt>Default font size</dt>
+<dd>This is the base text size that NetSurf uses when a web page does not specify an absolute point size.</dd>
+<dt>Minimum font size</dt>
+<dd>This sets the minimum text size used when displaying web pages. It should be set to the smallest size you feel comfortable with.</dd>
+</dl>
+</dd>
+</dl>
+
+<h4 id="ConfigurationGlobalImages">Images</h4>
+
+<p>The Image configuration section contains options that allow the on screen rendering quality of images to be set. Foreground and background images are configured separately as it can be desirable to set higher quality but more processor intensive options for foreground images than for background images. The following options are available.</p>
+
+<dl>
+<dt>Display</dt>
+<dd>
+<p>There are four settings to choose from:</p>
+<dl>
+<dt>Use OS</dt>
+<dd>This means RISC OS's routines (OS_SpriteOp) are used to display images, which results in poor quality (especially so for images with alpha channels as the alpha channel is emulated using standard calls) and also poor speed. This option is not recommended unless you are having problems with the other options.</dd>
+<dt>Direct to screen</dt>
+<dd>This is the fastest available output, but suffers the same low quality as using the OS routines in less than 16 million colours, although images with alpha channels are rendered as well as any other image. If you're on a slow machine you may want to use this for background images.</dd>
+<dt>Dithered</dt>
+<dd>This is a quick method of improving the display of images in screen modes with less than 16 million colours. It emulates twice as many colours as are available in the current screen mode (for less than 16 million colours). It gives a fair increase in display quality for many images and you won't notice much speed loss. If you're on a slow machine you'll probably want to use this for foreground images.</dd>
+<dt>Error diffused</dt>
+<dd>This is another method for improving the display of images in screen modes with less than 16 million colours. It is slower than dithering but offers the highest quality representation of images. If you run in an 8bpp screen mode then this is as aesthetically pleasing as you can get. Unfortunately, as it uses a fair few processor cycles, you may only want to use it for foreground images even on a fast machine.</dd>
+</dl>
+<p>Note that if you are using a 16 million colour mode then neither error diffusion or dithering will be used, even if one of these options is selected, because all possible colours can be displayed directly. Naturally, use of a 16 million colour million colour screen mode gives the best possible display.</p>
+</dd>
+<dt>Use bi-linear filtering</dt>
+<dd>Enable this option to smooth the rendering of scaled images. This improves the display of images that aren't rendered at a 1:1 image pixel to screen pixel ratio and improves the display in rectangular pixel modes. Note that this option is quite processor intensive and is only recommended for fast machines.</dd>
+<dt>Allow ViewFinder optimisation</dt>
+<dd>Enable this option, if you have a ViewFinder card, to cache images and thus speed up image plotting.</dd>
+</dl>
+
+<h3 id="ConfigurationToolbar">Toolbar customization</h3>
+
+<p>Icons on NetSurf's toolbars can be switched on &amp; off and moved around. The sprites used for the icons can be changed by installing different <a href="http://netsurf.sourceforge.net/themes/">themes</a>.</p>
+
+<p>To move the icons around, enable toolbar edit mode by clicking menu over the toolbar and choosing &quot;Edit toolbar&quot;. This will open the toolbar editing panel. Icons can be dragged back and forth between the temporary panel and the toolbar. Separators for groups of icons can be created by dragging the separator sprite from the toolbar edit panel and dropping it where you want it to go. To exit toolbar edit mode, select &quot;Edit toolbar&quot; again from the toolbar menu.<p>
+
+<p>When you exit toolbar edit mode, the new toolbar layout is saved and new windows opened from then on will use your customized toolbar.</p>
+
+<h2 id="Keys">Keyboard Shortcuts</h2>
+
+<p>NetSurf supports keyboard shortcuts, which allow quick access to features and make NetSurf easier to use. The supported keypresses and corresponding functions are listed below.</p>
+
+<h3>Content</h3>
+
+<table>
+<tr><th>Shortcut</th><th>Function</th></tr>
+<tr><td>Ctrl+N</td><td>Open the current page in a new window</td></tr>
+<tr><td>F3</td><td>Save the page source</td></tr>
+<tr><td>Ctrl+F3</td><td>Save the page as text</td></tr>
+<tr><td>Shift+F3</td><td>Full save of the web page, including images etc</td></tr>
+<tr><td>Ctrl+Shift+F3</td><td>Save the page as a Drawfile</td></tr>
+<tr><td>F8</td><td>View the page source code in a text editor</td></tr>
+</table>
+
+<h3>Display</h3>
+
+<table>
+<tr><th>Shortcut</th><th>Function</th></tr>
+<tr><td>Page Down</td><td>Scroll down by one page</td></tr>
+<tr><td>Page Up</td><td>Scroll up by one page</td></tr>
+<tr><td>Cursor Down</td><td>Scroll down one line</td></tr>
+<tr><td>Ctrl+Cursor Down</td><td>Go to the bottom of the page</td></tr>
+<tr><td>Cursor Up</td><td>Scroll up one line</td></tr>
+<tr><td>Ctrl+Cursor Up</td><td>Go to the top of the page</td></tr>
+<tr><td>F11</td><td>Open the scale view window</td></tr>
+<tr><td>Ctrl+Q</td><td>Reduce scale of view by 10%</td></tr>
+<tr><td>Ctrl+W</td><td>Increase scale of view by 10%</td></tr>
+<tr><td>Shift+F11</td><td>View box outlines. This may be useful if you are creating your own web page. Cyan marks the content's edge, magenta marks the padding's edge and yellow marks the margin's edge.</td></tr>
+</table>
+
+<h3>Navigation</h3>
+
+<table>
+<tr><th>Shortcut</th><th>Function</th></tr>
+<tr><td>F5, Ctrl+R</td><td>Reload the current page</td></tr>
+<tr><td>Esc</td><td>Stop the current page loading</td></tr>
+</table>
+
+<h3>General</h3>
+
+<table>
+<tr><td>F1</td><td>Open the <a href="docs">documentation contents page</a> in a new window</td></tr>
+<tr><td>F2</td><td>Move the caret to URL bar and clear it to &quot;www.&quot;</td></tr>
+<tr><td>F4</td><td>Open the text search window</td></tr>
+<tr><td>F6</td><td>Open the hotlist management window</td></tr>
+<tr><td>Ctrl+F2</td><td>Close the window</td></tr>
+</table>
+
+<div class="footer">
+<p class="breadcrumbs"><a href="/">NetSurf</a> » <a href="docs">Documentation</a> » User Guide</p>
+</div>
+
+</body>
+</html>

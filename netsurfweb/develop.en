@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+        "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>NetSurf | Development Information</title>
+<link rel="stylesheet" type="text/css" href="netsurf.css">
+</head>
+
+<body>
+<p class="banner"><a href="/"><img src="netsurf.png" alt="NetSurf: Web Browser for RISC OS"></a></p>
+
+<h1>Development Information</h1>
+
+<p>This page contains various information for developers or anyone interested
+in contributing to NetSurf.</p>
+
+
+<h2><abbr title="Concurrent Versions System">CVS</abbr></h2>
+
+<p>The source is kept in <abbr title="Concurrent Versions System">CVS</abbr>.
+It can be accessed read-only using the following parameters:</p>
+
+<table>
+<tr><td>Protocol</td><td>pserver</td></tr>
+<tr><td>Host</td><td><code>semichrome.net</code></td></tr>
+<tr><td>Path</td><td><code>/home/netsurf/cvs</code></td></tr>
+<tr><td>Module</td><td><code>netsurf</code></td></tr>
+<tr><td>Username</td><td><code>anonymous</code></td></tr>
+<tr><td>Password</td><td>(blank password)</td></tr>
+</table>
+
+<p>To check the source out using command-line CVS:</p>
+
+<p><code>$ <strong>cvs -d :pserver:anonymous@semichrome.net:/home/netsurf/cvs
+login</strong><br>
+Logging in to :pserver:anonymous@semichrome.net:2401/home/netsurf/cvs<br>
+CVS password: <strong>(press return)</strong><br>
+$ <strong>cvs -d :pserver:anonymous@semichrome.net:/home/netsurf/cvs checkout
+netsurf</strong></code></p>
+
+<p>There is a <a href="http://cvs.semichrome.net/netsurf/">web
+interface</a> to the repository.
+Recent changes can be seen on the
+<a href="http://netsurf.sourceforge.net/builds/">autobuilder</a>
+and on the
+<a href="http://cia.navi.cx/stats/project/NetSurf/">CIA
+Open Source Notification System</a>.
+An <a href="http://cia.navi.cx/stats/project/NetSurf/.rss">RSS feed of
+changes</a> is available.
+Checkins are reported on <abbr title="Internet Relay Chat">IRC</abbr> in
+real-time on <code>#netsurf</code> on
+<a href="http://freenode.net/">FreeNode</a>.</p>
+
+<p>Contact <a href="mailto:james&#64;semichrome.net">James</a> to get write
+access.</p>
+
+
+<h2>Compiling</h2>
+
+<p>The recommended compiler is <a href="http://gccsdk.riscos.info/">gcc</a>,
+either native or cross-compiling from Linux or Unix using gccsdk. A guide to
+<a href="robuild">building NetSurf on RISC OS</a> is available, as are
+<a href="http://netsurf.strcprstskrzkrk.co.uk/developer/">pre-compiled ports</a>
+of the required libraries.</p>
+
+<p>The <a href="http://netsurf.sourceforge.net/builds/">autobuilder</a> compiles
+NetSurf every 15 minutes if changes have been checked into CVS.</p>
+
+<p>A debug version of NetSurf can be built. This is command-line only and does
+not include any of gui code, but runs natively on Linux so can be debugged and
+checked using gdb, efence, valgrind, etc.</p>
+
+
+<h2>Source Documentation</h2>
+
+<p>The source is documented using <a href="http://www.doxygen.org/">Doxygen</a>
+(<a href="http://www.ecs.soton.ac.uk/~jmb202/">RISC OS port</a>). Use
+<code>doxygen Docs/Doxyfile</code> to generate the documentation from the source
+tree, or <a href="http://netsurf.strcprstskrzkrk.co.uk/codedocs/">view the
+latest documentation</a> generated on the autobuilder.</p>
+
+
+<h2><abbr title="Internet Relay Chat">IRC</abbr></h2>
+
+<p>The main method of communication between the developers is <abbr
+title="Internet Relay Chat">IRC</abbr>. Join the <code>#netsurf</code> channel
+on <a href="http://freenode.net/">Freenode</a>.</p>
+
+
+<h2>Translations</h2>
+
+<p>Translations of NetSurf to other languages are welcome. No programming
+knowledge is required, just the ability to use a template editor (for
+example <a href="http://www.linbury.nildram.co.uk/wined.html">WinEd</a>)
+and a text editor.</p>
+
+
+<div class="footer">
+<p class="breadcrumbs"><a href="/">NetSurf</a> » Development Information</p>
+<p class="sourceforge"><a href="http://sourceforge.net/"><img
+src="http://sourceforge.net/sflogo.php?group_id=51719&amp;type=1"
+alt="SourceForge.net"></a></p>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,75 @@
+<html>
+<head>
+<title>Form Width</title>
+</head>
+<body bgcolor="#483d8b" color="#ffffff">
+<p>Test 1 (from drobe):</p>
+
+<table><tr>
+
+<form method="get" action="/search/">
+
+<td>
+  <select name="type">
+  <option value="pages">RISC OS Websites</option>
+  <option value="drobenews">Drobe News</option>
+  <option value="usenet">comp.sys.acorn.*</option>
+  <option value="stronghelp">Stronghelp Manuals</option>
+  <option value="files">Downloadable Files</option>
+  </select>
+</td>
+
+<td>
+  <input type="text" name="terms" size="12" value="">
+</td>
+
+<td>
+  <input type="submit" value="Go!">
+</td>
+
+</form>
+
+</tr></table>
+
+<p>Test 2, problem remains without borders:</p>
+<table><tr>
+
+<form method="get" action="/search/">
+
+<td>
+  <select name="type" style="border:0;">
+  <option value="pages">RISC OS Websites</option>
+  <option value="drobenews">Drobe News</option>
+  <option value="usenet">comp.sys.acorn.*</option>
+  <option value="stronghelp">Stronghelp Manuals</option>
+  <option value="files">Downloadable Files</option>
+  </select>
+</td>
+
+<td>
+  <input type="text" name="terms" size="12" value="" style="border:0;">
+</td>
+
+<td>
+  <input type="submit" value="Go!" style="border:0;">
+</td>
+
+</form>
+
+</tr></table>
+
+<p>Test 3, no overlapping when form elements aren't in table cells:</p>
+<form method="get" action="/search/">
+  <select name="type">
+  <option value="pages">RISC OS Websites</option>
+  <option value="drobenews">Drobe News</option>
+  <option value="usenet">comp.sys.acorn.*</option>
+  <option value="stronghelp">Stronghelp Manuals</option>
+  <option value="files">Downloadable Files</option>
+  </select>
+  <input type="text" name="terms" size="12" value="">
+  <input type="submit" value="Go!">
+</form>
+
+
+</body></html>

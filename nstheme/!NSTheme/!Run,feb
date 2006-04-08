@@ -1,0 +1,20 @@
+<Obey$Dir>.!Boot
+
+| We need RISC OS 3.00 or greater
+RMEnsure UtilityModule 3.00 Error NSTheme required RISC OS 3.00 or later
+
+| Ensure CallASWI is installed
+| http://www.iyonix.com/32bit/
+RMEnsure UtilityModule 3.70 RMEnsure CallASWI 0.02 RMLoad System:Modules.CallASWI
+RMEnsure UtilityModule 3.70 RMEnsure CallASWI 0.02 Error NSTheme requires the CallASWI module. This can be downloaded from http://www.iyonix.com/32bit/system.shtml
+
+| Ensure SharedUnixLibrary is installed
+| http://www.chocky.org/unix/usage.html
+RMEnsure SharedUnixLibrary 1.02 RMLoad System:Modules.SharedULib
+RMEnsure SharedUnixLibrary 1.02 Error NSTheme requires SharedUnixLibrary 1.02 or later. This can be downloaded from http://www.chocky.org/unix/usage.html
+
+Wimpslot -min 160k -max 160k
+Set NSTheme$Dir <Obey$Dir>
+Set NSTheme$Running yes
+Run <Obey$Dir>.!RunImage 2><Obey$Dir>.stderr
+UnSet NSTheme$Running

@@ -1,0 +1,64 @@
+<html>
+<head>
+<title>Background on TEXT</title>
+
+<style>
+body { background-color: #275CAC;
+       color : #FFFFFF;
+       font-size: 80%; }
+
+
+input { background-color: #13619F; 
+        background-image : url(bg.gif);
+        border-color : #0D4267 #178DDF #178DDF #0D4267;
+        color: #FFFFFF; }
+
+input.post { background-color : #13619F; }
+
+input { text-indent : 2px; }
+
+input.moo { background-color: #13619F;
+            background-color : #FFFFFF;
+            border-color :  #178DDF #0D4267 #0D4267 #178DDF;
+            background-image : url(bg2.gif); }
+
+input.moo2 { background-color: #13619F;
+             background-color : #FFFFFF;
+             border-color :  #178DDF #0D4267 #0D4267 #178DDF;
+             background-image : url(bg2.gif);
+             text-indent : 0; }
+
+input.moo3 { background-color : #FFFFFF;
+             background-color: #13619F;
+             border-color :  #178DDF #0D4267 #0D4267 #178DDF;
+             background-image : url(bg2.gif);
+             text-indent : 0; }
+</style>
+
+</head>
+
+
+
+<body>
+Type here:
+<input class="post" type="text" name="username" size="10"> The text is given a background colour, obscuring the background image.
+
+<br><br>
+
+The the text here is on a white background, (and the text is white), so it can't be read:
+<input type="submit" class="moo" name="moo" value="moose moo"><br>
+Also, the text is broken over two lines, due to the <code>text-indent</code>.
+
+<br><br>
+
+Without the text indent, it is not broken over two lines:
+<input type="submit" class="moo2" name="moo" value="moose moo">
+
+<br><br>
+
+The white background is because the second rule is used, not the first:
+<input type="submit" class="moo3" name="moo" value="moose moo"><br>
+This also has the same background on the text as the first input box.
+
+</body>
+</html>

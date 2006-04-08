@@ -1,0 +1,164 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+        "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>NetSurf | User Information</title>
+<link rel="stylesheet" type="text/css" href="netsurf.css">
+</head>
+
+<body>
+<p class="banner"><a href="/"><img src="netsurf.png" alt="NetSurf: Web Browser for RISC OS"></a></p>
+<p class="languages"><a href="info.de">Deutsch</a> · English · <a href="info.fr">Français</a> · <a href="info.nl">Nederlands</a></p>
+
+<h1>User Information</h1>
+
+<ul>
+<li><a href="#GettingStarted">Getting started</a>
+<ul>
+<li><a href="#GettingStartedInstallation">Installation</a></li>
+<li><a href="#GettingStartedRequirements">Requirements</a></li>
+<li><a href="#GettingStartedAdditionalResources">Additional resources</a></li>
+</ul></li>
+<li><a href="#Upgrading">Upgrading NetSurf</a></li>
+<li><a href="#ContactDevelopers">Contacting the developers</a></li>
+<li><a href="#Bugs">Reporting bugs</a></li>
+<li><a href="#FeatureRequests">Feature requests</a></li>
+<li><a href="#Unicode">Fonts in NetSurf</a>
+<ul>
+<li><a href="#UnicodeInstallingFonts">Installing more fonts</a></li>
+<li><a href="#UnicodeProblems">Problems and unimplemented features</a></li>
+</ul></li>
+<li><a href="#JavaScript">JavaScript</a></li>
+</ul>
+
+<p class="updated">Last updated 5 March 2006</p>
+
+<h2 id="GettingStarted">Getting started</h2>
+
+<h3 id="GettingStartedInstallation">Installation</h3>
+
+<p>NetSurf requires RISC OS 3 or later and builds are available from the project's <a href="http://netsurf.sourceforge.net/">web site</a>. There are three builds available. For most users, the &quot;NetSurf&quot; build is recommended. The &quot;NetSurf small build&quot; lacks some features of the main build and is intended for systems with little memory. The &quot;NCNetSurf&quot; build is intended only for users of NetComputers (NCs).</p>
+
+<p>To install the &quot;NetSurf&quot; or Small &quot;NetSurf&quot; builds, simply drag the !NetSurf application directory out of the archive, to your desired location and run it from there. &quot;NCNetSurf&quot; installation is not yet documented.</p>
+
+<h3 id="GettingStartedRequirements">Requirements</h3>
+
+<p>When NetSurf is run, it will look for all the resources it needs to function correctly and if anything is not found, it displays an error message, indicating the resource it could not locate on your system. If such a message appears, NetSurf is likely to be requesting one of the following resources.</p>
+
+<dl>
+<dt><a href="http://sudden.recoil.org/others/">Acorn URI</a></dt>
+<dd>The Acorn URI module is used to pass URIs (of which URLs are an example) back and forth between different applications.</dd>
+<dt><a href="http://moose.mine.nu:6888/iconv_latest.zip">Iconv</a></dt>
+<dd>This module provides improved character encoding support.</dd>
+<dt><a href="http://www.beebware.com/software/mappings/">MimeMap Datafile</a></dt>
+<dd>A resource containing many different MIME types and their equivalent RISC OS file types.</dd>
+<dt><a href="http://gccsdk.riscos.info/downloads/sharedunixlib/">SharedUnixLibrary</a></dt>
+<dd>This is a support module for programs compiled using UnixLib.</dd>
+<dt><a href="http://www.tinct.net/tinct.asp">Tinct</a></dt>
+<dd>Tinct is used for image plotting. It provides support for plotting sprites with alpha channels.</dd>
+<dt>Window Manager 3.80 or later</dt>
+<dd>NetSurf uses the Nested Wimp, which is part of the Window Manager. This comes with RISC OS 4 or later, RISC OS 3 users should install the <a href="http://acorn.riscos.com/riscos/releases/UniBoot/">Universal Boot Sequence</a>.</dd>
+</dl>
+
+<p>If NetSurf starts without a problem, there is no need to upgrade any resources on your system.</p>
+
+<h3 id="GettingStartedAdditionalResources">Additional Resources</h3>
+
+<p>The following resources are not required to run NetSurf, although they do add additional functionality.</p>
+
+<dl>
+<dt><a href="http://www.ecs.soton.ac.uk/~jmb202/">Flash plugin</a></dt>
+<dd>This allows you to view Flash files on web sites.</dd>
+</dl>
+
+<h2 id="Upgrading">Upgrading</h2>
+
+<p>If you are upgrading from a previous version of NetSurf, quit NetSurf and delete your old version. Drag the !NetSurf application to your required destination. NetSurf stores your choices, cookies, hotlist and themes in <em>Choices:WWW.NetSurf</em>, so the !NetSurf application directory can be deleted without any loss of your NetSurf configuration.</p>
+
+<p>It is possible to copy the new version of NetSurf over your old version to perform the upgrade. Please be aware that this could result in files that are no longer required being left in your copy of NetSurf although this should not cause any problems in usage.</p>
+
+<h2 id="ContactDevelopers">Contacting the developers</h2>
+
+<h3>Bug tracker</h3>
+<p>Please submit any bugs to the <a href="http://sourceforge.net/tracker/?group_id=51719&amp;atid=464312">bug tracker</a> and read the <a href="#Bugs">guidelines for reporting bugs</a>.</p>
+
+<h3>Mailing list</h3>
+<p>The <a href="http://lists.sourceforge.net/lists/listinfo/netsurf-develop">netsurf-develop</a> mailing list is for discussion of NetSurf. If you are interested in NetSurf's development, please subscribe to this list. Please note that all posts to the mailing list are read and noted by the development team, even if we don't reply.</p>
+
+<h3>IRC channel</h3>
+<p>The #netsurf IRC channel on the <a href="http://freenode.net/">Freenode</a> network is used for discussion of NetSurf development.</p>
+
+<p>If you want to contribute to the NetSurf project, please contact the developers on the mailing list or on IRC.</p>
+
+<h2 id="Bugs">Reporting bugs</h2>
+<p>The NetSurf developers are very much open to bug reports. Please follow these simple guidelines.</p>
+
+<p>Before submitting a bug report, please:</p>
+
+<ol>
+<li>check that the bug exhibits itself in the latest version <a href="http://netsurf.sourceforge.net/builds/">available for download</a> at the time.</li>
+<li>try to find a reproducible way of triggering the bug.</li>
+<li>check the <a href="progress">progress</a> page and the <a href="http://cvs.semichrome.net/netsurf/Docs/">TODO lists</a> to check that something has actually been implemented.</li>
+</ol>
+
+<p>When reporting bugs, please:</p>
+
+<ol>
+<li>state the version of NetSurf you are using.</li>
+<li>say what hardware and operating system you are using.</li>
+<li>explain clearly and concisely the precise nature of the problem. (eg. does the computer hang, does NetSurf crash or report an error or is there a layout problem on a particular site? If it is a layout problem, please explain what is wrong.)</li>
+<li>if a specific site is failing, give the full URL.</li>
+<li>list the exact steps required to reproduce the bug.</li>
+<li>if you can narrow a bug down to a minimal test-case, then that's great. Please provide it as it's likely to speed up a fix. (Don't worry if you can't.)</li>
+</ol>
+
+<p>Bug reports should be made on the <a href="http://sourceforge.net/tracker/?group_id=51719&amp;atid=464312">bug tracker</a>. Follow the &quot;Submit New&quot; link and fill in the form. If you have no SourceForge user account, please include your email address so that the developers can contact you.</p>
+
+<p>Following the above guidelines will save the developers' time and speed up NetSurf's development.</p>
+
+<h2 id="FeatureRequests">Feature requests</h2>
+
+<p>The NetSurf team welcome feature requests and innovative ideas for improving the browsing experience. Before making suggestions, please look at the <a href="progress">progress</a> page and <a href="http://cvs.semichrome.net/netsurf/Docs/">TODO lists</a> to check that the feature isn't already planned. Suggestions can be made on the <a href="http://sourceforge.net/tracker/?group_id=51719&amp;atid=464315">feature request tracker</a>.</p>
+
+<h2 id="Unicode">Fonts in NetSurf</h2>
+
+<p>NetSurf has support for displaying pages containing Unicode characters that aren't normally available on RISC OS, for example accented Latin letters, Greek, Cyrillic, Japanese, and various symbols.</p>
+
+<p>The <a href="guide#ConfigurationGlobalFonts">font choices</a> let you pick a font for each of the five standard families available to web authors (in CSS). The choices specify the preferred font to use. If a character is not available in the chosen font, but it's present in some other font that you have installed, then NetSurf will automatically use it. There's no need to change the font choices to view pages with characters that are not available in the chosen font.</p>
+
+<p>Note that you can only choose a font family. NetSurf will automatically use weights from the family for bold and slanted text, if available.</p>
+
+<h3 id="UnicodeInstallingFonts">Installing More Fonts</h3>
+
+<p>The fonts that come with RISC OS cover Latin (Homerton, Trinity, Corpus), Greek (Sidney), and various symbols (Selwyn, Sidney). (On RISC OS 3-4, only the &quot;Latin 1&quot; characters from the standard fonts, which cover Western European languages, can be used by NetSurf).</p>
+
+<p>If you want to display pages with other characters correctly, you'll need to install fonts containing them. When a character is not present in any available font, the Unicode character code will be displayed.</p>
+
+<p>If you see the codes 0091, 0092, 0096, or others starting 009, that indicates that the page is not specifying the character set that it is using correctly. Installing fonts won't help. We haven't yet decided what the best way to work around this problem is.</p>
+
+<p>Any font supplied with a correctly designed &quot;Encoding&quot; file should work. In practice, native fonts covering anything other than Latin 1 are rare. The solution is to convert TrueType fonts using <a href="http://moose.mine.nu:6888/ttf2f2.zip">TTF2f</a> (this currently produces fonts suitable for RISC OS 5 only).</p>
+
+<p>After installing new fonts, NetSurf will need restarting so that it detects them.</p>
+
+<h3 id="UnicodeProblems">Problems and Unimplemented Features</h3>
+
+<ul>
+<li>Printing on RISC OS 5 doesn't work, due to lack of support in the Font Manager and printer drivers.</li>
+<li>Substituted characters are taken from the first font that contains them, even if a character which matches the weight or slant better is available.</li>
+<li>Unicode line breaking is not implemented.</li>
+<li>Right-to-left text (Hebrew, Arabic) is not implemented.</li>
+</ul>
+
+<h2 id="JavaScript">JavaScript</h2>
+
+<p>At present, NetSurf has no support for JavaScript. Without a JavaScript implementation, NetSurf is able to provide access to most of sites on the World Wide Web. Some sites, however, will not display correctly or be unworkable due to heavy reliance on this standard.</p>
+
+<p>As indicated on the <a href="progress">progress</a> page JavaScript is currently &quot;not planned&quot;. This is largely because of the huge amount of work that implementing JavaScript would involve and limitations on the developers' spare time. Needless to say, if someone steps forward with the time and motivation to implement JavaScript, they will receive the full support of NetSurf's current developers.</p>
+
+<div class="footer">
+<p class="breadcrumbs"><a href="/">NetSurf</a> » 
+<a href="docs">Documentation</a> » User Information</p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+        "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>NetSurf | Testversionen</title>
+<link rel="stylesheet" type="text/css" href="/netsurf.css">
+</head>
+
+<body>
+<p class="banner"><a href="/"><img src="/netsurf.png" alt="NetSurf"></a></p>
+<p class="languages">Deutsch · <a href="index.en">English</a> · <a href="index.fr">Français</a></p>
+
+<h1>NetSurf Testversionen</h1>
+
+<p>Diese Dateien werden automatisch aus dem CVS Quellcode erzeugt.
+<strong>Sie sind als instabil anzusehen und können jederzeit zum Absturz des Computers führen.</strong></p>
+
+<p id="newtonetsurf"><strong>Ganz neu bei NetSurf ?</strong> Lade <span class="highlight">NetSurf</span> von hier und dazu die <span class="highlight">fünf unten aufgeführten Dateien</span>.</p>
+
+<table class="download">
+<tr><th class="highlight"><a href="netsurf.zip"><img src="netsurf.png" alt=""><br>NetSurf</a></th>
+<td>SIZE_NETSURF</td>
+<td>DATE_NETSURF</td>
+<td>NetSurf Browser für RISC OS, die Vollversion.
+<strong>Empfohlen für die meisten Nutzer.</strong></td>
+<td><a href="netsurf.zip">Mirror 1</a> <a href="http://netsurf.strcprstskrzkrk.co.uk/netsurf.zip">Mirror 2</a></td></tr>
+
+<tr><th><a href="unetsurf.zip"><img src="unetsurf.png" alt=""><br>Small NetSurf</a></th>
+<td>SIZE_UNETSURF</td>
+<td>DATE_UNETSURF</td>
+<td>Der 'kleine' NetSurf Browser für RISC OS. Unterstützt nur http: und file: (kein https:, ftp:, etc.). Geeignet für Maschinen mit wenig Arbeitsspeicher (8MB oder kleiner).</td>
+<td><a href="unetsurf.zip">Mirror 1</a> <a href="http://netsurf.strcprstskrzkrk.co.uk/unetsurf.zip">Mirror 2</a></td></tr>
+
+<tr><th><a href="ncnetsurf.zip"><img src="ncnetsurf.png" alt=""><br>NCNetSurf</a></th>
+<td>SIZE_NC</td>
+<td>DATE_NC</td>
+<td>NetSurf mit einer modifizierten Nutzerschnittstelle für den Network Computer (NC) unter NCOS.</td>
+<td><a href="ncnetsurf.zip">Mirror 1</a> <a href="http://netsurf.strcprstskrzkrk.co.uk/ncnetsurf.zip">Mirror 2</a></td></tr>
+
+<tr><th><a href="nstheme.zip"><img src="nstheme.png" alt=""><br>NSTheme</a></th>
+<td>SIZE_NSTHEME</td>
+<td>DATE_NSTHEME</td>
+<td>Zum Erstellen von Themen für NetSurf. Wird nur von Designern neuer Themen benötigt.</td>
+<td><a href="nstheme.zip">Mirror 1</a> <a href="http://netsurf.strcprstskrzkrk.co.uk/nstheme.zip">Mirror 2</a></td></tr>
+</table>
+
+<p>Eine <a href="http://www.riscpkg.org/">RiscPkg</a> Paketversion von NetSurf ist verfügbar. Um sie zu verwenden, muß die Zeile <code>pkg http://netsurf.sourceforge.net/builds/packages</code> in die Datei <code>Choices:RiscPkg.Sources</code> eingefügt werden. Näheres dazu steht in der RiscPkg Dokumentation.</p>
+
+<p><a href="netsurf.log">Logfile des letzten Builderlaufes</a> (nur für Entwickler von Interesse).</p>
+
+<h2>Zusätzlich wird benötigt:</h2>
+
+<ul>
+<li>WindowManager 3.80 (oder höher). Ist ab RISC OS 4 Betriebssystembestandteil, für Systeme mit RISC OS 3 sollte die <a href="http://acorn.riscos.com/riscos/releases/UniBoot/" class="highlight">Universal Boot Sequence</a> installiert werden.</li>
+<li><a href="http://gccsdk.riscos.info/downloads/sharedunixlib/"
+ class="highlight">SharedUnixLibrary</a>.</li>
+<li><a href="http://sudden.recoil.org/others/"
+ class="highlight">AcornURI</a>.</li>
+<li><a href="http://netsurf.sourceforge.net/iconv/iconv_latest.zip"
+ class="highlight">Iconv</a>. Separate <a
+href="http://netsurf.sourceforge.net/iconv/iconv007g.zip">A9home version</a> of iconv available.</li>
+<li><a href="http://www.tinct.net/tinct.asp"
+ class="highlight">Tinct</a>.</li>
+</ul>
+
+<p><strong>Optional:</strong> download and install the <a href="http://www.beebware.com/software/mappings/">MimeMap datafile</a> if you don't already have one and NetSurf complains.</p>
+
+<!-- <p><strong>Optional:</strong> download and install the <a href="nsfonts.zip">fonts (360k)</a> to get improved font-family and font-variant support.</p> -->
+
+<h2>Letzte CVS Aktivitäten</h2>
+<p>Alle Zeitangaben in UTC.</p>

@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+        "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>Rowspan and colspan 0 test</title>
+<style type="text/css">
+table { margin-bottom: 1em; }
+td { background-color: #bbf; }
+td[colspan="0"], td[rowspan="0"] { background-color: #88f; }
+</style>
+</head>
+
+<body>
+
+<h1>Rowspan and colspan 0 test</h1>
+
+<h2>Correct tables</h2>
+
+<table>
+<tr><td>1</td><td>2</td><td>3</td></tr>
+<tr><td colspan="0">colspan 0</td></tr>
+</table>
+
+<table>
+<tr><td>1</td><td rowspan="0">rowspan 0</td></tr>
+<tr><td>2</td></tr>
+<tr><td>3</td></tr>
+</table>
+
+<table>
+<tr><td>1</td><td>2</td><td>3</td></tr>
+<tr><td>2</td><td colspan="0" rowspan="0">both 0</td></tr>
+<tr><td>3</td></tr>
+</table>
+
+<table>
+<tr><td>1</td><td rowspan="0">rowspan 0</td><td>3</td></tr>
+<tr><td>2</td><td>2-3</td></tr>
+<tr><td>3</td><td>3-3</td></tr>
+</table>
+
+<table>
+<tr><td>1</td><td rowspan="0">rowspan 0</td></tr>
+<tr><td>2</td><td>2-3</td></tr>
+<tr><td>3</td></tr>
+</table>
+
+<h2>Malformed tables</h2>
+
+<p>These tables have cells to the right of a cell with <code>colspan="0"</code>.
+There is no correct rendering.</p>
+
+<table>
+<tr><td>1</td><td>2</td><td>3</td></tr>
+<tr><td colspan="0">colspan 0</td><td>x</td></tr>
+</table>
+
+<table>
+<tr><td>1</td><td>2</td><td>3</td></tr>
+<tr><td>2</td><td colspan="0" rowspan="0">both 0</td><td>x</td></tr>
+<tr><td>3</td><td>x</td></tr>
+</table>
+
+</body>
+</html>
+

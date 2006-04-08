@@ -1,0 +1,725 @@
+# English messages for NetSurf
+# ============================
+#
+# Description
+# -----------
+#
+# This file contains lines of colon separated key-value pairs in the format:
+#
+# Key:Value
+#
+# Contents of Key _must_ be representable in the US-ASCII character set and
+# should not be modified for translation purposes.
+#
+# Values must be UTF-8 encoded strings. When these strings are displayed in
+# NetSurf's user interface, they are converted to the system's local character
+# set. As a result of this conversion process, unrepresentable characters are
+# stripped from the displayed string.
+#
+# Blank lines and lines starting with a # character are treated as comments and
+# ignored.
+#
+
+
+# Menus
+# =====
+#
+# This section defines the title and entry text for NetSurf's menus.
+#
+
+# Iconbar menu
+#
+NetSurf:NetSurf
+Info:Info
+AppHelp:Help...  F1
+Open:Open
+Choices:Choices...
+Quit:Quit
+
+# Iconbar -> Open menu
+#
+OpenURL:Open URL
+
+# Main menu
+#
+Page:Page
+Object:Object
+Navigate:Navigate
+View:Display
+Utilities:Utilities
+Help:Help
+
+# Main -> Page menu
+#
+PageInfo:Info  ^F1
+Save:Save  F3
+SaveComp:Full save  ⇑F3
+Export:Export
+SaveURL:Save location
+Print:Print  PRINT
+NewWindow:New window  ^N
+ViewSrc:View source...  F8
+
+# Main -> Page -> Export menu
+#
+Draw:Draw  ⇑^F3
+Text:Text  ^F3
+
+# Main -> Page -> Save location menu
+#
+URI:Acorn URI
+URL:ANT URL
+LinkText:Text
+
+# Main -> Object menu
+#
+ObjInfo:Info
+ObjSave:Save
+ObjReload:Reload
+
+# Main -> Object -> Export menu
+#
+Sprite:Sprite
+
+# Main -> Navigate menu
+#
+Home:Home page
+Back:Back one page
+Forward:Forward one page
+Reload:Reload this page  ^F5
+Stop:Stop loading this page
+
+# Main -> Display menu
+#
+ScaleView:Scale view  F11
+Images:Images
+Toolbars:Toolbars
+Render:Render
+OptDefault:Set as default
+
+# Main -> Display -> Images menu
+#
+ForeImg:Foreground images
+BackImg:Background images
+
+# Main -> Display -> Toolbars menu
+#
+ToolButtons:Buttons
+ToolAddress:Address bar
+ToolThrob:Throbber
+ToolStatus:Status bar
+
+# Main -> Display -> Render menu
+#
+RenderAnims:Buffer animations
+RenderAll:Buffer all rendering
+
+# Main -> Utilities menu
+#
+Hotlist:Hotlist
+History:History
+FindText:Find text  F4
+Window:Window
+
+# Main -> Utilities -> Hotlist menu
+#
+HotlistAdd:Add to hotlist
+HotlistShow:Show hotlist...  F6
+
+# Main -> Utilities -> History menu
+#
+HistLocal:Show local history... F7
+HistGlobal:Show global history... ^F7
+
+# Main -> Utilities -> Window menu
+#
+WindowSave:Set as default position
+WindowStagr:Stagger window position
+WindowSize:Copy window position
+WindowReset:Reset default position
+
+# Main -> Help menu
+#
+HelpContent:Contents  F1
+HelpGuide:User guide
+HelpInfo:User information
+HelpAbout:About NetSurf
+HelpInter:Interactive help
+
+# Toolbar menu
+#
+Toolbar:Toolbar
+EditToolbar:Edit toolbar
+
+# Generic tree menus (currently Hotlist and Global history)
+#
+Selection:Selection
+SelectAll:Select all  ^A
+Clear:Clear selection  ^Z
+
+# Selection Menu
+#
+Edit:Edit
+Launch:Launch  RETURN
+Delete:Delete  ^X
+ResetUsage:Reset statistics
+
+# Hotlist/Global history menu
+#
+New:New
+Expand:Expand
+Collapse:Collapse
+
+# New hotlist entry menu
+#
+Folder:Directory
+Link:Address
+
+# Tree expand/collapse menu
+#
+All:All
+Folders:Directories
+Links:Addresses
+
+# Other menus
+#
+# URL suggestion menu
+URLSuggest:Recent URLs
+
+# Menus within the choices system
+#
+# Browser pane
+Languages:Language
+#
+# Network pane
+ProxyType:Proxy type
+ProxyNone:No proxy
+ProxyNoAuth:Simple proxy
+ProxyBasic:Basic authentication
+ProxyNTLM:NTLM authentication
+#
+# Fonts pane
+Fonts:Fonts
+DefaultFonts:Font Families
+#
+# Images pane
+Display:Display
+ImgStyle0:Use OS
+ImgStyle1:Direct to screen
+ImgStyle2:Dithered
+ImgStyle3:Error diffused
+
+
+# Treeview interface tokens
+# =========================
+#
+# This section contains tokens which are used in the treeview
+# component. (For example, in the main hotlist/global history windows)
+#
+
+# Tree URL text
+#
+TreeAdded:Added: %s
+TreeLast:Last visited: %s
+TreeVisited:Visited: %s
+TreeVisits:Visits: %i
+TreeUnknown:Unknown
+TreeImport:Imported URL
+TreeNewFolder:New directory
+
+
+# Hotlist user interface tokens
+# =============================
+#
+# This section contains tokens which are used in various parts of
+# the hotlist user interface.
+#
+
+# Hotlist sub-window titles
+#
+NewLink:Create new address
+NewFolder:Create new directory
+EditLink:Edit address
+EditFolder:Rename directory
+
+# Default hotlist page names
+#
+HotlistHomepage:NetSurf homepage
+HotlistTestBuild:NetSurf test builds
+HotlistDocumentation:NetSurf documentation
+HotlistBugTracker:NetSurf bug tracker
+HotlistFeatureRequest:NetSurf feature requests
+
+
+# Global history user interface tokens
+# ====================================
+#
+# This section contains tokens which are used in various parts of
+# the global history user interface.
+#
+
+GlobalHistory:Global history
+DateToday:Today
+DateYesterday:Yesterday
+Date1Week:Last week
+Date2Week:2 weeks ago
+Date3Week:3 weeks ago
+
+
+# Download user interface tokens
+# ==============================
+#
+# This section contains tokens which are used in the download
+# window.
+#
+Download:%s of %s  •  %s/s  •  %s remaining
+DownloadU:%s of unknown  •  %s/s  •  %s total
+Downloaded:%s complete  •  average %s/s  •  %s total
+Unwritten:Writing data to file failed.
+
+
+# Printing user interface tokens
+# ==============================
+#
+# This section contains tokens which are used in the printing
+# dialog box.
+#
+
+PrintSheetFilled:sheet is filled
+PrintSheetsFilled:sheets are filled
+
+
+# Find text user interface tokens
+# ===============================
+#
+# This section contains tokens which are used in the find text
+# dialog box.
+#
+NotFound:Not found
+
+
+# Content
+# =======
+#
+# This section contains tokens used by contents
+#
+
+# Forms
+#
+Form_Submit:Submit
+Form_Reset:Reset
+Form_None:
+Form_Many:(Many)
+Form_Drop:Drop file here
+FormSelect:Click to choose a form item
+FormCheckbox:Click to check this option
+FormRadio:Click to choose this option
+FormSubmit:Send form to %s
+FormBadSubmit:Warning: form can not be submitted
+FormTextarea:Click to edit the text
+FormTextbox:Click to edit this field
+FormReset:Reset form (not implemented)
+FormFile:Drop a file here to upload it
+SelectMenu:Select
+
+# Content titles
+#
+DrawTitle:Draw image (%lux%lu, %lu bytes)
+GIFTitle:GIF image (%lux%lu, %lu bytes)
+BMPTitle:BMP image (%lux%lu, %lu bytes)
+ICOTitle:ICO image (%lux%lu, %lu bytes)
+JPEGTitle:JPEG image (%ux%u, %lu bytes)
+PNGTitle:PNG image (%lux%lu, %lu bytes)
+JNGTitle:JNG image (%lux%lu, %lu bytes)
+MNGTitle:MNG image (%lux%lu, %lu bytes)
+SpriteTitle:Sprite image (%lux%lu, %lu bytes)
+ArtWorksTitle:ArtWorks image (%lux%lu, %lu bytes)
+
+# HTML page character set
+#
+Encoding0:from HTTP headers
+Encoding1:detected
+Encoding2:from <meta>
+EncodingUnk:Unknown
+
+
+# Errors
+# ======
+#
+# This section contains error and warning messages which
+# are displayed to the user.
+#
+
+# Fetching errors - displayed as an HTML page
+#
+Not2xx:Server returned an error
+InvalidURL:The address <em>%s</em> could not be understood.
+
+# HTML error page
+#
+ErrorPage:<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>Page error</title></head><body><h1>Sorry, NetSurf was unable to display this page</h1><p><strong>%s</strong></p></body></html>
+
+# General errors - displayed in a dialog box
+#
+# These may be augmented with further relevant information, which
+# is displayed after the contents of the relevant token.
+#
+PathToURL:An error occurred converting the file path to an URL:
+SaveError:The file could not be saved due to an error:
+LoadError:The file could not be loaded due to an error:
+MenuError:An error occurred when opening the menu:
+DragError:An error occurred when dragging the icon:
+TbarError:An error occurred when constructing the toolbar:
+WimpError:An unexpected Window Manager error occurred:
+DownloadWarn:This download may not complete:
+MiscError:An unexpected error occurred:
+FileError:File does not exist:
+PrintError:An error occurred when printing:
+
+# Specific errors - displayed in a dialog box
+#
+NoMemory:NetSurf is running out of memory. Please free some memory and try again.
+FontBadInst:An error occurred when initialising fonts due to the presence of obsolete copies of the ROM fonts on disc. NetSurf will exit and launch a program which will attempt to fix this.
+FontError:Failed to open font "Homerton.Medium" (%s).
+Resolvers:No domain name servers are configured, so only browsing local files will be possible. Use Configure to set your name server(s).
+NoDiscSpace:Not enough space available on disc.
+Template:A window template is missing from the Templates file. Please reinstall NetSurf.
+HotlistSaveError:The hotlist was unable to be correctly saved.
+HotlistLoadError:The hotlist was unable to be correctly loaded.
+NoPathError:To save, drag the icon to a directory display
+NoNameError:Please enter a name
+NoURLError:Please enter a URL
+URIError:NetSurf was unable to parse this URI file due to a syntax error.
+EmptyError:file is empty.
+PrintErrorRO2:It appears that the printer is busy.
+AWNotSeen:Please locate the AWViewer application and try again.
+
+# Queries
+# =======
+#
+# This section contains queries which are displayed to the user
+#
+
+AbortDownload:Are you sure you wish to abort this download?
+QuitDownload:One or more downloads are still in progress. Are you sure you wish to quit?
+OverwriteFile:A file with that name already exists and would be lost.
+
+# Page fetching
+# =============
+#
+# This section contains messages which may be displayed whilst
+# fetching a page or other content
+#
+
+# Fetch status messages - displayed in status bar
+#
+Progress:%s of %s
+ProgressU:%s
+Loading:Opening page...
+RecPercent:Received %s (%u%%)
+Received:Received %s
+Converting:Converting %lu bytes
+Complete:Page complete (%gs)
+Redirecting:Redirecting...
+Processing:Processing document
+Formatting:Formatting document
+FetchObjs:Loading %u objects
+FetchObjs2:Loading %u objects: %s
+Done:Document done
+FetchStyle:Loading %u stylesheets
+FetchStyle2:Loading %u stylesheets: %s
+
+# Fetch warning/error messages - displayed in status bar
+#
+BadRedirect:Bad redirect URL
+FetchFailed:Unable to fetch document
+NotCSS:Warning: stylesheet is not CSS
+BadObject:Warning: bad object type
+ObjError:Error loading object: %s
+ParsingFail:Parsing the document failed.
+BadGIF:Reading GIF failed.
+BadBMP:Reading BMP failed.
+BadICO:Reading ICO failed.
+PNGError:PNG library error.
+MNGError:MNG library error.
+BadSprite:Invalid or corrupt Sprite data.
+
+
+# User interface
+# ==============
+#
+# This section contains messages to deal with user interface
+# features.
+#
+
+# Scrollbars - displayed in status bar
+#
+ScrollUp:Click the arrow to scroll up
+ScrollPUp:Click to scroll up one page
+ScrollV:Drag the bar to scroll vertically
+ScrollPDown:Click to scroll down one page
+ScrollDown:Click the arrow to scroll down
+ScrollLeft:Click the arrow to scroll left
+ScrollPLeft:Click to scroll left one page
+ScrollH:Drag the bar to scroll horizontally
+ScrollPRight:Click to scroll right one page
+ScrollRight:Click the arrow to scroll right
+
+
+# Saving
+# ======
+#
+# Messages used when saving
+#
+
+SaveSource:Source
+SaveDraw:Webpage
+SaveText:Webpage
+SaveObject:Object
+SaveLink:Link
+SaveSelection:Selection
+
+# Themes
+# ======
+#
+# Messages used when installing new themes
+#
+
+ThemeInstActive:A theme is currently being downloaded or installed. Please wait for it to finish or cancel it before installing more themes.
+ThemeInstDown:Please wait for the theme to download.
+ThemeInvalid:The downloaded theme is invalid or requires a newer version of NetSurf.
+ThemeInstall:Would you like to install the theme '%s' by %s?
+ThemeInstallErr:An error occurred whilst trying to install the downloaded theme.
+ThemeApplyErr:An error occurred whilst trying to apply the downloaded theme.
+
+
+# General
+# =======
+#
+# Some general purpose words and phrases
+#
+
+Bytes: B
+kBytes: kB
+MBytes: MB
+GBytes: GB
+
+Yes:Yes
+No:No
+Replace:Replace file
+DontReplace:Don't replace
+
+# Interactive help
+# ================
+#
+# This section contains interactive help messages
+#
+HelpToolbar0:\Tback button.|M\Straverse back one page in the history tree.|MDoes not resubmit form information.
+HelpToolbar1:\Tforward button.|M\Straverse forward one page in the history tree.|MDoes not resubmit form information.
+HelpToolbar2:\Tstop button.|M\Sstop loading this page.
+HelpToolbar3:\Treload button.|M\Sreload this page.|M\Areload this page and any objects it contains.
+HelpToolbar4:\Thome button.|M\Sgo to your home page.
+HelpToolbar5:\Thistory button.|M\Sopen the local history \w.|M\Aopen the global history \w.
+HelpToolbar6:\Tsave button.|M\Ssave the current document.
+HelpToolbar7:\Tprint button.|M\Sopen the print dialogue box.
+HelpToolbar8:\Thotlist button.|M\Sopen the hotlist management \w.|M\Aadd this address to the hotlist.
+HelpToolbar9:\Tscale view button.|M\Sscale the page, affecting both text and images.
+HelpToolbar10:\Tsearch button.|M\Sfind instances of a string of text on the page.
+HelpToolbar13:\TURL bar.|MType in the address of a site to visit and press Return to go there.
+HelpToolbar14:\TURL suggestion icon.|M\Sopen a list of recently typed URLs.
+HelpToolbar15:\Tthrobber.|MIt animates while this \w is active.
+
+HelpStatus0:\Tstatus bar resizer.|MDrag to alter the size of the status bar.
+HelpStatus1:\Tstatus bar.|MIt displays information on what the browser \w is doing.
+
+HelpIconMenu0:\Rview information about this software.
+HelpIconMenu1:\Sview NetSurf's documentation.
+HelpIconMenu2:\Ropen a window.
+HelpIconMenu2-0:\Renter an address to visit.
+HelpIconMenu2-1:\Sopen the hotlist management \w.
+HelpIconMenu2-2:\Sopen the global history \w.
+HelpIconMenu3:\Sopen the Choices dialogue box.
+HelpIconMenu4:\Squit NetSurf.
+
+HelpBrowserMenu0:\Rsee the options relating to the current page.
+HelpBrowserMenu0-0:\Rsee information about the current page.
+HelpBrowserMenu0-1:\Rsave the current page as an HTML file.
+HelpBrowserMenu0-2:\Rsave the current page including all the images and style sheets used.
+HelpBrowserMenu0-3:\Rsee the export options.
+HelpBrowserMenu0-3-0:\Rexport the current page as a Drawfile.
+HelpBrowserMenu0-3-1:\Rexport the current page as a plain text file.
+HelpBrowserMenu0-4:\Rsave the address of the current page.
+HelpBrowserMenu0-4-0:\Rsave the current address in Acorn URI format.
+HelpBrowserMenu0-4-1:\Rsave the current address in Ant URL format.
+HelpBrowserMenu0-4-2:\Rsave the current address as plain text.
+HelpBrowserMenu0-5:\Sopen the print dialogue box.
+HelpBrowserMenu0-6:\Sopen the current page in a new window.
+HelpBrowserMenu0-7:\Sview the source code of the current page in a text editor.
+HelpBrowserMenu1:\Rsee the options relating to the current item.
+HelpBrowserMenu1-0:\Rsee information about the current item.
+HelpBrowserMenu1-1:\Rsave the current item.
+HelpBrowserMenu1-2:\Rsee the export options.
+HelpBrowserMenu1-2-0:\Rsave the image as a Sprite.
+HelpBrowserMenu1-3:\Rsave the address of the current item.
+HelpBrowserMenu1-3-0:\Rsave the current item's address in Acorn URI format.
+HelpBrowserMenu1-3-1:\Rsave the current item's address in Ant URL format.
+HelpBrowserMenu1-3-2:\Rsave the current item's address as plain text.
+HelpBrowserMenu1-4:\Sreload all the items on this page.
+HelpBrowserMenu2:\Rsee the navigation options.
+HelpBrowserMenu2-0:\Sreturn to the configured home page.
+HelpBrowserMenu2-1:\Sgo back a page in the local history.|MForm information is not resubmitted.
+HelpBrowserMenu2-2:\Sstep forward a page in the local history.|MForm information is not resubmitted.
+HelpBrowserMenu2-3:\Sfetch the current page again.
+HelpBrowserMenu2-4:\Sstop NetSurf from continuing to load this page.
+HelpBrowserMenu3:\Rset the local display options.
+HelpBrowserMenu3-0:\Rscale the page, affecting both text and images.
+HelpBrowserMenu3-1:\Rset the local image options.
+#HelpBrowserMenu3-1-0:\Stoggle the display of foreground images.
+HelpBrowserMenu3-1-1:\Stoggle the display of background images.
+HelpBrowserMenu3-1-2:\Stoggle the display of animations.|MIf turned off, the first frame is displayed.
+HelpBrowserMenu3-2:\Rcontrol the display of NetSurf's toolbars.
+HelpBrowserMenu3-2-0:\Stoggle the display of the toolbar buttons.|MURL bar uses the remaining space.
+HelpBrowserMenu3-2-1:\Stoggle the display of the address (URL) bar.
+HelpBrowserMenu3-2-2:\Stoggle the display of the throbber.|MURL bar uses the remaining space.
+HelpBrowserMenu3-2-3:\Stoggle the display of the status bar.|MHorizontal scroll bar uses the remaining width.
+HelpBrowserMenu3-3:\Scontrol the manner in which the display is rendered.
+HelpBrowserMenu3-3-0:\Stoggle whether text is blended to the background.
+HelpBrowserMenu3-3-1:\Stoggle whether animations are not displayed until all calculations are complete.
+HelpBrowserMenu3-3-2:\Stoggle whether everything is not displayed until all calculations are complete.
+HelpBrowserMenu3-4:\Smake your local display options the default options for NetSurf.
+HelpBrowserMenu4:\Rto access NetSurf's built in utilities.|MUtilities are tools such as the hotlist, history tree and various setup options.
+HelpBrowserMenu4-0:\Rmanage the hotlist.
+HelpBrowserMenu4-0-0:\Sadd the current page to the hotlist.
+HelpBrowserMenu4-0-1:\Sopen the hotlist management \w.
+HelpBrowserMenu4-1:\Rview the history options.
+HelpBrowserMenu4-1-0:\Sopen the local history \w.
+HelpBrowserMenu4-1-1:\Sopen the global history \w.
+HelpBrowserMenu4-2:\Rsearch for instances of a string of text on the page.
+HelpBrowserMenu4-3:\Rcontrol the default \w positioning.
+HelpBrowserMenu4-3-0:\Sto make the current \w position the default.
+HelpBrowserMenu4-3-1:\Sto toggle whether subsequent windows are staggered down the screen.
+HelpBrowserMenu4-3-2:\Sto toggle whether child windows copy the size and position of their parent.|MWhen off, all new windows open in the default position.
+HelpBrowserMenu4-3-3:\Sto return to the default \w positioning.
+HelpBrowserMenu5:\Rsee the help resources available.
+HelpBrowserMenu5-0:\Sopen the documentation contents page in a new \w.
+HelpBrowserMenu5-1:\Sopen the user guide in a new \w.
+HelpBrowserMenu5-2:\Sopen the user information page in a new \w.
+HelpBrowserMenu5-3:\Sopen the NetSurf about page in a new \w.
+HelpBrowserMenu5-4:\Srun Help.
+
+HelpBrowser-1:Click \s on a link to follow it.|MClick \a on a link to open it in a new \w.
+
+HelpIconbar:\TNetSurf icon.|M\Sopen a new browser \w.|M\Aopen the hotlist management \w.
+HelpHistory:Use this \w to navigate around the local history tree.|M\Son a thumbnail to return to that page.
+
+HelpPrint:Use this \w to print the page.
+
+HelpSaveAs0:Drag SELECT this icon to the directory in which you want to save the file.
+HelpSaveAs1:This is the filename under which this document will be saved.
+HelpSaveAs2:\Ssave the file with the current filename.|MIf a full path is not set, you must drag the icon to a directory.
+HelpSaveAs3:\Sclose this \w without saving.
+
+HelpScaleView:Use this \w to change the scale the page is displayed at.
+HelpScaleView1:Enter the scale you wish the page to be displayed at.
+HelpScaleView2:\Sreduce the scale, 10% at a time.
+HelpScaleView3:\Sincrease the scale, 10% at a time.
+HelpScaleView5:\Sautomatically choose a scale of 75%.
+HelpScaleView6:\Sautomatically choose a scale of 100%.
+HelpScaleView7:\Sautomatically choose a scale of 150%.
+HelpScaleView8:\Sautomatically choose a scale of 200%.
+HelpScaleView9:\Scancel changes.|MThe current scale will not be changed.
+HelpScaleView10:\Schange the view to the scale you have chosen.
+
+HelpSearch:Use this \w to search for text within the page.
+HelpSearch0:Enter the search text. # matches any single character, * matches 0 or more characters.
+HelpSearch1:Choose whether the search should regard upper and lower case characters as different.
+HelpSearch2:\Smove to the next match.
+HelpSearch3:\Smove to the previous match.
+HelpSearch4:\Sstop searching and close this \w.
+
+HelpHotFolder:Use this \w to set the directory name.
+HelpHotEntry:Use this \w to set the entry details.
+HelpHotlist:\Thotlist management window.
+HelpHotlist0:\Sopen this directory.
+HelpHotlist1:\Sclose this directory.
+HelpHotlist2:\Sshow the entry details.
+HelpHotlist3:\Shide the entry details.
+HelpHotlist4:\Sselect this directory.|MDouble-click \s to open this directory.
+HelpHotlist5:\Sselect this entry.|MDouble-click \s to launch this URL.
+HelpHotlist6:Release the mouse buttons to complete your selection.
+HelpHotlist7:Release the mouse buttons to move the selection.
+
+HelpHotToolbar0:\Tdelete button.|M\Sdelete the current selection.
+HelpHotToolbar1:\Texpand entries button.|M\Sexpand all addresses in the hotlist.|M\Acollapse all addresses in the hotlist.|MExpanded addresses show additional details, such as a visit counter.
+HelpHotToolbar2:\Topen directories button.|M\Sopen all directories in the hotlist.|M\Aclose all directories in the hotlist.
+HelpHotToolbar3:\Tlaunch button.|M\Slaunch the current selection.
+HelpHotToolbar4:\Tcreate button.|M\Screate a new directory.
+
+HelpHotlistMenu0:\Rperform an operation on the hotlist.
+HelpHotlistMenu0-0:\Rcreate a new item.
+HelpHotlistMenu0-0-0:\Rcreate a new directory.
+HelpHotlistMenu0-0-1:\Rcreate a new address.
+HelpHotlistMenu0-1:\Rexport the hotlist as an HTML file.
+HelpHotlistMenu0-2:\Rexpand items within the hotlist.
+HelpHotlistMenu0-2-0:\Sopen all directories and show all entry details.
+HelpHotlistMenu0-2-1:\Sopen all directories.
+HelpHotlistMenu0-2-2:\Sshow all entry details.
+HelpHotlistMenu0-3:\Rcollapse items within the hotlist.
+HelpHotlistMenu0-3-0:\Sclose all directories and hide all entry details.
+HelpHotlistMenu0-3-1:\Sclose all directories.
+HelpHotlistMenu0-3-2:\Shide all entry details.
+HelpHotlistMenu0-4:\Rcontrol the display of NetSurf's toolbars.
+HelpHotlistMenu0-4-0:\Stoggle the display of the toolbar buttons.
+HelpHotlistMenu1:\Roperate on the current selection.
+HelpHotlistMenu1-0:\Redit the current item.
+HelpHotlistMenu1-1:\Slaunch the current selection.
+HelpHotlistMenu1-2:\Sdelete the current selection from the hotlist.
+HelpHotlistMenu1-3:\Sreset statistics, such as visit count, for selected items.
+HelpHotlistMenu2:\Sselect all the items in the hotlist.
+HelpHotlistMenu3:\Sdeselect all selected items.
+
+HelpGHistory:\Tglobal history window.
+
+HelpGHistoryToolbar0:\Tdelete button.|M\Sdelete the current selection.
+HelpGHistoryToolbar1:\Texpand entries button.|M\Sexpand all addresses in the hotlist.|M\Acollapse all addresses in the hotlist.|MExpanded addresses show additional details, such as a visit counter.
+HelpGHistoryToolbar2:\Topen directories button.|M\Sopen all directories in the hotlist.|M\Aclose all directories in the hotlist.
+HelpGHistoryToolbar3:\Tlaunch button.|M\Slaunch the current selection.
+
+HelpAppInfo:\TNetSurf information \w.|MSee the about page for the contributor list and credits.
+
+
+# Configuration tokens
+# ====================
+#
+# These tokens are used for the configuration icon text.
+#
+
+con_cache:Cache
+con_connect:Connection
+con_content:Content
+con_fonts:Fonts
+con_home:Home page
+con_image:Images
+con_inter:Interface
+con_lang:Language
+con_memory:Memory
+con_secure:Security
+con_theme:Themes
+
+
+# Unused tokens
+# =============
+#
+# These tokens appear to be unused at the current time.
+#
+
+# Tree export
+TreeHotlist:NetSurf hotlist
+TreeHistory:NetSurf history
+SaveSelect:Save
+ExportAs:Export as
+Copy:Copy to clipboard  ^C
+AnimImg:Animations
+DitherImg:Dither images
+FilterImg:Smooth images
+RenderText:Blend text to background

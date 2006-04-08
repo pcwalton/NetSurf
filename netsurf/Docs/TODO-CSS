@@ -1,0 +1,92 @@
+$Id: TODO-CSS,v 1.15 2005/01/12 00:01:18 tlsa Exp $
+
+TODO-CSS file for NetSurf.
+
+This file contains an alphabetical list of CSS2 properties which apply to visual user agents.
+A "+" before the property means that it is implemented.
+A "-" before the property means that it isn't implemented.
+A "=" before the property means that it is partially implemented.
+
+See TODO-HTML for HTML related TODOs.
+
++ background (attachment in progress)
+= background-attachment
++ background-color
++ background-image
++ background-position
++ background-repeat
+= border
+= border-collapse
+= border-color
+= border-spacing
+= border-style
+= border-[top|right|left|bottom]
+= border-*-color
+= border-*-style
+= border-*-width
+- bottom
+- caption-side
++ clear
+- clip
++ color
+- content
+- counter-increment
+- counter-reset
++ cursor
+- direction
++ display
+- empty-cells
++ float
+= font (style, weight, size, line-spacing, family, variant)
++ font-family
++ font-size
+- font-size-adjust
+- font-stretch
++ font-style
++ font-variant
++ font-weight
++ height
+- left
+- letter-spacing
++ line-height
+- list-style
+- list-style-image
+- list-style-position
+- list-style-type
+= margin
+= margin-[top|right|left|bottom]
+- marker-offset
+- marks
+- max-height
+- max-width
+- min-height
+- min-width
+- orphans
+- outline
+- outline-color
+- outline-style
+- outline-width
+= overflow
+= padding
+= padding-[top|right|left|bottom]
+- page
+- page-break-[after|before|inside]
+- position
+- quotes
+- right
+- size
+- table-layout
++ text-align
++ text-decoration (not blink)
++ text-indent
+- text-shadow
++ text-transform
+- top
+- unicode-bidi
+= vertical-align
+= visibility (not collapse)
+= white-space
+- widows
++ width
+- word-spacing
+- z-index

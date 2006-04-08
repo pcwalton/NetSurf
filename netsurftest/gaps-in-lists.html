@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+        "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>Gaps in Lists</title>
+<style>
+.list { background-color:#88f; margin:0; padding:0; }
+.item { background-color:#f88; display:inline; margin:0; padding:0; }
+.content { background-color:#8f8; display:block; }
+</style>
+</head>
+<body>
+<ul class="list">
+ <li class="item">
+    <a class="content" href="">moo1</a>
+  </li>
+  <li class="item">
+    <a class="content" href="">moo2</a>
+  </li>
+  <li class="item">
+    <em class="content" href="">moo3</em>
+  </li>
+  <li class="item">
+    <em class="content" href="">moo4</em>
+  </li>
+</ul>
+<p>Above, the <code>LI</code> elements (red) have <code>display:inline</code> set and inside them, <code>A</code> and <code>EM</code> elements (green) have <code>display:block</code> set. This causes a blank line to be put above each <code>LI</code>. The outer <code>UL</code> is blue.</p>
+</body>
+</html>

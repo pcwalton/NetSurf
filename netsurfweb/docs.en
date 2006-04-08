@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+        "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>NetSurf | Documentation</title>
+<link rel="stylesheet" type="text/css" href="netsurf.css">
+</head>
+
+<body>
+<p class="banner"><a href="/"><img src="netsurf.png" alt="NetSurf: Web Browser for RISC OS"></a></p>
+<p class="languages"><a href="docs.de">Deutsch</a> · English · <a href="docs.fr">Français</a> · <a href="docs.nl">Nederlands</a></p>
+
+<h1>NetSurf Documentation</h1>
+
+<p>The NetSurf documentation has been split into the following sections.</p>
+
+<ul class="docsections">
+<li><strong><a href="info">User Information</a></strong>
+<ul>
+<li><a href="info#GettingStarted">Getting started</a>
+<ul>
+<li><a href="info#GettingStartedInstallation">Installation</a></li>
+<li><a href="info#GettingStartedRequirements">Requirements</a></li>
+<li><a href="info#GettingStartedAdditionalResources">Additional resources</a></li>
+</ul></li>
+<li><a href="info#Upgrading">Upgrading NetSurf</a></li>
+<li><a href="info#ContactDevelopers">Contacting the developers</a></li>
+<li><a href="info#Bugs">Reporting bugs</a></li>
+<li><a href="info#FeatureRequests">Feature requests</a></li>
+<li><a href="info#Unicode">Fonts in NetSurf</a>
+<ul>
+<li><a href="info#UnicodeInstallingFonts">Installing more fonts</a></li>
+<li><a href="info#UnicodeProblems">Problems and unimplemented features</a></li>
+</ul></li>
+<li><a href="info#JavaScript">JavaScript</a></li>
+</ul></li>
+
+<li><strong><a href="guide">User Guide</a></strong>
+<ul>
+<li><a href="guide#UsingNetSurf">Using NetSurf</a></li>
+<li><a href="guide#Help">Interactive help</a></li>
+<li><a href="guide#BrowserWindow">Browser window</a>
+<ul>
+<li><a href="guide#BrowserWindowToolbar">Toolbar</a></li>
+<li><a href="guide#BrowserWindowURLBar">URL bar</a></li>
+<li><a href="guide#BrowserWindowStatusBar">Status bar</a></li>
+<li><a href="guide#BrowserWindowContent">Content area</a></li>
+<li><a href="guide#BrowserWindowMenus">Menus</a></li>
+</ul></li>
+<li><a href="guide#FileTypes">File types</a></li>
+<li><a href="guide#DownloadWindow">Download window</a></li>
+<li><a href="guide#History">History</a>
+<ul>
+<li><a href="guide#HistoryLocal">Local history window</a></li>
+<li><a href="guide#HistoryGlobal">Global history window</a>
+<ul>
+<li><a href="guide#HistoryGlobalToolbar">Toolbar</a></li>
+<li><a href="guide#HistoryGlobalMenus">Menus</a></li>
+</ul></li>
+</ul></li>
+<li><a href="guide#Hotlist">Hotlist management window</a>
+<ul>
+<li><a href="guide#HotlistToolbar">Toolbar</a></li>
+<li><a href="guide#HotlistMenus">Menus</a></li>
+</ul></li>
+<li><a href="guide#Configuration">Configuration</a>
+<ul>
+<li><a href="guide#ConfigurationGlobal">Global choices</a></li>
+<li><a href="guide#ConfigurationToolbar">Toolbar customization</a></li>
+</ul></li>
+<li><a href="guide#Keys">Keyboard shortcuts</a></li>
+</ul></li>
+
+<li><strong><a href="progress">Development Progress</a></strong>
+<ul>
+<li><a href="progress#Web">Web standards</a></li>
+<li><a href="progress#CSSandHTML">Important CSS and HTML features</a></li>
+<li><a href="progress#Images">Image support</a></li>
+<li><a href="progress#ROStandards">RISC OS specific standards</a></li>
+<li><a href="progress#NSF">NetSurf features</a></li>
+</ul></li>
+</ul>
+
+<div class="footer">
+<p class="breadcrumbs"><a href="/">NetSurf</a> » Documentation</p>
+</div>
+
+</body>
+</html>

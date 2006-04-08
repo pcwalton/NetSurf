@@ -1,0 +1,238 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+        "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>NetSurf | Development plan</title>
+<style type="text/css">
+html, body { margin: 0; padding: 0; }
+div { margin:0 5mm; }
+.banner { margin: 0 0 5mm 0; padding: 0; border-bottom: medium solid black; background-color: #94adff; color: black; text-align: left; }
+.banner img { vertical-align: middle; border: none; }
+.updated { margin: -4mm 0 1mm 5mm; text-align: right; }
+span { margin-right:1em; font-family:monospace;}
+p {margin-bottom:0;}
+.plan { margin:1em 0; width: 100%; border-spacing: 2px; }
+.plan td, .plan th { padding:0; }
+.key td { padding:0 0.2em 0 0; }
+th[colspan] { padding-top:0.3em; }
+.later { background:#bfdfff; }
+.later span { background:#88bfff; }
+.version1 { background:#ffdfbf; }
+.version1 span { background:#ffbf88; }
+.done { color:#7f6f5f; }
+.done span { color:#7f5f44; }
+.core { background:#ddd; text-align:center; }
+.ro { background:#cfc; text-align:center; }
+.gtk { background:#fcc; text-align:center; }
+abbr { cursor:help; }
+p.footer { font-size: small; text-align: right; margin-top: 5mm; font-style: italic; }
+.breadcrumbs { float: left; margin: 0 }
+</style>
+</head>
+<body>
+<p class="banner"><a href="/"><img src="netsurf.png" alt="NetSurf: Web Browser for RISC OS"></a></p>
+
+<div>
+<h1>NetSurf Development Plan</h1>
+
+<p>Key:</p>
+<table class="key">
+<tr>
+<td class="version1"><span>[1]</span>= Wanted in version 1.00</td>
+<td class="later"><span>[2]</span>= After version 1.00</td>
+</tr>
+</table>
+<table>
+<tr>
+<td>&#x2713;</td><td>= Done</td>
+</tr>
+<tr>
+<td>nick</td><td>= Assigned to this developer</td>
+</tr>
+<tr>
+<td>-</td><td>= Not started or assigned to a developer</td>
+</tr>
+<tr>
+<td><abbr title="Not applicable">N/A</abbr></td><td>= Not applicable</td>
+</tr>
+</table>
+
+<p class="updated">Last updated 06 April 2006</p>
+<table class="plan">
+<tr>
+<th><abbr title="Hyper Text Markup Language">HTML</abbr> &amp; <abbr title="Cascading Style Sheets">CSS</abbr></th>
+<th><abbr title="NetSurf's multi-platform core">Core</abbr></th>
+<th>RISC OS</th>
+<th>GTK</th>
+</tr>
+<tr>
+<td class="version1"><span>[1]</span>Absolute positioning</td>
+<td class="core">-</td>
+<td class="ro"><abbr title="Not applicable">N/A</abbr></td>
+<td class="gtk"><abbr title="Not applicable">N/A</abbr></td>
+</tr>
+<tr><td class="later"><span>[2]</span>Alternate style sheets</td>
+<td class="core">-</td>
+<td class="ro"><abbr title="Not applicable">N/A</abbr></td>
+<td class="gtk"><abbr title="Not applicable">N/A</abbr></td>
+</tr>
+<tr>
+<td class="version1"><span>[1]</span>Generated content</td>
+<td class="core">-</td>
+<td class="ro"><abbr title="Not applicable">N/A</abbr></td>
+<td class="gtk"><abbr title="Not applicable">N/A</abbr></td>
+</tr>
+<tr>
+<td class="later"><span>[2]</span>Link element</td>
+<td class="core">-</td>
+<td class="ro">-</td>
+<td class="gtk">-</td>
+</tr>
+<tr>
+<td class="version1"><span>[1]</span>Lists</td>
+<td class="core">-</td>
+<td class="ro"><abbr title="Not applicable">N/A</abbr></td>
+<td class="gtk"><abbr title="Not applicable">N/A</abbr></td>
+</tr>
+<tr>
+<td class="version1 done"><span>[1]</span>Meta refresh</td>
+<td class="core">&#x2713;</td>
+<td class="ro"><abbr title="Not applicable">N/A</abbr></td>
+<td class="gtk"><abbr title="Not applicable">N/A</abbr></td>
+</tr>
+<tr>
+<td class="later"><span>[2]</span>Tables (colgroup etc)</td>
+<td class="core">-</td>
+<td class="ro"><abbr title="Not applicable">N/A</abbr></td>
+<td class="gtk"><abbr title="Not applicable">N/A</abbr></td>
+</tr>
+<tr>
+<td class="later"><span>[2]</span>Frames improvement</td>
+<td class="core">-</td>
+<td class="ro">-</td>
+<td class="gtk">-</td>
+</tr>
+<tr>
+<td class="later"><span>[2]</span>Frame navigation support (forward / back / history)</td>
+<td class="core">-</td>
+<td class="ro"><abbr title="Not applicable">N/A</abbr></td>
+<td class="gtk"><abbr title="Not applicable">N/A</abbr></td>
+</tr>
+<tr>
+<td class="version1 done"><span>[1]</span>Frame targets</td>
+<td class="core">&#x2713;</td>
+<td class="ro"><abbr title="Not applicable">N/A</abbr></td>
+<td class="gtk"><abbr title="Not applicable">N/A</abbr></td>
+</tr>
+<tr>
+<td class="later"><span>[2]</span>XHTML using XML parser</td>
+<td class="core">-</td>
+<td class="ro"><abbr title="Not applicable">N/A</abbr></td>
+<td class="gtk"><abbr title="Not applicable">N/A</abbr></td>
+</tr>
+
+<tr><th colspan="4">Printing</th></tr>
+<tr>
+<td class="later"><span>[2]</span>Preview</td>
+<td class="core">-</td>
+<td class="ro">-</td>
+<td class="gtk">-</td>
+</tr>
+<tr>
+<td class="later"><span>[2]</span>Print stylesheet</td>
+<td class="core">-</td>
+<td class="ro"><abbr title="Not applicable">N/A</abbr></td>
+<td class="gtk"><abbr title="Not applicable">N/A</abbr></td>
+</tr>
+
+<tr><th colspan="4">Cookies</th></tr>
+<tr>
+<td class="version1"><span>[1]</span>Rewrite</td>
+<td class="core">jmb</td>
+<td class="ro">-</td>
+<td class="gtk">-</td>
+</tr>
+
+<tr><th colspan="4">Network</th></tr>
+<tr>
+<td class="version1 done"><span>[1]</span>Parallel downloads from same host</td>
+<td class="core">&#x2713;</td>
+<td class="ro"><abbr title="Not applicable">N/A</abbr></td>
+<td class="gtk"><abbr title="Not applicable">N/A</abbr></td>
+</tr>
+
+<tr><th colspan="4">HTTPS</th></tr>
+<tr>
+<td class="version1 done"><span>[1]</span>Certificate UI</td>
+<td class="core">&#x2713;</td>
+<td class="ro">&#x2713;</td>
+<td class="gtk">-</td>
+</tr>
+
+<tr><th colspan="4">Caching</th></tr>
+<tr>
+<td class="later"><span>[2]</span>Disc cache</td>
+<td class="core">-</td>
+<td class="ro"><abbr title="Not applicable">N/A</abbr></td>
+<td class="gtk"><abbr title="Not applicable">N/A</abbr></td>
+</tr>
+<tr>
+<td class="version1 done"><span>[1]</span>Image expiration</td>
+<td class="core">-</td>
+<td class="ro">&#x2713;</td>
+<td class="gtk"><abbr title="Not applicable">N/A</abbr></td>
+</tr>
+
+<tr><th colspan="4">User Interface</th></tr>
+<tr>
+<td class="version1 done"><span>[1]</span>Choices</td>
+<td class="core">&#x2713;</td>
+<td class="ro">&#x2713;</td>
+<td class="gtk">-</td>
+</tr>
+<tr>
+<td class="later"><span>[2]</span>Keyboard navigation</td>
+<td class="core">-</td>
+<td class="ro">-</td>
+<td class="gtk">-</td>
+</tr>
+<tr>
+<td class="later"><span>[2]</span>Kiosk mode</td>
+<td class="core">-</td>
+<td class="ro">-</td>
+<td class="gtk">-</td>
+</tr>
+<tr>
+<td class="version1 done"><span>[1]</span>Local history improvement</td>
+<td class="core">&#x2713;</td>
+<td class="ro">&#x2713;</td>
+<td class="gtk">-</td>
+</tr>
+<tr>
+<td class="later"><span>[2]</span>Log of web page errors</td>
+<td class="core">-</td>
+<td class="ro"><abbr title="Not applicable">N/A</abbr></td>
+<td class="gtk"><abbr title="Not applicable">N/A</abbr></td>
+</tr>
+<tr>
+<td class="later"><span>[2]</span>Form history / auto completion</td>
+<td class="core">-</td>
+<td class="ro">-</td>
+<td class="gtk">-</td>
+</tr>
+
+<tr><th colspan="4">Flash</th></tr>
+<tr>
+<td class="later"><span>[2]</span>Port one of the new viewers as a plugin or built-in</td>
+<td class="core"><abbr title="Not applicable">N/A</abbr></td>
+<td class="ro">-</td>
+<td class="gtk"><abbr title="Not applicable">N/A</abbr></td>
+</tr>
+</table>
+</div>
+
+<div class="footer">
+<p class="breadcrumbs"><a href="/">NetSurf</a> » Development plan</p>
+</div>
+</body>
+</html>

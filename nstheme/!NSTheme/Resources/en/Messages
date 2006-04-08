@@ -1,0 +1,71 @@
+# English messages for NSTheme
+
+# Menus
+NetSurf:NetSurf
+Info:Info
+AppHelp:Help...  F1
+Quit:Quit
+SaveAs:Save
+Export:Export
+SaveTitle:Save as
+ExportTitle:Export sprites
+
+# Icon definitions
+back:browser back icon
+forward:browser forward icon
+stop:browser stop icon
+reload:browser reload icon
+home:browser home icon
+search:browser search icon
+history:browser history icon
+scale:browser scale icon
+hotlist:browser hotlist icon
+save:browser save icon
+print:browser print icon
+create:hotlist create entry icon
+delete:hotlist delete entry icon
+launch:hotlist launch icon
+open:hotlist open directories icon
+expand:hotlist expand entries icon
+separator:toolbar separator
+pushed: (pushed)
+
+# Loading errors
+WarnInvalid:Invalid or unknown theme file format.
+WarnBadSpr:Invalid or unknown sprite file format.
+
+# Report text
+Title:NSTheme Sprites Report
+WarnNoFile:Warning: No sprite file present.
+WarnAlphaSpr:Warning: Sprite '%s' has an alpha channel specified.
+WarnHighSpr:Warning: Sprite '%s' uses more than 256 colours.
+WarnNoSpr:Warning: Sprite '%s' (%s%s) is missing.
+WarnExtraSpr:Warning: Sprite '%s' is redundant.
+WarnNoThrob:Warning: No throbber animation present.
+WarnMissThrob:Warning: Throbber frame '%s' is missing.
+CompleteErr:Analysis completed with %i warning(s).
+CompleteOK:Analysis completed with no warnings.
+
+# Interactive help
+HelpMain:\TNSTheme editing window.|MDrag a sprite file here to load it into the theme.
+HelpMain3:\bwritable field specifies the theme name.
+HelpMain5:\bwritable field specifies the theme author.
+HelpMain8:\btick-box controls whether the theme throbber is on the left.
+HelpMain11:\Sto view a report on the current sprites.
+HelpMain12:\Sto remove the current sprites.
+HelpMain16:\bis the current colour of the browser toolbar background.
+HelpMain17:\Sto select the colour of the browser toolbar background.
+HelpMain19:\bis the current colour of the hotlist toolbar background.
+HelpMain20:\Sto select the colour of the hotlist toolbar background.
+HelpMain22:\bis the current colour of the status bar background.
+HelpMain23:\Sto select the colour of the status bar background.
+HelpMain25:\bis the current colour of the status bar text.
+HelpMain26:\Sto select the colour of the status bar text.
+HelpAppInfo:\TNSTheme information \w.
+HelpMainMenu0:\Rto save the theme.
+HelpMainMenu1:\Rto export the theme sprites.
+HelpMainMenu2:\Sview NSTheme's documentation.
+HelpIconMenu0:\Rview information about this software.
+HelpIconMenu1:\Sview NSTheme's documentation.
+HelpIconMenu2:\Squit NSTheme.
+HelpIconbar:\TNSTheme icon.
