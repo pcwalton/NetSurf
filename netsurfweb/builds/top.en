@@ -12,7 +12,7 @@
 
 <h1>NetSurf Test Builds</h1>
 
-<p>These archives are built automatically from CVS.
+<p>These archives are built automatically from SVN.
 <strong>They are likely to be unstable and may crash your machine.</strong></p>
 
 <p id="newtonetsurf"><strong>New to NetSurf?</strong> Get
@@ -70,5 +70,5 @@ class="highlight">Tinct</a>.</li>
 
 <!-- <p><strong>Optional:</strong> download and install the <a href="nsfonts.zip">fonts (360k)</a> to get improved font-family and font-variant support.</p> -->
 
-<h2>Recent CVS Activity</h2>
+<h2>Recent SVN Activity</h2>
 <p>All times are in UTC.</p>
