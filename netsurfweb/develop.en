@@ -15,21 +15,10 @@
 in contributing to NetSurf.</p>
 
 
-<h2><abbr title="Subversion">SVN</abbr></h2>
+<h2>Subversion</h2>
 
-<p>The source is kept in <abbr title="Subversion">SVN</abbr>.
-It can be accessed read-only using the following parameters:</p>
-
-<table>
-<tr><td>Protocol</td><td>pserver</td></tr>
-<tr><td>Host</td><td><code>semichrome.net</code></td></tr>
-<tr><td>Path</td><td><code>/home/netsurf/cvs</code></td></tr>
-<tr><td>Module</td><td><code>netsurf</code></td></tr>
-<tr><td>Username</td><td><code>anonymous</code></td></tr>
-<tr><td>Password</td><td>(blank password)</td></tr>
-</table>
-
-<p>To check the source out using command-line SVN:</p>
+<p>The source is kept in a Subversion repository. To check the source out
+use the command:</p>
 
 <p><code>$ <strong>svn checkout svn://semichrome.net/trunk/netsurf</strong>
 </code></p>
@@ -45,7 +34,8 @@ An <a href="http://cia.navi.cx/stats/project/NetSurf/.rss">RSS feed of
 changes</a> is available.
 Checkins are reported on <abbr title="Internet Relay Chat">IRC</abbr> in
 real-time on <code>#netsurf</code> on
-<a href="http://freenode.net/">FreeNode</a>.</p>
+<a href="http://freenode.net/">FreeNode</a>, and to the
+<a href="http://lists.sourceforge.net/lists/listinfo/netsurf-commits">netsurf-commits mailing list</a>.</p>
 
 <p>Contact <a href="mailto:james&#64;semichrome.net">James</a> to get write
 access.</p>
