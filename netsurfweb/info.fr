@@ -92,7 +92,7 @@
 <ol>
 <li>vérifier que la bogue se produit aussi avec la dernière version <a href="http://netsurf.sourceforge.net/builds/">disponible en téléchargement</a>.</li>
 <li>essayer de trouver un moyen de déclenchement reproductible de la bogue.</li>
-<li>vérifier la page d'<a href="progress">avancement</a> et <a href="http://cvs.semichrome.net/netsurf/Docs/">les listes TODO</a> pour vérifier que quelque chose a bien été implémenté.</li>
+<li>vérifier la page d'<a href="progress">avancement</a> et <a href="http://svn.semichrome.net/trunk/netsurf/Docs/">les listes TODO</a> pour vérifier que quelque chose a bien été implémenté.</li>
 </ol>
 
 <p>Lors du rapport de bogues, veuillez s'il vous plaît:</p>
@@ -110,7 +110,7 @@
 
 <h2 id="FeatureRequests">Demandes de fonctionnalités nouvelles</h2>
 
-<p>L'équipe de NetSurf accueille toute suggestion ou idée innovatrice afin d'améliorer le confort de navigation. Avant de faire des suggestions, allez d'abord voir la page d'<a href="progress">avancement</a> et <a href="http://cvs.semichrome.net/netsurf/Docs/">les listes TODO</a> pour vérifier que la fonctionnalité n'est pas déjà prévue. Des suggestions peuvent être faites sur la <a href="#Devel">liste de diffusion</a>. Veuillez noter que tous les messages postés sur la liste de diffusion sont lus et enregistrés par les développeurs de NetSurf, même si vous n'obtenez aucune réponse.</p>
+<p>L'équipe de NetSurf accueille toute suggestion ou idée innovatrice afin d'améliorer le confort de navigation. Avant de faire des suggestions, allez d'abord voir la page d'<a href="progress">avancement</a> et <a href="http://svn.semichrome.net/trunk/netsurf/Docs/">les listes TODO</a> pour vérifier que la fonctionnalité n'est pas déjà prévue. Des suggestions peuvent être faites sur la <a href="#Devel">liste de diffusion</a>. Veuillez noter que tous les messages postés sur la liste de diffusion sont lus et enregistrés par les développeurs de NetSurf, même si vous n'obtenez aucune réponse.</p>
 
 <h2 id="JavaScript">JavaScript</h2>
 

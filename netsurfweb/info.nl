@@ -95,7 +95,7 @@
 <ol>
 <li>Controleer dat de fout voorkomt in de <a href="http://netsurf.strcprstskrzkrk.co.uk/"><strong>laatst beschikbare versie</strong></a>.</li>
 <li>Probeer een manier te vinden om de fout structureel te verhelpen.</li>
-<li>Controleer het <a href="progress">voortgang</a>hoofdstuk en de <a href="http://cvs.semichrome.net/netsurf/Docs/"><strong>Te doen</strong></a>-lijsten om na te gaan of de fout kortgeleden reeds is gemeld en/of verholpen.</li>
+<li>Controleer het <a href="progress">voortgang</a>hoofdstuk en de <a href="http://svn.semichrome.net/trunk/netsurf/Docs/"><strong>Te doen</strong></a>-lijsten om na te gaan of de fout kortgeleden reeds is gemeld en/of verholpen.</li>
 </ol>
 
 <p>Voeg bij het melden van fouten de volgende informatie toe:</p>
@@ -113,7 +113,7 @@
 
 <h2 id="FeatureRequests">Toekomstwensen</h2>
 
-<p>Het NetSurf-team heeft veel belangstelling voor toekomstwensen en vernieuwende idee&euml;n ter verbetering van blader[brow]experimenten. Kijk eerst in het <a href="progress">voortgang</a>hoofdstuk en de <a href="http://cvs.semichrome.net/netsurf/Docs/"><strong>Te doen</strong></a>-lijsten om te zien wat er al staat gepland. Suggesties kunnen verzonden worden naar de <a href="info#Devel">verzendlijst</a>. Alle ingezonden informatie wordt gelezen en beoordeeld door de NetSurf-ontwikkelaars.</p>
+<p>Het NetSurf-team heeft veel belangstelling voor toekomstwensen en vernieuwende idee&euml;n ter verbetering van blader[brow]experimenten. Kijk eerst in het <a href="progress">voortgang</a>hoofdstuk en de <a href="http://svn.semichrome.net/trunk/netsurf/Docs/"><strong>Te doen</strong></a>-lijsten om te zien wat er al staat gepland. Suggesties kunnen verzonden worden naar de <a href="info#Devel">verzendlijst</a>. Alle ingezonden informatie wordt gelezen en beoordeeld door de NetSurf-ontwikkelaars.</p>
 
 <h2 id="Unicode">Lettertypes</h2>
 

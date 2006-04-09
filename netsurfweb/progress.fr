@@ -11,7 +11,7 @@
 
 <h1>État d'avancement</h1>
 
-<p>Cette page a été créee pour informer les utilisateurs sur les fonctions implémentées et ce sur quoi il reste à travailler. Pour des informations plus précises, veuillez consulter <a href="http://cvs.semichrome.net/netsurf/Docs/">les listes TODO</a>. Les fonctions sont réparties comme suit:</p>
+<p>Cette page a été créee pour informer les utilisateurs sur les fonctions implémentées et ce sur quoi il reste à travailler. Pour des informations plus précises, veuillez consulter <a href="http://svn.semichrome.net/trunk/netsurf/Docs/">les listes TODO</a>. Les fonctions sont réparties comme suit:</p>
 
 <ul>
 <li><a href="#Web">Standards du Web</a>
@@ -28,9 +28,9 @@
 <table class="progress">
 <tr><th>Titre</th><th>État</th><th>Remarques</th></tr>
 <tr class="inprogress"><td>Cookies</td><td>En cours</td><td>Pas d'expiration.</td></tr>
-<tr class="nearlydone"><td>CSS 1</td><td>Presque fini</td><td>Voir la <a href="http://cvs.semichrome.net/netsurf/Docs/TODO-CSS?rev=HEAD&amp;content-type=text/vnd.viewcvs-markup">liste TODO</a>.</td></tr>
-<tr class="inprogress"><td>CSS 2</td><td>En cours</td><td>Voir la <a href="http://cvs.semichrome.net/netsurf/Docs/TODO-CSS?rev=HEAD&amp;content-type=text/vnd.viewcvs-markup">liste TODO</a>.</td></tr>
-<tr class="nearlydone"><td>HTML 4</td><td>Presque fini</td><td>Voir la <a href="http://cvs.semichrome.net/netsurf/Docs/TODO-HTML?rev=HEAD&amp;content-type=text/vnd.viewcvs-markup">liste TODO</a>.</td></tr>
+<tr class="nearlydone"><td>CSS 1</td><td>Presque fini</td><td>Voir la <a href="http://svn.semichrome.net/trunk/netsurf/Docs/TODO-CSS?view=markup">liste TODO</a>.</td></tr>
+<tr class="inprogress"><td>CSS 2</td><td>En cours</td><td>Voir la <a href="http://svn.semichrome.net/trunk/netsurf/Docs/TODO-CSS?view=markup">liste TODO</a>.</td></tr>
+<tr class="nearlydone"><td>HTML 4</td><td>Presque fini</td><td>Voir la <a href="http://svn.semichrome.net/trunk/netsurf/Docs/TODO-HTML?view=log">liste TODO</a>.</td></tr>
 <tr class="complete"><td>HTTP 1.1</td><td>Terminé</td><td></td></tr>
 <tr class="inprogress"><td>Authentification HTTP</td><td>En cours</td><td></td></tr>
 <tr class="nearlydone"><td>HTTPS</td><td>Presque fini</td><td>Ne gère pas bien les certificats invalides.</td></tr>

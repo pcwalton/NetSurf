@@ -12,7 +12,7 @@
 
 <h1>Versions Test de NetSurf</h1>
 
-<p>Ces archives sont créees automatiquement depuis CVS.
+<p>Ces archives sont créees automatiquement depuis SVN.
 <strong>Elles ont des chances d'être instables et peuvent planter votre machine.</strong></p>
 
 <p id="newtonetsurf"><strong>New to NetSurf?</strong> Get
@@ -69,5 +69,5 @@ class="highlight">Tinct</a>.</li>
 
 <!-- <p><strong>Optional:</strong> download and install the <a href="nsfonts.zip">fonts (360k)</a> to get improved font-family and font-variant support.</p> -->
 
-<h2>Activité CVS récente</h2>
+<h2>Activité SVN récente</h2>
 <p>Toutes les dates sont en UTC.</p>

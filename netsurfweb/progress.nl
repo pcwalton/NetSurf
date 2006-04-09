@@ -50,9 +50,9 @@ Laatste vertaling: 17 juni 2005</p>
 <table class="progress">
   <tr><th>Titel</th><th>Status</th><th>Toelichting</th></tr>
   <tr class="inprogress"><td>Cookies</td><td>In ontwikkeling </td><td>Geldigheidsduur verloopt niet</td></tr>
-  <tr class="nearlydone"><td>CSS 1</td><td>Bijna klaar</td><td>Zie: <a href="http://cvs.semichrome.net/netsurf/Docs/TODO-CSS?rev=HEAD&amp;content-type=text/vnd.viewcvs-markup"><strong>Te doen</strong></a>-lijst.</td></tr>
-<tr class="inprogress"><td>CSS 2</td><td>In ontwikkeling</td><td>Zie: <a href="http://cvs.semichrome.net/netsurf/Docs/TODO-CSS?rev=HEAD&amp;content-type=text/vnd.viewcvs-markup"><strong>Te doen</strong></a>-lijst.</td></tr>
-<tr class="nearlydone"><td>HTML 4</td><td>Bijna klaar</td><td>Zie: <a href="http://cvs.semichrome.net/netsurf/Docs/TODO-HTML?rev=HEAD&amp;content-type=text/vnd.viewcvs-markup"><strong>Te doen</strong></a>-lijst. Nog geen ondersteuning voor geordende lijsten.</td></tr>
+  <tr class="nearlydone"><td>CSS 1</td><td>Bijna klaar</td><td>Zie: <a href="http://svn.semichrome.net/trunk/netsurf/Docs/TODO-CSS?view=markup"><strong>Te doen</strong></a>-lijst.</td></tr>
+<tr class="inprogress"><td>CSS 2</td><td>In ontwikkeling</td><td>Zie: <a href="http://svn.semichrome.net/trunk/netsurf/Docs/TODO-CSS?view=markup"><strong>Te doen</strong></a>-lijst.</td></tr>
+<tr class="nearlydone"><td>HTML 4</td><td>Bijna klaar</td><td>Zie: <a href="http://svn.semichrome.net/trunk/netsurf/Docs/TODO-HTML?view=log"><strong>Te doen</strong></a>-lijst. Nog geen ondersteuning voor geordende lijsten.</td></tr>
 <tr class="complete"><td>HTTP 1.1</td><td>Klaar</td><td></td></tr>
 <tr class="inprogress"><td>HTTP-controle</td><td>In ontwikkeling</td><td></td></tr>
 <tr class="nearlydone"><td>HTTPS</td><td>Bijna klaar</td><td>Gaat niet goed om met ongeldige certificaten.</td></tr>

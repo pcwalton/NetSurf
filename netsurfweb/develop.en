@@ -15,9 +15,9 @@
 in contributing to NetSurf.</p>
 
 
-<h2><abbr title="Concurrent Versions System">CVS</abbr></h2>
+<h2><abbr title="Subversion">SVN</abbr></h2>
 
-<p>The source is kept in <abbr title="Concurrent Versions System">CVS</abbr>.
+<p>The source is kept in <abbr title="Subversion">SVN</abbr>.
 It can be accessed read-only using the following parameters:</p>
 
 <table>
@@ -29,16 +29,12 @@ It can be accessed read-only using the following parameters:</p>
 <tr><td>Password</td><td>(blank password)</td></tr>
 </table>
 
-<p>To check the source out using command-line CVS:</p>
+<p>To check the source out using command-line SVN:</p>
 
-<p><code>$ <strong>cvs -d :pserver:anonymous@semichrome.net:/home/netsurf/cvs
-login</strong><br>
-Logging in to :pserver:anonymous@semichrome.net:2401/home/netsurf/cvs<br>
-CVS password: <strong>(press return)</strong><br>
-$ <strong>cvs -d :pserver:anonymous@semichrome.net:/home/netsurf/cvs checkout
-netsurf</strong></code></p>
+<p><code>$ <strong>svn checkout svn://semichrome.net/trunk/netsurf</strong>
+</code></p>
 
-<p>There is a <a href="http://cvs.semichrome.net/netsurf/">web
+<p>There is a <a href="http://svn.semichrome.net/trunk/netsurf/">web
 interface</a> to the repository.
 Recent changes can be seen on the
 <a href="http://netsurf.sourceforge.net/builds/">autobuilder</a>
@@ -64,7 +60,7 @@ either native or cross-compiling from Linux or Unix using gccsdk. A guide to
 of the required libraries.</p>
 
 <p>The <a href="http://netsurf.sourceforge.net/builds/">autobuilder</a> compiles
-NetSurf every 15 minutes if changes have been checked into CVS.</p>
+NetSurf every 15 minutes if changes have been checked into SVN.</p>
 
 <p>A debug version of NetSurf can be built. This is command-line only and does
 not include any of gui code, but runs natively on Linux so can be debugged and

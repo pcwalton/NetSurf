@@ -12,7 +12,7 @@
 
 <h1>NetSurf Testversionen</h1>
 
-<p>Diese Dateien werden automatisch aus dem CVS Quellcode erzeugt.
+<p>Diese Dateien werden automatisch aus dem SVN Quellcode erzeugt.
 <strong>Sie sind als instabil anzusehen und können jederzeit zum Absturz des Computers führen.</strong></p>
 
 <p id="newtonetsurf"><strong>Ganz neu bei NetSurf ?</strong> Lade <span class="highlight">NetSurf</span> von hier und dazu die <span class="highlight">fünf unten aufgeführten Dateien</span>.</p>
@@ -67,5 +67,5 @@ href="http://netsurf.sourceforge.net/iconv/iconv007g.zip">A9home version</a> of 
 
 <!-- <p><strong>Optional:</strong> download and install the <a href="nsfonts.zip">fonts (360k)</a> to get improved font-family and font-variant support.</p> -->
 
-<h2>Letzte CVS Aktivitäten</h2>
+<h2>Letzte SVN Aktivitäten</h2>
 <p>Alle Zeitangaben in UTC.</p>
