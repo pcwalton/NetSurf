@@ -6,6 +6,7 @@
 <style type="text/css">
 html, body { margin: 0; padding: 0; }
 div { margin:0 5mm; }
+th { text-align: left; }
 .banner { margin: 0 0 5mm 0; padding: 0; border-bottom: medium solid black; background-color: #94adff; color: black; text-align: left; }
 .banner img { vertical-align: middle; border: none; }
 .updated { margin: -4mm 0 1mm 5mm; text-align: right; }
