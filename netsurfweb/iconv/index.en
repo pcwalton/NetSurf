@@ -34,9 +34,9 @@ dd > p + p { margin: 1em 0 0 0; padding: 0; }
 
 <h2>Download</h2>
 
-<p>Please <a href="iconv/iconv_latest.zip">download iconv</a> and follow the <strong>two installation steps</strong> above.</p>
+<p>Please <a href="iconv_latest.zip">download iconv</a> and follow the <strong>two installation steps</strong> above.</p>
 
-<p>Separate <a href="iconv/iconv007g.zip">A9home version of iconv</a> available.</p>
+<p>Separate <a href="iconv007g.zip">A9home version of iconv</a> available.</p>
 
 <h2>Contact</h2>
 
