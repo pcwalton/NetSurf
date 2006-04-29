@@ -1,0 +1,46 @@
+<html>
+<head>
+<title>Iconv for RISC OS</title>
+<style>
+html, body { padding: 0; margin: 0; }
+body { background-color: #ffd; color: #500; }
+h1 { font-size:200%; background-color: #500; color: #ffd; padding: 0.9em; margin: 0; }
+h2 { font-size:150%; border-left: 1em solid #500; padding-left:0.2em;}
+p { margin: 1em 1.8em 0em 1.8em; }
+p strong { color: #800; font-weight: bold; }
+dl { margin: 0 1.8em; padding: 0; }
+dt { background-color: #611; color: #ffd; width: 40%; margin:1em 0 0 0; padding: 2px; overflow: visible; }
+dt > span { display: table-cell; width: 1.5em; padding: 0; font-style: italic; font-weight: normal; background-color: inherit;}
+dt > span + span { width: auto; font-style: normal; font-weight: bold;}
+dd { padding: 0.5em 2px 2px 1.2em; background-color: #fdb; margin: 0; }
+dd > p { margin: 0; padding: 0; }
+dd > p + p { margin: 1em 0 0 0; padding: 0; }
+</style>
+</head>
+<body>
+
+<h1>Iconv for RISC OS</h1>
+
+<h2>Installation</h2>
+
+<p><strong>You must</strong> follow these <strong>two steps</strong> carefully or <strong>installation will fail</strong>:</p>
+
+<dl>
+<dt><span>1. </span><span>Merge !System directory</span></dt>
+<dd>Use the <strong>System merge</strong> utility provided by Configure to merge the supplied !System directory with the one on your system.</dd>
+<dt><span>2. </span><span>Merge !Boot directory<span></dt>
+<dd><p>Use the <strong>Boot merge</strong> facility in Configure to merge the supplied !Boot directory with the one on your system.</p><p>If there is no Boot merge facility provided on your system, simply drag the supplied !Boot directory over your existing boot structure.</p></dd>
+</dl>
+
+<h2>Download</h2>
+
+<p>Please <a href="iconv/iconv_latest.zip">download iconv</a> and follow the <strong>two installation steps</strong> above.</p>
+
+<p>Separate <a href="iconv/iconv007g.zip">A9home version of iconv</a> available.</p>
+
+<h2>Contact</h2>
+
+<p>Please report any problems with this module directly to <a href="mailto:jmb202@ecs.soton.ac.uk">John-Mark Bell</a>.</p>
+
+</body>
+</html>

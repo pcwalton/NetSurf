@@ -56,9 +56,8 @@
  class="highlight">SharedUnixLibrary</a>.</li>
 <li><a href="http://sudden.recoil.org/others/"
  class="highlight">AcornURI</a>.</li>
-<li><a href="http://netsurf.sourceforge.net/iconv/iconv_latest.zip"
- class="highlight">Iconv</a>. Separate <a
-href="http://netsurf.sourceforge.net/iconv/iconv007g.zip">A9home version</a> of iconv available.</li>
+<li><a href="/iconv"
+ class="highlight">Iconv</a>.</li>
 <li><a href="http://www.tinct.net/tinct.asp"
  class="highlight">Tinct</a>.</li>
 </ul>
