@@ -21,7 +21,7 @@
 <li><a href="#NSF">NetSurf features</a>
 </ul>
 
-<p class="updated">Last updated 06 April 2006</p>
+<p class="updated">Last updated 30 April 2006</p>
 
 <h2 id="Web">Web standards</h2>
 
@@ -86,13 +86,13 @@
 <tr class="complete"><td>Configuration</td><td>Complete</td><td></td></tr>
 <tr class="notstarted"><td>Disc Cache</td><td>Not started</td><td></td></tr>
 <tr class="complete"><td>Dithering</td><td>Complete</td><td>Gives improved rendering in sub true colour screen modes.<br>Both simple dithering and error diffusion available.</td></tr>
-<tr class="inprogress"><td>Documentation</td><td>In progress</td><td>See the <a href="docs">contents page</a>.</td></tr>
+<tr class="nearlydone"><td>Documentation</td><td>Nearly done</td><td>See the <a href="docs">contents page</a>.</td></tr>
 <tr class="nearlydone"><td>Find Text</td><td>Nearly done</td><td>Doesn't find phrases if they are split across lines.</td></tr>
 <tr class="nearlydone"><td>Full Save</td><td>Nearly done</td><td>Save pages with CSS files and images.<br>Doesn't rewrite URLs for CSS background images.</td></tr>
 <tr class="nearlydone"><td>History (Global)</td><td>Nearly done</td><td>Details in the <a href="guide#History">User Guide</a>.</td></tr>
-<tr class="complete"><td>History (Local)</td><td>Complete</td><td>Local window history is not yet cloned when adjust clicking a link.<br>Details in the <a href="guide#History">User Guide</a>.</td></tr>
+<tr class="complete"><td>History (Local)</td><td>Complete</td><td>Details in the <a href="guide#History">User Guide</a>.</td></tr>
 <tr class="nearlydone"><td>Hotlist</td><td>Nearly done</td><td>Details in the <a href="guide#Hotlist">User Guide</a>.</td></tr>
-<tr class="inprogress"><td>Interactive Help</td><td>In progress</td><td></td></tr>
+<tr class="nearlydone"><td>Interactive Help</td><td>Nearly done</td><td></td></tr>
 <tr class="complete"><td>Memory Cache</td><td>Complete</td><td></td></tr>
 <tr class="inprogress"><td>Printing</td><td>In progress</td><td>Printing on RISC OS 5 doesn't work, due to lack of support in the Font Manager and printer drivers.</td></tr>
 <tr class="inprogress"><td>Proxy Support</td><td>In progress</td><td>Protocols other than HTTP are incorrectly proxied.</td></tr>
