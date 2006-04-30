@@ -958,7 +958,7 @@
 <li><span><a href="#ConfigurationGlobalConnection"><img src="images/connect.png" alt=""></a></span><a href="#ConfigurationGlobalConnection">Connection</a></li>
 <li><span><a href="#ConfigurationGlobalContent"><img src="images/content.png" alt=""></a></span><a href="#ConfigurationGlobalContent">Content</a></li>
 <li><span><a href="#ConfigurationGlobalFonts"><img src="images/fonts.png" alt=""></a></span><a href="#ConfigurationGlobalFonts">Fonts</a></li>
-<li><span><a href="#ConfigurationGlobalHome"><img src="images/home.png" alt=""></a></span><a href="#ConfigurationGlobalHome">Home page</a></li>
+<li><span><a href="#ConfigurationGlobalHome"><img src="images/homeconf.png" alt=""></a></span><a href="#ConfigurationGlobalHome">Home page</a></li>
 <li><span><a href="#ConfigurationGlobalImages"><img src="images/images.png" alt=""></a></span><a href="#ConfigurationGlobalImages">Images</a></li>
 <li><span><a href="#ConfigurationGlobalInterface"><img src="images/interface.png" alt=""></a></span><a href="#ConfigurationGlobalInterface">Interface</a></li>
 <li><span><a href="#ConfigurationGlobalLanguage"><img src="images/language.png" alt=""></a></span><a href="#ConfigurationGlobalLanguage">Language</a></li>
