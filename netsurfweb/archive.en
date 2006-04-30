@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+        "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>NetSurf | News Archive</title>
+<link rel="stylesheet" type="text/css" href="netsurf.css">
+</head>
+
+<body>
+<p class="banner"><a href="/"><img src="netsurf.png" alt="NetSurf: Web Browser for RISC OS"></a></p>
+
+<h1>News Archive</h1>
+
+<p>This is the NetSurf news archive. For the most up to date news about NetSurf, see the <a href="/">front page</a>.</p>
+
+<div class="newsitem">
+<p>26 Feb 2006 - <em>Summary of recent changes</em></p>
+<p>Image efficiency, SSL certificates, BMP and ICO images</p>
+<p class="more"><a href="http://sourceforge.net/mailarchive/message.php?msg_id=14929920">Read more...</a></p>
+</div>
+
+<div class="newsitem">
+<p>19 Feb 2006 - <em>Summary of recent changes</em></p>
+<p>Text selection, searching, HTTP authentication</p>
+<p class="more"><a href="http://sourceforge.net/mailarchive/message.php?msg_id=14858515">Read more...</a></p>
+</div>
+
+<div class="newsitem">
+<p>12 Feb 2006 - <em>Summary of recent changes</em></p>
+<p>File overwrite confirmation, Textareas, Faster plain text display</p>
+<p class="more"><a href="http://sourceforge.net/mailarchive/message.php?msg_id=14782944">Read more...</a></p>
+</div>
+
+<div class="newsitem">
+<p>06 Feb 2006 - <em>Summary of recent changes</em></p>
+<p>Drag-saving, HTTP caching, Font scanning</p>
+<p class="more"><a href="http://sourceforge.net/mailarchive/message.php?msg_id=14719844">Read more...</a></p>
+</div>
+
+<div class="newsitem">
+<p>29 Jan 2006 - <em>Summary of recent changes</em></p>
+<p>Meta refresh, GIF decoding, Fonts</p>
+<p class="more"><a href="http://sourceforge.net/mailarchive/message.php?msg_id=14634357">Read more...</a></p>
+</div>
+
+<div class="newsitem">
+<p>01 Jan 2006 - <em>Best of 2005 awards</em></p>
+<p>NetSurf comes runner up in two categories.</p>
+<p class="more"><a href="#Awards">Read more...</a></p>
+</div>
+
+<div class="newsitem">
+<p>25 Aug 2005 - <em>NetSurf review</em></p>
+<p>Drobe Launchpad compare NetSurf, Firefox and Oregano2.</p>
+<p class="more"><a href="http://www.drobe.co.uk/riscos/artifact1424.html">Read more...</a></p>
+</div>
+
+<div class="newsitem">
+<p>18 Apr 2005 - <em>Summary of recent changes</em></p>
+<p>Text selection, drag scrolling, drag-saving</p>
+<p class="more"><a href="http://sourceforge.net/mailarchive/message.php?msg_id=11513134">Read more...</a></p>
+</div>
+
+<div class="newsitem">
+<p>06 Feb 2005 - <em>Summary of recent changes</em></p>
+<p>URL completion, IEURL files, themes</p>
+<p class="more"><a href="http://sourceforge.net/mailarchive/message.php?msg_id=10766059">Read more...</a></p>
+</div>
+
+<div class="newsitem">
+<p>23 Jan 2005 - <em>Themes now available</em></p>
+<p>Two new themes by Richard Hallas are now available from the themes page.</p>
+<p class="more"><a href="themes/">Read more...</a></p>
+</div>
+
+<div class="footer">
+<p class="breadcrumbs"><a href="/">NetSurf</a> » News Archive</p>
+</div>
+
+</body>
+</html>
