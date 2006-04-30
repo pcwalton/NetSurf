@@ -1,6 +1,11 @@
 html, body { margin: 0; padding: 0; }
 h1, h2, h3, h4, h5, .breadcrumbs { font-family: sans-serif; }
 h1, h2, h3, h4, h5, p, dl, table, ul, ol, pre, address, div.footer { margin: 0 5mm 5mm 5mm; }
+h1 { font-size: 200%; font-weight: bold; }
+h2 { font-size: 170%; }
+h3 { font-size: 140%; font-weight: bold; }
+h4 { font-size: 120%; font-weight: bold; }
+h5 { font-size: 120%; font-style: italic; }
 h2, div.footer, .thanks { padding-top: 5mm; border-top: thin solid black; }
 img { border: none; }
 dl { display: block; padding-left: 0em; }
@@ -50,6 +55,15 @@ td { padding: 3px; }
 .menutitle { background-color: #ccc; font-variant: small-caps; text-align: center; border-bottom: 1px solid black; font-weight: normal; }
 .menusplit { border-top: 1px dashed black; }
 .menuarrow { text-align: right; }
+
+.window { border: #000 solid 1px; background-color: #ddd; display: block; width: 70%; margin: 0 auto 1em auto; padding: 1em 0 0.5em 0.5em; }
+.window ul { display: block; padding: 0; margin: 0;}
+.window li { display: block; float: left; width: 6em; text-align: center; background: #ddd; padding: 0; margin: 0 0.5em 1.1em 0; padding: 0; }
+.window li > span { display: block; margin: 0 auto 0.3em auto; }
+.window p { clear: both; text-align: right; font-style: italic; margin: 0 1em 0 0; }
+.window span a { text-decoration: none; }
+
+.option_group { margin: 0 5mm 5mm 5mm; border-left: 1px #777 solid; }
 
 .themename { padding-top: 5mm; margin-bottom: 3mm; border-top: thin solid #ddd; }
 .themeimage { padding-bottom: 3mm; margin-bottom: 0; }

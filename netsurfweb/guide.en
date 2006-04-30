@@ -43,13 +43,13 @@
 </ul></li>
 <li><a href="#Configuration">Configuration</a>
 <ul>
-<li><a href="#ConfigurationGlobal">Global choices</a></li>
+<li><a href="#ConfigurationGlobal">Global configuration</a></li>
 <li><a href="#ConfigurationToolbar">Toolbar customization</a></li>
 </ul></li>
 <li><a href="#Keys">Keyboard shortcuts</a></li>
 </ul>
 
-<p class="updated">Last updated 26 April 2005</p>
+<p class="updated">Last updated 30 April 2006</p>
 
 <h2 id="UsingNetSurf">Using NetSurf</h2>
 
@@ -147,7 +147,7 @@
 
 <!-- <p class="iconinfo"><strong><img src="images/up" class="icon" alt="Up" title="Up Button"></strong> Clicking on this button moves up the directory tree. For example, if you are looking at <em>http://www.domain.com/directory/page.html</em>, clicking on the up icon takes you to <em>http://www.domain.com/directory/</em> and a further click would result in a location of <em>http://www.domain.com/</em>.</p> -->
 
-<p>Icons that are greyed out indicate that their function is unavailable. This happens when a new browser window is first opened. Since the window will be displaying its first page, there would be no previous page and the back button is grayed out. Also, as this is the first page, the forward button is also grayed out.</p>
+<p>Icons that are greyed out indicate that their function is unavailable. This happens when a new browser window is first opened. Since the window will be displaying its first page, there would be no previous page and the back button is greyed out. Also, as this is the first page, the forward button is also greyed out.</p>
 
 <p><strong>Throbber:</strong> This NetSurf logo animates while a page is downloading or rendering. It indicates that NetSurf is doing something.</p>
 
@@ -792,7 +792,7 @@
 
 <p>The hotlist display works in a similar way to a filer window, although there are some important differences. Directories are not opened in new windows. Instead, the whole hotlist is displayed in one window and directories represented by branches in a tree diagram. Double clicking on a closed directory will open it, displaying its contents as a new branch. Double clicking on an open directory will close it. When addresses are double clicked on, their URL is launched by NetSurf.</p>
 
-<p>Next to the address and directory icons there are toggle boxes, which can be used to expand and collapse branches in the hotlist tree. Clicking on the branch toggle boxes next to directories has exactly the same effect as double clicking on a directory. Expanding an address with the branch toggle box displays the other information it contains, such as the URL and it's usage statistics. The space bar can also be used to expand or collapse selected addresses.</p>
+<p>Next to the address and directory icons there are toggle boxes, which can be used to expand and collapse branches in the hotlist tree. Clicking on the branch toggle boxes next to directories has exactly the same effect as double clicking on a directory. Expanding an address with the branch toggle box displays the other information it contains, such as the URL and its usage statistics. The space bar can also be used to expand or collapse selected addresses.</p>
 
 <p>As with filer windows, selections can be made by dragging selection boxes and adjust clicking can be used to add or remove items from the selection. Selections can then be dragged and dropped within the hotlist management window to move them around. It is possible to drop a selection into a closed directory by releasing it over the bottom half of the target directory. Dropping the selection over the top half of a directory or address will insert the selection above that item. Finally, dropping a selection over the lower half of an address will move it below the address.</p>
 
@@ -948,111 +948,336 @@
 
 <p>Toolbars can be customized to contain only the icons you want, in the order you want, in toolbar edit mode. This is covered in the <a href="#ConfigurationToolbar">toolbar customization</a> section.</p>
 
-<h3 id="ConfigurationGlobal">Global Choices</h3>
+<h3 id="ConfigurationGlobal">Global Configuration</h3>
 
 <p>The configuration panel is opened from the <a href="#IconbarMenuChoices">iconbar menu</a>.</p>
 
-<p>The Cancel button will close the window, discarding any changes you've made. Clicking on OK will save the new settings and close the window. The configuration options have been split into the following groups.</p>
-
+<div class="window">
 <ul>
-<li><a href="#ConfigurationGlobalBrowser">Browser</a></li>
-<li><a href="#ConfigurationGlobalNetwork">Network</a></li>
-<li><a href="#ConfigurationGlobalThemes">Themes</a></li>
-<li><a href="#ConfigurationGlobalFonts">Fonts</a></li>
-<li><a href="#ConfigurationGlobalImages">Images</a></li>
+<li><span><a href="#ConfigurationGlobalCache"><img src="images/cache.png" alt=""></a></span><a href="#ConfigurationGlobalCache">Cache</a></li>
+<li><span><a href="#ConfigurationGlobalConnection"><img src="images/connect.png" alt=""></a></span><a href="#ConfigurationGlobalConnection">Connection</a></li>
+<li><span><a href="#ConfigurationGlobalContent"><img src="images/content.png" alt=""></a></span><a href="#ConfigurationGlobalContent">Content</a></li>
+<li><span><a href="#ConfigurationGlobalFonts"><img src="images/fonts.png" alt=""></a></span><a href="#ConfigurationGlobalFonts">Fonts</a></li>
+<li><span><a href="#ConfigurationGlobalHome"><img src="images/home.png" alt=""></a></span><a href="#ConfigurationGlobalHome">Home page</a></li>
+<li><span><a href="#ConfigurationGlobalImages"><img src="images/images.png" alt=""></a></span><a href="#ConfigurationGlobalImages">Images</a></li>
+<li><span><a href="#ConfigurationGlobalInterface"><img src="images/interface.png" alt=""></a></span><a href="#ConfigurationGlobalInterface">Interface</a></li>
+<li><span><a href="#ConfigurationGlobalLanguage"><img src="images/language.png" alt=""></a></span><a href="#ConfigurationGlobalLanguage">Language</a></li>
+<li><span><a href="#ConfigurationGlobalMemory"><img src="images/memory.png" alt=""></a></span><a href="#ConfigurationGlobalMemory">Memory</a></li>
+<li><span><a href="#ConfigurationGlobalSecurity"><img src="images/security.png" alt=""></a></span><a href="#ConfigurationGlobalSecurity">Security</a></li>
+<li><span><a href="#ConfigurationGlobalThemes"><img src="images/themes.png" alt=""></a></span><a href="#ConfigurationGlobalThemes">Themes</a></li>
 </ul>
 
-<h4 id="ConfigurationGlobalBrowser">Browser</h4>
+<p>NetSurf's global configuration sections</p>
+</div>
 
-<p>The Browser configuration section contains options that apply to general usage of the browser. The following options are available.</p>
+<p>Clicking on one of the section icons will open a new configuration window, allowing you to set up that particular aspect of NetSurf.</p>
 
+<p>All of NetSurf's configuration section windows have the following three buttons at the bottom.</p>
+
+<div class="option_group">
 <dl>
-<dt>Interface language</dt>
-<dd>This option allows the NetSurf's user interface language to be set. This includes menus, dialogue boxes and interactive help text.</dd>
-<dt>Preferred language of web pages</dt>
-<dd>Some web sites are available in a variety of languages. NetSurf will request that web servers send pages in the language of your choice. If your desired language is unavailable, the server will ignore the request and use a default language.</dd>
-<dt>Home page</dt>
-<dd>The home page is the page that loads when a new browser window is opened or when the &quot;Home&quot; <a href="#BrowserWindowToolbar">toolbar icon</a> is used. If this option is left blank NetSurf's welcome page is used by default.</dd>
-<dt>Open browser window on startup</dt>
-<dd>When this option is enabled a <a href="#BrowserWindow">browser window</a> is opened when NetSurf is run.</dd>
-<dt>Block advertisements</dt>
-<dd>When this option is enabled NetSurf tries to remove adverts from web pages. This can be desirable as adverts can be distracting.</dd>
-<dt>Don't start plugins</dt>
-<dd>Disable this option if you wish to use plugins with NetSurf. Plugins are external applications that handle certain file types.</dd>
+<dt>Default</dt>
+<dd>This button can be used to reset NetSurf's options, for the current configuration window, to the original values that are built into NetSurf. Use this button if you think that you have configured something wrongly and want to try the &quot;factory settings&quot;.</dd>
+<dt>Cancel</dt>
+<dd>Select clicking on this button will close the window. Any changes you have made will be discarded.<br>Adjust clicking on this button will return all the options in the window back to the last saved values, that were shown when you opened the window.</dd>
+<dt>Set</dt>
+<dd>Select clicking on this button will save your changes and close the window.<br>Adjust clicking on this button will save your changes and leave the window open.</dd>
 </dl>
+</div>
 
-<h4 id="ConfigurationGlobalNetwork">Network</h4>
+<h4 id="ConfigurationGlobalCache">Cache Configuration</h4>
 
-<p>The Network configuration window contains the following options.</p>
+<p>NetSurf keeps local copies of some content, which has been downloaded from the internet. This local copy of downloaded data is called a cache and it improves NetSurf's performance. The cache is used so that if, for example, you visit a page that contains an image and then go to another page that uses the same image, NetSurf will not need to download the same image twice.</p>
 
+<p>NetSurf has two separate caches, the memory cache and the disc cache.</p>
+
+<h5>Memory cache</h5>
+
+<p>The memory cache is used to store data related to the most recent pages you have seen. Since this data is stored in memory, it can be accessed very quickly. The memory cache is not preserved over sessions, and is lost when you quit NetSurf.</p>
+
+<div class="option_group">
 <dl>
-<dt>Use HTTP proxy</dt>
-<dd>
-<p>If your Internet Service Provider has a proxy server, enter the address and port number. If authentication is required, enter the relevant information. Your ISP will provide this information if applicable.</p>
-</dd>
-<dt>Send HTTP referer</dt>
-<dd><p>When this option is enabled, NetSurf will report referer information to remote web servers. This means that when you visit a page and click on a link to another page, the web server for the second page will be told the address of the page that you came from.</p>
-</dd>
+<dt>Size</dt>
+<dd>This option can be used to alter the size of NetSurf's memory cache. A larger cache will allow more content to be stored in memory, at the expense of greater memory usage.</dd>
 </dl>
+</div>
 
-<h4 id="ConfigurationGlobalThemes">Themes</h4>
+<h5>Disc cache</h5>
 
-<p>NetSurf allows you to change the 'look and feel' of its interface. This is done by installing and selecting themes.</p>
+<p>The disc cache is used to store content from web sites on your computer's hard disc. This allows you to return to old pages without having to download them again. The disc cache also stores other persistent data (data that is recovered next time you start NetSurf). It stores web page thumbnails for showing in <a href="#HistoryGlobal">global history</a>.</p>
 
+<div class="option_group">
 <dl>
-<dt>Manage themes</dt>
-<dd>This button opens the <em>!NetSurf.Themes</em> directory in a filer window. Drag NetSurf themes to the directory to install them. Themes can also be removed by deleting them from this directory.</dd>
-<dt>Get themes</dt>
-<dd>This button launches the <a href="http://netsurf.sourceforge.net/themes/">NetSurf themes page</a> in a new <a href="#BrowserWindow">browser window</a>.</dd>
+<dt>Duration</dt>
+<dd>This option can be used to alter the maximum length of time data will stay in the disc cache, without being used, before it is dropped from the cache. Note that files are not automatically deleted from your hard disc when they are dropped from the cache. Files in the cache are each assigned a file name. When the file is dropped from the cache its file name is freed up, so that a new file to be written to the cache can overwrite it. NetSurf does not automatically delete dropped files for performance reasons and to keep hard disc usage to a minimum. To manually delete dropped files, use the "perform maintenance button below.</dd>
+<dt>Perform maintenance</dt>
+<dd>This button can be used to delete any redundant files from NetSurf's disc cache.</dd>
 </dl>
+</div>
 
-<p>Themes are selected with radio buttons. If a theme you have just installed does not appear for selection, NetSurf needs to be told to re-scan the themes directory. It is re-scanned when the choices window is opened or by adjust clicking on the Cancel button. The currently loaded theme is cached so any updates to that theme will not be loaded until NetSurf is restarted. Alternatively, it is possible to switch to another theme, re-scan themes and then switch back.</p>
+<p class="note">At the current time the disc cache is not fully operational. It is only used for storing images.</p>
 
-<h4 id="ConfigurationGlobalFonts">Fonts</h4>
+<h4 id="ConfigurationGlobalConnection">Connection Configuration</h4>
 
-<p>The font configuration section allows you to alter the fonts NetSurf uses to display web pages. To get the best out of NetSurf's font handling capabilities, please read the <a href="info#Unicode">Fonts in NetSurf</a> section of the <a href="info">User Information</a> page.</p>
+<p>NetSurf accesses the internet by contacting remote computers. The options here can be used to configure how it does this.</p>
 
+<h5>HTTP Proxy</h5>
+
+<p>Some computers need to be connected to the internet through a proxy server. If your Internet Service Provider has a proxy server, the details can be entered here.</p>
+
+<div class="option_group">
 <dl>
-<dt>Font faces</dt>
-<dd>
-<p>The font NetSurf uses for various generic families (eg. sans-serif and monospace) can be configured. Additionally, the font used by default is set here.</p>
-</dd>
-<dt>Font size</dt>
-<dd><p>If you find the size of the text on web pages uncomfortable, it can be configured, to suit your requirements.</p>
-<dl>
-<dt>Default font size</dt>
-<dd>This is the base text size that NetSurf uses when a web page does not specify an absolute point size.</dd>
-<dt>Minimum font size</dt>
-<dd>This sets the minimum text size used when displaying web pages. It should be set to the smallest size you feel comfortable with.</dd>
+<dt>Proxy type</dt>
+<dd>This option can be used to select a proxy type. &quot;No proxy&quot; means you do not require a proxy to connect to the internet. &quot;Simple proxy&quot; means use a proxy that does not require authentication (a username and password). &quot;Basic authentication&quot; means use a proxy that requires a username and password. &quot;NTLM authentication&quot; also means use a proxy that requires a username and password. Consult your ISP to find out which option to use. If a proxy is required, &quot;Simple proxy&quot; is the most common type.</dd>
+<dt>Host</dt>
+<dd>This option can be used to set the host name for the proxy server. This option will be greyed out if &quot;No proxy&quot; has been selected above.</dd>
+<dt>Port</dt>
+<dd>This option can be used to set the port number for the proxy server. This option will be greyed out if &quot;No proxy&quot; has been selected above.</dd>
+<dt>Username</dt>
+<dd>This option can be used to set a username for use with the proxy server. This option will be greyed out unless a proxy with authentication has been selected for the proxy type.</dd>
+<dt>Password</dt>
+<dd>This option can be used to set a password for use with the proxy server. This option will be greyed out unless a proxy with authentication has been selected for the proxy type.</dd>
 </dl>
-</dd>
-</dl>
+</div>
 
-<h4 id="ConfigurationGlobalImages">Images</h4>
+<h5>Fetching</h5>
 
-<p>The Image configuration section contains options that allow the on screen rendering quality of images to be set. Foreground and background images are configured separately as it can be desirable to set higher quality but more processor intensive options for foreground images than for background images. The following options are available.</p>
+<p>The way NetSurf fetches content from the internet can be tailored to suit your hardware and the speed of your internet connection.</p>
 
+<div class="option_group">
 <dl>
-<dt>Display</dt>
-<dd>
-<p>There are four settings to choose from:</p>
+<dt>Max. fetchers</dt>
+<dd>This option can be used to set the maximum number of simultaneous fetches (downloading multiple things in parallel) that NetSurf will carry out at one time. After this limit is reached, new fetches will be queued and fetched as the current fetches are completed. High values will benefit people with fast connections and fast computers, that are able to keep up with all the incoming data.</dd>
+<dt>Fetchers per host</dt>
+<dd>This option can be used to set the maximum number of simultaneous fetches per host. This means the limit to the number of simultaneous downloads from a particular web site. Simultaneous downloads from the same host can speed up fetching web pages quite dramatically because images on the page can be fetched in parallel, rather than in series.</dd>
+<dt>Cached handles</dt>
+<dd>This option can be used to set the maximum number of persistent connections that NetSurf can maintain at any one time. Persistent connections, or &quot;Keep-Alive&quot; connections are HTTP sessions that allow multiple requests to be sent over the same connection. In some cases they have been shown to result in an almost 50% speed up in latency times for HTML documents with lots of images.</dd>
+</dl>
+</div>
+
+<h4 id="ConfigurationGlobalContent">Content Configuration</h4>
+
+<p>Content is the name given to material downloaded from the World Wide Web. It can be web pages, images, animations and more.</p>
+
+<h5>Content blocking</h5>
+
+<p>NetSurf can prevent certain types of content from loading and stop pages from performing certain actions.</p>
+
+<div class="option_group">
+<dl>
+<dt>Hide advertisements</dt>
+<dd>This option can be used to stop NetSurf from displaying advertisements on web pages. This can be useful for pages which contain distracting or obtrusive adverts. Note that NetSurf can only make an educated guess at which content is an advert and which is not. This can mean that some adverts will be fail to be blocked, or more seriously, when advertisement blocking is enabled some valid content may occasionally be blocked.</dd>
+<dt>Disable pop-up windows</dt>
+<dd>This option can be used to stop web pages from opening new browser windows on your desktop. Some pages may try to open advertisements in new windows, when you visit the page, or open some links in pop-up windows, instead of the current window. Disabling pop-ups means that the only way a new window can be opened is when a user explicitly opens it.</dd>
+<dt>Disable plug-ins</dt>
+<dd>This option can be used to disable plug-ins. Plug-ins are external applications that can handle specific types of content, for example Flash files. This option disables the use of plug-ins, meaning that NetSurf will simply not display the particular file, or use any alternative content provided by a web page.</dd>
+</dl>
+</div>
+
+<h4 id="ConfigurationGlobalFonts">Font Configuration</h4>
+
+<p>Most content and information on the World Wide Web is text. It is important to set NetSurf up so that it displays text that you find comfortable to read.</p>
+
+<h5>Font faces</h5>
+
+<p>You can set which specific font on your system that you want NetSurf to use for each of the five styles of typeface that are available for use on the World Wide Web.</p>
+
+<div class="option_group">
+<dl>
+<dt>Sans-serif</dt>
+<dd>This option can be used to select a particular sans-serif font on your system. It will be used whenever a web page specifies a sans-serif typeface. Helvetica (Homerton) is an example of a sans-serif font.</dd>
+<dt>Serif</dt>
+<dd>This option can be used to select a particular serif font on your system. It will be used whenever a web page specifies a serif typeface. Times (Trinity) is an example of a serif font.</dd>
+<dt>Monospace</dt>
+<dd>This option can be used to select a particular monospace font on your system. It will be used whenever a web page specifies a monospace typeface. Courier (Corpus) is an example of a monospace font.</dd>
+<dt>Cursive</dt>
+<dd>This option can be used to select a particular cursive font on your system. It will be used whenever a web page specifies a cursive typeface. ZapfChancery (Churchill) is an example of a cursive font.</dd>
+<dt>Fantasy</dt>
+<dd>This option can be used to select a particular fantasy font on your system. It will be used whenever a web page specifies a fantasy typeface. There is no particular style of font associated with fantasy, so any fancy looking but readable font would be apt and suitable.</dd>
+<dt>Default</dt>
+<dd>This option can be used to set the default font style. It is used when web pages do not specify a font face of their own. Sans-serif and serif are the most typical options for this setting.</dd>
+</dl>
+</div>
+
+<h5>Font size</h5>
+
+<p>The size of text used to render web pages can be controlled with the following options. It is important to ensure that the text NetSurf renders is at a size you find comfortable to read.</p>
+
+<div class="option_group">
+<dl>
+<dt>Default</dt>
+<dd>This option can be used to set the default font size. The default font size is the size at which text will be rendered whenever web pages do not specify a size. It is also the base size that is used where web sites specify relative font sizes.</dd>
+<dt>Minimum</dt>
+<dd>This option can be used to set the minimum font size. No text will be rendered smaller than this size, even if a web site specifies a smaller size. This option is used to ensure that web pages are never rendered with smaller text than you find easy to read.</dd>
+</dl>
+</div>
+
+<h4 id="ConfigurationGlobalHome">Home Page Configuration</h4>
+
+<p>The home page is the page that is opened when you open a new window from the icon bar.</p>
+
+<h5>Home page</h5>
+
+<div class="option_group">
+<dl>
+<dt>URL</dt>
+<dd>This option can be used to set NetSurf's home page address. Any address can be typed into the box, or an address can be selected from a menu of recently visited URLs. These URLs are addresses that have previously been typed into the <a href="#BrowserWindowURLBar">URL bar</a> of a NetSurf <a href="#BrowserWindow">browser window</a>.</dd>
+<dt>Open browser window on start-up</dt>
+<dd>This option can be used to make NetSurf open a new browser window on the desktop, when the application is started.</dd>
+</dl>
+</div>
+
+<h4 id="ConfigurationGlobalImages">Image Configuration</h4>
+
+<p>A great deal of content on the internet is in the form of images. NetSurf allows the display of images to be tailored to suit the hardware you use.</p>
+
+<h5>Image quality</h5>
+
+<p>NetSurf can use various different methods to display images on web pages. If you are using NetSurf in a 16 million colour screen mode, all the options will perform the same. If you use less than 16 million colours then there is a trade-off between image quality and rendering speed. The exception to this is the &quot;Use OS&quot; option, which will never display images with alpha channels (varying degrees of transparency) as well as any of the other options. The four image quality settings are described below.</p>
+
 <dl>
 <dt>Use OS</dt>
-<dd>This means RISC OS's routines (OS_SpriteOp) are used to display images, which results in poor quality (especially so for images with alpha channels as the alpha channel is emulated using standard calls) and also poor speed. This option is not recommended unless you are having problems with the other options.</dd>
+<dd>This means that RISC OS's routines (OS_SpriteOp) are used to display images. This option results in poor quality (especially so for images with alpha channels as the alpha channel is emulated using standard calls) and also poor speed. <em>This option is not recommended</em> unless you are having problems with the other options.</dd>
 <dt>Direct to screen</dt>
-<dd>This is the fastest available output, but suffers the same low quality as using the OS routines in less than 16 million colours, although images with alpha channels are rendered as well as any other image. If you're on a slow machine you may want to use this for background images.</dd>
+<dd>This is the fastest available output, but suffers the same low quality as using the OS routines in less than 16 million colours. However, this option can render images with alpha channels correctly. If you are on a slow machine you may want to use this for background images.</dd>
 <dt>Dithered</dt>
-<dd>This is a quick method of improving the display of images in screen modes with less than 16 million colours. It emulates twice as many colours as are available in the current screen mode (for less than 16 million colours). It gives a fair increase in display quality for many images and you won't notice much speed loss. If you're on a slow machine you'll probably want to use this for foreground images.</dd>
+<dd>This is a quick method for improving the display of images in screen modes with less than 16 million colours. It emulates twice as many colours as are available in the current screen mode (for less than 16 million colours). It gives a fair increase in display quality for many images and you won't notice much speed loss. If you're on a slow machine you will probably find this best for foreground images.</dd>
 <dt>Error diffused</dt>
-<dd>This is another method for improving the display of images in screen modes with less than 16 million colours. It is slower than dithering but offers the highest quality representation of images. If you run in an 8bpp screen mode then this is as aesthetically pleasing as you can get. Unfortunately, as it uses a fair few processor cycles, you may only want to use it for foreground images even on a fast machine.</dd>
+<dd>This is another method for improving the display of images in screen modes with less than 16 million colours. It is slower than dithering but offers the highest quality representation of images. If you run in an 8bpp (256 colour) screen mode then this is as aesthetically pleasing as you can get. As it is slower than the other options, you may only want to use it for foreground images, even on a medium powered machine (such as a SA RiscPC).</dd>
 </dl>
-<p>Note that if you are using a 16 million colour mode then neither error diffusion or dithering will be used, even if one of these options is selected, because all possible colours can be displayed directly. Naturally, use of a 16 million colour million colour screen mode gives the best possible display.</p>
-</dd>
-<dt>Use bi-linear filtering</dt>
-<dd>Enable this option to smooth the rendering of scaled images. This improves the display of images that aren't rendered at a 1:1 image pixel to screen pixel ratio and improves the display in rectangular pixel modes. Note that this option is quite processor intensive and is only recommended for fast machines.</dd>
-<dt>Allow ViewFinder optimisation</dt>
-<dd>Enable this option, if you have a ViewFinder card, to cache images and thus speed up image plotting.</dd>
+
+<p>Note that if you are using a 16 million colour mode then neither error diffusion or dithering will be used, even if one of these options is selected. This is because all possible colours can be displayed directly. Naturally, use of a 16 million colour million colour screen mode gives the best possible display, if you have the image quality setting set to &quot;Direct to screen&quot;, &quot;Dithered&quot; and &quot;Error diffused&quot;. If you use 16 million colours and have a fast machine, it is best to use &quot;Error diffused&quot;, so that if you ever drop to a low colour screen mode you still get the best available image quality.</p>
+
+<div class="option_group">
+<dl>
+<dt>Foreground</dt>
+<dd>This option can be used to set the type of rendering to be used for foreground images. Since foreground images are often important features of web pages and cover relatively small areas, it is worth setting this setting as high as you can get away with on your hardware. For details on what each of the options actually does, see the notes above.</dd>
+<dt>Background</dt>
+<dd>This option can be used to set the type of rendering to be used for background images. Since background images are rarely vital features of web pages and can cover large areas, it would be wise to set this setting to a lower quality than for foreground images, if you are not running NetSurf on one of the latest machines. For details on what each of the options actually does, see the notes above.</dd>
+<dt>Preview image</dt>
+<dd>This section shows the results of your image quality choices on the visual appearance of images. In 16 million colour screen modes, the &quot;Direct to screen&quot;, &quot;Dithered&quot; and &quot;Error diffused&quot; will look the same. If the &quot;Use OS&quot; option is used for the foreground image, the preview will demonstrate the poor handling of alpha channels that this mode exhibits. In 256 colour modes, the differences between the different quality settings should be quite pronounced.</dd>
 </dl>
+</div>
+
+<h5>Animations</h5>
+
+<p>Some web pages use animations, which are a series of still images played in sequence.</p>
+
+<div class="option_group">
+<dl>
+<dt>Speed limit</dt>
+<dd>This option can be used to set the minimum time delay between displaying each frame of an animation. Increasing this value will cause animations to run slower. Fast animations require a lot of computational effort, so a very low setting can cause your computer to slow down when rapid animations are displayed.</dd>
+<dt>Disable animations</dt>
+<dd>This option can be used to stop animations from being played. If animations are disabled then the first frame of the animation is shown as a  static image.</dd>
+</dl>
+</div>
+
+<h4 id="ConfigurationGlobalInterface">Interface Configuration</h4>
+
+<p>The way NetSurf interacts with its users is called its interface. Various aspects of NetSurf's behaviour can be tailored to suit your requirements.</p>
+
+<h5>Downloading / saving files</h5>
+
+<p>You can use NetSurf to save content from the internet onto your local hard disc.</p>
+
+<div class="option_group">
+<dl>
+<dt>Strip filename extensions when saving</dt>
+<dd>This option can be used to remove the file extensions (eg .html and .jpeg) from file names. The extensions are not needed on RISC OS as it records the file type by other means. You may want to retain file extensions if you plan to transfer saved files to other computers, running different operating systems.</dd>
+<dt>Request confirmation before overwriting files</dt>
+<dd>This option can be used to make NetSurf to ask for confirmation before overwriting a file of the same name, when saving. Please note that NetSurf does not allow directories to be overwritten. Also note that SparkFS causes zip files and other archives to be treated as directories.</dd>
+</dl>
+</div>
+
+<h5>Interactive features</h5>
+
+<p>NetSurf has various features that can provide information and additional functionality as you use or interact with the program.</p>
+
+<div class="option_group">
+<dl>
+<dt>Display recently visited URLs as you type</dt>
+<dd>This option can be used to enable NetSurf's URL suggestion feature. When this is enabled and you type into the <a href="#BrowserWindowURLBar">URL bar</a> of a NetSurf <a href="#BrowserWindow">browser window</a>, then a small window is opened up below the URL bar, which shows previously visited URLs that could be used to complete the URL you're typing. For more information, see the <a href="#BrowserWindowURLCompletion">URL completion</a> section.</dd>
+<dt>Hover URLs by the pointer for local history</dt>
+<dd>This option can be used to make NetSurf display the URL of the thumbnail under your mouse pointer in <a href="#HistoryLocal">local history</a> windows. The URL is displayed in a floating box, beside the pointer.</dd>
+</dl>
+</div>
+
+<h4 id="ConfigurationGlobalLanguage">Language Configuration</h4>
+
+<p>NetSurf has been designed to work in different languages and you can select the one that you find most suitable.</p>
+
+<h5>Language</h5>
+
+<div class="option_group">
+<dl>
+<dt>Interface</dt>
+<dd>This option can be used to select the language to use for NetSurf's interface. This includes menus, dialogue boxes and interactive help text. The only available languages are those that have had resources prepared for them. At the current time, these are English, Dutch, French and German.</dd>
+<dt>Web pages</dt>
+<dd>This option can be used to request for web pages to be sent in your preferred language. Some web sites are available in a variety of languages. NetSurf will request that web servers send pages in the language of your choice. If your desired language is unavailable, the server will ignore the request and use a default language.</dd>
+</dl>
+</div>
+
+<h4 id="ConfigurationGlobalMemory">Memory Configuration</h4>
+
+<p>NetSurf provides you with a certain amount of control over how it uses the memory on your system. The way you set up NetSurf's memory usage will depend on how much memory your system has and how many other applications you tend to have running while browsing the World Wide Web.</p>
+
+<h5>Image memory</h5>
+
+<p>NetSurf uses memory to store images downloaded from the internet, while you are viewing them. It can store both compressed and uncompressed images in memory.</p>
+
+<div class="option_group">
+<dl>
+<dt>Direct</dt>
+<dd>This option can be used to set the maximum amount of memory NetSurf will use for storing uncompressed images. The more memory you allocate to this, the more images NetSurf will be able to hold in memory. Uncompressed images, held in memory can be displayed very quickly.</dd>
+<dt>Automatic handling</dt>
+<dd>This option can be used to tell NetSurf to make an intelligent guess at the best amount of memory to use for uncompressed images on your system. Generally, this option will work well for most users.</dd>
+<dt>Compressed</dt>
+<dd>This option can be used to set the maximum amount of memory NetSurf will use for storing compressed images. The more memory you allocate to this, the more images NetSurf will be able to hold in memory. Uncompressed images, held in memory, can be displayed quickly. When the &quot;direct&quot; and &quot;compressed&quot; memory is full, images can be dropped out of memory and stored on your hard disc. This is part of NetSurf's disc cache functionality and options for controlling this are provided in the <a href="#ConfigurationGlobalCache">cache configuration</a> section.</dd>
+<dt>Automatic handling</dt>
+<dd>This option can be used to tell NetSurf to make an intelligent guess at the best amount of memory to use for compressed images on your system. Generally, this option will work well for most users.</dd>
+</dl>
+</div>
+
+<h4 id="ConfigurationGlobalSecurity">Security Configuration</h4>
+
+<p>As the World Wide Web has grown in popularity, so too has the number of people who try to exploit its users for some nefarious end. Browser security and privacy features have become increasingly important.</p>
+
+<h5>Cross-site privacy</h5>
+
+<p>When you visit one page, after following a link on another page, a browser can tell the new page the address of the page that linked to them.</p>
+
+<div class="option_group">
+<dl>
+<dt>Send site referral information</dt>
+<dd>This option can be used to allow NetSurf to send referral information. When this option is disabled, NetSurf will not tell web sites the address of the page you came from. In most cases this should not cause any problems, but some sites do require you to send referral information. In these cases you might find images don't load or you get Forbidden messages from their server. On the other hand, if you do send referral information, web sites will be able to tell what web site you were at before you followed a link to their site. This allows them to find out what other sites are linking to them and is not usually any cause for distress.</dd>
+</dl>
+</div>
+
+<h5>Site history</h5>
+
+<p>NetSurf records all the web sites you have visited as part of its <a herf="#HistoryGlobal">global history</a> feature. Entries can be deleted from the global history window directly and NetSurf allows the length of time items are kept in global history to be configured.</p>
+
+<div class="option_group">
+<dl>
+<dt>Duration</dt>
+<dd>This option can be used to set the length of time entries are stored in global history, before they are deleted. Setting the duration to zero days turns off the global history feature.</dd>
+</dl>
+</div>
+
+<h4 id="ConfigurationGlobalThemes">Theme Configuration</h4>
+
+<p>The 'look and feel' of NetSurf's interface can be changed. This is done by installing and selecting themes.</p>
+
+<h5>Available themes</h5>
+
+<p>This section displays a preview of all the currently installed themes. New themes are available at the <a href="http://netsurf.sourceforge.net/themes/">NetSurf themes page</a>.</p>
+
+<div class="option_group">
+<dl>
+<dt>Theme selection pane</dt>
+<dd>This section can be used to select a theme. A theme is selected using the radio buttons.</dd>
+</dl>
+</div>
 
 <h3 id="ConfigurationToolbar">Toolbar customization</h3>
 
