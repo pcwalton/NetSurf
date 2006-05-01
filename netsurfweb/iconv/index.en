@@ -1,7 +1,9 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+        "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 <head>
 <title>Iconv for RISC OS</title>
-<style>
+<style type="text/css">
 html, body { padding: 0; margin: 0; }
 body { background-color: #ffd; color: #500; }
 h1 { font-size:200%; background-color: #500; color: #ffd; padding: 0.9em; margin: 0; }
@@ -28,7 +30,7 @@ dd > p + p { margin: 1em 0 0 0; padding: 0; }
 <dl>
 <dt><span>1. </span><span>Merge !System directory</span></dt>
 <dd>Use the <strong>System merge</strong> utility provided by Configure to merge the supplied !System directory with the one on your system.</dd>
-<dt><span>2. </span><span>Merge !Boot directory<span></dt>
+<dt><span>2. </span><span>Merge !Boot directory</span></dt>
 <dd><p>Use the <strong>Boot merge</strong> facility in Configure to merge the supplied !Boot directory with the one on your system.</p><p>If there is no Boot merge facility provided on your system, simply drag the supplied !Boot directory over your existing boot structure.</p></dd>
 </dl>
 

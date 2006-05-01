@@ -1259,7 +1259,7 @@
 
 <h5>Site history</h5>
 
-<p>NetSurf records all the web sites you have visited as part of its <a herf="#HistoryGlobal">global history</a> feature. Entries can be deleted from the global history window directly and NetSurf allows the length of time items are kept in global history to be configured.</p>
+<p>NetSurf records all the web sites you have visited as part of its <a href="#HistoryGlobal">global history</a> feature. Entries can be deleted from the global history window directly and NetSurf allows the length of time items are kept in global history to be configured.</p>
 
 <div class="option_group">
 <dl>
