@@ -1046,15 +1046,15 @@
 
 <h5>Fetching</h5>
 
-<p>The way NetSurf fetches content from the internet can be tailored to suit your hardware and the speed of your internet connection.</p>
+<p>The way NetSurf fetches content from the internet can be tailored to suit your hardware and the speed of your internet connection. These are quite advanced configuration options and should not need to be modified, in most cases.</p>
 
 <div class="option_group">
 <dl>
-<dt>Max. fetchers</dt>
+<dt>Maximum fetches</dt>
 <dd>This option can be used to set the maximum number of simultaneous fetches (downloading multiple things in parallel) that NetSurf will carry out at one time. After this limit is reached, new fetches will be queued and fetched as the current fetches are completed. High values will benefit people with fast connections and fast computers, that are able to keep up with all the incoming data.</dd>
-<dt>Fetchers per host</dt>
+<dt>Fetches per host</dt>
 <dd>This option can be used to set the maximum number of simultaneous fetches per host. This means the limit to the number of simultaneous downloads from a particular web site. Simultaneous downloads from the same host can speed up fetching web pages quite dramatically because images on the page can be fetched in parallel, rather than in series.</dd>
-<dt>Cached handles</dt>
+<dt>Cached connections</dt>
 <dd>This option can be used to set the maximum number of persistent connections that NetSurf can maintain at any one time. Persistent connections, or &quot;Keep-Alive&quot; connections are HTTP sessions that allow multiple requests to be sent over the same connection. In some cases they have been shown to result in an almost 50% speed up in latency times for HTML documents with lots of images.</dd>
 </dl>
 </div>
