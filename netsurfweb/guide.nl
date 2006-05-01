@@ -501,13 +501,13 @@
 </table>
 
 <p class="menupath" id="BrowserWindowMenuHelpContents">Hulp &gt; Inhoud</p>
-<p class="menuitem">This option opens the <a href="docs_en">documentation contents page</a> in a new window.</p>
+<p class="menuitem">This option opens the <a href="docs.en">documentation contents page</a> in a new window.</p>
 
 <p class="menupath" id="BrowserWindowMenuHelpGuide">Hulp &gt; Handleiding</p>
 <p class="menuitem">This option opens this page in a new window!</p>
 
 <p class="menupath" id="BrowserWindowMenuHelpInfo">Hulp &gt; Gebruikersinformatie</p>
-<p class="menuitem">This option opens the <a href="info_en">user information page</a> in a new window.</p>
+<p class="menuitem">This option opens the <a href="info.en">user information page</a> in a new window.</p>
 
 <p class="menupath" id="BrowserWindowMenuHelpAbout">Hulp &gt; Over NetSurf</p>
 <p class="menuitem">This opens NetSurf's about page in a new window. The about page contains a list of people who have contributed to the NetSurf project and a credits for the libraries NetSurf uses.</p>
@@ -534,7 +534,7 @@
 <tr><td>Text</td><td>&amp;fff</td><td>text/plain</td></tr>
 </table>
 
-<p>Flash-bestanden <font color=red>[are not handled by NetSurf directly and are displayed by an]</font> <a href="info_en#GettingStartedRequirements">external plugin</a>.</p>
+<p>Flash-bestanden <font color=red>[are not handled by NetSurf directly and are displayed by an]</font> <a href="info.en#GettingStartedRequirements">external plugin</a>.</p>
 
 <p>NetSurf recognises different file types by their RISC OS file type for local files and by their content-type header for files sourced from the internet. Files are not identified by their extension or content. This means that for a file to be displayed, servers must be configured to send the correct content-type header and local files must have the correct RISC OS file type set.</p>
 
@@ -889,7 +889,7 @@
 <h3>Algemeen</h3>
 
 <table>
-<tr><td><a href="docs_nl">Pagina-inhouddocumentatie</a> openen in een nieuw venster</td><td>F1</td></tr>
+<tr><td><a href="docs.nl">Pagina-inhouddocumentatie</a> openen in een nieuw venster</td><td>F1</td></tr>
 <tr><td>Move the caret to URL bar and clear it to &quot;www.&quot;</td><td>F2</td></tr>
 <tr><td>Tekstzoekvenster openen</td><td>F4</td></tr>
 <tr><td>Favorietenvenster openen</td><td>F6</td></tr>

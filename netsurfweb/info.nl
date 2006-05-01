@@ -119,7 +119,7 @@
 
 <p>NetSurf ondersteunt het gebruik van Unicodelettertypes die normaal niet beschikbaar zijn voor RISC OS, bij voorbeeld Latijns met accenten, Grieks, Cyrillisch, Japans en verschillende symbolen.</p>
 
-<p>De <a href="guide_en#ConfigurationGlobalFonts">lettertype-keuzes</a> maken het mogelijk een letttertype te kiezen voor elk van de vijf standaardfamilies die beschikbaar zijn webontwikkelaars (in CSS). De keuzes specificeren het gewenste lettertype. Wanneer een letter niet beschikbaar is in het gekozen lettertype maar wel aanwezig is in een ander geinstalleerd lettertype dan zal NetSurf dit automatisch gebruiken. Het is dus niet nodig om de lettertypekeuze te veranderen om pagina's te kunnen lezen met een letter(type) dat niet beschikbaar is in het gekozen lettertype.</p>
+<p>De <a href="guide.en#ConfigurationGlobalFonts">lettertype-keuzes</a> maken het mogelijk een letttertype te kiezen voor elk van de vijf standaardfamilies die beschikbaar zijn webontwikkelaars (in CSS). De keuzes specificeren het gewenste lettertype. Wanneer een letter niet beschikbaar is in het gekozen lettertype maar wel aanwezig is in een ander geinstalleerd lettertype dan zal NetSurf dit automatisch gebruiken. Het is dus niet nodig om de lettertypekeuze te veranderen om pagina's te kunnen lezen met een letter(type) dat niet beschikbaar is in het gekozen lettertype.</p>
 
 <p>N.b. Er kan alleen een lettertype gekozen worden. NetSurf gebruikt automatisch de bijpassende zwaarte voor vetgedrukte tekst en schuingedrukte tekst, indien beschikbaar.</p>
 

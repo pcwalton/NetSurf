@@ -101,7 +101,7 @@ Laatste vertaling: 17 juni 2005</p>
 <table class="progress">
 <tr><th>Titel</th><th>Status</th><th>Toelichting</th></tr>
 <tr class="complete"><td>Advertentie-/reclameblokkering</td><td>Klaar</td><td></td></tr>
-<tr class="complete"><td><font color=red>[Buffered rendering]</font></td><td>Klaar</td><td>Bereid het tonen van de inhoud voor.<br>Zie de <a href="guide_en#BrowserWindowMenuDisplayRender">handleiding</a> voor meer details.</td></tr>
+<tr class="complete"><td><font color=red>[Buffered rendering]</font></td><td>Klaar</td><td>Bereid het tonen van de inhoud voor.<br>Zie de <a href="guide.en#BrowserWindowMenuDisplayRender">handleiding</a> voor meer details.</td></tr>
 <tr class="inprogress"><td>Instelling</td><td>In ontwikkeling</td><td></td></tr>
 <tr class="notstarted"><td></td><td>Nog niet begonnen.</td><td></td></tr>
 <tr class="complete"><td>Dithering</td><td>Klaar</td><td>Verbetert de weergave als er weinig kleuren beschikbaar zijn.<br>Zowel eenvoudige <font color=red>[dithering]</font> en <font color=red>[Error diffusion]</font> zijn beschikbaar.</td></tr>
