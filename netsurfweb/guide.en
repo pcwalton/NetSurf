@@ -443,7 +443,7 @@
 <tr><td><a href="#BrowserWindowMenuDisplayImages">Images</a></td><td class="menuarrow">&gt;</td></tr>
 <tr><td><a href="#BrowserWindowMenuDisplayToolbars">Toolbars</a></td><td class="menuarrow">&gt;</td></tr>
 <tr><td><a href="#BrowserWindowMenuDisplayRender">Render</a></td><td class="menuarrow">&gt;</td></tr>
-<tr><td class="menusplit"><a href="#BrowserWindowMenuDisplaySetDefault">Set as default</a></td><td></td></tr>
+<tr><td class="menusplit"><a href="#BrowserWindowMenuDisplaySaveDefault">Save as default</a></td><td></td></tr>
 </table>
 
 <p class="menupath" id="BrowserWindowMenuDisplayScale">Display &gt; Scale View</p>
@@ -472,7 +472,8 @@
 <tr><td><a href="#BrowserWindowMenuDisplayToolbarsButtons">Buttons</a></td><td class="menuarrow"></td></tr>
 <tr><td><a href="#BrowserWindowMenuDisplayToolbarsAddress">Address bar</a></td><td class="menuarrow"></td></tr>
 <tr><td><a href="#BrowserWindowMenuDisplayToolbarsThrobber">Throbber</a></td><td class="menuarrow"></td></tr>
-<tr><td class="menusplit"><a href="#BrowserWindowMenuDisplayToolbarsStatus">Status bar</a></td><td></td></tr>
+<tr><td><a href="#BrowserWindowMenuDisplayToolbarsStatus">Status bar</a></td><td></td></tr>
+<tr><td class="menusplit"><a href="#BrowserWindowMenuDisplayToolbarsEdit">Edit toolbar</a></td><td></td></tr>
 </table>
 
 <p class="menupath" id="BrowserWindowMenuDisplayToolbarsButtons">Display &gt; Toolbars &gt; Buttons</p>
@@ -489,18 +490,17 @@
 <p class="menupath" id="BrowserWindowMenuDisplayToolbarsStatus">Display &gt; Toolbars &gt; Status bar</p>
 <p class="menuitem">This option toggles the display of the status bar at the bottom of the NetSurf window. When the status bar is turned off, the horizontal scroll bar stretches to the full width of the window.</p>
 
+<p class="menupath" id="BrowserWindowMenuDisplayToolbarsEdit">Display &gt; Toolbars &gt; Edit toolbar</p>
+<p class="menuitem">This option activates <a href="#ConfigurationToolbar">toolbar edit</a> mode.</p>
+
 <p class="menupath" id="BrowserWindowMenuDisplayRender">Display &gt; Render</p>
 <p class="menuitem">The Render submenu allows you to control the way NetSurf draws content to the screen.</p>
 
 <table class="menu">
 <tr><th class="menutitle" colspan="2">Render</th></tr>
-<tr><td><a href="#BrowserWindowMenuDisplayRenderBlend">Blend text to background</a></td><td class="menuarrow"></td></tr>
-<tr><td class="menusplit"><a href="#BrowserWindowMenuDisplayRenderBufferAnim">Buffer animations</a></td><td></td></tr>
+<tr><td><a href="#BrowserWindowMenuDisplayRenderBufferAnim">Buffer animations</a></td><td></td></tr>
 <tr><td><a href="#BrowserWindowMenuDisplayRenderBufferAll">Buffer all rendering</a></td><td class="menuarrow"></td></tr>
 </table>
-
-<p class="menupath" id="BrowserWindowMenuDisplayRenderBlend">Display &gt; Render &gt; Blend text to background</p>
-<p class="menuitem">This option improves the edges of any text that is rendered over a background image. This facility is only available on RISC OS 3.7 or later.</p>
 
 <p class="menupath" id="BrowserWindowMenuDisplayRenderBufferAnim">Display &gt; Render &gt; Buffer animations</p>
 <p class="menuitem">This option buffers anything that NetSurf forces to be redrawn, other than redrawing a part of the window which has been obscured. Things like text areas, which are redrawn after typing, and animations are buffered. This has the effect of stopping these items from flickering.</p>
@@ -508,7 +508,7 @@
 <p class="menupath" id="BrowserWindowMenuDisplayRenderBufferAll">Display &gt; Render &gt; Buffer all rendering</p>
 <p class="menuitem">This option is highly advantageous on complex pages because it only draws the page once, rather than building it up in layers. In use its effect is to stop the flicker caused by gradual redraw of pages, for example when resizing or scrolling a window, and present a more pleasant browsing experience. Buffer all rendering is configured off by default as it is best suited to fast hardware, such as the Iyonix.</p>
 
-<p class="menupath" id="BrowserWindowMenuDisplaySetDefault">Display &gt; Set as default</p>
+<p class="menupath" id="BrowserWindowMenuDisplaySetDefault">Display &gt; Save as default</p>
 <p class="menuitem">This option makes NetSurf use the display options you have set up for the current window as the default options.</p>
 
 <h4 id="BrowserWindowMenuUtilities" class="submenu">Utilities Submenu</h4>
@@ -519,8 +519,8 @@
 <tr><th class="menutitle" colspan="2">Utilities</th></tr>
 <tr><td><a href="#BrowserWindowMenuUtilitiesHotlist">Hotlist</a></td><td class="menuarrow">&gt;</td></tr>
 <tr><td><a href="#BrowserWindowMenuUtilitiesHistory">History</a></td><td class="menuarrow">&gt;</td></tr>
-<tr><td><a href="#BrowserWindowMenuUtilitiesWindow">Window</a></td><td class="menuarrow">&gt;</td></tr>
 <tr><td><a href="#BrowserWindowMenuUtilitiesFindText">Find text</a></td><td class="menuarrow">&gt;</td></tr>
+<tr><td><a href="#BrowserWindowMenuUtilitiesWindow">Window</a></td><td class="menuarrow">&gt;</td></tr>
 </table>
 
 <p class="menupath" id="BrowserWindowMenuUtilitiesHotlist">Utilities &gt; Hotlist</p>
@@ -553,6 +553,9 @@
 <p class="menupath" id="BrowserWindowMenuUtilitiesHistoryGlobal">Utilities &gt; History &gt; Show global History</p>
 <p class="menuitem">This option opens the <a href="#HistoryGlobal">global history window</a>. The same function is available on the <a href="#BrowserWindowToolbar">toolbar</a>.</p>
 
+<p class="menupath" id="BrowserWindowMenuUtilitiesFindText">Utilities &gt; Find text</p>
+<p class="menuitem">This option allows you to search the current page for a text string. The same function is available on the <a href="#BrowserWindowToolbar">toolbar</a>.</p>
+
 <p class="menupath" id="BrowserWindowMenuUtilitiesWindow">Utilities &gt; Window</p>
 <p class="menuitem">The Window submenu allows you to control the size and positioning of new windows.</p>
 
@@ -575,9 +578,6 @@
 
 <p class="menupath" id="BrowserWindowMenuUtilitiesWindowResetdefault">Utilities &gt; Window &gt; Reset default position</p>
 <p class="menuitem">This option removes any user defined default window position. The option is only available when a user defined default window position has been set.</p>
-
-<p class="menupath" id="BrowserWindowMenuUtilitiesFindText">Utilities &gt; Find text</p>
-<p class="menuitem">This option allows you to search the current page for a text string. The same function is available on the <a href="#BrowserWindowToolbar">toolbar</a>.</p>
 
 <h4 id="BrowserWindowMenuHelp" class="submenu">Help Submenu</h4>
 
@@ -749,16 +749,20 @@
 <p class="menupath" id="HistoryGlobalMenuHistoryCollapseAddresses">History &gt; Collapse &gt; Addresses</p>
 <p class="menuitem">This option reduces all of the displayed addresses to just their name, hiding their URLs and additional usage information.</p>
 
-<p class="menupath" id="HistoryGlobalMenuHistoryToolbars">Display &gt; Toolbars</p>
+<p class="menupath" id="HistoryGlobalMenuHistoryToolbars">History &gt; Toolbars</p>
 <p class="menuitem">The Toolbars submenu allows you to control the way NetSurf's global history toolbar is displayed.</p>
 
 <table class="menu">
 <tr><th class="menutitle" colspan="2">Toolbars</th></tr>
 <tr><td><a href="#HistoryGlobalMenuHistoryToolbarsButtons">Buttons</a></td><td class="menuarrow"></td></tr>
+<tr><td><a href="#HistoryGlobalMenuHistoryToolbarsEdit">Edit toolbar</a></td><td class="menuarrow"></td></tr>
 </table>
 
-<p class="menupath" id="HistoryGlobalMenuHistoryToolbarsButtons">Display &gt; Toolbars &gt; Buttons</p>
+<p class="menupath" id="HistoryGlobalMenuHistoryToolbarsButtons">History &gt; Toolbars &gt; Buttons</p>
 <p class="menuitem">This option toggles the display of the buttons on NetSurf's global history toolbar at the top of the window.</p>
+
+<p class="menupath" id="HistoryGlobalMenuHistoryToolbarsEdit">History &gt; Toolbars &gt; Edit toolbar</p>
+<p class="menuitem">This option activates <a href="#ConfigurationToolbar">toolbar edit</a> mode.</p>
 
 <h5 id="HistoryGlobalMenuSelection" class="submenu">Selection Submenu</h5>
 
@@ -899,16 +903,20 @@
 <p class="menupath" id="HotlistMenuHotlistCollapseAddresses">Hotlist &gt; Collapse &gt; Addresses</p>
 <p class="menuitem">This option reduces all of the hotlist addresses to just their name, hiding their URLs and additional usage information.</p>
 
-<p class="menupath" id="HotlistMenuHotlistToolbars">Display &gt; Toolbars</p>
+<p class="menupath" id="HotlistMenuHotlistToolbars">Hotlist &gt; Toolbars</p>
 <p class="menuitem">The Toolbars submenu allows you to control the way NetSurf's hotlist toolbar is displayed.</p>
 
 <table class="menu">
 <tr><th class="menutitle" colspan="2">Toolbars</th></tr>
 <tr><td><a href="#HotlistMenuHotlistToolbarsButtons">Buttons</a></td><td class="menuarrow"></td></tr>
+<tr><td><a href="#HotlistMenuHotlistToolbarsEdit">Edit toolbar</a></td><td class="menuarrow"></td></tr>
 </table>
 
-<p class="menupath" id="HotlistMenuHotlistToolbarsButtons">Display &gt; Toolbars &gt; Buttons</p>
+<p class="menupath" id="HotlistMenuHotlistToolbarsButtons">Hotlist &gt; Toolbars &gt; Buttons</p>
 <p class="menuitem">This option toggles the display of the buttons on NetSurf's hotlist toolbar at the top of the window.</p>
+
+<p class="menupath" id="HotlistMenuHotlistToolbarsEdit">Hotlist &gt; Toolbars &gt; Edit toolbar</p>
+<p class="menuitem">This option activates <a href="#ConfigurationToolbar">toolbar edit</a> mode.</p>
 
 <h4 id="HotlistMenuSelection" class="submenu">Selection Submenu</h4>
 
@@ -919,7 +927,6 @@
 <tr><td><a href="#HotlistMenuSelectionEdit">Edit</a></td><td class="menuarrow">&gt;</td></tr>
 <tr><td><a href="#HotlistMenuSelectionLaunch">Launch</a></td><td></td></tr>
 <tr><td><a href="#HotlistMenuSelectionDelete">Delete</a></td><td></td></tr>
-<tr><td><a href="#HotlistMenuSelectionResetStatistics">Reset statistics</a></td><td></td></tr>
 </table>
 
 <p class="menupath" id="HotlistMenuSelectionEdit">Selection &gt; Edit</p>
@@ -932,9 +939,6 @@
 
 <p class="menupath" id="HotlistMenuSelectionDelete">Selection &gt; Delete</p>
 <p class="menuitem">This option deletes the current selection from the hotlist. This option is also available on the hotlist management window <a href="#HotlistToolbar">toolbar</a>.</p>
-
-<p class="menupath" id="HotlistMenuSelectionResetStatistics">Selection &gt; Reset statistics</p>
-<p class="menuitem">This option resets the usage information for all selected addresses. The hotlist's last visited record and total visit counter are removed. The URL and the date the address was added to the hotlist are left untouched.</p>
 
 <p class="menupath" id="HotlistMenuSelectAll">Select all</p>
 <p class="menuitem">This option allows you to select all the addresses and directories in the hotlist.</p>
