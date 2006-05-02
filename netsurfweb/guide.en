@@ -49,7 +49,7 @@
 <li><a href="#Keys">Keyboard shortcuts</a></li>
 </ul>
 
-<p class="updated">Last updated 30 April 2006</p>
+<p class="updated">Last updated 2 May 2006</p>
 
 <h2 id="UsingNetSurf">Using NetSurf</h2>
 
@@ -1300,11 +1300,13 @@
 <table>
 <tr><th>Shortcut</th><th>Function</th></tr>
 <tr><td>Ctrl+N</td><td>Open the current page in a new window</td></tr>
+<tr><td>Ctrl+F1</td><td>Display information about the current page or content</td></tr>
 <tr><td>F3</td><td>Save the page source</td></tr>
 <tr><td>Ctrl+F3</td><td>Save the page as text</td></tr>
 <tr><td>Shift+F3</td><td>Full save of the web page, including images etc</td></tr>
 <tr><td>Ctrl+Shift+F3</td><td>Save the page as a Drawfile</td></tr>
 <tr><td>F8</td><td>View the page source code in a text editor</td></tr>
+<tr><td>Print</td><td>Open the print dialogue box</td></tr>
 </table>
 
 <h3>Display</h3>
@@ -1327,7 +1329,8 @@
 
 <table>
 <tr><th>Shortcut</th><th>Function</th></tr>
-<tr><td>F5, Ctrl+R</td><td>Reload the current page</td></tr>
+<tr><td>F5</td><td>Reload the current page</td></tr>
+<tr><td>Ctrl+F5, Ctrl+R</td><td>Reload the current page and any images and style sheets that the page uses</td></tr>
 <tr><td>Esc</td><td>Stop the current page loading</td></tr>
 </table>
 
@@ -1338,6 +1341,8 @@
 <tr><td>F2</td><td>Move the caret to URL bar and clear it to &quot;www.&quot;</td></tr>
 <tr><td>F4</td><td>Open the text search window</td></tr>
 <tr><td>F6</td><td>Open the hotlist management window</td></tr>
+<tr><td>F7</td><td>Open the local history window</td></tr>
+<tr><td>Ctrl+F7</td><td>Open the global history window</td></tr>
 <tr><td>Ctrl+F2</td><td>Close the window</td></tr>
 </table>
 
