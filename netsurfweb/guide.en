@@ -1279,7 +1279,7 @@
 <div class="option_group">
 <dl>
 <dt>Theme selection pane</dt>
-<dd>This section can be used to select a theme. A theme is selected using the radio buttons.</dd>
+<dd>This section can be used to select a theme. A theme is selected using the radio buttons. If a theme you have just installed does not appear for selection, NetSurf needs to be told to re-scan the themes directory. It is re-scanned when the choices window is opened or by adjust clicking on the Cancel button. The currently loaded theme is cached so any updates to that theme will not be loaded until NetSurf is restarted. Alternatively, it is possible to switch to another theme, re-scan themes and then switch back.</dd>
 </dl>
 </div>
 
