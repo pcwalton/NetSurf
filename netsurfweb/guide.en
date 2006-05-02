@@ -958,17 +958,17 @@
 
 <div class="window">
 <ul>
-<li><span><a href="#ConfigurationGlobalCache"><img src="images/cache.png" alt=""></a></span><a href="#ConfigurationGlobalCache">Cache</a></li>
-<li><span><a href="#ConfigurationGlobalConnection"><img src="images/connect.png" alt=""></a></span><a href="#ConfigurationGlobalConnection">Connection</a></li>
-<li><span><a href="#ConfigurationGlobalContent"><img src="images/content.png" alt=""></a></span><a href="#ConfigurationGlobalContent">Content</a></li>
-<li><span><a href="#ConfigurationGlobalFonts"><img src="images/fonts.png" alt=""></a></span><a href="#ConfigurationGlobalFonts">Fonts</a></li>
-<li><span><a href="#ConfigurationGlobalHome"><img src="images/homeconf.png" alt=""></a></span><a href="#ConfigurationGlobalHome">Home page</a></li>
-<li><span><a href="#ConfigurationGlobalImages"><img src="images/images.png" alt=""></a></span><a href="#ConfigurationGlobalImages">Images</a></li>
-<li><span><a href="#ConfigurationGlobalInterface"><img src="images/interface.png" alt=""></a></span><a href="#ConfigurationGlobalInterface">Interface</a></li>
-<li><span><a href="#ConfigurationGlobalLanguage"><img src="images/language.png" alt=""></a></span><a href="#ConfigurationGlobalLanguage">Language</a></li>
-<li><span><a href="#ConfigurationGlobalMemory"><img src="images/memory.png" alt=""></a></span><a href="#ConfigurationGlobalMemory">Memory</a></li>
-<li><span><a href="#ConfigurationGlobalSecurity"><img src="images/security.png" alt=""></a></span><a href="#ConfigurationGlobalSecurity">Security</a></li>
-<li><span><a href="#ConfigurationGlobalThemes"><img src="images/themes.png" alt=""></a></span><a href="#ConfigurationGlobalThemes">Themes</a></li>
+<li><span><a href="#ConfigurationGlobalCache"><img src="images/cache" alt=""></a></span><a href="#ConfigurationGlobalCache">Cache</a></li>
+<li><span><a href="#ConfigurationGlobalConnection"><img src="images/connect" alt=""></a></span><a href="#ConfigurationGlobalConnection">Connection</a></li>
+<li><span><a href="#ConfigurationGlobalContent"><img src="images/content" alt=""></a></span><a href="#ConfigurationGlobalContent">Content</a></li>
+<li><span><a href="#ConfigurationGlobalFonts"><img src="images/fonts" alt=""></a></span><a href="#ConfigurationGlobalFonts">Fonts</a></li>
+<li><span><a href="#ConfigurationGlobalHome"><img src="images/homeconf" alt=""></a></span><a href="#ConfigurationGlobalHome">Home page</a></li>
+<li><span><a href="#ConfigurationGlobalImages"><img src="images/images" alt=""></a></span><a href="#ConfigurationGlobalImages">Images</a></li>
+<li><span><a href="#ConfigurationGlobalInterface"><img src="images/interface" alt=""></a></span><a href="#ConfigurationGlobalInterface">Interface</a></li>
+<li><span><a href="#ConfigurationGlobalLanguage"><img src="images/language" alt=""></a></span><a href="#ConfigurationGlobalLanguage">Language</a></li>
+<li><span><a href="#ConfigurationGlobalMemory"><img src="images/memory" alt=""></a></span><a href="#ConfigurationGlobalMemory">Memory</a></li>
+<li><span><a href="#ConfigurationGlobalSecurity"><img src="images/security" alt=""></a></span><a href="#ConfigurationGlobalSecurity">Security</a></li>
+<li><span><a href="#ConfigurationGlobalThemes"><img src="images/themes" alt=""></a></span><a href="#ConfigurationGlobalThemes">Themes</a></li>
 </ul>
 
 <p>NetSurf's global configuration sections</p>
