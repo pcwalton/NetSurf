@@ -21,13 +21,13 @@
 <li><a href="#NSF">NetSurf features</a>
 </ul>
 
-<p class="updated">Last updated 30 April 2006</p>
+<p class="updated">Last updated 2 May 2006</p>
 
 <h2 id="Web">Web standards</h2>
 
 <table class="progress">
 <tr><th>Title</th><th>Status</th><th>Notes</th></tr>
-<tr class="inprogress"><td>Cookies</td><td>In progress</td><td>Don't get expired.</td></tr>
+<tr class="inprogress"><td>Cookies</td><td>In progress</td><td>Don't get expired.<br>Currently broken.</td></tr>
 <tr class="nearlydone"><td>CSS 1</td><td>Nearly done</td><td>See the <a href="http://svn.semichrome.net/trunk/netsurf/Docs/TODO-CSS?view=markup">TODO list</a>.</td></tr>
 <tr class="inprogress"><td>CSS 2</td><td>In progress</td><td>See the <a href="http://svn.semichrome.net/trunk/netsurf/Docs/TODO-CSS?view=markup">TODO list</a>.</td></tr>
 <tr class="nearlydone"><td>HTML 4</td><td>Nearly done</td><td>See the <a href="http://svn.semichrome.net/trunk/netsurf/Docs/TODO-HTML?view=log">TODO list</a>.</td></tr>
