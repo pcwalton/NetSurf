@@ -49,7 +49,7 @@
 <li><a href="#Keys">Keyboard shortcuts</a></li>
 </ul>
 
-<p class="updated">Last updated 2 May 2006</p>
+<p class="updated">Last updated 4 May 2006</p>
 
 <h2 id="UsingNetSurf">Using NetSurf</h2>
 
@@ -1320,8 +1320,8 @@
 <tr><td>Cursor Up</td><td>Scroll up one line</td></tr>
 <tr><td>Ctrl+Cursor Up</td><td>Go to the top of the page</td></tr>
 <tr><td>F11</td><td>Open the scale view window</td></tr>
-<tr><td>Ctrl+Q</td><td>Reduce scale of view by 10%</td></tr>
-<tr><td>Ctrl+W</td><td>Increase scale of view by 10%</td></tr>
+<tr><td>Ctrl+Q</td><td>Reduce scale of view</td></tr>
+<tr><td>Ctrl+W</td><td>Increase scale of view</td></tr>
 <tr><td>Shift+F11</td><td>View box outlines. This may be useful if you are creating your own web page. Cyan marks the content's edge, magenta marks the padding's edge and yellow marks the margin's edge.</td></tr>
 </table>
 
