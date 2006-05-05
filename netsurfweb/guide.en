@@ -44,7 +44,7 @@
 <li><a href="#Configuration">Configuration</a>
 <ul>
 <li><a href="#ConfigurationGlobal">Global configuration</a></li>
-<li><a href="#ConfigurationToolbar">Toolbar customization</a></li>
+<li><a href="#ConfigurationToolbar">Toolbar customisation</a></li>
 </ul></li>
 <li><a href="#Keys">Keyboard shortcuts</a></li>
 </ul>
@@ -117,7 +117,7 @@
 
 <h3 id="BrowserWindowToolbar">Toolbar</h3>
 
-<p>The section at the top of the window is called the toolbar. It allows quick access to various commonly used features. Many more functions are available through the <a href="#BrowserWindowMenus">menus</a>. The toolbar can be customized to contain only the icons you want, in the order you want, in toolbar edit mode. This is covered in the <a href="#ConfigurationToolbar">toolbar customization</a> section. Available icons are listed below.</p>
+<p>The section at the top of the window is called the toolbar. It allows quick access to various commonly used features. Many more functions are available through the <a href="#BrowserWindowMenus">menus</a>. The toolbar can be customised to contain only the icons you want, in the order you want, in toolbar edit mode. This is covered in the <a href="#ConfigurationToolbar">toolbar customisation</a> section. Available icons are listed below.</p>
 
 <p></p>
 
@@ -674,7 +674,7 @@
 
 <h4 id="HistoryGlobalToolbar">Toolbar</h4>
 
-<p>The global history toolbar allows quick access to various commonly used features. More functions are available through the <a href="#HistoryGlobalMenus">menus</a>. The toolbar can be customized to contain only the icons you want, in the order you want, in toolbar edit mode. This is covered in the <a href="#ConfigurationToolbar">toolbar customization</a> section. Available icons are listed below.</p>
+<p>The global history toolbar allows quick access to various commonly used features. More functions are available through the <a href="#HistoryGlobalMenus">menus</a>. The toolbar can be customised to contain only the icons you want, in the order you want, in toolbar edit mode. This is covered in the <a href="#ConfigurationToolbar">toolbar customisation</a> section. Available icons are listed below.</p>
 
 <p class="iconinfo"><strong><img src="images/delete" class="icon" alt="Delete Selection" title="Delete Selection Button"></strong> Clicking on this button deletes any selected directories or addresses from the global history.</p>
 
@@ -806,7 +806,7 @@
 
 <h3 id="HotlistToolbar">Toolbar</h3>
 
-<p>The hotlist toolbar allows quick access to various commonly used features. More functions are available through the <a href="#HotlistMenus">menus</a>. The toolbar can be customized to contain only the icons you want, in the order you want, in toolbar edit mode. This is covered in the <a href="#ConfigurationToolbar">toolbar customization</a> section. Available icons are listed below.</p>
+<p>The hotlist toolbar allows quick access to various commonly used features. More functions are available through the <a href="#HotlistMenus">menus</a>. The toolbar can be customised to contain only the icons you want, in the order you want, in toolbar edit mode. This is covered in the <a href="#ConfigurationToolbar">toolbar customisation</a> section. Available icons are listed below.</p>
 
 <h4>Toolbar Icons</h4>
 
@@ -950,7 +950,7 @@
 
 <p>NetSurf can be tailored to suit your needs by configuring the way it looks and behaves. Most of NetSurf's configuration options are available from the <a href="#ConfigurationGlobal">global choices</a> panel. Display options for browser windows are set up for an individual browser window and then saved globally in the <a href="#BrowserWindowMenuDisplay">browser window menus</a>.</p>
 
-<p>Toolbars can be customized to contain only the icons you want, in the order you want, in toolbar edit mode. This is covered in the <a href="#ConfigurationToolbar">toolbar customization</a> section.</p>
+<p>Toolbars can be customised to contain only the icons you want, in the order you want, in toolbar edit mode. This is covered in the <a href="#ConfigurationToolbar">toolbar customisation</a> section.</p>
 
 <h3 id="ConfigurationGlobal">Global Configuration</h3>
 
@@ -1283,13 +1283,13 @@
 </dl>
 </div>
 
-<h3 id="ConfigurationToolbar">Toolbar customization</h3>
+<h3 id="ConfigurationToolbar">Toolbar customisation</h3>
 
 <p>Icons on NetSurf's toolbars can be switched on &amp; off and moved around. The sprites used for the icons can be changed by installing different <a href="http://netsurf.sourceforge.net/themes/">themes</a>.</p>
 
 <p>To move the icons around, enable toolbar edit mode by clicking menu over the toolbar and choosing &quot;Edit toolbar&quot;. This will open the toolbar editing panel. Icons can be dragged back and forth between the temporary panel and the toolbar. Separators for groups of icons can be created by dragging the separator sprite from the toolbar edit panel and dropping it where you want it to go. To exit toolbar edit mode, select &quot;Edit toolbar&quot; again from the toolbar menu.<p>
 
-<p>When you exit toolbar edit mode, the new toolbar layout is saved and new windows opened from then on will use your customized toolbar.</p>
+<p>When you exit toolbar edit mode, the new toolbar layout is saved and new windows opened from then on will use your customised toolbar.</p>
 
 <h2 id="Keys">Keyboard Shortcuts</h2>
 

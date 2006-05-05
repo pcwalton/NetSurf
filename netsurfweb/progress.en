@@ -102,7 +102,7 @@
 <tr class="complete"><td>Scale View</td><td>Complete</td><td>Web pages and images can be scaled up and down.</td></tr>
 <tr class="inprogress"><td>Text Selection</td><td>In progress</td><td>Text selection in text areas is incomplete.</td></tr>
 <tr class="complete"><td>Themes</td><td>Complete</td><td>Themes are available from the <a href="http://netsurf.sourceforge.net/themes/">NetSurf themes page</a>.</td></tr>
-<tr class="complete"><td>Toolbar Customization</td><td>Complete</td><td>Toolbars can be customized to show the icons you want, in the order you want.<br>Details in the <a href="guide#ConfigurationToolbar">User Guide</a>.</td></tr>
+<tr class="complete"><td>Toolbar Customisation</td><td>Complete</td><td>Toolbars can be customised to show the icons you want, in the order you want.<br>Details in the <a href="guide#ConfigurationToolbar">User Guide</a>.</td></tr>
 <tr class="inprogress"><td>Unicode Font Support</td><td>In progress</td><td>Details on the <a href="info#Unicode">User Information</a> page.</td></tr>
 <tr class="complete"><td>URL Completion</td><td>Complete</td><td>When typing a URL into the URL bar, NetSurf will display suggestions for the full address.</td></tr>
 <tr class="complete"><td>View Source</td><td>Complete</td><td>Press F8 or <i>Page &gt; View source</i> on main menu.</td></tr>
