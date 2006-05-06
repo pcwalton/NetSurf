@@ -31,7 +31,7 @@
 <li><a href="#JavaScript">JavaScript</a></li>
 </ul>
 
-<p class="updated">Last updated 5 March 2006</p>
+<p class="updated">Last updated 6 May 2006</p>
 
 <h2 id="GettingStarted">Getting started</h2>
 
@@ -48,7 +48,7 @@
 <dl>
 <dt><a href="http://sudden.recoil.org/others/">Acorn URI</a></dt>
 <dd>The Acorn URI module is used to pass URIs (of which URLs are an example) back and forth between different applications.</dd>
-<dt><a href="http://moose.mine.nu:6888/iconv_latest.zip">Iconv</a></dt>
+<dt><a href="http://netsurf.sourceforge.net/iconv/">Iconv</a></dt>
 <dd>This module provides improved character encoding support.</dd>
 <dt><a href="http://www.beebware.com/software/mappings/">MimeMap Datafile</a></dt>
 <dd>A resource containing many different MIME types and their equivalent RISC OS file types.</dd>

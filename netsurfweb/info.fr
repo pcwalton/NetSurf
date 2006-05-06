@@ -58,7 +58,7 @@
 <p>Les ressources suivantes ne sont pas nécessaires pour le bon fonctionnement de NetSurf mais apportent des fonctionnalités supplémentaires.</p>
 
 <dl> 
-<dt><a href="http://moose.mine.nu:6888/iconv_latest.zip">Iconv</a></dt> 
+<dt><a href="http://netsurf.sourceforge.net/iconv/">Iconv</a></dt> 
 <dd>Ce module fournit un support amélioré sur l'encodage des caractères.</dd>
 <dt><a href="http://www.ecs.soton.ac.uk/~jmb202/">Le plugin Flash</a></dt> 
 <dd>Vous permet de voir des fichiers Flash sur les sites Web.</dd> 
