@@ -51,7 +51,7 @@ Die Installation von &quot;NCNetSurf&quot; ist noch nicht dokumentiert.</p>
 <dd>Das Acorn URI Modul kontrolliert und steuert die Übermittlung von URIs (zum Beispiel URL-Adressen) zwischen Applikationen.</dd>
 <dt><a href="http://netsurf.sourceforge.net/iconv/">Iconv</a></dt>
 <dd>Dieses Modul bietet eine verbesserte Unterstützung bei der Zeichencodierung.</dd>
-<dt><a href="http://gccsdk.riscos.info/downloads/sharedunixlib/">SharedUnixLibrary</a></dt>
+<dt><a href="http://www.riscos.info/downloads/gccsdk/sharedunixlib/system.zip">SharedUnixLibrary</a></dt>
 <dd>Dies ist ein Zusatzmodul für Programme, die unter Verwendung der UnixLib Library kompiliert wurden.</dd>
 <dt><a href="http://www.tinct.net/tinct.asp">Tinct</a></dt>
 <dd>Tinct wird zur Bilddarstellung benötigt. Es unterstützt die Ausgabe von Sprites mit Alpha-Channels.</dd>

@@ -43,7 +43,7 @@
 <dl>
 <dt><a href="http://sudden.recoil.org/others/">Acorn URI</a></dt>
 <dd>Le module Acorn URI est utilisé pour transmettre les URIs (dont les URLs ne sont qu'un exemple) entre diverses applications.</dd>
-<dt><a href="http://gccsdk.riscos.info/downloads/sharedunixlib/">SharedUnixLibrary</a></dt>
+<dt><a href="http://www.riscos.info/downloads/gccsdk/sharedunixlib/system.zip">SharedUnixLibrary</a></dt>
 <dd>C'est un module de support pour les programmes compilés avec UnixLib.</dd>
 <dt><a href="http://www.tinct.net/tinct.asp">Tinct</a></dt>
 <dd>Tinct est utilisé pour l'affichage d'images. Il fournit le support d'affichage pour les sprites avec canal alpha.</dd>

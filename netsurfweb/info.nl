@@ -46,16 +46,16 @@
 <p>Wanneer NetSurf is gestart, wordt automatisch contact gemaakt met alle bronnen die nodig zijn voor een correcte werking. Wanneer iets niet wordt gevonden, verschijnt er een melding van hetgeen niet kan worden gevonden. In dat geval gaat het waarschijnlijk om &eacute;&eacute;n van de volgende zaken:</p>
 
 <dl>
-<dt><a href="http://sudden.recoil.org/others/"><strong>Acorn URI</strong></a></dt>
+<dt><a href="http://sudden.recoil.org/others/">Acorn URI</a></dt>
 <dd>De Acorn URI-module is nodig <font color=red>[to pass]</font> URIs (bijvoorbeeld URL's) heen en weer tussen verschillende applicaties.</dd>
-<dt><a href="http://netsurf.sourceforge.net/iconv/"><strong>Iconv</strong></a></dt>
+<dt><a href="http://netsurf.sourceforge.net/iconv/">Iconv</a></dt>
 <dd>Deze module zorgt voor een verbeterde karakterondersteuning.</dd>
-<dt><a href="http://gccsdk.riscos.info/#SUL"><strong>SharedUnixLibrary</strong></a></dt>
+<dt><a href="http://www.riscos.info/downloads/gccsdk/sharedunixlib/system.zip">SharedUnixLibrary</a></dt>
 <dd>Dit is een ondersteunende module voor UnixLib-programma's.</dd>
-<dt><a href="http://www.tinct.net/tinct.asp"><strong>Tinct</strong></a></dt>
+<dt><a href="http://www.tinct.net/tinct.asp">Tinct</a></dt>
 <dd>Tinct is nodig voor het <font color=green>plotten</font> van afbeeldingen. Het maakt het mogelijk om <font color=red>[sprites]</font> te plotten met alpha-kanalen.</dd>
 <dt>Window Manager 3.80 of later</dt>
-<dd>NetSurf gebruikt de Nested Wimp, dat een onderdeel is van Window Manager. Deze hoort bij RISC OS 4 of latere versies. RISC OS 3 gebruikers moeten <a href="http://acorn.riscos.com/riscos/releases/UniBoot/"><strong>Universal Boot Sequence</strong></a> installeren.</dd>
+<dd>NetSurf gebruikt de Nested Wimp, dat een onderdeel is van Window Manager. Deze hoort bij RISC OS 4 of latere versies. RISC OS 3 gebruikers moeten <a href="http://acorn.riscos.com/riscos/releases/UniBoot/">Universal Boot Sequence</a> installeren.</dd>
 </dl>
 
 <p>Wanneer NetSurf zonder problemen start, is dat een teken dat aan alle vereisten voor het gebruik is voldaan.</p>
@@ -65,7 +65,7 @@
 <p>De volgende bronnen zijn niet vereist voor de goede werking van NetSurf, maar voegen wel meer mogelijkheden toe.</p>
 
 <dl>
-<dt><a href="http://www.ecs.soton.ac.uk/~jmb202/"><strong>Flash plugin</strong></a></dt>
+<dt><a href="http://www.ecs.soton.ac.uk/~jmb202/">Flash plugin</a></dt>
 <dd>Deze programma maakt het mogelijk Flash-bestanden op webstekken te bekijken.</dd>
 </dl>
 

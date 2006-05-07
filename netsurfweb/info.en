@@ -52,7 +52,7 @@
 <dd>This module provides improved character encoding support.</dd>
 <dt><a href="http://www.beebware.com/software/mappings/">MimeMap Datafile</a></dt>
 <dd>A resource containing many different MIME types and their equivalent RISC OS file types.</dd>
-<dt><a href="http://gccsdk.riscos.info/downloads/sharedunixlib/">SharedUnixLibrary</a></dt>
+<dt><a href="http://www.riscos.info/downloads/gccsdk/sharedunixlib/system.zip">SharedUnixLibrary</a></dt>
 <dd>This is a support module for programs compiled using UnixLib.</dd>
 <dt><a href="http://www.tinct.net/tinct.asp">Tinct</a></dt>
 <dd>Tinct is used for image plotting. It provides support for plotting sprites with alpha channels.</dd>
