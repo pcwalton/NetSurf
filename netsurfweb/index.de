@@ -11,19 +11,30 @@
 <p class="languages">Deutsch · <a href="index.en">English</a> · <a href="index.fr">Français</a></p>
 
 <div class="main">
-<p>NetSurf ist ein Open-Source Web-Browser für RISC OS. Ziel dieses Projektes ist es, die Standards HTML&nbsp;4 und CSS auf der RISC OS Plattform zur Verfügung zu stellen.</p>
 
-<h2>Aktueller Status</h2>
-<p><strong>NetSurf befindet sich noch in der Entwicklung.</strong> Testversionen stehen zum <a href="http://netsurf.sourceforge.net/builds/">Download</a> bereit. Genaue Informationen zum <a href="progress">Stand der Entwicklung</a> gibt es auf der gleichnamigen Seite.</p>
+<img src="screenshots/frontscreen.png" alt="" class="screenshot">
 
-<h2>Bildschirmfotos</h2>
-<p>Hier ein aktuelles Bildschirmfoto:</p>
-<p class="screenshot"><a href="screenshots/"><img src="screenshots/w3cs.png" alt=""></a></p>
-<p>Mehr <a href="screenshots/">Bildschirmfotos</a> sind abrufbar.</p>
+<p>NetSurf ist ein Open-Source Web-Browser für RISC OS und wird unter der <a href="licence">GPL</a> lizensiert. Ziel dieses Projektes ist es, die Standards HTML&nbsp;4 und CSS auf der RISC OS Plattform zur Verfügung zu stellen. NetSurf ist ein schlankes, schnelles und einfach zu bedienendes Programm.</p>
 
-<h2>Mailing-Liste</h2>
-<p>Die Projektentwicklung wird in der
-<a href="http://lists.sourceforge.net/lists/listinfo/netsurf-develop">Entwickler Mailing-Liste</a> diskutiert. Bei Interesse zum Gelingen des Projektes NetSurf beizutragen, bitte einfach über diese Liste Kontakt aufnehmen.</p>
+<p>NetSurf befindet sich in stetiger Entwicklung auch wenn bisher noch keine Vollversion veröffentlicht wurde. Testversionen stehen zum <a href="http://netsurf.sourceforge.net/builds/">Download</a> bereit. Diese werden automatisch aller 15 Minuten aus dem Quellcode auf <a href="http://svn.semichrome.net/trunk/netsurf/">Subversion</a> erzeugt.</p>
+
+<p>Bitte probiere NetSurf regelmäßig aus und gib uns ein <a href="info#ContactDevelopers">Feedback</a>. Genaue Informationen zum <a href="progress">Stand der Entwicklung</a> gibt es auf der gleichnamigen Seite.</p>
+
+<h2>News</h2>
+<p>Die aktuellen News können auf der <a href="index.en">englischen</a> Netsurf Homepage gelesen werden. Ältere News sind im <a href="archive">News-Archiv</a> zu finden.</p>
+
+<h2 id="Awards">Preise</h2>
+<div class="award">
+<a href="http://www.drobe.co.uk/riscos/artifact1517.html"><img src="da2005.jpg" alt=""></a>
+
+<p>NetSurf und seine Entwickler wurden <a href="http://www.drobe.co.uk/riscos/artifact1515.html">nominiert</a> für die Kategorien &quot;best non-commercial software&quot; und &quot;best general contribution&quot; in <a href="http://www.drobe.co.uk/">Drobe Launch Pad's</a> prestigeträchtiger <a href="http://www.drobe.co.uk/riscos/artifact1517.html">jährlicher Preisverleihung</a>. NetSurf wurde in beiden Gruppen auf den ersten Platz gewählt. Vielen Dank an alle die uns ihre Stimme gegeben haben!</p>
+</div>
+
+<div class="award">
+<a href="http://www.drobe.co.uk/features/artifact1249.html"><img src="da2004.png" alt=""></a>
+
+<p>NetSurf gewann den Preis &quot;best non-commercial software&quot; im <a href="http://www.drobe.co.uk/features/artifact1249.html">Best of 2004</a> von <a href="http://www.drobe.co.uk/">Drobe Launch Pad</a>. Danke an alle die für uns gestimmt haben!</p>
+</div>
 </div>
 
 <div class="links">
@@ -33,23 +44,26 @@
 <dt><a href="docs">Dokumentation</a></dt>
 <dd>Allgemeine Informationen und Handbuch</dd>
 
-<dt><a href="http://sourceforge.net/projects/netsurf/">SourceForge Projektseite</a></dt>
-<dd>SourceForge stellt die Mailing-Liste, den Bug-Tracker und andere Dienste zur Verfügung</dd>
+<dt><a href="screenshots/">Bildschirmfotos</a></dt>
+<dd>Einige aktuelle Beispielbilder</dd>
 
 <dt><a href="http://netsurf.sourceforge.net/builds/">Testversionen</a></dt>
 <dd>Werden regelmäßig aus dem aktuellen Sourcecode erzeugt</dd>
 
 <dt><a href="/themes/">Themen</a></dt>
-<dd>Themen ändern das Aussehen der Nutzeroberfläche von NetSurf</dd>
+<dd>Themen zum Ändern des Aussehens der Nutzeroberfläche von NetSurf</dd>
 
 <dt><a href="http://sourceforge.net/tracker/?atid=464312&amp;group_id=51719">Bug-Tracker</a></dt>
-<dd>Fehler bitte an den Bug-Tracker übermitteln oder über die Mailing-Liste mitteilen</dd>
+<dd>Gefundene Fehler bitte über den Bug-Tracker mitteilen</dd>
 
 <dt><a href="http://lists.sourceforge.net/lists/listinfo/netsurf-develop">Entwickler Mailing-Liste</a></dt>
 <dd>Bitte hier anmelden, um als Tester oder Entwickler mitzuarbeiten</dd>
 
 <dt><a href="develop">Entwicklerinformationen</a></dt>
 <dd>Für Entwickler und alle am Projekt Beteiligten</dd>
+
+<dt><a href="http://sourceforge.net/projects/netsurf/">SourceForge Projektseite</a></dt>
+<dd>SourceForge stellt die Mailing-Liste, den Bug-Tracker und andere Dienste zur Verfügung</dd>
 </dl>
 
 </div>
