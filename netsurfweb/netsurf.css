@@ -30,6 +30,7 @@ p.footer { font-size: small; text-align: right; margin-top: 5mm; font-style: ita
 .iconinfo { clear: left; }
 .headnote { color: #777; font-style: italic; }
 .note { width: 80%; background-color: #d2ffd2; padding: 0.8em; border: 4px ridge #d2ffd2; margin-left: auto; margin-right: auto; }
+.caption { text-align: right; font-style: italic; }
 
 th { font-weight: bold; padding: 3px; text-align: left; }
 td { padding: 3px; }
