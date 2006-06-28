@@ -47,7 +47,7 @@
 <tr class="inprogress"><td>Frames</td><td>In progress</td><td>Frames implementation is incomplete.</td></tr>
 <tr class="complete"><td>Image Maps</td><td>Complete</td><td></td></tr>
 <tr class="juststarted"><td>Lists</td><td>Just started</td><td>Lists aren't handled properly.</td></tr>
-<tr class="nearlydone"><td>Position (CSS2 attribute)</td><td>Nearly done</td><td>Relative positioning has been implemented.<br>Absolute positioning has a couple of issues.</td></tr>
+<tr class="nearlydone"><td>Position (CSS2 attribute)</td><td>Nearly done</td><td>Relative positioning has been implemented.<br>Absolute positioning has a couple of issues.<br>Fixed positioning has not been implemented.</td></tr>
 <tr class="nearlydone"><td>Tables</td><td>Nearly done</td><td>Elements col, colgroup, rowgroup and caption not implemented.<br>Extra space is divided equally among columns instead of in proportion with content width.</td></tr>
 <tr class="inprogress"><td>Vertical Alignment</td><td>In progress</td><td>Only implemented for tables.</td></tr>
 </table>
