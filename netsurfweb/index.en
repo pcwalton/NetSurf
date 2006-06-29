@@ -8,7 +8,7 @@
 
 <body>
 <h1 class="banner"><img src="netsurf.png" alt="NetSurf: Web Browser for RISC OS"></h1>
-<p class="languages"><a href="index.de">Deutsch</a> · English · <a href="index.fr">Français</a></p>
+<p class="languages"><a href="index.de">Deutsch</a> · English · <a href="index.fr">Français</a> · <a href="index.nl">Nederlands</a></p>
 
 <div class="main">
 
