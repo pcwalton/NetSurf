@@ -46,6 +46,7 @@
 <tr><td>Scale View</td><td>scale</td></tr>
 <tr><td>Search / Find Text</td><td>search</td></tr>
 <tr><td>Stop</td><td>stop</td></tr>
+<tr><td>Up</td><td>up</td></tr>
 </table>
 
 <table class="toolbarsprites">

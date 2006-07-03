@@ -145,7 +145,7 @@
 
 <p class="iconinfo"><strong><img src="images/stop" class="icon" alt="Stop" title="Stop Button"></strong> Clicking on this button stops whatever process the window is doing.</p>
 
-<!-- <p class="iconinfo"><strong><img src="images/up" class="icon" alt="Up" title="Up Button"></strong> Clicking on this button moves up the directory tree. For example, if you are looking at <em>http://www.domain.com/directory/page.html</em>, clicking on the up icon takes you to <em>http://www.domain.com/directory/</em> and a further click would result in a location of <em>http://www.domain.com/</em>.</p> -->
+<p class="iconinfo"><strong><img src="images/up" class="icon" alt="Up" title="Up Button"></strong> Clicking on this button moves up the directory tree. For example, if you are looking at <em>http://www.domain.com/directory/page.html</em>, clicking on the up icon takes you to <em>http://www.domain.com/directory/</em> and a further click would result in a location of <em>http://www.domain.com/</em>.</p>
 
 <p>Icons that are greyed out indicate that their function is unavailable. This happens when a new browser window is first opened. Since the window will be displaying its first page, there would be no previous page and the back button is greyed out. Also, as this is the first page, the forward button is also greyed out.</p>
 

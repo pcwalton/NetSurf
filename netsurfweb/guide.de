@@ -110,7 +110,7 @@
 
 <p class="iconinfo"><strong><img src="images/stop" class="icon" alt="Stop" title="Stop Button"></strong> Anklicken stoppt den im Browserfenster laufenden Prozess.</p>
 
-<!-- <p class="iconinfo"><strong><img src="images/up" class="icon" alt="Up" title="Up Button"></strong> Anklicken ruft die im Dateipfad übergeordnete Struktur auf. Wenn die aktuelle Seite <em>http://www.domain.com/directory/page.html</em> ist, führt einfaches Klicken nach <em>http://www.domain.com/directory/</em> und ein weiterer Klick nach <em>http://www.domain.com/</em>.</p> -->
+<p class="iconinfo"><strong><img src="images/up" class="icon" alt="Up" title="Up Button"></strong> Anklicken ruft die im Dateipfad übergeordnete Struktur auf. Wenn die aktuelle Seite <em>http://www.domain.com/directory/page.html</em> ist, führt einfaches Klicken nach <em>http://www.domain.com/directory/</em> und ein weiterer Klick nach <em>http://www.domain.com/</em>.</p>
 
 <p>Schaltknöpfe, die blaß dargestellt werden, haben momentan keine Funktion. So werden zum Beispiel beim ersten Öffnen eines Browserfenster die Schaltknöpfe für Vorwärts und Zurück inaktiviert, da es in diesem Fall ja keine vorherige oder folgende Seite gibt.</p>
 
