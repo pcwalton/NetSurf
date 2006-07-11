@@ -13,6 +13,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <strings.h>
+#include <search.h>
 #include <oslib/font.h>
 #include <oslib/hourglass.h>
 #include <oslib/os.h>
@@ -68,7 +69,7 @@ const struct rufl_weight_table_entry rufl_weight_table[] = {
 
 
 static rufl_code rufl_init_font_list(void);
-static rufl_code rufl_init_add_font(char *identifier);
+static rufl_code rufl_init_add_font(char *identifier, char *local_name);
 static int rufl_weight_table_cmp(const void *keyval, const void *datum);
 static rufl_code rufl_init_scan_font(unsigned int font);
 static bool rufl_is_space(unsigned int u);
@@ -216,13 +217,16 @@ rufl_code rufl_init_font_list(void)
 {
 	rufl_code code;
 	font_list_context context = 0;
-	char identifier[80];
+	char identifier[80], local_name[80];
 
 	while (context != -1) {
 		/* read identifier */
 		rufl_fm_error = xfont_list_fonts(identifier,
-				font_RETURN_FONT_NAME | context,
-				sizeof identifier, 0, 0, 0,
+				font_RETURN_FONT_NAME |
+				font_RETURN_LOCAL_FONT_NAME |
+				context,
+				sizeof identifier,
+				local_name, sizeof local_name, 0,
 				&context, 0, 0);
 		if (rufl_fm_error) {
 			LOG("xfont_list_fonts: 0x%x: %s",
@@ -233,7 +237,7 @@ rufl_code rufl_init_font_list(void)
 		if (context == -1)
 			break;
 
-		code = rufl_init_add_font(identifier);
+		code = rufl_init_add_font(identifier, local_name);
 		if (code != rufl_OK)
 			return code;
 	}
@@ -242,7 +246,7 @@ rufl_code rufl_init_font_list(void)
 }
 
 
-rufl_code rufl_init_add_font(char *identifier)
+rufl_code rufl_init_add_font(char *identifier, char *local_name)
 {
 	size_t size;
 	struct rufl_font_list_entry *font_list;
@@ -264,10 +268,11 @@ rufl_code rufl_init_add_font(char *identifier)
 	rufl_fm_error = xosfscontrol_canonicalise_path(identifier, 0,
 			"Font$Path", 0, 0, &size);
 	if (rufl_fm_error) {
-		LOG("xosfscontrol_canonicalise_path: 0x%x: %s",
+		LOG("xosfscontrol_canonicalise_path(\"%s\", ...): 0x%x: %s",
+				identifier,
 				rufl_fm_error->errnum,
 				rufl_fm_error->errmess);
-		return rufl_FONT_MANAGER_ERROR;
+		return rufl_OK;
 	}
 	/* size is -(space required - 1) so negate and add 1 */
 	size = -size + 1;
@@ -277,10 +282,11 @@ rufl_code rufl_init_add_font(char *identifier)
 	rufl_fm_error = xosfscontrol_canonicalise_path(identifier,
 			fullpath, "Font$Path", 0, size, 0);
 	if (rufl_fm_error) {
-		LOG("xosfscontrol_canonicalise_path: 0x%x: %s",
+		LOG("xosfscontrol_canonicalise_path(\"%s\", ...): 0x%x: %s",
+				identifier,
 				rufl_fm_error->errnum,
 				rufl_fm_error->errmess);
-		return rufl_FONT_MANAGER_ERROR;
+		return rufl_OK;
 	}
 
 	/* LOG("%s", fullpath); */
@@ -303,8 +309,8 @@ rufl_code rufl_init_add_font(char *identifier)
 	rufl_font_list_entries++;
 
 	/* determine family, weight, and slant */
-	dot = strchr(identifier, '.');
-	family = identifier;
+	dot = strchr(local_name, '.');
+	family = local_name;
 	if (dot)
 		*dot = 0;
 	while (dot) {
@@ -1007,8 +1013,8 @@ rufl_code rufl_load_cache(void)
 		}
 
 		/* put in rufl_font_list */
-		entry = bsearch(identifier, rufl_font_list,
-				rufl_font_list_entries,
+		entry = lfind(identifier, rufl_font_list,
+				&rufl_font_list_entries,
 				sizeof rufl_font_list[0], rufl_font_list_cmp);
 		if (entry) {
 			entry->charset = charset;
