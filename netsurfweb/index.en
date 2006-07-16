@@ -22,6 +22,12 @@
 
 <h2>News</h2>
 <div class="newsitem">
+<p>01 Jul 2006 - <em>Media watch</em></p>
+<p>Recent developments and future plans reported at Drobe Launchpad.</p>
+<p class="more"><a href="http://www.drobe.co.uk/riscos/artifact1654">Read more...</a></p>
+</div>
+
+<div class="newsitem">
 <p>07 May 2006 - <em>Summary of recent changes</em></p>
 <p>Documentation updates, New shortcuts, Bug fixes</p>
 <p class="more"><a href="http://sourceforge.net/mailarchive/message.php?msg_id=15623648">Read more...</a></p>
