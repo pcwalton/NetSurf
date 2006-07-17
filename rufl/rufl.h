@@ -126,6 +126,15 @@ rufl_code rufl_paint_callback(const char *font_family, rufl_style font_style,
 
 
 /**
+ * Determine the maximum bounding box of a font.
+ */
+
+rufl_code rufl_font_bbox(const char *font_family, rufl_style font_style,
+		unsigned int font_size,
+		int *bbox);
+
+
+/**
  * Dump the internal library state to stdout.
  */
 

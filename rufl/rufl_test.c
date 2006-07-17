@@ -26,6 +26,7 @@ int main(void)
 	size_t char_offset;
 	int x;
 	int actual_x;
+	int bbox[4];
 
 	try(rufl_init(), "rufl_init");
 	rufl_dump_state();
@@ -53,6 +54,9 @@ int main(void)
 	try(rufl_paint_callback("NewHall", rufl_WEIGHT_400, 240,
 			utf8_test, sizeof utf8_test - 1,
 			1200, 1000, callback, 0), "rufl_paint_callback");
+	try(rufl_font_bbox("NewHall", rufl_WEIGHT_400, 240, bbox),
+			"rufl_font_bbox");
+	printf("bbox: %i %i %i %i\n", bbox[0], bbox[1], bbox[2], bbox[3]);
 	rufl_quit();
 
 	return 0;
