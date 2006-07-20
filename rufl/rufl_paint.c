@@ -192,7 +192,7 @@ rufl_code rufl_process(rufl_action action,
 		flags &= ~rufl_BLEND_FONT;
 	}
 
-	if (length == 0) {
+	if (length == 0 && action != rufl_FONT_BBOX) {
 		if (action == rufl_WIDTH)
 			*width = 0;
 		else if (action == rufl_X_TO_OFFSET || action == rufl_SPLIT) {
