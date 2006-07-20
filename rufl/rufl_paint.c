@@ -31,9 +31,6 @@ static rufl_code rufl_process(rufl_action action,
 		int x, int y, unsigned int flags,
 		int *width, int click_x, size_t *char_offset, int *actual_x,
 		rufl_callback_t callback, void *context);
-static bool rufl_find_font(const char *font_family, rufl_style font_style,
-		unsigned int *font_index, unsigned int *slanted);
-static int rufl_family_list_cmp(const void *keyval, const void *datum);
 static rufl_code rufl_process_span(rufl_action action,
 		unsigned short *s, unsigned int n,
 		unsigned int font, unsigned int font_size, unsigned int slant,
@@ -53,9 +50,6 @@ static rufl_code rufl_process_not_available(rufl_action action,
 		unsigned int flags,
 		int click_x, size_t *offset,
 		rufl_callback_t callback, void *context);
-static font_f rufl_search_cache(unsigned int font, unsigned int font_size);
-static rufl_code rufl_place_in_cache(unsigned int font, unsigned int font_size,
-		font_f f);
 
 
 /**
@@ -208,8 +202,10 @@ rufl_code rufl_process(rufl_action action,
 		return rufl_OK;
 	}
 
-	if (!rufl_find_font(font_family, font_style, &font, &slant))
-		return rufl_FONT_NOT_FOUND;
+	code = rufl_find_font_family(font_family, font_style,
+			&font, &slant, &charset);
+	if (code != rufl_OK)
+		return code;
 
 	if (action == rufl_FONT_BBOX) {
 		if (rufl_old_font_manager)
@@ -222,8 +218,6 @@ rufl_code rufl_process(rufl_action action,
 					0, 0, 0, 0);
 		return code;
 	}
-
-	charset = rufl_font_list[font].charset;
 
 	offset_u = 0;
 	rufl_utf8_read(string, length, u);
@@ -297,73 +291,6 @@ rufl_code rufl_process(rufl_action action,
 
 
 /**
- * Determine the index in rufl_font_list for a font family and style.
- */
-
-bool rufl_find_font(const char *font_family, rufl_style font_style,
-		unsigned int *font_index, unsigned int *slanted)
-{
-	char **family;
-	unsigned int font, weight, slant, used_weight;
-	unsigned int search_direction;
-
-	family = bsearch(font_family, rufl_family_list,
-			rufl_family_list_entries,
-			sizeof rufl_family_list[0], rufl_family_list_cmp);
-	if (!family)
-		return false;
-	weight = (font_style & 0xf) - 1;
-	assert(weight <= 8);
-	slant = font_style & rufl_SLANTED ? 1 : 0;
-
-	struct rufl_family_map_entry *e =
-			&rufl_family_map[family - rufl_family_list];
-	used_weight = weight;
-	if (weight <= 2)
-		search_direction = -1;
-	else
-		search_direction = +1;
-	while (1) {
-		if (e->font[used_weight][slant] != NO_FONT) {
-			/* the weight and slant is available */
-			font = e->font[used_weight][slant];
-			break;
-		}
-		if (e->font[used_weight][1 - slant] != NO_FONT) {
-			/* slanted, and non-slanted weight exists, or vv. */
-			font = e->font[used_weight][1 - slant];
-			break;
-		}
-		if (used_weight == 0) {
-			/* searched down without finding a weight: search up */
-			used_weight = weight + 1;
-			search_direction = +1;
-		} else if (used_weight == 8) {
-			/* searched up without finding a weight: search down */
-			used_weight = weight - 1;
-			search_direction = -1;
-		} else {
-			/* try the next weight in the current direction */
-			used_weight += search_direction;
-		}
-	}
-
-	*font_index = font;
-	*slanted = slant;
-
-	return true;
-}
-
-
-int rufl_family_list_cmp(const void *keyval, const void *datum)
-{
-	const char *key = keyval;
-	const char * const *entry = datum;
-	return strcasecmp(key, *entry);
-}
-
-
-/**
  * Render a string of characters from a single RISC OS font.
  */
 
@@ -374,32 +301,17 @@ rufl_code rufl_process_span(rufl_action action,
 		int click_x, size_t *offset,
 		rufl_callback_t callback, void *context)
 {
-	char font_name[80];
 	unsigned short *split_point;
 	int x_out, y_out;
 	unsigned int i;
+	char font_name[80];
 	bool oblique = slant && !rufl_font_list[font].slant;
 	font_f f;
 	rufl_code code;
 
-	/* search cache */
-	f = rufl_search_cache(font, font_size);
-	if (!f) {
-		snprintf(font_name, sizeof font_name, "%s\\EUTF8",
-				rufl_font_list[font].identifier);
-		rufl_fm_error = xfont_find_font(font_name,
-				font_size, font_size, 0, 0, &f, 0, 0);
-		if (rufl_fm_error) {
-			LOG("xfont_find_font: 0x%x: %s",
-					rufl_fm_error->errnum,
-					rufl_fm_error->errmess);
-			return rufl_FONT_MANAGER_ERROR;
-		}
-		/* place in cache */
-		code = rufl_place_in_cache(font, font_size, f);
-		if (code != rufl_OK)
-			return code;
-	}
+	code = rufl_find_font(font, font_size, "UTF8", &f);
+	if (code != rufl_OK)
+		return code;
 
 	if (action == rufl_FONT_BBOX) {
 		rufl_fm_error = xfont_read_info(f, &x[0], &x[1], &x[2], &x[3]);
@@ -478,7 +390,6 @@ rufl_code rufl_process_span_old(rufl_action action,
 {
 	char s2[rufl_PROCESS_CHUNK];
 	char *split_point;
-	const char *font_name = rufl_font_list[font].identifier;
 	int x_out, y_out;
 	unsigned int i;
 	bool oblique = slant && !rufl_font_list[font].slant;
@@ -486,18 +397,9 @@ rufl_code rufl_process_span_old(rufl_action action,
 	rufl_code code;
 	struct rufl_unicode_map_entry *entry;
 
-	/* search cache */
-	f = rufl_search_cache(font, font_size);
-	if (!f) {
-		rufl_fm_error = xfont_find_font(font_name,
-				font_size, font_size, 0, 0, &f, 0, 0);
-		if (rufl_fm_error)
-			return rufl_FONT_MANAGER_ERROR;
-		/* place in cache */
-		code = rufl_place_in_cache(font, font_size, f);
-		if (code != rufl_OK)
-			return code;
-	}
+	code = rufl_find_font(font, font_size, NULL, &f);
+	if (code != rufl_OK)
+		return code;
 
 	if (action == rufl_FONT_BBOX) {
 		rufl_fm_error = xfont_read_info(f, &x[0], &x[1], &x[2], &x[3]);
@@ -528,7 +430,8 @@ rufl_code rufl_process_span_old(rufl_action action,
 		if (rufl_fm_error)
 			return rufl_FONT_MANAGER_ERROR;
 	} else if (action == rufl_PAINT_CALLBACK) {
-		callback(context, font_name, font_size, s2, 0, n, *x, y);
+		callback(context, rufl_font_list[font].identifier,
+				font_size, s2, 0, n, *x, y);
 	}
 
 	/* increment x by width of span */
@@ -597,32 +500,9 @@ rufl_code rufl_process_not_available(rufl_action action,
 		return rufl_OK;
 	}
 
-	if (action == rufl_PAINT) {
-		/* search cache */
-		for (i = 0; i != rufl_CACHE_SIZE; i++) {
-			if (rufl_cache[i].font == rufl_CACHE_CORPUS &&
-					rufl_cache[i].size == font_size)
-				break;
-		}
-		if (i != rufl_CACHE_SIZE) {
-			/* found in cache */
-			f = rufl_cache[i].f;
-			rufl_cache[i].last_used = rufl_cache_time++;
-		} else {
-			/* not found */
-			rufl_fm_error = xfont_find_font(
-					"Corpus.Medium\\ELatin1",
-					font_size / 2, font_size / 2, 0, 0,
-					&f, 0, 0);
-			if (rufl_fm_error)
-				return rufl_FONT_MANAGER_ERROR;
-			/* place in cache */
-			code = rufl_place_in_cache(rufl_CACHE_CORPUS,
-					font_size, f);
-			if (code != rufl_OK)
-				return code;
-		}
-	}
+	code = rufl_find_font(rufl_CACHE_CORPUS, font_size / 2, "Latin1", &f);
+	if (code != rufl_OK)
+		return code;
 
 	for (i = 0; i != n; i++) {
 		missing[0] = "0123456789abcdef"[(s[i] >> 12) & 0xf];
@@ -665,66 +545,6 @@ rufl_code rufl_process_not_available(rufl_action action,
 
 		*x += dx;
 	}
-
-	return rufl_OK;
-}
-
-
-/**
- * Find a font in the recent-use cache.
- */
-
-font_f rufl_search_cache(unsigned int font, unsigned int font_size)
-{
-	unsigned int i;
-
-	for (i = 0; i != rufl_CACHE_SIZE; i++) {
-		if (rufl_cache[i].font == font &&
-				rufl_cache[i].size == font_size)
-			break;
-	}
-	if (i != rufl_CACHE_SIZE) {
-		/* found in cache */
-		rufl_cache[i].last_used = rufl_cache_time++;
-		return rufl_cache[i].f;
-	} else {
-		/* not found */
-		return 0;
-	}
-}
-
-
-/**
- * Place a font into the recent-use cache, making space if necessary.
- */
-
-rufl_code rufl_place_in_cache(unsigned int font, unsigned int font_size,
-		font_f f)
-{
-	unsigned int i;
-	unsigned int max_age = 0;
-	unsigned int evict = 0;
-
-	for (i = 0; i != rufl_CACHE_SIZE; i++) {
-		if (rufl_cache[i].font == rufl_CACHE_NONE) {
-			evict = i;
-			break;
-		} else if (max_age < rufl_cache_time -
-				rufl_cache[i].last_used) {
-			max_age = rufl_cache_time -
-					rufl_cache[i].last_used;
-			evict = i;
-		}
-	}
-	if (rufl_cache[evict].font != rufl_CACHE_NONE) {
-		rufl_fm_error = xfont_lose_font(rufl_cache[evict].f);
-		if (rufl_fm_error)
-			return rufl_FONT_MANAGER_ERROR;
-	}
-	rufl_cache[evict].font = font;
-	rufl_cache[evict].size = font_size;
-	rufl_cache[evict].f = f;
-	rufl_cache[evict].last_used = rufl_cache_time++;
 
 	return rufl_OK;
 }

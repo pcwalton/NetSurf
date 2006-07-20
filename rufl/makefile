@@ -12,7 +12,8 @@ COMPILER = gcc
 
 SOURCE = rufl_init.c rufl_quit.c rufl_dump_state.c \
 	rufl_character_set_test.c \
-	rufl_paint.c rufl_glyph_map.c rufl_invalidate_cache.c
+	rufl_paint.c rufl_glyph_map.c rufl_invalidate_cache.c \
+	rufl_find.c rufl_decompose.c rufl_metrics.c
 
 
 ifeq ($(COMPILER), gcc)

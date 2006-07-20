@@ -55,6 +55,17 @@ extern char **rufl_family_list;
 /** Number of entries in rufl_family_list. */
 extern unsigned int rufl_family_list_entries;
 
+/* Callbacks used by rufl_decompose_glyph */
+typedef int (*rufl_move_to_func)(os_coord *to, void *user);
+typedef int (*rufl_line_to_func)(os_coord *to, void *user);
+typedef int (*rufl_cubic_to_func)(os_coord *control1, os_coord *control2,
+		os_coord *to, void *user);
+
+struct rufl_decomp_funcs {
+	rufl_move_to_func move_to;
+	rufl_line_to_func line_to;
+	rufl_cubic_to_func cubic_to;
+};
 
 /**
  * Initialise RUfl.
@@ -123,6 +134,39 @@ rufl_code rufl_paint_callback(const char *font_family, rufl_style font_style,
 		const char *string, size_t length,
 		int x, int y,
 		rufl_callback_t callback, void *context);
+
+
+/**
+ * Decompose a glyph to a path.
+ */
+
+rufl_code rufl_decompose_glyph(const char *font_family,
+		rufl_style font_style, unsigned int font_size,
+		const char *string, size_t length,
+		struct rufl_decomp_funcs *funcs, void *user);
+
+
+/**
+ * Read metrics for a font
+ */
+
+rufl_code rufl_font_metrics(const char *font_family, rufl_style font_style,
+		os_box *bbox, int *xkern, int *ykern, int *italic,
+		int *ascent, int *descent,
+		int *xheight, int *cap_height,
+		signed char *uline_position, unsigned char *uline_thickness);
+
+
+/**
+ * Read metrics for a glyph
+ */
+
+rufl_code rufl_glyph_metrics(const char *font_family,
+		rufl_style font_style, unsigned int font_size,
+		const char *string, size_t length,
+		int *x_bearing, int *y_bearing,
+		int *width, int *height,
+		int *x_advance, int *y_advance);
 
 
 /**

@@ -12,6 +12,10 @@
 
 
 static void try(rufl_code code, const char *context);
+static int move_to(os_coord *to, void *user);
+static int line_to(os_coord *to, void *user);
+static int cubic_to(os_coord *control1, os_coord *control2, os_coord *to,
+		void *user);
 static void callback(void *context,
 		const char *font_name, unsigned int font_size,
 		const char *s8, unsigned short *s16, unsigned int n,
@@ -26,6 +30,7 @@ int main(void)
 	size_t char_offset;
 	int x;
 	int actual_x;
+	struct rufl_decomp_funcs funcs = { move_to, line_to, cubic_to };
 	int bbox[4];
 
 	try(rufl_init(), "rufl_init");
@@ -51,6 +56,9 @@ int main(void)
 		printf("split: %i -> %i %i \"%s\"\n", x, actual_x,
 				char_offset, utf8_test + char_offset);
 	}
+	try(rufl_decompose_glyph("Homerton", rufl_WEIGHT_400, 1280,
+				"A", 1, &funcs, 0),
+				"rufl_decompose_glyph");
 	try(rufl_paint_callback("NewHall", rufl_WEIGHT_400, 240,
 			utf8_test, sizeof utf8_test - 1,
 			1200, 1000, callback, 0), "rufl_paint_callback");
@@ -84,6 +92,34 @@ void try(rufl_code code, const char *context)
 		printf("error: %s: unknown error\n", context);
 	rufl_quit();
 	exit(1);
+}
+
+
+int move_to(os_coord *to, void *user)
+{
+	printf("Move to (%d,%d)\n", to->x, to->y);
+
+	return 0;
+}
+
+
+int line_to(os_coord *to, void *user)
+{
+	printf("Line to (%d,%d)\n", to->x, to->y);
+
+	return 0;
+}
+
+
+int cubic_to(os_coord *control1, os_coord *control2, os_coord *to,
+		void *user)
+{
+	printf("Bezier to (%d,%d),(%d,%d),(%d,%d)\n",
+			control1->x, control1->y,
+			control2->x, control2->y,
+			to->x, to->y);
+
+	return 0;
 }
 
 
