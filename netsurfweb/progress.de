@@ -29,9 +29,9 @@
 <table class="progress">
 <tr><th>Titel</th><th>Status</th><th>Bemerkung / Notes</th></tr>
 <tr class="inprogress"><td>Cookies</td><td>in Entwicklung</td><td>Don't get expired.</td></tr>
-<tr class="nearlydone"><td>CSS 1</td><td>fast fertig</td><td>siehe <a href="http://svn.semichrome.net/trunk/netsurf/Docs/TODO-CSS?view=markup">TODO list</a>.</td></tr>
-<tr class="inprogress"><td>CSS 2</td><td>in Entwicklung</td><td>siehe <a href="http://svn.semichrome.net/trunk/netsurf/Docs/TODO-CSS?view=markup">TODO list</a>.</td></tr>
-<tr class="nearlydone"><td>HTML 4</td><td>fast fertig</td><td>siehe <a href="http://svn.semichrome.net/trunk/netsurf/Docs/TODO-HTML?view=log">TODO list</a>.</td></tr>
+<tr class="nearlydone"><td>CSS 1</td><td>fast fertig</td><td>siehe <a href="http://svn.semichrome.net/*checkout*/trunk/netsurf/Docs/TODO-CSS">TODO list</a>.</td></tr>
+<tr class="inprogress"><td>CSS 2</td><td>in Entwicklung</td><td>siehe <a href="http://svn.semichrome.net/*checkout*/trunk/netsurf/Docs/TODO-CSS">TODO list</a>.</td></tr>
+<tr class="nearlydone"><td>HTML 4</td><td>fast fertig</td><td>siehe <a href="http://svn.semichrome.net/*checkout*/trunk/netsurf/Docs/TODO-HTML">TODO list</a>.</td></tr>
 <tr class="complete"><td>HTTP 1.1</td><td>komplett</td><td></td></tr>
 <tr class="inprogress"><td>HTTP Authentifikation</td><td>in Entwicklung</td><td></td></tr>
 <tr class="nearlydone"><td>HTTPS</td><td>fast fertig</td><td>Doesn't handle invalid certificates well.</td></tr>
