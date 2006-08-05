@@ -18,16 +18,19 @@ p {margin-bottom:0;}
 th[colspan] { padding-top:0.3em; }
 .later { background:#bfdfff; }
 .later span { background:#88bfff; }
-.version1 { background:#ffdfbf; }
-.version1 span { background:#ffbf88; }
-.done { color:#7f6f5f; }
-.done span { color:#7f5f44; }
+.version1 { background:#dfbfff; }
+.version1 span { background:#bf88ff; }
+.done { color:#857298; }
+.done span { color:#725198; }
 .core { background:#ddd; text-align:center; }
 .ro { background:#cfc; text-align:center; }
 .gtk { background:#fcc; text-align:center; }
 abbr { cursor:help; }
 p.footer { font-size: small; text-align: right; margin-top: 5mm; font-style: italic; }
 .breadcrumbs { float: left; margin: 0 }
+.core abbr[title] { color: #848484; }
+.ro abbr[title] { color: #799879; }
+.gtk abbr[title] { color: #987979; }
 </style>
 </head>
 <body>
@@ -39,7 +42,7 @@ p.footer { font-size: small; text-align: right; margin-top: 5mm; font-style: ita
 <p>Key:</p>
 <table class="key">
 <tr>
-<td class="version1"><span>[1]</span>= Wanted in version 1.00</td>
+<td class="version1"><span>[1]</span>= Wanted for next milestone, version 1.00</td>
 <td class="later"><span>[2]</span>= After version 1.00</td>
 </tr>
 </table>
@@ -68,7 +71,7 @@ p.footer { font-size: small; text-align: right; margin-top: 5mm; font-style: ita
 </tr>
 <tr>
 <td class="version1"><span>[1]</span>Absolute positioning</td>
-<td class="core">-</td>
+<td class="core">zamez</td>
 <td class="ro"><abbr title="Not applicable">N/A</abbr></td>
 <td class="gtk"><abbr title="Not applicable">N/A</abbr></td>
 </tr>
@@ -108,16 +111,10 @@ p.footer { font-size: small; text-align: right; margin-top: 5mm; font-style: ita
 <td class="gtk"><abbr title="Not applicable">N/A</abbr></td>
 </tr>
 <tr>
-<td class="later"><span>[2]</span>Frames improvement</td>
-<td class="core">-</td>
-<td class="ro">-</td>
-<td class="gtk">-</td>
-</tr>
-<tr>
-<td class="later"><span>[2]</span>Frame navigation support (forward / back / history)</td>
-<td class="core">-</td>
-<td class="ro"><abbr title="Not applicable">N/A</abbr></td>
-<td class="gtk"><abbr title="Not applicable">N/A</abbr></td>
+<td class="version1"><span>[1]</span>Frames improvement</td>
+<td class="core">rjw</td>
+<td class="ro">rjw</td>
+<td class="gtk">Kinnison</td>
 </tr>
 <tr>
 <td class="version1 done"><span>[1]</span>Frame targets</td>
@@ -150,7 +147,7 @@ p.footer { font-size: small; text-align: right; margin-top: 5mm; font-style: ita
 <tr>
 <td class="version1"><span>[1]</span>Rewrite</td>
 <td class="core">jmb</td>
-<td class="ro">-</td>
+<td class="ro">jmb</td>
 <td class="gtk">-</td>
 </tr>
 
@@ -167,7 +164,7 @@ p.footer { font-size: small; text-align: right; margin-top: 5mm; font-style: ita
 <td class="version1 done"><span>[1]</span>Certificate UI</td>
 <td class="core">&#x2713;</td>
 <td class="ro">&#x2713;</td>
-<td class="gtk">-</td>
+<td class="gtk">rjek</td>
 </tr>
 
 <tr><th colspan="4">Caching</th></tr>
