@@ -25,13 +25,13 @@
 
 <h2 id="Awards">Prijzen</h2>
 <div class="award">
-<a href="http://www.drobe.co.uk/riscos/artifact1517.html"><img src="da2005.jpg" alt=""></a>
+<a href="http://www.drobe.co.uk/riscos/artifact1517.html"><img src="webimages/da2005.jpg" alt=""></a>
 
 <p>NetSurf en de NetSurf ontwikkelaars waren <a href="http://www.drobe.co.uk/riscos/artifact1515.html">genomineerd</a> voor de &quot;beste niet-commercie&euml;le programma's&quot; en &quot;beste algemene bijdrage&quot; onderscheiding in <a href="http://www.drobe.co.uk/">Drobe Launch Pad's</a> prestigieuze <a href="http://www.drobe.co.uk/riscos/artifact1517.html">jaarlijkse plechtigheid</a>. NetSurf werd tweede in beide categorie&euml;n. Iedereen die op ons gestemd heeft, nogmaals bedankt!</p>
 </div>
 
 <div class="award">
-<a href="http://www.drobe.co.uk/features/artifact1249.html"><img src="da2004.png" alt=""></a>
+<a href="http://www.drobe.co.uk/features/artifact1249.html"><img src="webimages/da2004.png" alt=""></a>
 
 <p>NetSurf won de onderscheiding voor &quot;beste niet-commercie&euml;le programma&quot; in de <a href="http://www.drobe.co.uk/features/artifact1249.html">Beste van 2004</a> onderscheidingen van <a href="http://www.drobe.co.uk/">Drobe Launch Pad</a>. Iedereen die op ons gestemd heeft, bedankt!</p>
 </div>

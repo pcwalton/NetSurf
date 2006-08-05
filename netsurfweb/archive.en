@@ -14,6 +14,24 @@
 <p>This is the NetSurf news archive. For the most up to date news about NetSurf, see the <a href="/">front page</a>.</p>
 
 <div class="newsitem">
+<p>19 Mar 2006 - <em>Summary of recent changes</em></p>
+<p>Parallel fetches, Linux port</p>
+<p class="more"><a href="http://sourceforge.net/mailarchive/message.php?msg_id=15162159">Read more...</a></p>
+</div>
+
+<div class="newsitem">
+<p>12 Mar 2006 - <em>Summary of recent changes</em></p>
+<p>Printing on LaserJets</p>
+<p class="more"><a href="http://sourceforge.net/mailarchive/message.php?msg_id=14996110">Read more...</a></p>
+</div>
+
+<div class="newsitem">
+<p>05 Mar 2006 - <em>Summary of recent changes</em></p>
+<p>BMP image improvements, URL bar, Printing on RISC OS 3 &amp; 4</p>
+<p class="more"><a href="http://sourceforge.net/mailarchive/message.php?msg_id=14995979">Read more...</a></p>
+</div>
+
+<div class="newsitem">
 <p>26 Feb 2006 - <em>Summary of recent changes</em></p>
 <p>Image efficiency, SSL certificates, BMP and ICO images</p>
 <p class="more"><a href="http://sourceforge.net/mailarchive/message.php?msg_id=14929920">Read more...</a></p>
