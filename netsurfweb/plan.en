@@ -21,7 +21,7 @@ th[colspan] { padding-top:0.3em; }
 .version1 { background:#dfbfff; }
 .version1 span { background:#bf88ff; }
 .done { color:#857298; }
-.done span { color:#725198; }
+.done span { background:#d2a8ff; color:#7d6498; }
 .core { background:#ddd; text-align:center; }
 .ro { background:#cfc; text-align:center; }
 .gtk { background:#fcc; text-align:center; }
