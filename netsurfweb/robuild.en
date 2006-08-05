@@ -40,7 +40,7 @@
 <li>Create a directory named NSLibs in the location where you wish to install the libraries</li>
 <li>Into this directory, unpack the library zip files available from the URL above). This should give you a directory tree which looks like this:
 
-<div><object data="images/library1.png" type="image/png"><pre>   NSLibs
+<div><object data="webimages/library1.png" type="image/png"><pre>   NSLibs
       |
       | -- include
       |       |
@@ -54,7 +54,7 @@
 
 <li>Use a utility such as !Rename to rename the header files into RISC OS format (i.e. <code>foo/h</code> becomes <code>h.foo</code>). This should produce a directory tree like:
 
-<div><object data="images/library2.png" type="image/png"><pre>    NSLibs
+<div><object data="webimages/library2.png" type="image/png"><pre>    NSLibs
       |
       | -- include
       |       |
@@ -98,7 +98,7 @@ with the headers in the &quot;h&quot; directories. [This step may not be require
 
 This will check the latest sources out into a subfolder in the currently selected directory (CSD) entitled &quot;netsurf&quot;. This folder is the root of the source tree. Diagrammatically:
    
-<div><object data="images/netsurftree1.png" type="image/png"><pre>     netsurf
+<div><object data="webimages/netsurftree1.png" type="image/png"><pre>     netsurf
        |
        | -- !NCNetSurf
        | -- !NetSurf
@@ -148,7 +148,7 @@ should be changed to
 
 <li>Insert transtab/c into utils, renaming as per the css files above.</li>
 <li>Create an <code>arm-riscos-aof</code> directory at the root of the NetSurf source tree. This is where the compiled object files will end up. The source tree should now look like this:
-<div><object data="images/netsurftree2.png" type="image/png"><pre>     netsurf
+<div><object data="webimages/netsurftree2.png" type="image/png"><pre>     netsurf
        |
        | -- !NCNetSurf
        | -- !NetSurf
