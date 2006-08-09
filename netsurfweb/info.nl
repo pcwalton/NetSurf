@@ -131,7 +131,7 @@
 
 <p>Codes beginnend met 009, geven aan dat de pagina het gebruikte lettertype niet juist specificeert. Installeren van lettertypes helpt niet. We hebben nog geen oplossing gevonden om dit probleem zo goed mogelijk te voorkomen/verhelpen.</p>
 
-<p>Elk lettertype dat ondersteund wordt door een goed ontworpen coderingbestand zal geen enkel probleem geven. In de praktijk komen zelden lettertypes voor die niet gedekt worden door Latin 1. De oplossing is om TrueType-lettertypes om te zetten met <a href="http://moose.mine.nu:6888/ttf2f2.zip"><strong>TTF2f</strong></a> (momenteel zijn alleen lettertypes voor RISC OS 5 beschikbaar).</p>
+<p>Elk lettertype dat ondersteund wordt door een goed ontworpen coderingbestand zal geen enkel probleem geven. In de praktijk komen zelden lettertypes voor die niet gedekt worden door Latin 1. De oplossing is om TrueType-lettertypes om te zetten met <a href="http://moose.mine.nu/ttf2f_latest.zip"><strong>TTF2f</strong></a> (momenteel zijn alleen lettertypes voor RISC OS 5 beschikbaar).</p>
 
 <p>N.b. Na het installeren van lettertypes moet NetSurf opnieuw gestart worden om die lettertypes te kunnen detecteren.</p>
 

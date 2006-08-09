@@ -134,7 +134,7 @@ Die Installation von &quot;NCNetSurf&quot; ist noch nicht dokumentiert.</p>
 
 <p>Werden die Codes 0091, 0092, 0096 oder andere mit 009 beginnende Codes angezeigt, bedeutet dies, daß die Web-Seite die verwendete Schriftform nicht ordentlich festlegt. Neue Zeichensätze zu installieren, hilft in diesem Fall nicht. Wir haben bisher noch nicht entschieden, wie wir dieses Problem sinnvoll umgehen.</p>
 
-<p>Jeder Zeichensatz mit einer korrekten &quot;Encoding&quot;-Datei sollte funktionieren. In der Praxis sind allerdings Zeichensätze rar, die über die Latin-1 Codierung hinaus Zeichen enthalten. Als Lösung bietet sich an, TrueType-Fonts mittels <a href="http://moose.mine.nu:6888/ttf2f2.zip">TTF2f</a> zu konvertieren (zur Zeit funktioniert das leider nur für RISC OS 5).</p>
+<p>Jeder Zeichensatz mit einer korrekten &quot;Encoding&quot;-Datei sollte funktionieren. In der Praxis sind allerdings Zeichensätze rar, die über die Latin-1 Codierung hinaus Zeichen enthalten. Als Lösung bietet sich an, TrueType-Fonts mittels <a href="http://moose.mine.nu/ttf2f_latest.zip">TTF2f</a> zu konvertieren (zur Zeit funktioniert das leider nur für RISC OS 5).</p>
 
 <p>Nach dem Installieren neuer Schriftarten muß, um diese zu erkennen, NetSurf neu gestartet werden.</p>
 
