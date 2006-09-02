@@ -98,14 +98,14 @@
 <dt><a href="http://netsurf.sourceforge.net/builds/">Test builds</a></dt>
 <dd>Built automatically from the latest source</dd>
 
-<dt><a href="/themes/">Themes</a></dt>
+<dt><a href="themes/">Themes</a></dt>
 <dd>Change the look and feel of NetSurf's interface</dd>
 
 <dt><a href="http://sourceforge.net/tracker/?atid=464312&amp;group_id=51719">Bug tracker</a></dt>
 <dd>Submit bugs reports here</dd>
 
-<dt><a href="http://lists.sourceforge.net/lists/listinfo/netsurf-develop">Development mailing list</a></dt>
-<dd>Subscribe if you plan to develop or test NetSurf</dd>
+<dt><a href="lists/">Mailing lists</a></dt>
+<dd>Information about the NetSurf mailing lists</dd>
 
 <dt><a href="develop">Development information</a></dt>
 <dd>For developers and contributors</dd>
