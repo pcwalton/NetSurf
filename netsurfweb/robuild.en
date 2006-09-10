@@ -31,7 +31,7 @@
 <li>A Filing System which supports long filenames</li>
 <li>!GCC (<a href="http://gccsdk.riscos.info/">http://gccsdk.riscos.info/</a>)</li>
 <li>Prebuilt libraries and sources (<a href="http://netsurf.strcprstskrzkrk.co.uk/developer">http://netsurf.strcprstskrzkrk.co.uk/developer</a>)</li>
-<li>RISC OS CVS client (<a href="http://cvs.riscos.org.uk/">http://cvs.riscos.org.uk/</a>)</li>
+<li>RISC OS SVN client (<a href="http://www.cp15.org/versioncontrol/">http://www.cp15.org/versioncontrol/</a>)</li>
 </ul>
 
 <h2 id="UnpackingTheLibraries">Unpacking the Libraries</h2>
