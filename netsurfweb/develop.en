@@ -56,6 +56,33 @@ NetSurf every 15 minutes if changes have been checked into SVN.</p>
 not include any of gui code, but runs natively on Linux so can be debugged and
 checked using gdb, efence, valgrind, etc.</p>
 
+<h3>Dependencies</h3>
+
+<p>In addition to the compiler, NetSurf requires a number of additional tools to be available. These are enumerated below. Additionally, the libraries which NetSurf uses are also listed</p>
+
+<h4>Tools</h4>
+<ul>
+<li>Lemon parser generator (<a href="http://www.hwaci.com/sw/lemon/">http://www.hwaci.com/sw/lemon/</a>)</li>
+<li>re2c lexer (<a href="http://re2c.org/">http://re2c.org/</a>)</li>
+</ul>
+
+<h4>Libraries</h4>
+<ul>
+<li>cAres &amp; cURL (<a href="http://curl.haxx.se/libcurl/">http://curl.haxx.se/libcurl/</a>)</li>
+<li>IJG JPEG library (<a href="http://www.ijg.org/">http://www.ijg.org/</a>)</li>
+<li>MNG decoding library (<a href="http://www.libmng.com/">http://www.libmng.com/</a>)</li>
+<li>OpenSSL (<a href="http://www.openssl.org/">http://www.openssl.org/</a>)</li>
+<li>libXML 2 (<a href="http://www.xmlsoft.org/">http://www.xmlsoft.org/</a>)</li>
+<li>Zlib (<a href="http://www.zlib.org/">http://www.zlib.org</a>)</li>
+</ul>
+
+<h5>RISC OS specific libraries</h5>
+<ul>
+<li>OSLib 6.80 or later (<a href="http://ro-oslib.sf.net/">http://ro-oslib.sf.net</a>)</li>
+<li>Pencil (<a href="http://svn.semichrome.net/trunk/pencil/">http://svn.semichrome.net/trunk/pencil/</a>)</li>
+<li>RUfl (<a href="http://zamez.org/rufl">http://zamez.org/rufl</a>)</li>
+</ul>
+
 
 <h2>Source Documentation</h2>
 
