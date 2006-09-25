@@ -50,6 +50,12 @@ else
   until not l
   print "</ol>"
 end
+print [[<pre>
+Please test the latest version<
+    http://netsurf.sourceforge.net/builds/
+   
+Bugs should be reported to the bug tracker
+    http://sourceforge.net/tracker/?group_id=51719&atid=464312</pre>]]
 
 print "</body></html>"
 
