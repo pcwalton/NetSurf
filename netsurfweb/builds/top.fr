@@ -30,14 +30,8 @@
 <tr><th><a href="unetsurf.zip"><img src="unetsurf.png" alt=""><br>Petit NetSurf</a></th>
 <td>SIZE_UNETSURF</td>
 <td>DATE_UNETSURF</td>
-<td>Le navigateur Petit Netsurf pour RISC OS. Il ne supporte que les protocoles http: et file: (pas de https:, ftp:, etc). Cette version est plus appropriée pour les machines ayant peu de RAM (8MO ou moins).</td>
+<td>Le navigateur Petit Netsurf pour RISC OS. Il ne supporte que les protocoles http: et file: (pas de https:). Cette version est plus appropriée pour les machines ayant peu de RAM (8MO ou moins).</td>
 <td><a href="unetsurf.zip">Mirror 1</a> <a href="http://netsurf.strcprstskrzkrk.co.uk/unetsurf.zip">Mirror 2</a></td></tr>
-
-<tr><th><a href="ncnetsurf.zip"><img src="ncnetsurf.png" alt=""><br>NCNetSurf</a></th>
-<td>SIZE_NC</td>
-<td>DATE_NC</td>
-<td>NetSurf avec une interface modifiée pour le Network Computer (NC) faisant tourner NCOS.</td>
-<td><a href="ncnetsurf.zip">Mirror 1</a> <a href="http://netsurf.strcprstskrzkrk.co.uk/ncnetsurf.zip">Mirror 2</a></td></tr>
 
 <tr><th><a href="nstheme.zip"><img src="nstheme.png" alt=""><br>NSTheme</a></th>
 <td>SIZE_NSTHEME</td>

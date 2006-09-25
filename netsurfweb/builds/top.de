@@ -28,14 +28,8 @@
 <tr><th><a href="unetsurf.zip"><img src="unetsurf.png" alt=""><br>Small NetSurf</a></th>
 <td>SIZE_UNETSURF</td>
 <td>DATE_UNETSURF</td>
-<td>Der 'kleine' NetSurf Browser für RISC OS. Unterstützt nur http: und file: (kein https:, ftp:, etc.). Geeignet für Maschinen mit wenig Arbeitsspeicher (8MB oder kleiner).</td>
+<td>Der 'kleine' NetSurf Browser für RISC OS. Unterstützt nur http: und file: (kein https:). Geeignet für Maschinen mit wenig Arbeitsspeicher (8MB oder kleiner).</td>
 <td><a href="unetsurf.zip">Mirror 1</a> <a href="http://netsurf.strcprstskrzkrk.co.uk/unetsurf.zip">Mirror 2</a></td></tr>
-
-<tr><th><a href="ncnetsurf.zip"><img src="ncnetsurf.png" alt=""><br>NCNetSurf</a></th>
-<td>SIZE_NC</td>
-<td>DATE_NC</td>
-<td>NetSurf mit einer modifizierten Nutzerschnittstelle für den Network Computer (NC) unter NCOS.</td>
-<td><a href="ncnetsurf.zip">Mirror 1</a> <a href="http://netsurf.strcprstskrzkrk.co.uk/ncnetsurf.zip">Mirror 2</a></td></tr>
 
 <tr><th><a href="nstheme.zip"><img src="nstheme.png" alt=""><br>NSTheme</a></th>
 <td>SIZE_NSTHEME</td>
