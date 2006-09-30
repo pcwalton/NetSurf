@@ -30,6 +30,7 @@ char **rufl_family_list = 0;
 unsigned int rufl_family_list_entries = 0;
 struct rufl_family_map_entry *rufl_family_map = 0;
 os_error *rufl_fm_error = 0;
+void *rufl_family_menu = 0;
 unsigned short *rufl_substitution_table;
 struct rufl_cache_entry rufl_cache[rufl_CACHE_SIZE];
 int rufl_cache_time = 0;
@@ -82,6 +83,7 @@ static rufl_code rufl_init_substitution_table(void);
 static rufl_code rufl_save_cache(void);
 static rufl_code rufl_load_cache(void);
 static int rufl_font_list_cmp(const void *keyval, const void *datum);
+static rufl_code rufl_init_family_menu(void);
 static void rufl_init_status_open(void);
 static void rufl_init_status(const char *status, float progress);
 static void rufl_init_status_close(void);
@@ -199,6 +201,14 @@ rufl_code rufl_init(void)
 
 	for (i = 0; i != rufl_CACHE_SIZE; i++)
 		rufl_cache[i].font = rufl_CACHE_NONE;
+
+	code = rufl_init_family_menu();
+	if (code != rufl_OK) {
+		LOG("rufl_init_substitution_table: 0x%x", code);
+		rufl_quit();
+		xhourglass_off();
+		return code;
+	}
 
 	rufl_init_status_close();
 
@@ -1041,6 +1051,48 @@ int rufl_font_list_cmp(const void *keyval, const void *datum)
 	const char *key = keyval;
 	const struct rufl_font_list_entry *entry = datum;
 	return strcasecmp(key, entry->identifier);
+}
+
+
+/**
+ * Create a menu of font families.
+ */
+
+rufl_code rufl_init_family_menu(void)
+{
+	wimp_menu *menu;
+	unsigned int i;
+
+	menu = malloc(wimp_SIZEOF_MENU(rufl_family_list_entries));
+	if (!menu)
+		return rufl_OUT_OF_MEMORY;
+	menu->title_data.indirected_text.text = "Fonts";
+	menu->title_fg = wimp_COLOUR_BLACK;
+	menu->title_bg = wimp_COLOUR_LIGHT_GREY;
+	menu->work_fg = wimp_COLOUR_BLACK;
+	menu->work_bg = wimp_COLOUR_WHITE;
+	menu->width = 200;
+	menu->height = wimp_MENU_ITEM_HEIGHT;
+	menu->gap = wimp_MENU_ITEM_GAP;
+	for (i = 0; i != rufl_family_list_entries; i++) {
+		menu->entries[i].menu_flags = 0;
+		menu->entries[i].sub_menu = wimp_NO_SUB_MENU;
+		menu->entries[i].icon_flags = wimp_ICON_TEXT |
+			wimp_ICON_INDIRECTED |
+			(wimp_COLOUR_BLACK << wimp_ICON_FG_COLOUR_SHIFT) |
+			(wimp_COLOUR_WHITE << wimp_ICON_BG_COLOUR_SHIFT);
+		menu->entries[i].data.indirected_text.text =
+				rufl_family_list[i];
+		menu->entries[i].data.indirected_text.validation = (char *) -1;
+		menu->entries[i].data.indirected_text.size =
+				strlen(rufl_family_list[i]);
+	}
+	menu->entries[0].menu_flags = wimp_MENU_TITLE_INDIRECTED;
+	menu->entries[i - 1].menu_flags |= wimp_MENU_LAST;
+
+	rufl_family_menu = menu;
+
+	return rufl_OK;
 }
 
 

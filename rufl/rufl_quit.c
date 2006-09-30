@@ -40,4 +40,7 @@ void rufl_quit(void)
 			rufl_cache[i].font = rufl_CACHE_NONE;
 		}
         }
+
+        free(rufl_family_menu);
+        rufl_family_menu = 0;
 }

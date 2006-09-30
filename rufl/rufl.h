@@ -55,6 +55,9 @@ extern char **rufl_family_list;
 /** Number of entries in rufl_family_list. */
 extern unsigned int rufl_family_list_entries;
 
+/** Menu of font families. */
+extern void *rufl_family_menu;
+
 /* Callbacks used by rufl_decompose_glyph */
 typedef int (*rufl_move_to_func)(os_coord *to, void *user);
 typedef int (*rufl_line_to_func)(os_coord *to, void *user);
