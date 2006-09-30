@@ -61,7 +61,7 @@ p.footer { font-size: small; text-align: right; margin-top: 5mm; font-style: ita
 </tr>
 </table>
 
-<p class="updated">Last updated 05 August 2006</p>
+<p class="updated">Last updated 30 September 2006</p>
 <table class="plan">
 <tr>
 <th><abbr title="Hyper Text Markup Language">HTML</abbr> &amp; <abbr title="Cascading Style Sheets">CSS</abbr></th>
@@ -71,7 +71,7 @@ p.footer { font-size: small; text-align: right; margin-top: 5mm; font-style: ita
 </tr>
 <tr>
 <td class="version1"><span>[1]</span>Absolute positioning</td>
-<td class="core">zamez</td>
+<td class="core">James Bursa</td>
 <td class="ro"><abbr title="Not applicable">N/A</abbr></td>
 <td class="gtk"><abbr title="Not applicable">N/A</abbr></td>
 </tr>
@@ -112,9 +112,9 @@ p.footer { font-size: small; text-align: right; margin-top: 5mm; font-style: ita
 </tr>
 <tr>
 <td class="version1"><span>[1]</span>Frames improvement</td>
-<td class="core">rjw</td>
-<td class="ro">rjw</td>
-<td class="gtk">Kinnison</td>
+<td class="core">&#x2713;</td>
+<td class="ro">&#x2713;</td>
+<td class="gtk">Daniel Silverstone</td>
 </tr>
 <tr>
 <td class="version1 done"><span>[1]</span>Frame targets</td>
@@ -146,9 +146,9 @@ p.footer { font-size: small; text-align: right; margin-top: 5mm; font-style: ita
 <tr><th colspan="4">Cookies</th></tr>
 <tr>
 <td class="version1"><span>[1]</span>Rewrite</td>
-<td class="core">jmb</td>
-<td class="ro">jmb</td>
-<td class="gtk">rjek</td>
+<td class="core">John-Mark Bell</td>
+<td class="ro">John-Mark Bell</td>
+<td class="gtk">Rob Kendrick</td>
 </tr>
 
 <tr><th colspan="4">Network</th></tr>
@@ -164,7 +164,7 @@ p.footer { font-size: small; text-align: right; margin-top: 5mm; font-style: ita
 <td class="version1 done"><span>[1]</span>Certificate UI</td>
 <td class="core">&#x2713;</td>
 <td class="ro">&#x2713;</td>
-<td class="gtk">rjek</td>
+<td class="gtk">Rob Kendrick</td>
 </tr>
 
 <tr><th colspan="4">Caching</th></tr>
@@ -186,7 +186,7 @@ p.footer { font-size: small; text-align: right; margin-top: 5mm; font-style: ita
 <td class="version1 done"><span>[1]</span>Choices</td>
 <td class="core">&#x2713;</td>
 <td class="ro">&#x2713;</td>
-<td class="gtk">rjek</td>
+<td class="gtk">Rob Kendrick</td>
 </tr>
 <tr>
 <td class="later"><span>[2]</span>Keyboard navigation</td>
