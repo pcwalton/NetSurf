@@ -1,0 +1,13 @@
+NetSurf test cases are split into the following directories:
+
+	crashes/		For test cases that cause crashes
+	haveproblems/		For test cases that have problems
+	works/			For any test case that works
+
+	images/			For images used by the test cases
+
+
+
+Please try to make test cases as self contained as possible.
+
+Put CSS data in a STYLE tag or attribute, rather than in an external file.
