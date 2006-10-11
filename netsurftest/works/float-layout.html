@@ -1,0 +1,47 @@
+
+<html>
+<head>
+<style>
+div { margin:0; padding:0; }
+
+#logo img { width:314px; height:77px; }
+
+#full_col_wrap { float:left; }
+
+#main_col_wrap { float:left; width:445px; }
+
+#side_col_wrap { float:left; width:303px; }
+</style>
+</head>
+<body>
+
+
+<div style="background-color: #f88; padding: 2em;">
+<p>This page has a test case for GameFAQs.com's layout.</p>
+<p>The problem is that the Main column and Sidebar should appear in separate columns. NetSurf puts Sidebar under Main column. This is the cause of the 2nd column on <a href="http://www.gamefaqs.com/">GameFAQs</a> and <a href="http://uk.gamespot.com/">GameSpot</a> not being filled with content. It may also be the cause of the problems with the IGN.com layout, but I've not looked at that yet.</p>
+<p>This issue seems to be related to floats.</p>
+</div>	
+
+<div id="full_col_wrap">
+	<div id="main_col_wrap">
+
+		<div class="body">
+		Main column. Main column. Main column. Main column.
+		Main column. Main column. Main column. Main column.
+		Main column. Main column. Main column. Main column.
+		Main column. Main column. Main column. Main column.
+		Main column. Main column. Main column. Main column.
+		Main column. Main column. Main column. Main column.
+		Main column. Main column.
+		</div>
+	</div>
+	<div id="side_col_wrap">
+	Sidebar. Sidebar. Sidebar. Sidebar. Sidebar. Sidebar. Sidebar.
+	Sidebar. Sidebar. Sidebar. Sidebar. Sidebar. Sidebar. Sidebar.
+	Sidebar. Sidebar. Sidebar. Sidebar. Sidebar. Sidebar. Sidebar.
+	Sidebar. Sidebar. Sidebar. Sidebar. Sidebar. Sidebar. Sidebar.
+	</div>
+</div>
+
+</body>
+</html>
