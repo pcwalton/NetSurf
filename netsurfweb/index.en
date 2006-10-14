@@ -21,6 +21,19 @@
 <p>Please try NetSurf out regularly and <a href="info#ContactDevelopers">send us feedback</a>. The <a href="progress">progress</a> page provides an overview of NetSurf's current status.</p>
 
 <h2>News</h2>
+
+<div class="newsitem">
+<p>10 Oct 2006 - <em>Summary of recent changes</em></p>
+<p>Code documentation, User interface, Bug fixes</p>
+<p class="more"><a href="http://permalink.gmane.org/gmane.comp.web.netsurf.devel/5854">Read more...</a></p>
+</div>
+
+<div class="newsitem">
+<p>27 Sep 2006 - <em>The JavaScript issue</em></p>
+<p></p>
+<p class="more">An explanation of the issues involved in adding JavaScript support to NetSurf.<a href="http://permalink.gmane.org/gmane.comp.web.netsurf.devel/5779">Read more...</a></p>
+</div>
+
 <div class="newsitem">
 <p>16 Jul 2006 - <em>Summary of recent changes</em></p>
 <p>Cookie support, User interface, CSS improvements</p>
@@ -49,24 +62,6 @@
 <p>09 Apr 2006 - <em>Summary of recent changes</em></p>
 <p>Choices interface, Scale view, Bug fixes</p>
 <p class="more"><a href="http://sourceforge.net/mailarchive/message.php?msg_id=15354194">Read more...</a></p>
-</div>
-
-<div class="newsitem">
-<p>09 Apr 2006 - <em>Moved to Subversion</em></p>
-<p>We have moved to Subversion, a more powerful and advanced versioning system than CVS.</p>
-<p class="more"><a href="http://sourceforge.net/mailarchive/message.php?msg_id=15352736">Read more...</a></p>
-</div>
-
-<div class="newsitem">
-<p>02 Apr 2006 - <em>Summary of recent changes</em></p>
-<p>Radio and checkbox icons, Plain text, Local history</p>
-<p class="more"><a href="http://sourceforge.net/mailarchive/message.php?msg_id=15288580">Read more...</a></p>
-</div>
-
-<div class="newsitem">
-<p>25 Mar 2006 - <em>The Road to 1.00</em></p>
-<p>Plans for version 1.00 for RISC OS and the GTK build.</p>
-<p class="more"><a href="http://sourceforge.net/mailarchive/message.php?msg_id=15214221">Read more...</a></p>
 </div>
 
 <p>For older news, please see the <a href="archive">news archive</a>.</p>
