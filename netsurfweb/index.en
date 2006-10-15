@@ -30,8 +30,8 @@
 
 <div class="newsitem">
 <p>27 Sep 2006 - <em>The JavaScript issue</em></p>
-<p></p>
-<p class="more">An explanation of the issues involved in adding JavaScript support to NetSurf.<a href="http://permalink.gmane.org/gmane.comp.web.netsurf.devel/5779">Read more...</a></p>
+<p>An explanation of the issues involved in adding JavaScript support to NetSurf.</p>
+<p class="more"><a href="http://permalink.gmane.org/gmane.comp.web.netsurf.devel/5779">Read more...</a></p>
 </div>
 
 <div class="newsitem">
