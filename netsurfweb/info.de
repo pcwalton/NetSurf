@@ -37,10 +37,9 @@
 
 <h3 id="GettingStartedInstallation">Installation</h3>
 
-<p>Die jeweils aktuellste Version kann von der <a href="http://netsurf.sourceforge.net/">Web-Seite des Projektes</a> geladen werden. Es gibt drei verschiedene Varianten des Programmes. Für die allermeisten Benutzer ist &quot;NetSurf&quot; der empfehlenswerteste Download. Daneben gibt es mit &quot;NetSurf small build&quot; eine für Systeme mit geringem Speicherplatz geeignete Programmversion. Diese bietet jedoch nur einen eingeschränkten Funktionsumfang. Desweiteren existiert mit &quot;NCNetSurf&quot; eine auf NetComputer (NC) abgestimmte Variante des Programmes.</p>
+<p>Die jeweils aktuellste Version kann von der <a href="http://netsurf.sourceforge.net/">Web-Seite des Projektes</a> geladen werden. Es gibt drei verschiedene Varianten des Programmes. Für die allermeisten Benutzer ist &quot;NetSurf&quot; der empfehlenswerteste Download. Daneben gibt es mit &quot;NetSurf small build&quot; eine für Systeme mit geringem Speicherplatz geeignete Programmversion. Diese bietet jedoch nur einen eingeschränkten Funktionsumfang.</p>
 
-<p>Zur Installation von &quot;NetSurf&quot; oder &quot;NetSurf small build&quot; wird die heruntergeladene Datei mit einem Entpacker geöffnet und die enthaltene Applikation !Netsurf per Drag&amp;Drop in das gewünschte Zielverzeichnis kopiert. Von dort aus kann das Programm dann mit Doppelklick gestartet werden.<br>
-Die Installation von &quot;NCNetSurf&quot; ist noch nicht dokumentiert.</p>
+<p>Zur Installation von &quot;NetSurf&quot; oder &quot;NetSurf small build&quot; wird die heruntergeladene Datei mit einem Entpacker geöffnet und die enthaltene Applikation !Netsurf per Drag&amp;Drop in das gewünschte Zielverzeichnis kopiert. Von dort aus kann das Programm dann mit Doppelklick gestartet werden.</p>
 
 <h3 id="GettingStartedRequirements">Systemvoraussetzungen</h3>
 

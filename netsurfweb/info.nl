@@ -37,9 +37,9 @@
 
 <h3 id="GettingStartedInstallation">Installatie</h3>
 
-<p>NetSurf vereist RISC OS 3 of later. NetSurf is verkrijgbaar bij de <a href="http://netsurf.sourceforge.net"><strong>webstek</strong></a> van het project. Er zijn drie typen beschikbaar. Voor de meeste gebruikers wordt &quot;NetSurf&quot; aanbevolen. &quot;NetSurf small&quot; is bedoeld voor systemen met minder geheugen en daarom ontbreken sommige mogelijkheden. &quot;NCNetSurf&quot; is alleen bedoeld voor gebruik met netwerkcomputers (nc's).</p>
+<p>NetSurf vereist RISC OS 3 of later. NetSurf is verkrijgbaar bij de <a href="http://netsurf.sourceforge.net"><strong>webstek</strong></a> van het project. Er zijn drie typen beschikbaar. Voor de meeste gebruikers wordt &quot;NetSurf&quot; aanbevolen. &quot;NetSurf small&quot; is bedoeld voor systemen met minder geheugen en daarom ontbreken sommige mogelijkheden.</p>
 
-<p>Voor installatie van &quot;NetSurf&quot; of &quot;NetSurf small&quot; kan de gewenste !NetSurf-map naar de gewenste plaats worden gesleept en van daaruit worden gestart. De installatie van &quot;NCNetSurf&quot; is nog niet gedocumenteerd.</p>
+<p>Voor installatie van &quot;NetSurf&quot; of &quot;NetSurf small&quot; kan de gewenste !NetSurf-map naar de gewenste plaats worden gesleept en van daaruit worden gestart.</p>
 
 <h3 id="GettingStartedRequirements">Verzoeken</h3>
 

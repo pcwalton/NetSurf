@@ -81,7 +81,7 @@ p.footer { font-size: small; text-align: right; margin-top: 5mm; font-style: ita
 <td class="gtk"><abbr title="Not applicable">N/A</abbr></td>
 </tr>
 <tr>
-<td class="version1"><span>[1]</span>Generated content</td>
+<td class="later"><span>[2]</span>Generated content</td>
 <td class="core">-</td>
 <td class="ro"><abbr title="Not applicable">N/A</abbr></td>
 <td class="gtk"><abbr title="Not applicable">N/A</abbr></td>
@@ -94,7 +94,7 @@ p.footer { font-size: small; text-align: right; margin-top: 5mm; font-style: ita
 </tr>
 <tr>
 <td class="version1"><span>[1]</span>Lists</td>
-<td class="core">-</td>
+<td class="core">John-Mark Bell</td>
 <td class="ro"><abbr title="Not applicable">N/A</abbr></td>
 <td class="gtk"><abbr title="Not applicable">N/A</abbr></td>
 </tr>
