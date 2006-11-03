@@ -51,12 +51,12 @@
 <li><a href="http://sudden.recoil.org/others/"
  class="highlight">AcornURI</a>.</li>
 <li><a href="/iconv/"
- class="highlight">Iconv</a>. (Be sure to follow the complete installation instructions for Iconv.)</li>
+ class="highlight">Iconv</a>. (Bitte die Installationsanleitung beachten.)</li>
 <li><a href="http://www.tinct.net/tinct.asp"
  class="highlight">Tinct</a>.</li>
 </ul>
 
-<p><strong>Optional:</strong> download and install the <a href="http://www.beebware.com/software/mappings/">MimeMap datafile</a> if you don't already have one and NetSurf complains.</p>
+<p><strong>Optional:</strong> Eine <a href="http://www.beebware.com/software/mappings/">MimeMap Datei</a> sollte installiert werden, wenn noch keine auf dem Rechner vorhanden ist und Netsurf dies meldet.</p>
 
 <!-- <p><strong>Optional:</strong> download and install the <a href="nsfonts.zip">fonts (360k)</a> to get improved font-family and font-variant support.</p> -->
 
