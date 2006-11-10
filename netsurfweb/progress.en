@@ -21,7 +21,7 @@
 <li><a href="#NSF">NetSurf features</a>
 </ul>
 
-<p class="updated">Last updated 28 June 2006</p>
+<p class="updated">Last updated 10 November 2006</p>
 
 <h2 id="Web">Web standards</h2>
 
@@ -32,8 +32,8 @@
 <tr class="inprogress"><td>CSS 2</td><td>In progress</td><td>See the <a href="http://svn.semichrome.net/*checkout*/trunk/netsurf/Docs/TODO-CSS">TODO list</a>.</td></tr>
 <tr class="nearlydone"><td>HTML 4</td><td>Nearly done</td><td>See the <a href="http://svn.semichrome.net/*checkout*/trunk/netsurf/Docs/TODO-HTML">TODO list</a>.</td></tr>
 <tr class="complete"><td>HTTP 1.1</td><td>Complete</td><td></td></tr>
-<tr class="inprogress"><td>HTTP Authentication</td><td>In progress</td><td></td></tr>
-<tr class="nearlydone"><td>HTTPS</td><td>Nearly done</td><td>Doesn't handle invalid certificates well.</td></tr>
+<tr class="complete"><td>HTTP Authentication</td><td>Complete</td><td></td></tr>
+<tr class="complete"><td>HTTPS</td><td>Complete</td><td></td></tr>
 <tr class="notplanned"><td>JavaScript</td><td>Not planned</td><td>Details on the <a href="info#JavaScript">User Information</a> page.</td></tr>
 </table>
 
@@ -44,10 +44,10 @@
 <tr class="nearlydone"><td>Background Images</td><td>Nearly done</td><td>Background-attachment needs more work.</td></tr>
 <tr class="nearlydone"><td>Borders / Margins / Padding</td><td>Nearly done</td><td></td></tr>
 <tr class="nearlydone"><td>Forms</td><td>Nearly done</td><td>Don't work fully with Scale View.</td></tr>
-<tr class="inprogress"><td>Frames</td><td>In progress</td><td>Frames implementation is incomplete.</td></tr>
+<tr class="nearlydone"><td>Frames</td><td>Nearly done</td><td>Margin attributes are unimplemented.<br>Frames affect back / forward navigation and history thumbnails.</td></tr>
 <tr class="complete"><td>Image Maps</td><td>Complete</td><td></td></tr>
-<tr class="juststarted"><td>Lists</td><td>Just started</td><td>Lists aren't handled properly.</td></tr>
-<tr class="nearlydone"><td>Position (CSS2 attribute)</td><td>Nearly done</td><td>Relative positioning has been implemented.<br>Absolute positioning has a couple of issues.<br>Fixed positioning has not been implemented.</td></tr>
+<tr class="nearlydone"><td>Lists</td><td>Nearly done</td><td></td></tr>
+<tr class="nearlydone"><td>Position (CSS2 attribute)</td><td>Nearly done</td><td>Relative and absolute positioning have been implemented.<br>Fixed positioning has not been implemented.<br>Stacking order is incorrect.</td></tr>
 <tr class="nearlydone"><td>Tables</td><td>Nearly done</td><td>Elements col, colgroup, rowgroup and caption not implemented.<br>Extra space is divided equally among columns instead of in proportion with content width.</td></tr>
 <tr class="inprogress"><td>Vertical Alignment</td><td>In progress</td><td>Only implemented for tables.</td></tr>
 </table>
