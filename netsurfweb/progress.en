@@ -11,7 +11,7 @@
 
 <h1>Development Progress</h1>
 
-<p>This page has been constructed to give users an indication as to which features have been implemented and what is being worked on. For more specific information, please refer to the <a href="http://svn.semichrome.net/trunk/netsurf/Docs/">TODO lists</a>. Features are split up as follows:</p>
+<p>This page has been constructed to give users an indication as to which features have been implemented and what is being worked on. For more specific information, please refer to the <a href="http://svn.semichrome.net/trunk/netsurf/Docs/">TODO lists</a>. The project <a href="http://netsurf.sourceforge.net/plan">development plan</a> indicates the current priorities. Features are split up as follows:</p>
 
 <ul>
 <li><a href="#Web">Web standards</a>
