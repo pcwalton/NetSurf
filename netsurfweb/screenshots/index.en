@@ -18,8 +18,8 @@
 <td><p><a href="http://www.w3c.org/">World Wide Web Consortium</a></p><p>NetSurf supports most CSS1 and partial CSS2.</p></td>
 </tr>
 <tr>
-<td class="screenshot"><a href="w3c140.png"><img src="w3c140s.png" alt=""></a></td>
-<td><p><a href="http://www.w3c.org/">World Wide Web Consortium</a></p><p>This screenshot shows the <em>Scale View</em> feature in action.  The page has been scaled to 140 percent, affecting both text and images.</p></td>
+<td class="screenshot"><a href="w3c150.png"><img src="w3c150s.png" alt=""></a></td>
+<td><p><a href="http://www.w3c.org/">World Wide Web Consortium</a></p><p>This screenshot shows the <em>Scale View</em> feature in action.  The page has been scaled to 150 percent, affecting both text and images.</p></td>
 </tr>
 <tr>
 <td class="screenshot"><a href="bbcnews.png"><img src="bbcnewss.png" alt=""></a></td>
@@ -27,15 +27,15 @@
 </tr>
 <tr>
 <td class="screenshot"><a href="slashdot.png"><img src="slashdots.png" alt=""></a></td>
-<td><p><a href="http://developers.slashdot.org/">Slashdot: Developers</a></p><p>With advertisement blocking enabled, NetSurf can suppress the display of distracting banners, leaving just the content.</p></td>
+<td><p><a href="http://slashdot.org/">Slashdot</a></p><p>With advertisement blocking enabled, NetSurf can suppress the display of distracting banners, leaving just the content.</p></td>
 </tr>
 <tr>
 <td class="screenshot"><a href="netsurf.png"><img src="netsurfs.png" alt=""></a></td>
 <td><p><a href="http://netsurf.sourceforge.net/">NetSurf home page</a></p><p>NetSurf's toolbar is configurable.  Here, all the buttons and throbber animation have been turned off, leaving just the URL bar.</p></td>
 </tr>
 <tr>
-<td class="screenshot"><a href="cube-europe.png"><img src="cube-europes.png" alt=""></a></td>
-<td><p><a href="http://www.cube-europe.com/">GameCube Europe</a></p><p>Here, the toolbar has been switched off completly, giving more screen space to the page.  Also, the status bar, at the bottom of the window, has been resized.</p></td>
+<td class="screenshot"><a href="wikipedia.png"><img src="wikipedias.png" alt=""></a></td>
+<td><p><a href="http://en.wikipedia.org/wiki/Main_Page">Wikipedia</a></p><p>Here, the toolbar has been switched off completly, giving more screen space to the page.  Also, the status bar, at the bottom of the window, has been resized.</p></td>
 </tr>
 <tr>
 <td class="screenshot"><a href="yahoocojp.png"><img src="yahoocojps.png" alt=""></a></td>
