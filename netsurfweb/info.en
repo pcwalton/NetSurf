@@ -98,7 +98,7 @@
 <ol>
 <li>check that the bug exhibits itself in the latest version <a href="http://netsurf-browser.org/builds/">available for download</a> at the time.</li>
 <li>try to find a reproducible way of triggering the bug.</li>
-<li>check the <a href="progress">progress</a> page and the <a href="http://svn.semichrome.net/trunk/netsurf/Docs/">TODO lists</a> to check that something has actually been implemented.</li>
+<li>check the <a href="progress">progress</a> page and the <a href="http://source.netsurf-browser.org/trunk/netsurf/Docs/">TODO lists</a> to check that something has actually been implemented.</li>
 </ol>
 
 <p>When reporting bugs, please:</p>
@@ -118,7 +118,7 @@
 
 <h2 id="FeatureRequests">Feature requests</h2>
 
-<p>The NetSurf team welcome feature requests and innovative ideas for improving the browsing experience. Before making suggestions, please look at the <a href="progress">progress</a> page and <a href="http://svn.semichrome.net/trunk/netsurf/Docs/">TODO lists</a> to check that the feature isn't already planned. Suggestions can be made on the <a href="http://sourceforge.net/tracker/?group_id=51719&amp;atid=464315">feature request tracker</a>.</p>
+<p>The NetSurf team welcome feature requests and innovative ideas for improving the browsing experience. Before making suggestions, please look at the <a href="progress">progress</a> page and <a href="http://source.netsurf-browser.org/trunk/netsurf/Docs/">TODO lists</a> to check that the feature isn't already planned. Suggestions can be made on the <a href="http://sourceforge.net/tracker/?group_id=51719&amp;atid=464315">feature request tracker</a>.</p>
 
 <h2 id="Unicode">Fonts in NetSurf</h2>
 

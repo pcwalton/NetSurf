@@ -43,7 +43,7 @@
 <li>Download and install the <a href="#Requirements">requirements</a> listed above.</li>
 <li>Download and install the pre-assembled <a href="nstools.zip">tool and library tree (2.3MB)</a>.</li>
 <li>Force the RISC OS SVN client to handle ,xxx extensions correctly by issuing <code>*Set svn$filetypeext &quot;&quot;</code>.</li>
-<li>Check out the latest source code from SVN. (<pre>svn co svn://svn.semichrome.net/trunk/netsurf</pre>)</li>
+<li>Check out the latest source code from SVN. (<pre>svn co svn://svn.netsurf-browser.org/trunk/netsurf</pre>)</li>
 <li>Set the CSD appropriately, set the next slot to 6000k and invoke <code>make</code> from a TaskWindow.</li>
 </ol>
 
@@ -91,7 +91,7 @@ with the headers in the &quot;h&quot; directories. [This step may not be require
 <li>Force the RISC OS SVN client to handle ,xxx extensions correctly by issuing <code>*Set svn$filetypeext &quot;&quot;</code>. (This may be set permanently by uncommenting the appropriate line in !SVN's !Boot file)</li>
 <li>Use the RISC OS SVN client to check the source out from SVN, using the following command:
 
-<pre>svn checkout svn://semichrome.net/trunk/netsurf</pre>
+<pre>svn checkout svn://svn.netsurf-browser.org/trunk/netsurf</pre>
 
 This will check the latest sources out into a subfolder in the currently selected directory (CSD) entitled &quot;netsurf&quot;. This folder is the root of the source tree. Diagrammatically:
    

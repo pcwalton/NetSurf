@@ -11,7 +11,7 @@
 
 <h1>Development Progress</h1>
 
-<p>This page has been constructed to give users an indication as to which features have been implemented and what is being worked on. For more specific information, please refer to the <a href="http://svn.semichrome.net/trunk/netsurf/Docs/">TODO lists</a>. The project <a href="http://netsurf-browser.org/plan">development plan</a> indicates the current priorities. Features are split up as follows:</p>
+<p>This page has been constructed to give users an indication as to which features have been implemented and what is being worked on. For more specific information, please refer to the <a href="http://source.netsurf-browser.org/trunk/netsurf/Docs/">TODO lists</a>. The project <a href="http://netsurf-browser.org/plan">development plan</a> indicates the current priorities. Features are split up as follows:</p>
 
 <ul>
 <li><a href="#Web">Web standards</a>
@@ -28,9 +28,9 @@
 <table class="progress">
 <tr><th>Title</th><th>Status</th><th>Notes</th></tr>
 <tr class="nearlydone"><td>Cookies</td><td>Nearly done</td><td>User interface not available.<br>Unvalidated transactions not done.</td></tr>
-<tr class="nearlydone"><td>CSS 1</td><td>Nearly done</td><td>See the <a href="http://svn.semichrome.net/*checkout*/trunk/netsurf/Docs/TODO-CSS">TODO list</a>.</td></tr>
-<tr class="inprogress"><td>CSS 2</td><td>In progress</td><td>See the <a href="http://svn.semichrome.net/*checkout*/trunk/netsurf/Docs/TODO-CSS">TODO list</a>.</td></tr>
-<tr class="nearlydone"><td>HTML 4</td><td>Nearly done</td><td>See the <a href="http://svn.semichrome.net/*checkout*/trunk/netsurf/Docs/TODO-HTML">TODO list</a>.</td></tr>
+<tr class="nearlydone"><td>CSS 1</td><td>Nearly done</td><td>See the <a href="http://source.netsurf-browser.org/*checkout*/trunk/netsurf/Docs/TODO-CSS">TODO list</a>.</td></tr>
+<tr class="inprogress"><td>CSS 2</td><td>In progress</td><td>See the <a href="http://source.netsurf-browser.org/*checkout*/trunk/netsurf/Docs/TODO-CSS">TODO list</a>.</td></tr>
+<tr class="nearlydone"><td>HTML 4</td><td>Nearly done</td><td>See the <a href="http://source.netsurf-browser.org/*checkout*/trunk/netsurf/Docs/TODO-HTML">TODO list</a>.</td></tr>
 <tr class="complete"><td>HTTP 1.1</td><td>Complete</td><td></td></tr>
 <tr class="complete"><td>HTTP Authentication</td><td>Complete</td><td></td></tr>
 <tr class="complete"><td>HTTPS</td><td>Complete</td><td></td></tr>

@@ -11,7 +11,7 @@
 
 <h1>Stand der Entwicklung</h1>
 
-<p>Diese Seite existiert, um einen Einblick in den Stand der NetSurf Entwicklung zu geben. Der Text dieser Seite ist gemischt deutsch / englisch. Aufgeführt sind die bereits implementierten Programmteile ebenso wie die noch in Entwicklung befindlichen. Um hierzu genauere und aktuellere Informationen zu erhalten, bitte die <a href="http://svn.semichrome.net/trunk/netsurf/Docs/">TODO lists</a> (englisch) lesen.</p>
+<p>Diese Seite existiert, um einen Einblick in den Stand der NetSurf Entwicklung zu geben. Der Text dieser Seite ist gemischt deutsch / englisch. Aufgeführt sind die bereits implementierten Programmteile ebenso wie die noch in Entwicklung befindlichen. Um hierzu genauere und aktuellere Informationen zu erhalten, bitte die <a href="http://source.netsurf-browser.org/trunk/netsurf/Docs/">TODO lists</a> (englisch) lesen.</p>
 <p>Die Funktionen sind in folgende Gruppen unterteilt:</p>
 
 <ul>
@@ -29,9 +29,9 @@
 <table class="progress">
 <tr><th>Titel</th><th>Status</th><th>Bemerkung / Notes</th></tr>
 <tr class="inprogress"><td>Cookies</td><td>in Entwicklung</td><td>Don't get expired.</td></tr>
-<tr class="nearlydone"><td>CSS 1</td><td>fast fertig</td><td>siehe <a href="http://svn.semichrome.net/*checkout*/trunk/netsurf/Docs/TODO-CSS">TODO list</a>.</td></tr>
-<tr class="inprogress"><td>CSS 2</td><td>in Entwicklung</td><td>siehe <a href="http://svn.semichrome.net/*checkout*/trunk/netsurf/Docs/TODO-CSS">TODO list</a>.</td></tr>
-<tr class="nearlydone"><td>HTML 4</td><td>fast fertig</td><td>siehe <a href="http://svn.semichrome.net/*checkout*/trunk/netsurf/Docs/TODO-HTML">TODO list</a>.</td></tr>
+<tr class="nearlydone"><td>CSS 1</td><td>fast fertig</td><td>siehe <a href="http://source.netsurf-browser.org/*checkout*/trunk/netsurf/Docs/TODO-CSS">TODO list</a>.</td></tr>
+<tr class="inprogress"><td>CSS 2</td><td>in Entwicklung</td><td>siehe <a href="http://source.netsurf-browser.org/*checkout*/trunk/netsurf/Docs/TODO-CSS">TODO list</a>.</td></tr>
+<tr class="nearlydone"><td>HTML 4</td><td>fast fertig</td><td>siehe <a href="http://source.netsurf-browser.org/*checkout*/trunk/netsurf/Docs/TODO-HTML">TODO list</a>.</td></tr>
 <tr class="complete"><td>HTTP 1.1</td><td>komplett</td><td></td></tr>
 <tr class="inprogress"><td>HTTP Authentifikation</td><td>in Entwicklung</td><td></td></tr>
 <tr class="nearlydone"><td>HTTPS</td><td>fast fertig</td><td>Doesn't handle invalid certificates well.</td></tr>

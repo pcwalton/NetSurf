@@ -43,7 +43,7 @@
 
 <p>The simplest way to get the latest files is to use Subversion, as follows:</p>
 
-<p><code>*<strong>svn checkout svn://semichrome.net/trunk/netsurf/!NetSurf</strong></code><br><code>*<strong>svn checkout svn://semichrome.net/trunk/netsurfweb</strong></code></p>
+<p><code>*<strong>svn checkout svn://svn.netsurf-browser.org/trunk/netsurf/!NetSurf</strong></code><br><code>*<strong>svn checkout svn://svn.netsurf-browser.org/trunk/netsurfweb</strong></code></p>
 
 <p>The <a href="http://www.cp15.org/versioncontrol/">Subversion client</a> must first have been seen by the filer.</p>
 

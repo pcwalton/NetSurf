@@ -20,10 +20,10 @@ in contributing to NetSurf.</p>
 <p>The source is kept in a Subversion repository. To check the source out
 use the command:</p>
 
-<p><code>$ <strong>svn checkout svn://semichrome.net/trunk/netsurf</strong>
+<p><code>$ <strong>svn checkout svn://svn.netsurf-browser.org/trunk/netsurf</strong>
 </code></p>
 
-<p>There is a <a href="http://svn.semichrome.net/trunk/netsurf/">web
+<p>There is a <a href="http://source.netsurf-browser.org/trunk/netsurf/">web
 interface</a> to the repository.
 Recent changes can be seen on the
 <a href="http://netsurf-browser.org/builds/">autobuilder</a>
@@ -79,7 +79,7 @@ checked using gdb, efence, valgrind, etc.</p>
 <h5>RISC OS specific libraries</h5>
 <ul>
 <li>OSLib 6.80 or later (<a href="http://ro-oslib.sf.net/">http://ro-oslib.sf.net</a>)</li>
-<li>Pencil (<a href="http://svn.semichrome.net/trunk/pencil/">http://svn.semichrome.net/trunk/pencil/</a>)</li>
+<li>Pencil (<a href="http://source.netsurf-browser.org/trunk/pencil/">http://source.netsurf-browser.org/trunk/pencil/</a>)</li>
 <li>RUfl (<a href="http://zamez.org/rufl">http://zamez.org/rufl</a>)</li>
 </ul>
 

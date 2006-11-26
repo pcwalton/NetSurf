@@ -97,7 +97,7 @@
 <ol>
 <li>überprüfe, ob sich dieser Fehler auch in der <a href="http://netsurf-browser.org/builds/">aktuellsten</a> NetSurf Version findet.</li>
 <li>versuche einen reproduzierbaren Weg zu finden, um den Fehler auszulösen.</li>
-<li>überprüfe die Seite <a href="progress">Stand der Entwicklung</a> und die <a href="http://svn.semichrome.net/trunk/netsurf/Docs/">TODO Listen</a>, ob nicht bereits eine Behebung des Fehlers oder die Implementation einer vermißten Funktion erfolgt ist.</li>
+<li>überprüfe die Seite <a href="progress">Stand der Entwicklung</a> und die <a href="http://source.netsurf-browser.org/trunk/netsurf/Docs/">TODO Listen</a>, ob nicht bereits eine Behebung des Fehlers oder die Implementation einer vermißten Funktion erfolgt ist.</li>
 </ol>
 
 <p>Beim Versenden einer Fehlermitteilung, bitte</p>
@@ -115,7 +115,7 @@
 
 <h2 id="FeatureRequests">Vorschläge für neue Features</h2>
 
-<p>Das NetSurf-Team begrüßt immer Vorschläge und innovative Ideen, die ein verbessertes Browsen ermöglichen. Bitte überprüfe vor dem Absenden die Seite <a href="progress">Stand der Entwicklung</a> und die <a href="http://svn.semichrome.net/trunk/netsurf/Docs/">TODO Listen</a> daraufhin, ob das Feature nicht bereits geplant ist. Vorschläge können über die <a href="#ContactDevelopers">Mailing-Liste</a> gesendet werden. Jede hier eingehende Nachricht wird vom Entwickler-Team gelesen, auch wenn keine direkte Antwort erfolgt.</p>
+<p>Das NetSurf-Team begrüßt immer Vorschläge und innovative Ideen, die ein verbessertes Browsen ermöglichen. Bitte überprüfe vor dem Absenden die Seite <a href="progress">Stand der Entwicklung</a> und die <a href="http://source.netsurf-browser.org/trunk/netsurf/Docs/">TODO Listen</a> daraufhin, ob das Feature nicht bereits geplant ist. Vorschläge können über die <a href="#ContactDevelopers">Mailing-Liste</a> gesendet werden. Jede hier eingehende Nachricht wird vom Entwickler-Team gelesen, auch wenn keine direkte Antwort erfolgt.</p>
 
 <h2 id="Unicode">Schriftarten in NetSurf</h2>
 
