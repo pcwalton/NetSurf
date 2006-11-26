@@ -99,7 +99,7 @@
 <tr class="inprogress"><td>als Text speichern</td><td>in Entwicklung</td><td>Some issues with spacing out of text.</td></tr>
 <tr class="complete"><td>Vergrößerung</td><td>komplett</td><td>Web-Seiten und Bilder können vergrößert und verkleinert werden.</td></tr>
 <tr class="inprogress"><td>Text markieren</td><td>in Entwicklung</td><td></td></tr>
-<tr class="complete"><td>Themen</td><td>komplett</td><td>Themen sind von der <a href="http://netsurf.sourceforge.net/themes/">Themenseite</a> herunterladbar.</td></tr>
+<tr class="complete"><td>Themen</td><td>komplett</td><td>Themen sind von der <a href="http://netsurf-browser.org/themes/">Themenseite</a> herunterladbar.</td></tr>
 <tr class="complete"><td>Symbolleisten anpassen</td><td>komplett</td><td>Symbolleisten können so angepaßt werden, daß nur die gewünschten Symbole in beliebiger Reihenfolge dargestellt werden.</td></tr>
 <tr class="inprogress"><td>Unicode Unterstützung</td><td>in Entwicklung</td><td></td></tr>
 <tr class="complete"><td>URL vervollständigen</td><td>komplett</td><td>Beim Eintippen einer Adresse zeigt NetSurf Vorschläge für deren Vervollständigung an.</td></tr>

@@ -26,7 +26,7 @@ use the command:</p>
 <p>There is a <a href="http://svn.semichrome.net/trunk/netsurf/">web
 interface</a> to the repository.
 Recent changes can be seen on the
-<a href="http://netsurf.sourceforge.net/builds/">autobuilder</a>
+<a href="http://netsurf-browser.org/builds/">autobuilder</a>
 and on the
 <a href="http://cia.navi.cx/stats/project/NetSurf/">CIA
 Open Source Notification System</a>.
@@ -49,7 +49,7 @@ either native or cross-compiling from Linux or Unix using gccsdk. A guide to
 <a href="http://netsurf.strcprstskrzkrk.co.uk/developer/">pre-compiled ports</a>
 of the required libraries.</p>
 
-<p>The <a href="http://netsurf.sourceforge.net/builds/">autobuilder</a> compiles
+<p>The <a href="http://netsurf-browser.org/builds/">autobuilder</a> compiles
 NetSurf every 15 minutes if changes have been checked into SVN.</p>
 
 <p>A debug version of NetSurf can be built. This is command-line only and does

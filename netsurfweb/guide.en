@@ -1274,7 +1274,7 @@
 
 <h5>Available themes</h5>
 
-<p>This section displays a preview of all the currently installed themes. New themes are available at the <a href="http://netsurf.sourceforge.net/themes/">NetSurf themes page</a>.</p>
+<p>This section displays a preview of all the currently installed themes. New themes are available at the <a href="http://netsurf-browser.org/themes/">NetSurf themes page</a>.</p>
 
 <div class="option_group">
 <dl>
@@ -1285,7 +1285,7 @@
 
 <h3 id="ConfigurationToolbar">Toolbar customisation</h3>
 
-<p>Icons on NetSurf's toolbars can be switched on &amp; off and moved around. The sprites used for the icons can be changed by installing different <a href="http://netsurf.sourceforge.net/themes/">themes</a>.</p>
+<p>Icons on NetSurf's toolbars can be switched on &amp; off and moved around. The sprites used for the icons can be changed by installing different <a href="http://netsurf-browser.org/themes/">themes</a>.</p>
 
 <p>To move the icons around, enable toolbar edit mode by clicking menu over the toolbar and choosing &quot;Edit toolbar&quot;. This will open the toolbar editing panel. Icons can be dragged back and forth between the temporary panel and the toolbar. Separators for groups of icons can be created by dragging the separator sprite from the toolbar edit panel and dropping it where you want it to go. To exit toolbar edit mode, select &quot;Edit toolbar&quot; again from the toolbar menu.<p>
 

@@ -14,7 +14,7 @@
 <p>NetSurf est un navigateur web open source pour RISC OS. Son but est d'apporter les standards HTML 4 et CSS à la plateforme RISC OS.</p>
 
 <h2>État actuel</h2>
-<p><strong>NetSurf est en cours de développement.</strong> Des versions test sont <a href="http://netsurf.sourceforge.net/builds/">disponibles en téléchargement</a>.
+<p><strong>NetSurf est en cours de développement.</strong> Des versions test sont <a href="http://netsurf-browser.org/builds/">disponibles en téléchargement</a>.
 Voir la page <a href="progress">Avancement</a> pour avoir une idée de l'état de développement de NetSurf.</p>
 
 <h2>Photos d'écrans</h2>
@@ -37,7 +37,7 @@ Voir la page <a href="progress">Avancement</a> pour avoir une idée de l'état de 
 <dt><a href="http://sourceforge.net/projects/netsurf/">La page de projet SourceForgee</a></dt>
 <dd>SourceForge fournit la liste de diffusion, le traqueur de bogues ainsi que d'autres services</dd>
 
-<dt><a href="http://netsurf.sourceforge.net/builds/">Versions Test</a></dt>
+<dt><a href="http://netsurf-browser.org/builds/">Versions Test</a></dt>
 <dd>Versions générées automatiquement à partir du dernier code source</dd>
 
 <dt><a href="/themes/">Themes</a></dt> 

@@ -37,7 +37,7 @@
 
 <h3 id="GettingStartedInstallation">Installation</h3>
 
-<p>Die jeweils aktuellste Version kann von der <a href="http://netsurf.sourceforge.net/">Web-Seite des Projektes</a> geladen werden. Es gibt drei verschiedene Varianten des Programmes. Für die allermeisten Benutzer ist &quot;NetSurf&quot; der empfehlenswerteste Download. Daneben gibt es mit &quot;NetSurf small build&quot; eine für Systeme mit geringem Speicherplatz geeignete Programmversion. Diese bietet jedoch nur einen eingeschränkten Funktionsumfang.</p>
+<p>Die jeweils aktuellste Version kann von der <a href="http://netsurf-browser.org/">Web-Seite des Projektes</a> geladen werden. Es gibt drei verschiedene Varianten des Programmes. Für die allermeisten Benutzer ist &quot;NetSurf&quot; der empfehlenswerteste Download. Daneben gibt es mit &quot;NetSurf small build&quot; eine für Systeme mit geringem Speicherplatz geeignete Programmversion. Diese bietet jedoch nur einen eingeschränkten Funktionsumfang.</p>
 
 <p>Zur Installation von &quot;NetSurf&quot; oder &quot;NetSurf small build&quot; wird die heruntergeladene Datei mit einem Entpacker geöffnet und die enthaltene Applikation !Netsurf per Drag&amp;Drop in das gewünschte Zielverzeichnis kopiert. Von dort aus kann das Programm dann mit Doppelklick gestartet werden.</p>
 
@@ -48,7 +48,7 @@
 <dl>
 <dt><a href="http://sudden.recoil.org/others/">Acorn URI</a></dt>
 <dd>Das Acorn URI Modul kontrolliert und steuert die Übermittlung von URIs (zum Beispiel URL-Adressen) zwischen Applikationen.</dd>
-<dt><a href="http://netsurf.sourceforge.net/iconv/">Iconv</a></dt>
+<dt><a href="http://netsurf-browser.org/iconv/">Iconv</a></dt>
 <dd>Dieses Modul bietet eine verbesserte Unterstützung bei der Zeichencodierung.</dd>
 <dt><a href="http://www.riscos.info/downloads/gccsdk/sharedunixlib/system.zip">SharedUnixLibrary</a></dt>
 <dd>Dies ist ein Zusatzmodul für Programme, die unter Verwendung der UnixLib Library kompiliert wurden.</dd>
@@ -95,7 +95,7 @@
 <p>Vor dem Versenden einer Fehlermitteilung, bitte</p>
 
 <ol>
-<li>überprüfe, ob sich dieser Fehler auch in der <a href="http://netsurf.sourceforge.net/builds/">aktuellsten</a> NetSurf Version findet.</li>
+<li>überprüfe, ob sich dieser Fehler auch in der <a href="http://netsurf-browser.org/builds/">aktuellsten</a> NetSurf Version findet.</li>
 <li>versuche einen reproduzierbaren Weg zu finden, um den Fehler auszulösen.</li>
 <li>überprüfe die Seite <a href="progress">Stand der Entwicklung</a> und die <a href="http://svn.semichrome.net/trunk/netsurf/Docs/">TODO Listen</a>, ob nicht bereits eine Behebung des Fehlers oder die Implementation einer vermißten Funktion erfolgt ist.</li>
 </ol>

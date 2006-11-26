@@ -48,7 +48,7 @@
 <dl>
 <dt><a href="http://sudden.recoil.org/others/">Acorn URI</a></dt>
 <dd>De Acorn URI-module is nodig <font color=red>[to pass]</font> URIs (bijvoorbeeld URL's) heen en weer tussen verschillende applicaties.</dd>
-<dt><a href="http://netsurf.sourceforge.net/iconv/">Iconv</a></dt>
+<dt><a href="http://netsurf-browser.org/iconv/">Iconv</a></dt>
 <dd>Deze module zorgt voor een verbeterde karakterondersteuning.</dd>
 <dt><a href="http://www.riscos.info/downloads/gccsdk/sharedunixlib/system.zip">SharedUnixLibrary</a></dt>
 <dd>Dit is een ondersteunende module voor UnixLib-programma's.</dd>

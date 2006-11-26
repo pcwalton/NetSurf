@@ -32,7 +32,7 @@
 
 <h3 id="GettingStartedInstallation">Installation</h3>
 
-<p>NetSurf nécessite RISC OS 3 ou plus et des versions sont disponibles sur le <a href="http://netsurf.sourceforge.net/">site web</a> du projet. Trois versions sont disponibles. Pour la plupart des utilisateurs, la version &quot;NetSurf&quot; est recommandée. La version &quot;NetSurf allégé&quot; n'a pas certaines caractéristiques de la version principale et est destinée aux systèmes ayant peu de mémoire.</p>
+<p>NetSurf nécessite RISC OS 3 ou plus et des versions sont disponibles sur le <a href="http://netsurf-browser.org/">site web</a> du projet. Trois versions sont disponibles. Pour la plupart des utilisateurs, la version &quot;NetSurf&quot; est recommandée. La version &quot;NetSurf allégé&quot; n'a pas certaines caractéristiques de la version principale et est destinée aux systèmes ayant peu de mémoire.</p>
 
 <p>Pour installer les versions &quot;NetSurf&quot; ou &quot;NetSurf allégé&quot;, copiez simplement le répertoire d'application !NetSurf de l'archive vers l'endroit où vous souhaitez installer le programme puis démarrez celui-ci de cet endroit.</p>
 
@@ -58,7 +58,7 @@
 <p>Les ressources suivantes ne sont pas nécessaires pour le bon fonctionnement de NetSurf mais apportent des fonctionnalités supplémentaires.</p>
 
 <dl> 
-<dt><a href="http://netsurf.sourceforge.net/iconv/">Iconv</a></dt> 
+<dt><a href="http://netsurf-browser.org/iconv/">Iconv</a></dt> 
 <dd>Ce module fournit un support amélioré sur l'encodage des caractères.</dd>
 <dt><a href="http://www.ecs.soton.ac.uk/~jmb202/">Le plugin Flash</a></dt> 
 <dd>Vous permet de voir des fichiers Flash sur les sites Web.</dd> 
@@ -90,7 +90,7 @@
 <p>Avant de signaler une bogue, veuillez s'il vous plaît:</p>
 
 <ol>
-<li>vérifier que la bogue se produit aussi avec la dernière version <a href="http://netsurf.sourceforge.net/builds/">disponible en téléchargement</a>.</li>
+<li>vérifier que la bogue se produit aussi avec la dernière version <a href="http://netsurf-browser.org/builds/">disponible en téléchargement</a>.</li>
 <li>essayer de trouver un moyen de déclenchement reproductible de la bogue.</li>
 <li>vérifier la page d'<a href="progress">avancement</a> et <a href="http://svn.semichrome.net/trunk/netsurf/Docs/">les listes TODO</a> pour vérifier que quelque chose a bien été implémenté.</li>
 </ol>

@@ -37,7 +37,7 @@
 
 <h3 id="GettingStartedInstallation">Installation</h3>
 
-<p>NetSurf requires RISC OS 3 or later and builds are available from the project's <a href="http://netsurf.sourceforge.net/">web site</a>. There are three builds available. For most users, the &quot;NetSurf&quot; build is recommended. The &quot;NetSurf small build&quot; lacks some features of the main build and is intended for systems with little memory.</p>
+<p>NetSurf requires RISC OS 3 or later and builds are available from the project's <a href="http://netsurf-browser.org/">web site</a>. There are three builds available. For most users, the &quot;NetSurf&quot; build is recommended. The &quot;NetSurf small build&quot; lacks some features of the main build and is intended for systems with little memory.</p>
 
 <p>To install the &quot;NetSurf&quot; or Small &quot;NetSurf&quot; builds, simply drag the !NetSurf application directory out of the archive, to your desired location and run it from there.</p>
 
@@ -48,7 +48,7 @@
 <dl>
 <dt><a href="http://sudden.recoil.org/others/">Acorn URI</a></dt>
 <dd>The Acorn URI module is used to pass URIs (of which URLs are an example) back and forth between different applications.</dd>
-<dt><a href="http://netsurf.sourceforge.net/iconv/">Iconv</a></dt>
+<dt><a href="http://netsurf-browser.org/iconv/">Iconv</a></dt>
 <dd>This module provides improved character encoding support.</dd>
 <dt><a href="http://www.beebware.com/software/mappings/">MimeMap Datafile</a></dt>
 <dd>A resource containing many different MIME types and their equivalent RISC OS file types.</dd>
@@ -96,7 +96,7 @@
 <p>Before submitting a bug report, please:</p>
 
 <ol>
-<li>check that the bug exhibits itself in the latest version <a href="http://netsurf.sourceforge.net/builds/">available for download</a> at the time.</li>
+<li>check that the bug exhibits itself in the latest version <a href="http://netsurf-browser.org/builds/">available for download</a> at the time.</li>
 <li>try to find a reproducible way of triggering the bug.</li>
 <li>check the <a href="progress">progress</a> page and the <a href="http://svn.semichrome.net/trunk/netsurf/Docs/">TODO lists</a> to check that something has actually been implemented.</li>
 </ol>

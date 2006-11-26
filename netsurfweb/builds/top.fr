@@ -40,7 +40,7 @@
 <td><a href="nstheme.zip">Mirror 1</a> <a href="http://netsurf.strcprstskrzkrk.co.uk/nstheme.zip">Mirror 2</a></td></tr>
 </table>
 
-<p>Un package <a href="http://www.riscpkg.org/">RiscPkg</a> de NetSurf est disponible. Pour s'en servir, ajouter la ligne <code>pkg http://netsurf.sourceforge.net/builds/packages</code> à <code>Choices:RiscPkg.Sources</code>. Voir la documentation RiscPkg pour plus d'information.</p>
+<p>Un package <a href="http://www.riscpkg.org/">RiscPkg</a> de NetSurf est disponible. Pour s'en servir, ajouter la ligne <code>pkg http://netsurf-browser.org/builds/packages</code> à <code>Choices:RiscPkg.Sources</code>. Voir la documentation RiscPkg pour plus d'information.</p>
 
 <p><a href="netsurf.log">Fichier journal de la dernière compilation</a> (n'a d'intérêt que pour les développeurs).</p>
 

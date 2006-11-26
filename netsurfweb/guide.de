@@ -702,7 +702,7 @@
 <dt>Themen verwalten</dt>
 <dd>Hiermit wird das Verzeichnis <em>!NetSurf.Themes</em> in einem Filerfenster geöffnet. Um NetSurf Themen zu installieren, werden diese per Drag&amp;Drop hier hineinkopiert. Zur Deinstallation werden sie aus diesem Verzeichnis gelöscht.</dd>
 <dt>Themen holen</dt>
-<dd>Anklicken lädt die <a href="http://netsurf.sourceforge.net/themes/">NetSurf Themen</a> Web-Seite in einem neuen <a href="#BrowserWindow">Browserfenster</a>.</dd>
+<dd>Anklicken lädt die <a href="http://netsurf-browser.org/themes/">NetSurf Themen</a> Web-Seite in einem neuen <a href="#BrowserWindow">Browserfenster</a>.</dd>
 </dl>
 
 <p>Das aktuelle Thema wird durch Anklicken des zugehörigen Auswahlknopfes gewählt. Wird ein gerade neu installiertes Thema nicht im Dialogfenster angezeigt, ist ein Rescan des Themenverzeichnisses erforderlich. Ein Rescan erfolgt automatisch bei jedem Öffnen der NetSurf Einstellungen oder manuell durch Klicken mit der SPEZIAL Maustaste auf Abbruch.<br>Das jeweils gewählte Thema wird ge-cached. Änderungen an diesem Thema werden darum erst nach einem Neustart von NetSurf geladen. Alternativ ist es möglich, ein anderes Thema zu wählen, einen Rescan des Themenverzeichnisses auszulösen und dann zum eigentlichen Thema zurückzuschalten.</p>
