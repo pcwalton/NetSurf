@@ -52,7 +52,9 @@ chomp $date;
 my $version = "Test Build ($date)";
 
 # update from repository
-my @update = command("svn update --non-interactive netsurf");
+chdir "$root/netsurf";
+my @update = command("svn update --non-interactive");
+chdir $root;
 @update = grep !/^At revision/, @update;
 
 # continue only if there were updates
@@ -62,7 +64,9 @@ unless (scalar @update) {
 }
 
 # update web documents
-command("svn update --non-interactive netsurfweb");
+chdir "$root/netsurfweb";
+command("svn update --non-interactive");
+chdir $root;
 
 # create version.c
 save('netsurf/desktop/version.c',
