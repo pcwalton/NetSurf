@@ -12,7 +12,7 @@
 
 <h1>Themes</h1>
 
-<p>NetSurf allows you to change the look and feel of its interface by installing themes. If you have <a href="nstheme.en">designed a theme</a> which you would like to make available here, contact <a href="mailto:tlsa@users.sourceforge.net">tlsa@users.sourceforge.net</a>.</p>
+<p>NetSurf allows you to change the look and feel of its interface by installing themes. If you have <a href="nstheme.en">designed a theme</a> which you would like to make available here, contact <a href="mailto:tlsa@netsurf-browser.org">tlsa@netsurf-browser.org</a>.</p>
 
 <p>Use an <em>install theme</em> link from below and NetSurf will ask for confirmation before the theme is installed. To revert to a theme you have used previously, open the theme section of NetSurf's <a href="/guide#ConfigurationGlobal">Choices</a> and select it from there.</p>
 
