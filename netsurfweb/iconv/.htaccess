@@ -1,3 +1,6 @@
+# While www.netsurf-browser.org is hosted at Pepperfish, and therefor served
+# by Zeus, this file has no effect.  Talk to Rob Kendrick or Daniel Silverstone
+# if you need functionality changed.
 Options MultiViews
 AddDefaultCharset on
 AddCharset iso-8859-1 .css
