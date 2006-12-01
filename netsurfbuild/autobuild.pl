@@ -7,6 +7,7 @@ use strict;
 use warnings;
 
 open LOG, ">autobuild.log" or die "failed to open autobuild.log: $!\n";
+$| = 1;
 
 sub command {
 	my $cmd = shift;
@@ -187,9 +188,11 @@ foreach my $lang (@langs) {
 	save("builds/index.$lang", $page);
 }
 
+command('cp --verbose autobuild.log builds/netsurf.log');
+
 # rsync to website
 command('rsync --verbose --compress --times ' .
-		'builds/*.zip builds/index.* ' .
+		'builds/*.zip builds/index.* builds/netsurf.log ' .
 		'netsurf@pike.pepperfish.net:/home/netsurf/websites/' .
 		'www.netsurf-browser.org/docroot/builds/');
 
