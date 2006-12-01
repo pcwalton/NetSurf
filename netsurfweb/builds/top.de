@@ -23,19 +23,19 @@
 <td>DATE_NETSURF</td>
 <td>NetSurf Browser für RISC OS, die Vollversion.
 <strong>Empfohlen für die meisten Nutzer.</strong></td>
-<td><a href="netsurf.zip">Mirror 1</a> <a href="http://netsurf.strcprstskrzkrk.co.uk/netsurf.zip">Mirror 2</a></td></tr>
+</tr>
 
 <tr><th><a href="unetsurf.zip"><img src="unetsurf.png" alt=""><br>Small NetSurf</a></th>
 <td>SIZE_UNETSURF</td>
 <td>DATE_UNETSURF</td>
 <td>Der 'kleine' NetSurf Browser für RISC OS. Unterstützt nur http: und file: (kein https:). Geeignet für Maschinen mit wenig Arbeitsspeicher (8MB oder kleiner).</td>
-<td><a href="unetsurf.zip">Mirror 1</a> <a href="http://netsurf.strcprstskrzkrk.co.uk/unetsurf.zip">Mirror 2</a></td></tr>
+</tr>
 
 <tr><th><a href="nstheme.zip"><img src="nstheme.png" alt=""><br>NSTheme</a></th>
 <td>SIZE_NSTHEME</td>
 <td>DATE_NSTHEME</td>
 <td>Zum Erstellen von Themen für NetSurf. Wird nur von Designern neuer Themen benötigt.</td>
-<td><a href="nstheme.zip">Mirror 1</a> <a href="http://netsurf.strcprstskrzkrk.co.uk/nstheme.zip">Mirror 2</a></td></tr>
+</tr>
 </table>
 
 <p>Eine <a href="http://www.riscpkg.org/">RiscPkg</a> Paketversion von NetSurf ist verfügbar. Um sie zu verwenden, muß die Zeile <code>pkg http://netsurf-browser.org/builds/packages</code> in die Datei <code>Choices:RiscPkg.Sources</code> eingefügt werden. Näheres dazu steht in der RiscPkg Dokumentation.</p>
