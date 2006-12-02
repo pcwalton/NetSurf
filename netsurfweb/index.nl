@@ -16,7 +16,7 @@
 
 <p>NetSurf is een open-source web bladeraar voor RISC OS, en heeft een <a href="licence">GPL</a> licentie. Het doel van het project is om de HTML&nbsp;4 en CSS standaarden aan het RISC&nbsp;OS platform ter beschikking te stellen, en het verschaft een kleine, snelle en eenvoudig te bedienen web bladeraar.</p>
 
-<p>NetSurf wordt voortdurend verder ontwikkeld, al is er nog geen volledige versie uitgebracht. Er zijn test versies beschikbaar die <a href="http://netsurf-browser.org/builds/">opgehaald</a> kunnen worden, deze worden elke 15 minuten aangemaakt als de broncode in <a href="http://source.netsurf-browser.org/trunk/netsurf/">Subversion</a> veranderd is.</p>
+<p>NetSurf wordt voortdurend verder ontwikkeld, al is er nog geen volledige versie uitgebracht. Er zijn test versies beschikbaar die <a href="builds/">opgehaald</a> kunnen worden, deze worden elke 15 minuten aangemaakt als de broncode in <a href="http://source.netsurf-browser.org/trunk/netsurf/">Subversion</a> veranderd is.</p>
 
 <p>Help ons door NetSurf regelmatig uit te proberen en <a href="info#ContactDevelopers">stuur ons uw respons</a>. De actuele status van Netsurf wordt op de <a href="progress">voortgangspagina</a> beschreven.</p>
 
@@ -47,10 +47,10 @@
 <dt><a href="screenshots/">Schermfoto's</a></dt>
 <dd>Afbeeldingen van NetSurf in actie</dd>
 
-<dt><a href="http://netsurf-browser.org/builds/">Test versies</a></dt>
+<dt><a href="builds/">Test versies</a></dt>
 <dd>Automatisch gemaakt van de nieuwste broncode</dd>
 
-<dt><a href="/themes/">Thema's</a></dt>
+<dt><a href="themes/">Thema's</a></dt>
 <dd>Verander het uiterlijk van NetSurf</dd>
 
 <dt><a href="http://sourceforge.net/tracker/?atid=464312&amp;group_id=51719">Bug tracker</a></dt>
