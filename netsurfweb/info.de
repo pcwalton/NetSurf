@@ -43,7 +43,7 @@
 
 <h3 id="GettingStartedRequirements">Systemvoraussetzungen</h3>
 
-<p>Für NetSurf wird mindestens RISC OS 3 benötigt. Beim Starten von NetSurf sucht das Programm nach Dateien und Systemfunktionen, die für ein korrektes Funktionieren notwendig sind. Wird dabei eine benötigte Resource nicht gefunden, wird eine Fehlermeldung ausgegeben. Oft ist in so einem Fall eines der folgenden, notwendigen Module nicht im System vorhanden.</p>
+<p>Für NetSurf wird mindestens RISC OS 3.5 benötigt. Beim Starten von NetSurf sucht das Programm nach Dateien und Systemfunktionen, die für ein korrektes Funktionieren notwendig sind. Wird dabei eine benötigte Resource nicht gefunden, wird eine Fehlermeldung ausgegeben. Oft ist in so einem Fall eines der folgenden, notwendigen Module nicht im System vorhanden.</p>
 
 <dl>
 <dt><a href="http://sudden.recoil.org/others/">Acorn URI</a></dt>

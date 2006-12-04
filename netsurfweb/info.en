@@ -37,7 +37,7 @@
 
 <h3 id="GettingStartedInstallation">Installation</h3>
 
-<p>NetSurf requires RISC OS 3 or later and builds are available from the project's <a href="http://netsurf-browser.org/">web site</a>. There are three builds available. For most users, the &quot;NetSurf&quot; build is recommended. The &quot;NetSurf small build&quot; lacks some features of the main build and is intended for systems with little memory.</p>
+<p>NetSurf requires RISC OS 3.5 or later and builds are available from the project's <a href="http://netsurf-browser.org/">web site</a>. There are three builds available. For most users, the &quot;NetSurf&quot; build is recommended. The &quot;NetSurf small build&quot; lacks some features of the main build and is intended for systems with little memory.</p>
 
 <p>To install the &quot;NetSurf&quot; or Small &quot;NetSurf&quot; builds, simply drag the !NetSurf application directory out of the archive, to your desired location and run it from there.</p>
 

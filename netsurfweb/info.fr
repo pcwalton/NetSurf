@@ -32,7 +32,7 @@
 
 <h3 id="GettingStartedInstallation">Installation</h3>
 
-<p>NetSurf nécessite RISC OS 3 ou plus et des versions sont disponibles sur le <a href="http://netsurf-browser.org/">site web</a> du projet. Trois versions sont disponibles. Pour la plupart des utilisateurs, la version &quot;NetSurf&quot; est recommandée. La version &quot;NetSurf allégé&quot; n'a pas certaines caractéristiques de la version principale et est destinée aux systèmes ayant peu de mémoire.</p>
+<p>NetSurf nécessite RISC OS 3.5 ou plus et des versions sont disponibles sur le <a href="http://netsurf-browser.org/">site web</a> du projet. Trois versions sont disponibles. Pour la plupart des utilisateurs, la version &quot;NetSurf&quot; est recommandée. La version &quot;NetSurf allégé&quot; n'a pas certaines caractéristiques de la version principale et est destinée aux systèmes ayant peu de mémoire.</p>
 
 <p>Pour installer les versions &quot;NetSurf&quot; ou &quot;NetSurf allégé&quot;, copiez simplement le répertoire d'application !NetSurf de l'archive vers l'endroit où vous souhaitez installer le programme puis démarrez celui-ci de cet endroit.</p>
 
