@@ -23,6 +23,12 @@
 <h2>News</h2>
 
 <div class="newsitem">
+<p>04 Dec 2006 - <em>Media watch</em></p>
+<p>Recent developments and plans discussed at The IconBar.</p>
+<p class="more"><a href="http://www.iconbar.com/articles/NetSurf_Update/index1098.html">Read more...</a></p>
+</div>
+
+<div class="newsitem">
 <p>10 Oct 2006 - <em>Summary of recent changes</em></p>
 <p>Code documentation, User interface, Bug fixes</p>
 <p class="more"><a href="http://permalink.gmane.org/gmane.comp.web.netsurf.devel/5854">Read more...</a></p>
