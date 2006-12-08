@@ -31,7 +31,7 @@ unsigned int rufl_family_list_entries = 0;
 struct rufl_family_map_entry *rufl_family_map = 0;
 os_error *rufl_fm_error = 0;
 void *rufl_family_menu = 0;
-unsigned short *rufl_substitution_table;
+unsigned short *rufl_substitution_table = 0;
 struct rufl_cache_entry rufl_cache[rufl_CACHE_SIZE];
 int rufl_cache_time = 0;
 bool rufl_old_font_manager = false;

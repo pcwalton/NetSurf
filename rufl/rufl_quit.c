@@ -2,7 +2,7 @@
  * This file is part of RUfl
  * Licensed under the MIT License,
  *                http://www.opensource.org/licenses/mit-license
- * Copyright 2005 James Bursa <james@semichrome.net>
+ * Copyright 2006 James Bursa <james@semichrome.net>
  */
 
 #include <stdlib.h>
@@ -43,4 +43,7 @@ void rufl_quit(void)
 
         free(rufl_family_menu);
         rufl_family_menu = 0;
+
+        free(rufl_substitution_table);
+        rufl_substitution_table = 0;
 }
