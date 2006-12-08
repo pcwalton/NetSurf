@@ -6,7 +6,7 @@
 use strict;
 use warnings;
 
-open LOG, ">autobuild.log" or die "failed to open autobuild.log: $!\n";
+open LOG, ">autobuild_try.log" or die "failed to open autobuild_try.log: $!\n";
 $| = 1;
 
 sub command {
@@ -63,6 +63,9 @@ unless (scalar @update) {
 	print LOG "no updates\n";
 	exit;
 }
+
+# this is a real run: make a real log
+command('mv --verbose autobuild_try.log autobuild.log');
 
 # update web documents
 chdir "$root/netsurfweb";
