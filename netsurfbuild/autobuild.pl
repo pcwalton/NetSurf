@@ -51,6 +51,8 @@ chomp $root;
 my $date = (command("date -u '+%d %b %Y %H:%M'"))[0];
 chomp $date;
 my $version = "Test Build ($date)";
+my $pkg_version = (command("date -u '+0.%Y.%m.%d.%H%M'"))[0];
+chomp $pkg_version;
 
 # update from repository
 chdir "$root/netsurf";
@@ -148,9 +150,34 @@ save('!NetSurf/!Run,feb', $run);
 command('/home/riscos/cross/bin/zip -9vr, netsurf.zip !NetSurf');
 command('mv --verbose netsurf.zip builds/');
 
-# TODO make RiscPkg package
-#my $pkg_version = (command("date -u '+0.%Y.%m.%d.%H%M'"))[0];
-#chomp $pkg_version;
+# make RiscPkg package
+my $control = <<END;
+Package: NetSurf
+Priority: Optional
+Section: Web
+Maintainer: NetSurf developers
+Version: $pkg_version
+Licence: Free
+Description: Web browser
+ NetSurf is an open-source web browser for RISC OS. Its aim is to bring
+ the HTML 4 and CSS standards to the RISC OS platform.
+ .
+ This is a test version of NetSurf and may be unstable.
+END
+save('netsurfpkg/RiscPkg/Control', $control);
+mkdir "$root/builds/riscpkg";
+command('rm --verbose --force builds/riscpkg/netsurf-*.zip');
+command('rm --recursive --verbose --force netsurfpkg/Apps/!NetSurf');
+command('mv --verbose !NetSurf netsurfpkg/Apps/');
+chdir "$root/netsurfpkg";
+command("/home/riscos/cross/bin/zip -9vr, " .
+		"../builds/riscpkg/netsurf-$pkg_version.zip " .
+		'Apps/!NetSurf RiscPkg/Control RiscPkg/Copyright');
+chdir "$root/builds/riscpkg";
+command("$root/packageindex.pl http://www.netsurf-browser.org/builds/riscpkg/ ".
+		'> packages');
+chdir $root;
+command('mv --verbose netsurfpkg/Apps/!NetSurf ./');
 
 # create zip for small build
 command('cp --archive --verbose netsurf/u!RunImage,ff8 !NetSurf/!RunImage,ff8');
@@ -194,8 +221,9 @@ foreach my $lang (@langs) {
 command('cp --verbose autobuild.log builds/netsurf.log');
 
 # rsync to website
-command('rsync --verbose --compress --times ' .
+command('rsync --verbose --compress --times --recursive ' .
 		'builds/*.zip builds/index.* builds/netsurf.log ' .
+		'builds/riscpkg ' .
 		'netsurf@pike.pepperfish.net:/home/netsurf/websites/' .
 		'www.netsurf-browser.org/docroot/builds/');
 
