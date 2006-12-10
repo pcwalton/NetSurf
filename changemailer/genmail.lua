@@ -50,7 +50,7 @@ end
 print [[
 
 Please test the latest version
-    http://netsurf.sourceforge.net/builds/
+    http://www.netsurf-browser.org/builds/
    
 Bugs should be reported to the bug tracker
     http://sourceforge.net/tracker/?group_id=51719&atid=464312
