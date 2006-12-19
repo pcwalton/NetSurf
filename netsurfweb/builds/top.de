@@ -38,7 +38,7 @@
 </tr>
 </table>
 
-<p>Eine <a href="http://www.riscpkg.org/">RiscPkg</a> Paketversion von NetSurf ist verfügbar. Um sie zu verwenden, muß die Zeile <code>pkg http://netsurf-browser.org/builds/packages</code> in die Datei <code>Choices:RiscPkg.Sources</code> eingefügt werden. Näheres dazu steht in der RiscPkg Dokumentation.</p>
+<p>Eine <a href="http://www.riscpkg.org/">RiscPkg</a> Paketversion von NetSurf ist verfügbar. Um sie zu verwenden, muß die Zeile <code>pkg http://netsurf-browser.org/builds/riscpkg/packages</code> in die Datei <code>Choices:RiscPkg.Sources</code> eingefügt werden. Näheres dazu steht in der RiscPkg Dokumentation.</p>
 
 <p><a href="netsurf.log">Logfile des letzten Builderlaufes</a> (nur für Entwickler von Interesse).</p>
 
