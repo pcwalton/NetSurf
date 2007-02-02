@@ -76,7 +76,9 @@ chdir $root;
 
 # create version.c
 save('netsurf/desktop/version.c',
-		"const char * const netsurf_version = \"$version\";\n");
+		"const char * const netsurf_version = \"$version\";\n" .
+		"const int netsurf_version_major = 0;\n" .
+		"const int netsurf_version_minor = 0;\n");
 
 # build RISC OS version
 chdir "$root/netsurf";
