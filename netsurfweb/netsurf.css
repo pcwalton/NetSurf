@@ -37,6 +37,8 @@ td { padding: 3px; }
 
 .progress, .screenshots { width: 90%; border-spacing: 2px; margin-left: auto; margin-right: auto; }
 
+.screenshots h2 { font-size:140%; border-width:0; }
+
 .docsections > li { margin-bottom: 1em; }
 
 .notplanned { background-color: #eee; color: #333; font-style: italic; }
