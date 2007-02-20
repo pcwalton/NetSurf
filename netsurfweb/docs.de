@@ -41,22 +41,35 @@
 <li><a href="guide#Help">Interaktive Hilfe</a></li>
 <li><a href="guide#BrowserWindow">Das Browserfenster</a>
 <ul>
-<li><a href="guide#BrowserWindowToolbar">Anzeigen und Leisten</a></li>
+<li><a href="guide#BrowserWindowToolbar">Schaltknopfleiste</a></li>
 <li><a href="guide#BrowserWindowURLBar">Adressleiste</a></li>
 <li><a href="guide#BrowserWindowStatusBar">Statusanzeige</a></li>
+<li><a href="guide#BrowserWindowContent">Darstellungsbereich</a></li>
 <li><a href="guide#BrowserWindowMenus">Menüs</a></li>
 </ul></li>
 <li><a href="guide#FileTypes">Dateitypen</a></li>
 <li><a href="guide#DownloadWindow">Download von Dateien</a></li>
-<li><a href="guide#History">History</a></li>
+<li><a href="guide#History">Verlauf (History)</a>
+<ul>
+<li><a href="guide#HistoryLocal">Lokaler Verlaufsspeicher</a></li>
+<li><a href="guide#HistoryGlobal">Globaler Verlauf</a>
+<ul>
+<li><a href="guide#HistoryGlobalToolbar">Werkzeugleiste</a></li>
+<li><a href="guide#HistoryGlobalMenus">Menüs</a></li>
+</ul></li>
+</ul></li>
 <li><a href="guide#Hotlist">Die Hotlist</a>
 <ul>
 <li><a href="guide#HotlistToolbar">Symbolleiste</a></li>
 <li><a href="guide#HotlistMenus">Menüs</a></li>
 </ul></li>
-<li><a href="guide#Configuration">NetSurf konfigurieren</a></li>
-<li><a href="guide#Keys">Tastaturkürzel (Shortcuts)</a></li>
+<li><a href="guide#Configuration">NetSurf konfigurieren</a>
+<ul>
+<li><a href="guide#ConfigurationGlobal">Globale Einstellungen</a></li>
+<li><a href="guide#ConfigurationToolbar">Symbolleisten bearbeiten</a></li>
 </ul></li>
+<li><a href="guide#Keys">Tastaturkürzel (Shortcuts)</a></li>
+</ul>
 
 <li><strong><a href="progress">Stand der Entwicklung</a></strong>
 <ul>

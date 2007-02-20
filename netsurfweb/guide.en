@@ -698,7 +698,7 @@
 
 <h5 id="HistoryGlobalMenuHistory" class="submenu">History Submenu</h5>
 
-<p>The Hotlist submenu contains the following options which apply to the hotlist in general.</p>
+<p>The History submenu contains the following options which apply to the global history window in general.</p>
 
 <table class="menu">
 <tr><th class="menutitle" colspan="2">History</th></tr>
@@ -708,10 +708,10 @@
 <tr><td><a href="#HistoryGlobalMenuHistoryToolbars">Toolbars</a></td><td class="menuarrow">&gt;</td></tr>
 </table>
 
-<p class="menupath" id="HistoryGlobalMenuHistoryExport">Hotlist &gt; Export</p>
+<p class="menupath" id="HistoryGlobalMenuHistoryExport">History &gt; Export</p>
 <p class="menuitem">This option allows you to export the global history as an HTML file. The directory structure is represented by nested unordered lists and addresses are converted to clickable links.</p>
 
-<p class="menupath" id="HistoryGlobalMenuHistoryExpand">Hotlist &gt; Expand</p>
+<p class="menupath" id="HistoryGlobalMenuHistoryExpand">History &gt; Expand</p>
 <p class="menuitem">This option allows various parts of the global history to be shown.</p>
 
 <table class="menu">

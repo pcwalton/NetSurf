@@ -31,30 +31,32 @@
 <li><a href="#JavaScript">JavaScript</a></li>
 </ul>
 
-<p class="updated">aktualisiert am 26. April 2005</p>
+<p class="updated">aktualisiert am 6. Mai 2006</p>
 
 <h2 id="GettingStarted">Einfach beginnen</h2>
 
 <h3 id="GettingStartedInstallation">Installation</h3>
 
-<p>Die jeweils aktuellste Version kann von der <a href="http://netsurf-browser.org/">Web-Seite des Projektes</a> geladen werden. Es gibt drei verschiedene Varianten des Programmes. Für die allermeisten Benutzer ist &quot;NetSurf&quot; der empfehlenswerteste Download. Daneben gibt es mit &quot;NetSurf small build&quot; eine für Systeme mit geringem Speicherplatz geeignete Programmversion. Diese bietet jedoch nur einen eingeschränkten Funktionsumfang.</p>
+<p>Die jeweils aktuellste Version kann von der <a href="http://netsurf-browser.org/">Webseite des Projektes</a> geladen werden. Es gibt verschiedene Varianten des Programmes. Für die allermeisten Benutzer ist &quot;NetSurf&quot; der empfehlenswerteste Download. Daneben gibt es mit &quot;NetSurf small build&quot; eine für Systeme mit geringem Speicherplatz geeignete Programmversion. Diese bietet jedoch nur einen eingeschränkten Funktionsumfang.</p>
 
 <p>Zur Installation von &quot;NetSurf&quot; oder &quot;NetSurf small build&quot; wird die heruntergeladene Datei mit einem Entpacker geöffnet und die enthaltene Applikation !Netsurf per Drag&amp;Drop in das gewünschte Zielverzeichnis kopiert. Von dort aus kann das Programm dann mit Doppelklick gestartet werden.</p>
 
 <h3 id="GettingStartedRequirements">Systemvoraussetzungen</h3>
 
-<p>Für NetSurf wird mindestens RISC OS 3.5 benötigt. Beim Starten von NetSurf sucht das Programm nach Dateien und Systemfunktionen, die für ein korrektes Funktionieren notwendig sind. Wird dabei eine benötigte Resource nicht gefunden, wird eine Fehlermeldung ausgegeben. Oft ist in so einem Fall eines der folgenden, notwendigen Module nicht im System vorhanden.</p>
+<p>Für NetSurf wird mindestens RISC OS 3.5 benötigt. Beim Starten von NetSurf sucht das Programm nach allen Dateien und Systemfunktionen, die für ein korrektes Funktionieren notwendig sind. Wird dabei eine benötigte Resource nicht gefunden, wird eine Fehlermeldung ausgegeben. Oft ist in so einem Fall eines der folgenden, notwendigen Module nicht im System vorhanden.</p>
 
 <dl>
 <dt><a href="http://sudden.recoil.org/others/">Acorn URI</a></dt>
 <dd>Das Acorn URI Modul kontrolliert und steuert die Übermittlung von URIs (zum Beispiel URL-Adressen) zwischen Applikationen.</dd>
 <dt><a href="http://netsurf-browser.org/iconv/">Iconv</a></dt>
 <dd>Dieses Modul bietet eine verbesserte Unterstützung bei der Zeichencodierung.</dd>
+<dt><a href="http://www.beebware.com/software/mappings/">MimeMap Datei</a></dt>
+<dd>Eine Liste mit verschiedenen MIME Typen und den ihnen zugeordneten RISC OS Filetypen.</dd>
 <dt><a href="http://www.riscos.info/downloads/gccsdk/sharedunixlib/system.zip">SharedUnixLibrary</a></dt>
 <dd>Dies ist ein Zusatzmodul für Programme, die unter Verwendung der UnixLib Library kompiliert wurden.</dd>
 <dt><a href="http://www.tinct.net/tinct.asp">Tinct</a></dt>
 <dd>Tinct wird zur Bilddarstellung benötigt. Es unterstützt die Ausgabe von Sprites mit Alpha-Channels.</dd>
-<dt>Window Manager 3.80 oder höher</dt>
+<dt>Window Manager 3.80 (oder höher)</dt>
 <dd>NetSurf nutzt Funktionen des Nested Wimp, welches Teil des Window Managers ist. Bei RISC OS 4 oder höher ist dies ein Systembestandteil. Auf Systemen mit RISC OS 3 sollte die <a href="http://acorn.riscos.com/riscos/releases/UniBoot/">Universal Boot Sequence</a> installiert werden.</dd>
 </dl>
 
@@ -66,7 +68,7 @@
 
 <dl>
 <dt><a href="http://www.ecs.soton.ac.uk/~jmb202/">Flash Plugin</a></dt>
-<dd>Dieses Plugin ermöglicht die Anzeige von Flash Dateien auf Web-Seiten.</dd>
+<dd>Dieses Plugin ermöglicht die Anzeige von Flash Dateien auf Webseiten.</dd>
 </dl>
 
 <h2 id="Upgrading">NetSurf upgraden</h2>
@@ -76,7 +78,9 @@
 <p>Prinzipiell ist es auch möglich die neue Version über die alte !Netsurf Applikation zu kopieren. Allerdings können dabei alte Dateien erhalten bleiben, die nicht länger benötigt werden. Diese belegen dann Platz auf dem Speichermedium, stören jedoch nicht den Betrieb von NetSurf.</p>
 
 <h2 id="ContactDevelopers">Entwickler kontaktieren</h2>
-<p>Fehlerberichte und Fragen zu NetSurf können in folgenden Foren übermittelt werden.</p>
+
+<h3>Bug-Tracker</h3>
+<p>Fehlerberichte können über den <a href="http://sourceforge.net/tracker/?group_id=51719&amp;atid=464312">Bug-Tracker</a> mitgeteilt werden. Bitte dabei die <a href="#Bugs">Hinweise zu Fehlerberichten</a> beachten. Danke.</p>
 
 <h3>Mailing-Liste</h3>
 <p>Die NetSurf <a href="http://lists.sourceforge.net/lists/listinfo/netsurf-develop">Mailing-Liste</a> dient der Diskussion über NetSurf. Bei Interesse an der Mitarbeit bei NetSurf bitte hier anmelden. ALLE Nachrichten, die in der Mailing-Liste eingehen, werden vom Entwickler-Team beachtet und gelesen. Dies gilt auch für Mails auf die keine direkte Antwort erfolgt.</p>
@@ -84,13 +88,10 @@
 <h3>IRC</h3>
 <p>Der #netsurf IRC Kanal im <a href="http://freenode.net/">Freenode</a> Netzwerk dient der Diskussion über die NetSurf Entwicklung.</p>
 
-<h3>Bug-Tracker</h3>
-<p>Fehlerberichte bitte über den <a href="http://sourceforge.net/tracker/?group_id=51719&amp;atid=464312">Bug-Tracker</a> mitteilen.</p>
-
-<p>Wenn Du zum NetSurf Projekt beitragen willst, kontaktiere bitte die Entwickler über die Mailing-Liste oder auf IRC.</p>
+<p>Wenn Du zum NetSurf Projekt beitragen willst, kontaktiere bitte die Entwickler über die Mailing-Liste oder über IRC.</p>
 
 <h2 id="Bugs">Fehler und Probleme melden</h2>
-<p>Die NetSurf-Entwickler sind sehr an Fehlerberichten interessiert. Es sind dabei einige einfache Richtlinien einzuhalten.</p>
+<p>Die NetSurf-Entwickler sind sehr an Fehlerberichten interessiert. Es sind jedoch einige einfache Richtlinien zu beachten.</p>
 
 <p>Vor dem Versenden einer Fehlermitteilung, bitte</p>
 
@@ -105,21 +106,23 @@
 <ol>
 <li>gib die Versionsnummer des benutzten NetSurf an.</li>
 <li>teile mit, welche Hardware und welches Betriebssystem zum Einsatz kamen.</li>
-<li>erkläre klar und schlüssig die genaue Art des Problemes (z.B. ob der Computer hing, NetSurf isoliert abgestürzt ist oder eine Fehlermeldung ausgegeben hat, ob eine bestimmte Web-Seite nicht korrekt dargestellt wird; bei Darstellungsproblemen bitte auch eine Beschreibung, was falsch angezeigt wird).</li>
-<li>gib die exakte URL an, wenn eine einzelne Web-Seite zu Problemen führt.</li>
+<li>erkläre klar und schlüssig die genaue Art des Problemes (z.B. ob der Computer hing, NetSurf isoliert abgestürzt ist oder eine Fehlermeldung ausgegeben hat, ob eine bestimmte Webseite nicht korrekt dargestellt wird; bei Darstellungsproblemen bitte auch eine Beschreibung, was falsch angezeigt wird).</li>
+<li>gib die exakte URL an, wenn eine einzelne Webseite zu Problemen führt.</li>
 <li>führe die genaue Reihenfolge der Schritte auf, mit denen sich der Fehler reproduzieren läßt.</li>
 <li>wenn Du einen gut funktionierenden Vorschlag zur Behebung eines Problems finden konntest, ist das prima (wenn nicht - auch kein Problem). Sende ihn mit, soetwas beschleunigt das Bugfixing deutlich.</li>
 </ol>
 
+<p>Fehlerberichte sollten immer über den <a href="http://sourceforge.net/tracker/?group_id=51719&amp;atid=464312">Bug-Tracker</a> mitgeteilt werden. Nutze dazu den &quot;Submit New&quot; Link und trage den Fehlerbericht ein. Dies ist auch möglich wenn man nicht bei SourceForge angemeldet ist. In diesem Fall sollte aber bitte eine eMail Adresse für eventuelle Rückfragen angegeben werden.</p>
+
 <p>Das Befolgen dieser Richtlinien ermöglicht eine Verringerung des Zeitaufwandes zur Auswertung der Fehlerberichte und spart so Zeit, die der weiteren NetSurf-Entwicklung zugute kommt.</p>
 
-<h2 id="FeatureRequests">Vorschläge für neue Features</h2>
+<h2 id="FeatureRequests">Vorschläge für neue Funktionen</h2>
 
-<p>Das NetSurf-Team begrüßt immer Vorschläge und innovative Ideen, die ein verbessertes Browsen ermöglichen. Bitte überprüfe vor dem Absenden die Seite <a href="progress">Stand der Entwicklung</a> und die <a href="http://source.netsurf-browser.org/trunk/netsurf/Docs/">TODO Listen</a> daraufhin, ob das Feature nicht bereits geplant ist. Vorschläge können über die <a href="#ContactDevelopers">Mailing-Liste</a> gesendet werden. Jede hier eingehende Nachricht wird vom Entwickler-Team gelesen, auch wenn keine direkte Antwort erfolgt.</p>
+<p>Das NetSurf-Team ist jederzeit offen für Vorschläge und innovative Ideen, die ein verbessertes Browsen ermöglichen. Bitte überprüfe vor dem Absenden die Seite <a href="progress">Stand der Entwicklung</a> und die <a href="http://source.netsurf-browser.org/trunk/netsurf/Docs/">TODO Listen</a> daraufhin, ob das Feature nicht bereits geplant ist. Vorschläge können über den <a href="http://sourceforge.net/tracker/?group_id=51719&amp;atid=464315">Feature-Request-Tracker</a> gesendet werden.</p>
 
 <h2 id="Unicode">Schriftarten in NetSurf</h2>
 
-<p>NetSurf unterstützt die Darstellung von Seiten, welche Unicode-Zeichen enthalten, die normalerweise unter RISC OS nicht verfügbar sind. Dazu gehören zum Beispiel lateinische Buchstaben mit Accent, griechische Zeichen, kyrillisch, japanisch und verschiedene Symbole.</p>
+<p>NetSurf unterstützt die Darstellung von Seiten, welche Unicode-Zeichen enthalten, die normalerweise unter RISC OS nicht verfügbar sind. Dazu gehören zum Beispiel lateinische Buchstaben mit Accent, griechische, kyrillische und japanische Zeichen sowie verschiedene Symbole.</p>
 
 <p>In der <a href="guide#ConfigurationFonts">Schriftartenwahl</a> kann für jede der fünf unter CSS verfügbaren Schriftfamilien eine Schriftart eingestellt werden. Die Einstellungen legen den vorrangig zu verwendenden Zeichensatz fest. Ist ein bestimmter anzuzeigender Buchstabe oder ein Zeichen in der gewählten Schriftart nicht enthalten aber in einer der anderen installierten Schriften vorhanden, wird NetSurf diese automatisch verwenden. Es ist also nicht notwendig, zur Anzeige von Seiten, die in der ausgewählten Schriftart nicht vorhandene Zeichen einsetzen, die Schriftart manuell umzustellen.</p>
 
@@ -129,9 +132,9 @@
 
 <p>Die Zeichensäze, die bei RISC OS standardmäßig vorhanden sind, decken das lateinische Alphabet (Homerton, Trinity, Corpus), griechisch (Sidney) und verschiedene Symbole und Sonderzeichen (Selwyn, Sidney) ab. (In RISC OS 3-4 können nur die &quot;Latin 1&quot; Zeichen dieser Standardschriften von NetSurf genutzt werden.)</p>
 
-<p>Sollen Web-Seiten mit anderen Zeichen richtig dargestellt werden, müssen Schriftarten nachinstalliert werden, die diese Zeichen enthalten. Ist ein bestimmtes Zeichen in keiner der verfügbaren Schriftarten enthalten, wird der Unicode-Zeichencode angezeigt.</p>
+<p>Sollen Webseiten mit anderen Zeichen richtig dargestellt werden, müssen Schriftarten nachinstalliert werden, die diese Zeichen enthalten. Ist ein bestimmtes Zeichen in keiner der verfügbaren Schriftarten enthalten, wird der Unicode-Zeichencode angezeigt.</p>
 
-<p>Werden die Codes 0091, 0092, 0096 oder andere mit 009 beginnende Codes angezeigt, bedeutet dies, daß die Web-Seite die verwendete Schriftform nicht ordentlich festlegt. Neue Zeichensätze zu installieren, hilft in diesem Fall nicht. Wir haben bisher noch nicht entschieden, wie wir dieses Problem sinnvoll umgehen.</p>
+<p>Werden die Codes 0091, 0092, 0096 oder andere mit 009 beginnende Codes angezeigt, bedeutet dies, daß die Webseite die verwendete Schriftform nicht ordentlich festlegt. Neue Zeichensätze zu installieren, hilft in diesem Fall nicht. Wir haben bisher noch nicht entschieden, wie wir dieses Problem sinnvoll umgehen.</p>
 
 <p>Jeder Zeichensatz mit einer korrekten &quot;Encoding&quot;-Datei sollte funktionieren. In der Praxis sind allerdings Zeichensätze rar, die über die Latin-1 Codierung hinaus Zeichen enthalten. Als Lösung bietet sich an, TrueType-Fonts mittels <a href="http://moose.mine.nu/ttf2f_latest.zip">TTF2f</a> zu konvertieren (zur Zeit funktioniert das leider nur für RISC OS 5).</p>
 
@@ -140,11 +143,9 @@
 <h3 id="UnicodeProblems">Probleme und nicht implementierte Funktionen</h3>
 
 <ul>
-<li>Die Standardschriftart ist immer Sans-Serif.</li>
-<li>Drucken unter RISC OS 5 funktioniert nicht, wegen fehlender Unterstützung im Font-Manager und den Druckertreibern. Drucken per Postscript unter RISC-OS 3-4 ist nicht korrekt in NetSurf implementiert.</li>
-<li>Einzusetzende Zeichen werden aus dem ersten Zeichensatz, der sie enthält, genommen - auch dann, wenn evtl. ein anderer Zeichensatz vorhanden ist, der für die Darstellung geeigneter wäre.</li>
-<li>Nur zwei Schriftformen (normal und fett) werden unterstützt - auch wenn die Schriftfamilie noch andere Formen enthält. Der Algorithmus, der die nötige Schriftform festlegt, muß noch verbessert werden, z.B. mittels der Vorschläge unter <a href="http://www.w3.org/TR/CSS21/">CSS 2.1</a>, section <a href="http://www.w3.org/TR/CSS21/fonts.html#font-boldness">15.6</a>.</li>
-<li>Exportieren als Drawfile funktioniert nicht mehr.</li>
+<li>Drucken unter RISC OS 5 funktioniert nicht, wegen fehlender Unterstützung im Font-Manager und den Druckertreibern.</li>
+<li>Einzusetzende Zeichen werden aus dem ersten gefundenen Zeichensatz, der sie enthält, genommen - auch dann, wenn eventuell ein anderer Zeichensatz vorhanden ist, der für die Darstellung geeigneter wäre.</li>
+<li>Unicode Zeilenumbruch ist nicht implementiert.</li>
 <li>Textverlauf Rechts-nach-Links (Hebräisch, Arabisch) wurde nicht implementiert.</li>
 </ul>
 
