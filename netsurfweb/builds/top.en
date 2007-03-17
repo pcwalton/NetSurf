@@ -41,7 +41,7 @@ href="/info#GettingStartedInstallation">installation instructions</a>.</p>
 </tr>
 </table>
 
-<p>A <a href="http://www.riscpkg.org/">RiscPkg</a> package of NetSurf is available. To use it, add the line <code>pkg http://netsurf-browser.org/builds/riscpkg/packages</code> to <code>Choices:RiscPkg.Sources</code>. See the RiscPkg documentation for more information.</p>
+<p>A <a href="http://www.riscpkg.org/">RiscPkg</a> package of NetSurf is available. To use it, add the line <code>pkg http://www.netsurf-browser.org/builds/riscpkg/packages</code> to <code>Choices:RiscPkg.Sources</code>. See the RiscPkg documentation for more information.</p>
 
 <p><a href="netsurf.log">Last build attempt log</a> (only of interest to developers).</p>
 

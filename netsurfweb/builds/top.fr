@@ -40,7 +40,7 @@
 </tr>
 </table>
 
-<p>Un package <a href="http://www.riscpkg.org/">RiscPkg</a> de NetSurf est disponible. Pour s'en servir, ajouter la ligne <code>pkg http://netsurf-browser.org/builds/riscpkg/packages</code> à <code>Choices:RiscPkg.Sources</code>. Voir la documentation RiscPkg pour plus d'information.</p>
+<p>Un package <a href="http://www.riscpkg.org/">RiscPkg</a> de NetSurf est disponible. Pour s'en servir, ajouter la ligne <code>pkg http://www.netsurf-browser.org/builds/riscpkg/packages</code> à <code>Choices:RiscPkg.Sources</code>. Voir la documentation RiscPkg pour plus d'information.</p>
 
 <p><a href="netsurf.log">Fichier journal de la dernière compilation</a> (n'a d'intérêt que pour les développeurs).</p>
 
