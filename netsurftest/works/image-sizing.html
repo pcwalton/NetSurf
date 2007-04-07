@@ -1,0 +1,18 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+	"http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head><title>Image sizing test</title></head>
+<body>
+<a href="foo.htm"><img src="../images/netsurf.png" style="width: 90px; height: 90px"></a>
+<hr>
+<a href="bar.htm"><img src="../images/netsurf.png" width="90" height="90"></a>
+<hr>
+<object data="../images/netsurf.png" type="image/png" style="width:90px; height: 90px;">
+Fallback content
+</object>
+<hr>
+<div style="width: 90px; height: 90px; overflow: scroll;">
+<a href="baz.htm"><img src="../images/netsurf.png"></a>
+</div>
+</body>
+</html>
