@@ -2,7 +2,7 @@
         "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 <head>
-<title>NetSurf | Test Builds</title>
+<title>NetSurf | Development Builds</title>
 <link rel="stylesheet" type="text/css" href="/netsurf.css">
 </head>
 
@@ -10,14 +10,13 @@
 <p class="banner"><a href="/"><img src="/netsurf.png" alt="NetSurf: Web Browser for RISC OS"></a></p>
 <p class="languages"><a href="index.de">Deutsch</a> · English · <a href="index.fr">Français</a></p>
 
-<h1>NetSurf Test Builds</h1>
+<h1>NetSurf Development Builds</h1>
 
 <p>These archives are built automatically from SVN.
 <strong>They are likely to be unstable and may crash your machine.</strong></p>
 
 <p id="newtonetsurf"><strong>New to NetSurf?</strong> Get
-<span class="highlight">NetSurf</span> from this section, and the
-<span class="highlight">five required items below</span>. Read the <a
+<span class="highlight">NetSurf</span> from this section and read the <a
 href="/info#GettingStartedInstallation">installation instructions</a>.</p>
 
 <table class="download">
@@ -45,19 +44,21 @@ href="/info#GettingStartedInstallation">installation instructions</a>.</p>
 
 <p><a href="netsurf.log">Last build attempt log</a> (only of interest to developers).</p>
 
-<h2>You will also require the following to use these builds:</h2>
+<h2>Requirements</h2>
+
+<p>NetSurf needs several resources to be present on your system in order to run.</p>
 
 <ul>
-<li>WindowManager 3.80 or later. This comes with RISC OS 4 and above. RISC OS 3
-users should install the <a href="http://acorn.riscos.com/riscos/releases/UniBoot/" class="highlight">Universal Boot Sequence</a>.</li>
-<li><a href="http://www.riscos.info/downloads/gccsdk/sharedunixlib/system.zip"
-class="highlight">SharedUnixLibrary</a>.</li>
-<li><a href="http://sudden.recoil.org/others/"
-class="highlight">AcornURI</a>.</li>
-<li><a href="/iconv/"
-class="highlight">Iconv</a>. (Be sure to follow the complete installation instructions for Iconv.)</li>
-<li><a href="http://www.tinct.net/tinct.asp"
-class="highlight">Tinct</a>.</li>
+<li>WindowManager 3.80 or later. This comes with RISC OS 4 and above. RISC OS 3 users should install the <a href="http://acorn.riscos.com/riscos/releases/UniBoot/">Universal Boot Sequence</a>.</li>
+</ul>
+
+<p>The following resources are provided with NetSurf:</p>
+
+<ul>
+<li><a href="http://sudden.recoil.org/others/">AcornURI</a>.</li>
+<li><a href="/iconv/">Iconv</a>.</li>
+<li><a href="http://www.riscos.info/downloads/gccsdk/sharedunixlib/system.zip">SharedUnixLibrary</a>.</li>
+<li><a href="http://www.tinct.net/tinct.asp">Tinct</a>.</li>
 </ul>
 
 <p><strong>Optional:</strong> download and install the <a href="http://www.beebware.com/software/mappings/">MimeMap datafile</a> if you don't already have one and NetSurf complains.</p>
