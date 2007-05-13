@@ -6,41 +6,10 @@
 use strict;
 use warnings;
 
+$ENV{PATH} = '/usr/local/bin:/usr/bin:/bin';
+
 open LOG, ">autobuild_try.log" or die "failed to open autobuild_try.log: $!\n";
 $| = 1;
-
-sub command {
-	my $cmd = shift;
-	print LOG "> $cmd\n";
-	my @output = `$cmd 2>&1`;
-	foreach my $line (@output) {
-		print LOG "| $line";
-	}
-	my $status = $? / 256;
-	print LOG "exit status $status\n" if $status;
-	print LOG "\n";
-	die "$cmd:\nexit status $status\n" if $status;
-	return @output;
-}
-
-sub load {
-	my $path = shift;
-	open FILE, $path or die "failed to open $path: $!\n";
-	my $data;
-	{
-		local $/ = undef;
-		$data = <FILE>;
-	}
-	close FILE;
-	return $data;
-}
-
-sub save {
-	my ($path, $data) = @_;
-	open FILE, ">$path" or die "failed to open $path: $!\n";
-	print FILE $data;
-	close FILE;
-}
 
 
 # find where we are being run
@@ -84,8 +53,8 @@ save('netsurf/desktop/version.c',
 chdir "$root/netsurf";
 command("make riscos riscos_small");
 chdir $root;
-command("rm --recursive --force --verbose !NetSurf");
-command("rsync --archive --verbose --exclude=.svn netsurf/!NetSurf .");
+command("rm --recursive --force --verbose riscos-zip/!NetSurf");
+command("rsync --archive --verbose --exclude=.svn netsurf/!NetSurf riscos-zip/");
 
 # copy docs, processing as required
 sub process_html {
@@ -117,15 +86,15 @@ foreach my $doc (@docs) {
 	if ($doc =~ /([a-z]+)[.]([a-z][a-z])$/) { # html with language extension
 		my $leaf = $1;
 		my $language = $2;
-		my $dest = "!NetSurf/Docs/${leaf}_$language,faf";
+		my $dest = "riscos-zip/!NetSurf/Docs/${leaf}_$language,faf";
 		print LOG "=> $dest (html)\n";
 		process_html($source, $dest, $language);
 	} elsif ($doc =~ /(.*)[.]css$/) {
-		my $dest = "!NetSurf/Docs/$1,f79";
+		my $dest = "riscos-zip/!NetSurf/Docs/$1,f79";
 		print LOG "=> $dest\n";
 		command("cp --archive --verbose $source $dest");
 	} elsif ($doc =~ /(.*)[.]png$/) {
-		my $dest = "!NetSurf/Docs/$1_png,b60";
+		my $dest = "riscos-zip/!NetSurf/Docs/$1_png,b60";
 		print LOG "=> $dest\n";
 		command("cp --archive --verbose $source $dest");
 	} else {
@@ -133,23 +102,26 @@ foreach my $doc (@docs) {
 	}
 }
 
-print LOG "!NetSurf/Docs/about,faf (html)\n";
-process_html('!NetSurf/Docs/about,faf', '!NetSurf/Docs/about,faf', 'en');
+print LOG "riscos-zip/!NetSurf/Docs/about,faf (html)\n";
+process_html('riscos-zip/!NetSurf/Docs/about,faf',
+	     'riscos-zip/!NetSurf/Docs/about,faf', 'en');
 
-mkdir '!NetSurf/Docs/images', 0755;
+mkdir 'riscos-zip/!NetSurf/Docs/images', 0755;
 foreach my $png (glob 'netsurfweb/images/*') {
 	$png =~ /images\/(.*)[.]png$/;
 	my $leaf = $1;
 	$leaf =~ s/[.]/_/g;
-	command("cp --archive --verbose $png !NetSurf/Docs/images/$leaf,b60");
+	command("cp --archive --verbose $png riscos-zip/!NetSurf/Docs/images/$leaf,b60");
 }
 
 # create zip for regular build
-my $slot_size = (command('./slotsize !NetSurf/!RunImage,ff8'))[0];
+my $slot_size = (command('./slotsize riscos-zip/!NetSurf/!RunImage,ff8'))[0];
 my $run = load('netsurf/!NetSurf/!Run,feb');
 $run =~ s/2240/$slot_size/g;
-save('!NetSurf/!Run,feb', $run);
-command('/home/riscos/cross/bin/zip -9vr, netsurf.zip !NetSurf');
+save('riscos-zip/!NetSurf/!Run,feb', $run);
+chdir "$root/riscos-zip";
+command('/home/riscos/cross/bin/zip -9vr, ../netsurf.zip *');
+chdir $root;
 command('mv --verbose netsurf.zip builds/');
 
 # make RiscPkg package
@@ -157,7 +129,7 @@ my $control = <<END;
 Package: NetSurf
 Priority: Optional
 Section: Web
-Maintainer: NetSurf developers <netsurf-develop@lists.sourceforge.net>
+Maintainer: NetSurf developers <netsurf-develop\@lists.sourceforge.net>
 Version: $pkg_version
 Depends: SharedUnixLibrary (>=1.0.7), Tinct (>=0.1.3), Iconv (>=0.0.8), RiscPkg (>=0.3.1.1)
 Licence: Free
@@ -172,7 +144,7 @@ save('netsurfpkg/RiscPkg/Control', $control);
 mkdir "$root/builds/riscpkg";
 command('rm --verbose --force builds/riscpkg/netsurf-*.zip');
 command('rm --recursive --verbose --force netsurfpkg/Apps/!NetSurf');
-command('mv --verbose !NetSurf netsurfpkg/Apps/');
+command('mv --verbose riscos-zip/!NetSurf netsurfpkg/Apps/');
 chdir "$root/netsurfpkg";
 command("/home/riscos/cross/bin/zip -9vr, " .
 		"../builds/riscpkg/netsurf-$pkg_version.zip " .
@@ -181,15 +153,17 @@ chdir "$root/builds/riscpkg";
 command("$root/packageindex.pl http://www.netsurf-browser.org/builds/riscpkg/ ".
 		'> packages');
 chdir $root;
-command('mv --verbose netsurfpkg/Apps/!NetSurf ./');
+command('mv --verbose netsurfpkg/Apps/!NetSurf ./riscos-zip/');
 
 # create zip for small build
-command('cp --archive --verbose netsurf/u!RunImage,ff8 !NetSurf/!RunImage,ff8');
-$slot_size = (command('./slotsize !NetSurf/!RunImage,ff8'))[0];
+command('cp --archive --verbose netsurf/u!RunImage,ff8 riscos-zip/!NetSurf/!RunImage,ff8');
+$slot_size = (command('./slotsize riscos-zip/!NetSurf/!RunImage,ff8'))[0];
 $run = load('netsurf/!NetSurf/!Run,feb');
 $run =~ s/2240/$slot_size/g;
-save('!NetSurf/!Run,feb', $run);
-command('/home/riscos/cross/bin/zip -9vr, unetsurf.zip !NetSurf');
+save('riscos-zip/!NetSurf/!Run,feb', $run);
+chdir "$root/riscos-zip";
+command('/home/riscos/cross/bin/zip -9vr, ../unetsurf.zip *');
+chdir $root;
 command('mv --verbose unetsurf.zip builds/');
 
 # TODO nstheme
@@ -228,6 +202,40 @@ command('cp --verbose autobuild.log builds/netsurf.log');
 command('rsync --verbose --compress --times --recursive ' .
 		'builds/*.zip builds/index.* builds/netsurf.log ' .
 		'builds/riscpkg ' .
-		'netsurf@pike.pepperfish.net:/home/netsurf/websites/' .
+		'netsurf@netsurf-browser.org:/home/netsurf/websites/' .
 		'www.netsurf-browser.org/docroot/builds/');
+
+
+sub command {
+	my $cmd = shift;
+	print LOG "> $cmd\n";
+	my @output = `$cmd 2>&1`;
+	foreach my $line (@output) {
+		print LOG "| $line";
+	}
+	my $status = $? / 256;
+	print LOG "exit status $status\n" if $status;
+	print LOG "\n";
+	die "$cmd:\nexit status $status\n" if $status;
+	return @output;
+}
+
+sub load {
+	my $path = shift;
+	open FILE, $path or die "failed to open $path: $!\n";
+	my $data;
+	{
+		local $/ = undef;
+		$data = <FILE>;
+	}
+	close FILE;
+	return $data;
+}
+
+sub save {
+	my ($path, $data) = @_;
+	open FILE, ">$path" or die "failed to open $path: $!\n";
+	print FILE $data;
+	close FILE;
+}
 
