@@ -31,33 +31,49 @@
 <li><a href="#JavaScript">JavaScript</a></li>
 </ul>
 
-<p class="updated">Last updated 6 May 2006</p>
+<p class="updated">Last updated 14 May 2007</p>
 
 <h2 id="GettingStarted">Getting started</h2>
 
 <h3 id="GettingStartedInstallation">Installation</h3>
 
-<p>NetSurf requires RISC OS 3.5 or later and builds are available from the project's <a href="http://netsurf-browser.org/">web site</a>. There are three builds available. For most users, the &quot;NetSurf&quot; build is recommended. The &quot;NetSurf small build&quot; lacks some features of the main build and is intended for systems with little memory.</p>
+<p>NetSurf requires RISC OS 3.5 or later and builds are available from the project's <a href="http://www.netsurf-browser.org/">web site</a>. There are two builds available. For most users, the &quot;NetSurf&quot; build is recommended. The &quot;NetSurf small build&quot; lacks some features of the main build and is intended for systems with little memory.</p>
 
-<p>To install the &quot;NetSurf&quot; or Small &quot;NetSurf&quot; builds, simply drag the !NetSurf application directory out of the archive, to your desired location and run it from there.</p>
+<p>Installation of &quot;NetSurf&quot; and &quot;Small NetSurf&quot; is a three step process:</p>
+
+<ol>
+<li>Use the <strong>Boot Merge</strong> facility provided by Configure to merge the supplied !Boot directory with the one on your system.<br>If there is no !Boot merge facility on your system, simply drag the supplied !Boot over your existing boot structure.</li>
+<li>Use the <strong>System Merge</strong> facility provided by Configure to merge the supplied !System directory with the one on your system.</li>
+<li>Drag the !NetSurf application directory out of the archive, to your desired location.</li>
+</ol>
+
+<p>Double click on !NetSurf in your chosen location to launch NetSurf.</p>
 
 <h3 id="GettingStartedRequirements">Requirements</h3>
 
-<p>When NetSurf is run, it will look for all the resources it needs to function correctly and if anything is not found, it displays an error message, indicating the resource it could not locate on your system. If such a message appears, NetSurf is likely to be requesting one of the following resources.</p>
+<p>When NetSurf is run it will look for all the resources it needs to function correctly. If anything is not found, it displays an error message indicating the resource it could not locate on your system. If such a message appears, NetSurf is likely to be requesting one of the following resources.</p>
 
+<dl>
+<dt>Items contained in the !Boot and !System directories supplied with NetSurf:</dt>
+<dd>
 <dl>
 <dt><a href="http://sudden.recoil.org/others/">Acorn URI</a></dt>
 <dd>The Acorn URI module is used to pass URIs (of which URLs are an example) back and forth between different applications.</dd>
-<dt><a href="http://netsurf-browser.org/iconv/">Iconv</a></dt>
+<dt><a href="http://www.netsurf-browser.org/iconv/">Iconv</a></dt>
 <dd>This module provides improved character encoding support.</dd>
-<dt><a href="http://www.beebware.com/software/mappings/">MimeMap Datafile</a></dt>
-<dd>A resource containing many different MIME types and their equivalent RISC OS file types.</dd>
 <dt><a href="http://www.riscos.info/downloads/gccsdk/sharedunixlib/system.zip">SharedUnixLibrary</a></dt>
 <dd>This is a support module for programs compiled using UnixLib.</dd>
 <dt><a href="http://www.tinct.net/tinct.asp">Tinct</a></dt>
 <dd>Tinct is used for image plotting. It provides support for plotting sprites with alpha channels.</dd>
+</dl>
+</dd>
+<dt>Items not supplied with NetSurf (only required for RISC OS 3.5, 3.6 and 3.7 users):</dt>
+<dd>
+<dl>
 <dt>Window Manager 3.80 or later</dt>
 <dd>NetSurf uses the Nested Wimp, which is part of the Window Manager. This comes with RISC OS 4 or later, RISC OS 3 users should install the <a href="http://acorn.riscos.com/riscos/releases/UniBoot/">Universal Boot Sequence</a>.</dd>
+</dl>
+</dd>
 </dl>
 
 <p>If NetSurf starts without a problem, there is no need to upgrade any resources on your system.</p>
@@ -69,6 +85,8 @@
 <dl>
 <dt><a href="http://www.ecs.soton.ac.uk/~jmb202/">Flash plugin</a></dt>
 <dd>This allows you to view Flash files on web sites.</dd>
+<dt><a href="http://www.beebware.com/software/mappings/">MimeMap Datafile</a></dt>
+<dd>A resource containing many different MIME types and their equivalent RISC OS file types.</dd>
 </dl>
 
 <h2 id="Upgrading">Upgrading</h2>
