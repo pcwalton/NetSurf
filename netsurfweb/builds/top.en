@@ -55,10 +55,10 @@ href="/info#GettingStartedInstallation">installation instructions</a>.</p>
 <p>The following resources are provided with NetSurf:</p>
 
 <ul>
-<li><a href="http://sudden.recoil.org/others/">AcornURI</a>.</li>
-<li><a href="/iconv/">Iconv</a>.</li>
-<li><a href="http://www.riscos.info/downloads/gccsdk/sharedunixlib/system.zip">SharedUnixLibrary</a>.</li>
-<li><a href="http://www.tinct.net/tinct.asp">Tinct</a>.</li>
+<li><a href="http://sudden.recoil.org/others/">AcornURI</a> v1.04, Christian Ludlam.</li>
+<li><a href="/iconv/">Iconv</a> v0.08, John-Mark Bell.</li>
+<li><a href="http://www.riscos.info/downloads/gccsdk/sharedunixlib/system.zip">SharedUnixLibrary</a> v1.10, GCCSDK team.</li>
+<li><a href="http://www.tinct.net/tinct.asp">Tinct</a> v0.13, Richard Wilson.</li>
 </ul>
 
 <p><strong>Optional:</strong> download and install the <a href="http://www.beebware.com/software/mappings/">MimeMap datafile</a> if you don't already have one and NetSurf complains.</p>
