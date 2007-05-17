@@ -7,7 +7,7 @@
 </head>
 
 <body>
-<p class="banner"><a href="/"><img src="netsurfnl.png" alt="NetSurf"></a></p>
+<p class="banner"><a href="/"><img src="netsurf.png" alt="NetSurf"></a></p>
 <p class="languages"><a href="guide.de">Deutsch</a> · <a href="guide.en">English</a> · Nederlands</p>
 
 <p class="headnote">NetSurf wordt snel verder ontwikkeld maar bevind zich nog steeds in het beginstadium. Daarom kunnen de navolgende mogelijkheden zijn veranderd zonder waarschuwing.</p>

@@ -6,7 +6,7 @@
 <link rel="stylesheet" type="text/css" href="netsurf.css">
 </head>
 <body>
-<p class="banner"><a href="/"><img src="netsurfnl.png" alt="NetSurf"></a></p>
+<p class="banner"><a href="/"><img src="netsurf.png" alt="NetSurf"></a></p>
 <p class="languages"><a href="progress.de">Deutsch</a> · <a href="progress.en">English</a> · <a href="progress.fr">Français</a> · Nederlands</p>
 
 <h1>Van de vertaler</h1>
