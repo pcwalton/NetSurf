@@ -13,6 +13,9 @@
 <div class="main">
 <p>NetSurf est un navigateur web open source pour RISC OS. Son but est d'apporter les standards HTML 4 et CSS à la plateforme RISC OS.</p>
 
+<p>The latest release is 1.0.<strong>
+<a href="download/">Download NetSurf 1.0 for RISC OS</a>.</strong></p>
+
 <h2>État actuel</h2>
 <p><strong>NetSurf est en cours de développement.</strong> Des versions test sont <a href="builds/">disponibles en téléchargement</a>.
 Voir la page <a href="progress">Avancement</a> pour avoir une idée de l'état de développement de NetSurf.</p>
@@ -31,6 +34,9 @@ Voir la page <a href="progress">Avancement</a> pour avoir une idée de l'état de 
 <h3>Liens</h3>
 
 <dl>
+<dt><a href="download/">Download</a></dt>
+<dd>Get NetSurf 1.0</dd>
+
 <dt><a href="docs">Documentation</a></dt>
 <dd>Manuel utilisateur et information</dd>
 
