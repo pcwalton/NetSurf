@@ -16,17 +16,12 @@ $| = 1;
 my $root = (command("pwd"))[0];
 chomp $root;
 
-# determine build date time
-my $date = (command("date -u '+%d %b %Y %H:%M'"))[0];
-chomp $date;
-my $version = "2.0 (Development) ($date)";
-my $pkg_version = (command("date -u '+0.%Y.%m.%d.%H%M'"))[0];
-chomp $pkg_version;
-
 # update from repository
 chdir "$root/netsurf";
 my @update = command("svn update --non-interactive");
 chdir $root;
+my @revlines = grep / revision /, @update;
+my ($revno) = ($revlines[0] =~ /(\d+)/);     # get revison for version later
 @update = grep !/^At revision/, @update;
 
 # continue only if there were updates
@@ -34,6 +29,13 @@ unless (scalar @update) {
 	print LOG "no updates\n";
 	exit;
 }
+
+# determine build date time and version
+my $date = (command("date -u '+%d %b %Y %H:%M'"))[0];
+chomp $date;
+my $version = "2.0 TEST r$revno";
+my $pkg_version = (command("date -u '+0.%Y.%m.%d.%H%M'"))[0];
+chomp $pkg_version;
 
 # this is a real run: make a real log
 command('mv --verbose autobuild_try.log autobuild.log');
