@@ -161,7 +161,7 @@
 
 <p>Der neben der Adressleiste befindliche Menüknopf öffnet ein Auswahlmenü mit einer Liste der zuletzt eingegebenen Webadressen. Anklicken einer dieser URLs öffnet die zugehörige Webseite.</p>
 
-<p>Die aktuelle URL kann aus der Adressleiste heraus per Drag&Drop abgespeichert oder direkt in eine andere Applikation gezogen werden. Ein <span class="action">Ctrl+Drag</span> speichert die Adresse im Textformat, ein <span class="action">Shift+Drag</span> speichert sie im ANT URL Format. Systeme, die eine Textmarkierung in beschreibbaren Icons nicht unterstützen (z.B. alle NICHT 'RISC OS Select' Systeme), speichern die Adresse im Textformat ohne beim Ziehen die Tasten <span class="action">Ctrl</span> oder <span class="action">Shift</span> auszuwerten.</p>
+<p>Die aktuelle URL kann aus der Adressleiste heraus per Drag&amp;Drop abgespeichert oder direkt in eine andere Applikation gezogen werden. Ein <span class="action">Ctrl+Drag</span> speichert die Adresse im Textformat, ein <span class="action">Shift+Drag</span> speichert sie im ANT URL Format. Systeme, die eine Textmarkierung in beschreibbaren Icons nicht unterstützen (z.B. alle NICHT 'RISC OS Select' Systeme), speichern die Adresse im Textformat ohne beim Ziehen die Tasten <span class="action">Ctrl</span> oder <span class="action">Shift</span> auszuwerten.</p>
 
 <h4 id="BrowserWindowURLCompletion">Adressvervollständigung</h4>
 
@@ -181,7 +181,7 @@
 <li><a href="#BrowserWindowContentTextSelection">Textbereiche markieren</a></li>
 <li><a href="#BrowserWindowContentDragScrolling">Scrollen mittels Ziehen der Maus</a></li>
 <li><a href="#BrowserWindowContentLinkHandling">Verweisen folgen</a></li>
-<li><a href="#BrowserWindowContentDragSaving">Abspeichern mit Drag&Drop</a></li>
+<li><a href="#BrowserWindowContentDragSaving">Abspeichern mit Drag&amp;Drop</a></li>
 <li><a href="#BrowserWindowContentFormCompletion">HTML Forms</a></li>
 </ul>
 
@@ -224,9 +224,9 @@
 <li><span class="action">Shift+Adjust drag</span> from a link to a filer window or another app saves the link target address as a URL file.</li> -->
 </ul>
 
-<h4 id="BrowserWindowContentDragSaving">Abspeichern mit Drag&Drop</h4>
+<h4 id="BrowserWindowContentDragSaving">Abspeichern mit Drag&amp;Drop</h4>
 
-<p>Inhalte können bei Festhalten von <span class="action">Ctrl</span> direkt aus der Seite heraus per Drag&Drop in ein Filerfenster oder eine andere Anwendung gezogen und abgespeichert werden.</p>
+<p>Inhalte können bei Festhalten von <span class="action">Ctrl</span> direkt aus der Seite heraus per Drag&amp;Drop in ein Filerfenster oder eine andere Anwendung gezogen und abgespeichert werden.</p>
 
 <ul>
 <li><span class="action">Ctrl+AUSWAHL ziehen</span> speichert das Objekt unter dem Mauszeiger in ein Filerfenster oder in eine andere Applikation. Die Speicherung erfolgt im Originalformat.</li>
@@ -267,7 +267,7 @@
 <dd>Eine Texteingabe erlaubt es eine einzelne Zeile Text einzugeben und zu editieren. Durch Drücken der Taste <span class="action">Return</span> wird der Inhalt der Zeile abgeschickt und übertragen.</dd>
 
 <dt id="BrowserWindowContentFormCompletionFileInput">Dateinamensfelder</dt>
-<dd>Dateieingabefelder sind meist mit &quot;Drop file here&quot; oder &quot;Datei hier hinziehen&quot; bezeichnet. Sie erlauben das Versenden von Dateien. Durch Drag&Drop einer Datei auf solch ein Feld wird der Dateipfad eingetragen und die Datei kann anschließend verschickt werden.</dd>
+<dd>Dateieingabefelder sind meist mit &quot;Drop file here&quot; oder &quot;Datei hier hinziehen&quot; bezeichnet. Sie erlauben das Versenden von Dateien. Durch Drag&amp;Drop einer Datei auf solch ein Feld wird der Dateipfad eingetragen und die Datei kann anschließend verschickt werden.</dd>
 
 <dt id="BrowserWindowContentFormCompletionTextArea">Textbereiche</dt>
 <dd>Textbereiche sind vergleichbar den Texteingabezeilen. Allerdings erlauben sie Eingeben und Bearbeiten mehrerer Zeilen. Durch das Drücken von <span class="action">Return</span> wird der Cursor auf die nächste Zeile bewegt.</dd>
