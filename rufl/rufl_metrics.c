@@ -49,7 +49,8 @@ rufl_code rufl_font_metrics(const char *font_family, rufl_style font_style,
 	}
 
 	if (misc_size == 0) {
-		LOG("No font metrics in file", 0);
+		LOG("no miscellaneous information in metrics for %s",
+				rufl_font_list[font].identifier);
 		/** \todo better error code */
 		return rufl_FONT_NOT_FOUND;
 	}

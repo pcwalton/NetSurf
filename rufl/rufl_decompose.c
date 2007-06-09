@@ -104,7 +104,7 @@ rufl_code rufl_decompose_glyph(const char *font_family,
 	/* Allocate and initialise buffer */
 	buf = malloc(buf_size);
 	if (!buf) {
-		LOG("Failed allocating buffer", 0);
+		LOG("Failed to allocate decompose buffer of size %i", buf_size);
 		return rufl_OUT_OF_MEMORY;
 	}
 	buf[0] = 0;
