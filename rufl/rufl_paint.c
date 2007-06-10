@@ -403,8 +403,12 @@ rufl_code rufl_process_span_old(rufl_action action,
 
 	if (action == rufl_FONT_BBOX) {
 		rufl_fm_error = xfont_read_info(f, &x[0], &x[1], &x[2], &x[3]);
-		if (rufl_fm_error)
+		if (rufl_fm_error) {
+			LOG("xfont_read_info: 0x%x: %s",
+					rufl_fm_error->errnum,
+					rufl_fm_error->errmess);
 			return rufl_FONT_MANAGER_ERROR;
+		}
 		return rufl_OK;
 	}
 
@@ -420,6 +424,15 @@ rufl_code rufl_process_span_old(rufl_action action,
 
 	if (action == rufl_PAINT) {
 		/* paint span */
+		/* call Font_SetFont to work around broken PS printer driver,
+		 * which doesn't use the font handle from Font_Paint */
+		rufl_fm_error = xfont_set_font(f);
+		if (rufl_fm_error) {
+			LOG("xfont_set_font: 0x%x: %s",
+					rufl_fm_error->errnum,
+					rufl_fm_error->errmess);
+			return rufl_FONT_MANAGER_ERROR;
+		}
 		rufl_fm_error = xfont_paint(f, s2, font_OS_UNITS |
 				(oblique ? font_GIVEN_TRFM : 0) |
 				font_GIVEN_LENGTH | font_GIVEN_FONT |
@@ -427,8 +440,12 @@ rufl_code rufl_process_span_old(rufl_action action,
 				((flags & rufl_BLEND_FONT) ?
 						font_BLEND_FONT : 0),
 				*x, y, 0, &trfm_oblique, n);
-		if (rufl_fm_error)
+		if (rufl_fm_error) {
+			LOG("xfont_paint: 0x%x: %s",
+					rufl_fm_error->errnum,
+					rufl_fm_error->errmess);
 			return rufl_FONT_MANAGER_ERROR;
+		}
 	} else if (action == rufl_PAINT_CALLBACK) {
 		callback(context, rufl_font_list[font].identifier,
 				font_size, s2, 0, n, *x, y);
@@ -450,8 +467,12 @@ rufl_code rufl_process_span_old(rufl_action action,
 				0x7fffffff, 0x7fffffff, 0, 0, n,
 				0, &x_out, &y_out, 0);
 	}
-	if (rufl_fm_error)
+	if (rufl_fm_error) {
+		LOG("xfont_scan_string: 0x%x: %s",
+				rufl_fm_error->errnum,
+				rufl_fm_error->errmess);
 		return rufl_FONT_MANAGER_ERROR;
+	}
 	*x += x_out / 400;
 
 	return rufl_OK;
