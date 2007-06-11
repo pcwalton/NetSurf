@@ -64,7 +64,7 @@
 
 <h3 id="GettingStartedRequirements">Requirements</h3>
 
-<p>No programming knowledge is required, just the ability to use a template editor (for example <a href="http://www.linbury.nildram.co.uk/wined.html">WinEd</a>) and a text editor capable of editing UTF-8 encoded files (for example <a href="http://zap.tartarus.org/">Zap</a>).</p>
+<p>No programming knowledge is required, just the ability to use a template editor (for example <a href="http://www.snowstone.org.uk/riscos/wined/">WinEd</a>) and a text editor capable of editing UTF-8 encoded files (for example <a href="http://zap.tartarus.org/">Zap</a>).</p>
 
 <p>NetSurf's Messages files are UTF-8 encoded. In Zap 1.47 Beta, to select UTF-8 mode, click menu over the window and select:</p>
 
