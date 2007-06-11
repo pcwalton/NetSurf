@@ -26,6 +26,12 @@
 <h2>News</h2>
 
 <div class="newsitem">
+<p>11 Jun 2007 - <em>User mailing list moving</em></p>
+<p>As part of a rationalisation of our web presence, the mailing list for NetSurf users is moving</p>
+<p class="more"><a href="http://vlists.pepperfish.net/pipermail/netsurf-users-netsurf-browser.org/2007-June/000005.html">Read more...</a></p>
+</div>
+
+<div class="newsitem">
 <p>19 May 2007 - <em>NetSurf 1.0 released!</em></p>
 <p>The first stable release of NetSurf is available</p>
 <p class="more"><a href="download/">Download NetSurf 1.0...</a></p>

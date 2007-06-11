@@ -79,7 +79,7 @@
 <p>Voor foutmeldingen en vragen over NetSurf kun je <font color=red>(in het engels!!!)</font> terecht bij de volgende forums:</p>
 
 <h3>Verzendlijst</h3>
-<p>De <a href="http://lists.sourceforge.net/lists/listinfo/netsurf-develop"><strong>netsurf-ontwikkeling</strong></a>-verzendlijst is bedoeld voor discussie over NetSurf. Wanneer je ge&iuml;nteresseerd bent in de verdere ontwikkeling van NetSurf, geef je dan op voor deze lijst. Alle informatie voor deze lijst wordt gelezen en bewaard door het ontwikkelteam.</p>
+<p>De <a href="http://vlists.pepperfish.net/cgi-bin/mailman/listinfo/netsurf-users-netsurf-browser.org"><strong>NetSurf users</strong></a>-verzendlijst is bedoeld voor discussie over NetSurf. Wanneer je ge&iuml;nteresseerd bent in de verdere ontwikkeling van NetSurf, geef je dan op voor deze lijst. Alle informatie voor deze lijst wordt gelezen en bewaard door het ontwikkelteam.</p>
 
 <h3>IRC-kanaal</h3>
 <p>Het #netsurf-ontwikkel IRC-kanaal op het <a href="http://freenode.net/"><strong>Freenode</strong></a>-netwerk is bedoeld voor discussie over NetSurf-ontwikkeling.</p>

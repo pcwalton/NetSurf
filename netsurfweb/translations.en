@@ -31,9 +31,9 @@
 
 <h3 id="GettingStartedMailingList">Mailing list</h3>
 
-<p>A <a href="https://lists.sourceforge.net/lists/listinfo/netsurf-translators">mailing list</a> has been set up for NetSurf translators. Please join the mailing list if you would like to translate NetSurf into a new language or help with an exising translation.</p>
+<p>Translators are encouraged to join the <a href="http://vlists.pepperfish.net/cgi-bin/mailman/listinfo/netsurf-dev-netsurf-browser.org">developer's mailing list</a>. Please join the mailing list if you would like to translate NetSurf into a new language or help with an existing translation.</p>
 
-<p>The mailing list is for any discussion related to translating NetSurf and will be used to indicate any changes that have been made to NetSurf's interface, web site or documentation.</p>
+<p>The mailing list is for any discussion related to development or translation of NetSurf and will be used to indicate any changes that have been made to NetSurf's interface, web site or documentation.</p>
 
 <h3 id="GettingStartedObtainingFiles">Obtaining files</h3>
 

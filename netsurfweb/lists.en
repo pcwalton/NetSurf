@@ -16,19 +16,17 @@
 <h2 id="users">Users</h2>
 
 <dl>
-<dt><a href="http://lists.sourceforge.net/lists/listinfo/netsurf-develop">NetSurf Develop</a></dt>
-<dd>This is the main user mailing list. Subscribe if you plan to test or develop NetSurf</dd>
+<dt><a href="http://vlists.pepperfish.net/cgi-bin/mailman/listinfo/netsurf-users-netsurf-browser.org">NetSurf Users</a></dt>
+<dd>This is the user mailing list. Subscribe if you wish to use, test or develop NetSurf</dd>
 </dl>
 
 <h2 id="development">Development</h2>
 
 <dl>
 <dt><a href="http://vlists.pepperfish.net/cgi-bin/mailman/listinfo/netsurf-dev-netsurf-browser.org">NetSurf Dev.</a></dt>
-<dd>This mailing list is intended for developer discussion.</dd>
-<dt><a href="http://lists.sourceforge.net/lists/listinfo/netsurf-commits">NetSurf Commits</a></dt>
+<dd>This mailing list is intended for developer and translator discussion.</dd>
+<dt><a href="http://vlists.pepperfish.net/cgi-bin/mailman/listinfo/netsurf-commits-netsurf-browser.org">NetSurf Commits</a></dt>
 <dd>This mailing list reports checkin details. (If you want to comment on a post here, send your comment to the NetSurf Dev. list.)</dd>
-<dt><a href="http://lists.sourceforge.net/lists/listinfo/netsurf-translators">NetSurf Translators</a></dt>
-<dd>This mailing list is intended for people who translate NetSurf into other languages.</dd>
 </dl>
 
 <div class="footer">
