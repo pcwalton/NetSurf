@@ -6,30 +6,51 @@
 #
 
 SOURCE = pencil_build.c pencil_save.c
+HDRS =  pencil.h pencil_internal.h
 
 GCCSDK_INSTALL_CROSSBIN ?= /home/riscos/cross/bin
 GCCSDK_INSTALL_ENV ?= /home/riscos/env
 
+ifeq (${AB_ELFBUILD},yes)
+EXEEXT=,e1f
+else
+EXEEXT=,ff8
+endif
+
+.PHONY: all install clean
+
+ifeq (${AB_ELFBUILD},yes)
+CC = $(GCCSDK_INSTALL_CROSSBIN)/arm-unknown-riscos-gcc
+AR = $(GCCSDK_INSTALL_CROSSBIN)/arm-unknown-riscos-ar
+else
 CC = $(GCCSDK_INSTALL_CROSSBIN)/gcc
+AR = $(GCCSDK_INSTALL_CROSSBIN)/ar
+endif
 CFLAGS = -std=c99 -O3 -W -Wall -Wundef -Wpointer-arith -Wcast-qual \
 	-Wcast-align -Wwrite-strings -Wstrict-prototypes \
 	-Wmissing-prototypes -Wmissing-declarations \
 	-Wnested-externs -Winline -Wno-cast-align \
 	-mpoke-function-name -I$(GCCSDK_INSTALL_ENV)/include
+ARFLAGS = cr
 LIBS = -L$(GCCSDK_INSTALL_ENV)/lib -lOSLib32 -lrufl
 INSTALL = $(GCCSDK_INSTALL_ENV)/ro-install
 
-all: pencil.o pencil_test,ff8
+OBJS = $(SOURCE:.c=.o)
 
-pencil.o: $(SOURCE) pencil.h pencil_internal.h
-	$(CC) $(CFLAGS) -c -o $@ $(SOURCE)
+all: libpencil.a pencil_test$(EXEEXT)
 
-pencil_test,ff8: pencil_test.c pencil.o
+libpencil.a: $(OBJS)
+	$(AR) $(ARFLAGS) $@ $(OBJS)
+
+pencil_test$(EXEEXT): pencil_test.c libpencil.a
 	$(CC) $(CFLAGS) $(LIBS) -o $@ $^
 
-install: pencil.o
-	$(INSTALL) pencil.o $(GCCSDK_INSTALL_ENV)/lib/libpencil.o
+install: libpencil.a
+	$(INSTALL) libpencil.a $(GCCSDK_INSTALL_ENV)/lib/libpencil.a
 	$(INSTALL) pencil.h $(GCCSDK_INSTALL_ENV)/include/pencil.h
 
 clean:
-	-rm pencil.o pencil_test,ff8
+	-rm *.o libpencil.a pencil_test$(EXEEXT)
+
+.c.o: $(HDRS)
+	$(CC) $(CFLAGS) -c -o $@ $<
