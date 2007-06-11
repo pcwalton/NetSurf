@@ -29,7 +29,7 @@ void rufl_quit(void)
 	rufl_font_list = 0;
 
 	for (i = 0; i != rufl_family_list_entries; i++)
-		free(rufl_family_list[i]);
+		free((void *) rufl_family_list[i]);
 	free(rufl_family_list);
 	free(rufl_family_map);
 	rufl_family_list = 0;

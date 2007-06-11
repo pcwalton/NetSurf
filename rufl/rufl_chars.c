@@ -29,7 +29,7 @@ int main(void)
 {
 	unsigned int i;
 	bool quit = false;
-	wimp_MESSAGE_LIST(2) messages = { { message_MODE_CHANGE,
+	const wimp_MESSAGE_LIST(2) messages = { { message_MODE_CHANGE,
 			message_QUIT } };
 	wimp_t task;
 	wimp_menu *menu;
@@ -63,7 +63,7 @@ int main(void)
 	rufl_code code = rufl_OK;
 
 	error = xwimp_initialise(wimp_VERSION_RO3, "RUfl Chars",
-			(wimp_message_list *) &messages,
+			(const wimp_message_list *) (const void *) &messages,
 			0, &task);
 	if (error) {
 		printf("error: xwimp_initialise: 0x%x: %s\n",
@@ -126,7 +126,7 @@ int main(void)
 	if (error)
 		die(error->errmess);
 
-	error = xwimp_open_window((wimp_open *) &state);
+	error = xwimp_open_window((wimp_open *) (void *) &state);
 	if (error)
 		die(error->errmess);
 

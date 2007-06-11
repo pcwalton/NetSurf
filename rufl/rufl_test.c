@@ -47,13 +47,13 @@ int main(void)
 				utf8_test, sizeof utf8_test - 1,
 				x, &char_offset, &actual_x),
 				"rufl_x_to_offset");
-		printf("x to offset: %i -> %i %i \"%s\"\n", x, actual_x,
+		printf("x to offset: %i -> %i %zi \"%s\"\n", x, actual_x,
 				char_offset, utf8_test + char_offset);
 		try(rufl_split("NewHall", rufl_WEIGHT_400, 240,
 				utf8_test, sizeof utf8_test - 1,
 				x, &char_offset, &actual_x),
 				"rufl_split");
-		printf("split: %i -> %i %i \"%s\"\n", x, actual_x,
+		printf("split: %i -> %i %zi \"%s\"\n", x, actual_x,
 				char_offset, utf8_test + char_offset);
 	}
 	try(rufl_decompose_glyph("Homerton", rufl_WEIGHT_400, 1280,

@@ -51,7 +51,7 @@ typedef enum {
 extern os_error *rufl_fm_error;
 
 /** List of available font families. */
-extern char **rufl_family_list;
+extern const char **rufl_family_list;
 /** Number of entries in rufl_family_list. */
 extern unsigned int rufl_family_list_entries;
 

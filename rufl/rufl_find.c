@@ -25,7 +25,7 @@ rufl_code rufl_find_font_family(const char *font_family,
 		rufl_style font_style, unsigned int *font,
 		unsigned int *slanted, struct rufl_character_set **charset)
 {
-	char **family;
+	const char **family;
 	unsigned int f;
 	unsigned int weight, slant, used_weight;
 	unsigned int search_direction;

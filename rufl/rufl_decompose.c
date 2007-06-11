@@ -72,6 +72,7 @@ rufl_code rufl_decompose_glyph(const char *font_family,
 {
 	int *buf, *p, *ep;
 	int buf_size;
+	char *buf_end;
 	rufl_code err;
 
 	/* Get required buffer size */
@@ -92,14 +93,14 @@ rufl_code rufl_decompose_glyph(const char *font_family,
 		return err;
 	}
 
-	rufl_fm_error = xfont_switch_output_to_buffer(0, 0,
-			(char **)&buf_size);
+	rufl_fm_error = xfont_switch_output_to_buffer(0, NULL, &buf_end);
 	if (rufl_fm_error) {
 		LOG("xfont_switch_output_to_buffer: 0x%x: %s",
 				rufl_fm_error->errnum,
 				rufl_fm_error->errmess);
 		return rufl_FONT_MANAGER_ERROR;
 	}
+	buf_size = buf_end - (char *)NULL;
 
 	/* Allocate and initialise buffer */
 	buf = malloc(buf_size);
@@ -130,7 +131,7 @@ rufl_code rufl_decompose_glyph(const char *font_family,
 		return err;
 	}
 
-	rufl_fm_error = xfont_switch_output_to_buffer(0, 0, (char **)&ep);
+	rufl_fm_error = xfont_switch_output_to_buffer(0, 0, &buf_end);
 	if (rufl_fm_error) {
 		LOG("xfont_switch_output_to_buffer: 0x%x: %s",
 				rufl_fm_error->errnum,
@@ -138,6 +139,7 @@ rufl_code rufl_decompose_glyph(const char *font_family,
 		free(buf);
 		return rufl_FONT_MANAGER_ERROR;
 	}
+	ep = (int *)(void *)buf_end;
 
 	/* Parse buffer, calling callbacks as required */
 	for (p = buf; p < ep;) {

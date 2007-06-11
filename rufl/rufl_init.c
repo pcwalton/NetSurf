@@ -26,7 +26,7 @@
 
 struct rufl_font_list_entry *rufl_font_list = 0;
 unsigned int rufl_font_list_entries = 0;
-char **rufl_family_list = 0;
+const char **rufl_family_list = 0;
 unsigned int rufl_family_list_entries = 0;
 struct rufl_family_map_entry *rufl_family_map = 0;
 os_error *rufl_fm_error = 0;
@@ -70,7 +70,7 @@ const struct rufl_weight_table_entry rufl_weight_table[] = {
 
 
 static rufl_code rufl_init_font_list(void);
-static rufl_code rufl_init_add_font(char *identifier, char *local_name);
+static rufl_code rufl_init_add_font(const char *identifier, const char *local_name);
 static int rufl_weight_table_cmp(const void *keyval, const void *datum);
 static rufl_code rufl_init_scan_font(unsigned int font);
 static bool rufl_is_space(unsigned int u);
@@ -142,7 +142,7 @@ rufl_code rufl_init(void)
 		xhourglass_off();
 		return code;
 	}
-	LOG("%u faces, %u families", rufl_font_list_entries,
+	LOG("%u faces, %zu families", rufl_font_list_entries,
 			rufl_family_list_entries);
 
 	code = rufl_load_cache();
@@ -231,12 +231,12 @@ rufl_code rufl_init_font_list(void)
 
 	while (context != -1) {
 		/* read identifier */
-		rufl_fm_error = xfont_list_fonts(identifier,
+		rufl_fm_error = xfont_list_fonts((byte *)identifier,
 				font_RETURN_FONT_NAME |
 				font_RETURN_LOCAL_FONT_NAME |
 				context,
 				sizeof identifier,
-				local_name, sizeof local_name, 0,
+				(byte *)local_name, sizeof local_name, 0,
 				&context, 0, 0);
 		if (rufl_fm_error) {
 			LOG("xfont_list_fonts: 0x%x: %s",
@@ -256,13 +256,13 @@ rufl_code rufl_init_font_list(void)
 }
 
 
-rufl_code rufl_init_add_font(char *identifier, char *local_name)
+rufl_code rufl_init_add_font(const char *identifier, const char *local_name)
 {
-	size_t size;
+	int size;
 	struct rufl_font_list_entry *font_list;
 	char *dot;
-	char **family_list;
-	char *family, *part;
+	const char **family_list;
+	const char *family, *part;
 	unsigned int weight = 0;
 	unsigned int slant = 0;
 	bool special = false;
@@ -760,7 +760,7 @@ rufl_code rufl_init_substitution_table(void)
 	rufl_substitution_table = malloc(65536 *
 			sizeof rufl_substitution_table[0]);
 	if (!rufl_substitution_table) {
-		LOG("malloc(%u) failed", 65536 *
+		LOG("malloc(%zu) failed", 65536 *
 				sizeof rufl_substitution_table[0]);
 		return rufl_OUT_OF_MEMORY;
 	}
@@ -953,7 +953,7 @@ rufl_code rufl_load_cache(void)
 
 		identifier = malloc(len + 1);
 		if (!identifier) {
-			LOG("malloc(%u) failed", len + 1);
+			LOG("malloc(%zu) failed", len + 1);
 			fclose(fp);
 			return rufl_OUT_OF_MEMORY;
 		}
@@ -981,7 +981,7 @@ rufl_code rufl_load_cache(void)
 
 		charset = malloc(size);
 		if (!charset) {
-			LOG("malloc(%u) failed", size);
+			LOG("malloc(%zu) failed", size);
 			free(identifier);
 			fclose(fp);
 			return rufl_OUT_OF_MEMORY;
@@ -1002,7 +1002,7 @@ rufl_code rufl_load_cache(void)
 		if (rufl_old_font_manager) {
 			umap = malloc(sizeof *umap);
 			if (!umap) {
-				LOG("malloc(%u) failed", sizeof *umap);
+				LOG("malloc(%zu) failed", sizeof *umap);
 				free(charset);
 				free(identifier);
 				fclose(fp);
@@ -1066,7 +1066,7 @@ rufl_code rufl_init_family_menu(void)
 	menu = malloc(wimp_SIZEOF_MENU(rufl_family_list_entries));
 	if (!menu)
 		return rufl_OUT_OF_MEMORY;
-	menu->title_data.indirected_text.text = "Fonts";
+	menu->title_data.indirected_text.text = (char *) "Fonts";
 	menu->title_fg = wimp_COLOUR_BLACK;
 	menu->title_bg = wimp_COLOUR_LIGHT_GREY;
 	menu->work_fg = wimp_COLOUR_BLACK;
@@ -1082,7 +1082,7 @@ rufl_code rufl_init_family_menu(void)
 			(wimp_COLOUR_BLACK << wimp_ICON_FG_COLOUR_SHIFT) |
 			(wimp_COLOUR_WHITE << wimp_ICON_BG_COLOUR_SHIFT);
 		menu->entries[i].data.indirected_text.text =
-				rufl_family_list[i];
+				(char *) rufl_family_list[i];
 		menu->entries[i].data.indirected_text.validation = (char *) -1;
 		menu->entries[i].data.indirected_text.size =
 				strlen(rufl_family_list[i]);
@@ -1137,12 +1137,12 @@ void rufl_init_status_open(void)
 	os_error *error;
 
 	window.icons[0].data.indirected_text.text =
-			"Scanning fonts - please wait";
-	window.icons[0].data.indirected_text.validation = "";
-	window.icons[1].data.indirected_text.text = "";
-	window.icons[1].data.indirected_text.validation = "r2";
+			(char *) "Scanning fonts - please wait";
+	window.icons[0].data.indirected_text.validation = (char *) "";
+	window.icons[1].data.indirected_text.text = (char *) "";
+	window.icons[1].data.indirected_text.validation = (char *) "r2";
 	window.icons[3].data.indirected_text.text = rufl_status_buffer;
-	window.icons[3].data.indirected_text.validation = "";
+	window.icons[3].data.indirected_text.validation = (char *) "";
 
 	xos_read_mode_variable(os_CURRENT_MODE, os_MODEVAR_XEIG_FACTOR,
 			&xeig_factor, 0);
@@ -1181,7 +1181,7 @@ void rufl_init_status_open(void)
 	xwimp_create_window((const wimp_window *) &window, &rufl_status_w);
 	state.w = rufl_status_w;
 	xwimp_get_window_state(&state);
-	xwimp_open_window((wimp_open *) &state);
+	xwimp_open_window((wimp_open *) (void *) &state);
 }
 
 

@@ -355,7 +355,7 @@ rufl_code rufl_process_span(rufl_action action,
 						font_RETURN_CARET_POS : 0),
 				(click_x - *x) * 400, 0x7fffffff, 0, 0,
 				n * 2,
-				(char **) &split_point, &x_out, &y_out, 0);
+				(char **)(void *)&split_point, &x_out, &y_out, 0);
 		*offset = split_point - s;
 	} else {
 		rufl_fm_error = xfont_scan_string(f, (const char *) s,
