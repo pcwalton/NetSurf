@@ -1,0 +1,170 @@
+<html>
+<head><title>Alignment test cases</title></head>
+<body>
+
+<pre style="margin-left: 11em;">
+Tests:
+ 
+ 1  center                  2  center                3  center
+      div                        div                      div
+                                   div                      div
+                                                              div
+ 
+ 4  center                  5  center                6  center
+      table                      table                    div
+                                   table                    table
+ 
+ 7  center                  8  center                9  center
+      table                      div right                div
+        div                        div                      div right
+                                     div                      div
+ 
+ a  center                  b  center                c  center
+      td right                   td right                 td right
+        div                        table                    td left
+                                     div                      div
+ 
+ d  center                  e  center                f  center
+      td right                   div right                div right
+        div left                   table                    td left
+ 
+ g  center                  h  td right              i  td right
+      div right                  center                   center
+        div left                   table                    div
+          div                        div                      div
+ 
+ j  div right               k  td right              l  td right
+      center                     center                   div center
+        td left                    div left                 div
+          div                        div
+ 
+ m  td right                n  div right             o  div right
+      td center                  div center               td center
+        div                        div                      div
+ 
+ p  center                  q  div right             r  center
+      float right                float left               table right
+        div                        div                      div
+          div                        div                      div
+ 
+ s  center                  t  center                u  center
+      table right                table right              table right
+        table                      div left                 td left
+ 
+ v  center                  w  table center          x  table right
+      table right                div right                center
+        table left                 div                      table
+ 
+ y  center                  z  table right td left   0  div center
+      table right td left        center                   div css left
+        div                        div                      div
+                                                              div
+ 
+ 
+ 
+Key:
+ 
+ center       &lt;center style=&quot;border:1px solid red;&quot;&gt;
+ 
+ div          &lt;div style=&quot;width:70%; border:1px solid green;&quot;&gt;
+ 
+ div right    &lt;div align=&quot;right&quot; style=&quot;width:70%; border:1px solid green;&quot;&gt;
+ 
+ div left     &lt;div align=&quot;left&quot; style=&quot;width:70%; border:1px solid green;&quot;&gt;
+ 
+ div center   &lt;div align=&quot;center&quot; style=&quot;width:70%; border:1px solid green;&quot;&gt;
+ 
+ table        &lt;table style=&quot;width:70%;&quot;&gt;
+              &lt;tr&gt;
+              &lt;td style=&quot;border:1px solid black;&quot;&gt;
+ 
+ table right  &lt;table align=&quot;right&quot; style=&quot;width:70%;&quot;&gt;
+              &lt;tr&gt;
+              &lt;td style=&quot;border:1px solid black;&quot;&gt;
+ 
+ table left   &lt;table align=&quot;left&quot; style=&quot;width:70%;&quot;&gt;
+              &lt;tr&gt;
+              &lt;td style=&quot;border:1px solid black;&quot;&gt;
+ 
+ table center &lt;table align=&quot;center&quot; style=&quot;width:70%;&quot;&gt;
+              &lt;tr&gt;
+              &lt;td style=&quot;border:1px solid black;&quot;&gt;
+ 
+ td right     &lt;table style=&quot;width:70%;&quot;&gt;
+              &lt;tr&gt;
+              &lt;td align=&quot;right&quot; style=&quot;border:1px solid black;&quot;&gt;
+ 
+ td left      &lt;table style=&quot;width:70%;&quot;&gt;
+              &lt;tr&gt;
+              &lt;td align=&quot;left&quot; style=&quot;border:1px solid black;&quot;&gt;
+ 
+ td center    &lt;table style=&quot;width:70%;&quot;&gt;
+              &lt;tr&gt;
+              &lt;td align=&quot;center&quot; style=&quot;border:1px solid black;&quot;&gt;
+ 
+ float right  &lt;div style=&quot;float:right; width:70%; border:1px solid blue;&quot;&gt;
+ 
+ float left   &lt;div style=&quot;float:left; width:70%; border:1px solid blue;&quot;&gt;
+ 
+ table right td left  &lt;table align=&quot;right&quot; style=&quot;width:70%;&quot;&gt;
+                      &lt;tr&gt;
+                      &lt;td align=&quot;left&quot; style=&quot;border:1px solid black;&quot;&gt;
+ 
+ div css left         &lt;div style=&quot;text-align:left; margin-left:0;
+                      margin-right:auto; width:70%; border:1px solid green;&quot;&gt;
+ 
+ 
+ 
+Filenames:
+ 
+ [s|q][test id].html
+ 
+   For example
+ 
+     s1.html is test 1 with a doctype forcing standards mode
+     q1.html ia test 1 with no doctype (quirks mode)
+
+</pre>
+
+<table style="position:absolute;left:0;top:0;border-right:4px solid #cfd;">
+<tr><th>Standards</th><th>Quirks</th></tr>
+<tr><td><a href="s1.html">test 1</a></td><td><a href="q1.html">test 1</a></td></tr>
+<tr><td><a href="s2.html">test 2</a></td><td><a href="q2.html">test 2</a></td></tr>
+<tr><td><a href="s3.html">test 3</a></td><td><a href="q3.html">test 3</a></td></tr>
+<tr><td><a href="s4.html">test 4</a></td><td><a href="q4.html">test 4</a></td></tr>
+<tr><td><a href="s5.html">test 5</a></td><td><a href="q5.html">test 5</a></td></tr>
+<tr><td><a href="s6.html">test 6</a></td><td><a href="q6.html">test 6</a></td></tr>
+<tr><td><a href="s7.html">test 7</a></td><td><a href="q7.html">test 7</a></td></tr>
+<tr><td><a href="s8.html">test 8</a></td><td><a href="q8.html">test 8</a></td></tr>
+<tr><td><a href="s9.html">test 9</a></td><td><a href="q9.html">test 9</a></td></tr>
+<tr><td><a href="sa.html">test a</a></td><td><a href="qa.html">test a</a></td></tr>
+<tr><td><a href="sb.html">test b</a></td><td><a href="qb.html">test b</a></td></tr>
+<tr><td><a href="sc.html">test c</a></td><td><a href="qc.html">test c</a></td></tr>
+<tr><td><a href="sd.html">test d</a></td><td><a href="qd.html">test d</a></td></tr>
+<tr><td><a href="se.html">test e</a></td><td><a href="qe.html">test e</a></td></tr>
+<tr><td><a href="sf.html">test f</a></td><td><a href="qf.html">test f</a></td></tr>
+<tr><td><a href="sg.html">test g</a></td><td><a href="qg.html">test g</a></td></tr>
+<tr><td><a href="sh.html">test h</a></td><td><a href="qh.html">test h</a></td></tr>
+<tr><td><a href="si.html">test i</a></td><td><a href="qi.html">test i</a></td></tr>
+<tr><td><a href="sj.html">test j</a></td><td><a href="qj.html">test j</a></td></tr>
+<tr><td><a href="sk.html">test k</a></td><td><a href="qk.html">test k</a></td></tr>
+<tr><td><a href="sl.html">test l</a></td><td><a href="ql.html">test l</a></td></tr>
+<tr><td><a href="sm.html">test m</a></td><td><a href="qm.html">test m</a></td></tr>
+<tr><td><a href="sn.html">test n</a></td><td><a href="qn.html">test n</a></td></tr>
+<tr><td><a href="so.html">test o</a></td><td><a href="qo.html">test o</a></td></tr>
+<tr><td><a href="sp.html">test p</a></td><td><a href="qp.html">test p</a></td></tr>
+<tr><td><a href="sq.html">test q</a></td><td><a href="qq.html">test q</a></td></tr>
+<tr><td><a href="sr.html">test r</a></td><td><a href="qr.html">test r</a></td></tr>
+<tr><td><a href="ss.html">test s</a></td><td><a href="qs.html">test s</a></td></tr>
+<tr><td><a href="st.html">test t</a></td><td><a href="qt.html">test t</a></td></tr>
+<tr><td><a href="su.html">test u</a></td><td><a href="qu.html">test u</a></td></tr>
+<tr><td><a href="sv.html">test v</a></td><td><a href="qv.html">test v</a></td></tr>
+<tr><td><a href="sw.html">test w</a></td><td><a href="qw.html">test w</a></td></tr>
+<tr><td><a href="sx.html">test x</a></td><td><a href="qx.html">test x</a></td></tr>
+<tr><td><a href="sy.html">test y</a></td><td><a href="qy.html">test y</a></td></tr>
+<tr><td><a href="sz.html">test z</a></td><td><a href="qz.html">test z</a></td></tr>
+<tr><td><a href="s0.html">test&nbsp;zero</a></td><td><a href="q0.html">test&nbsp;zero</a></td></tr>
+</table>
+
+</body>
+</html>

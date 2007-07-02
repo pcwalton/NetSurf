@@ -1,0 +1,120 @@
+ALIGNMENT TEST RESULTS
+======================
+
+In the absence of a summary, skip to the conclusion for the overview.
+
+
+Key:
+
+  + Standards and Quirks modes are tantamount
+  - Standards and Quirks modes exhibit differing behaviour
+
+Note 1: Only test IDs that demonstrate something that couldn't be predicted
+        from preceding test results are commented on.
+Note 2: Where quirks mode layout is the same as standards mode, no comment
+        is made.
+
+
+
+Firefox
+-------
+
+Standards:
+
+1+ CENTER centers a child DIV and the inline contents of that DIV, where no
+   other alignment modifiers exist
+2+ CENTER centers any descendant DIVs and the inline or block level
+   contents of those DIVs, where no other alignment modifiers exist; DIV
+   permits propagation of CENTER behaviour
+3+
+4+ A TABLE child of CENTER is centered and inline contents of the TABLE
+   cells (TD) are left aligned, where no other alignment modifiers exist
+5+ CENTER effect propagation is blocked by a TABLE; inline and block level
+   children of TABLE cells (TD) are left aligned
+6+
+7+
+8+ DIV elements with the ALIGN attribute set block propagation of the
+   effects of CENTER. DIV alignment attributes' effects propagate to
+   descendants, in the absence of other alignment modifiers. DIV alignment
+   affects descendant inline and block level elements
+9+
+a+ TD elements with ALIGN attribute set block propagation of the effects
+   of CENTER. TD alignment attributes' effects propagate to descendants, in
+   the absence of other alignment modifiers. TD alignment affects descendant
+   inline and block level elements
+b+
+c+
+d+
+e+
+f+
+g+
+h+ CENTER blocks propagation of a TD alignment attribute.
+i+
+j+ CENTER blocks propagation of a DIV alignment attribute.
+k+
+l+
+m+
+n+
+o+
+p+ CENTER propagates through floated elements, irrespective of the float
+   properties' settings
+q+ DIV alignment attributes' effects propagate through floated elements,
+   irrespective of the float properties' settings
+r+
+s+
+t+
+u+
+v+
+w+
+x+
+y+
+z+
+   
+
+Quirks:
+
+ + [All tests perform as for standards mode]
+
+
+Conclusion (Firefox)
+--------------------
+
+Firefox's behaviour for various types of alignment markup is consistent,
+predictable and follows very simple rules.
+
+CENTER, and DIVs, TDs and THs with an align attribute all behave in the
+same way:
+
+ + Inline and block level elements are effected
+ + All descendants are affected, not just children
+
+The alignment effects of these markup constructs propagate through their
+descendants until another such markup-originating alignment modifier is
+encountered. At this point, further descendants are affected by the
+alignment attribute of the closer ancestor.
+
+Note that the CENTER element behaves exactly like DIV with an ALIGN
+attribute set to "center". This is in agreement with HTML 4.01 spec. which
+describes CENTER as shorthand for DIV with an ALIGN attribute set to
+"center".
+
+Note also that TD without an ALIGN attribute set is treated like TD with an
+ALIGN attribute set to "left". This default implied ALIGN attribute behaves
+precisely like a stated ALIGN attribute; its effects propagate though
+descendants and it blocks the propagation of any markup-originating
+alignment effects of if its ancestors. Similarly, TH is tantamount to TH
+with an ALIGN attribute set to "center".
+
+Internet Explorer
+-----------------
+
+Standards:
+
+ - Behaves in the same way as Firefox, except that table cells without
+   ALIGN attributes set don't block alignment propagation / inheritance.
+   Table cells behave like a DIV with no ALIGN attribute.
+
+Quirks:
+
+ - Behaves in exactly the same way as Firefox.
+
