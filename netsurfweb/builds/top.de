@@ -15,7 +15,8 @@
 <p>Diese Dateien werden automatisch aus dem SVN Quellcode erzeugt.
 <strong>Sie sind als instabil anzusehen und können jederzeit zum Absturz des Computers führen.</strong></p>
 
-<p id="newtonetsurf"><strong>Ganz neu bei NetSurf ?</strong> Lade <span class="highlight">NetSurf</span> von hier und dazu die <span class="highlight">fünf unten aufgeführten Dateien</span>.</p>
+<p id="newtonetsurf"><strong>Ganz neu bei NetSurf ?</strong> Lade <span class="highlight">NetSurf</span> von hier und lies die <a
+href="/info#GettingStartedInstallation">Installationsanweisungen</a>.</p>
 
 <table class="download">
 <tr><th class="highlight"><a href="netsurf.zip"><img src="netsurf.png" alt=""><br>NetSurf</a></th>
@@ -44,16 +45,23 @@
 
 <h2>Zusätzlich wird benötigt:</h2>
 
+<p>NetSurf verwendet verschiedene Zusatzprogramme. Diese müssen auf dem System vorhanden sein, um NetSurf zu starten.</p>
+
 <ul>
 <li>WindowManager 3.80 (oder höher). Ist ab RISC OS 4 Betriebssystembestandteil, für Systeme mit RISC OS 3 sollte die <a href="http://acorn.riscos.com/riscos/releases/UniBoot/" class="highlight">Universal Boot Sequence</a> installiert werden.</li>
-<li><a href="http://www.riscos.info/downloads/gccsdk/sharedunixlib/system.zip"
- class="highlight">SharedUnixLibrary</a>.</li>
+</ul>
+
+<p>Die folgenden Module werden mit NetSurf 'mitgeliefert' :</p>
+
+<ul>
 <li><a href="http://sudden.recoil.org/others/"
- class="highlight">AcornURI</a>.</li>
+ class="highlight">AcornURI</a> v1.04, Christian Ludlam.</li>
 <li><a href="/iconv/"
- class="highlight">Iconv</a>. (Bitte die Installationsanleitung beachten.)</li>
+ class="highlight">Iconv</a> v0.08, John-Mark Bell.</li>
+<li><a href="http://www.riscos.info/downloads/gccsdk/sharedunixlib/system.zip"
+ class="highlight">SharedUnixLibrary</a> v1.10, GCCSDK Team.</li>
 <li><a href="http://www.tinct.net/tinct.asp"
- class="highlight">Tinct</a>.</li>
+ class="highlight">Tinct</a> v0.13, Richard Wilson.</li>
 </ul>
 
 <p><strong>Optional:</strong> Eine <a href="http://www.beebware.com/software/mappings/">MimeMap Datei</a> sollte installiert werden, wenn noch keine auf dem Rechner vorhanden ist und Netsurf dies meldet.</p>

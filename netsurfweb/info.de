@@ -31,7 +31,7 @@
 <li><a href="#JavaScript">JavaScript</a></li>
 </ul>
 
-<p class="updated">aktualisiert am 6. Mai 2006</p>
+<p class="updated">aktualisiert am 3. Juli 2007</p>
 
 <h2 id="GettingStarted">Einfach beginnen</h2>
 
@@ -39,25 +39,43 @@
 
 <p>Die jeweils aktuellste Version kann von der <a href="http://netsurf-browser.org/">Webseite des Projektes</a> geladen werden. Es gibt verschiedene Varianten des Programmes. Für die allermeisten Benutzer ist &quot;NetSurf&quot; der empfehlenswerteste Download. Daneben gibt es mit &quot;NetSurf small build&quot; eine für Systeme mit geringem Speicherplatz geeignete Programmversion. Diese bietet jedoch nur einen eingeschränkten Funktionsumfang.</p>
 
-<p>Zur Installation von &quot;NetSurf&quot; oder &quot;NetSurf small build&quot; wird die heruntergeladene Datei mit einem Entpacker geöffnet und die enthaltene Applikation !Netsurf per Drag&amp;Drop in das gewünschte Zielverzeichnis kopiert. Von dort aus kann das Programm dann mit Doppelklick gestartet werden.</p>
+<p>Die Installation von &quot;NetSurf&quot; und &quot;NetSurf small&quot; ist ein dreistufiger Vorgang:</p>
+
+<ol>
+<li>Das mitgelieferte !Boot Verzeichnis wird mithilfe der Funktion <strong>Boot Merge</strong> der Systemkonfiguration in den Bootordner des Rechners eingebunden.<br>Existiert keine solche Merge-Funktion auf dem System, wird das mitgelieferte !Boot einfach über das vorhandene kopiert.</li>
+<li>Das mitgelieferte !System Verzeichnis wird mithilfe der Funktion <strong>System Merge</strong> der Systemkonfiguration ins System eingespielt.</li>
+<li>Die Applikation !Netsurf wird aus dem Archiv heraus in das gewünschte Zielverzeichnis kopiert.</li>
+</ol>
+
+<p>Durch Doppelklick wird !NetSurf vom selbstgewählten Ort aus gestartet.</p>
 
 <h3 id="GettingStartedRequirements">Systemvoraussetzungen</h3>
 
 <p>Für NetSurf wird mindestens RISC OS 3.5 benötigt. Beim Starten von NetSurf sucht das Programm nach allen Dateien und Systemfunktionen, die für ein korrektes Funktionieren notwendig sind. Wird dabei eine benötigte Resource nicht gefunden, wird eine Fehlermeldung ausgegeben. Oft ist in so einem Fall eines der folgenden, notwendigen Module nicht im System vorhanden.</p>
 
 <dl>
+<dt>Module die in den Verzeichnissen !Boot und !System mit NetSurf geliefert werden :</dt>
+<dd>
+<dl>
 <dt><a href="http://sudden.recoil.org/others/">Acorn URI</a></dt>
 <dd>Das Acorn URI Modul kontrolliert und steuert die Übermittlung von URIs (zum Beispiel URL-Adressen) zwischen Applikationen.</dd>
 <dt><a href="http://netsurf-browser.org/iconv/">Iconv</a></dt>
 <dd>Dieses Modul bietet eine verbesserte Unterstützung bei der Zeichencodierung.</dd>
-<dt><a href="http://www.beebware.com/software/mappings/">MimeMap Datei</a></dt>
-<dd>Eine Liste mit verschiedenen MIME Typen und den ihnen zugeordneten RISC OS Filetypen.</dd>
 <dt><a href="http://www.riscos.info/downloads/gccsdk/sharedunixlib/system.zip">SharedUnixLibrary</a></dt>
 <dd>Dies ist ein Zusatzmodul für Programme, die unter Verwendung der UnixLib Library kompiliert wurden.</dd>
 <dt><a href="http://www.tinct.net/tinct.asp">Tinct</a></dt>
 <dd>Tinct wird zur Bilddarstellung benötigt. Es unterstützt die Ausgabe von Sprites mit Alpha-Channels.</dd>
+</dl>
+</dd>
+
+<dl>
+<dt>Module die nicht bei NetSurf mitgeliefert werden (nur für RISC OS 3.5, 3.6 und 3.7 benötigt) :</dt>
+<dd>
+<dl>
 <dt>Window Manager 3.80 (oder höher)</dt>
 <dd>NetSurf nutzt Funktionen des Nested Wimp, welches Teil des Window Managers ist. Bei RISC OS 4 oder höher ist dies ein Systembestandteil. Auf Systemen mit RISC OS 3 sollte die <a href="http://acorn.riscos.com/riscos/releases/UniBoot/">Universal Boot Sequence</a> installiert werden.</dd>
+</dl>
+</dd>
 </dl>
 
 <p>Wenn NetSurf ohne Probleme startet, sind alle nötigen Resourcen vorhanden. Es besteht dann keine Notwendigkeit zum Upgraden von Systemresourcen.</p>
@@ -69,6 +87,8 @@
 <dl>
 <dt><a href="http://www.ecs.soton.ac.uk/~jmb202/">Flash Plugin</a></dt>
 <dd>Dieses Plugin ermöglicht die Anzeige von Flash Dateien auf Webseiten.</dd>
+<dt><a href="http://www.beebware.com/software/mappings/">MimeMap Datei</a></dt>
+<dd>Eine Liste mit verschiedenen MIME Typen und den ihnen zugeordneten RISC OS Filetypen.</dd>
 </dl>
 
 <h2 id="Upgrading">NetSurf upgraden</h2>
