@@ -33,7 +33,7 @@ unless (scalar @update) {
 # determine build date time and version
 my $date = (command("date -u '+%d %b %Y %H:%M'"))[0];
 chomp $date;
-my $version = "2.0 (Dev) r$revno";
+my $version = "2.0 (Dev) ($date) r$revno";
 my $pkg_version = (command("date -u '+0.%Y.%m.%d.%H%M'"))[0];
 chomp $pkg_version;
 
