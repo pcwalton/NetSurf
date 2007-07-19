@@ -11,7 +11,7 @@
 
 <h1>Stand der Entwicklung</h1>
 
-<p>Diese Seite existiert, um einen Einblick in den Stand der NetSurf Entwicklung zu geben. Der Text dieser Seite ist gemischt deutsch / englisch. Aufgeführt sind die bereits implementierten Programmteile ebenso wie die noch in Entwicklung befindlichen. Um hierzu genauere und aktuellere Informationen zu erhalten, bitte die <a href="http://source.netsurf-browser.org/trunk/netsurf/Docs/">TODO lists</a> (englisch) lesen.</p>
+<p>Diese Seite existiert, um einen Einblick in den Stand der NetSurf Entwicklung zu geben. Der Text dieser Seite ist gemischt deutsch / englisch. Aufgeführt sind die bereits implementierten Programmteile ebenso wie die noch in Entwicklung befindlichen. Um hierzu genauere und aktuellere Informationen zu erhalten, bitte die <a href="http://source.netsurf-browser.org/trunk/netsurf/Docs/">TODO lists</a> (englisch) lesen. Der <a href="http://netsurf-browser.org/plan">Entwicklungsplan</a> (englisch) des Projektes zeigt die aktuellen Prioritäten auf.</p>
 <p>Die Funktionen sind in folgende Gruppen unterteilt:</p>
 
 <ul>
@@ -22,19 +22,19 @@
 <li><a href="#NSF">NetSurf Features</a>
 </ul>
 
-<p class="updated">aktualisiert am 15. April 2005</p>
+<p class="updated">aktualisiert am 10. November 2006</p>
 
 <h2 id="Web">Web Standards</h2>
 
 <table class="progress">
 <tr><th>Titel</th><th>Status</th><th>Bemerkung / Notes</th></tr>
-<tr class="inprogress"><td>Cookies</td><td>in Entwicklung</td><td>Don't get expired.</td></tr>
+<tr class="nearlydone"><td>Cookies</td><td>fast fertig</td><td>User interface not available.<br>Unvalidated transactions not done.</td></tr>
 <tr class="nearlydone"><td>CSS 1</td><td>fast fertig</td><td>siehe <a href="http://source.netsurf-browser.org/*checkout*/trunk/netsurf/Docs/TODO-CSS">TODO list</a>.</td></tr>
 <tr class="inprogress"><td>CSS 2</td><td>in Entwicklung</td><td>siehe <a href="http://source.netsurf-browser.org/*checkout*/trunk/netsurf/Docs/TODO-CSS">TODO list</a>.</td></tr>
 <tr class="nearlydone"><td>HTML 4</td><td>fast fertig</td><td>siehe <a href="http://source.netsurf-browser.org/*checkout*/trunk/netsurf/Docs/TODO-HTML">TODO list</a>.</td></tr>
 <tr class="complete"><td>HTTP 1.1</td><td>komplett</td><td></td></tr>
-<tr class="inprogress"><td>HTTP Authentifikation</td><td>in Entwicklung</td><td></td></tr>
-<tr class="nearlydone"><td>HTTPS</td><td>fast fertig</td><td>Doesn't handle invalid certificates well.</td></tr>
+<tr class="complete"><td>HTTP Authentifikation</td><td>komplett</td><td></td></tr>
+<tr class="complete"><td>HTTPS</td><td>komplett</td><td></td></tr>
 <tr class="notplanned"><td>JavaScript</td><td>nicht geplant</td><td>Details auf der Seite <a href="info#JavaScript">Allgemeine Informationen</a>.</td></tr>
 </table>
 
@@ -44,12 +44,12 @@
 <tr><th>Titel</th><th>Status</th><th>Bemerkung / Notes</th></tr>
 <tr class="nearlydone"><td>Hintergrundbilder</td><td>fast fertig</td><td>Background-attachment needs more work.</td></tr>
 <tr class="nearlydone"><td>Borders / Margins / Padding</td><td>fast fertig</td><td></td></tr>
-<tr class="nearlydone"><td>Forms</td><td>fast fertig</td><td>Doesn't work fully with Scale View.</td></tr>
-<tr class="juststarted"><td>Frames</td><td>gerade begonnen</td><td>Experimental frames implementation is far from complete.</td></tr>
+<tr class="nearlydone"><td>Forms</td><td>fast fertig</td><td>Funktioniert noch nicht richtig beim Skalieren der Anzeige..</td></tr>
+<tr class="nearlydone"><td>Frames</td><td>fast fertig</td><td>Margin attributes are unimplemented.<br>Frames affect back / forward navigation and history thumbnails.</td></tr>
 <tr class="complete"><td>Image Maps</td><td>komplett</td><td></td></tr>
-<tr class="juststarted"><td>Lists</td><td>gerade begonnen</td><td>Lists aren't handled properly.</td></tr>
-<tr class="notstarted"><td>Position (CSS2 attribute)</td><td>noch nicht begonnen</td><td></td></tr>
-<tr class="nearlydone"><td>Tables</td><td>fast fertig</td><td>Cellpadding, cellspacing and table borders not implemented.<br>Extra space is divided equally among columns instead of in proportion with content width.</td></tr>
+<tr class="nearlydone"><td>Lists</td><td>fast fertig</td><td></td></tr>
+<tr class="nearlydone"><td>Position (CSS2 attribute)</td><td>fast fertig</td><td>Relative und absolute Positionierung sind vorhanden.<br>Fixe Positionierung gibt es noch nicht.<br>'Stacking order' ist nicht in Ordnung.</td></tr>
+<tr class="nearlydone"><td>Tables</td><td>fast fertig</td><td>Die Elemente col, colgroup, rowgroup und caption sind nicht implementiert.<br>Freier Platz wird gleichmäßig auf alle Spalten verteilt, nicht im Verhältnis zur Inhaltsmenge der jeweiligen Spalte.</td></tr>
 <tr class="inprogress"><td>Vertical Alignment</td><td>in Entwicklung</td><td>Bisher nur für Tabellen implementiert.</td></tr>
 </table>
 
@@ -57,12 +57,15 @@
 
 <table class="progress">
 <tr><th>Titel</th><th>Status</th><th>Bemerkung / Notes</th></tr>
+<tr class="complete"><td>Artworks</td><td>komplett</td><td>Benötigt wird das Zusatzmodul <a href="http://www.mw-software.com/software/awmodules/awrender.html">AWRender</a>.</td></tr>
+<tr class="complete"><td>BMP</td><td>komplett</td><td></td></tr>
 <tr class="complete"><td>Drawfile</td><td>komplett</td><td></td></tr>
 <tr class="complete"><td>GIF</td><td>komplett</td><td></td></tr>
+<tr class="complete"><td>ICO</td><td>komplett</td><td></td></tr>
 <tr class="complete"><td>JNG</td><td>komplett</td><td></td></tr>
 <tr class="complete"><td>JPEG</td><td>komplett</td><td></td></tr>
-<tr class="nearlydone"><td>MNG</td><td>fast fertig</td><td>Interactive features aren't supported.</td></tr>
-<tr class="nearlydone"><td>PNG</td><td>fast fertig</td><td>Gamma correction is not correct for PNGs with alpha channels.</td></tr>
+<tr class="nearlydone"><td>MNG</td><td>fast fertig</td><td>Interaktive Funktionen des Formates werden nicht unterstützt.</td></tr>
+<tr class="nearlydone"><td>PNG</td><td>fast fertig</td><td>Die Gammakorrektur funktioniert nicht bei PNG Bildern mit Alpha-Channels.</td></tr>
 <tr class="complete"><td>Sprite</td><td>komplett</td><td></td></tr>
 </table>
 
@@ -72,7 +75,7 @@
 <tr><th>Titel</th><th>Status</th><th>Bemerkung / Notes</th></tr>
 <tr class="complete"><td>Acorn URI Protokoll</td><td>komplett</td><td></td></tr>
 <tr class="complete"><td>Ant URL Protokoll</td><td>komplett</td><td></td></tr>
-<tr class="inprogress"><td>Plugin Protokoll</td><td>in Entwicklung</td><td>Incomplete implementation with various problems.</td></tr>
+<tr class="nearlydone"><td>Plugin Protokoll</td><td>fast fertig</td><td>Unvollständige Implementierung.</td></tr>
 </table>
 
 <h2 id="NSF">NetSurf Features</h2>
@@ -81,27 +84,27 @@
 <tr><th>Titel</th><th>Status</th><th>Bemerkung / Notes</th></tr>
 <tr class="complete"><td>Werbebanner blockieren</td><td>komplett</td><td></td></tr>
 <tr class="complete"><td>Renderoptionen</td><td>komplett</td><td>Verbessert entscheidend die Darstellung.<br>Nähere Informationen im <a href="guide#BrowserWindowMenuDisplayRender">Handbuch</a>.</td></tr>
-<tr class="inprogress"><td>Konfiguration</td><td>in Entwicklung</td><td></td></tr>
+<tr class="complete"><td>Konfiguration</td><td>komplett</td><td></td></tr>
 <tr class="notstarted"><td>Disc Cache</td><td>noch nicht begonnen</td><td></td></tr>
 <tr class="complete"><td>Dithern</td><td>komplett</td><td>Verbessert die Darstellung in Bildschirmmodi mit wenigen Farben.<br>Sowohl einfaches Dithern als auch Error-Diffusion sind nutzbar.</td></tr>
-<tr class="inprogress"><td>Dokumentation</td><td>in Entwicklung</td><td></td></tr>
-<tr class="nearlydone"><td>Text suchen</td><td>fast fertig</td><td>Doesn't find phrases if they are split across lines.</td></tr>
-<tr class="nearlydone"><td>History (global)</td><td>fast fertig</td><td></td></tr>
-<tr class="complete"><td>History (lokal)</td><td>komplett</td><td>Local window history is not yet cloned when adjust clicking a link.</td></tr>
-<tr class="nearlydone"><td>Hotlist</td><td>fast fertig</td><td></td></tr>
-<tr class="inprogress"><td>interaktive Hilfe</td><td>in Entwicklung</td><td></td></tr>
-<tr class="complete"><td>RAM Cache</td><td>komplett</td><td></td></tr>
-<tr class="inprogress"><td>Drucken</td><td>in Entwicklung</td><td></td></tr>
-<tr class="inprogress"><td>Proxy Unterstützung</td><td>in Entwicklung</td><td>Protocols other than HTTP are incorrectly proxied.</td></tr>
+<tr class="nearlydone"><td>Dokumentation</td><td>fast fertig</td><td>Beachte das <a href="docs">Inhaltsverzeichnis</a>.</td></tr>
+<tr class="nearlydone"><td>Text suchen</td><td>fast fertig</td><td>Suchtexte über Zeilenumbrüche werden nicht gefunden.</td></tr>
 <tr class="nearlydone"><td>Alles speichern</td><td>fast fertig</td><td>Speichert Seiten mit CSS Files und Bildern.<br>Doesn't rewrite URLs for CSS background images.</td></tr>
-<tr class="nearlydone"><td>Drawfile Export</td><td>fast fertig</td><td>Embedded drawfiles aren't exported when saving page as Draw.</td></tr>
+<tr class="nearlydone"><td>History (global)</td><td>fast fertig</td><td>Details im <a href="guide#History">Handbuch</a>.</td></tr>
+<tr class="complete"><td>History (lokal)</td><td>komplett</td><td>Details im <a href="guide#History">Handbuch</a>.</td></tr>
+<tr class="nearlydone"><td>Hotlist</td><td>fast fertig</td><td>Details im <a href="guide#Hotlist">Handbuch</a>.</td></tr>
+<tr class="nearlydone"><td>interaktive Hilfe</td><td>fast fertig</td><td></td></tr>
+<tr class="complete"><td>RAM Cache</td><td>komplett</td><td></td></tr>
+<tr class="inprogress"><td>Drucken</td><td>in Entwicklung</td><td>Drucken unter RISC OS 5 funktioniert nicht; wegen mangelnder Unterstützung im Font Manager und den Druckertreibern.</td></tr>
+<tr class="inprogress"><td>Proxy Unterstützung</td><td>in Entwicklung</td><td>Andere Protokolle als HTTP werden nicht korrekt behandelt.</td></tr>
+<tr class="nearlydone"><td>Drawfile Export</td><td>fast fertig</td><td>Eingebettete Drawfiles werden nicht mit exportiert, wenn eine Seite als Drawdatei gespeichert wird.</td></tr>
 <tr class="complete"><td>Adresse speichern</td><td>komplett</td><td>Speichert die Adresse von Seite oder Objekt im Acorn URI Format, Ant URL Format oder als Text.</td></tr>
 <tr class="inprogress"><td>als Text speichern</td><td>in Entwicklung</td><td>Some issues with spacing out of text.</td></tr>
 <tr class="complete"><td>Vergrößerung</td><td>komplett</td><td>Web-Seiten und Bilder können vergrößert und verkleinert werden.</td></tr>
-<tr class="inprogress"><td>Text markieren</td><td>in Entwicklung</td><td></td></tr>
+<tr class="inprogress"><td>Text markieren</td><td>in Entwicklung</td><td>Text selection in text areas is incomplete.</td></tr>
 <tr class="complete"><td>Themen</td><td>komplett</td><td>Themen sind von der <a href="http://netsurf-browser.org/themes/">Themenseite</a> herunterladbar.</td></tr>
-<tr class="complete"><td>Symbolleisten anpassen</td><td>komplett</td><td>Symbolleisten können so angepaßt werden, daß nur die gewünschten Symbole in beliebiger Reihenfolge dargestellt werden.</td></tr>
-<tr class="inprogress"><td>Unicode Unterstützung</td><td>in Entwicklung</td><td></td></tr>
+<tr class="complete"><td>Symbolleisten anpassen</td><td>komplett</td><td>Symbolleisten können so angepaßt werden, daß nur die gewünschten Symbole in beliebiger Reihenfolge dargestellt werden.<br>Details dazu sind im <a href="guide#ConfigurationToolbar">Handbuch</a> zu finden.</td></tr>
+<tr class="inprogress"><td>Unicode Unterstützung</td><td>in Entwicklung</td><td>Details gibt es <a href="info#Unicode">hier</a>.</td></tr>
 <tr class="complete"><td>URL vervollständigen</td><td>komplett</td><td>Beim Eintippen einer Adresse zeigt NetSurf Vorschläge für deren Vervollständigung an.</td></tr>
 <tr class="complete"><td>Quellcode zeigen</td><td>komplett</td><td>Drücke F8 oder wähle <i>Seite &gt; Quellcode...</i> im Hauptmenü.</td></tr>
 </table>
