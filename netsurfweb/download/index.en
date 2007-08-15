@@ -17,17 +17,17 @@
 href="/info#GettingStartedInstallation">installation instructions</a>.</p>
 
 <table class="download">
-<tr><th class="highlight"><a href="netsurf-1.0.zip"><img src="/builds/netsurf.png"
-alt=""><br>NetSurf 1.0</a></th>
-<td>2.4M</td>
-<td>17 May 2007</td>
+<tr><th class="highlight"><a href="netsurf-1.1.zip"><img border="0" src="/builds/netsurf.png"
+alt=""><br>NetSurf 1.1</a></th>
+<td>2.3M</td>
+<td>13 Aug 2007</td>
 <td>NetSurf browser for RISC OS, full version.
 <strong>Recommended for most users.</strong></td>
 </tr>
 
-<tr><th><a href="netsurf-1.0-src.tar.gz"><img src="/builds/netsurf.png" alt=""><br>NetSurf 1.0 Source Code</a></th>
-<td>946kB</td>
-<td>17 May 2007</td>
+<tr><th><a href="netsurf-1.1-src.tar.gz"><img border="0" src="/builds/netsurf.png" alt=""><br>NetSurf 1.1 Source Code</a></th>
+<td>964kB</td>
+<td>13 Aug 2007</td>
 <td>NetSurf browser source code, suitable for building under RISC OS or Linux/GTK.</td>
 </tr>
 
@@ -36,6 +36,21 @@ alt=""><br>NetSurf 1.0</a></th>
 <td>DATE_UNETSURF</td>
 <td>Small NetSurf browser for RISC OS. This has support for http: and file: only (no https:). It is more suitable for machines with small amounts of RAM (8MB or less).</td>
 </tr-->
+</table>
+
+<h3>Older versions</h3>
+<table class="download">
+<tr><th><a href="netsurf-1.0.zip"><img border="0" src="/builds/netsurf.png" alt=""><br>NetSurf 1.0</a></th>
+<td>2.4M</td>
+<td>17 May 2007</td>
+<td>NetSurf browser for RISC OS, full version.</td>
+</tr>
+
+<tr><th><a href="netsurf-1.0-src.tar.gz"><img border="0" src="/builds/netsurf.png" alt=""><br>NetSurf 1.0 Source Code</a></th>
+<td>946kB</td>
+<td>17 May 2007</td>
+<td>NetSurf browser source code, suitable for building under RISC OS or Linux/GTK.</td>
+</tr>
 </table>
 
 <!--p>A <a href="http://www.riscpkg.org/">RiscPkg</a> package of NetSurf is

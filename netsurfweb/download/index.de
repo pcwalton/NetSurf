@@ -17,17 +17,17 @@
 href="/info#GettingStartedInstallation">Installationsanweisungen</a>.</p>
 
 <table class="download">
-<tr><th class="highlight"><a href="netsurf-1.0.zip"><img src="/builds/netsurf.png"
-alt=""><br>NetSurf 1.0</a></th>
-<td>2.4M</td>
-<td>17 May 2007</td>
+<tr><th class="highlight"><a href="netsurf-1.1.zip"><img border="0" src="/builds/netsurf.png"
+alt=""><br>NetSurf 1.1</a></th>
+<td>2.6M</td>
+<td>13 Aug 2007</td>
 <td>NetSurf Browser für RISC OS, Vollversion.
 <strong>Empfohlen für die Mehrzahl der Nutzer.</strong></td>
 </tr>
 
-<tr><th><a href="netsurf-1.0-src.tar.gz"><img src="/builds/netsurf.png" alt=""><br>NetSurf 1.0 Quellcode</a></th>
-<td>946kB</td>
-<td>17 May 2007</td>
+<tr><th><a href="netsurf-1.1-src.tar.gz"><img border="0" src="/builds/netsurf.png" alt=""><br>NetSurf 1.0 Quellcode</a></th>
+<td>964kB</td>
+<td>13 Aug 2007</td>
 <td>NetSurf Quellcode, geeignet zum Erstellen des Browsers unter RISC OS oder Linux/GTK.</td>
 </tr>
 

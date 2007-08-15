@@ -16,8 +16,8 @@
 
 <p>NetSurf is an open-source web browser for RISC OS, <a href="licence">licensed under the GPL</a>. Its aim is to bring the HTML&nbsp;4 and CSS standards to the RISC&nbsp;OS platform and provide a small, fast and comprehensive web browsing solution.</p>
 
-<p>The latest release is 1.0.<strong>
-<a href="download/">Download NetSurf 1.0 for RISC OS</a>.</strong></p>
+<p>The latest release is 1.1.<strong>
+<a href="download/">Download NetSurf 1.1 for RISC OS</a>.</strong></p>
 
 <p>Test builds are also available for <a href="builds/">download</a>. These are built every 15 minutes from the latest source code in <a href="http://source.netsurf-browser.org/trunk/netsurf/">Subversion</a>.</p>
 
