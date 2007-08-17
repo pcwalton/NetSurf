@@ -50,7 +50,7 @@
 
 <dl>
 <dt><a href="download/">Download</a></dt>
-<dd>Get NetSurf 1.0</dd>
+<dd>Get NetSurf 1.1</dd>
 
 <dt><a href="docs">Documentatie</a></dt>
 <dd>Gebruikershandleiding en informatie</dd>
