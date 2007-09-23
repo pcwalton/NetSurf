@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Testcase for interaction between margins and background on body</title>
+<style type="text/css">
+/* Backgrounds on the body element are positioned as if they 
+ * were specified on the root element _unless_ the root element 
+ * already has its own background (i.e. in this case, the 
+ * background image should *not* be touching the left edge of the viewport)
+ */
+
+html {
+	background-image: url(../images/bg.gif);
+	background-position: bottom right;
+	background-repeat: no-repeat;
+}
+
+body {
+	margin-left: 136px;
+	background-image: url(../images/bg.gif);
+	background-repeat: repeat-y;
+	background-position: top left;
+}
+
+#foo {
+	margin-left: 136px;
+	width: 400px;
+	height: 400px;
+	background-color: green;
+	background-image: url(../images/bg.gif);
+	background-repeat: repeat-x;
+}
+</style>
+</head>
+<body>
+  <div id="foo"></div>
+</body>
+</html>

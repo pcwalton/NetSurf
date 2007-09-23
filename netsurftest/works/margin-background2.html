@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Testcase for interaction between margins and background on body</title>
+<style type="text/css">
+/* Test handling of background on html
+ * This should produce a background at the bottom-right of the document
+ */
+html {
+	background-image: url(../images/bg.gif);
+	background-position: bottom right;
+	background-repeat: no-repeat;
+}
+
+#foo {
+	margin-left: 136px;
+	width: 400px;
+	height: 400px;
+	background-color: green;
+	background-image: url(../images/bg.gif);
+	background-repeat: repeat-x;
+}
+</style>
+</head>
+<body>
+  <div id="foo"></div>
+</body>
+</html>
