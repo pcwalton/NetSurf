@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+        "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>NetSurf | Themen erstellen</title>
+<link rel="stylesheet" type="text/css" href="/netsurf.css">
+</head>
+
+<body>
+<p class="banner"><a href="/"><img src="/netsurf.png" alt="NetSurf: Webbrowser für RISC OS"></a></p>
+<p class="languages">Deutsch · <a href="nstheme.en">English</a></p>
+
+<h1>Themen erstellen</h1>
+
+<p>Dies ist eine Kurzanleitung für die Erstellung von Themen in NetSurf und für die Verwendung von NSTheme, um Themen ins korrekte Dateiformat zu verpacken. Sie ist in die folgenden Unterabschnitte unterteilt:</p>
+
+<ul>
+<li><a href="#Overview">Übersicht</a></li>
+<li><a href="#Sprites">Sprites</a></li>
+<li><a href="#NSTheme">NSTheme verwenden</a></li>
+<li><a href="#Distribution">Veröffentlichung</a></li>
+</ul>
+
+<p class="updated">aktualisiert am 22. März 2005</p>
+
+<h2 id="Overview">Übersicht</h2>
+
+<p>Ein Thema besteht aus einer Anzahl Sprites für die Darstellung der Leisten in NetSurf und enthält weitere Informationen wie etwa die Hintergrundfarbe der Leisten und den Namen des Themas. NSTheme ist eine Applikation, die es erlaubt die Sprites zu laden, die nötigen Informationen einzugeben und beides in einer Datei zusammenzuführen.</p>
+
+<h2 id="Sprites">Sprites</h2>
+
+<p>Ein Thema enthält viele verschiedene Sprites; zwei Sprites für jeden Schaltknopf, eines für den Separator und weitere für die Animation der Ladeanzeige. Diese Einzelsprites werden in einem Spritefile gesammelt, wobei jedes einen bestimmten Namen erhalten muß, der es ermöglicht Schaltknopf und Bild einander eindeutig zuzuordnen.</p>
+
+<p>Die Schaltknöpfe und die zugehörigen Spritenamen sind nachfolgend aufgelistet.</p>
+
+<table class="toolbarsprites">
+<tr><th colspan="2">Browserfenster</th></tr>
+<tr><th>Schaltknopf</th><th>Spritenamen</th></tr>
+<tr><td>Zurück</td><td>back</td></tr>
+<tr><td>Vorwärts</td><td>forward</td></tr>
+<tr><td>History</td><td>history</td></tr>
+<tr><td>Homepage</td><td>home</td></tr>
+<tr><td>Hotlist</td><td>hotlist</td></tr>
+<tr><td>Drucken</td><td>print</td></tr>
+<tr><td>Erneut laden</td><td>reload</td></tr>
+<tr><td>Abspeichern</td><td>save</td></tr>
+<tr><td>Skalieren</td><td>scale</td></tr>
+<tr><td>Suchen</td><td>search</td></tr>
+<tr><td>Stop</td><td>stop</td></tr>
+<tr><td>Aufwärts</td><td>up</td></tr>
+</table>
+
+<table class="toolbarsprites">
+<tr><th colspan="2">Hotlist (Lesezeichen)</th></tr>
+<tr><th>Schaltknopf</th><th>Spritenamen</th></tr>
+</tr><tr><td>Verzeichnis erstellen</td><td>create</td></tr>
+<tr><td>Auswahl löschen</td><td>delete</td></tr>
+<tr><td>Auswahl aktivieren</td><td>launch</td></tr>
+<tr><td>Verzeichnis öffnen</td><td>open</td></tr>
+<tr><td>Einträge aufklappen</td><td>expand</td></tr>
+</table>
+
+<table class="toolbarsprites">
+<tr><th colspan="2">Globale History (Chronik)</th></tr>
+<tr><th>Schaltknopf</th><th>Spritenamen</th></tr>
+<tr><td>Auswahl löschen</td><td>delete</td></tr>
+<tr><td>Auswahl aktivieren</td><td>launch</td></tr>
+<tr><td>Verzeichnis öffnen</td><td>open</td></tr>
+<tr><td>Einträge aufklappen</td><td>expand</td></tr>
+</table>
+
+<p>Zu jedem Schaltknopf gehören zwei Sprites, eines für den gerade angeklickten Knopf und eines für die normale Darstellung. Die Sprites des angeklickten Zustandes werden im Namen durch ein vorangestelltes 'p' (wie 'pressed') gekennzeichnet. Es gibt also etwa für den Knopf zum Abspeichern die Sprites 'save' und 'psave'.</p>
+
+<p>Das Sprite mit dem Namen 'separator' wird zur optischen Gruppierung von Schaltknöpfen in den Schaltleisten verwendet. Die Animation bei der Anzeige der Ladeaktivität wird mittels einer Gruppe von Sprites mit den Namen 'throbber0' bis 'throbberN' ermöglicht. Dabei wird 'throbber0' dargestellt, wenn NetSurf inaktiv ist, bei Programmaktivität werden die Sprites 'throbber1' bis 'throbberN' fortlaufend angezeigt.</p>
+
+<p>Für eine bewegte Aktivitätsanzeige mit fünf Elementen werden also die Sprites 'throbber1' bis 'throbber5' für die eigentliche Animation und zusätzlich das Sprite 'throbber0' für den inaktiven Zustand benötigt.</p>
+
+<p>Alle Sprites können beliebig dimensioniert sein. Sind einige Sprites größer als andere, werden die kleineren von NetSurf automatisch höhenzentriert angeordnet.</p>
+
+<h2 id="NSTheme">NSTheme verwenden</h2>
+
+<p>Das Programm NSTheme hat eine (hoffentlich) selbsterklärende Nutzerschnittstelle und unterstützt zudem die interaktive Hilfe. Ein bereits vorhandenes Themenfile kann durch Ziehen der Datei in das NSTheme Fenster geladen werden. Um ein neues Thema zu erstellen, wird ein Spritefile, welches die oben beschriebenen Sprites enthält, auf NSTheme gezogen. Die Namen von Thema und Autor können über Schreibflächen vergeben oder geändert werden.</p>
+
+<p>Soll die Ladeaktivitätsanzeige linksseitig dargestellt werden, muß der Punkt &quot;Left align throbber&quot; markiert sein. Ist dies nicht der Fall, erscheint die Aktivitätanzeige rechts auf der Schaltknopfleiste. Werden für die Animation Sprites mit sich verändernden Spritemasken verwendet, empfiehlt es sich, die Option &quot;Redraw every frame&quot; einzuschalten. Diese löscht den Darstellungsbereich der Animationssprites bevor das nächste Sprite aus der Reihe darübergezeichnet wird. Bei Animationen deren Sprites keine sich ändernden Spritemasken verwenden, sollte die Option &quot;Redraw every frame&quot; ausgeschaltet sein, da sie dort zu unschönem Flackern führen kann.</p>
+
+<p>Der Knopf <em>Generate report</em> überprüft das Thema und warnt bei auftretenden Problemen. So wird etwa bei Nichtvorhandenseins einer Spritedatei die Meldung &quot;No sprite file present&quot; generiert. Ist dagegen eine Spritedatei geladen, aber in dieser zum Beispiel das Sprite für den gedrückten Abspeicherknopf nicht existent, wird der Fehler &quot;Sprite 'psave' (browser save icon (pushed)) is missing&quot; ausgegeben. Der Knopf <em>Remove sprites</em> entfernt alle zuvor in das Programm geladenen Sprites.</p>
+
+<p class="note">Sprites können mithilfe der Option Export (im NSTheme Fenstermenu) aus einer bestehenden Themendatei extrahiert werden. Somit können zur Erleichterung des Erstellens eines neuen Themas die Sprites des mitgelieferten Standardthemas (<code>!NetSurf.Resources.Theme</code>) zunächst als Muster abgespeichert und anschließend durch eigene ersetzt werden.</p>
+
+<p>In den Farbeinstellungen können die Hintergrundfarben für die Schaltleisten von Browserfenster und Hotlist sowie die der Statusanzeige und die Textfarbe letzterer gesetzt werden.</p>
+
+<p>Das Abspeichern eines angefertigten neuen Themas geschieht über den Menupunkt Save im NSTheme Fenster. Ein Themenfile muß im Ordner <code>Choices:WWW.NetSurf.Themes</code> plaziert werden, damit es von NetSurf gefunden und eingebunden werden kann.</p>
+
+<h2 id="Distribution">Veröffentlichung</h2>
+
+<p>Vollständig abgeschlossene, schöne und neue Themen können gerne zur Aufnahme auf NetSurf's Webseite <a href="index">Themen</a> übermittelt werden. Sie werden als <code>Content-Type: application/x-netsurf-theme</code> auf dem Server gespeichert und sind in dieser Form von NetSurf zur automatischen Installation erkennbar.</p>
+
+<div class="footer">
+<p class="breadcrumbs"><a href="/">NetSurf</a> » <a href="index">Themen</a> » Themen erstellen</p>
+<p class="sourceforge"><a href="http://sourceforge.net/"><img src="http://sourceforge.net/sflogo.php?group_id=51719&amp;type=1" alt="SourceForge.net"></a></p>
+</div>
+
+</body>
+</html>
+

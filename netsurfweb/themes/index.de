@@ -12,9 +12,9 @@
 
 <h1>Themen</h1>
 
-<p>NetSurf ermöglicht das Anpassen des Aussehens der Oberfläche durch Installation von Themen. Wenn Du ein neues Thema erstellt hast, welches von hier aus abrufbar sein soll, dann kontaktiere bitte <a href="mailto:tlsa@netsurf-browser.org">tlsa@netsurf-browser.org</a>.</p>
+<p>NetSurf ermöglicht das Anpassen des Aussehens der Oberfläche durch Installation von Themen. Ein eigenes und <a href="nstheme.de">neues Thema erstellen</a> kann jeder, der mit !Paint umgehen kann. Wenn Du ein neues Thema erstellt hast, welches von hier aus abrufbar sein soll, dann kontaktiere bitte <a href="mailto:tlsa@netsurf-browser.org">tlsa@netsurf-browser.org</a>.</p>
 
-<p>Anklicken eines der unten aufgeführten Verweise (<em>Thema installieren</em>) lädt das zugehörige Thema und richtet, nach Bestätigung, dieses automatisch in NetSurf ein. Ein vorher eingestelltes Thema kann im Dialog <a href="/guide#Configuration">Einstellungen</a> unter dem Punkt Themen wieder aktiviert werden.</p>
+<p>Anklicken eines der unten aufgeführten Verweise (<em>Thema installieren</em>) lädt das zugehörige Thema und richtet, nach Bestätigung, dieses automatisch in NetSurf ein. Ein vorher eingestelltes Thema kann im Dialog <a href="/guide#Configuration">Einstellungen</a> unter dem Punkt Themen wieder reaktiviert werden.</p>
 
 <h2 class="themename">Aquatic</h2>
 
@@ -31,8 +31,8 @@
 <h2 class="themename">Kemp</h2>
 
 <p class="themeimage"><img src="Kempi.png" alt=""></p>
-<p class="themeauthor">Author: <a href="http://quadrone.org/">Arvid Axelsson</a> (Port: <a href="http://www.wra1th.plus.com/">Gavin Wraith</a>)</p>
-<p class="themeinstall"><a href="Kemp">Install theme...</a></p>
+<p class="themeauthor">Autor: <a href="http://quadrone.org/">Arvid Axelsson</a> (Umsetzung: <a href="http://www.wra1th.plus.com/">Gavin Wraith</a>)</p>
+<p class="themeinstall"><a href="Kemp">Thema installieren...</a></p>
 
 <h2 class="themename">Qute</h2>
 
