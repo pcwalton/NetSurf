@@ -1,0 +1,34 @@
+Sprite file test suite					Version 1.4
+
+NetSurfLogos
+  big		Large 32bpp NetSurf logo
+  ns32bpp	Small 32bpp NetSurf logo
+  ns16bpp	Small 16bpp NetSurf logo
+  ns8bpp	Small 8bpp NetSurf logo - Default colour palette
+  ns8bppnp	Small 8bpp NetSurf logo - No palette (colour)
+  ns8bppp	Small 8bpp NetSurf logo - Optimised palette
+  ns4bpp	Small 4bpp NetSurf logo - Default colour palette
+  ns4bppnp	Small 4bpp NetSurf logo - No palette (colour)
+  ns4bppp	Small 4bpp NetSurf logo - Optimised palette
+  ns2bpp	Small 2bpp NetSurf logo - Default grayscale palette
+  ns2bppp	Small 2bpp NetSurf logo - Optimised palette
+  ns1bpp	Small 1bpp NetSurf logo - Default black/white palette
+  ns1bppnp	Small 1bpp NetSurf logo - No palette (black/white)
+  ns1bppp	Small 1bpp NetSurf logo - Optimised palette
+  nscmyk	Small CMYK NetSurf logo
+
+Small
+  3x3_32bpp	3x3 32bpp test image:	blue	cyan	magenta
+					black	green	yellow
+					white	black	red
+  2x2_32bpp	2x2 32bpp test image:	green	black
+  					white	red
+  1x1_32bpp	1x1 32bpp test image	orange
+
+Mode15
+  Various mode 15 8bpp sprites
+
+Huge1bpp/gz
+  huge		compressed 20000x15000 1bpp image
+
+gigapixel/gz	compressed 20000x50000 8bpp blank image
