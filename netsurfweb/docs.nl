@@ -56,7 +56,7 @@
 <li><a href="guide#HistoryGlobalMenus">Menu's</a></li>
 </ul></li>
 </ul></li>
-<li><a href="guide#Hotlist">Favorietenvenster</a>
+<li><a href="guide#Hotlist">Bladwijzervenster</a>
 <ul>
 <li><a href="guide#HotlistToolbar">Gereedschapbalk</a></li>
 <li><a href="guide#HotlistMenus">Menu's</a></li>

@@ -2,7 +2,7 @@
         "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 <head>
-<title>NetSurf | Open Source Web Browser voor RISC OS</title>
+<title>NetSurf | Open broncode Webbladeraar voor RISC OS</title>
 <link rel="stylesheet" type="text/css" href="netsurf.css">
 </head>
 
@@ -14,22 +14,22 @@
 
 <img src="screenshots/frontscreen.png" alt="" class="screenshot">
 
-<p>NetSurf is een open-source web bladeraar voor RISC OS, en heeft een <a href="licence">GPL</a> licentie. Het doel van het project is om de HTML&nbsp;4 en CSS standaarden aan het RISC&nbsp;OS platform ter beschikking te stellen, en het verschaft een kleine, snelle en eenvoudig te bedienen web bladeraar.</p>
+<p>NetSurf is een open-source webbladeraar voor RISC OS en heeft een <a href="licence">GPL</a>-licentie. Het doel van het project is om de HTML&nbsp;4- en CSS-standaarden aan het RISC&nbsp;OS-platform ter beschikking te stellen door middel van een kleine, snelle en eenvoudig te bedienen webbladeraar.</p>
 
-<p>The latest release is 1.1. <strong><a href="download/">Download NetSurf 1.1 for RISC OS</a>.</strong></p>
+<p>De nieuwste RISC OS-versie is 1.1: <strong><a href="download/">Ophalen</a>.</strong></p>
 
-<p>NetSurf wordt voortdurend verder ontwikkeld, al is er nog geen volledige versie uitgebracht. Er zijn test versies beschikbaar die <a href="builds/">opgehaald</a> kunnen worden, deze worden elke 15 minuten aangemaakt als de broncode in <a href="http://source.netsurf-browser.org/trunk/netsurf/">Subversion</a> veranderd is.</p>
+<p>Er zijn ook testversies beschikbaar die <a href="builds/">opgehaald</a> kunnen worden. Deze worden elke 15 minuten aangemaakt als de broncode in <a href="http://source.netsurf-browser.org/trunk/netsurf/">Subversion</a> veranderd is.</p>
 
-<p>Help ons door NetSurf regelmatig uit te proberen en <a href="info#ContactDevelopers">stuur ons uw respons</a>. De actuele status van Netsurf wordt op de <a href="progress">voortgangspagina</a> beschreven.</p>
+<p>Help mee door NetSurf regelmatig uit te proberen en te<a href="info#ContactDevelopers">reageren</a> (helaas kan dit alleen in het Engels). De actuele status van Netsurf wordt op de <a href="progress">voortgangspagina</a> beschreven.</p>
 
 <h2>Nieuws</h2>
-<p>Het actuele nieuws staat te lezen op de <a href="index.en">Engelstalige</a> Netsurf webstek. Ouder nieuws is in het <a href="archive">nieuws-archief</a> te vinden.</p>
+<p>Het actuele nieuws staat (in het Engels) te lezen op de <a href="index.en">Netsurf</a>-webstek. Ouder nieuws is (in het Engels) in het <a href="archive">nieuws-archief</a> te vinden.</p>
 
-<h2 id="Awards">Prijzen</h2>
+<h2 id="Awards">Onderscheidingen</h2>
 <div class="award">
 <a href="http://www.drobe.co.uk/riscos/artifact1776.html"><img src="webimages/da2006.png" alt=""></a>
 
-<p>NetSurf and the NetSurf Developers were <a href="http://www.drobe.co.uk/riscos/artifact1765.html">nominated</a> by <a href="http://www.drobe.co.uk/">Drobe Launch Pad</a> readers for the portal's <a href="http://www.drobe.co.uk/riscos/artifact1776.html">Best of 2006</a> awards. NetSurf won the award for &quot;best non-commercial software&quot; and the NetSurf development team came runner up in the category for &quot;best overall contribution&quot;. Thanks to everyone who voted for us!</p>
+<p>NetSurf en de NetSurf-ontwikkelaars waren <a href="http://www.drobe.co.uk/riscos/artifact1765.html"><strong>genomineerd</strong></a> door de <a href="http://www.drobe.co.uk/"><strong>Drobe Launch Pad</strong></a>-lezers voor de door het webportaal opgezette <a href="http://www.drobe.co.uk/riscos/artifact1776.html"><strong>Beste van 2006</strong></a> onderscheidingen. NetSurf won de onderscheiding voor &quot;beste niet-commerci&euml;le software&quot; en het NetSurf-ontwikkelingsteam werd tweede in de categorie voor &quot;beste algemene bijdrage&quot;. Dankzij iedereen die op ons stemde!</p>
 </div>
 
 <div class="award">
@@ -50,7 +50,7 @@
 
 <dl>
 <dt><a href="download/">Download</a></dt>
-<dd>Get NetSurf 1.1</dd>
+<dd>NetSurf 1.1 ophalen</dd>
 
 <dt><a href="docs">Documentatie</a></dt>
 <dd>Gebruikershandleiding en informatie</dd>
@@ -64,11 +64,11 @@
 <dt><a href="themes/">Thema's</a></dt>
 <dd>Verander het uiterlijk van NetSurf</dd>
 
-<dt><a href="http://sourceforge.net/tracker/?atid=464312&amp;group_id=51719">Bug tracker</a></dt>
-<dd>Foutberichten hier melden</dd>
+<dt><a href="http://sourceforge.net/tracker/?group_id=51719">Bug tracker</a></dt>
+<dd>Foutberichten en verzoeken voor nieuwe kenmerken hier melden</dd>
 
-<dt><a href="http://lists.sourceforge.net/lists/listinfo/netsurf-develop">Ontwikkelaars maillijst</a></dt>
-<dd>Abonneer u als u van plan bent om NetSurf te testen of te ontwikkelen</dd>
+<dt><a href="lists">Maillijsten</a></dt>
+<dd>Informatie over de NetSurf mail lijsten</dd>
 
 <dt><a href="develop">Ontwikkelingsinformatie</a></dt>
 <dd>Voor ontwikkelaars en contributeurs</dd>
