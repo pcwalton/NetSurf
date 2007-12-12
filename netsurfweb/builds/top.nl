@@ -21,21 +21,21 @@ href="/info#GettingStartedInstallation">installatie-instructies</a>.</p>
 
 <table class="download">
 <tr><th class="highlight"><a href="netsurf.zip"><img src="netsurf.png" alt=""><br>NetSurf</a></th>
-<td>2.3M</td>
-<td>05 Nov 2007 15:45 UTC</td>
+<td>SIZE_NETSURF</td>
+<td>DATE_NETSURF</td>
 <td>NetSurf-browser voor RISC OS, volledige versie.
 <strong>Aanbevolen voor de meeste gebruikers.</strong></td>
 </tr>
 
 <tr><th><a href="unetsurf.zip"><img src="unetsurf.png" alt=""><br>Kleine NetSurf</a></th>
-<td>1.9M</td>
-<td>05 Nov 2007 15:45 UTC</td>
+<td>SIZE_UNETSURF</td>
+<td>DATE_UNETSURF</td>
 <td>De kleinere versie van NetSurf voor RISC OS. Ondersteund alleen http: en file: (geen https:). Te gebruiken voor computers met weinig geheugen (8MB of minder).</td>
 </tr>
 
 <tr><th><a href="nstheme.zip"><img src="nstheme.png" alt=""><br>NSTheme</a></th>
-<td>0.1M</td>
-<td>22 Mrt 2005 21:00 UTC</td>
+<td>SIZE_NSTHEME</td>
+<td>DATE_NSTHEME</td>
 <td>Thema-verpakker voor NetSurf. Alleen nodig voor ontwerpers van thema's.</td>
 </tr>
 </table>
