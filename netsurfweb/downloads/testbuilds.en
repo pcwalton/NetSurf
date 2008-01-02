@@ -57,66 +57,7 @@
 
 <h2>Recent SVN Activity</h2>
 <p>All times are in UTC.</p>
-<div class="changelog">
-<div class="entry">
-<p class="meta"><span class="date">2007-09-17 14:53</span> - <em class="author">jmb</em> - <small class="files"><a href="http://svn.semichrome.net/trunk/netsurf/render/html_redraw.c">trunk/netsurf/render/html_redraw.c</a></small></p>
-<p class="msg">Fix handling of backgrounds on &lt;body&gt; and &lt;html&gt;
-</p>
-</div>
-<div class="entry">
-<p class="meta"><span class="date">2007-09-17 00:12</span> - <em class="author">jmb</em> - <small class="files"><a href="http://svn.semichrome.net/trunk/dom/bindings/xml/xmlparser.c">trunk/dom/bindings/xml/xmlparser.c</a></small></p>
-<p class="msg">Fix potential segfaults
-</p>
-</div>
-<div class="entry">
-<p class="meta"><span class="date">2007-09-17 00:12</span> - <em class="author">jmb</em> - <small class="files"><a href="http://svn.semichrome.net/trunk/dom/bindings/xml/xmlbinding.c">trunk/dom/bindings/xml/xmlbinding.c</a></small></p>
-<p class="msg">Implement xml-binding-specific dom_implementation_create_document
-</p>
-</div>
-<div class="entry">
-<p class="meta"><span class="date">2007-09-17 00:10</span> - <em class="author">jmb</em> - <small class="files"><a href="http://svn.semichrome.net/trunk/dom/src/core/document.c">trunk/dom/src/core/document.c</a>, <a href="http://svn.semichrome.net/trunk/dom/src/core/node.c">trunk/dom/src/core/node.c</a></small></p>
-<p class="msg">Make Document nodes own themselves (removes need for special case for Documents)
-Fixup dom_node_destroy appropriately.
-Implement dom_node_{set,get}_user_data.
-</p>
-</div>
-<div class="entry">
-<p class="meta"><span class="date">2007-09-16 17:02</span> - <em class="author">jmb</em> - <small class="files"><a href="http://svn.semichrome.net/trunk/dom/test/testutils.h">trunk/dom/test/testutils.h</a></small></p>
-<p class="msg">Fix testcases after change to xml_parser API (messaging callback)
-</p>
-</div>
-<div class="entry">
-<p class="meta"><span class="date">2007-09-16 17:02</span> - <em class="author">jmb</em> - <small class="files"><a href="http://svn.semichrome.net/trunk/dom/bindings/xml/xmlparser.h">trunk/dom/bindings/xml/xmlparser.h</a>, <a href="http://svn.semichrome.net/trunk/dom/bindings/xml/functypes.h">trunk/dom/bindings/xml/functypes.h</a>, <a href="http://svn.semichrome.net/trunk/dom/bindings/xml/xmlparser.c">trunk/dom/bindings/xml/xmlparser.c</a></small></p>
-<p class="msg">Add callback for informational messaging (with variable severity, a la syslog)
-Use it to log interesting things during parsing. 
-This needs to grow some i18n at some point.
-</p>
-</div>
-<div class="entry">
-<p class="meta"><span class="date">2007-09-16 17:00</span> - <em class="author">jmb</em> - <small class="files"><a href="http://svn.semichrome.net/trunk/dom/test/transform/test-to-c.xsl">trunk/dom/test/transform/test-to-c.xsl</a></small></p>
-<p class="msg">Move parameter declaration, as xsltproc (libxml 2.6.26, libxslt 1.1.21, libexslt 0.8.13) complains otherwise
-</p>
-</div>
-<div class="entry">
-<p class="meta"><span class="date">2007-09-16 16:58</span> - <em class="author">jmb</em> - <small class="files"><a href="http://svn.semichrome.net/trunk/dom/src/core/node.c">trunk/dom/src/core/node.c</a></small></p>
-<p class="msg">Fix bug in dom_node_destroy -- Document nodes have no owner, so attempting to ref/unref it is stupid
-</p>
-</div>
-<div class="entry">
-<p class="meta"><span class="date">2007-09-14 18:33</span> - <em class="author">dsilvers</em> - <small class="files"><a href="http://svn.semichrome.net/trunk/netsurf/gtk/gtk_scaffolding.c">trunk/netsurf/gtk/gtk_scaffolding.c</a>, <a href="http://svn.semichrome.net/trunk/netsurf/desktop/browser.c">trunk/netsurf/desktop/browser.c</a>, <a href="http://svn.semichrome.net/trunk/netsurf/makefile">trunk/netsurf/makefile</a>, <a href="http://svn.semichrome.net/trunk/netsurf/desktop/gesture_core.c">trunk/netsurf/desktop/gesture_core.c</a>, <a href="http://svn.semichrome.net/trunk/netsurf/desktop/browser.h">trunk/netsurf/desktop/browser.h</a>, <a href="http://svn.semichrome.net/trunk/netsurf/desktop/gesture_core.h">trunk/netsurf/desktop/gesture_core.h</a></small></p>
-<p class="msg">Remove the old and crap gesture core</p>
-</div>
-<div class="entry">
-<p class="meta"><span class="date">2007-09-14 18:22</span> - <em class="author">rjek</em> - <small class="files"><a href="http://svn.semichrome.net/trunk/netsurf/image/mng.c">trunk/netsurf/image/mng.c</a></small></p>
-<p class="msg">NetBSD doesn't have the timezone struct, either.</p>
-</div>
-<div class="entry">
-<p class="meta"><span class="date">2007-08-29 00:27</span> - <em class="author">jmb</em> - <small class="files"><a href="http://svn.semichrome.net/trunk/netsurf/riscos/url_complete.c">trunk/netsurf/riscos/url_complete.c</a></small></p>
-<p class="msg">Probably fix crash on clicking in url completion dialogue.
-URL completion really needs revisiting, as it's full of side effects and has weird and wonderful interactions with other parts of the system.
-</p>
-</div>
-</div>
+
 
 <div class="footer">
 <p>Copyright 2003 - 2008 The NetSurf Developers</p>

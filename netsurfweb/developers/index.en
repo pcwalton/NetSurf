@@ -95,30 +95,7 @@
 <h2>Recent changes</h2>
 
 <p>All times are in UTC.</p>
-<div class="changelog">
-<div class="entry">
-<p class="meta"><span class="date">2007-09-17 14:53</span> - <em class="author">jmb</em> - <a href="http://source.netsurf-browser.org/trunk/dom/bindings/xml/xmlparser.c?rev=3545&view=rev">r3545</a></p>
-<p class="msg">Fix handling of backgrounds on &lt;body&gt; and &lt;html&gt;
-</p>
-</div>
-<div class="entry">
-<p class="meta"><span class="date">2007-09-17 00:12</span> - <em class="author">jmb</em> - <a href="http://source.netsurf-browser.org/trunk/dom/bindings/xml/xmlparser.c?rev=3544&view=rev">r3544</a></p>
-<p class="msg">Fix potential segfaults
-</p>
-</div>
-<div class="entry">
-<p class="meta"><span class="date">2007-09-17 00:12</span> - <em class="author">jmb</em> - <a href="http://source.netsurf-browser.org/trunk/dom/bindings/xml/xmlparser.c?rev=3543&view=rev">r3543</a></p>
-<p class="msg">Implement xml-binding-specific dom_implementation_create_document
-</p>
-</div>
-<div class="entry">
-<p class="meta"><span class="date">2007-09-16 17:02</span> - <em class="author">jmb</em> - <a href="http://source.netsurf-browser.org/trunk/dom/bindings/xml/xmlparser.c?rev=3540&view=rev">r3540</a></p>
-<p class="msg">Add callback for informational messaging (with variable severity, a la syslog)
-Use it to log interesting things during parsing. 
-This needs to grow some i18n at some point.
-</p>
-</div>
-</div>
+
 
 <h2>Contact the other developers</h2>
 
