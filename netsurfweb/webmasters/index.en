@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+        "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>NetSurf | Webmaster area</title>
+<link rel="stylesheet" type="text/css" href="/netsurf.css">
+</head>
+
+<body>
+<p class="banner"><a href="/"><img src="/netsurf.png" alt="NetSurf"></a></p>
+
+<div class="navigation">
+<div class="navsection">
+<ul>
+<li><a href="/about/">About NetSurf</a></li>
+<li><a href="/downloads/">Downloads</a></li>
+<li><a href="/documentation/">Documentation</a></li>
+<li><a href="/developers/">Development area</a></li>
+<li><a href="/webmasters/">Webmaster area</a></li>
+<li><a href="/contact/">Contact</a></li>
+</ul>
+</div>
+
+<div class="navsection">
+<ul class="languages">
+<!--<li><a href="index.de">Deutsch</a></li>-->
+<li>English</li>
+<!--<li><a href="index.fr">Français</a></li>-->
+<!--<li><a href="index.nl">Nederlands</a></li>-->
+</ul>
+</div>
+
+</div>
+
+<div class="content">
+
+<p class="breadcrumbs"><a href="/">Home</a> » Webmaster area</p>
+
+<h1>Webmaster area</h1>
+
+<p>This page is for webmasters who want to find out about NetSurf. Perhaps you've seen NetSurf in your server logs and want to know more, or maybe users of your web site have commented on some accessibility issue with NetSurf.</p>
+
+<h2>What is NetSurf?</h2>
+
+<p>NetSurf is a web browser, like Firefox, Internet Explorer and Safari. It is small and fast, so it is used mostly on slower systems, with little memory. You can see <a href="/about/screenshots/">screenshots</a> of NetSurf in action in the <a href="/about/">About NetSurf</a> section.</p>
+
+<h2>Standards compliance</h2>
+
+<p>NetSurf is aiming for complete standards compliance. You can get some idea of what NetSurf is currently capable of from the <a href="/documentation/progress">progress page</a>.</p>
+
+<p>You should note that NetSurf does not yet support JavaScript, so any JavaScript dependent parts of your site will be inaccessible to NetSurf users. You can test the functionality of your site without JavaScript in more mainstream browsers for by temporarily disabling JavaScript in your browser.</p>
+
+<h2>NetSurf's User-Agent string</h2>
+
+<p>You can tell if people visit your site using NetSurf by looking for NetSurf's User-Agent string in your server logs. NetSurf's User-Agent string takes the following form:</p>
+
+<pre class="example">NetSurf/[version] ([operating system]; [CPU architecture])</pre>
+
+<p>So, for example, NetSurf 1.1 running on a RISC OS Iyonix would give,</p>
+
+<pre class="example">NetSurf/1.1 (RISC OS; armv5l)</pre>
+
+<p>and NetSurf 1.1 running on an Ubuntu Linux machine might give,</p>
+
+<pre class="example">NetSurf/1.1 (Linux; i686)</pre>
+
+
+
+<div class="footer">
+<p>Copyright 2003 - 2008 The NetSurf Developers</p>
+</div>
+
+</div>
+
+
+<form>
+<div class="searchbox">
+<input type="text"><br>
+<input type="submit" value="Search">
+</div>
+</form>
+
+</body>
+</html>

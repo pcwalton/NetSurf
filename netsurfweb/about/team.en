@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+        "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>NetSurf | Development Team</title>
+<link rel="stylesheet" type="text/css" href="/netsurf.css">
+</head>
+
+<body>
+<p class="banner"><a href="/"><img src="/netsurf.png" alt="NetSurf"></a></p>
+
+<div class="navigation">
+<div class="navsection">
+<ul>
+<li><a href="/about/">About NetSurf</a>
+<ul>
+<li><a href="/about/news">News</a></li>
+<li><a href="/about/screenshots">Screenshots</a></li>
+<li><a href="/about/team">Team</a></li>
+<li><a href="/about/awards">Awards</a></li>
+</ul>
+</li>
+<li><a href="/downloads/">Downloads</a></li>
+<li><a href="/documentation/">Documentation</a></li>
+<li><a href="/developers/">Development area</a></li>
+<li><a href="/webmasters/">Webmaster area</a></li>
+<li><a href="/contact/">Contact</a></li>
+</ul>
+</div>
+
+<div class="navsection">
+<ul class="languages">
+<!--<li><a href="index.de">Deutsch</a></li>-->
+<li>English</li>
+<!--<li><a href="index.fr">Français</a></li>-->
+<!--<li><a href="index.nl">Nederlands</a></li>-->
+</ul>
+</div>
+
+</div>
+
+<div class="content">
+
+<p class="breadcrumbs"><a href="/">Home</a> » <a href="/about/">About NetSurf</a> » Team</p>
+
+<h1>NetSurf's Development Team</h1>
+
+<h2>James Bursa</h2>
+
+<ul>
+<li>First check in: 22 April 2002</li>
+<li>IRC name: zamez, SVN name: bursa</li>
+</ul>
+
+<h2>John-Mark Bell</h2>
+
+<p>John-Mark spends most of his time avoiding the layout engine, as he thinks that overexposure to it will result in the early onset of dementia. Over the years, he has contributed to a number of areas of NetSurf &ndash; particularly anything that doesn't involve touching any user interface code. He has also spent a great deal of time tracking down and fixing Richard's bugs.</p>
+
+<p>In the past, most of his development work was undertaken on an Iyonix, using a Linux desktop running Debian for compilation purposes. Nowadays, development occurs on the Linux desktop using RPCemu for testing purposes.</p>
+
+<ul>
+<li>First check in: 25 May 2003</li>
+<li>IRC name: jmb, SVN name: jmb</li>
+</ul>
+
+<h2>Michael Drake</h2>
+
+<p>Michael contributes to several areas of the project: testing, documentation, the project web site and graphics work. He designs promotional material such as posters and banners, as well as icons for use within NetSurf itself. Michael also likes to be involved with planning the design of NetSurf's user interface. Very occasionally he pokes little bits of NetSurf's code under careful supervision of the project's experienced programmers.</p>
+
+<p>Michael uses an Iyonix for most of his work on the NetSurf project. He also has a VirtualRPC Laptop for testing on RISCOS Ltd's brand of RISC OS and an Ubuntu machine for playing with nsgtk.</p>
+
+<ul>
+<li>First check in: 26 September 2003</li>
+<li>IRC name: tlsa, SVN name: tlsa</li>
+</ul>
+
+<h2>Richard Wilson</h2>
+
+<p>When he finds time away from his day job as an international man of mystery, Richard enjoys flailing his arms towards a keyboard and trying to make NetSurf as beautiful as the contours of a Cuban virgin's thighs.</p>
+
+<p>He is responsible for implementing various sections of NetSurf &ndash; the ones he'll admit to include GIF, BMP and ICO support, the current frames implementation, minor sections of the CSS and layout code, the hotlist and global history, toolbars and themes, URL auto-completion, buffered rendering, interactive help, the RISC OS GUI and image rendering code, RISC&nbsp;OS image virtual memory / compression, and probably 90% of the bugs.</p>
+
+<p>Unfortunately Richard has had precious little time for development work recently, but an aged RiscPC is his partner when he does.</p>
+
+<ul>
+<li>First check in: 9 March 2004</li>
+<li>IRC name: rjwii, SVN name: rjw</li>
+</ul>
+
+<h2>Adrian Lees</h2>
+
+<ul>
+<li>First check in: 25 March 2005</li>
+<li>IRC name: adrianl, SVN name: adrianl</li>
+</ul>
+
+<h2>Daniel Silverstone</h2>
+
+<ul>
+<li>First check in: 9 March 2006</li>
+<li>IRC name: Kinnison, SVN name: dsilvers</li>
+</ul>
+
+<h2>Rob Kendrick</h2>
+
+<p>Rob contributes mainly to the GTK port of NetSurf, and helping with general portability issues between platforms.  He wrote the Cairo rendering back end which gives the GTK port anti-aliased rendering, as well as devising the new themes format.  Also some other minor contributions to the main base of the code.</p>
+
+<p>Rob does most of his development work on his Linux desktop running Ubuntu, and also makes extensive use of an A9 Home for testing.  He also helps maintain the server that hosts the project's web site and mailing lists.</p>
+
+<ul>
+<li>First check in: 13 March 2006</li>
+<li>IRC name: rjek, SVN name: rjek</li>
+</ul>
+
+
+<div class="footer">
+<p>Copyright 2003 - 2008 The NetSurf Developers</p>
+</div>
+
+</div>
+
+
+<form>
+<div class="searchbox">
+<input type="text"><br>
+<input type="submit" value="Search">
+</div>
+</form>
+
+</body>
+</html>

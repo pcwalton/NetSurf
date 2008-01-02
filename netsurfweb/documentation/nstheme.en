@@ -1,0 +1,147 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+        "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>NetSurf | Documentation</title>
+<link rel="stylesheet" type="text/css" href="/netsurf.css">
+</head>
+
+<body>
+<p class="banner"><a href="/"><img src="/netsurf.png" alt="NetSurf"></a></p>
+
+<div class="navigation">
+<div class="navsection">
+<ul>
+<li><a href="/about/">About NetSurf</a></li>
+<li><a href="/downloads/">Downloads</a></li>
+<li><a href="/documentation/">Documentation</a>
+<ul>
+<li><a href="/documentation/info">User info</a></li>
+<li><a href="/documentation/guide">User guide</a></li>
+<li><a href="/documentation/progress">Project progress</a></li>
+<li><a href="/documentation/develop">Developer info</a></li>
+</ul>
+</li>
+<li><a href="/developers/">Development area</a></li>
+<li><a href="/webmasters/">Webmaster area</a></li>
+<li><a href="/contact/">Contact</a></li>
+</ul>
+</div>
+
+<div class="navsection">
+<ul class="languages">
+<!--<li><a href="index.de">Deutsch</a></li>-->
+<li>English</li>
+<!--<li><a href="index.fr">Français</a></li>-->
+<!--<li><a href="index.nl">Nederlands</a></li>-->
+</ul>
+</div>
+
+</div>
+
+<div class="content">
+
+<p class="breadcrumbs"><a href="/">Home</a> » <a href="/documentation/">Documentation</a> » Creating themes</p>
+
+<h1>Creating Themes</h1>
+
+<p>This document is a brief guide to creating themes for use with NetSurf and packaging them with NSTheme. It is split up into the following sections:</p>
+
+<ul>
+<li><a href="#Overview">Overview</a></li>
+<li><a href="#Sprites">Sprites</a></li>
+<li><a href="#NSTheme">Using NSTheme</a></li>
+<li><a href="#Distribution">Distribution</a></li>
+</ul>
+
+<p class="updated">Last updated 22 March 2005</p>
+
+<h2 id="Overview">Overview</h2>
+
+<p>A theme contains a set of sprites for NetSurf's toolbar icons and some further information about the theme, such as the background colour of the toolbar and the theme name. NSTheme is an application that loads the sprites, allows the additional information to be set and then packages the theme into a single file for distribution.</p>
+
+<h2 id="Sprites">Sprites</h2>
+
+<p>A theme contains a number of sprites; two for each button, a single separator sprite and extra sprites for the throbber animation. These sprites are to be grouped into a single sprite file and each sprite must be given a certain name, so that they can be attributed to the correct button.</p>
+
+<p>The toolbar buttons and the matching sprite names are listed below.</p>
+
+<table class="toolbarsprites">
+<tr><th colspan="2">Browser Window</th></tr>
+<tr><th>Button</th><th>Sprite name</th></tr>
+<tr><td>Back</td><td>back</td></tr>
+<tr><td>Forward</td><td>forward</td></tr>
+<tr><td>History</td><td>history</td></tr>
+<tr><td>Home</td><td>home</td></tr>
+<tr><td>Hotlist</td><td>hotlist</td></tr>
+<tr><td>Print</td><td>print</td></tr>
+<tr><td>Reload</td><td>reload</td></tr>
+<tr><td>Save</td><td>save</td></tr>
+<tr><td>Scale View</td><td>scale</td></tr>
+<tr><td>Search / Find Text</td><td>search</td></tr>
+<tr><td>Stop</td><td>stop</td></tr>
+<tr><td>Up</td><td>up</td></tr>
+</table>
+
+<table class="toolbarsprites">
+<tr><th colspan="2">Hotlist Window</th></tr>
+<tr><th>Button</th><th>Sprite name</th></tr>
+<tr><td>Create Directory</td><td>create</td></tr>
+<tr><td>Delete Selection</td><td>delete</td></tr>
+<tr><td>Launch Selection</td><td>launch</td></tr>
+<tr><td>Open Directory</td><td>open</td></tr>
+<tr><td>Expand Addresses</td><td>expand</td></tr>
+</table>
+
+<table class="toolbarsprites">
+<tr><th colspan="2">Global History Window</th></tr>
+<tr><th>Button</th><th>Sprite name</th></tr>
+<tr><td>Delete Selection</td><td>delete</td></tr>
+<tr><td>Launch Selection</td><td>launch</td></tr>
+<tr><td>Open Directory</td><td>open</td></tr>
+<tr><td>Expand Addresses</td><td>expand</td></tr>
+</table>
+
+<p>Each button has a sprite for its pressed and unpressed states. The pressed sprites are preceded with the letter 'p'. For the Save button, there will be both 'save' and 'psave' sprites.</p>
+
+<p>A sprite named 'separator' is used to separate groups of icons on the toolbar and the throbber is made up of any number of sprites named 'throbber0' to 'throbberN'. When NetSurf is inactive, 'throbber0' is displayed and when it is active, the throbber animation loops through 'throbber1' to 'throbberN'.</p>
+
+<p>For a five frame animation, there would be five sprites named 'throbber1' to 'throbber5' plus the inactive sprite, 'throbber0'.</p>
+
+<p>The sprites can have any dimensions and if some sprites are larger than others, NetSurf will centre the smaller ones on the toolbar automatically.</p>
+
+<h2 id="NSTheme">Using NSTheme</h2>
+
+<p>NSTheme's user interface should be fairly self explanatory and interactive help is available throughout the application. An existing theme can be loaded by dragging it to the NSTheme window. To create a new theme, drag a sprite file to NSTheme. Theme name and author information can be entered or altered with writable icons.</p>
+
+<p>Tick &quot;Left align throbber&quot; if you want the throbber to appear at the left of the toolbar. If un-ticked, the throbber will be displayed at the right. If your throbber animation uses a mask that moves from frame to frame, tick &quot;Redraw every frame&quot;, which clears the previous frame of amimation before plotting the new one on top. Leave &quot;Redraw every frame&quot; un-ticked if the throbber doesn't feature a moving mask as this feature can make the throbber flicker while it animates.</p>
+
+<p>The <em>Generate report</em> button warns of any problems with the theme. For example, if no sprites have been loaded it will report, &quot;No sprite file present&quot;. If a sprite file is loaded but the pressed Save button is missing, it will report, &quot;Sprite 'psave' (browser save icon (pushed)) is missing&quot;. The <em>Remove sprites</em> button removes any sprites that had been loaded into the program.</p>
+
+<p class="note">Sprites can be extracted from an existing theme with the Export option on the NSTheme window menu. When creating a new theme it may be helpful to extract the sprite file from the supplied theme (<code>!NetSurf.Resources.Theme</code>) and replace these sprites with your own.</p>
+
+<p>In the colours section, the background colours for the browser window toolbar, the hotlist toolbar and the browser window's status bar can be configured, along with the colour of text displayed in the status bar.</p>
+
+<p>To save a finished theme, use the save option in the NSTheme window menu. Once a theme file has been created, it must be placed in <code>Choices:WWW.NetSurf.Themes</code> to be found by NetSurf.</p>
+
+<h2 id="Distribution">Distribution</h2>
+
+<p>Completed themes can be submitted for inclusion on NetSurf's <a href="index">themes page</a>. They are served as <code>Content-Type: application/x-netsurf-theme</code> which NetSurf recognizes and installs as themes.</p>
+
+
+<div class="footer">
+<p>Copyright 2003 - 2008 The NetSurf Developers</p>
+</div>
+
+</div>
+
+
+<form>
+<div class="searchbox">
+<input type="text"><br>
+<input type="submit" value="Search">
+</div>
+</form>
+
+</body>
+</html>

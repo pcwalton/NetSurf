@@ -1,0 +1,155 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+        "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>NetSurf | Developers and Contributors</title>
+<link rel="stylesheet" type="text/css" href="/netsurf.css">
+</head>
+
+<body>
+<p class="banner"><a href="/"><img src="/netsurf.png" alt="NetSurf"></a></p>
+
+<div class="navigation">
+<div class="navsection">
+<ul>
+<li><a href="/about/">About NetSurf</a></li>
+<li><a href="/downloads/">Downloads</a></li>
+<li><a href="/documentation/">Documentation</a></li>
+<li><a href="/developers/">Development area</a>
+<ul>
+<li><a href="/developers/contribute">Contribution</a></li>
+</ul>
+</li>
+<li><a href="/webmasters/">Webmaster area</a></li>
+<li><a href="/contact/">Contact</a></li>
+</ul>
+</div>
+
+<div class="navsection">
+<ul class="languages">
+<!--<li><a href="index.de">Deutsch</a></li>-->
+<li>English</li>
+<!--<li><a href="index.fr">Français</a></li>-->
+<!--<li><a href="index.nl">Nederlands</a></li>-->
+</ul>
+</div>
+
+</div>
+
+<div class="content">
+
+<p class="breadcrumbs"><a href="/">Home</a> » Developer area</p>
+
+<h1>Developer and Contributor Area</h1>
+
+<p>People ask us how they can help the NetSurf project. This section of the site is here to help people contribute to the project. You should be able to find all you need here. If not, please <a href="/contact/">contact us</a>!</p>
+
+<div class="leftcol">
+
+<h2>Contributing to NetSurf</h2>
+
+<p>Everyone is very welcome to help NetSurf! There are all sorts of ways to contribute to the project.</p>
+
+<dl>
+<dt>Publicity</dt>
+<dd>Help spread the word! NetSurf needs user, contributor and developer participation to stay vibrant.</dd>
+<dt>Provide feedback</dt>
+<dd>If you'd like to be involved in the future direction of NetSurf's development you can help by making feature requests and bug reports. Discussion of what you like and dislike about NetSurf is useful to the developers.</dd>
+<dt>Non-programming contribution</dt>
+<dd>If you'd like to contribute directly to the project but can't program, there are still many ways for you to participate. Details in the <a href="contribute">contribution guide</a>.</dd>
+<dt>Programming</dt>
+<dd>If you can program then you are welcome to join the developers! If there's some aspect you'd like to improve, or feature you'd like to implement, contact us via the developer mailing list or on IRC and go from there.</dd>
+</dl>
+
+<p>Take a look at the <a href="contribute">contribution guide</a> for more ideas and information.</p>
+
+<h2>Run bleeding edge NetSurf</h2>
+
+<p>The most important way though which NetSurf users can contribute to the NetSurf project is by regularly testing the current development builds and providing feedback.</p>
+
+<p>RISC OS users can download a precompiled test build, which can be installed run in exactly the same way as NetSurf releases. Users of other platforms can obtain the latest source code and follow the simple compilation instructions.</p>
+
+<p>Once running the latest build you can browse the web as normal and let us know if you run into problems. Does the browser crash? Can you reproduce the crash? Did it crash at a specific site? What was the URL? Do you like the new features of the development build? How could NetSurf's interface be improved? These and more are the sorts of questions we're interested in your answers to. Our goal is to make NetSurf a piece of software everyone loves to use, and to do that we need your input!</p>
+
+<p>The NetSurf documentation contains guidelines for <a href="/documentation/info#FeatureRequests">making feature requests</a> and <a href="/documentation/info#Bugs">reporting bugs</a>.</p>
+
+<h2>Porting NetSurf</h2>
+
+<p>We are always interested to hear from people porting NetSurf to different hardware or operating systems. If you are keen to port NetSurf to a new platform please get in touch. NetSurf's developers are keen to ensure NetSurf is highly portable, so feedback is appreciated.</p>
+
+<p>We would be especially interested in hearing from anyone who could implement the NetSurf user interface under Windows.</p>
+
+</div>
+
+<div class="rightcol">
+<div>
+
+<h2>Getting NetSurf source code</h2>
+
+<p>The source is kept in a Subversion repository. To check the latest source out use the command provided in the <a href="/documentation/develop#Subversion">developer documentation</a>.</p>
+
+<p>Instructions for <a href="http://source.netsurf-browser.org/*checkout*/trunk/netsurf/Docs/BUILDING-GTK">building the GTK version</a> will be checked out with the source code. A guide to <a href="/documentation/robuild">building NetSurf on RISC OS</a> can be found in the documentation section of the web site.</p>
+
+<p>It is also possible to browse the source online via the <a href="http://source.netsurf-browser.org/trunk/netsurf/">web interface</a>.</p>
+
+<h2>Recent changes</h2>
+
+<p>All times are in UTC.</p>
+<div class="changelog">
+<div class="entry">
+<p class="meta"><span class="date">2007-09-17 14:53</span> - <em class="author">jmb</em> - <a href="http://source.netsurf-browser.org/trunk/dom/bindings/xml/xmlparser.c?rev=3545&view=rev">r3545</a></p>
+<p class="msg">Fix handling of backgrounds on &lt;body&gt; and &lt;html&gt;
+</p>
+</div>
+<div class="entry">
+<p class="meta"><span class="date">2007-09-17 00:12</span> - <em class="author">jmb</em> - <a href="http://source.netsurf-browser.org/trunk/dom/bindings/xml/xmlparser.c?rev=3544&view=rev">r3544</a></p>
+<p class="msg">Fix potential segfaults
+</p>
+</div>
+<div class="entry">
+<p class="meta"><span class="date">2007-09-17 00:12</span> - <em class="author">jmb</em> - <a href="http://source.netsurf-browser.org/trunk/dom/bindings/xml/xmlparser.c?rev=3543&view=rev">r3543</a></p>
+<p class="msg">Implement xml-binding-specific dom_implementation_create_document
+</p>
+</div>
+<div class="entry">
+<p class="meta"><span class="date">2007-09-16 17:02</span> - <em class="author">jmb</em> - <a href="http://source.netsurf-browser.org/trunk/dom/bindings/xml/xmlparser.c?rev=3540&view=rev">r3540</a></p>
+<p class="msg">Add callback for informational messaging (with variable severity, a la syslog)
+Use it to log interesting things during parsing. 
+This needs to grow some i18n at some point.
+</p>
+</div>
+</div>
+
+<h2>Contact the other developers</h2>
+
+<p>If you want to contribute to NetSurf, the best thing to do is to get in touch with the developers. NetSurf's core development team communicate a great deal via <a href="/contanct/#IRCChannel">IRC</a> and also via the <a href="/contanct/#MailingLists">developer's mailing list</a>.</p>
+
+<p>If you speak with the developers, you may find someone has already started what you intend to do or already put considerable thought into how to do it.</p>
+
+<h2>General information</h2>
+
+<p>We intend to make new major releases of NetSurf every year or so. These will happen when there are enough new features in the development versions to justify a new release. Prior to releases, addionion of new features will be haulted, and only bugfixes will occur. Once NetSurf is sufficiently stable and The development version of NetSurf contains features that have not yet been released in release versions of NetSurf.</p>
+
+<p>The <a href="/documentation/progress">progress page</a> gives an indication of the current status of NetSurf's features.</p>
+
+</div>
+</div>
+
+
+
+<div class="footer">
+<p>Copyright 2003 - 2008 The NetSurf Developers</p>
+</div>
+
+</div>
+
+
+<form>
+<div class="searchbox">
+<input type="text"><br>
+<input type="submit" value="Search">
+</div>
+</form>
+
+</body>
+</html>

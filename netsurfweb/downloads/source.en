@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+        "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>NetSurf | Source Code</title>
+<link rel="stylesheet" type="text/css" href="/netsurf.css">
+</head>
+
+<body>
+<p class="banner"><a href="/"><img src="/netsurf.png" alt="NetSurf"></a></p>
+
+<div class="navigation">
+<div class="navsection">
+<ul>
+<li><a href="/about/">About NetSurf</a></li>
+<li><a href="/downloads/">Downloads</a>
+<ul>
+<li><a href="/downloads/testbuilds">Test builds</a></li>
+<li><a href="/downloads/packages">Packages</a></li>
+<li><a href="/downloads/source">Source</a></li>
+<li><a href="/downloads/extras">Extras</a></li>
+</ul>
+</li>
+<li><a href="/documentation/">Documentation</a></li>
+<li><a href="/developers/">Development area</a></li>
+<li><a href="/webmasters/">Webmaster area</a></li>
+<li><a href="/contact/">Contact</a></li>
+</ul>
+</div>
+
+<div class="navsection">
+<ul class="languages">
+<!--<li><a href="index.de">Deutsch</a></li>-->
+<li>English</li>
+<!--<li><a href="index.fr">Français</a></li>-->
+<!--<li><a href="index.nl">Nederlands</a></li>-->
+</ul>
+</div>
+
+</div>
+
+<div class="content">
+
+<p class="breadcrumbs"><a href="/">Home</a> » <a href="/downloads/">Downloads</a> » Source code</p>
+
+<h1>NetSurf Source Code</h1>
+
+<p>NetSurf's source code is stored in a Subversion (SVN) repository. <strong>The best way to obtain the latest source code is to check it out of SVN.</strong> To do so, run the following command:</p>
+
+<p><code>$ svn co svn://svn.netsurf-browser.org/trunk/netsurf</code></p>
+
+<p>The latest source code can also be viewed via a <a href="http://source.netsurf-browser.org/trunk/netsurf">web interface</a>.</p>
+
+<p>If you don't have Subversion, the latest source can be downloaded here.</p>
+
+<ul class="developmentbuilds">
+<li><a href="development/netsurf.tar.gz">SVN source code (rXXXX)</a> <span>1.0MB</span> <span>17 Sep 2007 15:00 UTC</span></li>
+</ul>
+
+<p>The source code for each release version of NetSurf is available on the main <a href="/downloads/">downloads page</a>.</p>
+
+<h2 id="BuildInstructions">Build Instructions</h2>
+
+<p>There are two versions of NetSurf: NetSurf for RISC OS and GTK NetSurf (often referred to as nsgtk).</p>
+
+<h3>Unix-like platforms</h3>
+<p>Users of Unix-like platforms, including Linux, should follow the build instructions provided in the <a href="http://source.netsurf-browser.org/*checkout*/trunk/netsurf/Docs/BUILDING-GTK"><code>Docs/BUILDING-GTK</code></a> file. This can be found in the source tree or viewed in the SVN web interface.</p>
+
+<h3>RISC OS</h3>
+<p>RISC OS users should consult the <a href="/documentation/robuild">build instructions</a> in the <a href="/documentation">documentation</a>.</p>
+
+<div class="footer">
+<p>Copyright 2003 - 2008 The NetSurf Developers</p>
+</div>
+
+</div>
+
+
+<form>
+<div class="searchbox">
+<input type="text"><br>
+<input type="submit" value="Search">
+</div>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+        "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>NetSurf | Developers and Contributors</title>
+<link rel="stylesheet" type="text/css" href="/netsurf.css">
+</head>
+
+<body>
+<p class="banner"><a href="/"><img src="/netsurf.png" alt="NetSurf"></a></p>
+
+<div class="navigation">
+<div class="navsection">
+<ul>
+<li><a href="/about/">About NetSurf</a></li>
+<li><a href="/downloads/">Downloads</a></li>
+<li><a href="/documentation/">Documentation</a></li>
+<li><a href="/developers/">Development area</a>
+<ul>
+<li><a href="/developers/contribute">Contribution</a></li>
+</ul>
+</li>
+<li><a href="/webmasters/">Webmaster area</a></li>
+<li><a href="/contact/">Contact</a></li>
+</ul>
+</div>
+
+<div class="navsection">
+<ul class="languages">
+<!--<li><a href="index.de">Deutsch</a></li>-->
+<li>English</li>
+<!--<li><a href="index.fr">Français</a></li>-->
+<!--<li><a href="index.nl">Nederlands</a></li>-->
+</ul>
+</div>
+
+</div>
+
+<div class="content">
+
+<p class="breadcrumbs"><a href="/">Home</a> » Developer area » Contribution guide</p>
+
+<h1>Contribution Guide</h1>
+
+<p>People ask us how they can help the NetSurf project. This section of the site is here to help people contribute to the project. You should be able to find all you need here. If not, please <a href="/contact/">contact us</a>!</p>
+
+<h2>Contributing to NetSurf</h2>
+
+<p>NetSurf is open for anyone to contribute to. Everyone is very welcome to help! There are all sorts of ways to contribute to the project. For some ideas, see the list below:</p>
+
+<dl>
+<dt>Publicity</dt>
+<dd>
+<p>Help tell people about NetSurf.</p>
+<ul>
+<li>If you have a web site, you could add a link to the NetSurf page. Such as
+<div class="example"><pre>&lt;a href=&quot;http://www.netsurf-browser.org/&quot;&gt;NetSurf Web Browser&lt;/a&gt;</pre></div>
+Which appears as: <a href="http://www.netsurf-browser.org/">NetSurf Web Browser</a>.</li>
+<li>A selection of adverts are available for use in magazines, pamphlets and on web sites. See the <a href="publicity">publicity page</a> for more information.</li>
+</ul>
+</dd>
+<dt>Provide feedback</dt>
+<dd>
+<p>We need to know what you think about NetSurf, if we are to develop a web browser people enjoy using.</p>
+<ul>
+<li>Report any bugs you find.</li>
+<li>Request the features you want.</li>
+<li>Discuss your opinions of NetSurf on the mailing list.</li>
+<li>Run the bleeding edge version of NetSurf to provide the most helpful feedback to developers.</li>
+</ul>
+</dd>
+<dt>Non-programming contribution</dt>
+<dd>
+<p>If you want to contribute to the project directly but are unable to program, there are still many ways for you to help.</p>
+<ul>
+<li>Translation of NetSurf and the NetSurf web site into other languages.</li>
+<li>Creation of new themes.</li>
+<li>Help with Templates design.</li>
+<li>Help answer peoples questions on the mailing lists, if you know the answer.</li>
+</ul>
+</dd>
+<dt>Programming</dt>
+<dd>
+<p>NetSurf's developers have limited time to work on the project. If you are a capable programmer there are all sorts of ways you could help the project.</p>
+<ul>
+<li>Help with the core of NetSurf: Fetching, Layout, etc.</li>
+<li>Help improve the RISC OS user interface.</li>
+<li>Help improve the GTK user interface.</li>
+<li>Submit patches for bugs.</li>
+<li>Submit patches to implement features you want.</li>
+</ul>
+</dd>
+</dl>
+
+<p>If you want to help, <a href="/contact/">get in touch</a>!</p>
+
+
+
+<div class="footer">
+<p>Copyright 2003 - 2008 The NetSurf Developers</p>
+</div>
+
+</div>
+
+
+<form>
+<div class="searchbox">
+<input type="text"><br>
+<input type="submit" value="Search">
+</div>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+        "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>NetSurf | About NetSurf</title>
+<link rel="stylesheet" type="text/css" href="/netsurf.css">
+</head>
+
+<body>
+<p class="banner"><a href="/"><img src="/netsurf.png" alt="NetSurf"></a></p>
+
+<div class="navigation">
+<div class="navsection">
+<ul>
+<li><a href="/about/">About NetSurf</a>
+<ul>
+<li><a href="/about/news">News</a></li>
+<li><a href="/about/screenshots">Screenshots</a></li>
+<li><a href="/about/team">Team</a></li>
+<li><a href="/about/awards">Awards</a></li>
+</ul>
+</li>
+<li><a href="/downloads/">Downloads</a></li>
+<li><a href="/documentation/">Documentation</a></li>
+<li><a href="/developers/">Development area</a></li>
+<li><a href="/webmasters/">Webmaster area</a></li>
+<li><a href="/contact/">Contact</a></li>
+</ul>
+</div>
+
+<div class="navsection">
+<ul class="languages">
+<!--<li><a href="index.de">Deutsch</a></li>-->
+<li>English</li>
+<!--<li><a href="index.fr">Français</a></li>-->
+<!--<li><a href="index.nl">Nederlands</a></li>-->
+</ul>
+</div>
+
+</div>
+
+<div class="content">
+
+<p class="breadcrumbs"><a href="/">Home</a> » About NetSurf</p>
+
+<h1>About NetSurf</h1>
+
+<p>NetSurf is a free, open source web browser. It is written in C and released under the GNU Public Licence version 2. NetSurf has its own layout and rendering engine entirely written from scratch. It is small and capable of handling many of the web standards in use today.</p>
+
+<h2 id="ProjectGoals">Project Goals</h2>
+
+<p>The NetSurf projects goals and aims are:</p>
+
+<dl class="projectgoals">
+<dt>Have fun</dt>
+<dd>NetSurf is developed in people's spare time, so our main goal is to have fun &ndash; hopefully learning something and creating a product that people find useful along the way. If you want to join in, check out the <a href="/developer/">developer and contributor area</a>!</dd>
+<dt>Adhere to the standards</dt>
+<dd>There are many web standards. HTTP, HTML and CSS are just a few of them, and new specifications appearing all the time. The NetSurf team is devoted to implementing these standards.</dd>
+<dt>Superior user experience</dt>
+<dd>We want NetSurf to provide a consistent interface to the user that fits right in with your desktop environment. We aim to make NetSurf's interface clean and simple while providing access to powerful functionality.</dd>
+<dt>Keep NetSurf small</dt>
+<dd>NetSurf is a web browser with a small footprint, and we want to keep it that way.</dd>
+<dt>Portability</dt>
+<dd>We want NetSurf to be available to as many users as possible. We've already seen ports to handheld devices and would like to help anyone attempting a new port.</dd>
+<dt>Modularity</dt>
+<dd>Many of of the components designed for NetSurf are available separately, so that others might use them in their own projects.</dd>
+</dl>
+
+<h2>Want to help?</h2>
+
+<p>The NetSurf project needs help and input if it is to keep moving forward. There are many ways for users to contribute to the NetSurf project. One of the simplest is to try the latest development build regularly. If you find any bugs, features you like or changes you don't like you can give feedback to the developers. It is this valuable feedback that helps shape NetSurf into a program people enjoy using.</p>
+
+<p>Visit the &quot;<a href="/developers/contribute">How can I help?</a>&quot; page to see other ideas for contributing to the project. If you can program and you'd like to improve NetSurf, then we'd love to hear from you. Pick an area you'd like to improve or a feature you want to add and <a href="/contact/">contact the developers</a>. Also, take a look at the <a href="/developer/">developer and contributor</a> area of this site.</p>
+
+<h2>Project History</h2>
+
+<p>The NetSurf project was started in April 2002 in response to a discussion of the deficiencies of the RISC OS browsers that were available at the time. NetSurf has been developed continuously since then with the latest features and bug fixes made available for download as soon as they're written.</p>
+
+<p>A GTK port was started in June 2004, which runs on Unix-like platforms. Initially this port was created in order to aid the development and testing of the RISC OS version. Over time, the GTK port has become a fully fledged part of the project and cemented NetSurf's commitment to portability.</p>
+
+<p>The first stable release of NetSurf was made on 19th May 2007 for both RISC OS and Unix-like platforms.</p>
+
+<div class="footer">
+<p>Copyright 2003 - 2008 The NetSurf Developers</p>
+</div>
+
+</div>
+
+
+<form>
+<div class="searchbox">
+<input type="text"><br>
+<input type="submit" value="Search">
+</div>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+        "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>NetSurf | Documentation</title>
+<link rel="stylesheet" type="text/css" href="/netsurf.css">
+</head>
+
+<body>
+<p class="banner"><a href="/"><img src="/netsurf.png" alt="NetSurf"></a></p>
+
+<div class="navigation">
+<div class="navsection">
+<ul>
+<li><a href="/about/">About NetSurf</a></li>
+<li><a href="/downloads/">Downloads</a></li>
+<li><a href="/documentation/">Documentation</a>
+<ul>
+<li><a href="/documentation/info">User info</a></li>
+<li><a href="/documentation/guide">User guide</a></li>
+<li><a href="/documentation/progress">Project progress</a></li>
+<li><a href="/documentation/develop">Developer info</a></li>
+</ul>
+</li>
+<li><a href="/developers/">Development area</a></li>
+<li><a href="/webmasters/">Webmaster area</a></li>
+<li><a href="/contact/">Contact</a></li>
+</ul>
+</div>
+
+<div class="navsection">
+<ul class="languages">
+<!--<li><a href="index.de">Deutsch</a></li>-->
+<li>English</li>
+<!--<li><a href="index.fr">Français</a></li>-->
+<!--<li><a href="index.nl">Nederlands</a></li>-->
+</ul>
+</div>
+
+</div>
+
+<div class="content">
+
+<p class="breadcrumbs"><a href="/">Home</a> » <a href="/documentation/">Documentation</a> » Developer information</p>
+
+<h1>Developer Information</h1>
+
+<p>This document contains various information for developers or anyone interested in contributing to NetSurf.</p>
+
+<ul>
+<li><a href="develop#Subversion">Source control</a></li>
+<li><a href="develop#Compiling">Compiling</a></li>
+<li><a href="develop#SourceDocumentation">Source documentation</a></li>
+<li><a href="develop#Communication">Communication</a></li>
+<li><a href="develop#Translations">Translations</a></li>
+</ul>
+
+<p class="updated">Last updated 11 November 2007</p>
+
+<h2 id="Subversion">Source control</h2>
+
+<p>The source is kept in a Subversion repository. To check the source out use the command:</p>
+
+<p><code>$ <strong>svn checkout svn://svn.netsurf-browser.org/trunk/netsurf</strong></code></p>
+
+<p>You can also browse the source via the <a href="http://source.netsurf-browser.org/trunk/netsurf/">web interface</a>.</p>
+
+<p>Recent changes can be seen on the <a href="http://netsurf-browser.org/builds/">autobuilder</a>. An an <a href="http://cia.navi.cx/stats/project/NetSurf/.rss">RSS feed</a> of recent changes is also provided by <a href="http://cia.navi.cx/stats/project/NetSurf/">CIA</a>. All checkins are reported on the <a href="/conatact#MailingLists">Commits mailing list</a>.</p>
+
+<p>Contact <a href="mailto:james&#64;semichrome.net">James</a> to get write access to the SVN repository.</p>
+
+
+<h2 id="Compiling">Compiling</h2>
+
+<p>The recommended compiler is GCC. A guide to <a href="robuild">building NetSurf on RISC OS</a> is available, as are instructions for <a href="http://source.netsurf-browser.org/*checkout*/trunk/netsurf/Docs/BUILDING-GTK">building the GTK version</a>. NetSurf can also be cross-compiled for RISC OS using <a href="http://gccsdk.riscos.info/">GCCSDK</a>.</p>
+
+<p>The <a href="http://netsurf-browser.org/builds/">autobuilder</a> compiles NetSurf every 15 minutes if changes have been checked into SVN.</p>
+
+<p>A debug version of NetSurf can be built. This is command-line only and does not include any GUI code. It runs natively on Linux so can be debugged and checked using gdb, efence, valgrind, etc.</p>
+
+<h3>Dependencies</h3>
+
+<p>In addition to the compiler, NetSurf requires a number of additional tools to be available. These are enumerated below. Additionally, the libraries which NetSurf uses are also listed</p>
+
+<h4>Tools</h4>
+<ul>
+<li>Lemon parser generator (<a href="http://www.hwaci.com/sw/lemon/">http://www.hwaci.com/sw/lemon/</a>)</li>
+<li>re2c lexer (<a href="http://re2c.org/">http://re2c.org/</a>)</li>
+</ul>
+
+<h4>Libraries</h4>
+<ul>
+<li>cAres &amp; cURL (<a href="http://curl.haxx.se/libcurl/">http://curl.haxx.se/libcurl/</a>)</li>
+<li>IJG JPEG library (<a href="http://www.ijg.org/">http://www.ijg.org/</a>)</li>
+<li>MNG decoding library (<a href="http://www.libmng.com/">http://www.libmng.com/</a>)</li>
+<li>OpenSSL (<a href="http://www.openssl.org/">http://www.openssl.org/</a>)</li>
+<li>libXML 2 (<a href="http://www.xmlsoft.org/">http://www.xmlsoft.org/</a>)</li>
+<li>Zlib (<a href="http://www.zlib.org/">http://www.zlib.org</a>)</li>
+</ul>
+
+<h5>RISC OS specific libraries</h5>
+<ul>
+<li>OSLib 6.80 or later (<a href="http://ro-oslib.sf.net/">http://ro-oslib.sf.net</a>)</li>
+<li>Pencil (<a href="http://source.netsurf-browser.org/trunk/pencil/">http://source.netsurf-browser.org/trunk/pencil/</a>)</li>
+<li>RUfl (<a href="http://zamez.org/rufl">http://zamez.org/rufl</a>)</li>
+</ul>
+
+
+<h2 id="SourceDocumentation">Source documentation</h2>
+
+<p>The source is documented using <a href="http://www.doxygen.org/">Doxygen</a> (<a href="http://www.ecs.soton.ac.uk/~jmb202/">RISC OS port</a>). Use <code>doxygen Docs/Doxyfile</code> to generate the documentation from the source tree, or <a href="http://netsurf.strcprstskrzkrk.co.uk/codedocs/">view the latest documentation</a> generated on the autobuilder.</p>
+
+
+<h2 id="Communication">Communication</h2>
+
+<p>The main method of communication between the developers is the <a href="/contact/#IRCChannel"><code>#netsurf</code> <abbr title="Internet Relay Chat">IRC</abbr> channel</a>.</p>
+
+<p>The <a href="/contact/#MailingLists">developers' mailing list</a> is also used for less transient communication.</p>
+
+
+<h2 id="Translations">Translations</h2>
+
+<p>Translations of NetSurf to other languages are welcome. No programming knowledge is required, just the ability to use a template editor and a text editor. Please see the <a href="translations">translations page</a> for more information.</p>
+
+
+<div class="footer">
+<p>Copyright 2003 - 2008 The NetSurf Developers</p>
+</div>
+
+</div>
+
+
+<form>
+<div class="searchbox">
+<input type="text"><br>
+<input type="submit" value="Search">
+</div>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+        "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>Iconv for RISC OS</title>
+<link rel="stylesheet" type="text/css" href="/projects/projects.css">
+</head>
+<body>
+
+<div class="projects">
+<p>Projects:</p>
+<ul>
+<li><a href="/">NetSurf</a></li>
+<li><a href="/projects/hubbub">Hubbub</a></li>
+<li><a href="/projects/libdom">Libdom</a></li>
+<li><strong>Iconv</strong></li>
+<li><a href="/projects/tinct">Tinct</a></li>
+<li><a href="/projects/libpencil">Libpencil</a></li>
+</ul>
+</div>
+
+<h1>Iconv for RISC OS</h1>
+
+<h2>What is Iconv?</h2>
+
+<p>Iconv is a module for RISC OS which provides character set conversion akin to that provided by the C iconv() function.</p>
+
+<h2>Installation</h2>
+
+<p><strong>You must</strong> follow these <strong>two steps</strong> carefully or <strong>installation will fail</strong>:</p>
+
+<dl>
+<dt><span>1. </span><span>Merge !System directory</span></dt>
+<dd>Use the <strong>System merge</strong> utility provided by Configure to merge the supplied !System directory with the one on your system.</dd>
+<dt><span>2. </span><span>Merge !Boot directory</span></dt>
+<dd><p>Use the <strong>Boot merge</strong> facility in Configure to merge the supplied !Boot directory with the one on your system.</p><p>If there is no Boot merge facility provided on your system, simply drag the supplied !Boot directory over your existing boot structure.</p></dd>
+</dl>
+
+<h2>Download</h2>
+
+<p>Please <a href="iconv_latest.zip">download iconv</a> and follow the <strong>two</strong> installation steps above.</p>
+
+<h2>Contact</h2>
+
+<p>Please report any problems with this module directly to <a href="mailto:jmb202@ecs.soton.ac.uk">John-Mark Bell</a>.</p>
+
+</body>
+</html>

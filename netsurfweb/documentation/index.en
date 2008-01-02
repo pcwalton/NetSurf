@@ -1,0 +1,201 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+        "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>NetSurf | Documentation</title>
+<link rel="stylesheet" type="text/css" href="/netsurf.css">
+</head>
+
+<body>
+<p class="banner"><a href="/"><img src="/netsurf.png" alt="NetSurf"></a></p>
+
+<div class="navigation">
+<div class="navsection">
+<ul>
+<li><a href="/about/">About NetSurf</a></li>
+<li><a href="/downloads/">Downloads</a></li>
+<li><a href="/documentation/">Documentation</a>
+<ul>
+<li><a href="/documentation/info">User info</a></li>
+<li><a href="/documentation/guide">User guide</a></li>
+<li><a href="/documentation/progress">Project progress</a></li>
+<li><a href="/documentation/develop">Developer info</a></li>
+</ul>
+</li>
+<li><a href="/developers/">Development area</a></li>
+<li><a href="/webmasters/">Webmaster area</a></li>
+<li><a href="/contact/">Contact</a></li>
+</ul>
+</div>
+
+<div class="navsection">
+<ul class="languages">
+<!--<li><a href="index.de">Deutsch</a></li>-->
+<li>English</li>
+<!--<li><a href="index.fr">Français</a></li>-->
+<!--<li><a href="index.nl">Nederlands</a></li>-->
+</ul>
+</div>
+
+</div>
+
+<div class="content">
+
+<p class="breadcrumbs"><a href="/">Home</a> » Documentation</p>
+
+<h1>Documentation</h1>
+
+<p>This page provides an overview of NetSurf's documentation. The documentation is split into sections, as follows:</p>
+
+<ul>
+<li><a href="#General">General documentation</a></li>
+<li><a href="#User">User documentation</a></li>
+<li><a href="#Contributor">Contributor documentation</a></li>
+<li><a href="#Developer">Developer documentation</a></li>
+</ul>
+
+<p class="updated">Last updated 2 January 2007</p>
+
+<h2 id="General">General documentation</h2>
+
+<ul class="docsections">
+<li><strong><a href="progress">Development Progress</a></strong>
+<ul>
+<li><a href="progress#General">General</a></li>
+<li><a href="progress#Web">Web standards</a>
+<ul>
+<li><a href="progress#ImportantHTML">Important HTML features</a></li>
+<li><a href="progress#CSSFeatures">CSS features</a></li>
+<li><a href="progress#CSSProperties">CSS properties</a></li>
+</ul></li>
+<li><a href="progress#Images">Image support</a></li>
+<li><a href="progress#ROStandards">RISC OS specific standards</a></li>
+<li><a href="progress#NSF">NetSurf features</a></li>
+</ul></li>
+</ul>
+
+<h2 id="User">User documentation</h2>
+
+<ul class="docsections">
+<li><strong><a href="info">User Information</a></strong>
+<ul>
+<li><a href="info#GettingNetSurf">Getting NetSurf</a></li>
+<li><a href="info#Bugs">Reporting bugs</a></li>
+<li><a href="info#FeatureRequests">Feature requests</a></li>
+<li><a href="info#JavaScript">JavaScript</a></li>
+</ul></li>
+
+<li><strong><a href="roinfo">RISC OS User Information</a></strong>
+<ul>
+<li><a href="roinfo#GettingStarted">Getting started</a>
+<ul>
+<li><a href="roinfo#GettingStartedInstallation">Installation</a></li>
+<li><a href="roinfo#GettingStartedRequirements">Requirements</a></li>
+<li><a href="roinfo#GettingStartedAdditionalResources">Additional resources</a></li>
+</ul></li>
+<li><a href="roinfo#Upgrading">Upgrading NetSurf</a></li>
+<li><a href="roinfo#Unicode">Fonts in NetSurf</a>
+<ul>
+<li><a href="roinfo#UnicodeInstallingFonts">Installing more fonts</a></li>
+<li><a href="roinfo#UnicodeProblems">Problems and unimplemented features</a></li>
+</ul></li>
+</ul></li>
+
+<li><strong><a href="guide">User Guide</a></strong>
+<ul>
+<li><a href="guide#UsingNetSurf">Using NetSurf</a></li>
+<li><a href="guide#Help">Interactive help</a></li>
+<li><a href="guide#BrowserWindow">Browser window</a>
+<ul>
+<li><a href="guide#BrowserWindowToolbar">Toolbar</a></li>
+<li><a href="guide#BrowserWindowURLBar">URL bar</a></li>
+<li><a href="guide#BrowserWindowStatusBar">Status bar</a></li>
+<li><a href="guide#BrowserWindowContent">Content area</a></li>
+<li><a href="guide#BrowserWindowMenus">Menus</a></li>
+</ul></li>
+<li><a href="guide#FileTypes">File types</a></li>
+<li><a href="guide#DownloadWindow">Download window</a></li>
+<li><a href="guide#History">History</a>
+<ul>
+<li><a href="guide#HistoryLocal">Local history window</a></li>
+<li><a href="guide#HistoryGlobal">Global history window</a>
+<ul>
+<li><a href="guide#HistoryGlobalToolbar">Toolbar</a></li>
+<li><a href="guide#HistoryGlobalMenus">Menus</a></li>
+</ul></li>
+</ul></li>
+<li><a href="guide#Hotlist">Hotlist management window</a>
+<ul>
+<li><a href="guide#HotlistToolbar">Toolbar</a></li>
+<li><a href="guide#HotlistMenus">Menus</a></li>
+</ul></li>
+<li><a href="guide#Configuration">Configuration</a>
+<ul>
+<li><a href="guide#ConfigurationGlobal">Global configuration</a></li>
+<li><a href="guide#ConfigurationToolbar">Toolbar customisation</a></li>
+</ul></li>
+<li><a href="guide#Keys">Keyboard shortcuts</a></li>
+</ul></li>
+</ul>
+
+<h2 id="Contributor">Contributor documentation</h2>
+
+<ul class="docsections">
+<li><strong><a href="translations">Producing Translations</a></strong>
+<ul>
+<li><a href="translations#GettingStarted">Getting started</a>
+<ul>
+<li><a href="translations#GettingStartedMailingList">Mailing list</a></li>
+<li><a href="translations#GettingStartedObtainingFiles">Obtaining files</a></li>
+<li><a href="translations#GettingStartedRequirements">Requirements</a></li>
+</ul></li>
+<li><a href="translations#FileSubmission">File submission</a></li>
+</ul></li>
+
+<li><strong><a href="nstheme">Creating Themes</a></strong>
+<ul>
+<li><a href="nstheme#Overview">Overview</a></li>
+<li><a href="nstheme#Sprites">Sprites</a></li>
+<li><a href="nstheme#NSTheme">Using NSTheme</a></li>
+<li><a href="nstheme#Distribution">Distribution</a></li>
+</ul></li>
+</ul>
+
+<h2 id="Developer">Developer documentation</h2>
+
+<ul class="docsections">
+<li><strong><a href="develop">Developer Information</a></strong>
+<ul>
+<li><a href="develop#Subversion">Source control</a></li>
+<li><a href="develop#Compiling">Compiling</a></li>
+<li><a href="develop#SourceDocumentation">Source documentation</a></li>
+<li><a href="develop#Communication">Communication</a></li>
+<li><a href="develop#Translations">Translations</a></li>
+</ul></li>
+
+<li><strong><a href="robuild">Building NetSurf on RISC OS</a></strong>
+<ul>
+<li><a href="robuild#Requirements">Requirements</a></li>
+<li><a href="robuild#QuickStart">Quick start</a></li>
+<li><a href="robuild#UnpackingTheLibraries">Fetching and unpacking the libraries</a></li>
+<li><a href="robuild#AcquiringAndCompilingTheSource">Acquiring and compiling the source</a></li>
+</ul></li>
+</ul>
+
+
+<div class="footer">
+<p>Copyright 2003 - 2008 The NetSurf Developers</p>
+</div>
+
+</div>
+
+
+<form>
+<div class="searchbox">
+<input type="text"><br>
+<input type="submit" value="Search">
+</div>
+</form>
+
+</body>
+</html>

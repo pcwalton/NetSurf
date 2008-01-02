@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+        "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>NetSurf | Awards</title>
+<link rel="stylesheet" type="text/css" href="/netsurf.css">
+</head>
+
+<body>
+<p class="banner"><a href="/"><img src="/netsurf.png" alt="NetSurf"></a></p>
+
+<div class="navigation">
+<div class="navsection">
+<ul>
+<li><a href="/about/">About NetSurf</a>
+<ul>
+<li><a href="/about/news">News</a></li>
+<li><a href="/about/screenshots">Screenshots</a></li>
+<li><a href="/about/team">Team</a></li>
+<li><a href="/about/awards">Awards</a></li>
+</ul>
+</li>
+<li><a href="/downloads/">Downloads</a></li>
+<li><a href="/documentation/">Documentation</a></li>
+<li><a href="/developers/">Development area</a></li>
+<li><a href="/webmasters/">Webmaster area</a></li>
+<li><a href="/contact/">Contact</a></li>
+</ul>
+</div>
+
+<div class="navsection">
+<ul class="languages">
+<!--<li><a href="index.de">Deutsch</a></li>-->
+<li>English</li>
+<!--<li><a href="index.fr">Français</a></li>-->
+<!--<li><a href="index.nl">Nederlands</a></li>-->
+</ul>
+</div>
+
+</div>
+
+<div class="content">
+
+<p class="breadcrumbs"><a href="/">Home</a> » <a href="/about/">About NetSurf</a> » Awards</p>
+
+<h1>Awards</h1>
+
+<p class="award"><a class="award" href="http://www.drobe.co.uk/riscos/artifact2179.html"><img src="/webimages/da2007.png" alt=""></a>NetSurf beat off stiff competition to win the <a href="http://www.drobe.co.uk/riscos/artifact2179.html">2007 award</a> for &quot;best non-commercial software&quot; at <a href="http://www.drobe.co.uk/">Drobe Launch Pad</a>'s annual event. NetSurf was nominated for the award by Drobe's readers.</p>
+
+<p class="award"><a class="award" href="http://www.drobe.co.uk/riscos/artifact1776.html"><img src="/webimages/da2006.png" alt=""></a>NetSurf won the <a href="http://www.drobe.co.uk/riscos/artifact1776.html">Best of 2006</a> award at <a href="http://www.drobe.co.uk/">Drobe Launch Pad</a> for &quot;best non-commercial software&quot; and the NetSurf development team came runner up in the category for &quot;best overall contribution&quot;.</p>
+
+<p class="award"><a class="award" href="http://www.drobe.co.uk/riscos/artifact1517.html"><img src="/webimages/da2005.jpg" alt=""></a>NetSurf and the NetSurf Developers were <a href="http://www.drobe.co.uk/riscos/artifact1515.html">nominated</a> in 2005 for the &quot;best non-commercial software&quot; and &quot;best general contribution&quot; awards in <a href="http://www.drobe.co.uk/">Drobe Launch Pad's</a> prestigious <a href="http://www.drobe.co.uk/riscos/artifact1517.html">annual ceremony</a>. The NetSurf entries came runner up in both categories.</p>
+
+<p class="award"><a class="award" href="http://www.drobe.co.uk/features/artifact1249.html"><img src="/webimages/da2004.png" alt=""></a>NetSurf won the award for &quot;best non-commercial software&quot; in the <a href="http://www.drobe.co.uk/features/artifact1249.html">Best of 2004</a> awards, hosted by <a href="http://www.drobe.co.uk/">Drobe Launch Pad</a>.</p>
+
+<div class="footer">
+<p>Copyright 2003 - 2008 The NetSurf Developers</p>
+</div>
+
+</div>
+
+
+<form>
+<div class="searchbox">
+<input type="text"><br>
+<input type="submit" value="Search">
+</div>
+</form>
+
+</body>
+</html>

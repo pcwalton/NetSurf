@@ -1,0 +1,155 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+        "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>NetSurf | Documentation</title>
+<link rel="stylesheet" type="text/css" href="/netsurf.css">
+</head>
+
+<body>
+<p class="banner"><a href="/"><img src="/netsurf.png" alt="NetSurf"></a></p>
+
+<div class="navigation">
+<div class="navsection">
+<ul>
+<li><a href="/about/">About NetSurf</a></li>
+<li><a href="/downloads/">Downloads</a></li>
+<li><a href="/documentation/">Documentation</a>
+<ul>
+<li><a href="/documentation/info">User info</a></li>
+<li><a href="/documentation/guide">User guide</a></li>
+<li><a href="/documentation/progress">Project progress</a></li>
+<li><a href="/documentation/develop">Developer info</a></li>
+</ul>
+</li>
+<li><a href="/developers/">Development area</a></li>
+<li><a href="/webmasters/">Webmaster area</a></li>
+<li><a href="/contact/">Contact</a></li>
+</ul>
+</div>
+
+<div class="navsection">
+<ul class="languages">
+<!--<li><a href="index.de">Deutsch</a></li>-->
+<li>English</li>
+<!--<li><a href="index.fr">Français</a></li>-->
+<!--<li><a href="index.nl">Nederlands</a></li>-->
+</ul>
+</div>
+
+</div>
+
+<div class="content">
+
+<p class="breadcrumbs"><a href="/">Home</a> » <a href="/documentation/">Documentation</a> » RISC OS User information</p>
+
+<h1>RISC OS User Information</h1>
+
+<p>This page is for issues specific to the RISC OS version of NetSurf. See the <a href="info">general user information</a> page for more information about NetSurf.</p>
+
+<ul>
+<li><a href="#GettingStarted">Getting started</a>
+<ul>
+<li><a href="#GettingStartedInstallation">Installation</a></li>
+<li><a href="#GettingStartedRequirements">Requirements</a></li>
+<li><a href="#GettingStartedAdditionalResources">Additional resources</a></li>
+</ul></li>
+
+<li><a href="#Upgrading">Upgrading NetSurf</a></li>
+<li><a href="#Unicode">Fonts in NetSurf</a>
+<ul>
+<li><a href="#UnicodeInstallingFonts">Installing more fonts</a></li>
+<li><a href="#UnicodeProblems">Problems and unimplemented features</a></li>
+</ul></li>
+</ul>
+
+<p class="updated">Last updated 10 November 2007</p>
+
+<h2 id="GettingStarted">Getting started</h2>
+
+<h3 id="GettingStartedInstallation">Installation</h3>
+
+<p>NetSurf requires RISC OS 4.02 or later and builds are available from the project's <a href="http://www.netsurf-browser.org/">web site</a>.</p>
+
+<p>Installation of &quot;NetSurf&quot; is a three step process:</p>
+
+<ol>
+<li>Use the <strong>Boot Merge</strong> facility provided by Configure to merge the supplied !Boot directory with the one on your system.<br>If there is no !Boot merge facility on your system, simply drag the supplied !Boot over your existing boot structure.</li>
+<li>Use the <strong>System Merge</strong> facility provided by Configure to merge the supplied !System directory with the one on your system.</li>
+<li>Drag the !NetSurf application directory out of the archive, to your desired location.</li>
+</ol>
+
+<p>Double click on !NetSurf in your chosen location to launch NetSurf.</p>
+
+<h3 id="GettingStartedRequirements">Requirements</h3>
+
+<p>When NetSurf is run it will look for all the resources it needs to function correctly. If anything is not found, it displays an error message indicating the resource it could not locate on your system. If such a message appears, NetSurf is likely to be requesting one of the following resources.</p>
+
+<p>Items contained in the !Boot and !System directories supplied with NetSurf:</p>
+
+<dl>
+<dt><a href="http://sudden.recoil.org/others/">Acorn URI</a></dt>
+<dd>The Acorn URI module is used to pass URIs (of which URLs are an example) back and forth between different applications.</dd>
+<dt><a href="http://www.netsurf-browser.org/iconv/">Iconv</a></dt>
+<dd>This module provides improved character encoding support.</dd>
+<dt><a href="http://www.riscos.info/downloads/gccsdk/sharedunixlib/system.zip">SharedUnixLibrary</a></dt>
+<dd>This is a support module for programs compiled using UnixLib.</dd>
+<dt><a href="http://www.tinct.net/tinct.asp">Tinct</a></dt>
+<dd>Tinct is used for image plotting. It provides support for plotting sprites with alpha channels.</dd>
+</dl>
+
+<p>If NetSurf starts without a problem, there is no need to upgrade any resources on your system.</p>
+
+<h3 id="GettingStartedAdditionalResources">Additional Resources</h3>
+
+<p>The following resources are not required to run NetSurf, although they do add additional functionality.</p>
+
+<dl>
+<dt><a href="http://www.ecs.soton.ac.uk/~jmb202/">Flash plugin</a></dt>
+<dd>This allows you to view Flash files on web sites.</dd>
+<dt><a href="http://www.beebware.com/software/mappings/">MimeMap Datafile</a></dt>
+<dd>A resource containing many different MIME types and their equivalent RISC OS file types.</dd>
+</dl>
+
+<h2 id="Upgrading">Upgrading NetSurf</h2>
+
+<p>If you are upgrading from a previous version of NetSurf, quit NetSurf and delete your old version. Drag the !NetSurf application to your required destination. NetSurf stores your choices, cookies, hotlist and themes in <em>Choices:WWW.NetSurf</em>, so the !NetSurf application directory can be deleted without any loss of your NetSurf configuration.</p>
+
+<p>It is possible to copy the new version of NetSurf over your old version to perform the upgrade. Please be aware that this could result in files that are no longer required being left in your copy of NetSurf although this should not cause any problems in usage.</p>
+
+<h2 id="Unicode">Fonts in NetSurf</h2>
+
+<p>NetSurf has support for displaying pages containing Unicode characters that aren't normally available on RISC OS, for example accented Latin letters, Greek, Cyrillic, Japanese, and various symbols.</p>
+
+<p>The <a href="guide#ConfigurationGlobalFonts">font choices</a> let you pick a font for each of the five standard families available to web authors (in CSS). The choices specify the preferred font to use. If a character is not available in the chosen font, but it's present in some other font that you have installed, then NetSurf will automatically use it. There's no need to change the font choices to view pages with characters that are not available in the chosen font.</p>
+
+<p>Note that you can only choose a font family. NetSurf will automatically use weights from the family for bold and slanted text, if available.</p>
+
+<h3 id="UnicodeInstallingFonts">Installing More Fonts</h3>
+
+<p>The fonts that come with RISC OS cover Latin (Homerton, Trinity, Corpus), Greek (Sidney), and various symbols (Selwyn, Sidney). (On RISC OS 3-4, only the &quot;Latin 1&quot; characters from the standard fonts, which cover Western European languages, can be used by NetSurf).</p>
+
+<p>If you want to display pages with other characters correctly, you'll need to install fonts containing them. When a character is not present in any available font, the Unicode character code will be displayed.</p>
+
+<p>If you see the codes 0091, 0092, 0096, or others starting 009, that indicates that the page is not specifying the character set that it is using correctly. Installing fonts won't help. We haven't yet decided what the best way to work around this problem is.</p>
+
+<p>Any font supplied with a correctly designed &quot;Encoding&quot; file should work. In practice, native fonts covering anything other than Latin 1 are rare. The solution is to convert TrueType fonts using <a href="http://moose.mine.nu/ttf2f_latest.zip">TTF2f</a> (this currently produces fonts suitable for RISC OS 5 only).</p>
+
+<p>After installing new fonts, NetSurf will need restarting so that it detects them.</p>
+
+<h3 id="UnicodeProblems">Problems and Unimplemented Features</h3>
+
+<ul>
+<li>Printing on RISC OS 5 doesn't work, due to lack of support in the Font Manager and printer drivers. Note that a patch to fix printing to non-PostScript printers has been submitted to RISC OS Open Ltd.</li>
+<li>Substituted characters are taken from the first font that contains them, even if a character which matches the weight or slant better is available.</li>
+<li>Unicode line breaking is not implemented.</li>
+<li>Right-to-left text (Hebrew, Arabic) is not implemented.</li>
+</ul>
+
+<div class="footer">
+<p class="breadcrumbs"><a href="/">NetSurf</a> » 
+<a href="docs">Documentation</a> » User Information</p>
+</div>
+
+</body>
+</html>

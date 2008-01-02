@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+        "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>NetSurf | Packages</title>
+<link rel="stylesheet" type="text/css" href="/netsurf.css">
+</head>
+
+<body>
+<p class="banner"><a href="/"><img src="/netsurf.png" alt="NetSurf"></a></p>
+
+<div class="navigation">
+<div class="navsection">
+<ul>
+<li><a href="/about/">About NetSurf</a></li>
+<li><a href="/downloads/">Downloads</a>
+<ul>
+<li><a href="/downloads/testbuilds">Test builds</a></li>
+<li><a href="/downloads/packages">Packages</a></li>
+<li><a href="/downloads/source">Source</a></li>
+<li><a href="/downloads/extras">Extras</a></li>
+</ul>
+</li>
+<li><a href="/documentation/">Documentation</a></li>
+<li><a href="/developers/">Development area</a></li>
+<li><a href="/webmasters/">Webmaster area</a></li>
+<li><a href="/contact/">Contact</a></li>
+</ul>
+</div>
+
+<div class="navsection">
+<ul class="languages">
+<!--<li><a href="index.de">Deutsch</a></li>-->
+<li>English</li>
+<!--<li><a href="index.fr">Français</a></li>-->
+<!--<li><a href="index.nl">Nederlands</a></li>-->
+</ul>
+</div>
+
+</div>
+
+<div class="content">
+
+<p class="breadcrumbs"><a href="/">Home</a> » <a href="/downloads/">Downloads</a> » Packages</p>
+
+<h1>NetSurf Packages</h1>
+
+<p>We provide packages for installation of NetSurf releases on various systems.</p>
+
+<dl class="packagelist">
+<dt>NetSurf 1.1</dt>
+<dd>
+<ul>
+<li><a href="">Debian Etch AMD64 package</a></li>
+<li><a href="">Debian Etch i386 package</a></li>
+<li><a href="">Ubuntu AMD64 package</a></li>
+<li><a href="">Ubuntu i386 package</a></li>
+</ul>
+</dd>
+</dl>
+
+<h2>Externally Hosted Packages</h2>
+
+<p>NetSurf is also available in some distributions' package repositories.</p>
+
+<ul>
+<li><a href="http://packages.debian.org/lenny/netsurf">Debian Lenny</a></li>
+<li><a href="http://packages.debian.org/sid/netsurf">Debian Sid</a></li>
+</ul>
+
+<h2>Development Build Packages</h2>
+
+<p>RISC OS <a href="testbuilds">development builds</a> of NetSurf are available though the <a href="http://www.riscpkg.org/">RiscPKG</a> packaging system. To use the package, add the line<br><code>pkg http://www.netsurf-browser.org/builds/riscpkg/packages</code><br>to <code>Choices:RiscPkg.Sources</code>. See the RiscPkg documentation for more information.</p>
+
+<div class="footer">
+<p>Copyright 2003 - 2008 The NetSurf Developers</p>
+</div>
+
+</div>
+
+
+<form>
+<div class="searchbox">
+<input type="text"><br>
+<input type="submit" value="Search">
+</div>
+</form>
+
+</body>
+</html>

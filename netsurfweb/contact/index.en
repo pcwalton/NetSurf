@@ -1,0 +1,123 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+        "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>NetSurf | Contacting the Developers</title>
+<link rel="stylesheet" type="text/css" href="/netsurf.css">
+</head>
+
+<body>
+<p class="banner"><a href="/"><img src="/netsurf.png" alt="NetSurf"></a></p>
+
+<div class="navigation">
+<div class="navsection">
+<ul>
+<li><a href="/about/">About NetSurf</a></li>
+<li><a href="/downloads/">Downloads</a></li>
+<li><a href="/documentation/">Documentation</a></li>
+<li><a href="/developers/">Development area</a></li>
+<li><a href="/webmasters/">Webmaster area</a></li>
+<li><a href="/contact/">Contact</a></li>
+</ul>
+</div>
+
+<div class="navsection">
+<ul class="languages">
+<!--<li><a href="index.de">Deutsch</a></li>-->
+<li>English</li>
+<!--<li><a href="index.fr">Français</a></li>-->
+<!--<li><a href="index.nl">Nederlands</a></li>-->
+</ul>
+</div>
+
+</div>
+
+<div class="content">
+
+<p class="breadcrumbs"><a href="/">Home</a> » Contacting the developers</p>
+
+<h1>Contacting the Developers</h1>
+
+<ul>
+<li><a href="#UserSupportTracker">User support tracker</a></li>
+<li><a href="#MailingLists">Mailing lists</a></li>
+<li><a href="#IRCChannel">IRC Channel</a></li>
+<li><a href="#GeneralEmailAddresses">General e-mail addresses</a></li>
+</ul>
+
+<h2 id="UserSupportTracker">User support tracker</h2>
+
+<dl>
+<dt><a href="http://sourceforge.net/tracker/?group_id=51719&amp;atid=464312">Bug tracker</a></dt>
+<dd>If you run into problems using NetSurf, please read the <a href="/documentation/info#Bugs">guidelines for reporting bugs</a> and submit them to the bug tracker.</dd>
+<dt><a href="http://sourceforge.net/tracker/?group_id=51719&atid=464315">Request tracker</a></dt>
+<dd>If you have ideas for improving NetSurf, you can suggest them on our feature request tracker.</dd>
+</dl>
+
+<h2 id="MailingLists">Mailing lists</h2>
+<p>NetSurf has several mailing lists for different purposes. Please subscribe to the ones you're interested in.</p>
+
+<h3 id="MailingListsUsers">Users</h3>
+
+<dl>
+<dt><a href="http://www.netsurf-browser.org/lists/netsurf-users">NetSurf Users</a></dt>
+<dd>This mailing list is used for general discussion of NetSurf. Subscribe if you wish to use, test or develop NetSurf. Please note that all posts to the mailing list are read and noted by the development team, even if we don't reply.</p>
+</dl>
+
+<h3 id="MailingListsDevelopment">Development</h3>
+
+<dl>
+<dt><a href="http://www.netsurf-browser.org/lists/netsurf-dev">NetSurf Dev.</a></dt>
+<dd>This mailing list is intended for developer and contributor discussion.</dd>
+<dt><a href="http://www.netsurf-browser.org/lists/netsurf-commits">NetSurf Commits</a></dt>
+<dd>This mailing list is read only, but listed here for completeness. It reports checkin details. (If you want to comment on a post here, send your comment to the NetSurf Dev. list.)</dd>
+</dl>
+
+<h2 id="IRCChannel">IRC channel</h2>
+<p>The #netsurf IRC channel on the <a href="http://freenode.net/">Freenode</a> network is used for discussion of NetSurf development.</p>
+
+<p>If you want to contribute to the NetSurf project, please contact the developers via the development mailing list or on IRC.</p>
+
+<h2 id="GeneralEmailAddresses">General e-mail addresses</h2>
+<p>There are several general e-mail addresses that can be used to contact team members. Note that <strong>use of the mailing lists is preferable</strong>, since there are more people to reply so you can get a faster response.</p>
+
+<dl>
+<dt>NetSurf browser</dt>
+<dd>
+<dl>
+<dt><a href="mailto:help@netsurf-browser.org">help@netsurf-browser.org</a></dt>
+<dd>For general queries about NetSurf.</dd>
+<dt><a href="mailto:bugs@netsurf-browser.org">bugs@netsurf-browser.org</a></dt>
+<dd>For bug reports about NetSurf.</dd>
+<dt><a href="mailto:security@netsurf-browser.org">security@netsurf-browser.org</a></dt>
+<dd>For reporting any security issues found in NetSurf.</dd>
+</dl>
+</dd>
+<dt>NetSurf web site</dt>
+<dd>
+<dl>
+<dt><a href="mailto:webmaster@netsurf-browser.org">webmaster@netsurf-browser.org</a></dt>
+<dd>For contacting the people who run the NetSurf web site.</dd>
+<dt><a href="mailto:hostmaster@netsurf-browser.org">hostmaster@netsurf-browser.org</a></dt>
+<dd>For contacting the people who run the server that hosts the NetSurf site.</dd>
+</dl>
+</dd>
+</dl>
+
+
+<div class="footer">
+<p>Copyright 2003 - 2008 The NetSurf Developers</p>
+</div>
+
+</div>
+
+
+<form>
+<div class="searchbox">
+<input type="text"><br>
+<input type="submit" value="Search">
+</div>
+</form>
+
+</body>
+</html>

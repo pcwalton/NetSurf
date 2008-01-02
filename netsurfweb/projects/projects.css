@@ -1,0 +1,104 @@
+html, body {
+	padding: 0;
+	margin: 0; }
+
+body {
+	background-color: #ffd;
+	color: #500; }
+
+h1 {
+	font-size:200%;
+	background-color: #500;
+	color: #ffd;
+	padding: 0.9em;
+	margin: 0; }
+
+.projects {
+	background-color: #ffd;
+	color: #500;
+	margin: 0;
+	text-align: right;
+	padding: 0 1em 0 0; }
+
+.projects p {
+	display: inline;
+	font-weight: bold;
+	margin: 0;
+	padding: 0; }
+
+.projects ul {
+	display: inline;
+	margin: 0;
+	padding: 0; }
+
+.projects li {
+	display: inline;
+	background: #500;
+	color: #ffd;
+	margin: 0 0 0 0.5em;
+	padding: 0; }
+
+.projects li strong {
+	background: #500;
+	color: #ffd;
+	margin: 0;
+	padding: 0 0.2em; }
+
+.projects li a {
+	background: #ffd;
+	color: #500;
+	text-decoration: none;
+	margin: 0;
+	padding: 0; }
+
+.projects li a:hover {
+	text-decoration: underline; }
+
+h2 {
+	font-size:150%;
+	border-left: 1em solid #500;
+	padding-left:0.2em; }
+
+p {
+	margin: 1em 1.8em 0em 1.8em; }
+
+strong {
+	color: #800;
+	font-weight: bold; }
+
+dl {
+	margin: 0 1.8em;
+	padding: 0; }
+
+dt {
+	background-color: #611;
+	color: #ffd;
+	width: 40%;
+	margin: 1em 0 0 0;
+	padding: 2px; overflow: visible; }
+
+dt > span {
+	display: table-cell;
+	width: 1.5em;
+	padding: 0;
+	font-style: italic;
+	font-weight: normal;
+	background-color: inherit; }
+
+dt > span + span {
+	width: auto;
+	font-style: normal;
+	font-weight: bold; }
+
+dd {
+	padding: 0.5em 2px 2px 1.2em;
+	background-color: #fdb;
+	margin: 0; }
+
+dd > p {
+	margin: 0;
+	padding: 0; }
+
+dd > p + p {
+	margin: 1em 0 0 0;
+	padding: 0; }
