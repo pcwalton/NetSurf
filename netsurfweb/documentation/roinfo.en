@@ -146,10 +146,20 @@
 <li>Right-to-left text (Hebrew, Arabic) is not implemented.</li>
 </ul>
 
+
 <div class="footer">
-<p class="breadcrumbs"><a href="/">NetSurf</a> » 
-<a href="docs">Documentation</a> » User Information</p>
+<p>Copyright 2003 - 2008 The NetSurf Developers</p>
 </div>
+
+</div>
+
+
+<form>
+<div class="searchbox">
+<input type="text"><br>
+<input type="submit" value="Search">
+</div>
+</form>
 
 </body>
 </html>

@@ -47,24 +47,24 @@
 <h1>Screenshot Gallery</h1>
 
 <ul class="screenshotgallery">
-<li><a href="fullsize/roamazon.png"><img src="thumbnails/roamazon.png"></a> <span><a href="http://www.amazon.co.uk/">Amazon</a> (RISC OS)</span></li>
-<li><a href="fullsize/roarstechnica.png"><img src="thumbnails/roarstechnica.png"></a> <span><a href="http://arstechnica.com/">Ars Technica</a> (RISC OS)</span></li>
-<li><a href="fullsize/gtkbbcnews.png"><img src="thumbnails/gtkbbcnews.png"></a> <span><a href="http://news.bbc.co.uk/">BBC News</a> (GTK)</span></li>
-<li><a href="fullsize/gtkdigg.png"><img src="thumbnails/gtkdigg.png"></a> <span><a href="http://digg.com/">Digg</a> (GTK)</span></li>
-<li><a href="fullsize/rodrobe.png"><img src="thumbnails/rodrobe.png"></a> <span><a href="http://www.drobe.co.uk/">Drobe</a> (RISC OS)</span></li>
-<li><a href="fullsize/rogoogle.png"><img src="thumbnails/rogoogle.png"></a> <span><a href="http://www.google.co.uk/">Google</a> (RISC OS)</span></li>
-<li><a href="fullsize/gtkhistory.png"><img src="thumbnails/gtkhistory.png"></a> <span><a href="/documentation/guide#HistoryLocal">Local history</a> (GTK)</span></li>
-<li><a href="fullsize/roiconbar.png"><img src="thumbnails/roiconbar.png"></a> <span><a href="http://www.iconbar.com/">Iconbar</a> (RISC OS)</span></li>
-<li><a href="fullsize/gtkiconbar.png"><img src="thumbnails/gtkiconbar.png"></a> <span><a href="http://www.iconbar.com/">Iconbar</a> (GTK)</span></li>
-<li><a href="fullsize/gtkiconbar130.png"><img src="thumbnails/gtkiconbar130.png"></a> <span><a href="/documentation/guide#BrowserWindowMenuDisplayScale">Scaled view</a> (GTK)</span></li>
-<li><a href="fullsize/ronetsurf.png"><img src="thumbnails/ronetsurf.png"></a> <span><a href="http://www.netsurf-browser.org/">NetSurf</a> (RISC OS)</span></li>
-<li><a href="fullsize/roslashdot.png"><img src="thumbnails/roslashdot.png"></a> <span><a href="http://slashdot.org/">Slashdot</a> (RISC OS)</span></li>
-<li><a href="fullsize/gtkslashdot.png"><img src="thumbnails/gtkslashdot.png"></a> <span><a href="http://slashdot.org/">Slashdot</a> (GTK)</span></li>
-<li><a href="fullsize/row3c.png"><img src="thumbnails/row3c.png"></a> <span><a href="http://www.w3.org/">W3C</a> (RISC OS)</span></li>
-<li><a href="fullsize/rowikipedia.png"><img src="thumbnails/rowikipedia.png"></a> <span><a href="http://en.wikipedia.org/wiki/Main_Page">Wikipedia</a> (RISC OS)</span></li>
-<li><a href="fullsize/rowikipedia125.png"><img src="thumbnails/rowikipedia125.png"></a> <span><a href="http://en.wikipedia.org/wiki/Main_Page">Scaled view</a> (RISC OS)</span></li>
-<li><a href="fullsize/royahoojp.png"><img src="thumbnails/royahoojp.png"></a> <span><a href="http://en.wikipedia.org/wiki/Main_Page">Unicode text</a> (RISC OS)</span></li>
-<li><a href="fullsize/gtkyahoojp.png"><img src="thumbnails/gtkyahoojp.png"></a> <span><a href="http://en.wikipedia.org/wiki/Main_Page">Unicode text</a> (GTK)</span></li>
+<li><a href="fullsize/roamazon.png"><img alt="" src="thumbnails/roamazon.png"></a> <span><a href="http://www.amazon.co.uk/">Amazon</a> (RISC OS)</span></li>
+<li><a href="fullsize/roarstechnica.png"><img alt="" src="thumbnails/roarstechnica.png"></a> <span><a href="http://arstechnica.com/">Ars Technica</a> (RISC OS)</span></li>
+<li><a href="fullsize/gtkbbcnews.png"><img alt="" src="thumbnails/gtkbbcnews.png"></a> <span><a href="http://news.bbc.co.uk/">BBC News</a> (GTK)</span></li>
+<li><a href="fullsize/gtkdigg.png"><img alt="" src="thumbnails/gtkdigg.png"></a> <span><a href="http://digg.com/">Digg</a> (GTK)</span></li>
+<li><a href="fullsize/rodrobe.png"><img alt="" src="thumbnails/rodrobe.png"></a> <span><a href="http://www.drobe.co.uk/">Drobe</a> (RISC OS)</span></li>
+<li><a href="fullsize/rogoogle.png"><img alt="" src="thumbnails/rogoogle.png"></a> <span><a href="http://www.google.co.uk/">Google</a> (RISC OS)</span></li>
+<li><a href="fullsize/gtkhistory.png"><img alt="" src="thumbnails/gtkhistory.png"></a> <span><a href="/documentation/guide#HistoryLocal">Local history</a> (GTK)</span></li>
+<li><a href="fullsize/roiconbar.png"><img alt="" src="thumbnails/roiconbar.png"></a> <span><a href="http://www.iconbar.com/">Iconbar</a> (RISC OS)</span></li>
+<li><a href="fullsize/gtkiconbar.png"><img alt="" src="thumbnails/gtkiconbar.png"></a> <span><a href="http://www.iconbar.com/">Iconbar</a> (GTK)</span></li>
+<li><a href="fullsize/gtkiconbar130.png"><img alt="" src="thumbnails/gtkiconbar130.png"></a> <span><a href="/documentation/guide#BrowserWindowMenuDisplayScale">Scaled view</a> (GTK)</span></li>
+<li><a href="fullsize/ronetsurf.png"><img alt="" src="thumbnails/ronetsurf.png"></a> <span><a href="http://www.netsurf-browser.org/">NetSurf</a> (RISC OS)</span></li>
+<li><a href="fullsize/roslashdot.png"><img alt="" src="thumbnails/roslashdot.png"></a> <span><a href="http://slashdot.org/">Slashdot</a> (RISC OS)</span></li>
+<li><a href="fullsize/gtkslashdot.png"><img alt="" src="thumbnails/gtkslashdot.png"></a> <span><a href="http://slashdot.org/">Slashdot</a> (GTK)</span></li>
+<li><a href="fullsize/row3c.png"><img alt="" src="thumbnails/row3c.png"></a> <span><a href="http://www.w3.org/">W3C</a> (RISC OS)</span></li>
+<li><a href="fullsize/rowikipedia.png"><img alt="" src="thumbnails/rowikipedia.png"></a> <span><a href="http://en.wikipedia.org/wiki/Main_Page">Wikipedia</a> (RISC OS)</span></li>
+<li><a href="fullsize/rowikipedia125.png"><img alt="" src="thumbnails/rowikipedia125.png"></a> <span><a href="http://en.wikipedia.org/wiki/Main_Page">Scaled view</a> (RISC OS)</span></li>
+<li><a href="fullsize/royahoojp.png"><img alt="" src="thumbnails/royahoojp.png"></a> <span><a href="http://en.wikipedia.org/wiki/Main_Page">Unicode text</a> (RISC OS)</span></li>
+<li><a href="fullsize/gtkyahoojp.png"><img alt="" src="thumbnails/gtkyahoojp.png"></a> <span><a href="http://en.wikipedia.org/wiki/Main_Page">Unicode text</a> (GTK)</span></li>
 </ul>
 
 <div class="footer">

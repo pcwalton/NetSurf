@@ -63,7 +63,7 @@
 <dd>We have migrated to Subversion, a more powerful and advanced versioning system than CVS.<dd>
 <dt><a href="http://vlists.pepperfish.net/pipermail/netsurf-users-netsurf-browser.org/2006-March/005058.html">The road to 1.0</a> <span>25 Mar 2006</span></dt>
 <dd>Our plans for version 1.0 for the RISC OS and GTK builds.<dd>
-<dt><a href="http://source.netsurf-browser.org/import/netsurf/gtk/gtk_gui.c?rev=993&view=rev">Experimental GTK port</a> <span>22 Jun 2004</span></dt>
+<dt><a href="http://source.netsurf-browser.org/import/netsurf/gtk/gtk_gui.c?rev=993&amp;view=rev">Experimental GTK port</a> <span>22 Jun 2004</span></dt>
 <dd>A new GTK front end has been checked in. It allows NetSurf to be tested on Uinx-like systems.<dd>
 <dt><a href="http://sourceforge.net/projects/netsurf/">Sourceforge project registered</a> <span>19 Apr 2002</span></dt>
 <dd>After an online discussion about the deficiencies of existing web browser on the RISC OS plaform, the NetSurf web browser project has been started.<dd>

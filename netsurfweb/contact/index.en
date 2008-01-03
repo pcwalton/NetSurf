@@ -50,7 +50,7 @@
 <dl>
 <dt><a href="http://sourceforge.net/tracker/?group_id=51719&amp;atid=464312">Bug tracker</a></dt>
 <dd>If you run into problems using NetSurf, please read the <a href="/documentation/info#Bugs">guidelines for reporting bugs</a> and submit them to the bug tracker.</dd>
-<dt><a href="http://sourceforge.net/tracker/?group_id=51719&atid=464315">Request tracker</a></dt>
+<dt><a href="http://sourceforge.net/tracker/?group_id=51719&amp;atid=464315">Request tracker</a></dt>
 <dd>If you have ideas for improving NetSurf, you can suggest them on our feature request tracker.</dd>
 </dl>
 
@@ -61,7 +61,7 @@
 
 <dl>
 <dt><a href="http://www.netsurf-browser.org/lists/netsurf-users">NetSurf Users</a></dt>
-<dd>This mailing list is used for general discussion of NetSurf. Subscribe if you wish to use, test or develop NetSurf. Please note that all posts to the mailing list are read and noted by the development team, even if we don't reply.</p>
+<dd>This mailing list is used for general discussion of NetSurf. Subscribe if you wish to use, test or develop NetSurf. Please note that all posts to the mailing list are read and noted by the development team, even if we don't reply.</dd>
 </dl>
 
 <h3 id="MailingListsDevelopment">Development</h3>
