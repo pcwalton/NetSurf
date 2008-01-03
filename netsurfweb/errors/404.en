@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+        "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>NetSurf | 404 Error</title>
+<link rel="stylesheet" type="text/css" href="/netsurf.css">
+</head>
+
+<body>
+<p class="banner"><a href="/"><img src="/netsurf.png" alt="NetSurf"></a></p>
+
+<div class="navigation">
+<div class="navsection">
+<ul>
+<li><a href="/about/">About NetSurf</a></li>
+<li><a href="/downloads/">Downloads</a></li>
+<li><a href="/documentation/">Documentation</a></li>
+<li><a href="/developers/">Development area</a></li>
+<li><a href="/webmasters/">Webmaster area</a></li>
+<li><a href="/contact/">Contact</a></li>
+</ul>
+</div>
+
+<div class="navsection">
+<ul class="languages">
+<!--<li><a href="index.de">Deutsch</a></li>-->
+<li>English</li>
+<!--<li><a href="index.fr">Français</a></li>-->
+<!--<li><a href="index.nl">Nederlands</a></li>-->
+</ul>
+</div>
+
+</div>
+
+<div class="content">
+
+<p class="breadcrumbs"><a href="/">Home</a> » Contacting the developers</p>
+
+<h1>Error 404: Not found</h1>
+
+<p>Sorry, this page doesn't exist. Try one of the links on the right or visit the <a href="/">NetSurf homepage</a>.</p>
+
+
+<div class="footer">
+<p>Copyright 2003 - 2008 The NetSurf Developers</p>
+</div>
+
+</div>
+
+
+<form method="get" action="http://www.google.co.uk/search">
+<div class="searchbox">
+<input type="hidden" name="q" value="site:netsurf-browser.org">
+<input type="text" name="q" maxlength="255"><br>
+<input type="submit" value="Search" name="btnG">
+</div>
+</form>
+
+</body>
+</html>

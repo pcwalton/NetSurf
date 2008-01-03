@@ -10,4 +10,4 @@ AddType text/html .en
 AddType text/html .fr
 AddType text/html .nl
 AddType application/x-netsurf-theme .theme
-ErrorDocument 406 /406.php
+ErrorDocument 406 /errors/406.php
