@@ -72,7 +72,7 @@
 
 <ol>
 <li>Download and install the <a href="#Requirements">requirements</a> listed above.</li>
-<li>Download and install the pre-assembled <a href="nstools.zip">tool and library tree (2.3MB)</a>.</li>
+<li>Download and install the pre-assembled <a href="/downloads/other/nstools.zip">tool and library tree (2.3MB)</a>.</li>
 <li>Force the RISC OS SVN client to handle ,xxx extensions correctly by issuing <code>*Set svn$filetypeext &quot;&quot;</code>.</li>
 <li>Check out the latest source code from SVN.
 <pre>svn co svn://svn.netsurf-browser.org/trunk/netsurf</pre></li>
@@ -82,7 +82,7 @@
 <h2 id="UnpackingTheLibraries">Fetching and unpacking the libraries</h2>
 
 <ol>
-<li>Download and unpack the pre-assembled <a href="nstools.zip">tool and library tree (2.3MB)</a>.</li>
+<li>Download and unpack the pre-assembled <a href="/downloads/other/nstools.zip">tool and library tree (2.3MB)</a>.</li>
 <li>Double-click on !NSTools to open the tree.</li>
 <li>Consult the !NSTools.!Help file in conjunction with <a href="http://netsurf.strcprstskrzkrk.co.uk/developer/">http://netsurf.strcprstskrzkrk.co.uk/developer/</a> in order to determine if any libraries need updating.</li>
 <li>If necessary, merge any updated libraries into the !NSTools directory structure, renaming files into RISC OS format as appropriate (i.e. <code>foo/h</code> becomes <code>h.foo</code>). This should produce a directory tree like:
