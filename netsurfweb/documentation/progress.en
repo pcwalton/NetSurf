@@ -281,10 +281,11 @@
 </div>
 
 
-<form>
+<form method="get" action="http://www.google.co.uk/search">
 <div class="searchbox">
-<input type="text"><br>
-<input type="submit" value="Search">
+<input type="hidden" name="q" value="site:netsurf-browser.org">
+<input type="text" name="q" maxlength="255"><br>
+<input type="submit" value="Search" name="btnG">
 </div>
 </form>
 
