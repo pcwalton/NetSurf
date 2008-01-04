@@ -426,6 +426,31 @@ div.frontscreen span {
 	position: relative;
 	top: 3px; }
 
+.websearch {
+	margin: 1em auto;
+	padding: 1em;
+	background: #d8e2ff;
+	border: 2px solid #c5d3ff;
+	width: 80%;
+	text-align: center; }
+
+.websearch input[type=text] {
+	border: 1px solid #62697f;
+	background: #f9faff;
+	color: #000;
+	margin-right: 0.3em; }
+
+.websearch input[type=submit] {
+	border: 2px outset #c5d3ff;
+	color: #000;
+	background: #c5d3ff; }
+
+h2.firsthead {
+	border: none;
+	margin-top: 1.5em;
+	padding-top: 0.5em;
+	border-top: 2px solid #94adff; }
+
 .frontnews {
 	margin: 0; }
 
@@ -959,3 +984,32 @@ dl.news > dd {
 	color: #a42;
 	border: 1px solid #db1;
 	padding: 0.1em 0.3em; }
+
+
+/*
+ *  Welcome page
+ */
+
+.welcomenslinks {
+	display: table;
+	width: 100%;
+	margin: 0.25em 0 7.5em 0; }
+
+.welcomenslinks li {
+	display: table-cell;
+	text-align: center; }
+
+.welcomenslinks li + li {
+	border-left: 2px solid #c5d3ff; }
+
+.welcomelinks {
+	display: table;
+	width: 80%;
+	margin: 1.5em auto 7.5em auto; }
+
+.welcomelinks ul {
+	display: table-cell;
+	padding-left: 2.5em; }
+
+.welcomelinks ul + ul {
+        padding-left: 1em; }

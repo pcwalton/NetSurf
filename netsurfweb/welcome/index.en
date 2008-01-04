@@ -1,0 +1,64 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+        "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>Welcome to NetSurf</title>
+<link rel="stylesheet" type="text/css" href="../netsurf.css">
+</head>
+
+<body>
+<h1 class="banner"><a href="/"><img src="../netsurf.png" alt="NetSurf"></a></h1>
+
+<div class="onlycontent">
+
+
+<ul class="welcomenslinks">
+<li><a href="http://www.netsurf-browser.org/">NetSurf web site</a></li>
+<li><a href="/documentation/">Documentation</a></li>
+<li><a href="/downloads/">Download the latest build</a></li>
+<li><a href="/contact/">Contact the developers</a></li>
+</ul>
+
+<form method="get" action="http://www.google.co.uk/search">
+<div class="websearch">
+<input type="text" name="q" size="45" maxlength="255">
+<input type="submit" value="Google Search" name="btnG">
+</div>
+</form>
+
+<div class="welcomelinks">
+<ul class="newslinks">
+<li><a href="http://news.bbc.co.uk/">BBC News</a></li>
+<li><a href="http://www.reuters.com/news">Reuters</a></li>
+<li><a href="http://www.cnn.com/">CNN</a></li>
+</ul>
+
+<ul class="itlinks">
+<li><a href="http://slashdot.org/">Slashdot</a></li>
+<li><a href="http://arstechnica.com/index.ars">Ars Technica</a></li>
+<li><a href="http://www.theregister.co.uk/">The Register</a></li>
+<li><a href="http://www.w3.org/">W3C</a></li>
+</ul>
+
+<ul class="informationlinks">
+<li><a href="http://en.wikipedia.org/wiki/Main_Page">Wikipedia</a></li>
+<li><a href="http://google.co.uk/">Google</a></li>
+<li><a href="http://yahoo.co.uk/">Yahoo!</a></li>
+</ul>
+
+<ul class="riscoslinks">
+<li><a href="http://www.drobe.co.uk/">Drobe</a></li>
+<li><a href="http://www.riscosopen.org/">ROOL</a></li>
+<li><a href="http://www.riscos.info/">RISC OS.info</a></li>
+</ul>
+</div>
+
+<div class="footer">
+<p>Copyright 2003 - 2008 The NetSurf Developers</p>
+</div>
+
+</div>
+
+
+</body>
+</html>
