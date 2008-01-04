@@ -9,36 +9,30 @@
 <body>
 <p class="banner"><a href="/"><img src="/netsurf.png" alt="NetSurf"></a></p>
 
-<div class="navigation">
-<div class="navsection">
-<ul>
-<li><a href="/about/">About NetSurf</a></li>
-<li><a href="/downloads/">Downloads</a></li>
-<li><a href="/documentation/">Documentation</a></li>
-<li><a href="/developers/">Development area</a></li>
-<li><a href="/webmasters/">Webmaster area</a></li>
-<li><a href="/contact/">Contact</a></li>
-</ul>
-</div>
 
-<div class="navsection">
-<ul class="languages">
-<!--<li><a href="index.de">Deutsch</a></li>-->
-<li>English</li>
-<!--<li><a href="index.fr">Français</a></li>-->
-<!--<li><a href="index.nl">Nederlands</a></li>-->
-</ul>
-</div>
 
-</div>
+<div class="onlycontent">
 
-<div class="content">
-
-<p class="breadcrumbs"><a href="/">Home</a> » Contacting the developers</p>
+<p class="breadcrumbs"><a href="/">Home</a> » Error: Not found</p>
 
 <h1>Error 404: Not found</h1>
 
-<p>Sorry, this page doesn't exist. Try one of the links on the right or visit the <a href="/">NetSurf homepage</a>.</p>
+<p>Sorry, the page you're looking for doesn't exist. Try one of the links below or use the site search facility.</p>
+
+<dl>
+<dt><a href="/">NetSurf homepage</a></dt>
+<dd>Introduction to NetSurf and project summary</dd>
+<dt><a href="/downloads/">Downloads</a></dt>
+<dd>Download the NetSurf web browser</dd>
+<dt><a href="/documentation/">Documentation</a></dt>
+<dd>User information, user guides and developer information</dd>
+<dt><a href="/developer/">Developer area</a></dt>
+<dd>Information for contributors to the project and developers</dd>
+<dt><a href="/webmasters/">Webmaster area</a></dt>
+<dd>Information for webmasters</dd>
+<dt><a href="/contact/">Contact us</a></dt>
+<dd>All the details you need to get in touch</dd>
+</dl>
 
 
 <div class="footer">

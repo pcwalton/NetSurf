@@ -246,6 +246,9 @@ dd > ul {
 a.seemore:after, span.seemore:after {
 	content: " »"; }
 
+.onlycontent {
+	margin: 0 1em; }
+
 .content {
 	background-color: #fff;
 	margin: 0 0 0 12.6em;
