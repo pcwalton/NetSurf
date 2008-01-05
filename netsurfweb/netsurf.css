@@ -428,7 +428,7 @@ div.frontscreen span {
 
 .websearch {
 	margin: 1em auto;
-	padding: 1em;
+	padding: 1.2em 0.3em;
 	background: #d8e2ff;
 	border: 2px solid #c5d3ff;
 	width: 80%;
@@ -993,19 +993,24 @@ dl.news > dd {
 .welcomenslinks {
 	display: table;
 	width: 100%;
-	margin: 0.25em 0 7.5em 0; }
+	margin: 0 0 6em 0;
+	border-spacing: 0;
+	padding: 0;
+	background: #d8e2ff url("webimages/links.png") repeat-x top left; }
 
 .welcomenslinks li {
 	display: table-cell;
-	text-align: center; }
+	text-align: center;
+	padding: 0.2em 0.3em 0.3em 0.3em;
+	vertical-align: middle; }
 
 .welcomenslinks li + li {
-	border-left: 2px solid #c5d3ff; }
+	border-left: 2px solid #b1c3ff; }
 
 .welcomelinks {
 	display: table;
 	width: 80%;
-	margin: 1.5em auto 7.5em auto; }
+	margin: 3em auto 1.5em auto; }
 
 .welcomelinks ul {
 	display: table-cell;

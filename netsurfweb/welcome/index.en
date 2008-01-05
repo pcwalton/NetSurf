@@ -7,21 +7,20 @@
 </head>
 
 <body>
-<h1 class="banner"><a href="/"><img src="../netsurf.png" alt="NetSurf"></a></h1>
-
-<div class="onlycontent">
-
+<h1 class="banner"><a href="http://www.netsurf-browser.org/"><img src="../netsurf.png" alt="NetSurf"></a></h1>
 
 <ul class="welcomenslinks">
-<li><a href="http://www.netsurf-browser.org/">NetSurf web site</a></li>
+<li><a href="http://www.netsurf-browser.org/">NetSurf web&nbsp;site</a></li>
 <li><a href="/documentation/">Documentation</a></li>
-<li><a href="/downloads/">Download the latest build</a></li>
+<li><a href="/downloads/">Download latest NetSurf</a></li>
 <li><a href="/contact/">Contact the developers</a></li>
 </ul>
 
+<div class="onlycontent">
+
 <form method="get" action="http://www.google.co.uk/search">
 <div class="websearch">
-<input type="text" name="q" size="45" maxlength="255">
+<input type="text" name="q" size="42" maxlength="255">
 <input type="submit" value="Google Search" name="btnG">
 </div>
 </form>
@@ -44,6 +43,7 @@
 <li><a href="http://en.wikipedia.org/wiki/Main_Page">Wikipedia</a></li>
 <li><a href="http://google.co.uk/">Google</a></li>
 <li><a href="http://yahoo.co.uk/">Yahoo!</a></li>
+<li><a href="http://www.imdb.com/">IMDB</a></li>
 </ul>
 
 <ul class="riscoslinks">
@@ -51,10 +51,6 @@
 <li><a href="http://www.riscosopen.org/">ROOL</a></li>
 <li><a href="http://www.riscos.info/">riscos.info</a></li>
 </ul>
-</div>
-
-<div class="footer">
-<p>Copyright 2003 - 2008 The NetSurf Developers</p>
 </div>
 
 </div>
