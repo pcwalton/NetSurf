@@ -1014,14 +1014,14 @@ dl.news > dd {
 	margin-right: 0.3em; }
 
 .websearch input[type=submit] {
-	border: 2px outset #c5d3ff;
+	border: 2px outset #cedaff;
 	color: #000;
-	background: #c5d3ff; }
+	background: #cedaff; }
 
 .welcomelinks {
 	display: table;
 	width: 80%;
-	margin: 0 auto; }
+	margin: 0 auto 3em auto; }
 
 .welcomelinks ul {
 	display: table-cell;
