@@ -18,6 +18,10 @@
 
 <div class="onlycontent">
 
+<h2 class="welcomeversion">NetSurf 2.0 (Development build)</h2>
+
+<p class="welcomeintro">NetSurf is a small, fast open source web browser. We are always keen to improve our browser, so get in touch if you run into any problems. Thanks for choosing NetSurf!</p>
+
 <form method="get" action="http://www.google.co.uk/search">
 <div class="websearch">
 <input type="text" name="q" size="42" maxlength="255">
