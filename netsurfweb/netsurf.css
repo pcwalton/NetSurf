@@ -976,7 +976,7 @@ dl.news > dd {
 	margin: 0;
 	border-spacing: 0;
 	padding: 0;
-	background: #d8e2ff url("webimages/links.png") repeat-x top left; }
+	background: #ccd8ff; }
 
 .welcomenslinks li {
 	display: table-cell;
@@ -1028,4 +1028,4 @@ dl.news > dd {
 	padding-left: 2.5em; }
 
 .welcomelinks ul + ul {
-        padding-left: 1em; }
+	padding-left: 1em; }
