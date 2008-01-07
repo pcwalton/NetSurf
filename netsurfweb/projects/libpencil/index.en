@@ -21,7 +21,7 @@
 
 <h1>Libpencil</h1>
 
-<h2>What is Libdom?</h2>
+<h2>What is Libpencil?</h2>
 
 <p>Libpencil is a library for exporting images in the RISC OS Drawfile format. Drawfile is a vector (object orientated) graphics format. Libpencil is written in C. It is currently in development for use with <a href="/">NetSurf</a> and is intended to be suitable for use in other projects too.</p>
 
