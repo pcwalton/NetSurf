@@ -289,8 +289,7 @@ div.frontscreen {
 div.frontscreen p.frontscreen {
 	margin: 0 auto;
 	width: 253px;
-	border: 2px solid #c5d3ff;
-	background: #ff0; }
+	border: 2px solid #c5d3ff; }
 
 div.frontscreen a {
 	display: block;
