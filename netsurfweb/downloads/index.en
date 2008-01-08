@@ -53,9 +53,9 @@
 <p class="preul">Binary download includes:</p>
 <ul>
 <li><a href="http://sudden.recoil.org/others/">AcornURI</a></li>
-<li><a href="/iconv/">Iconv</a></li>
+<li><a href="/projects/iconv/">Iconv</a></li>
 <li><a href="http://www.riscos.info/downloads/gccsdk/sharedunixlib/system.zip">SharedUnixLibrary</a></li>
-<li><a href="http://www.tinct.net/tinct.asp">Tinct</a></li>
+<li><a href="/projects/tinct/">Tinct</a></li>
 </ul>
 <p class="preul">Requires either:</p>
 <ul>

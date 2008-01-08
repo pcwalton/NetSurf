@@ -90,11 +90,11 @@
 <dl>
 <dt><a href="http://sudden.recoil.org/others/">Acorn URI</a></dt>
 <dd>The Acorn URI module is used to pass URIs (of which URLs are an example) back and forth between different applications.</dd>
-<dt><a href="http://www.netsurf-browser.org/iconv/">Iconv</a></dt>
+<dt><a href="http://www.netsurf-browser.org/projects/iconv/">Iconv</a></dt>
 <dd>This module provides improved character encoding support.</dd>
 <dt><a href="http://www.riscos.info/downloads/gccsdk/sharedunixlib/system.zip">SharedUnixLibrary</a></dt>
 <dd>This is a support module for programs compiled using UnixLib.</dd>
-<dt><a href="http://www.tinct.net/tinct.asp">Tinct</a></dt>
+<dt><a href="http://www.netsurf-browser.org/projects/tinct/">Tinct</a></dt>
 <dd>Tinct is used for image plotting. It provides support for plotting sprites with alpha channels.</dd>
 </dl>
 
