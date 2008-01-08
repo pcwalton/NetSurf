@@ -18,7 +18,8 @@ h1 {
 	color: #500;
 	margin: 0;
 	text-align: right;
-	padding: 0 1em 0 0; }
+	padding: 0 1em 0 0;
+	font-size: 92%; }
 
 .projects p {
 	display: inline;
