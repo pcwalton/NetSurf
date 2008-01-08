@@ -236,7 +236,7 @@
 <tr class="nearlydone"><td>Configuration (GTK)</td><td>Nearly done</td><td></td></tr>
 <tr class="notstarted"><td>Disc Cache</td><td>Not started</td><td></td></tr>
 <tr class="complete"><td>Dithering (RISC&nbsp;OS)</td><td>Complete</td><td>Gives improved rendering in sub true colour screen modes.<br>Both simple dithering and error diffusion available.</td></tr>
-<tr class="nearlydone"><td>Documentation (RISC&nbsp;OS)</td><td>Nearly done</td><td>See the <a href="docs">contents page</a>.</td></tr>
+<tr class="nearlydone"><td>Documentation (RISC&nbsp;OS)</td><td>Nearly done</td><td>See the <a href="/documentation/">contents page</a>.</td></tr>
 <tr class="juststarted"><td>Documentation (GTK)</td><td>Just started</td><td>Currently only build instructions exist for nsgtk. There is no user guide.</td></tr>
 <tr class="complete"><td>Downloads (RISC&nbsp;OS)</td><td>Complete</td><td>Following a link to a file NetSurf can't render opens the download dialogue box.</td></tr>
 <tr class="juststarted"><td>Downloads (GTK)</td><td>Just started</td><td></td></tr>

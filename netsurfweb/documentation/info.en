@@ -63,7 +63,7 @@
 <dl>
 <dt><a href="/downloads/">Stable releases</a><dt>
 <dd>These are recommended for most users, particularly if this is your first experience of NetSurf.<dd>
-<dt><a href="/downloads/builds">Development builds</a><dt>
+<dt><a href="/downloads/testbuilds">Development builds</a><dt>
 <dd>These are built automatically from the latest bleeding-edge source code and may be unstable. Development builds are currently available only for RISC OS users. Users of other platforms can <a href="/developers/">obtain the latest source code</a> and follow the simple compilation instructions.<dd>
 </dl>
 
@@ -110,7 +110,7 @@
 
 <p>At present, NetSurf has no support for JavaScript. Without a JavaScript implementation, NetSurf is able to provide access to most of sites on the World Wide Web. Some sites, however, will not display correctly or be unworkable due to heavy reliance on this standard.</p>
 
-<p>JavaScript is support is planned but we are currently a long way off supporting it. Many things need to be done before JavaScript can be considered, such as a DOM implementation. JavaScript support will require a huge amount of work to complete. If you are keen to help out please visit the <a href="/develop/">developer and contributor area</a>.</p>
+<p>JavaScript is support is planned but we are currently a long way off supporting it. Many things need to be done before JavaScript can be considered, such as a DOM implementation. JavaScript support will require a huge amount of work to complete. If you are keen to help out please visit the <a href="/developers/">developer and contributor area</a>.</p>
 
 
 <div class="footer">

@@ -65,7 +65,7 @@
 
 <p>You can also browse the source via the <a href="http://source.netsurf-browser.org/trunk/netsurf/">web interface</a>.</p>
 
-<p>Recent changes can be seen on the <a href="http://netsurf-browser.org/builds/">autobuilder</a>. An an <a href="http://cia.navi.cx/stats/project/NetSurf/.rss">RSS feed</a> of recent changes is also provided by <a href="http://cia.navi.cx/stats/project/NetSurf/">CIA</a>. All checkins are reported on the <a href="/conatact#MailingLists">Commits mailing list</a>.</p>
+<p>Recent changes can be seen on the <a href="http://netsurf-browser.org/builds/">autobuilder</a>. An an <a href="http://cia.navi.cx/stats/project/NetSurf/.rss">RSS feed</a> of recent changes is also provided by <a href="http://cia.navi.cx/stats/project/NetSurf/">CIA</a>. All checkins are reported on the <a href="/contact#MailingLists">Commits mailing list</a>.</p>
 
 <p>Contact <a href="mailto:james&#64;semichrome.net">James</a> to get write access to the SVN repository.</p>
 

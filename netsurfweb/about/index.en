@@ -54,7 +54,7 @@
 
 <dl class="projectgoals">
 <dt>Have fun</dt>
-<dd>NetSurf is developed in people's spare time, so our main goal is to have fun &ndash; hopefully learning something and creating a product that people find useful along the way. If you want to join in, check out the <a href="/developer/">developer and contributor area</a>!</dd>
+<dd>NetSurf is developed in people's spare time, so our main goal is to have fun &ndash; hopefully learning something and creating a product that people find useful along the way. If you want to join in, check out the <a href="/developers/">developer and contributor area</a>!</dd>
 <dt>Adhere to the standards</dt>
 <dd>There are many web standards. HTTP, HTML and CSS are just a few of them, and new specifications appearing all the time. The NetSurf team is devoted to implementing these standards.</dd>
 <dt>Superior user experience</dt>
@@ -71,7 +71,7 @@
 
 <p>The NetSurf project needs help and input if it is to keep moving forward. There are many ways for users to contribute to the NetSurf project. One of the simplest is to try the latest development build regularly. If you find any bugs, features you like or changes you don't like you can give feedback to the developers. It is this valuable feedback that helps shape NetSurf into a program people enjoy using.</p>
 
-<p>Visit the &quot;<a href="/developers/contribute">How can I help?</a>&quot; page to see other ideas for contributing to the project. If you can program and you'd like to improve NetSurf, then we'd love to hear from you. Pick an area you'd like to improve or a feature you want to add and <a href="/contact/">contact the developers</a>. Also, take a look at the <a href="/developer/">developer and contributor</a> area of this site.</p>
+<p>Visit the &quot;<a href="/developers/contribute">How can I help?</a>&quot; page to see other ideas for contributing to the project. If you can program and you'd like to improve NetSurf, then we'd love to hear from you. Pick an area you'd like to improve or a feature you want to add and <a href="/contact/">contact the developers</a>. Also, take a look at the <a href="/developers/">developer and contributor</a> area of this site.</p>
 
 <h2>Project History</h2>
 

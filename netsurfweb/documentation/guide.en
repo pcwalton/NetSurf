@@ -105,7 +105,7 @@
 <p class="menuitem">This option provides a little information about NetSurf. More information about the application can be found on the <a href="#BrowserWindowMenuHelpAbout">about page</a>.</p>
 
 <p class="menupath" id="IconbarMenuHelp">NetSurf &gt; Help</p>
-<p class="menuitem">This option opens the <a href="docs">documentation contents page</a> in a new window.</p>
+<p class="menuitem">This option opens the <a href="/documentation/">documentation contents page</a> in a new window.</p>
 
 <p class="menupath" id="IconbarMenuOpen">NetSurf &gt; Open</p>
 <p class="menuitem">This option allows various windows to be opened. The options available are:</p>
@@ -626,7 +626,7 @@
 </table>
 
 <p class="menupath" id="BrowserWindowMenuHelpContents">Help &gt; Contents</p>
-<p class="menuitem">This option opens the <a href="docs">documentation contents page</a> in a new window.</p>
+<p class="menuitem">This option opens the <a href="/documentation/">documentation contents page</a> in a new window.</p>
 
 <p class="menupath" id="BrowserWindowMenuHelpGuide">Help &gt; User guide</p>
 <p class="menuitem">This option opens this page in a new window!</p>
@@ -1372,7 +1372,7 @@
 <h3>General</h3>
 
 <table>
-<tr><td>F1</td><td>Open the <a href="docs">documentation contents page</a> in a new window</td></tr>
+<tr><td>F1</td><td>Open the <a href="/documentation/">documentation contents page</a> in a new window</td></tr>
 <tr><td>F2</td><td>Move the caret to URL bar and clear it to &quot;www.&quot;</td></tr>
 <tr><td>F4</td><td>Open the text search window</td></tr>
 <tr><td>F6</td><td>Open the hotlist management window</td></tr>
