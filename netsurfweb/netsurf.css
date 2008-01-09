@@ -730,7 +730,7 @@ dl.projectgoals > dt:before {
 dl.news > dt {
 	font-size: 120%;
 	color: #000;
-	padding-left: 7em;
+	padding-left: 8em;
 	position: relative; }
 
 dl.news > dt a:link, dl.news > dt a:visited,
