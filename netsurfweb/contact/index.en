@@ -48,9 +48,9 @@
 <h2 id="UserSupportTracker">User support tracker</h2>
 
 <dl>
-<dt><a href="http://sourceforge.net/tracker/?group_id=51719&amp;atid=464312">Bug tracker</a></dt>
+<dt><a href="http://sourceforge.net/tracker/?func=add&amp;group_id=51719&amp;atid=464312">Bug tracker</a></dt>
 <dd>If you run into problems using NetSurf, please read the <a href="/documentation/info#Bugs">guidelines for reporting bugs</a> and submit them to the bug tracker.</dd>
-<dt><a href="http://sourceforge.net/tracker/?group_id=51719&amp;atid=464315">Request tracker</a></dt>
+<dt><a href="http://sourceforge.net/tracker/?func=add&amp;group_id=51719&amp;atid=464315">Request tracker</a></dt>
 <dd>If you have ideas for improving NetSurf, you can suggest them on our feature request tracker.</dd>
 </dl>
 

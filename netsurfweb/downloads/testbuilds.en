@@ -53,7 +53,7 @@
 
 <p>By regularly running a recent development build you can help us improve NetSurf by providing feedback to the authors.</p>
 
-<p>Any bug reports or feature requests should be posted on the NetSurf <a href="">issue tracker</a>. If you aren't running RISC OS, you can fetch the <a href="source">latest source</a> and build NetSurf for your system.</p>
+<p>Any bug reports or feature requests should be posted on the NetSurf <a href="/contact/#UserSupportTracker">issue tracker</a>. If you aren't running RISC OS, you can fetch the <a href="source">latest source</a> and build NetSurf for your system.</p>
 
 <h2>Recent SVN Activity</h2>
 <p>All times are in UTC.</p>
