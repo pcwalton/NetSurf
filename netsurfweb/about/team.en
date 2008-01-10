@@ -3,7 +3,8 @@
 <html>
 <head>
 <title>NetSurf | Development Team</title>
-<link rel="stylesheet" type="text/css" href="/netsurf.css">
+<link rel="stylesheet" title="Standard" type="text/css" href="/netsurf.css">
+<link rel="alternate stylesheet" title="Unrestricted width" type="text/css" href="/netsurfur.css">
 </head>
 
 <body>

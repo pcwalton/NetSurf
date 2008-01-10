@@ -2,8 +2,9 @@
         "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 <head>
-<title>NetSurf | Documentation</title>
-<link rel="stylesheet" type="text/css" href="/netsurf.css">
+<title>NetSurf | Building on RISC OS</title>
+<link rel="stylesheet" title="Standard" type="text/css" href="/netsurf.css">
+<link rel="alternate stylesheet" title="Unrestricted width" type="text/css" href="/netsurfur.css">
 </head>
 
 <body>
