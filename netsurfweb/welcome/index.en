@@ -6,7 +6,7 @@
 </head>
 
 <body>
-<h1 class="banner"><a href="http://www.netsurf-browser.org/"><img src="../netsurf.png" alt="NetSurf"></a></h1>
+<h1 class="banner"><a href="http://www.netsurf-browser.org/"><img src="/netsurf.png" alt="NetSurf"></a></h1>
 
 <ul class="nslinks">
 <li><a href="http://www.netsurf-browser.org/">NetSurf web&nbsp;site</a></li>
