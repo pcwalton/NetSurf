@@ -187,9 +187,13 @@ find({ wanted => \&process_item, no_chdir => 1, follow => 1},
 		"$root/netsurfweb");
 
 # Perform applicable processing upon about page
-print LOG "riscos-zip/!NetSurf/Docs/about/index,faf (html)\n";
-process_html('riscos-zip/!NetSurf/Docs/about/index,faf',
-	     'riscos-zip/!NetSurf/Docs/about/index,faf', 'en');
+my @langs = map { s/.*_//; $_ } glob 'riscos-zip/!NetSurf/Docs/about/index_*';
+foreach my $lang (@langs) {
+	print LOG "riscos-zip/!NetSurf/Docs/about/index_$lang,faf (html)\n";
+	process_html("riscos-zip/!NetSurf/Docs/about/index_$lang,faf",
+			"riscos-zip/!NetSurf/Docs/about/index_$lang,faf", 
+			$lang);
+}
 
 # create zip for regular build
 my $slot_size = (command('./slotsize riscos-zip/!NetSurf/!RunImage,ff8'))[0];
