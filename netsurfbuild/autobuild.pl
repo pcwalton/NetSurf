@@ -14,6 +14,12 @@ $ENV{PATH} = '/usr/local/bin:/usr/bin:/bin';
 open LOG, ">autobuild_try.log" or die "failed to open autobuild_try.log: $!\n";
 $| = 1;
 
+# A bunch of useful definitions, in case the website structure changes again
+# Output directory path (relative to site root)
+my $outputdir = "downloads/development";
+# Website host name
+my $websitehost = "www.netsurf-browser.org";
+
 
 # find where we are being run
 my $root = (command("pwd"))[0];
@@ -174,7 +180,7 @@ save('riscos-zip/!NetSurf/!Run,feb', $run);
 chdir "$root/riscos-zip";
 command('/home/riscos/cross/bin/zip -9vr, ../netsurf.zip *');
 chdir $root;
-command('mv --verbose netsurf.zip downloads/development/');
+command("mv --verbose netsurf.zip $outputdir/");
 
 # make RiscPkg package
 my $control = <<END;
@@ -193,17 +199,17 @@ Description: Web browser
  This is a test version of NetSurf and may be unstable.
 END
 save('netsurfpkg/RiscPkg/Control', $control);
-mkdir "$root/downloads/development/riscpkg";
-command('rm --verbose --force downloads/development/riscpkg/netsurf-*.zip');
+mkdir "$root/$outputdir/riscpkg";
+command("rm --verbose --force $outputdir/riscpkg/netsurf-*.zip");
 command('rm --recursive --verbose --force netsurfpkg/Apps/!NetSurf');
 command('mv --verbose riscos-zip/!NetSurf netsurfpkg/Apps/');
 chdir "$root/netsurfpkg";
 command("/home/riscos/cross/bin/zip -9vr, " .
-		"../downloads/development/riscpkg/netsurf-$pkg_version.zip " .
+		"../$outputdir/riscpkg/netsurf-$pkg_version.zip " .
 		'Apps/!NetSurf RiscPkg/Control RiscPkg/Copyright');
-chdir "$root/downloads/development/riscpkg";
+chdir "$root/$outputdir/riscpkg";
 command("$root/packageindex.pl ".
-		"http://www.netsurf-browser.org/downloads/development/riscpkg/ ".
+		"http://$websitehost/$outputdir/riscpkg/ ".
 		'> packages');
 chdir $root;
 command('mv --verbose netsurfpkg/Apps/!NetSurf ./riscos-zip/');
@@ -211,27 +217,27 @@ command('mv --verbose netsurfpkg/Apps/!NetSurf ./riscos-zip/');
 # TODO nstheme
 
 # build source tarball
-command('rm --verbose --force downloads/development/netsurf-*.tar.gz');
+command("rm --verbose --force $outputdir/netsurf-*.tar.gz");
 command('rm --recursive --verbose --force export');
 mkdir "$root/export";
 chdir "$root/export";
 command('svn export --non-interactive svn://source.netsurf-browser.org/trunk/netsurf');
 command("tar czf netsurf-r$revno.tar.gz netsurf");
 chdir $root;
-command('mv --verbose export/netsurf-*.tar.gz downloads/development/');
+command("mv --verbose export/netsurf-*.tar.gz $outputdir/");
 
 # Create a fragment of an HTML page containing details of a download link
 sub create_download_fragment {
 	my ($dest, $title, $filename) = @_;
-	my $size = sprintf "%.1fM", (-s "downloads/development/$filename") / 1048576;
-	my $date = (command("date -u -r downloads/development/$filename '+%d %b %Y %H:%M'"))[0];
-	my $html = "<li><a href=\"/downloads/development/$filename\">$title</a> <span>$size</span> <span>$date UTC</span>";
+	my $size = sprintf "%.1fM", (-s "$outputdir/$filename") / 1048576;
+	my $date = (command("date -u -r $outputdir/$filename '+%d %b %Y %H:%M'"))[0];
+	my $html = "<li><a href=\"/$outputdir/$filename\">$title</a> <span>$size</span> <span>$date UTC</span>";
 
 	save($dest, $html);	
 }
 
 # create page fragments
-create_download_fragment("downloads/development/source.inc", 
+create_download_fragment("$outputdir/source.inc", 
 		"SVN source code (r$revno)", "netsurf-r$revno.tar.gz");
 
 # get log of recent changes
@@ -239,21 +245,18 @@ my $week_ago = (command("date --date='7 days ago' '+%F'"))[0];
 chomp $week_ago;
 command("svn log --verbose --revision '{$week_ago}:HEAD' --xml " .
 		'svn://semichrome.net/ > log.xml');
-command('xsltproc svnlog2html.xslt log.xml >downloads/development/svnlog.txt');
+command("xsltproc svnlog2html.xslt log.xml >$outputdir/svnlog.txt");
 
 # Copy build log ready for upload
-command('cp --verbose autobuild.log downloads/development/netsurf.log');
+command("cp --verbose autobuild.log $outputdir/netsurf.log");
 
 # rsync to website
-command('rsync --verbose --compress --times --recursive ' .
-		'downloads/development/*.zip ' .
-		'downloads/development/netsurf.log ' .
-		'downloads/development/svnlog.txt ' .
-		'downloads/development/riscpkg ' .
-		'downloads/development/*.tar.gz ' .
-		'downloads/development/*.inc ' .
-		'netsurf@netsurf-browser.org:/home/netsurf/websites/' .
-		'www.netsurf-browser.org/docroot/downloads/development/');
+command("rsync --verbose --compress --times --recursive " .
+		"$outputdir/*.zip $outputdir/netsurf.log " .
+		"$outputdir/svnlog.txt $outputdir/riscpkg " .
+		"$outputdir/*.tar.gz $outputdir/*.inc " .
+		"netsurf@netsurf-browser.org:/home/netsurf/websites/" .
+		"$websitehost/docroot/$outputdir/");
 
 
 sub command {
