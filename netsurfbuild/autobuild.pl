@@ -99,7 +99,7 @@ sub process_html {
 	$html =~ s{href="/(contact|documentation)/"}
 		  {href="../$1/index_$language"}g;
 	# Rewrite all local file links to "../dir/..."
-	$html =~ s{href="/(contact|documentation)/([.*]+)"}
+	$html =~ s{href="/(contact|documentation)/(.+)"}
 		  {href="../$1/$2"}g;
 	# Rewrite all non-local links to be absolute
 	$html =~ s{href="/(.+)"}
