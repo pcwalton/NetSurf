@@ -92,15 +92,21 @@ sub process_html {
 	# Append _png to all documentation image links
 	$html =~ s{src="images/([a-z]+)"}
 		  {src="images/$1_png"}g;
-	# Rewrite all links to the document root to "intro_xx"
+	# Rewrite all links to the document root to "../intro_xx"
 	$html =~ s{href="/"}
-	          {href="intro_$language"}g;
+	          {href="../intro_$language"}g;
+	# Rewrite all links to directories to /index_xx"
+	$html =~ s{href="(.+)/"}
+		  {href="$1/index_$language"}g;
 	# Rewrite navigation div to prevent its display
 	$html =~ s{div class="navigation"}
 		  {div class="navigation" style="display: none"}g;
 	# Rewrite content div's class to use full page width
 	$html =~ s{div class="content"}
 		  {div class="onlycontent"}g;
+	# Remove the search box
+	$html =~ s{div class="searchbox"}
+		  {div class="searchbox" style="display:none"}g;
 	# Substitute the version into those documents that require it
 	$html =~ s{VERSION}
 	          {$version}g;
