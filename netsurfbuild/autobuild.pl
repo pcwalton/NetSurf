@@ -95,9 +95,12 @@ sub process_html {
 	# Rewrite all links to the document root to "../intro_xx"
 	$html =~ s{href="/"}
 	          {href="../intro_$language"}g;
-	# Rewrite all local links to "../dir/index_xx"
+	# Rewrite all local directory links to "../dir/index_xx"
 	$html =~ s{href="/(contact|documentation)/"}
 		  {href="../$1/index_$language"}g;
+	# Rewrite all local file links to "../dir/..."
+	$html =~ s{href="/(contact|documentation)/([.*]+)"}
+		  {href="../$1/$2"}g;
 	# Rewrite all non-local links to be absolute
 	$html =~ s{href="/(.+)"}
 		  {href="http://$websitehost/$1"}g;
