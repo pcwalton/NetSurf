@@ -112,8 +112,8 @@ sub process_item {
 
 	# Ignore item if it's not in the contact or documentation directories
 	# or if it's not the website stylesheet or NetSurf logo image
-	if ($item !~ /contact.*/ || $item !~ /documentation.*/ ||
-			$item != "netsurf.css" || $item != "netsurf.png") {
+	if ($item !~ /contact.*/ && $item !~ /documentation.*/ &&
+			$item ne "netsurf.css" && $item ne "netsurf.png") {
 		return 0;
 	}
 
@@ -158,7 +158,8 @@ sub process_item {
 
 # clone website into Docs directory
 chdir $root;
-find({ wanted => \&process_item, no_chdir => 1 }, "$root/netsurfweb");
+find({ wanted => \&process_item, no_chdir => 1, follow => 1}, 
+		"$root/netsurfweb");
 
 # Perform applicable processing upon about page
 print LOG "riscos-zip/!NetSurf/Docs/about,faf (html)\n";
@@ -214,7 +215,7 @@ command('rm --verbose --force downloads/development/netsurf-*.tar.gz');
 command('rm --recursive --verbose --force export');
 mkdir "$root/export";
 chdir "$root/export";
-command('svn export --non-interactive http://source.netsurf-browser.org/trunk/netsurf');
+command('svn export --non-interactive svn://source.netsurf-browser.org/trunk/netsurf');
 command("tar czf netsurf-r$revno.tar.gz netsurf");
 chdir $root;
 command('mv --verbose export/netsurf-*.tar.gz downloads/development/');
