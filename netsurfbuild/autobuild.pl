@@ -74,10 +74,10 @@ sub process_html {
 	# Append "_xx" to all anchors which don't already encode the language
 	$html =~ s{a href="([a-z]+)((#[a-zA-Z]+)?)"}
 	          {a href="$1_$language$2"}g;
-	# Rewrite anchors from "index.en" to "index_en"
+	# Rewrite anchors from (e.g) "index.en" to "index_en"
 	$html =~ s{a href="([a-z]+)[.]([a-z][a-z])((#[a-zA-Z]+)?)"}
 	          {a href="$1_$2$3"}g;
-	# Rewrite anchors to from "foo/index.en" to "foo/index_en"
+	# Rewrite image @src to from (e.g) "foo/index.en" to "foo/index_en"
 	$html =~ s{src="([a-z\/]+)[.]([a-z][a-z])"}
 	          {src="$1_$2"}g;
 	# Rewrite "/netsurf.css" to "../netsurf"
@@ -95,9 +95,12 @@ sub process_html {
 	# Rewrite all links to the document root to "../intro_xx"
 	$html =~ s{href="/"}
 	          {href="../intro_$language"}g;
-	# Rewrite all links to directories to "../.../index_xx"
-	$html =~ s{href="/(.+)/"}
+	# Rewrite all local links to "../dir/index_xx"
+	$html =~ s{href="/(contact|documentation)/"}
 		  {href="../$1/index_$language"}g;
+	# Rewrite all non-local links to be absolute
+	$html =~ s{href="/(.+)"}
+		  {href="http://$websitehost/$1"}g;
 	# Rewrite navigation div to prevent its display
 	$html =~ s{div class="navigation"}
 		  {div class="navigation" style="display: none"}g;
