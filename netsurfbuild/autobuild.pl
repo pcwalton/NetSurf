@@ -187,7 +187,7 @@ find({ wanted => \&process_item, no_chdir => 1, follow => 1},
 		"$root/netsurfweb");
 
 # Perform applicable processing upon about page
-my @langs = map { s/.*_//; $_ } glob 'riscos-zip/!NetSurf/Docs/about/index_*';
+my @langs = map { s/.*_(.*),faf/$1/; $_ } glob 'riscos-zip/!NetSurf/Docs/about/index_*';
 foreach my $lang (@langs) {
 	print LOG "riscos-zip/!NetSurf/Docs/about/index_$lang,faf (html)\n";
 	process_html("riscos-zip/!NetSurf/Docs/about/index_$lang,faf",
