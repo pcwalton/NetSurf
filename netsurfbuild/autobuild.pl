@@ -255,7 +255,7 @@ command("rsync --verbose --compress --times --recursive " .
 		"$outputdir/*.zip $outputdir/netsurf.log " .
 		"$outputdir/svnlog.txt $outputdir/riscpkg " .
 		"$outputdir/*.tar.gz $outputdir/*.inc " .
-		"netsurf@netsurf-browser.org:/home/netsurf/websites/" .
+		"netsurf\@netsurf-browser.org:/home/netsurf/websites/" .
 		"$websitehost/docroot/$outputdir/");
 
 
