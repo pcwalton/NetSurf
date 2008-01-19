@@ -95,9 +95,9 @@ sub process_html {
 	# Rewrite all links to the document root to "../intro_xx"
 	$html =~ s{href="/"}
 	          {href="../intro_$language"}g;
-	# Rewrite all links to directories to /index_xx"
-	$html =~ s{href="(.+)/"}
-		  {href="$1/index_$language"}g;
+	# Rewrite all links to directories to "../.../index_xx"
+	$html =~ s{href="/(.+)/"}
+		  {href="../$1/index_$language"}g;
 	# Rewrite navigation div to prevent its display
 	$html =~ s{div class="navigation"}
 		  {div class="navigation" style="display: none"}g;
