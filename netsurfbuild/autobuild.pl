@@ -80,12 +80,18 @@ sub process_html {
 	# Rewrite anchors to from "foo/index.en" to "foo/index_en"
 	$html =~ s{src="([a-z\/]+)[.]([a-z][a-z])"}
 	          {src="$1_$2"}g;
-	# Strip .css extension from all occurrences of "netsurf.css"
-	$html =~ s{"netsurf.css"}
-	          {"netsurf"}g;
+	# Rewrite "/netsurf.css" to "../netsurf"
+	$html =~ s{"/netsurf.css"}
+	          {"../netsurf"}g;
 	# Rewrite all image links from "img.png" to "img_png"
 	$html =~ s{"([a-z]+).png"}
 	          {"$1_png"}g;
+	# Rewrite "/netsurf.png" to "../netsurf_png"
+	$html =~ s{"/netsurf.png"}
+		  {"../netsurf_png"}g;
+	# Append _png to all documentation image links
+	$html =~ s{src="images/([a-z]+)"}
+		  {src="images/$1_png"}g;
 	# Rewrite all links to the document root to "intro_xx"
 	$html =~ s{href="/"}
 	          {href="intro_$language"}g;
