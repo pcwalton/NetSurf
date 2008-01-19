@@ -6,6 +6,9 @@
 use strict;
 use warnings;
 
+use File::Find;
+use File::Spec;
+
 $ENV{PATH} = '/usr/local/bin:/usr/bin:/bin';
 
 open LOG, ">autobuild_try.log" or die "failed to open autobuild_try.log: $!\n";
@@ -53,68 +56,114 @@ save('netsurf/desktop/version.c',
 
 # build RISC OS version
 chdir "$root/netsurf";
-command("make riscos riscos_small");
+command("make riscos");
 chdir $root;
 command("rm --recursive --force --verbose riscos-zip/!NetSurf");
 command("rsync --archive --verbose --exclude=.svn netsurf/!NetSurf riscos-zip/");
 
-# copy docs, processing as required
+# copy HTML document, preprocessing as required
 sub process_html {
 	my ($source, $dest, $language) = @_;
 	my $html = load($source);
+	# Append "_xx" to all anchors which don't already encode the language
 	$html =~ s{a href="([a-z]+)((#[a-zA-Z]+)?)"}
 	          {a href="$1_$language$2"}g;
+	# Rewrite anchors from "index.en" to "index_en"
 	$html =~ s{a href="([a-z]+)[.]([a-z][a-z])((#[a-zA-Z]+)?)"}
 	          {a href="$1_$2$3"}g;
+	# Rewrite anchors to from "foo/index.en" to "foo/index_en"
 	$html =~ s{src="([a-z\/]+)[.]([a-z][a-z])"}
 	          {src="$1_$2"}g;
+	# Strip .css extension from all occurrences of "netsurf.css"
 	$html =~ s{"netsurf.css"}
 	          {"netsurf"}g;
+	# Rewrite all image links from "img.png" to "img_png"
 	$html =~ s{"([a-z]+).png"}
 	          {"$1_png"}g;
+	# Rewrite all links to the document root to "intro_xx"
 	$html =~ s{href="/"}
 	          {href="intro_$language"}g;
+	# Rewrite navigation div to prevent its display
+	$html =~ s{div class="navigation"}
+		  {div class="navigation" style="display: none"}g;
+	# Rewrite content div's class to use full page width
+	$html =~ s{div class="content"}
+		  {div class="onlycontent"}g;
+	# Substitute the version into those documents that require it
 	$html =~ s{VERSION}
 	          {$version}g;
 	save($dest, $html);
 }
 
-chdir "$root/netsurfweb";
-my @docs = glob '*';
-chdir $root;
-foreach my $doc (@docs) {
-	my $source = "netsurfweb/$doc";
-	print LOG "$source ";
-	if ($doc =~ /([a-z]+)[.]([a-z][a-z])$/) { # html with language extension
-		my $leaf = $1;
-		my $language = $2;
-		my $dest = "riscos-zip/!NetSurf/Docs/${leaf}_$language,faf";
-		print LOG "=> $dest (html)\n";
-		process_html($source, $dest, $language);
-	} elsif ($doc =~ /(.*)[.]css$/) {
-		my $dest = "riscos-zip/!NetSurf/Docs/$1,f79";
-		print LOG "=> $dest\n";
-		command("cp --archive --verbose $source $dest");
-	} elsif ($doc =~ /(.*)[.]png$/) {
-		my $dest = "riscos-zip/!NetSurf/Docs/$1_png,b60";
-		print LOG "=> $dest\n";
-		command("cp --archive --verbose $source $dest");
-	} else {
-		print LOG "(skipped)\n";
+# process each item found in the website tree
+sub process_item {
+	my $destroot = "riscos-zip/!NetSurf/Docs";
+
+	# Get item name (relative to root of website tree)
+	my ($item) = ($File::Find::name =~ /$root\/netsurfweb\/(.*)/);
+	$item = "" if !defined($item);
+
+	# Get current directory (relative to root of website tree)
+	my ($dir) = ($File::Find::dir =~ /$root\/netsurfweb\/(.*)/);
+	$dir = "" if !defined($dir);
+
+	# Ignore item if it's part of an SVN metadata tree
+	return 0 if $item =~ /.*[.]svn.*/;
+
+	# Ignore item if it's not in the contact or documentation directories
+	# or if it's not the website stylesheet or NetSurf logo image
+	if ($item !~ /contact.*/ || $item !~ /documentation.*/ ||
+			$item != "netsurf.css" || $item != "netsurf.png") {
+		return 0;
+	}
+
+	if (-d $File::Find::name) {
+		# Directory -- mirror it in destination tree
+		command("mkdir -m 755 -p $destroot/$item");
+	} elsif (-f $File::Find::name) {
+		# File -- process it appropriately
+		my ($volume, $directories, $doc) = File::Spec->splitpath($item);
+
+		die "Bad item $item" if $doc eq "";
+
+		my $source = $directories eq "" 
+				? "netsurfweb/$doc" 
+				: "netsurfweb/$directories$doc";
+
+		print LOG "$source ";
+
+		if ($doc =~ /([a-z]+)[.]([a-z][a-z])$/) { 
+			# HTML with language extension
+			my $leaf = $1;
+			my $language = $2;
+			my $dest = "$destroot/$dir/${leaf}_$language,faf";
+			print LOG "=> $dest (html)\n";
+			process_html($source, $dest, $language);
+		} elsif ($doc =~ /(.*)[.]css$/) {
+			# CSS document
+			my $dest = "$destroot/$dir/$1,f79";
+			print LOG "=> $dest\n";
+			command("cp --archive --verbose $source $dest");
+		} elsif ($doc =~ /(.*)[.]png$/) {
+			# PNG image
+			my $dest = "$destroot/$dir/$1_png,b60";
+			print LOG "=> $dest\n";
+			command("cp --archive --verbose $source $dest");
+		} else {
+			# anything else
+			print LOG "(skipped)\n";
+		}
 	}
 }
 
+# clone website into Docs directory
+chdir $root;
+find({ wanted => \&process_item, no_chdir => 1 }, "$root/netsurfweb");
+
+# Perform applicable processing upon about page
 print LOG "riscos-zip/!NetSurf/Docs/about,faf (html)\n";
 process_html('riscos-zip/!NetSurf/Docs/about,faf',
 	     'riscos-zip/!NetSurf/Docs/about,faf', 'en');
-
-mkdir 'riscos-zip/!NetSurf/Docs/images', 0755;
-foreach my $png (glob 'netsurfweb/images/*') {
-	$png =~ /images\/(.*)[.]png$/;
-	my $leaf = $1;
-	$leaf =~ s/[.]/_/g;
-	command("cp --archive --verbose $png riscos-zip/!NetSurf/Docs/images/$leaf,b60");
-}
 
 # create zip for regular build
 my $slot_size = (command('./slotsize riscos-zip/!NetSurf/!RunImage,ff8'))[0];
@@ -124,7 +173,7 @@ save('riscos-zip/!NetSurf/!Run,feb', $run);
 chdir "$root/riscos-zip";
 command('/home/riscos/cross/bin/zip -9vr, ../netsurf.zip *');
 chdir $root;
-command('mv --verbose netsurf.zip builds/');
+command('mv --verbose netsurf.zip downloads/development/');
 
 # make RiscPkg package
 my $control = <<END;
@@ -143,69 +192,67 @@ Description: Web browser
  This is a test version of NetSurf and may be unstable.
 END
 save('netsurfpkg/RiscPkg/Control', $control);
-mkdir "$root/builds/riscpkg";
-command('rm --verbose --force builds/riscpkg/netsurf-*.zip');
+mkdir "$root/downloads/development/riscpkg";
+command('rm --verbose --force downloads/development/riscpkg/netsurf-*.zip');
 command('rm --recursive --verbose --force netsurfpkg/Apps/!NetSurf');
 command('mv --verbose riscos-zip/!NetSurf netsurfpkg/Apps/');
 chdir "$root/netsurfpkg";
 command("/home/riscos/cross/bin/zip -9vr, " .
-		"../builds/riscpkg/netsurf-$pkg_version.zip " .
+		"../downloads/development/riscpkg/netsurf-$pkg_version.zip " .
 		'Apps/!NetSurf RiscPkg/Control RiscPkg/Copyright');
-chdir "$root/builds/riscpkg";
-command("$root/packageindex.pl http://www.netsurf-browser.org/builds/riscpkg/ ".
+chdir "$root/downloads/development/riscpkg";
+command("$root/packageindex.pl ".
+		"http://www.netsurf-browser.org/downloads/development/riscpkg/ ".
 		'> packages');
 chdir $root;
 command('mv --verbose netsurfpkg/Apps/!NetSurf ./riscos-zip/');
 
-# create zip for small build
-command('cp --archive --verbose netsurf/u!RunImage,ff8 riscos-zip/!NetSurf/!RunImage,ff8');
-$slot_size = (command('./slotsize riscos-zip/!NetSurf/!RunImage,ff8'))[0];
-$run = load('netsurf/!NetSurf/!Run,feb');
-$run =~ s/2240/$slot_size/g;
-save('riscos-zip/!NetSurf/!Run,feb', $run);
-chdir "$root/riscos-zip";
-command('/home/riscos/cross/bin/zip -9vr, ../unetsurf.zip *');
-chdir $root;
-command('mv --verbose unetsurf.zip builds/');
-
 # TODO nstheme
+
+# build source tarball
+command('rm --verbose --force downloads/development/netsurf-*.tar.gz');
+command('rm --recursive --verbose --force export');
+mkdir "$root/export";
+chdir "$root/export";
+command('svn export --non-interactive http://source.netsurf-browser.org/trunk/netsurf');
+command("tar czf netsurf-r$revno.tar.gz netsurf");
+chdir $root;
+command('mv --verbose export/netsurf-*.tar.gz downloads/development/');
+
+# Create a fragment of an HTML page containing details of a download link
+sub create_download_fragment {
+	my ($dest, $title, $filename) = @_;
+	my $size = sprintf "%.1fM", (-s "downloads/development/$filename") / 1048576;
+	my $date = (command("date -u -r downloads/development/$filename '+%d %b %Y %H:%M'"))[0];
+	my $html = "<li><a href=\"/downloads/development/$filename\">$title</a> <span>$size</span> <span>$date UTC</span>";
+
+	save($dest, $html);	
+}
+
+# create page fragments
+create_download_fragment("downloads/development/source.inc", 
+		"SVN source code (r$revno)", "netsurf-r$revno.tar.gz");
 
 # get log of recent changes
 my $week_ago = (command("date --date='7 days ago' '+%F'"))[0];
 chomp $week_ago;
 command("svn log --verbose --revision '{$week_ago}:HEAD' --xml " .
 		'svn://semichrome.net/ > log.xml');
-my @log = command('xsltproc svnlog2html.xslt log.xml');
+command('xsltproc svnlog2html.xslt log.xml >downloads/development/svnlog.txt');
 
-# create builds page
-my $size_netsurf = sprintf "%.1fM", (-s 'builds/netsurf.zip') / 1048576;
-my $size_unetsurf = sprintf "%.1fM", (-s 'builds/unetsurf.zip') / 1048576;
-my $size_nstheme = sprintf "%.1fM", (-s 'builds/nstheme.zip') / 1048576;
-my $format = "'+%d %b %Y %H:%M'";
-my $date_nstheme = (command("date -u -r builds/nstheme.zip $format"))[0];
-my @langs = map { s/.*[.]//; $_ } glob 'builds/top.*';
-foreach my $lang (@langs) {
-	print LOG "builds/index.$lang\n";
-	my $page = load("builds/top.$lang");
-	$page =~ s/SIZE_NETSURF/$size_netsurf/g;
-	$page =~ s/DATE_NETSURF/$date UTC/g;
-	$page =~ s/SIZE_UNETSURF/$size_unetsurf/g;
-	$page =~ s/DATE_UNETSURF/$date UTC/g;
-	$page =~ s/SIZE_NSTHEME/$size_nstheme/g;
-	$page =~ s/DATE_NSTHEME/$date_nstheme UTC/g;
-	$page .= join '', @log;
-	$page .= load("builds/bottom.$lang");
-	save("builds/index.$lang", $page);
-}
-
-command('cp --verbose autobuild.log builds/netsurf.log');
+# Copy build log ready for upload
+command('cp --verbose autobuild.log downloads/development/netsurf.log');
 
 # rsync to website
 command('rsync --verbose --compress --times --recursive ' .
-		'builds/*.zip builds/index.* builds/netsurf.log ' .
-		'builds/riscpkg ' .
+		'downloads/development/*.zip ' .
+		'downloads/development/netsurf.log ' .
+		'downloads/development/svnlog.txt ' .
+		'downloads/development/riscpkg ' .
+		'downloads/development/*.tar.gz ' .
+		'downloads/development/*.inc ' .
 		'netsurf@netsurf-browser.org:/home/netsurf/websites/' .
-		'www.netsurf-browser.org/docroot/builds/');
+		'www.netsurf-browser.org/docroot/downloads/development/');
 
 
 sub command {
