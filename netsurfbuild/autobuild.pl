@@ -92,14 +92,14 @@ sub process_html {
 	# Append _png to all documentation image links
 	$html =~ s{src="images/([a-z]+)"}
 		  {src="images/$1_png"}g;
-	# Rewrite all links to the document root to "../intro_xx"
+	# Rewrite all links to the document root to "../welcome/index_xx"
 	$html =~ s{href="/"}
-	          {href="../intro_$language"}g;
+	          {href="../welcome/index_$language"}g;
 	# Rewrite all local directory links to "../dir/index_xx"
-	$html =~ s{href="/(contact|documentation)/"}
+	$html =~ s{href="/(contact|documentation|welcome)/"}
 		  {href="../$1/index_$language"}g;
 	# Rewrite all local file links to "../dir/..."
-	$html =~ s{href="/(contact|documentation)/(.+)"}
+	$html =~ s{href="/(contact|documentation|welcome)/(.+)"}
 		  {href="../$1/$2"}g;
 	# Rewrite all non-local links to be absolute
 	$html =~ s{href="/(.+)"}
@@ -137,7 +137,8 @@ sub process_item {
 	# Ignore item if it's not in the contact or documentation directories
 	# or if it's not the website stylesheet or NetSurf logo image
 	if ($item !~ /contact.*/ && $item !~ /documentation.*/ &&
-			$item ne "netsurf.css" && $item ne "netsurf.png") {
+			$item !~ /welcome.*/ && $item ne "netsurf.css" && 
+			$item ne "netsurf.png") {
 		return 0;
 	}
 
