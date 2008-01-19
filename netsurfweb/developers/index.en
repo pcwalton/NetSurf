@@ -96,7 +96,7 @@
 <h2>Recent changes</h2>
 
 <p>All times are in UTC.</p>
-RECENT_CHANGE_LOG
+<!--#include virtual="/downloads/development/svnlog.txt"-->
 
 <h2>Contact the other developers</h2>
 

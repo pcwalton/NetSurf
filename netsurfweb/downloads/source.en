@@ -55,7 +55,7 @@
 <p>If you don't have Subversion, the latest source can be downloaded here.</p>
 
 <ul class="developmentbuilds">
-<li><a href="development/rREVISION_SOURCEnetsurf.tar.gz">SVN source code (rREVISION_SOURCE)</a> <span>SIZE_SOURCE</span> <span>DATE_SOURCE</span></li>
+<!--#include virtual="development/source.inc"-->
 </ul>
 
 <p>The source code for each release version of NetSurf is available on the main <a href="/downloads/">downloads page</a>.</p>

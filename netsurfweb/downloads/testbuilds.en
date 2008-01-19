@@ -48,8 +48,9 @@
 
 <p>The development build available on this page is built automatically from the latest source code in SVN. <strong>It is likely to be unstable and may crash your machine.</strong></p>
 
+<!--#config timefmt="%d %b %Y %R %Z" sizefmt="abbrev"-->
 <ul class="developmentbuilds">
-<li><a href="development/netsurf.zip">NetSurf for RISC&nbsp;OS</a> <span>SIZE_NETSURF</span> <span>DATE_NETSURF</span></li>
+<li><a href="development/netsurf.zip">NetSurf for RISC&nbsp;OS</a> <span><!--#fsize virtual="development/netsurf.zip"--></span> <span><!--#flastmod virtual="development/netsurf.zip"--></span></li>
 </ul>
 
 <p>By regularly running a recent development build you can help us improve NetSurf by providing feedback to the authors.</p>
@@ -58,7 +59,7 @@
 
 <h2>Recent SVN Activity</h2>
 <p>All times are in UTC.</p>
-RECENT_CHANGE_LOG
+<!--#include virtual="development/svnlog.txt"-->
 
 <div class="footer">
 <p>Copyright 2003 - 2008 The NetSurf Developers</p>
