@@ -187,9 +187,9 @@ find({ wanted => \&process_item, no_chdir => 1, follow => 1},
 		"$root/netsurfweb");
 
 # Perform applicable processing upon about page
-print LOG "riscos-zip/!NetSurf/Docs/about,faf (html)\n";
-process_html('riscos-zip/!NetSurf/Docs/about,faf',
-	     'riscos-zip/!NetSurf/Docs/about,faf', 'en');
+print LOG "riscos-zip/!NetSurf/Docs/about/index,faf (html)\n";
+process_html('riscos-zip/!NetSurf/Docs/about/index,faf',
+	     'riscos-zip/!NetSurf/Docs/about/index,faf', 'en');
 
 # create zip for regular build
 my $slot_size = (command('./slotsize riscos-zip/!NetSurf/!RunImage,ff8'))[0];
