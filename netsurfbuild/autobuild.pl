@@ -96,8 +96,8 @@ sub process_html {
 	$html =~ s{href="/"}
 	          {href="../welcome/index_$language"}g;
 	# Rewrite all local directory links to "../dir/index_xx"
-	$html =~ s{href="/(contact|documentation|welcome)/"}
-		  {href="../$1/index_$language"}g;
+	$html =~ s{href="/(contact|documentation|welcome)/((#[a-zA-Z]+)?)"}
+		  {href="../$1/index_$language$2"}g;
 	# Rewrite all local file links to "../dir/..."
 	$html =~ s{href="/(contact|documentation|welcome)/(.+)"}
 		  {href="../$1/$2"}g;
