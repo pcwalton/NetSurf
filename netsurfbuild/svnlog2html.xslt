@@ -5,7 +5,7 @@
   <xsl:template match="log">
     <div class="changelog">
       <xsl:for-each select="logentry">
-	<xsl:sort select="@revision" date-type="number" order="descending"/>
+	<xsl:sort select="@revision" data-type="number" order="descending"/>
 	<div class="entry">
 	  <p class="meta">
 	    <span class="date">
@@ -19,7 +19,7 @@
 	    <xsl:variable name="rev">
 	      <xsl:value-of select="@revision"/>
 	    </xsl:variable>
-	    <a href="http://source.netsurf-browser.org/?rev={$rev}&view=rev">
+	    <a href="http://source.netsurf-browser.org/?rev={$rev}&amp;view=rev">
 	      <xsl:text>r</xsl:text>
 	      <xsl:value-of select="@revision"/>
 	    </a>
