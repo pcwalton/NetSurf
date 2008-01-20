@@ -109,7 +109,7 @@
 
 <h2 id="SourceDocumentation">Source documentation</h2>
 
-<p>The source is documented using <a href="http://www.doxygen.org/">Doxygen</a> (<a href="http://www.ecs.soton.ac.uk/~jmb202/">RISC OS port</a>). Use <code>doxygen Docs/Doxyfile</code> to generate the documentation from the source tree, or <a href="http://netsurf.strcprstskrzkrk.co.uk/codedocs/">view the latest documentation</a> generated on the autobuilder.</p>
+<p>See the <a href="http://source.netsurf-browser.org/trunk/netsurf/Docs/">Docs</a> directory for source code documentation.</p>
 
 
 <h2 id="Communication">Communication</h2>
