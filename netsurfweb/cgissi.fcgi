@@ -9,9 +9,11 @@
 use warnings;
 use strict;
 
-use POSIX qw(strftime);
+use Digest::SHA;
 use File::Spec;
 use FCGI;
+use POSIX qw(strftime);
+use Time::Piece;
 
 # Content cache to avoid regenerating pages unless it's absolutely necessary
 #
@@ -20,6 +22,7 @@ use FCGI;
 #
 # { "/foo/bar/baz" => 
 # 	{ last_modified => 0123456789,
+# 	  data_digest => "base64(SHA($data))"
 # 	  data_last_modified => 0123456789,
 #	  data => "generated page content",
 #	  dependencies => 
@@ -40,6 +43,15 @@ my $request = FCGI::Request();
 
 # Loop until the server tells us to quit
 while ($request->Accept() >= 0) {
+	# Get cacheing-related headers
+	my $ims = $ENV{HTTP_IF_MODIFIED_SINCE};
+	my $ius = $ENV{HTTP_IF_UNMODIFIED_SINCE};
+	my $im = $ENV{HTTP_IF_MATCH};
+	my $inm = $ENV{HTTP_IF_NONE_MATCH};
+
+	my $inm_pass = 1;
+	my $request_failed = 0;
+
 	# Get document root for this request
 	my $docroot = $ENV{DOCUMENT_ROOT};
 
@@ -52,22 +64,122 @@ while ($request->Accept() >= 0) {
 	# Find item in cache
 	my $cachedata = $cache{$docroot . $path};
 
-	# Determine if we need to (re)generate page
-	validate_cache_entry($docroot, $path, $cachedata);
+	# Ensure that the If-Match condition can succeed
+	if (defined($im)) {
+		if (!defined($cachedata)) {
+			# Can't possibly match
+			print "Status: 412 Precondition Failed\r\n";
+			$request_failed = 1;
+		}
 
-	# Refetch cache entry 
-	# (as it may have been created by validate_cache_entry)
-	$cachedata = $cache{$docroot . $path};
+		if ($im ne "*") {
+			my @parts = split(/,/, $im);
+			my $match = 0;
 
-	# TODO It would be really nice to be able to send 304 responses where
-	# appropriate. We have the appropriate information in 
-	# $$cachedata{data_last_modified}. I guess, if necessary, we could also
-	# generate an E-tag. Currently, I can see no sensible way of doing this.
+			foreach my $part (@parts) {
+				my ($trimmed) = ($part =~ 
+					m/[[:space:]]*(.*)[[:space:]]*/);
+				if ($trimmed eq $cachedata{data_digest}) {
+					$match = 1;
+					last;
+				}
+			}
+
+			if (!$match) {
+				# No match
+				print "Status: 412 Precondition Failed\r\n";
+				$request_failed = 1;
+			}
+		}
+	}
+
+	# Ensure that the If-None-Match condition can succeed
+	if (!$request_failed && defined($inm)) {
+		if ($inm eq "*" && defined($cachedata)) {
+			$inm_pass = 0;
+		} elsif ($inm ne "*") {
+			my @parts = split(/,/, $inm);
+
+			foreach my $part (@parts) {
+				my ($trimmed) = ($part =~ 
+					m/[[:space:]]*(.*)[[:space:]]*/);
+				if ($trimmed eq $cachedata{data_digest}) {
+					$inm_pass = 0;
+					last;
+				}
+			}
+		}
+	}
+
+	if (!$request_failed) {
+		# Determine if we need to (re)generate page
+		validate_cache_entry($docroot, $path, $cachedata);
+
+		# Refetch cache entry 
+		# (as it may have been created by validate_cache_entry)
+		$cachedata = $cache{$docroot . $path};
+	}
+
+	# If this was a modification-conditional request, ensure the document
+	# hasn't been modified since the time given in the request.
+	if (!$request_failed && defined($ius)) {
+		my $now = gmtime;
+		my $rmt = Time::Piece->strptime($ius,
+				"%a, %d %b %Y $H:$M:$S $Z");
+
+		if (defined($rmt) && $rmt <= $$cache_data{data_last_modified}) {
+				print "Status: 412 Precondition Failed\r\n";
+				$request_failed = 1;
+		}
+	}
+
+	# If this was a modification-conditional request, ensure the document's
+	# been modified since the time given in the request. If-Modified-Since
+	# is ignored if If-None-Match passes.
+	if (!$request_failed && defined($ims)) {
+		if (!defined($inm) || !$inm_pass) {
+			my $now = gmtime;
+			my $rmt = Time::Piece->strptime($ims, 
+					"%a, %d %b %Y %H:%M:%S $Z");
+
+			if (defined($rmt) && $rmt <= $now &&
+					$$cache_data{data_last_modified} <= 
+						$rmt) {
+				if (!$inm_pass) {
+					$inm_pass = 1;
+				} else {
+					print "Status: 304 Not Modified\r\n";
+					$request_failed = 1;
+				}
+			}
+		}
+	}
+
+	# If-None-Match failed -- return appropriate result
+	if (!$request_failed && !$inm_pass) {
+		if ($ENV{REQUEST_METHOD} eq "GET" || 
+				$ENV{REQUEST_METHOD} == "HEAD") {
+			print "Status: 304 Not Modified\r\n";
+		} else
+			print "Status: 412 Precondition Failed \r\n";
+		}
+
+		$request_failed = 1;
+	}
+	
+	# Cache-related headers
+	print "ETag: " . $$cachedata{data_digest} . "\r\n";
+	print "Last-Modified: " . strftime("%a, %d %b %Y %H:%M:%S %Z", 
+			gmtime(time)) . "\r\n";
+
+	# Exit if the request failed
+	if ($request_failed) {
+		print "\r\n";
+		return;
+	}
 
 	# Send Content-Type header
 	print "Content-Type: text/html; charset=ISO-8859-1\r\n";
-	#	print "Last-Modified: " . strftime("%a, %d %b %Y %H:%M:%S %Z", 
-	#		gmtime(time)) . "\r\n";
 	print "\r\n";
 
 	# And the page data
@@ -343,6 +455,8 @@ sub generate_page_full
 	if (! -e $docroot . $path) {
 		# File doesn't exist
 		$cache{$docroot . $path}{data} = $data;
+		$cache{$docroot . $path}{data_digest} = 
+				'"' . sha1_base64($data) . '"';
 		$cache{$docroot . $path}{data_last_modified} = time;
 		return;
 	}
@@ -479,6 +593,7 @@ sub generate_page_full
 
 	# Save generated page data in cache
 	$$cacheentry{data} = $data;
+	$$cacheentry{data_digest} = '"' . sha1_base64{$data} . '"';
 	$$cacheentry{data_last_modified} = time;
 }
 
@@ -494,6 +609,8 @@ sub generate_page_partial
 	if (! -e $docroot . $path) {
 		# File doesn't exist
 		$cache{$docroot . $path}{data} = "";
+		$cache{$docroot . $path}{data_digest} = 
+				'"' . sha1_base64("") . '"';
 		$cache{$docroot . $path}{data_last_modified} = time;
 		return;
 	}
@@ -559,6 +676,7 @@ sub generate_page_partial
 
 	# Update document cache
 	$cache{$docroot . $path}{data} = $data;
+	$cache{$docroot . $path}{data_digest} = '"' . sha1_base64($data) . '"';
 	$cache{$docroot . $path}{data_last_modified} = time;
 }
 
@@ -594,5 +712,4 @@ sub validate_cache_entry
 
 	# Otherwise, the cached data is valid
 }
-
 
