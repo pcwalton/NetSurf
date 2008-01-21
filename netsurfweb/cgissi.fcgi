@@ -62,7 +62,10 @@ while ($request->Accept() >= 0) {
 	# generate an E-tag. Currently, I can see no sensible way of doing this.
 
 	# Send Content-Type header
-	print "Content-Type: text/html; charset=ISO-8859-1\r\n\r\n";
+	print "Content-Type: text/html; charset=ISO-8859-1\r\n";
+	#	print "Last-Modified: " . strftime("%a, %d %b %Y %H:%M:%S %Z", 
+	#		gmtime(time)) . "\r\n";
+	print "\r\n";
 
 	# And the page data
 	print $$cachedata{data};
@@ -336,8 +339,8 @@ sub generate_page_full
 
 	if (! -e $docroot . $path) {
 		# File doesn't exist
-		$$cacheentry{data} = $data;
-		$$cacheentry{data_last_modified} = time;
+		$cache{$docroot . $path}{data} = $data;
+		$cache{$docroot . $path}{data_last_modified} = time;
 		return;
 	}
 
