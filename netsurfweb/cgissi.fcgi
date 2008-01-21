@@ -44,7 +44,10 @@ while ($request->Accept() >= 0) {
 	my $docroot = $ENV{DOCUMENT_ROOT};
 
 	# Get path of item for this request
-	my $path = $ENV{PATH_INFO};
+	# Yes, this is hacky. It appears that REDIRECT_PATH contains
+	# the destination document resulting from content negotiation.
+	# As this is an absolute path, we strip the document root from it.
+	my ($path) = ($ENV{REDIRECT_PATH} =~ m/$docroot(.*)/);
 
 	# Find item in cache
 	my $cachedata = $cache{$docroot . $path};
@@ -591,4 +594,5 @@ sub validate_cache_entry
 
 	# Otherwise, the cached data is valid
 }
+
 
