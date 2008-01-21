@@ -119,6 +119,20 @@ sub process_html {
 	save($dest, $html);
 }
 
+# Process CSS files
+sub process_css
+{
+	my ($source, $dest) = @_;
+	my $css = load($source);
+
+	$css .= 'a[href ^="http://"], a[href ^="https://"], ' .
+		'a[href ^="ftp://"] { ' .
+		'background: url(online) center left no-repeat; ' .
+		'padding-left: 13px; }';
+
+	save($dest, $css);
+}
+
 # process each item found in the website tree
 sub process_item {
 	my $destroot = "riscos-zip/!NetSurf/Docs";
@@ -168,7 +182,7 @@ sub process_item {
 			# CSS document
 			my $dest = "$destroot/$dir/$1,f79";
 			print LOG "=> $dest\n";
-			command("cp --archive --verbose $source $dest");
+			process_css($source, $dest);
 		} elsif ($doc =~ /(.*)[.]png$/) {
 			# PNG image
 			my $dest = "$destroot/$dir/$1_png,b60";
