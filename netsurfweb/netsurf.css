@@ -247,6 +247,7 @@ a.seemore:after, span.seemore:after {
 	content: " »"; }
 
 .onlycontent {
+	font-size: 104%;
 	margin: 0 1em; }
 
 h2.firsthead {
