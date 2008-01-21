@@ -46,7 +46,7 @@
 
 <h1>NetSurf Packages</h1>
 
-<p>We provide packages for installation of NetSurf releases on various systems.</p>
+<!--<p>We provide packages for installation of NetSurf releases on various systems.</p>
 
 <dl class="packagelist">
 <dt>NetSurf 1.1</dt>
@@ -58,16 +58,23 @@
 <li><a href="">Ubuntu i386 package</a></li>
 </ul>
 </dd>
-</dl>
+</dl>-->
 
 <h2>Externally Hosted Packages</h2>
 
 <p>NetSurf is also available in some distributions' package repositories.</p>
 
-<ul>
+<dl>
+<dt>Debian</dt>
+<dd><ul>
 <li><a href="http://packages.debian.org/lenny/netsurf">Debian Lenny</a></li>
 <li><a href="http://packages.debian.org/sid/netsurf">Debian Sid</a></li>
-</ul>
+</ul></dd>
+<dt>Ubuntu</dt>
+<dd><ul>
+<li><a href="https://launchpad.net/ubuntu/hardy/+source/netsurf">Ubuntu 8.04 (Hardy)</a></li>
+</ul></dd>
+</dl>
 
 <h2>Development Build Packages</h2>
 
