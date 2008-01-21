@@ -9,9 +9,10 @@
 use warnings;
 use strict;
 
-use POSIX qw(strftime);
+use Digest::MD5;
 use File::Spec;
 use FCGI;
+use POSIX qw(strftime);
 
 # Content cache to avoid regenerating pages unless it's absolutely necessary
 #
@@ -20,6 +21,7 @@ use FCGI;
 #
 # { "/foo/bar/baz" => 
 # 	{ last_modified => 0123456789,
+# 	  data_digest => "base64(MD5($data))"
 # 	  data_last_modified => 0123456789,
 #	  data => "generated page content",
 #	  dependencies => 
@@ -59,15 +61,17 @@ while ($request->Accept() >= 0) {
 	# (as it may have been created by validate_cache_entry)
 	$cachedata = $cache{$docroot . $path};
 
-	# TODO It would be really nice to be able to send 304 responses where
-	# appropriate. We have the appropriate information in 
-	# $$cachedata{data_last_modified}. I guess, if necessary, we could also
-	# generate an E-tag. Currently, I can see no sensible way of doing this.
+	# TODO It would be nice to send 304 responses where appropriate
+	# and also to pay attention to conditional requests namely
+	# If-(None-)Match and If-(Un)Modified-Since
+
+	# Cache-related headers
+	print "ETag: " . $$cachedata{data_digest} . "\r\n";
+	print "Last-Modified: " . strftime("%a, %d %b %Y %H:%M:%S %Z", 
+			gmtime(time)) . "\r\n";
 
 	# Send Content-Type header
 	print "Content-Type: text/html; charset=ISO-8859-1\r\n";
-	#	print "Last-Modified: " . strftime("%a, %d %b %Y %H:%M:%S %Z", 
-	#		gmtime(time)) . "\r\n";
 	print "\r\n";
 
 	# And the page data
@@ -343,6 +347,8 @@ sub generate_page_full
 	if (! -e $docroot . $path) {
 		# File doesn't exist
 		$cache{$docroot . $path}{data} = $data;
+		$cache{$docroot . $path}{data_digest} = 
+				'"' . md5_base64($data) . '"';
 		$cache{$docroot . $path}{data_last_modified} = time;
 		return;
 	}
@@ -479,6 +485,7 @@ sub generate_page_full
 
 	# Save generated page data in cache
 	$$cacheentry{data} = $data;
+	$$cacheentry{data_digest} = '"' . md5_base64{$data} . '"';
 	$$cacheentry{data_last_modified} = time;
 }
 
@@ -494,6 +501,8 @@ sub generate_page_partial
 	if (! -e $docroot . $path) {
 		# File doesn't exist
 		$cache{$docroot . $path}{data} = "";
+		$cache{$docroot . $path}{data_digest} = 
+				'"' . md5_base64("") . '"';
 		$cache{$docroot . $path}{data_last_modified} = time;
 		return;
 	}
@@ -559,6 +568,7 @@ sub generate_page_partial
 
 	# Update document cache
 	$cache{$docroot . $path}{data} = $data;
+	$cache{$docroot . $path}{data_digest} = '"' . md5_base64($data) . '"';
 	$cache{$docroot . $path}{data_last_modified} = time;
 }
 
@@ -594,5 +604,4 @@ sub validate_cache_entry
 
 	# Otherwise, the cached data is valid
 }
-
 
