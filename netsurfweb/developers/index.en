@@ -106,7 +106,7 @@
 
 <h2>General information</h2>
 
-<p>We intend to make new major releases of NetSurf every year or so. These will happen when there are enough new features in the development versions to justify a new release. Prior to releases, addition of new features will be halted, and only bugfixes will occur. Major new releases will be made when NetSurf is sufficiently stable and the development version of NetSurf contains significant features that have not yet been released.</p>
+<p>We intend to make new major releases of NetSurf every year or so. These will happen when there are enough new features in the development versions to justify a new release. Prior to releases, addition of new features will be halted, and only bugfixes will occur. Major new releases will be made when NetSurf is sufficiently stable and the development version contains significant features that have not yet been released.</p>
 
 <p>The <a href="/documentation/progress">progress page</a> gives an indication of the current status of NetSurf's features.</p>
 
