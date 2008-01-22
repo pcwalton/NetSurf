@@ -63,9 +63,9 @@
 <li><a href="fullsize/gtkslashdot.png"><img alt="" src="thumbnails/gtkslashdot.png"></a> <span><a href="http://slashdot.org/">Slashdot</a> (GTK)</span></li>
 <li><a href="fullsize/row3c.png"><img alt="" src="thumbnails/row3c.png"></a> <span><a href="http://www.w3.org/">W3C</a> (RISC OS)</span></li>
 <li><a href="fullsize/rowikipedia.png"><img alt="" src="thumbnails/rowikipedia.png"></a> <span><a href="http://en.wikipedia.org/wiki/Main_Page">Wikipedia</a> (RISC OS)</span></li>
-<li><a href="fullsize/rowikipedia125.png"><img alt="" src="thumbnails/rowikipedia125.png"></a> <span><a href="http://en.wikipedia.org/wiki/Main_Page">Scaled view</a> (RISC OS)</span></li>
-<li><a href="fullsize/royahoojp.png"><img alt="" src="thumbnails/royahoojp.png"></a> <span><a href="http://en.wikipedia.org/wiki/Main_Page">Unicode text</a> (RISC OS)</span></li>
-<li><a href="fullsize/gtkyahoojp.png"><img alt="" src="thumbnails/gtkyahoojp.png"></a> <span><a href="http://en.wikipedia.org/wiki/Main_Page">Unicode text</a> (GTK)</span></li>
+<li><a href="fullsize/rowikipedia125.png"><img alt="" src="thumbnails/rowikipedia125.png"></a> <span><a href="/documentation/guide#BrowserWindowMenuDisplayScale">Scaled view</a> (RISC OS)</span></li>
+<li><a href="fullsize/royahoojp.png"><img alt="" src="thumbnails/royahoojp.png"></a> <span><a href="http://www.yahoo.co.jp/">Unicode text</a> (RISC OS)</span></li>
+<li><a href="fullsize/gtkyahoojp.png"><img alt="" src="thumbnails/gtkyahoojp.png"></a> <span><a href="http://www.yahoo.co.jp/">Unicode text</a> (GTK)</span></li>
 </ul>
 
 <div class="footer">
