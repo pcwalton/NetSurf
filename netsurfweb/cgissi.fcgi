@@ -9,7 +9,7 @@
 use warnings;
 use strict;
 
-use Digest::MD5;
+use Digest::MD5 qw(md5_base64);
 use File::Spec;
 use FCGI;
 use POSIX qw(strftime);
@@ -485,7 +485,7 @@ sub generate_page_full
 
 	# Save generated page data in cache
 	$$cacheentry{data} = $data;
-	$$cacheentry{data_digest} = '"' . md5_base64{$data} . '"';
+	$$cacheentry{data_digest} = '"' . md5_base64($data) . '"';
 	$$cacheentry{data_last_modified} = time;
 }
 
