@@ -96,7 +96,7 @@
 <h2>Recent changes</h2>
 
 <p>All times are in UTC.</p>
-<!--#include virtual="/downloads/development/svnlog.txt"-->
+<!--#include virtual="/downloads/development/shortlog.txt"-->
 
 <h2>Contact the other developers</h2>
 
