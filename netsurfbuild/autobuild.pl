@@ -281,8 +281,13 @@ create_download_fragment("$outputdir/source.inc",
 my $week_ago = (command("date --date='7 days ago' '+%F'"))[0];
 chomp $week_ago;
 command("svn log --verbose --revision '{$week_ago}:HEAD' --xml " .
-		'svn://semichrome.net/ > log.xml');
+		'svn://source.netsurf-browser.org/ > log.xml');
 command("xsltproc svnlog2html.xslt log.xml >$outputdir/svnlog.txt");
+
+# and a shorter log for the developers page
+command("svn log --verbose --revision 'HEAD:{$week_ago}' --xml --limit 5 " .
+		'svn://source.netsurf-browser.org/ > log.xml');
+command("xsltproc svnlog2html.xslt log.xml >$outputdir/shortlog.txt");
 
 # Copy build log ready for upload
 command("cp --verbose autobuild.log $outputdir/netsurf.log");
@@ -290,8 +295,8 @@ command("cp --verbose autobuild.log $outputdir/netsurf.log");
 # rsync to website
 command("rsync --verbose --compress --times --recursive " .
 		"$outputdir/*.zip $outputdir/netsurf.log " .
-		"$outputdir/svnlog.txt $outputdir/riscpkg " .
-		"$outputdir/*.tar.gz $outputdir/*.inc " .
+		"$outputdir/svnlog.txt $outputdir/shortlog.txt " .
+		"$outputdir/riscpkg $outputdir/*.tar.gz $outputdir/*.inc " .
 		"netsurf\@netsurf-browser.org:/home/netsurf/websites/" .
 		"$websitehost/docroot/$outputdir/");
 
