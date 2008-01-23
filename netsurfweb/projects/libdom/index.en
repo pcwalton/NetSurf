@@ -24,7 +24,7 @@
 
 <h2>What is Libdom?</h2>
 
-<p>Libdom an implementation of the <a href="http://www.w3.org/DOM/">W3C DOM</a>, written in C. It is currently in development for use with <a href="/">NetSurf</a> and is intended to be suitable for use in other projects too.</p>
+<p>Libdom is an implementation of the <a href="http://www.w3.org/DOM/">W3C DOM</a>, written in C. It is currently in development for use with <a href="/">NetSurf</a> and is intended to be suitable for use in other projects too.</p>
 
 <h2>Source code</h2>
 
