@@ -76,7 +76,7 @@ while ($request->Accept() >= 0) {
 	# Cache-related headers
 	print "ETag: " . $$cachedata{data_digest} . "\r\n";
 	print "Last-Modified: " . strftime("%a, %d %b %Y %H:%M:%S %Z", 
-			gmtime(time)) . "\r\n";
+			gmtime($$cache_data{data_last_modified})) . "\r\n";
 
 	# Send Content-Type header
 	print "Content-Type: text/html; charset=ISO-8859-1\r\n";
