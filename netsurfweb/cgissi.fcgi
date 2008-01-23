@@ -27,9 +27,17 @@ use POSIX qw(strftime);
 #	  dependencies => 
 #	  	{ "/foo/bar/bat" => 
 #	  		{ last_modified => 0123456789,
-#			  command => "include" | "fsize" | "flastmod",
-#			  start_offset = 123,
-#			  end_offset = 456
+#	  		  commands => 
+#				[
+#				  { command => "include" | "fsize" | "flastmod",
+#				    start_offset = 123,
+#				    end_offset = 456
+#				  },
+#				  { command => "include" | "fsize" | "flastmod",
+#				    start_offset = 678,
+#				    end_offset = 901
+#				  }
+#				]
 #			}
 #		}
 #	} 
@@ -308,12 +316,11 @@ sub process_command
 
 			$$cacheentry{dependencies}{$filepath}{last_modified} = 
 					(stat($filepath))[9];
-			$$cacheentry{dependencies}{$filepath}{command} = 
-					$keyword;
-			$$cacheentry{dependencies}{$filepath}{start_offset} = 
-					$start_offset;
-			$$cacheentry{dependencies}{$filepath}{end_offset} = 
-					tell($template);
+			push(@{$$cacheentry{dependencies}{$filepath}{commands}},
+					{ command => $keyword, 
+					  start_offset => $start_offset, 
+					  end_offset => tell($template)
+					});
 			return;
 		} else {
 			# ProcessCmd / ProcCmdDash / ProcCmdCT -> ProcessCmd
@@ -510,10 +517,29 @@ sub generate_page_partial
 	# Get dependency hash
 	my $deps = $cache{$docroot . $path}{dependencies};
 
-	# Sort hash by start_offset
+	# Build command map for this page
+	my %cmds;
+	foreach my $dep (keys %{$deps}) {
+		my $index = 0;
+		foreach my $cmd (@{$$deps{$dep}{commands}}) {
+			# The key here is the index into the commands array
+			# prepended to the dependency URL. This ensures that
+			# we have unique map entries for each command.
+			$cmds{$index . $dep} = $cmd;
+			$index++;
+		}
+	}
+
+	# Sort command map by start_offset
 	my @sorted = 
-		sort { $$deps{$a}{start_offset} <=> $$deps{$b}{start_offset} } 
-			keys %$deps;
+		sort { # Unpack dependency URLs and command array indices
+		       my ($a_index, $a_dep) = ($a =~ m/([0-9]+)(.*)/);
+		       my ($b_index, $b_dep) = ($b =~ m/([0-9]+)(.*)/);
+		       # Now compare the start offsets
+		       $$deps{$a_dep}{commands}[$a_index]{start_offset} <=> 
+		       $$deps{$b_dep}{commands}[$b_index]{start_offset} 
+		     } 
+			keys %cmds;
 
 	my $data = "";
 	my $temp;
@@ -528,10 +554,13 @@ sub generate_page_partial
 	$template_length = tell(TEMPLATE);
 	seek(TEMPLATE, 0, 0);
 
-	# Iterate through dependencies, loading intervening chunks of template
-	foreach my $dep (@sorted) {
+	# Iterate through commands, loading intervening chunks of template
+	foreach my $cmd (@sorted) {
+		# Unpack dependency URL and command array index
+		my ($index, $dep) = ($cmd =~ m/([0-9]+)(.*)/);
 		my $vars = $$deps{$dep};
-		my $length = $$vars{start_offset} - $curpos - 1;
+		my $length = 
+			$$vars{commands}[$index]{start_offset} - $curpos - 1;
 
 		# Update last_modified time of this dependency (at least one
 		# must have changed for a partial regeneration to occur)
@@ -545,16 +574,16 @@ sub generate_page_partial
 		$data .= $temp;
 
 		# Run this SSI command
-		if ($$vars{command} eq "include") {
+		if ($$vars{commands}[$index]{command} eq "include") {
 			do_include($dep, \$data);
-		} elsif ($$vars{command} eq "fsize") {
+		} elsif ($$vars{commands}[$index]{command} eq "fsize") {
 			do_fsize($dep, \$data);
-		} elsif ($$vars{command} eq "flastmod") {
+		} elsif ($$vars{commands}[$index]{command} eq "flastmod") {
 			do_flastmod($dep, \$data);
 		}
 
 		# Skip over SSI command in template input
-		$curpos = $$vars{end_offset};
+		$curpos = $$vars{commands}[$index]{end_offset};
 
 		seek(TEMPLATE, $curpos, 0);
 	}
