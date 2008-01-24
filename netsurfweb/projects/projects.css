@@ -17,40 +17,35 @@ h1 {
 	background-color: #ffd;
 	color: #500;
 	margin: 0;
-	text-align: right;
 	padding: 0 1em 0 0;
 	font-size: 92%; }
 
-.projects p {
-	display: inline;
-	font-weight: bold;
-	margin: 0;
-	padding: 0; }
-
 .projects ul {
-	display: inline;
-	margin: 0;
+	display: table;
+	margin: 0 0 0 auto;
 	padding: 0; }
 
 .projects li {
-	display: inline;
-	background: #500;
-	color: #ffd;
-	margin: 0 0 0 0.5em;
-	padding: 0; }
-
-.projects li strong {
+	display: table-cell;
 	background: #500;
 	color: #ffd;
 	margin: 0;
-	padding: 0 0.2em; }
+	padding: 0; }
+
+.projects li strong {
+	display: block;
+	background: #500;
+	color: #ffd;
+	margin: 0;
+	padding: 0.3em 0.5em; }
 
 .projects li a {
+	display: block;
 	background: #ffd;
 	color: #500;
 	text-decoration: none;
 	margin: 0;
-	padding: 0; }
+	padding: 0.3em 0.4em; }
 
 .projects li a:hover {
 	text-decoration: underline; }
