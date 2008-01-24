@@ -67,18 +67,18 @@ strong {
 	color: #800;
 	font-weight: bold; }
 
-dl {
+dl.instructions {
 	margin: 0 1.8em;
 	padding: 0; }
 
-dt {
+dl.instructions dt {
 	background-color: #611;
 	color: #ffd;
 	width: 40%;
 	margin: 1em 0 0 0;
 	padding: 2px; overflow: visible; }
 
-dt > span {
+dl.instructions dt > span {
 	display: table-cell;
 	width: 1.5em;
 	padding: 0;
@@ -86,20 +86,20 @@ dt > span {
 	font-weight: normal;
 	background-color: inherit; }
 
-dt > span + span {
+dl.instructions dt > span + span {
 	width: auto;
 	font-style: normal;
 	font-weight: bold; }
 
-dd {
+dl.instructions dd {
 	padding: 0.5em 2px 2px 1.2em;
 	background-color: #fdb;
 	margin: 0; }
 
-dd > p {
+dl.instructions dd > p {
 	margin: 0;
 	padding: 0; }
 
-dd > p + p {
+dl.instructions dd > p + p {
 	margin: 1em 0 0 0;
 	padding: 0; }

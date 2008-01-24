@@ -65,7 +65,7 @@
 <dt>Portability</dt>
 <dd>We want NetSurf to be available to as many users as possible. We've already seen ports to handheld devices and would like to help anyone attempting a new port.</dd>
 <dt>Modularity</dt>
-<dd>Many of of the components designed for NetSurf are available separately, so that others might use them in their own projects.</dd>
+<dd>Many of of the components designed for NetSurf are <a href="/projects/">available separately</a>, so that others might use them in their own projects.</dd>
 </dl>
 
 <h2>Want to help?</h2>

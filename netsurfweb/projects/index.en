@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+        "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>Projects</title>
+<link rel="stylesheet" type="text/css" href="projects.css">
+</head>
+<body>
+
+<div class="projects">
+<p>Projects:</p>
+<ul>
+<li><a href="/">NetSurf</a></li>
+<li><a href="/projects/hubbub/">Hubbub</a></li>
+<li><a href="/projects/libdom/">Libdom</a></li>
+<li><a href="/projects/iconv/">Iconv</a></li>
+<li><a href="/projects/rufl/">RUfl</a></li>
+<li><a href="/projects/tinct/">Tinct</a></li>
+<li><a href="/projects/libpencil/">Libpencil</a></li>
+</ul>
+</div>
+
+<h1>Projects</h1>
+
+<h2>Core project</h2>
+
+<p>Our main project is <a href="/">NetSurf</a>, an open source web browser. As part of the work on NetSurf, several other resources have been developed. These sub-projects are available separately from NetSurf, so that they may be used by developers of other software.</p>
+
+<h2>Sub-projects</h2>
+
+<dl>
+<dt><a href="/projects/hubbub/">Hubbub</a><dt>
+<dd>HTML5 compliant parsing library<dd>
+<dt><a href="/projects/libdom/">Libdom</a><dt>
+<dd>DOM library<dd>
+<dt><a href="/projects/iconv/">Iconv</a><dt>
+<dd>RISC OS character encoding support module<dd>
+<dt><a href="/projects/rufl/">RUfl</a><dt>
+<dd>RISC OS Unicode font library<dd>
+<dt><a href="/projects/tinct/">Tinct</a><dt>
+<dd>Advanced RISC OS Sprite plotting module<dd>
+<dt><a href="/projects/libpencil/">Libpencil</a><dt>
+<dd>RISC OS Drawfile export library<dd>
+</dl>
+
+</body>
+</html>

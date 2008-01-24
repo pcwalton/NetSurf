@@ -11,12 +11,12 @@
 <p>Projects:</p>
 <ul>
 <li><a href="/">NetSurf</a></li>
-<li><a href="/projects/hubbub">Hubbub</a></li>
-<li><a href="/projects/libdom">Libdom</a></li>
+<li><a href="/projects/hubbub/">Hubbub</a></li>
+<li><a href="/projects/libdom/">Libdom</a></li>
 <li><strong>Iconv</strong></li>
-<li><a href="/projects/rufl">RUfl</a></li>
-<li><a href="/projects/tinct">Tinct</a></li>
-<li><a href="/projects/libpencil">Libpencil</a></li>
+<li><a href="/projects/rufl/">RUfl</a></li>
+<li><a href="/projects/tinct/">Tinct</a></li>
+<li><a href="/projects/libpencil/">Libpencil</a></li>
 </ul>
 </div>
 
@@ -30,7 +30,7 @@
 
 <p><strong>You must</strong> follow these <strong>two steps</strong> carefully or <strong>installation will fail</strong>:</p>
 
-<dl>
+<dl class="instructions">
 <dt><span>1. </span><span>Merge !System directory</span></dt>
 <dd>Use the <strong>System merge</strong> utility provided by Configure to merge the supplied !System directory with the one on your system.</dd>
 <dt><span>2. </span><span>Merge !Boot directory</span></dt>
