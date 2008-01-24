@@ -8,7 +8,6 @@
 <body>
 
 <div class="projects">
-<p>Projects:</p>
 <ul>
 <li><a href="/">NetSurf</a></li>
 <li><a href="/projects/hubbub/">Hubbub</a></li>
