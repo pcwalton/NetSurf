@@ -49,9 +49,9 @@
 <h2 id="UserSupportTracker">User support tracker</h2>
 
 <dl>
-<dt><a href="http://sourceforge.net/tracker/?func=add&amp;group_id=51719&amp;atid=464312">Bug tracker</a></dt>
+<dt>Bug tracker - [<a href="http://sourceforge.net/tracker/?func=add&amp;group_id=51719&amp;atid=464312">Submit bug report</a>], [<a href="http://sourceforge.net/tracker/?func=browse&amp;group_id=51719&amp;atid=464312">View reported bugs</a>]</dt>
 <dd>If you run into problems using NetSurf, please read the <a href="/documentation/info#Bugs">guidelines for reporting bugs</a> and submit them to the bug tracker.</dd>
-<dt><a href="http://sourceforge.net/tracker/?func=add&amp;group_id=51719&amp;atid=464315">Request tracker</a></dt>
+<dt>Request tracker - [<a href="http://sourceforge.net/tracker/?func=add&amp;group_id=51719&amp;atid=464315">Make request</a>], [<a href="http://sourceforge.net/tracker/?func=browse&amp;group_id=51719&amp;atid=464315">View existing requests</a>]</dt>
 <dd>If you have ideas for improving NetSurf, you can suggest them on our feature request tracker.</dd>
 </dl>
 
@@ -80,7 +80,7 @@
 <p>If you want to contribute to the NetSurf project, please contact the developers via the development mailing list or on IRC.</p>
 
 <h2 id="GeneralEmailAddresses">General e-mail addresses</h2>
-<p>There are several general e-mail addresses that can be used to contact team members. Note that <strong>use of the mailing lists is preferable</strong>, since there are more people to reply so you can get a faster response.</p>
+<p>There are several general e-mail addresses that can be used to contact team members. Note that <strong>use of the mailing lists or support tracker is preferable</strong>, since there are more people to reply so you can get a faster response.</p>
 
 <dl>
 <dt>NetSurf browser</dt>
