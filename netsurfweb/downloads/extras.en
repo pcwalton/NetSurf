@@ -53,7 +53,7 @@
 <li><a href="releases/nstheme.zip">NSTheme 0.02 for RISC&nbsp;OS</a> <span><!--#fsize file="releases/nstheme.zip"--></span> <span><!--#flastmod file="releases/nstheme.zip"--></span></li>
 </ul>
 
-<p>NSTheme is a theme packager for the RISC OS version of NetSurf. Themes can be installed from the <a href="themes">themes page</a>.</p>
+<p>NSTheme is a theme packager for the RISC OS version of NetSurf. Themes can be installed from the <a href="themes/">themes page</a>.</p>
 
 
 <div class="footer">
