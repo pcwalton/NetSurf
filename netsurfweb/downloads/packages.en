@@ -74,6 +74,10 @@
 <dd><ul>
 <li><a href="https://launchpad.net/ubuntu/hardy/+source/netsurf">Ubuntu 8.04 (Hardy)</a></li>
 </ul></dd>
+<dt>NetBSD Packages Collection (pkgsrc)</dt>
+<dd><ul>
+<li><a href="http://pkgsrc.se/wip/netsurf">NetBSD and others</a></li>
+</ul></dd>
 </dl>
 
 <h2>Development Build Packages</h2>
