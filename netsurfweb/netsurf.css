@@ -638,8 +638,8 @@ p.award a img {
 .author {
 	color: #005; }
 
-.files, .files a {
-	color: #888; }
+.svnpath {
+	color: #777; }
 
 
 /*

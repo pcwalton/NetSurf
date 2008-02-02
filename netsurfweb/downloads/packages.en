@@ -78,6 +78,10 @@
 <dd><ul>
 <li><a href="http://pkgsrc.se/wip/netsurf">NetBSD and others</a></li>
 </ul></dd>
+<dt>Puppy Linux</dt>
+<dd><ul>
+<li><a href="http://distro.ibiblio.org/pub/linux/distributions/puppylinux/pet_packages-4/">Puppy Linux</a></li>
+</ul></dd>
 </dl>
 
 <h2>Development Build Packages</h2>
