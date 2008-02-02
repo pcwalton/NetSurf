@@ -416,20 +416,20 @@ div.frontscreen span {
 	right: 0;
 	top: 0;
 	text-align: right;
-	padding: 18px 1em 0 0; }
+	padding: 15px 1em 0 0; }
+
+.searchbox input {
+	margin: 2px; }
 
 .searchbox input[type=text] {
 	border: 1px solid #4b77ff;
 	background: #eef2ff;
-	color: #000;
-	font-family: monospace; }
+	color: #000; }
 
 .searchbox input[type=submit] {
 	border: 2px outset #94adff;
 	color: #000;
-	background: #94adff;
-	position: relative;
-	top: 3px; }
+	background: #94adff; }
 
 .frontnews {
 	margin: 0; }
