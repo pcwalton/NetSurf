@@ -12,6 +12,7 @@
 <li><a href="/">NetSurf</a></li>
 <li><a href="/projects/hubbub/">Hubbub</a></li>
 <li><a href="/projects/libdom/">Libdom</a></li>
+<li><a href="/projects/libsvgtiny/">Libsvgtiny</a></li>
 <li><a href="/projects/iconv/">Iconv</a></li>
 <li><strong>RUfl</strong></li>
 <li><a href="/projects/tinct/">Tinct</a></li>
@@ -23,7 +24,19 @@
 
 <h2>What is RUfl?</h2>
 
-<p>RUfl is the RISC OS Unicode font library. It provides a high-level interface to rendering and measuring Unicode text. RUfl is released under the MIT licence and was developed to enable NetSurf to handle Unicode text on RISC OS.</p>
+<p>RUfl is the RISC OS Unicode font library. It provides a high-level interface to rendering and measuring Unicode text. RUfl was developed to enable NetSurf to handle Unicode text on RISC OS. It is available for use in other applications.</p>
+
+<p>Features include:</p>
+
+<ul>
+<li>Uses native fonts and the Font Manager</li>
+<li>Takes advantage of Unicode fonts on RISC OS 5</li>
+<li>Substitutes missing characters with other fonts</li>
+<li>C and Python interfaces</li>
+<li>MIT license</li>
+</ul>
+
+<p class="screenshot"><img src="images/rufl_chars.png" alt="" title="Screenshot of rufl_chars"></p>
 
 <h2>Source code</h2>
 

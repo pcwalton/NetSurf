@@ -48,6 +48,8 @@
 <dd>HTML5 compliant parsing library<dd>
 <dt><a href="/projects/libdom/">Libdom</a><dt>
 <dd>DOM library<dd>
+<dt><a href="/projects/libsvgtiny/">Libsvgtiny</a><dt>
+<dd>SVG Tiny library<dd>
 <dt><a href="/projects/iconv/">Iconv</a><dt>
 <dd>RISC OS character encoding support module<dd>
 <dt><a href="/projects/rufl/">RUfl</a><dt>
