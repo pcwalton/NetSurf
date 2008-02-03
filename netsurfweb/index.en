@@ -115,12 +115,12 @@
 <h2 id="news">Latest news</h2>
 
 <dl class="frontnews">
+<dt><a href="http://vlists.pepperfish.net/pipermail/netsurf-users-netsurf-browser.org/2008-February/007256.html">Summary of recent development</a> <span>03 Feb 2008</span></dt>
+<dd>NetSurf's cookie and HTTP redirect support have been enhanced. Layout upgrades, including better form element display and float positioning. SVG redraw is now faster on RISC OS.<dd>
 <dt><a href="/">NetSurf web site redesigned</a> <span>21 Jan 2008</span></dt>
 <dd>We've redesigned the web site to make it easier to navigate. Much of the content has been rewritten to make it clear that NetSurf is a multi-platform web browser.<dd>
 <dt><a href="/developers/">Summary of recent development</a> <span>02 Jan 2008</span></dt>
 <dd>Recent work on the development branch of NetSurf has added SVG support to the GTK build and the beginnings of SVG Tiny support to the RISC OS version. Other changes have included refinements to the web page scaling facilities.<dd>
-<dt><a href="/downloads/">NetSurf 1.1 released</a> <span>13 Aug 2007</span></dt>
-<dd>The first update to NetSurf 1 has been released. It offers several bug fixes over the previous release and we recommend that users upgrade.<dd>
 </dl>
 <p class="more"><a href="/about/news" class="seemore">See more news</a></p>
 
