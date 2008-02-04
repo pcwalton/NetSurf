@@ -59,7 +59,7 @@
 <li><a href="#NSF">NetSurf features</a></li>
 </ul>
 
-<p class="updated">Last updated 12 November 2007</p>
+<p class="updated">Last updated 04 February 2008</p>
 
 <h2 id="General"></h2>
 
@@ -214,7 +214,7 @@
 <tr class="nearlydone"><td>MNG</td><td>Nearly done</td><td>Interactive features aren't supported.</td></tr>
 <tr class="nearlydone"><td>PNG</td><td>Nearly done</td><td>Gamma correction is not correct for PNGs with alpha channels.</td></tr>
 <tr class="complete"><td>Sprite (RISC&nbsp;OS)</td><td>Complete</td><td></td></tr>
-<tr class="juststarted"><td>SVG (RISC&nbsp;OS)</td><td>Just started</td><td>Very primitive built-in SVG support.</td></tr>
+<tr class="inprogress"><td>SVG Tiny (RISC&nbsp;OS)</td><td>In progress</td><td>Via <a href="/projects/libsvgtiny/">Libsvgtiny</a>.</td></tr>
 <tr class="complete"><td>SVG (GTK)</td><td>Complete</td><td>Via <a href="http://librsvg.sourceforge.net/">rsvg</a>.</td></tr>
 </table>
 
