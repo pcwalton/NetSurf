@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+        "http://www.w3.org/TR/html4/strict.dtd">
+<html><head><title>Table containing inline with padding, border and margin</title></head>
+
+<body>
+
+<table style="margin-bottom: 30px;" cellpadding="0" cellspacing="0">
+<tr>
+<td style="width: 1px; border: 1px solid #021; background-color:#afa;">
+<div>
+<img src="../images/3x3.png" style="margin:20px;">
+</div>
+</td>
+</tr>
+</table>
+
+<table style="margin-bottom: 30px;" cellpadding="0" cellspacing="0">
+<tr>
+<td style="width: 1px; border: 1px solid #021; background-color:#afa;">
+
+<img src="../images/3x3.png" style="border: 20px solid transparent;">
+
+</td>
+</tr>
+</table>
+
+<table style="margin-bottom: 30px;" cellpadding="0" cellspacing="0">
+<tr>
+<td style="width: 1px; border: 1px solid #021; background-color:#afa;">
+
+<img src="../images/3x3.png" style="padding: 20px;">
+
+</td>
+</tr>
+</table>
+
+<p>The IMG element has thick padding, border and margin. These are not taken into account when calculating the width of the containing table cell. The table cell does expand enough to cover the actual image's width.</p>
+
+<p>The table cell height calculation does correctly take into account the IMG element's padding and border, but not the margin.</p>
+
+</body>
+</html>
