@@ -326,7 +326,9 @@ div.frontscreen span {
 	position: relative;
 	overflow: hidden;
 	width: 100%;
-	color: white; }
+	color: white;
+	max-width: 28em;
+	margin: 0 auto; }
 
 .downloadbox a {
 	color: white;
