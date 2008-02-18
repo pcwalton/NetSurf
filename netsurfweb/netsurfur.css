@@ -1,5 +1,0 @@
-/* Unrestricted width */
-
-@import "netsurf.css";
-
-body { max-width: none; }
