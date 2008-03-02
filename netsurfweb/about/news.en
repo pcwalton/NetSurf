@@ -47,6 +47,8 @@
 <h1>News</h1>
 
 <dl class="news">
+<dt><a href="http://vlists.pepperfish.net/pipermail/netsurf-users-netsurf-browser.org/2008-March/007383.html">Summary of recent development</a> <span>02 Mar 2008</span></dt>
+<dd>Pages are now periodically reflowed as images are downloaded. Handling of presentational markup is improved. Better form element handling and many other fixes and improvements.<dd>
 <dt><a href="http://vlists.pepperfish.net/pipermail/netsurf-users-netsurf-browser.org/2008-February/007256.html">Summary of recent development</a> <span>03 Feb 2008</span></dt>
 <dd>NetSurf's cookie and HTTP redirect support have been enhanced. Layout upgrades, including better form element display and float positioning. SVG redraw is now faster on RISC OS.<dd>
 <dt><a href="/">NetSurf web site redesigned</a> <span>02 Jan 2008</span></dt>
