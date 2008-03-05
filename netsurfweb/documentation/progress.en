@@ -58,7 +58,7 @@
 <li><a href="#NSF">NetSurf features</a></li>
 </ul>
 
-<p class="updated">Last updated 04 February 2008</p>
+<p class="updated">Last updated 05 March 2008</p>
 
 <h2 id="General"></h2>
 
@@ -110,7 +110,7 @@
 <tr class="notstarted"><td>Pseudo-elements</td><td>Not started</td><td></td></tr>
 <tr class="juststarted"><td>Media types</td><td>Just started</td><td>NetSurf doesn't handle @media.</td></tr>
 <tr class="complete"><td>@import</td><td>Complete</td><td></td></tr>
-<tr class="nearlydone"><td>Cascade</td><td>Nearly done</td><td>!important is not implemented. There is no user stylesheet. Some non-CSS presentational markup attributes override CSS rules where they shouldn't.</td></tr>
+<tr class="nearlydone"><td>Cascade</td><td>Nearly done</td><td>!important is not implemented. There is no user stylesheet.</td></tr>
 </table>
 
 <h3 id="CSSProperties">CSS properties</h3>
