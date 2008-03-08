@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+        "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>NetSurf | Contribution Guide</title>
+<link rel="stylesheet" title="Standard" type="text/css" href="/netsurf.css">
+</head>
+
+<body>
+<p class="banner"><a href="/"><img src="/netsurf.png" alt="NetSurf"></a></p>
+
+<div class="navigation">
+<div class="navsection">
+<ul>
+<li><a href="/about/">About NetSurf</a></li>
+<li><a href="/downloads/">Downloads</a></li>
+<li><a href="/documentation/">Documentation</a></li>
+<li><a href="/developers/">Development area</a>
+<ul>
+<li><a href="/developers/contribute">Contribution</a></li>
+</ul>
+</li>
+<li><a href="/webmasters/">Webmaster area</a></li>
+<li><a href="/contact/">Contact</a></li>
+</ul>
+</div>
+
+<div class="navsection">
+<ul class="languages">
+<!--<li><a href="index.de">Deutsch</a></li>-->
+<li>English</li>
+<!--<li><a href="index.fr">Français</a></li>-->
+<!--<li><a href="index.nl">Nederlands</a></li>-->
+</ul>
+</div>
+
+</div>
+
+<div class="content">
+
+<p class="breadcrumbs"><a href="/">Home</a> » <a href="/developers/">Developer area</a> » Google Summer of Code</p>
+
+<h1>Google Summer of Code</h1>
+<p>We intend to become a mentoring organisation for <strong>Google Summer of Code 2008</strong>.</p>
+<h2>Project Ideas</h2>
+<dl>
+<dt>CSS parser/selector engine</dt>
+<dd>NetSurf's current CSS parser and selector engine has several limitations. The existing code could be improved or rewritten. The limitations include:
+<ul>
+<li>All rules within <code>@media { ... }</code> blocks are ignored.</li>
+<li>Handling of invalid CSS does not follow the specification.</li>
+<li>CSS specificty and importance issues</li>
+</ul>
+<p>Improvements here would improve NetSurf's rendering of many web pages, as well as the infamous <strong>acid2</strong> test.</p>
+<p>Any student wishing to work on this aspect of NetSurf would require some knowledge of the C programming language and CSS.</p>
+</dd>
+<dt>Native Windows/MacOS ports</dt>
+<dd></dd>
+<dt>Improve GTK front end; tabs, downloads, etc</dt>
+<dd></dd>
+<dt>Extracting the core into a library</dt>
+<dd></dd>
+<dt>Improved inline element handling</dt>
+<dd></dd>
+<dt>Printing improvements; paged media, preview</dt>
+<dd></dd>
+<dt>PDF plotter</dt>
+<dd></dd>
+<dt>Page reader</dt>
+<dd></dd>
+<dt>Keyboard navigation</dt>
+<dd></dd>
+<dt>Dynamic pseudo classes</dt>
+<dd></dd>
+<dt>Abstract RISC OS GUI code into a separate library</dt>
+<dd></dd>
+</dl>
+
+
+
+<div class="footer">
+<p>Copyright 2003 - 2008 The NetSurf Developers</p>
+</div>
+
+</div>
+
+
+<form method="get" action="http://www.google.co.uk/search">
+<div class="searchbox">
+<input type="hidden" name="q" value="site:netsurf-browser.org">
+<input type="text" name="q" maxlength="255"><br>
+<input type="submit" value="Search" name="btnG">
+</div>
+</form>
+
+</body>
+</html>
