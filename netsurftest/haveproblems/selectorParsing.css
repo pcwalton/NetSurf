@@ -1,0 +1,7 @@
+.parser { margin: 3em; }
+/* This should be a parse error 
+ * (and the entirety of the next ruleset should be ignored */
+;
+
+.parser { height: 3em; }
+
