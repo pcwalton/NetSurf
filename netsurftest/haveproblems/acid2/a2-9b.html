@@ -1,0 +1,53 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+ <head>
+  <title>The Second Acid Test</title>
+  <style type="text/css">
+   /* section numbers refer to CSS2.1 */
+
+   /* page setup */
+   html { font: 12px sans-serif; margin: 0; padding: 0; overflow: hidden; /* hides scrollbars on viewport, see 11.1.1:3 */ background: white; color: red; }
+   body { margin: 0; padding: 0; }
+
+   /* introduction message */
+   .intro { font: 2em sans-serif; margin: 3.5em 2em; padding: 0.5em; border: solid thin; background: white; color: black; position: relative; z-index: 2; /* should cover the black and red bars that are fixed-positioned */ }
+   .intro * { font: inherit; margin: 0; padding: 0; }
+   .intro h1 { font-size: 1em; font-weight: bolder; margin: 0; padding: 0; }
+   .intro :link { color: blue; }
+   .intro :visited { color: purple; }
+
+   /* picture setup */
+   #top { margin: 100em 3em 0; padding: 2em 0 0 .5em; text-align: left; font: 2em/24px sans-serif; color: navy; white-space: pre; } /* "Hello World!" text */
+   .picture { position: relative; border: 1em solid transparent; margin: 0 0 100em 3em; } /* containing block for face */
+   .picture { background: red; } /* overriden by preferred stylesheet below */
+
+   /* between lines nine and ten: margin collapsing with 'float' and 'clear' */
+   .empty { margin: 6.25em; height: 10%; /* computes to auto which makes it empty per 8.3.1:7 (own margins) */ }
+   .empty div { margin: 0 2em -6em 4em; }
+   .smile { margin: 5em 3em; clear: both; /* clearance is negative (see 8.3.1 and 9.5.1) */ }
+
+   /* line ten and eleven: containing block for abs pos */
+   .smile div { margin-top: 0.25em; background: black; width: 12em; height: 2em; position: relative; bottom: -1em; }
+   .smile div div { position: absolute; top: 0; right: 1em; width: auto; height: 0; margin: 0; border: yellow solid 1em; }
+
+   /* smile (over lines ten and eleven): backgrounds behind borders, inheritance of 'float', nested floats, negative heights */
+   .smile div div span { display: inline; margin: -1em 0 0 0; border: solid 1em transparent; border-style: none solid; float: right; background: black; height: 1em; }
+   .smile div div span em { float: inherit; border-top: solid yellow 1em; border-bottom: solid black 1em; } /* zero-height block; width comes from (zero-height) child. */
+   .smile div div span em strong { width: 6em; display: block; margin-bottom: -1em; /* should have no effect, since parent has top&bottom borders, so this margin doesn't collapse */ }
+
+  </style>
+  <link rel="appendix stylesheet" href="data:text/css,.picture%20%7B%20background%3A%20none%3B%20%7D"> <!-- this stylesheet should be applied by default -->
+ </head>
+ <body>
+  <div class="intro">
+   <h1>Standards compliant?</h1>
+   <p><a href="#top">Take The Acid2 Test</a> and compare it to <a
+   href="reference.html">the reference rendering</a>.</p>
+  </div>
+  <h2 id="top">Hello World!</h2>
+  <div class="picture">
+   <div class="empty"><div></div></div>
+   <div class="smile"><div><div><span><em><strong></strong></em></span></div></div></div>
+  </div>
+ </body>
+</html>
