@@ -90,7 +90,7 @@
 
 <h2>Page reader</h2>
 <p>The web is a vast resource of information and services. Traditional browsers enable its access for people who can see. NetSurf attempts to help partially sighted users with a sophisticated scaling / zoom feature, however it could be improved further with a page reading option. Speech synthesis could be used to render pages as spoken output.</p>
-<p>There are already several libraries for speech synthesis. This project would first involve enabling NetSurf so speak the textual content of a page. Further work would improve the usability of the system by consideration for such factors as:</p>
+<p>There are already several libraries for speech synthesis. This project would first involve enabling NetSurf to speak the textual content of a page. Further work would improve the usability of the system by consideration for such factors as:</p>
 <ul>
 <li>Overview mode, which announces the document headings</li>
 <li>Section skipping to allow swift to access to the next part of the document</li>
@@ -120,7 +120,10 @@
 
 <h2>Extracting the core into a library</h2>
 <p>What do we actually mean by &quot;the core&quot;?</p>
+<p><strong>Skills required:</strong> C</p>
 <p><strong>Difficulty:</strong> Hard</p>
+<p><strong>Existing code:</strong></p>
+<p><strong>References:</strong></p>
 
 <h2>Improved inline element handling</h2>
 <p></p>
