@@ -41,11 +41,11 @@
 <p class="breadcrumbs"><a href="/">Home</a> » <a href="/developers/">Developer area</a> » Google Summer of Code Ideas</p>
 
 <h1>Google Summer of Code Ideas</h1>
-<p>This page lists project ideas for <strong>Google Summer of Code 2008</strong>.</p>
+<p>This page lists project ideas for <strong>Google Summer of Code 2008</strong>. Please <a href="/contact/">get in touch</a> if any of these ideas appeal to you or if you have your own idea. The NetSurf IRC channel or developer mailing list are the best places to contact us.</p>
 
 <p>All these ideas require knowledge of C, as NetSurf is entirely written in C.</p>
 
-<p>More ideas are on the <a href="http://sourceforge.net/tracker/?func=browse&amp;group_id=51719&amp;atid=464315">Feature Requests</a> tracker. Please <a href="/contact/">get in touch</a> if any of these ideas appeal to you or you have your own idea. The NetSurf IRC channel or developer mailing list are the best places to contact us.</p>
+<p>See the <a href="http://sourceforge.net/tracker/?func=browse&amp;group_id=51719&amp;atid=464315">Feature Requests</a> tracker for more ideas.</p>
 
 <h2>New CSS parser and selector engine</h2>
 <p>NetSurf's current CSS parser and selector engine has several limitations. The existing code could be improved or rewritten. The limitations include:</p>
