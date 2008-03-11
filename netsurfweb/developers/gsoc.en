@@ -1,5 +1,5 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
-        "http://www.w3.org/TR/html4/strict.dtd">
+	"http://www.w3.org/TR/html4/strict.dtd">
 <html>
 <head>
 <title>NetSurf | Google Summer of Code Ideas</title>
@@ -38,22 +38,17 @@
 
 <div class="content">
 
-<p class="breadcrumbs"><a href="/">Home</a> » <a href="/developers/">Developer
-area</a> » Google Summer of Code Ideas</p>
+<p class="breadcrumbs"><a href="/">Home</a> » <a href="/developers/">Developer area</a> » Google Summer of Code Ideas</p>
 
 <h1>Google Summer of Code Ideas</h1>
 <p>This page lists project ideas for <strong>Google Summer of Code 2008</strong>.</p>
 
-<p>All these ideas require knowledge of C as NetSurf is entirely written in
-C.</p>
+<p>All these ideas require knowledge of C, as NetSurf is entirely written in C.</p>
 
-<p>More ideas are on the <a
-href="http://sourceforge.net/tracker/?func=browse&amp;group_id=51719&amp;atid=464315">Feature
-Requests</a> tracker.</p>
+<p>More ideas are on the <a href="http://sourceforge.net/tracker/?func=browse&amp;group_id=51719&amp;atid=464315">Feature Requests</a> tracker. Please <a href="/contact/">get in touch</a> if any of these ideas appeal to you or you have your own idea. The NetSurf IRC channel or developer mailing list are the best places to contact us.</p>
 
 <h2>New CSS parser and selector engine</h2>
-<p>NetSurf's current CSS parser and selector engine has several limitations. The
-existing code could be improved or rewritten. The limitations include:</p>
+<p>NetSurf's current CSS parser and selector engine has several limitations. The existing code could be improved or rewritten. The limitations include:</p>
 <ul>
 <li>All rules within <code>@media { ... }</code> blocks are ignored.</li>
 <li>Handling of invalid CSS does not follow the specification.</li>
@@ -62,91 +57,90 @@ existing code could be improved or rewritten. The limitations include:</p>
 <p>Improvements here would improve NetSurf's rendering of many web pages, as well as the infamous <strong>acid2</strong> test.</p>
 <p><strong>Skills required:</strong> C, CSS, parsing</p>
 <p><strong>Difficulty:</strong> Medium</p>
-<p><strong>Existing code:</strong> <a
-href="http://source.netsurf-browser.org/trunk/netsurf/css/">CSS parser and
-modules</a>, <a
-href="http://source.netsurf-browser.org/trunk/netsurf/Docs/03-css?view=markup">Documentation</a></p>
-<p><strong>References:</strong> <a href="http://www.w3.org/TR/CSS21/">CSS
-2.1 specification</a></p>
+<p><strong>Existing code:</strong> <a href="http://source.netsurf-browser.org/trunk/netsurf/css/">CSS parser and modules</a>, <a href="http://source.netsurf-browser.org/trunk/netsurf/Docs/03-css">Documentation</a></p>
+<p><strong>References:</strong> <a href="http://www.w3.org/TR/CSS21/">CSS 2.1 specification</a></p>
 
 <h2>Native Windows or Mac OS X ports</h2>
-<p>NetSurf currently has user-interface layers for the RISC OS Window Manager
-and for GTK (on Linux, FreeBSD, etc.). The GTK interface works on Windows or Mac
-OS X, but a native interface for these systems would give a better
-experience.</p>
-<p><strong>Skills required:</strong> C, Windows UI development or Mac OS X UI
-development</p>
+<p>NetSurf currently has user-interface layers for the RISC OS Window Manager and for GTK (on Linux, FreeBSD, etc.). The GTK interface works on Windows or Mac OS X, but a native interface for these systems would give a better experience.</p>
+<p><strong>Skills required:</strong> C, Windows UI development or Mac OS X UI development</p>
 <p><strong>Difficulty:</strong> Medium</p>
-<p><strong>Existing code:</strong> <a
-href="http://source.netsurf-browser.org/trunk/netsurf/desktop/gui.h?view=markup">Declarations
-of functions that each interface must implement</a>, <a
-href="http://source.netsurf-browser.org/trunk/netsurf/riscos/">RISC OS specific
-code</a>, <a
-href="http://source.netsurf-browser.org/trunk/netsurf/gtk/">GTK specific code</a></p>
-<p><strong>References:</strong> </p>
+<p><strong>Existing code:</strong> <a href="http://source.netsurf-browser.org/trunk/netsurf/desktop/gui.h?view=markup">Declarations of functions that each interface must implement</a>, <a href="http://source.netsurf-browser.org/trunk/netsurf/riscos/">RISC OS specific code</a>, <a href="http://source.netsurf-browser.org/trunk/netsurf/gtk/">GTK specific code</a></p>
+<p><strong>References:</strong></p>
 
 <h2>Keyboard navigation</h2>
-<p>The browser currently requires a mouse to use. Keyboard shortcuts would
-move between and activate links, inputs, etc. The document structure is stored
-in a tree, and algorithms for walking through the tree to find the next link or
-input would need to be developed. A further improvement would be to take layout
-position into account and implement moving in 2D.</p>
+<p>The browser currently requires a mouse to use. Keyboard shortcuts would move between and activate links, inputs, etc. The document structure is stored in a tree, and algorithms for walking through the tree to find the next link or input would need to be developed. A further improvement would be to take layout position into account and implement moving in 2D.</p>
 <p><strong>Skills required:</strong> C, HTML, CSS, usability</p>
 <p><strong>Difficulty:</strong> Easy</p>
-<p><strong>Existing code:</strong> <a
-href="http://source.netsurf-browser.org/trunk/netsurf/desktop/textinput.c?view=markup">Key
-press handling</a>, <a
-href="http://source.netsurf-browser.org/trunk/netsurf/render/box.h?view=markup">Box
-tree structures</a></p>
-<p><strong>References:</strong> </p>
+<p><strong>Existing code:</strong> <a href="http://source.netsurf-browser.org/trunk/netsurf/desktop/textinput.c?view=markup">Key press handling</a>, <a href="http://source.netsurf-browser.org/trunk/netsurf/render/box.h?view=markup">Box tree structures</a></p>
+<p><strong>References:</strong></p>
 
 <h2>Printing improvements</h2>
-<p>Printing is currently only available on RISC OS, and the output is difficult
-for the user to predict. Work could include implementing printing for GTK, print
-preview, intelligent paging or reformatting, support for print stylesheets, and
-user control over what parts of the page are printed. This might include writing
-a portable base and platform-specific layer.</p>
-<p><strong>Skills required:</strong> C, CSS, GTK, possibly Cairo, possibly
-Postscript</p>
+<p>Printing is currently only available on RISC OS, and the output is difficult for the user to predict. Work could include implementing printing for GTK, print preview, intelligent paging or reformatting, support for print stylesheets, and user control over what parts of the page are printed. This might include writing a portable base and platform-specific layer.</p>
+<p><strong>Skills required:</strong> C, CSS, GTK, possibly Cairo, possibly Postscript</p>
 <p><strong>Difficulty:</strong> Hard</p>
-<p><strong>Existing code:</strong> <a
-href="http://source.netsurf-browser.org/trunk/netsurf/riscos/print.c?view=markup">RISC
-OS printing implementation</a></p>
-<p><strong>References:</strong> </p>
+<p><strong>Existing code:</strong> <a href="http://source.netsurf-browser.org/trunk/netsurf/riscos/print.c?view=markup">RISC OS printing implementation</a></p>
+<p><strong>References:</strong></p>
 
 <h2>PDF plotter</h2>
-<p>NetSurf's graphics output is abstracted through "plotters", which are a set
-of functions that render output to some destination. For example, there are
-plotters for RISC OS window, GTK window, and DrawFile (a vector graphics format)
-output. Implementing a PDF plotter would turn NetSurf into a general HTML to PDF
-conversion tool.</p>
+<p>NetSurf's graphics output is abstracted through &quot;plotters&quot;, which are a set of functions that render output to some destination. For example, there are plotters for RISC OS window, GTK window, and DrawFile (a vector graphics format) output. Implementing a PDF plotter would turn NetSurf into a general HTML to PDF conversion tool.</p>
 <p><strong>Skills required:</strong> C, graphics, PDF</p>
 <p><strong>Difficulty:</strong> Medium</p>
-<p><strong>Existing code:</strong> <a
-href="http://source.netsurf-browser.org/trunk/netsurf/desktop/plotters.h?view=markup">Plotter
-interface</a>, <a
-href="http://source.netsurf-browser.org/trunk/netsurf/riscos/plotters.c?view=markup">RISC
-OS plotter</a>, <a
-href="http://source.netsurf-browser.org/trunk/netsurf/gtk/gtk_plotters.c?view=markup">GTK
-plotter</a>, <a
-href="http://source.netsurf-browser.org/trunk/netsurf/riscos/save_draw.c?view=markup">DrawFile
-plotter</a></p>
-<p><strong>References:</strong> </p>
-
+<p><strong>Existing code:</strong> <a href="http://source.netsurf-browser.org/trunk/netsurf/desktop/plotters.h?view=markup">Plotter interface</a>, <a href="http://source.netsurf-browser.org/trunk/netsurf/riscos/plotters.c?view=markup">RISC OS plotter</a>, <a href="http://source.netsurf-browser.org/trunk/netsurf/gtk/gtk_plotters.c?view=markup">GTK plotter</a>, <a href="http://source.netsurf-browser.org/trunk/netsurf/riscos/save_draw.c?view=markup">DrawFile plotter</a></p>
+<p><strong>References:</strong></p>
 
 <h2>Page reader</h2>
+<p>The web is a vast resource of information and services. Traditional browsers enable its access for people who can see. NetSurf attempts to help partially sighted users with a sophisticated scaling / zoom feature, however it could be improved further with a page reading option. Speech synthesis could be used to render pages as spoken output.</p>
+<p>There are already several libraries for speech synthesis. This project would first involve enabling NetSurf so speak the textual content of a page. Further work would improve the usability of the system by consideration for such factors as:</p>
+<ul>
+<li>Overview mode, which announces the document headings</li>
+<li>Section skipping to allow swift to access to the next part of the document</li>
+<li>Repetition of the current section or skipping back to previous sections</li>
+<li>How to differentiate link text from the rest of the text</li>
+<li>How to handle emphasis tags; &lt;em&gt; and &lt;strong&gt;</li>
+</ul>
+<p><strong>Skills required:</strong> C, accessibility</p>
+<p><strong>Difficulty:</strong></p>
+<p><strong>Existing code:</strong></p>
+<p><strong>References:</strong> <a href="http://espeak.sourceforge.net/">eSpeak text to speech synthesizer</a></p>
+
 <h2>Dynamic pseudo classes</h2>
+<p></p>
+<p><strong>Skills required:</strong> C, HTML, CSS</p>
+<p><strong>Difficulty:</strong></p>
+<p><strong>Existing code:</strong></p>
+<p><strong>References:</strong></p>
+
+
 <h2>Abstract RISC OS GUI code into a separate library</h2>
+<p>NetSurf's RISC OS user interface is rich and powerful. It supports many features such as editable toolbars, dialogue box handling and menu generation. If the interface code was abstracted into a separate library, other RISC OS applications could benefit from the availability of a sophisticated, tried and tested and style guide compliment GUI toolkit.</p>
+<p><strong>Skills required:</strong> C, RISC OS WIMP, OSLib</p>
+<p><strong>Difficulty:</strong></p>
+<p><strong>Existing code:</strong> <a href="http://source.netsurf-browser.org/trunk/netsurf/riscos/">RISC OS specific code</a></p>
+<p><strong>References:</strong></p>
 
 <h2>Extracting the core into a library</h2>
-<p>What do we actually mean by "the core"?</p>
+<p>What do we actually mean by &quot;the core&quot;?</p>
 <p><strong>Difficulty:</strong> Hard</p>
 
 <h2>Improved inline element handling</h2>
-
+<p></p>
+<p><strong>Skills required:</strong> C, HTML, CSS</p>
+<p><strong>Difficulty:</strong></p>
+<p><strong>Existing code:</strong> <a href="http://source.netsurf-browser.org/trunk/netsurf/render/layout.c?view=markup">Layout code</a>, <a href="http://source.netsurf-browser.org/trunk/netsurf/Docs/02-layout">Documentation</a></p>
+<p><strong>References:</strong> <a href="http://www.w3.org/TR/CSS21/">CSS 2.1 specification</a></p>
 
 <h2>Improved GTK front end; tabs, downloads, etc</h2>
-
+<p>The GTK port, while capable of navigating the web and displaying web pages, lacks may of the features which would make it suitable for every day browsing. There are lots of features that could be added which would improve the user experience. These include:</p>
+<ul>
+<li>Tabs</li>
+<li>Download implementation</li>
+<li>Text selection, with copy &amp; paste</li>
+<li>Save / export</li>
+</ul>
+<p><strong>Skills required:</strong> C, GTK</p>
+<p><strong>Difficulty:</strong></p>
+<p><strong>Existing code:</strong> <a href="http://source.netsurf-browser.org/trunk/netsurf/gtk/">GTK specific code</a>, <a href="http://source.netsurf-browser.org/trunk/netsurf/desktop/">Core code for text selection, export, etc</a></p>
+<p><strong>References:</strong></p>
 
 <div class="footer">
 <p>Copyright 2003 - 2008 The NetSurf Developers</p>
