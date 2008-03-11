@@ -41,7 +41,9 @@
 <p class="breadcrumbs"><a href="/">Home</a> » <a href="/developers/">Developer area</a> » Google Summer of Code Ideas</p>
 
 <h1>Google Summer of Code Ideas</h1>
-<p>This page lists project ideas for <strong>Google Summer of Code 2008</strong>. Please <a href="/contact/">get in touch</a> if any of these ideas appeal to you or if you have your own idea. The NetSurf IRC channel or developer mailing list are the best places to contact us.</p>
+<p>This page lists project ideas for <strong>Google Summer of Code 2008</strong>.</p>
+
+<p>Please <a href="/contact/">get in touch</a> if any of these ideas appeal to you or if you have your own idea. The NetSurf IRC channel or developer mailing list are the best places to contact us.</p>
 
 <p>All these ideas require knowledge of C, as NetSurf is entirely written in C.</p>
 
@@ -114,7 +116,7 @@
 <h2>Abstract RISC OS GUI code into a separate library</h2>
 <p>NetSurf's RISC OS user interface is rich and powerful. It supports many features such as editable toolbars, dialogue box handling and menu generation. If the interface code was abstracted into a separate library, other RISC OS applications could benefit from the availability of a sophisticated, tried and tested and style guide compliant GUI toolkit.</p>
 <p><strong>Skills required:</strong> C, RISC OS WIMP, OSLib</p>
-<p><strong>Difficulty:</strong></p>
+<p><strong>Difficulty: Medium &ndash; Hard</strong></p>
 <p><strong>Existing code:</strong> <a href="http://source.netsurf-browser.org/trunk/netsurf/riscos/">RISC OS specific code</a></p>
 <p><strong>References:</strong></p>
 
