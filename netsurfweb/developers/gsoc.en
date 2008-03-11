@@ -99,16 +99,16 @@
 <li>How to handle emphasis tags; &lt;em&gt; and &lt;strong&gt;</li>
 </ul>
 <p><strong>Skills required:</strong> C, accessibility</p>
-<p><strong>Difficulty:</strong></p>
+<p><strong>Difficulty:</strong> Medium &ndash; Hard</p>
 <p><strong>Existing code:</strong></p>
 <p><strong>References:</strong> <a href="http://espeak.sourceforge.net/">eSpeak text to speech synthesizer</a></p>
 
 <h2>Dynamic pseudo classes</h2>
-<p></p>
+<p>NetSurf currently has no support for CSS dynamic pseudo classes (e.g. :hover). The work would involve adding support for these classes to the CSS parser and selection engine and modifying the layout engine to handle dynamic style changes.</p>
 <p><strong>Skills required:</strong> C, HTML, CSS</p>
-<p><strong>Difficulty:</strong></p>
-<p><strong>Existing code:</strong></p>
-<p><strong>References:</strong></p>
+<p><strong>Difficulty:</strong> Hard</p>
+<p><strong>Existing code:</strong> <a href="http://source.netsurf-browser.org/trunk/netsurf/css">CSS parser</a>, <a href="http://source.netsurf-browser.org/trunk/netsurf/render">HTML handler and layout engine</a></p>
+<p><strong>References:</strong> <a href="http://www.w3.org/TR/CSS21">CSS 2.1 specification</a></p>
 
 
 <h2>Abstract RISC OS GUI code into a separate library</h2>
@@ -126,9 +126,13 @@
 <p><strong>References:</strong></p>
 
 <h2>Improved inline element handling</h2>
-<p></p>
+<p>NetSurf's handling of inline elements is particularly incomplete. This task would involve improving the way in which these elements are handled. Particular issues include:</p>
+<ul>
+<li>Borders, margins, and padding</li>
+<li><strong>More!</strong></li>
+</ul>
 <p><strong>Skills required:</strong> C, HTML, CSS</p>
-<p><strong>Difficulty:</strong></p>
+<p><strong>Difficulty:</strong> Hard</p>
 <p><strong>Existing code:</strong> <a href="http://source.netsurf-browser.org/trunk/netsurf/render/layout.c?view=markup">Layout code</a>, <a href="http://source.netsurf-browser.org/trunk/netsurf/Docs/02-layout">Documentation</a></p>
 <p><strong>References:</strong> <a href="http://www.w3.org/TR/CSS21/">CSS 2.1 specification</a></p>
 
@@ -141,7 +145,7 @@
 <li>Save / export</li>
 </ul>
 <p><strong>Skills required:</strong> C, GTK</p>
-<p><strong>Difficulty:</strong></p>
+<p><strong>Difficulty:</strong> Medium</p>
 <p><strong>Existing code:</strong> <a href="http://source.netsurf-browser.org/trunk/netsurf/gtk/">GTK specific code</a>, <a href="http://source.netsurf-browser.org/trunk/netsurf/desktop/">Core code for text selection, export, etc</a></p>
 <p><strong>References:</strong></p>
 
