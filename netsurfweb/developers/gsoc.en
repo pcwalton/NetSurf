@@ -119,10 +119,10 @@
 <p><strong>References:</strong></p>
 
 <h2>Extracting the core into a library</h2>
-<p>What do we actually mean by &quot;the core&quot;?</p>
+<p>NetSurf is currently conceptually split in two: the front-end/GUI and the back-end.  The GUI is responsible for providing entry points allowing the back end to open and manipulate browser windows, as well as plotting to them.  The back-end does all fetching, parsing and layout, and also handles options even if specific to the front-end.  These two parts are then statically linked together.  Ideally, the back-end part of the browser would be abstracted to a stand-alone library, which a front-end could provide a table of entry points to.  This allows for more than one program to use NetSurf's abilities efficently, as well as giving us a chance to rationalise and tidy up the current rather ad-hoc API.</p>
 <p><strong>Skills required:</strong> C</p>
-<p><strong>Difficulty:</strong> Hard</p>
-<p><strong>Existing code:</strong></p>
+<p><strong>Difficulty:</strong> Medium/Hard</p>
+<p><strong>Existing code:</strong> See &quot;Native Windows or Mac OS X ports&quot; and &quot;PDF plotter&quot;.  <a href="http://source.netsurf-browser.org/trunk/netsurf/desktop/options.c?view=markup">Options code in back-end</a></p>
 <p><strong>References:</strong></p>
 
 <h2>Improved inline element handling</h2>
