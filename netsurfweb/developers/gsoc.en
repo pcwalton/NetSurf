@@ -84,10 +84,19 @@
 <li>CSS specificity and importance issues</li>
 </ul>
 <p>Improvements here would improve NetSurf's rendering of many web pages, as well as the infamous <strong>acid2</strong> test.</p>
+<div class="details">
+<p>In the long-term, NetSurf will be requiring a DOM StyleSheet and CSS binding. The current CSS parser and selection engine aren't really structured in a manner that permits this to happen. Therefore, this project could take one of two forms:</p>
+<ul>
+ <li>Focus upon and fix the limitations in the current CSS engine</li>
+ <li>Develop an entirely new CSS engine to replace the existing one</li>
+</ul>
+<p>There is an outline description of a <a href="http://source.netsurf-browser.org/trunk/netsurf/Docs/ideas/css-engine.txt">new CSS engine</a>, which may be of interest to those who want to take the second approach to this project. This description is fairly complete from an external API perspective. The implementation details of a new engine are completely negiotiable &ndash; we have some idea of what's needed, but the student's input will be highly valued.</p>
+<p>Regardless of which approach is taken, we would expect that testing of the code is performed on a regular basis to ensure that things are still working as expected. New testcases should be written to exercise existing bugs and test out new functionality.</p>
+</div>
 <p><strong>Skills required:</strong> C, CSS, parsing</p>
 <p><strong>Difficulty:</strong> Medium</p>
 <p><strong>Existing code:</strong> <a href="http://source.netsurf-browser.org/trunk/netsurf/css/">CSS parser and modules</a>, <a href="http://source.netsurf-browser.org/trunk/netsurf/Docs/03-css">Documentation</a></p>
-<p><strong>References:</strong> <a href="http://www.w3.org/TR/CSS21/">CSS 2.1 specification</a></p>
+<p><strong>References:</strong> <a href="http://www.w3.org/TR/CSS21/">CSS 2.1 specification</a> <a href="http://www.w3.org/TR/DOM-Level-2-Style/">DOM Level 2 Style specification</a></p>
 
 <h2>Native Windows or Mac OS X ports</h2>
 <p>NetSurf currently has user-interface layers for the RISC OS Window Manager and for GTK (on Linux, FreeBSD, etc.). The GTK interface works on Windows or Mac OS X, but a native interface for these systems would give a better experience.</p>
