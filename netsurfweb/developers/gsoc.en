@@ -63,7 +63,7 @@
 <dt>During the project</dt>
 <dd>
 <ul>
-<li>Most of NetSurf team communication happens via #netsurf IRC during evenings and nights (<a href="http://en.wikipedia.org/wiki/Central_European_Time">CET</a>). We expect you to join in on a regular basis for help, discussions and project updates.</li>
+<li>Most of NetSurf team communication happens via #netsurf IRC during evenings and nights (<a href="http://en.wikipedia.org/wiki/Central_European_Time">CET</a>). We expect you to join in on a regular basis for help, discussions and project updates. Note that you're not restricted to speaking to your assigned mentor; the whole development team are willing to help wherever they can.</li>
 <li>When improving NetSurf's layout engine, be able to create <a href="http://source.netsurf-browser.org/trunk/netsurftest/">test cases</a> and verify that existing test cases don't get broken.</li>
 <li>Keep NetSurf's <a href="http://www.netsurf-browser.org/about/#ProjectGoals">project goals</a> in mind, especially the first point.</li>
 </ul>
@@ -112,10 +112,19 @@
 
 <h2>PDF plotter</h2>
 <p>NetSurf's graphics output is abstracted through &quot;plotters&quot;, which are a set of functions that render output to some destination. For example, there are plotters for RISC OS window, GTK window, and DrawFile (a vector graphics format) output. Implementing a PDF plotter would turn NetSurf into a general HTML to PDF conversion tool.</p>
+<div class="details">
+<p>NetSurf already uses several Open Source libraries (cAres &amp; cURL, IJG JPEG, OpenSSL, libXML2, zlib, etc), so it is likely that an existing PDF write-capable library can be found and used in this project. Firstly, research the possible candidate libraries, based on criteria like: supported program languages, its platform independence, ease of use, license and any other possible advantages (like support for writing other vector based file formats, etc). Such research will actually mean writing some test/prototype code using those libraries in order to get familiar with their interfaces.</p>
+<p>It is unlikely that this project will involve developing a PDF writing library from scratch. We won't rule this out for certain, but would require some convincing arguments from you.</p>
+<p>During the evaluation of PDF writing libraries, we expect the student to become familiar with the requirements of the NetSurf plotter interface, figuring out what the issues could be from NetSurf API point view and for the PDF write library candidates. A plan should then be devised to solve these issues.</p>
+<p>After hooking the PDF write library into NetSurf and getting some useful PDF files from web pages, it will be time to come up with a strategy to test your code. As we tend to be lazy, at least sometimes, we won't buy the &quot;Save as...&quot; manual save and view in a PDF viewer approach.</p>
+<p>It could very well be that this project involves working closely together with people assigned for the &quot;Printing improvements&quot; project.</p>
+<p>These project boundaries are not set in stone. We think it is a well defined project but we're happy to hear suggestions from you to enrich the project or redefine certain aspects of it.</p>
+</div>
 <p><strong>Skills required:</strong> C, graphics, PDF</p>
 <p><strong>Difficulty:</strong> Medium</p>
 <p><strong>Existing code:</strong> <a href="http://source.netsurf-browser.org/trunk/netsurf/desktop/plotters.h?view=markup">Plotter interface</a>, <a href="http://source.netsurf-browser.org/trunk/netsurf/riscos/plotters.c?view=markup">RISC OS plotter</a>, <a href="http://source.netsurf-browser.org/trunk/netsurf/gtk/gtk_plotters.c?view=markup">GTK plotter</a>, <a href="http://source.netsurf-browser.org/trunk/netsurf/riscos/save_draw.c?view=markup">DrawFile plotter</a></p>
 <p><strong>References:</strong></p>
+<p><strong>Mentor:</strong> John Tytgat</p>
 
 <h2>Page reader</h2>
 <p>The web is a vast resource of information and services. Traditional browsers enable its access for people who can see. NetSurf attempts to help partially sighted users with a sophisticated scaling / zoom feature, however it could be improved further with a page reading option. Speech synthesis could be used to render pages as spoken output.</p>
