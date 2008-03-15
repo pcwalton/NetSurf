@@ -43,7 +43,34 @@
 <h1>Google Summer of Code Ideas</h1>
 <p>This page lists project ideas for <strong><a href="http://code.google.com/soc/2008/">Google Summer of Code 2008</a></strong>.</p>
 
-<p>Please <a href="/contact/">get in touch</a> if any of these ideas appeal to you or if you have your own idea for either <a href="/">NetSurf</a> or one of NetSurf's <a href="/projects/">sub-projects</a>. Come and chat to the developers in the NetSurf <a href="/contact/#IRCChannel">IRC channel</a> or post to the <a href="/contact/#MailingLists">developer mailing list</a>.</p>
+<dl>
+<dt>Before applying for a project<dt>
+<dd>
+<ul>
+<li>Join our IRC channel #netsurf on http://freenode.net/ and introduce yourself. Also, subscribe to the <a href="http://www.netsurf-browser.org/lists/netsurf-dev">developer mailing list</a>.</li>
+<li>Have access to a computer with supported OS (RISC OS, Linux, FreeBSD, etc) or an OS relevant for the project you want to apply for (Windows, Mac OS).</li>
+<li>Get up to speed with <a href="http://subversion.tigris.org/">Subversion</a>, as we use this for source control, and get the NetSurf <a href="http://www.netsurf-browser.org/documentation/develop#Subversion">source code</a>.</li>
+<li><a href="http://www.netsurf-browser.org/documentation/develop#Compiling">Build NetSurf</a> and enjoy using it. (Ask if you need help.)</li>
+<li>Get familiarised with the source code &ndash; read the <a href="http://source.netsurf-browser.org/trunk/netsurf/Docs/">code documentation</a>.</li>
+</ul>
+<dd>
+<dt>When applying for a project<dt>
+<dd>
+<ul>
+<li>Create a set of project milestones (ranging from a couple to maximum 10).  This will be useful for you as guidance and for us to set our expectations right.</li>
+</ul>
+<dd>
+<dt>During the project</dt>
+<dd>
+<ul>
+<li>Most of NetSurf team communication happens via #netsurf IRC during evenings and nights (<a href="http://en.wikipedia.org/wiki/Central_European_Time">CET</a>). We expect you to join in on a regular basis for help, discussions and project updates.</li>
+<li>When improving NetSurf's layout engine, be able to create <a href="http://source.netsurf-browser.org/trunk/netsurftest/">test cases</a> and verify that existing test cases don't get broken.</li>
+<li>Keep NetSurf's <a href="http://www.netsurf-browser.org/about/#ProjectGoals">project goals</a> in mind, especially the first point.</li>
+</ul>
+</dd>
+</dl>
+
+<p>Please <a href="/contact/">get in touch</a> if any of these ideas appeal to you or if you have your own idea for either <a href="/">NetSurf</a> or one of NetSurf's <a href="/projects/">sub-projects</a>. Come and chat to the developers in the NetSurf IRC channel or post to the developer mailing list.</p>
 
 <p>All these ideas require knowledge of C, as NetSurf is entirely written in C.</p>
 
