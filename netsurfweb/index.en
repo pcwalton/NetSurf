@@ -114,7 +114,7 @@
 <h2 id="news">Latest news</h2>
 
 <dl class="frontnews">
-<dt><a href="/developers/gsoc">Google Summer of Code</a> <span>17 Mar 2008</span></dt>
+<dt><a href="http://vlists.pepperfish.net/pipermail/netsurf-users-netsurf-browser.org/2008-March/007411.html">Google Summer of Code</a> <span>17 Mar 2008</span></dt>
 <dd>NetSurf is participating in Google Summer of Code 2008, as a mentoring organisation. Students interested in getting involved should apply to Google. More information on our <a href="/developers/gsoc">GSoC</a> page.<dd>
 <dt><a href="http://vlists.pepperfish.net/pipermail/netsurf-users-netsurf-browser.org/2008-March/007383.html">Summary of recent development</a> <span>02 Mar 2008</span></dt>
 <dd>Pages are now periodically reflowed as images are downloaded. Handling of presentational markup is improved. Better form element handling and many other fixes and improvements.<dd>
