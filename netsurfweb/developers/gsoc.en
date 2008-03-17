@@ -47,7 +47,7 @@
 <dt>Before applying for a project<dt>
 <dd>
 <ul>
-<li>Join our IRC channel #netsurf on http://freenode.net/ and introduce yourself. Also, subscribe to the <a href="http://www.netsurf-browser.org/lists/netsurf-dev">developer mailing list</a>.</li>
+<li>Join our IRC channel <code>#netsurf</code> on <a href="http://freenode.net/">Freenode</a> and introduce yourself. Also, subscribe to the <a href="http://www.netsurf-browser.org/lists/netsurf-dev">developer mailing list</a>.</li>
 <li>Have access to a computer with supported OS (RISC OS, Linux, FreeBSD, etc) or an OS relevant for the project you want to apply for (Windows, Mac OS).</li>
 <li>Get up to speed with <a href="http://subversion.tigris.org/">Subversion</a>, as we use this for source control, and get the NetSurf <a href="http://www.netsurf-browser.org/documentation/develop#Subversion">source code</a>.</li>
 <li><a href="http://www.netsurf-browser.org/documentation/develop#Compiling">Build NetSurf</a> and enjoy using it. (Ask if you need help.)</li>
