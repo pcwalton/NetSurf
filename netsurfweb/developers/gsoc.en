@@ -58,7 +58,8 @@
 <dt>When applying for a project<dt>
 <dd>
 <ul>
-<li>Create a set of project milestones (ranging from a couple to maximum 10).  This will be useful for you as guidance and for us to set our expectations right.</li>
+<li>Create a set of project milestones (ranging from a couple to maximum 10). This will be useful for you as guidance and for us to set our expectations right.</li>
+<li>Include your IRC nick in your application if you've spoken with us on <code>#netsurf</code>, so that we recognise you.</li>
 </ul>
 <dd>
 <dt>During the project</dt>
@@ -91,7 +92,7 @@
  <li>Focus upon and fix the limitations in the current CSS engine</li>
  <li>Develop an entirely new CSS engine to replace the existing one</li>
 </ul>
-<p>There is an outline description of a <a href="http://source.netsurf-browser.org/trunk/netsurf/Docs/ideas/css-engine.txt">new CSS engine</a>, which may be of interest to those who want to take the second approach to this project. This description is fairly complete from an external API perspective. The implementation details of a new engine are completely negiotiable &ndash; we have some idea of what's needed, but the student's input will be highly valued.</p>
+<p>There is an outline description of a <a href="http://source.netsurf-browser.org/trunk/netsurf/Docs/ideas/css-engine.txt">new CSS engine</a>, which may be of interest to those who want to take the second approach to this project. This description is fairly complete from an external API perspective. The implementation details of a new engine are completely negotiable &ndash; we have some idea of what's needed, but the student's input will be highly valued.</p>
 <p>Regardless of which approach is taken, we would expect that testing of the code is performed on a regular basis to ensure that things are still working as expected. New testcases should be written to exercise existing bugs and test out new functionality.</p>
 </div>
 <p><strong>Skills required:</strong> C, CSS, parsing</p>
