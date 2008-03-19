@@ -10,8 +10,7 @@ open LOG, ">backup.log" or die "failed to open backup.log: $!\n";
 my @days = ( "sun", "mon", "tue", "wed", "thu", "fri", "sat" );
 
 # Day of the week [0,6] 0 == Sunday
-my $day = (command("date +'%w'"))[0];
-chomp $day;
+my $day = (localtime(time))[6];
 
 # Revision of current head
 my $cur_revision = (command("svnlook youngest " . REPOS_PATH))[0];
@@ -55,7 +54,7 @@ command("gzip -5 -c --rsyncable netsurf-svn-$days[$day] " .
 
 # Rsync it to batfish
 command("rsync --verbose --compress --times netsurf-svn-$days[$day].gz " .
-	"netsurf\@netsurf-browser.org:/home/netsurf/");
+	"netsurf\@netsurf-browser.org:/home/netsurf/svn-backups/");
 
 # Update current revision indicator
 open REVFILE, ">currev" or die "failed to open currev: $!\n";
