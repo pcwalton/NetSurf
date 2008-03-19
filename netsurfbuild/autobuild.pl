@@ -66,6 +66,8 @@ command("make TARGET=riscos");
 chdir $root;
 command("rm --recursive --force --verbose riscos-zip/!NetSurf");
 command("rsync --archive --verbose --exclude=.svn netsurf/!NetSurf riscos-zip/");
+command("rm --force --verbose riscos-zip/ReadMe");
+command("mv --verbose riscos-zip/!NetSurf/ReadMe riscos-zip/");
 
 # copy HTML document, preprocessing as required
 sub process_html {
