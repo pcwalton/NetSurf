@@ -62,7 +62,7 @@ save('netsurf/desktop/version.c',
 
 # build RISC OS version
 chdir "$root/netsurf";
-command("make -f Makefile.unix TARGET=riscos");
+command("make TARGET=riscos");
 chdir $root;
 command("rm --recursive --force --verbose riscos-zip/!NetSurf");
 command("rsync --archive --verbose --exclude=.svn netsurf/!NetSurf riscos-zip/");
