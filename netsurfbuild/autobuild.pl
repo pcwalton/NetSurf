@@ -42,7 +42,8 @@ unless (scalar @update) {
 # determine build date time and version
 my $date = (command("date -u '+%d %b %Y %H:%M'"))[0];
 chomp $date;
-my $version = "2.0 (Dev) ($date) r$revno";
+my $version = "2.0 (Dev)";
+my $full_version = "$version ($date) r$revno";
 my $pkg_version = (command("date -u '+0.%Y.%m.%d.%H%M'"))[0];
 chomp $pkg_version;
 
@@ -54,9 +55,9 @@ chdir "$root/netsurfweb";
 command("svn update --non-interactive");
 chdir $root;
 
-# create version.c
+# create version.c -- keep major/minor in sync with $version
 save('netsurf/desktop/version.c',
-		"const char * const netsurf_version = \"$version\";\n" .
+		"const char * const netsurf_version = \"$full_version\";\n" .
 		"const int netsurf_version_major = 2;\n" .
 		"const int netsurf_version_minor = 0;\n");
 
@@ -115,9 +116,12 @@ sub process_html {
 	# Remove the search box
 	$html =~ s{div class="searchbox"}
 		  {div class="searchbox" style="display:none"}g;
+	# Welcome page heading
+	$html =~ s{(<h2 class="version">Welcome to NetSurf)(</h2>)}
+		  {$1 $version$2}
 	# Substitute the version into those documents that require it
 	$html =~ s{VERSION}
-	          {$version}g;
+	          {$full_version}g;
 	save($dest, $html);
 }
 
