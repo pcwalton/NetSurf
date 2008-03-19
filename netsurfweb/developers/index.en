@@ -59,7 +59,7 @@
 <dt>Non-programming contribution</dt>
 <dd>If you'd like to contribute directly to the project but can't program, there are still many ways for you to participate. Details in the <a href="contribute">contribution guide</a>.</dd>
 <dt>Programming</dt>
-<dd>If you can program then you are welcome to join the developers! If there's some aspect you'd like to improve, or feature you'd like to implement, contact us via the developer mailing list or on IRC and go from there.</dd>
+<dd>If you can program then you are welcome to join the developers! If there's some aspect you'd like to improve, or feature you'd like to implement, contact us via the developer mailing list or on IRC and go from there. Also, see the instructions for <a href="#SubmittingPatches">submitting patches</a>.</dd>
 </dl>
 
 <p>Take a look at the <a href="contribute">contribution guide</a> for more ideas and information.</p>
@@ -73,6 +73,18 @@
 <p>Once running the latest build you can browse the web as normal and let us know if you run into problems. Does the browser crash? Can you reproduce the crash? Did it crash at a specific site? What was the URL? Do you like the new features of the development build? How could NetSurf's interface be improved? These and more are the sorts of questions we're interested in your answers to. Our goal is to make NetSurf a piece of software everyone loves to use, and to do that we need your input!</p>
 
 <p>The NetSurf documentation contains guidelines for <a href="/documentation/info#FeatureRequests">making feature requests</a> and <a href="/documentation/info#Bugs">reporting bugs</a>.</p>
+
+<h2 id="SubmittingPatches">Submitting patches</h2>
+
+<p>If you've developed a patch for NetSurf you can send it to us by either:</p>
+
+<ol>
+<li>Putting it on the <a href="http://sourceforge.net/tracker/?atid=464314&group_id=51719&func=browse">patch tracker</a>.</li>
+<li>Posting to the <a href="/contact/#MailingLists">NetSurf Development mailing list</a> and attaching the patch.</li>
+<li>Giving the patch to one of the developers in the <a href="/contact/#IRCChannel">NetSurf IRC channel</a>.</li>
+</ol>
+
+<p>If it is a tiny patch, the third option is best. Otherwise use the first or second.</p>
 
 <h2>Porting NetSurf</h2>
 
