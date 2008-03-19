@@ -60,7 +60,7 @@
 
 <ul>
 <li>A Filing System which supports long filenames</li>
-<li>!GCC 3.4.6 release 2 or later (<a href="http://gccsdk.riscos.info/">http://gccsdk.riscos.info/</a>)</li>
+<li>!GCC 3.4.6 release 3 or later (<a href="http://gccsdk.riscos.info/">http://gccsdk.riscos.info/</a>)</li>
 <li>OSLib 6.80 or later (<a href="http://ro-oslib.sf.net/">http://ro-oslib.sf.net/</a>)</li>
 <li>Perl 5.8.8 or later (<a href="http://www.cp15.org/programming/">http://www.cp15.org/programming/</a>)</li>
 <li>RISC OS SVN client (<a href="http://www.cp15.org/versioncontrol/">http://www.cp15.org/versioncontrol/</a>)</li>
