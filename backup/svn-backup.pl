@@ -29,7 +29,7 @@ if ($day == 0 || ! -f "manifest") {
 	# Incremental since yesterday, please
 	# Get yesterday's revision
 	my $old_revision = 0;
-	open MANIFEST, "<manifest" or die "failed to open currev: $!\n";
+	open MANIFEST, "<manifest" or die "failed to open manifest: $!\n";
 	foreach my $line (<MANIFEST>) {
 		($old_revision) = ($line =~ /.*\t(.*)/);
 	}
@@ -53,7 +53,7 @@ if ($day == 0 || ! -f "manifest") {
 }
 
 # Update manifest
-open MANIFEST, ">>manifest" or die "failed to open currev: $!\n";
+open MANIFEST, ">>manifest" or die "failed to open manifest: $!\n";
 print MANIFEST "$days[$day]\t$cur_revision\n";
 close MANIFEST;
 
