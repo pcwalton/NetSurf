@@ -117,7 +117,7 @@
 
 <p>Rob contributes mainly to the GTK port of NetSurf, and helping with general portability issues between platforms.  He wrote the Cairo rendering back end which gives the GTK port anti-aliased rendering, as well as devising the new themes format.  Also some other minor contributions to the main base of the code.</p>
 
-<p>Rob does most of his development work on his Linux desktop running Ubuntu, and also makes extensive use of an A9 Home for testing.  He also helps maintain the server that hosts the project's web site and mailing lists.</p>
+<p>Rob does most of his development work on his Linux desktop running Ubuntu, and also makes extensive use of an A9home for testing.  He also helps maintain the server that hosts the project's web site and mailing lists.</p>
 
 <ul>
 <li>First check in: 13 March 2006</li>
