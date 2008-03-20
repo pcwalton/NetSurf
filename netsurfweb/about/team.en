@@ -90,6 +90,10 @@
 
 <h2>John Tytgat</h2>
 
+<p>John is an occasional NetSurf contributor mostly related to cross-compile build aspects based on his knowledge and involvement in the <a href="http://gccsdk.riscos.info/">GCCSDK</a> project and OSLib <a href="http://ro-oslib.sourceforge.net">OSLib</a>. He also contributed the first Unicode related changes in NetSurf.</p>
+
+<p>His RISC OS NetSurf builds are done using the GCCSDK cross-compiler on an Ubuntu Linux desktop machine and tested on RiscPC and A9home.</p>
+
 <ul>
 <li>First check in: 1 May 2004</li>
 <li>IRC name: joty, SVN name: joty</li>
