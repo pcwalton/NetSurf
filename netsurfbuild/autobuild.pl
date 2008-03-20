@@ -118,7 +118,7 @@ sub process_html {
 		  {div class="searchbox" style="display:none"}g;
 	# Welcome page heading
 	$html =~ s{(<h2 class="version">Welcome to NetSurf)(</h2>)}
-		  {$1 $version$2}
+		  {$1 $version$2}g;
 	# Substitute the version into those documents that require it
 	$html =~ s{VERSION}
 	          {$full_version}g;
