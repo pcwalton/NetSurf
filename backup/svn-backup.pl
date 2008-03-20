@@ -16,20 +16,24 @@ my $day = (localtime(time))[6];
 my $cur_revision = (command("svnlook youngest " . REPOS_PATH))[0];
 chomp $cur_revision;
 
-if ($day == 0 || ! -f "currev") {
+if ($day == 0 || ! -f "manifest") {
 	# Perform complete backup
 	command("svnadmin dump " . REPOS_PATH .
 		" -r 0:$cur_revision --deltas" .
-		" >netsurf-svn-$days[$day]");
+		" | gzip -5 -c --rsyncable >netsurf-svn-$days[$day].gz");
+
+	# Remove the old manifest, if it exists
+	# This ensures that the first entry in the manifest is a full backup
+	command("rm --force --verbose manifest");
 } else {
 	# Incremental since yesterday, please
 	# Get yesterday's revision
 	my $old_revision = 0;
-	open REVFILE, "<currev" or die "failed to open currev: $!\n";
-	foreach my $line (<REVFILE>) {
-		$old_revision = $line;
+	open MANIFEST, "<manifest" or die "failed to open currev: $!\n";
+	foreach my $line (<MANIFEST>) {
+		($old_revision) = ($line =~ /.*\t(.*)/);
 	}
-	close REVFILE;
+	close MANIFEST;
 	chomp $old_revision;
 
 	# Calculate base for this dump
@@ -37,29 +41,28 @@ if ($day == 0 || ! -f "currev") {
 
 	if ($cur_revision == $old_revision) {
 		print LOG "Nothing changed\n";
-		# FIXME: what do we actually want to do here?
-		command("rm -f netsurf-svn-$days[$day]");
-		command("touch netsurf-svn-$days[$day]");
+		# Exit here as there's nothing further to do.
+		exit;
 	} else {
 		# Perform the dump
 		command("svnadmin dump " . REPOS_PATH . 
 			" -r $base_revision:$cur_revision " .
-			"--incremental --deltas >netsurf-svn-$days[$day]");
+			"--incremental --deltas " .
+			"| gzip -5 -c --rsyncable >netsurf-svn-$days[$day].gz");
 	}
 }
 
-# Gzip it, in an rsync-friendly manner
-command("gzip -5 -c --rsyncable netsurf-svn-$days[$day] " .
-	">netsurf-svn-$days[$day].gz");
+# Update manifest
+open MANIFEST, ">>manifest" or die "failed to open currev: $!\n";
+print MANIFEST "$days[$day]\t$cur_revision\n";
+close MANIFEST;
 
-# Rsync it to batfish
-command("rsync --verbose --compress --times netsurf-svn-$days[$day].gz " .
+# Rsync dump and manifest to batfish
+command("rsync --verbose --compress --times " .
+	"manifest netsurf-svn-$days[$day].gz " .
 	"netsurf\@netsurf-browser.org:/home/netsurf/svn-backups/");
 
-# Update current revision indicator
-open REVFILE, ">currev" or die "failed to open currev: $!\n";
-print REVFILE "$cur_revision\n";
-close REVFILE;
+close LOG;
 
 sub command {
 	my $cmd = shift;
