@@ -8,6 +8,7 @@ use warnings;
 
 use File::Find;
 use File::Spec;
+use Getopt::Long;
 
 $ENV{PATH} = '/usr/local/bin:/usr/bin:/bin';
 
@@ -20,6 +21,14 @@ my $outputdir = "downloads/development";
 # Website host name
 my $websitehost = "www.netsurf-browser.org";
 
+# Process command line options
+my $release_build = 0;
+my $version = "2.0 (Dev)";
+GetOptions('release=s' => sub { my ($name, $value) = @_; 
+	   			$release_build = 1; 
+				$version = $value;
+			      }
+	  );
 
 # find where we are being run
 my $root = (command("pwd"))[0];
@@ -33,17 +42,21 @@ my @revlines = grep / revision /, @update;
 my ($revno) = ($revlines[0] =~ /(\d+)/);     # get revison for version later
 @update = grep !/^At revision/, @update;
 
-# continue only if there were updates
-unless (scalar @update) {
-	print LOG "no updates\n";
-	exit;
+if (!$release_build) {
+	# continue only if there were updates
+	unless (scalar @update) {
+		print LOG "no updates\n";
+		exit;
+	}
 }
 
 # determine build date time and version
 my $date = (command("date -u '+%d %b %Y %H:%M'"))[0];
 chomp $date;
-my $version = "2.0 (Dev)";
-my $full_version = "$version ($date) r$revno";
+my $full_version = "$version ($date)";
+if (!$release_build) {
+	$full_version .= " r$revno";
+}
 my $pkg_version = (command("date -u '+0.%Y.%m.%d.%H%M'"))[0];
 chomp $pkg_version;
 
@@ -55,11 +68,13 @@ chdir "$root/netsurfweb";
 command("svn update --non-interactive");
 chdir $root;
 
-# create version.c -- keep major/minor in sync with $version
-save('netsurf/desktop/version.c',
+if (!$release_build) {
+	# create version.c -- keep major/minor in sync with $version
+	save('netsurf/desktop/version.c',
 		"const char * const netsurf_version = \"$full_version\";\n" .
 		"const int netsurf_version_major = 2;\n" .
 		"const int netsurf_version_minor = 0;\n");
+}
 
 # build RISC OS version
 chdir "$root/netsurf";
@@ -279,32 +294,36 @@ sub create_download_fragment {
 	save($dest, $html);	
 }
 
-# create page fragments
-create_download_fragment("$outputdir/source.inc", 
-		"SVN source code (r$revno)", "netsurf-r$revno.tar.gz");
+if (!$release_build) {
+	# create page fragments
+	create_download_fragment("$outputdir/source.inc", 
+			"SVN source code (r$revno)", "netsurf-r$revno.tar.gz");
 
-# get log of recent changes
-my $week_ago = (command("date --date='7 days ago' '+%F'"))[0];
-chomp $week_ago;
-command("svn log --verbose --revision '{$week_ago}:HEAD' --xml " .
+	# get log of recent changes
+	my $week_ago = (command("date --date='7 days ago' '+%F'"))[0];
+	chomp $week_ago;
+	command("svn log --verbose --revision '{$week_ago}:HEAD' --xml " .
 		'svn://source.netsurf-browser.org/ > log.xml');
-command("xsltproc svnlog2html.xslt log.xml >$outputdir/svnlog.txt");
+	command("xsltproc svnlog2html.xslt log.xml >$outputdir/svnlog.txt");
 
-# and a shorter log for the developers page
-command("svn log --verbose --revision 'HEAD:{$week_ago}' --xml --limit 5 " .
-		'svn://source.netsurf-browser.org/ > log.xml');
-command("xsltproc svnlog2html.xslt log.xml >$outputdir/shortlog.txt");
+	# and a shorter log for the developers page
+	command("svn log --verbose --revision 'HEAD:{$week_ago}' --xml " .
+		"--limit 5 svn://source.netsurf-browser.org/ > log.xml");
+	command("xsltproc svnlog2html.xslt log.xml >$outputdir/shortlog.txt");
+}
 
 # Copy build log ready for upload
 command("cp --verbose autobuild.log $outputdir/netsurf.log");
 
-# rsync to website
-command("rsync --verbose --compress --times --recursive " .
+if (!$release_build) {
+	# rsync to website
+	command("rsync --verbose --compress --times --recursive " .
 		"$outputdir/*.zip $outputdir/netsurf.log " .
 		"$outputdir/svnlog.txt $outputdir/shortlog.txt " .
 		"$outputdir/riscpkg $outputdir/*.tar.gz $outputdir/*.inc " .
 		"netsurf\@netsurf-browser.org:/home/netsurf/websites/" .
 		"$websitehost/docroot/$outputdir/");
+}
 
 
 sub command {
