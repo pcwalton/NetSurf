@@ -240,7 +240,8 @@ command('/home/riscos/cross/bin/zip -9vr, ../netsurf.zip *');
 chdir $root;
 command("mv --verbose netsurf.zip $outputdir/");
 
-# make RiscPkg package
+if (!$release_build) {
+	# make RiscPkg package
 my $control = <<END;
 Package: NetSurf
 Priority: Optional
@@ -256,30 +257,33 @@ Description: Web browser
  .
  This is a test version of NetSurf and may be unstable.
 END
-save('netsurfpkg/RiscPkg/Control', $control);
-mkdir "$root/$outputdir/riscpkg";
-command("rm --verbose --force $outputdir/riscpkg/netsurf-*.zip");
-command('rm --recursive --verbose --force netsurfpkg/Apps/!NetSurf');
-command('mv --verbose riscos-zip/!NetSurf netsurfpkg/Apps/');
-chdir "$root/netsurfpkg";
-command("/home/riscos/cross/bin/zip -9vr, " .
-		"../$outputdir/riscpkg/netsurf-$pkg_version.zip " .
-		'Apps/!NetSurf RiscPkg/Control RiscPkg/Copyright');
-chdir "$root/$outputdir/riscpkg";
-command("$root/packageindex.pl ".
-		"http://$websitehost/$outputdir/riscpkg/ ".
-		'> packages');
-chdir $root;
-command('mv --verbose netsurfpkg/Apps/!NetSurf ./riscos-zip/');
+	save('netsurfpkg/RiscPkg/Control', $control);
+	mkdir "$root/$outputdir/riscpkg";
+	command("rm --verbose --force $outputdir/riscpkg/netsurf-*.zip");
+	command('rm --recursive --verbose --force netsurfpkg/Apps/!NetSurf');
+	command('mv --verbose riscos-zip/!NetSurf netsurfpkg/Apps/');
+	chdir "$root/netsurfpkg";
+	command("/home/riscos/cross/bin/zip -9vr, " .
+			"../$outputdir/riscpkg/netsurf-$pkg_version.zip " .
+			'Apps/!NetSurf RiscPkg/Control RiscPkg/Copyright');
+	chdir "$root/$outputdir/riscpkg";
+	command("$root/packageindex.pl ".
+			"http://$websitehost/$outputdir/riscpkg/ ".
+			'> packages');
+	chdir $root;
+	command('mv --verbose netsurfpkg/Apps/!NetSurf ./riscos-zip/');
+}
 
 # TODO nstheme
 
 # build source tarball
+my $source_tree = (command("svn info netsurf | grep '^URL' | cut -c 6-"))[0];
+chomp $source_tree;
 command("rm --verbose --force $outputdir/netsurf-*.tar.gz");
 command('rm --recursive --verbose --force export');
 mkdir "$root/export";
 chdir "$root/export";
-command('svn export --non-interactive svn://source.netsurf-browser.org/trunk/netsurf');
+command("svn export --non-interactive $source_tree");
 command("tar czf netsurf-r$revno.tar.gz netsurf");
 chdir $root;
 command("mv --verbose export/netsurf-*.tar.gz $outputdir/");
