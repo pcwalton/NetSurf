@@ -37,7 +37,7 @@
 	    </span>
 	  </p>
 	  <p class="msg">
-	    <xsl:value-of select="msg"/>
+	    <xsl:value-of select="substring(msg, 0, 512)"/>
 	  </p>
 	</div>
       </xsl:for-each>
