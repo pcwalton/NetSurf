@@ -54,7 +54,7 @@
 <li><a href="#AcquiringAndCompilingTheSource">Acquiring and compiling the source</a></li>
 </ul>
 
-<p class="updated">Last updated 11 Novemeber 2007</p>
+<p class="updated">Last updated 21 March 2008</p>
 
 <h2 id="Requirements">Requirements</h2>
 
@@ -82,7 +82,7 @@
 <h2 id="UnpackingTheLibraries">Fetching and unpacking the libraries</h2>
 
 <ol>
-<li>Download and unpack the pre-assembled <a href="/downloads/other/nstools.zip">tool and library tree (2.3MB)</a>.</li>
+<li>Download and unpack the pre-assembled <a href="/downloads/other/nstools.zip">tool and library tree (2.6MB)</a>.</li>
 <li>Double-click on !NSTools to open the tree.</li>
 <li>Consult the !NSTools.!Help file in conjunction with <a href="http://netsurf.strcprstskrzkrk.co.uk/developer/">http://netsurf.strcprstskrzkrk.co.uk/developer/</a> in order to determine if any libraries need updating.</li>
 <li>If necessary, merge any updated libraries into the !NSTools directory structure, renaming files into RISC OS format as appropriate (i.e. <code>foo/h</code> becomes <code>h.foo</code>). This should produce a directory tree like:
