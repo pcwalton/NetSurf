@@ -343,7 +343,7 @@ if (!$release_build) {
 	command("rsync --verbose --compress --times --recursive " .
 		"$outputdir/*.zip $outputdir/*.tar.gz " .
 		"$outputdir/ChangeLog.txt " .
-		"netsurf\@netsurf-browser.org/home/netsurf/websites/" .
+		"netsurf\@netsurf-browser.org:/home/netsurf/websites/" .
 		"$websitehost/docroot/$outputdir/");
 }
 
