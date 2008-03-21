@@ -15,12 +15,6 @@ $ENV{PATH} = '/usr/local/bin:/usr/bin:/bin';
 open LOG, ">autobuild_try.log" or die "failed to open autobuild_try.log: $!\n";
 $| = 1;
 
-# A bunch of useful definitions, in case the website structure changes again
-# Output directory path (relative to site root)
-my $outputdir = "downloads/development";
-# Website host name
-my $websitehost = "www.netsurf-browser.org";
-
 # Process command line options
 my $release_build = 0;
 my $version = "2.0 (Dev)";
@@ -29,6 +23,12 @@ GetOptions('release=s' => sub { my ($name, $value) = @_;
 				$version = $value;
 			      }
 	  );
+
+# A bunch of useful definitions, in case the website structure changes again
+# Output directory path (relative to site root)
+my $outputdir = $release_build ? "downloads/releases" : "downloads/development";
+# Website host name
+my $websitehost = "www.netsurf-browser.org";
 
 # find where we are being run
 my $root = (command("pwd"))[0];
@@ -316,16 +316,34 @@ if (!$release_build) {
 	command("xsltproc svnlog2html.xslt log.xml >$outputdir/shortlog.txt");
 }
 
-# Copy build log ready for upload
-command("cp --verbose autobuild.log $outputdir/netsurf.log");
-
 if (!$release_build) {
+	# Copy build log ready for upload
+	command("cp --verbose autobuild.log $outputdir/netsurf.log");
+
 	# rsync to website
 	command("rsync --verbose --compress --times --recursive " .
 		"$outputdir/*.zip $outputdir/netsurf.log " .
 		"$outputdir/svnlog.txt $outputdir/shortlog.txt " .
 		"$outputdir/riscpkg $outputdir/*.tar.gz $outputdir/*.inc " .
 		"netsurf\@netsurf-browser.org:/home/netsurf/websites/" .
+		"$websitehost/docroot/$outputdir/");
+} else {
+	# Rename binary zip file to encode version number
+	command("mv --verbose $outputdir/netsurf.zip " .
+		"$outputdir/netsurf-$version.zip");
+
+	# Similarly for the source tarball
+	command("mv --verbose $outputdir/netsurf-r$revno.tar.gz " .
+		"$outputdir/netsurf-$version-src.tar.gz");
+
+	# Stage ChangeLog
+	command("cp --verbose riscos-zip/ChangeLog $outputdir/ChangeLog.txt");
+
+	# rsync to website
+	command("rsync --verbose --compress --times --recursive " .
+		"$outputdir/*.zip $outputdir/*.tar.gz " .
+		"$outputdir/ChangeLog.txt " .
+		"netsurf\@netsurf-browser.org/home/netsurf/websites/" .
 		"$websitehost/docroot/$outputdir/");
 }
 
