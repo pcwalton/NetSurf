@@ -48,7 +48,7 @@
 <div class="downloadlatestouter">
 <div class="downloadlatest">
 <div class="downloadlatestbox">
-<p class="downloadmain downloadfirst"><a href="releases/netsurf-1.1.zip"><span>NetSurf 1.1 for RISC&nbsp;OS</span> <span>(2.3MB)</span> <span class="downloaddate">13 Aug 2007</span></a></p>
+<p class="downloadmain downloadfirst"><a href="releases/netsurf-1.2.zip"><span>NetSurf 1.2 for RISC&nbsp;OS</span> <span>(2.2MB)</span> <span class="downloaddate">22 Mar 2008</span></a></p>
 <p class="downloadinstructions"><a href="/documentation/roinfo#GettingStartedInstallation">Installation instructions</a></p>
 <p class="preul">Binary download includes:</p>
 <ul>
@@ -66,7 +66,7 @@
 </div>
 
 <div class="downloadlatestbox downloadlast">
-<p class="downloadmain"><a href="releases/netsurf-1.1-src.tar.gz"><span>NetSurf 1.1 source code</span> <span>(964kB)</span> <span class="downloaddate">13 Aug 2007</span></a></p>
+<p class="downloadmain"><a href="releases/netsurf-1.2-src.tar.gz"><span>NetSurf 1.2 source code</span> <span>(1.0MB)</span> <span class="downloaddate">22 Mar 2008</span></a></p>
 <p class="downloadinstructions"><a href="source#BuildInstructions">Build instructions</a></p>
 <p class="preul">Build NetSurf for:</p>
 <ul>
@@ -81,7 +81,7 @@
 <div class="arrow"></div>
 </div>
 
-<p>Check out the <a href="ChangeLog.txt">change log</a> to see what's changed since the last release.</p>
+<p>Check out the <a href="releases/ChangeLog.txt">change log</a> to see what's changed since the last release.</p>
 
 <div class="bignote">
 <dl>
@@ -95,6 +95,13 @@
 
 <h2>Previous releases</h2>
 <dl>
+<dt>NetSurf 1.1</dt>
+<dd>
+<ul>
+<li><a href="releases/netsurf-1.1.zip">NetSurf 1.1 browser for RISC OS</a> (13 Aug 2007)</li>
+<li><a href="releases/netsurf-1.1-src.tar.gz">NetSurf 1.1 source code</a> (13 Aug 2007)</li>
+</ul>
+</dd>
 <dt>NetSurf 1.0</dt>
 <dd>
 <ul>
