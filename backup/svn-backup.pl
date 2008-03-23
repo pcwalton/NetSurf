@@ -67,7 +67,7 @@ close LOG;
 sub command {
 	my $cmd = shift;
 	print LOG "> $cmd\n";
-	my @output = `$cmd`;
+	my @output = `$cmd 2>&1`;
 	foreach my $line (@output) {
 		print LOG "| $line";
 	}
