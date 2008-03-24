@@ -19,7 +19,7 @@ chomp $cur_revision;
 if ($day == 0 || ! -f "manifest") {
 	# Perform complete backup
 	command("svnadmin dump " . REPOS_PATH .
-		" -r 0:$cur_revision --deltas" .
+		" -r 0:$cur_revision --deltas --quiet" .
 		" | gzip -5 -c --rsyncable >netsurf-svn-$days[$day].gz");
 
 	# Remove the old manifest, if it exists
@@ -47,7 +47,7 @@ if ($day == 0 || ! -f "manifest") {
 		# Perform the dump
 		command("svnadmin dump " . REPOS_PATH . 
 			" -r $base_revision:$cur_revision " .
-			"--incremental --deltas " .
+			"--incremental --deltas --quiet " .
 			"| gzip -5 -c --rsyncable >netsurf-svn-$days[$day].gz");
 	}
 }
