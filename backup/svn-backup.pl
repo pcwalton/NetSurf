@@ -52,14 +52,49 @@ if ($day == 0 || ! -f "manifest") {
 	}
 }
 
-# Update manifest
+# Rsync dump to batfish
+command("rsync --verbose --compress --times " .
+	"netsurf-svn-$days[$day].gz " .
+	"netsurf\@netsurf-browser.org:/home/netsurf/svn-backups/");
+
+# Now update manifest
+#
+# We can't do this before we've rsynced the backup as, if the rsync fails, the 
+# remote copy will be out-of-sync with us. Then, next time we run, if the rsync
+# succeeds, there'll be a mismatch between the manifest and .gz archives.
+#
+# For example:
+#
+# If the manifest contains entries for sun,mon,tue
+# We run on wed, the rsync fails, but our local manifest's been updated
+# We run on thu, rsync succeeds
+#
+# We have a full set of backups, so that's ok.
+#
+# On the remote machine, however, the manifest now contains entries for 
+# sun->thu (as new entries are appended to the end), but it only has .gzs for 
+# sun,mon,tue and thu. As we overwrite the previous week's backup archives, if 
+# a restore is attempted on the remote host, then it'll attempt to restore 
+# sun,mon,tue,wed-a-week-ago,thu. This is clearly broken.
 open MANIFEST, ">>manifest" or die "failed to open manifest: $!\n";
 print MANIFEST "$days[$day]\t$cur_revision\n";
 close MANIFEST;
 
-# Rsync dump and manifest to batfish
+# Finally, rsync the manifest to batfish
+#
+# If this fails, then the remote copy will have a full complement of .gz
+# but today's entry will be missing from the manifest. Therefore, a restore
+# using the remote copy will omit restoring today's backup, thus:
+#
+# Manifest contains sun,mon,tue
+# Today is wed - .gz rsyncs successfully, local manifest is updated, rsync fails
+# Restore is attempted using remote copy, restores sun,mon,tue but not wed.
+#
+# Ideally, the restore script will check for this case (by consulting the 
+# datestamps on the .gz files), and inform the user attempting a restore. 
+# They'll then have to restore the omitted .gz manually.
 command("rsync --verbose --compress --times " .
-	"manifest netsurf-svn-$days[$day].gz " .
+	"manifest " .
 	"netsurf\@netsurf-browser.org:/home/netsurf/svn-backups/");
 
 close LOG;
