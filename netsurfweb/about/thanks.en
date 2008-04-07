@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+        "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>NetSurf | Thanks from the NetSurf Team!</title>
+<link rel="stylesheet" title="Standard" type="text/css" href="/netsurf.css">
+</head>
+
+<body>
+<p class="banner"><a href="/"><img src="/netsurf.png" alt="NetSurf"></a></p>
+
+<div class="navigation">
+<div class="navsection">
+<ul>
+<li><a href="/about/">About NetSurf</a>
+<ul>
+<li><a href="/about/news">News</a></li>
+<li><a href="/about/screenshots/">Screenshots</a></li>
+<li><a href="/about/team">Team</a></li>
+<li><a href="/about/awards">Awards</a></li>
+<li><a href="/about/licence">Licence</a></li>
+<li><a href="/about/thanks">Thanks</a></li>
+</ul>
+</li>
+<li><a href="/downloads/">Downloads</a></li>
+<li><a href="/documentation/">Documentation</a></li>
+<li><a href="/developers/">Development area</a></li>
+<li><a href="/webmasters/">Webmaster area</a></li>
+<li><a href="/contact/">Contact</a></li>
+</ul>
+</div>
+
+<div class="navsection">
+<ul class="languages">
+<!--<li><a href="index.de">Deutsch</a></li>-->
+<li>English</li>
+<!--<li><a href="index.fr">Français</a></li>-->
+<!--<li><a href="index.nl">Nederlands</a></li>-->
+</ul>
+</div>
+
+</div>
+
+<div class="content">
+
+<p class="breadcrumbs"><a href="/">Home</a> » <a href="/about/">About NetSurf</a> » Thanks</p>
+
+<h1>Thanks from the NetSurf Team!</h1>
+
+<p>We would like to thank the following organisations for their kind generosity and the help they have given us:</p>
+
+<h2><img class="thankslogo" src="/webimages/logoadv6.png" alt="">Advantage Six</h2>
+
+<p>Advantage Six Ltd offer design, manufacture and support services for OEM customers. One of their products is the A9home computer which runs the RISC OS operating system.</p>
+
+<p>Advantage Six have donated an A9home to the NetSurf developers. At RISC OS computer shows, Advantage Six have often shared their internet connection with the NetSurf stand. This allows us to show people NetSurf in action, and also for users to show us how they use NetSurf.</p>
+
+<ul>
+<li><a href="http://www.advantagesix.co.uk/">Advantage Six</a></li>
+<li><a href="http://www.advantagesix.co.uk/products/A9home.html">A9home computer</a></li>
+</ul>
+
+<h2><img class="thankslogo" src="/webimages/logommu.png" alt="">Manchester Metropolitan University</h2>
+
+<p>MMU generously provided hosting for an open-access RISC OS box during Google Summer of Code 2008. This allows students with no RISC OS hardware to test the RISC OS version of NetSurf remotely, over the internet. Their Department of Computing and Maths also helped spread the word about GSoC and NetSurf.</p>
+
+<ul>
+<li><a href="http://www.mmu.ac.uk/">Manchester Metropolitan University</a></li>
+<li><a href="http://www.docm.mmu.ac.uk/">Department of Computing and Mathematics</a></li>
+</ul>
+
+<h2><img class="thankslogo" src="/webimages/logoppf.png" alt="">Pepperfish</h2>
+
+<p>Pepperfish is a small independent hosting provider. They generously host the NetSurf web site, mailing lists and downloads. They also take care of all our web server setup and configuration needs.</p>
+
+<ul>
+<li><a href="http://www.pepperfish.net/">Pepperfish</a></li>
+</ul>
+
+<div class="footer">
+<p>Copyright 2003 - 2008 The NetSurf Developers</p>
+</div>
+
+</div>
+
+
+<form method="get" action="http://www.google.co.uk/search">
+<div class="searchbox">
+<input type="hidden" name="q" value="site:netsurf-browser.org">
+<input type="text" name="q" maxlength="255"><br>
+<input type="submit" value="Search" name="btnG">
+</div>
+</form>
+
+</body>
+</html>

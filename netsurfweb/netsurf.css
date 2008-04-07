@@ -1041,3 +1041,12 @@ dl.news > dd {
 
 .welcomelinks ul + ul {
 	padding-left: 1em; }
+
+
+/*
+ *  Thanks page
+ */
+
+img.thankslogo {
+	float: right;
+	margin: 0 0 1em 1em; }
