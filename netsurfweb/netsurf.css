@@ -599,7 +599,7 @@ p.award a img {
 	background: url("webimages/nstheme.png") no-repeat top center; }
 
 .bignote {
-	margin: 2em 0 1em 1em;
+	margin: -0.5em 0 1em 1em;
 	padding: 0.6em 0.8em;
 	width: 40%;
 	float: right;
