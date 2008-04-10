@@ -45,6 +45,13 @@
 
 <h1>NetSurf Downloads</h1>
 
+<div class="bignote">
+<dl>
+<dt><a href="testbuilds">Test builds</a></dt>
+<dd>Bleeding-edge test builds are available for those that want to try the latest experimental features.</dd>
+</dl>
+</div>
+
 <div class="downloadlatestouter">
 <div class="downloadlatest">
 <div class="downloadlatestbox">
@@ -82,13 +89,6 @@
 </div>
 
 <p>Check out the <a href="releases/ChangeLog.txt">change log</a> to see what's changed since the last release.</p>
-
-<div class="bignote">
-<dl>
-<dt><a href="testbuilds">Test builds</a></dt>
-<dd>Bleeding-edge test builds are available for those that want to try the latest experimental features.</dd>
-</dl>
-</div>
 
 <h2>Packages</h2>
 <p>If you're not using RISC OS and don't want to build NetSurf yourself, check the <a href="packages">packages page</a> for a prebuilt package for your system.</p>
