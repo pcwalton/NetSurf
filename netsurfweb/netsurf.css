@@ -602,6 +602,7 @@ p.award a img {
 	margin: -0.5em 0 1em 1em;
 	padding: 0.6em 0.8em;
 	width: 40%;
+	min-width: 15em;
 	float: right;
 	background-color: #ffeeb6; }
 
