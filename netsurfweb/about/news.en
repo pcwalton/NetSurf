@@ -48,6 +48,8 @@
 <h1>News</h1>
 
 <dl class="news">
+<dt><a href="/developers/gsoc">GSoC projects selected</a> <span>22 Apr 2008</span></dt>
+<dd>The student projects that will be carried out this summer have been announced. See our <a href="/developers/gsoc">GSoC page</a> for details.<dd>
 <dt><a href="/downloads/">NetSurf 1.2 released</a> <span>22 Mar 2008</span></dt>
 <dd>The second update to NetSurf 1 has been released. It offers several bug fixes over the previous release and we recommend that users upgrade.<dd>
 <dt><a href="/developers/gsoc">Google Summer of Code</a> <span>17 Mar 2008</span></dt>
