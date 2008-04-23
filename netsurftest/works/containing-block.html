@@ -1,0 +1,18 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<title>Containing block</title>
+</head>
+
+<body>
+
+<div style="background:#ff0; width:15em; height:2em; margin:0 auto; position:relative;">
+	<div style="float:left;">
+		<div style="position:absolute; left:5em;">text</div>
+	</div>
+</div>
+
+<p>Above, the yellow box is given relative positioning, so it should be the containing block for the absolutly positioned &quot;text&quot;. So the text should be positioned inside the yellow box, 5em from the left edge. There is a float between the positioned text and the yellow containing block, which should not affect positioning.</p>
+
+</body>
+</html>
