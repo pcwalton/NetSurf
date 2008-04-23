@@ -1,0 +1,28 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+        "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>Wrong inline background colour</title>
+</head>
+<body>
+<p>The DIVs below have a red backgrounds, but the text inside is also given red backgrounds, which is wrong. This problem shows up when:
+
+<ul>
+<li>the text overflows out the side of a box:
+<div style="background:red; width:10em; padding:2em;">
+Loooooooooooooooooooooooooooooooooooooooooooooooonnnnnnnnnnnnnnnnnnnnngggg.
+</div>
+</li>
+<li>the box has a background image of a different colour:
+<div style="background: red url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAADElEQVR42mP4%2F58BAAT%2FAf9jgNErAAAAAElFTkSuQmCC); width:10em; padding:2em;"><!-- Yellow PNG image used as background -->
+Some text.
+</div>
+</li>
+<li>the text overflows out the bottom of a box:
+<div style="background:red; width:10em; height:5em; padding:2em;">
+Lots and lots and lots and lots and lots and lots and lots and lots and lots and lots and lots and lots and lots and lots and lots and lots and lots and lots and lots and lots and lots and lots and lots and lots and lots and lots and lots and lots of text.
+</div>
+</li>
+</ul>
+</body>
+</html>
