@@ -31,6 +31,14 @@
 </div>
 
 <div class="navsection">
+<ul class="sitelinks">
+<li><a href="http://wiki.netsurf-browser.org/">Development wiki</a></li>
+<li><a href="http://planet.netsurf-browser.org/">Planet NetSurf</a></li>
+<li><a href="http://source.netsurf-browser.org/">SVN repository viewer</a></li>
+</ul>
+</div>
+
+<div class="navsection">
 <h2 class="navtitle">Project Overview</h2>
 <p>NetSurf project at-a-glance.</p>
 <dl>

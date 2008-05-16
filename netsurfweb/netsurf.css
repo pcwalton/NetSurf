@@ -210,7 +210,7 @@ dd > ul {
 	border: none;
 	font-size: 100%; }
 
-.navigation ul.languages {
+.navigation ul.languages, .navigation ul.sitelinks {
 	margin: 0;
 	padding: 0.4em 0.6em;
 	font-size: 75%;
@@ -220,21 +220,24 @@ dd > ul {
 	border-left: 1px solid #ccd8ff;
 	border-right: 1px solid #a4b9ff; }
 
-.navigation ul.languages li {
+.navigation ul.languages li, .navigation ul.sitelinks li {
 	border: none;
 	background: transparent;
 	padding: 0;
 	margin: 0;
 	font-weight: bold; }
 
-.navigation ul.languages li a {
+.navigation ul.sitelinks li + li {
+	margin-top: 0.2em; }
+
+.navigation ul.languages li a, .navigation ul.sitelinks li a {
 	display: block;
 	padding: 0;
 	margin: 0;
 	font-weight: normal;
 	border: none; }
 
-.navigation ul.languages li a:hover {
+.navigation ul.languages li a:hover, .navigation ul.sitelinks li a:hover {
 	display: block;
 	color: #00f;
 	padding: 0 0 0 0.2em;
