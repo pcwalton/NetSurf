@@ -2,7 +2,7 @@
 	"http://www.w3.org/TR/html4/strict.dtd">
 <html>
 <head>
-<title>NetSurf | Google Summer of Code Ideas</title>
+<title>NetSurf | Google Summer of Code 2008 Ideas</title>
 <link rel="stylesheet" title="Standard" type="text/css" href="/netsurf.css">
 </head>
 
@@ -18,7 +18,7 @@
 <li><a href="/developers/">Development area</a>
 <ul>
 <li><a href="/developers/contribute">Contribution</a></li>
-<li><a href="/developers/gsoc">GSoC ideas</a></li>
+<li><a href="/developers/gsoc">GSoC 2008</a></li>
 </ul>
 </li>
 <li><a href="/webmasters/">Webmaster area</a></li>
@@ -47,44 +47,13 @@
 
 <div class="content">
 
-<p class="breadcrumbs"><a href="/">Home</a> » <a href="/developers/">Developer area</a> » Google Summer of Code Ideas</p>
+<p class="breadcrumbs"><a href="/">Home</a> » <a href="/developers/">Developer area</a> » Google Summer of Code</p>
 
-<h1>Google Summer of Code</h1>
+<h1>Google Summer of Code Ideas</h1>
 
-<p><strong>News:</strong> Our four Google Summer of Code students have been selected.</p>
+<p>This page lists our project ideas for <strong><a href="http://code.google.com/soc/2008/">Google Summer of Code 2008</a></strong>.</p>
 
-<dl>
-<dt>Adam Blokus</dt>
-<dd>
-<ul>
-<li>PDF Plotter and printing improvements</li>
-<li>Mentor: John Tytgat (joty)</li>
-</ul>
-</dd>
-<dt>Sean Fox</dt>
-<dd>
-<ul>
-<li>Abstract the Core Functionality to Stand-alone Libraries</li>
-<li>Mentor: James Bursa (zamez)</li>
-</ul>
-</dd>
-<dt>William Michael Lester</dt>
-<dd>
-<ul>
-<li>Improved GTK Frontend</li>
-<li>Mentor: Rob Kendrick (rjek)</li>
-</ul>
-</dd>
-<dt>Andrew Sidwell</dt>
-<dd>
-<ul>
-<li>Work on and integrate Hubbub</li>
-<li>Mentor: John-Mark Bell (jmb)</li>
-</ul>
-</dd>
-</dl>
-
-<p>This page lists project ideas for <strong><a href="http://code.google.com/soc/2008/">Google Summer of Code 2008</a></strong>.</p>
+<p>Details of our selected students and their projects can be found on our <a href="/developers/gsoc">GSoC</a> page.</p>
 
 <dl>
 <dt>Before applying for a project<dt>

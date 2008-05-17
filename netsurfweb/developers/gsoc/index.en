@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+	"http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>NetSurf | Google Summer of Code 2008</title>
+<link rel="stylesheet" title="Standard" type="text/css" href="/netsurf.css">
+</head>
+
+<body>
+<p class="banner"><a href="/"><img src="/netsurf.png" alt="NetSurf"></a></p>
+
+<div class="navigation">
+<div class="navsection">
+<ul>
+<li><a href="/about/">About NetSurf</a></li>
+<li><a href="/downloads/">Downloads</a></li>
+<li><a href="/documentation/">Documentation</a></li>
+<li><a href="/developers/">Development area</a>
+<ul>
+<li><a href="/developers/contribute">Contribution</a></li>
+<li><a href="/developers/gsoc">GSoC 2008</a></li>
+</ul>
+</li>
+<li><a href="/webmasters/">Webmaster area</a></li>
+<li><a href="/contact/">Contact</a></li>
+</ul>
+</div>
+
+<div class="navsection">
+<ul class="languages">
+<!--<li><a href="index.de">Deutsch</a></li>-->
+<li>English</li>
+<!--<li><a href="index.fr">Français</a></li>-->
+<!--<li><a href="index.nl">Nederlands</a></li>-->
+</ul>
+</div>
+
+<div class="navsection">
+<ul class="sitelinks">
+<li><a href="http://wiki.netsurf-browser.org/">Development wiki</a></li>
+<li><a href="http://planet.netsurf-browser.org/">Planet NetSurf</a></li>
+<li><a href="http://source.netsurf-browser.org/">SVN repository viewer</a></li>
+</ul>
+</div>
+
+</div>
+
+<div class="content">
+
+<p class="breadcrumbs"><a href="/">Home</a> » <a href="/developers/">Developer area</a> » Google Summer of Code</p>
+
+<h1>Google Summer of Code 2008</h1>
+
+<p>NetSurf is participating as a mentoring organisation in <a href="http://code.google.com/soc/2008/">Google Summer of Code 2008</a>. Our four students are listed below.</p>
+
+<dl class="gsocstudents">
+<dt>Adam Blokus</dt>
+<dd>
+<ul>
+<li><span>Project:</span> PDF Plotter and printing improvements</li>
+<li><span>Mentor:</span> John Tytgat (joty)</li>
+<li><span>Details:</span> <a href="http://code.google.com/soc/2008/netsurf/appinfo.html?csaid=8251210CF1E90869">Abstract</a></li>
+</ul>
+</dd>
+<dt>Sean Fox</dt>
+<dd>
+<ul>
+<li><span>Project:</span> Abstract the Core Functionality to Stand-alone Libraries</li>
+<li><span>Mentor:</span> James Bursa (zamez)</li>
+<li><span>Details:</span> <a href="http://code.google.com/soc/2008/netsurf/appinfo.html?csaid=CF6315FE5AD6B032">Abstract</a></li>
+</ul>
+</dd>
+<dt>Michael Lester</dt>
+<dd>
+<ul>
+<li><span>Project:</span> Improved GTK Frontend</li>
+<li><span>Mentor:</span> Rob Kendrick (rjek)</li>
+<li><span>Details:</span> <a href="http://code.google.com/soc/2008/netsurf/appinfo.html?csaid=2794A7C4A5D222D8">Abstract</a>, <a href="http://vlists.pepperfish.net/pipermail/netsurf-users-netsurf-browser.org/2008-April/007488.html">Introduction</a></li>
+</ul>
+</dd>
+<dt>Andrew Sidwell</dt>
+<dd>
+<ul>
+<li><span>Project:</span> Work on and integrate Hubbub</li>
+<li><span>Mentor:</span> John-Mark Bell (jmb)</li>
+<li><span>Details:</span> <a href="http://code.google.com/soc/2008/netsurf/appinfo.html?csaid=4A19E24A0A8BC7C6">Abstract</a>, <a href="http://vlists.pepperfish.net/pipermail/netsurf-users-netsurf-browser.org/2008-April/007528.html">Introduction</a></li>
+</ul>
+</dd>
+</dl>
+
+<p>We ask our students to keep NetSurf's <a href="http://www.netsurf-browser.org/about/#ProjectGoals">project goals</a> in mind, especially the first point. We also ask them to communicate with the developers as much as possible. More information for students is available on the <a href="http://wiki.netsurf-browser.org/">development wiki</a>.</p>
+
+<p>Our students are blogging their progress this summer. You can follow their activities on <a href="http://planet.netsurf-browser.org/">Planet NetSurf</a>.</p>
+
+<p>Our original <a href="2008ideas">GSoC ideas page</a> is still available.</p>
+
+
+<div class="footer">
+<p>Copyright 2003 - 2008 The NetSurf Developers</p>
+</div>
+
+</div>
+
+
+<form method="get" action="http://www.google.co.uk/search">
+<div class="searchbox">
+<input type="hidden" name="q" value="site:netsurf-browser.org">
+<input type="text" name="q" maxlength="255"><br>
+<input type="submit" value="Search" name="btnG">
+</div>
+</form>
+
+</body>
+</html>
