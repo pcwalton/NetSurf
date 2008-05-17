@@ -1055,3 +1055,16 @@ dl.news > dd {
 img.thankslogo {
 	float: right;
 	margin: 0 0 1em 1em; }
+
+
+/*
+ *  GSoC page
+ */
+
+dl.gsocstudents li {
+	color: #555; }
+
+dl.gsocstudents li span {
+	color: #222;
+	float: left;
+	width: 4.5em; }
