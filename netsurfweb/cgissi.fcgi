@@ -75,7 +75,9 @@ while ($request->Accept() >= 0) {
 
 	# Cache-related headers
 	print "ETag: " . $$cachedata{data_digest} . "\r\n";
-	print "Last-Modified: " . strftime("%a, %d %b %Y %H:%M:%S %Z", 
+	# Don't use %Z here, as perl's strftime appears to assume that the 
+	# time is always in the local timezone
+	print "Last-Modified: " . strftime("%a, %d %b %Y %H:%M:%S GMT", 
 			gmtime($$cachedata{data_last_modified})) . "\r\n";
 
 	# Send Content-Type header
