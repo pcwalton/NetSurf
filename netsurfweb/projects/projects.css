@@ -4,7 +4,8 @@ html, body {
 
 body {
 	background-color: #ffd;
-	color: #500; }
+	color: #500;
+	padding-bottom: 2em; }
 
 h1 {
 	font-size:200%;
@@ -107,3 +108,8 @@ p.screenshot {
 
 p.screenshot img {
 	border: 3px solid #500; }
+
+p.svncommand {
+	background-color: #fdb;
+	padding: 0.3em 5em;
+	font-family: monospace; }
