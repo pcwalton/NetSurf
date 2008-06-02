@@ -4,6 +4,5 @@ ArtWorks	contains the throbber in its original format (ArtWorks)
 SVG		contains conversions of throbber to SVG format
 
 Throbber0	Inactive frame
-Throbber1	First frame of activity animation. Rotate in steps of
-		45 degrees for frames 2 to 8.
-
+Throbber1	First frame of activity animation. Rotate clockwise in
+		steps of 45 degrees for frames 2 to 8.
