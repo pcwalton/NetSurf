@@ -1,0 +1,9 @@
+NetSurf Throbber
+
+ArtWorks	contains the throbber in its original format (ArtWorks)
+SVG		contains conversions of throbber to SVG format
+
+Throbber0	Inactive frame
+Throbber1	First frame of activity animation. Rotate in steps of
+		45 degrees for frames 2 to 8.
+
