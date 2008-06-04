@@ -51,20 +51,20 @@
 <dt>Sub-projects:</dt>
 <dd>
 <dl>
-<dt><a href="/projects/hubbub/">Hubbub</a><dt>
-<dd>HTML5 compliant parsing library<dd>
-<dt><a href="/projects/libdom/">Libdom</a><dt>
-<dd>DOM library<dd>
-<dt><a href="/projects/libsvgtiny/">Libsvgtiny</a><dt>
-<dd>SVG Tiny library<dd>
-<dt><a href="/projects/iconv/">Iconv</a><dt>
-<dd>RISC OS character encoding support module<dd>
-<dt><a href="/projects/rufl/">RUfl</a><dt>
-<dd>RISC OS Unicode font library<dd>
-<dt><a href="/projects/tinct/">Tinct</a><dt>
-<dd>Advanced RISC OS Sprite plotting module<dd>
-<dt><a href="/projects/libpencil/">Libpencil</a><dt>
-<dd>RISC OS Drawfile export library<dd>
+<dt><a href="/projects/hubbub/">Hubbub</a></dt>
+<dd>HTML5 compliant parsing library</dd>
+<dt><a href="/projects/libdom/">Libdom</a></dt>
+<dd>DOM library</dd>
+<dt><a href="/projects/libsvgtiny/">Libsvgtiny</a></dt>
+<dd>SVG Tiny library</dd>
+<dt><a href="/projects/iconv/">Iconv</a></dt>
+<dd>RISC OS character encoding support module</dd>
+<dt><a href="/projects/rufl/">RUfl</a></dt>
+<dd>RISC OS Unicode font library</dd>
+<dt><a href="/projects/tinct/">Tinct</a></dt>
+<dd>Advanced RISC OS Sprite plotting module</dd>
+<dt><a href="/projects/libpencil/">Libpencil</a></dt>
+<dd>RISC OS Drawfile export library</dd>
 </dl>
 </dd>
 </dl>
@@ -122,19 +122,19 @@
 <h2 id="news">Latest news</h2>
 
 <dl class="frontnews">
+<dt><a href="http://source.netsurf-browser.org/trunk/netsurf/">BeOS port started</a> <span>03 Jun 2008</span></dt>
+<dd>NetSurf is now running natively on the BeOS operating system. The early port is available from SVN.</dd>
 <dt><a href="/developers/gsoc">GSoC projects selected</a> <span>22 Apr 2008</span></dt>
-<dd>The student projects that will be carried out this summer have been announced. See our <a href="/developers/gsoc">GSoC page</a> for details.<dd>
+<dd>The student projects that will be carried out this summer have been announced. See our <a href="/developers/gsoc">GSoC page</a> for details.</dd>
 <dt><a href="/downloads/">NetSurf 1.2 released</a> <span>22 Mar 2008</span></dt>
-<dd>The second update to NetSurf 1 has been released. It offers many bug fixes and improvements over the previous release. We recommend that users upgrade.<dd>
-<dt><a href="http://vlists.pepperfish.net/pipermail/netsurf-users-netsurf-browser.org/2008-March/007411.html">Google Summer of Code</a> <span>17 Mar 2008</span></dt>
-<dd>NetSurf is participating in Google Summer of Code 2008, as a mentoring organisation. Students interested in getting involved should apply to Google. More information on our <a href="/developers/gsoc">GSoC</a> page.<dd>
+<dd>The second update to NetSurf 1 has been released. It offers many bug fixes and improvements over the previous release. We recommend that users upgrade.</dd>
 </dl>
 <p class="more"><a href="/about/news" class="seemore">See more news</a></p>
 
 <h2 id="features">NetSurf 1.2 features</h2>
 
 <dl>
-<dt>General<dt>
+<dt>General</dt>
 <dd>
 <ul>
 <li>Web standards: HTML 4.01 and CSS 2.1</li>

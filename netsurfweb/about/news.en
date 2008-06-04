@@ -56,36 +56,38 @@
 <h1>News</h1>
 
 <dl class="news">
+<dt><a href="http://source.netsurf-browser.org/trunk/netsurf/">BeOS port started</a> <span>03 Jun 2008</span></dt>
+<dd>NetSurf is now running natively on the BeOS operating system. The early port is available from SVN.</dd>
 <dt><a href="/developers/gsoc">GSoC projects selected</a> <span>22 Apr 2008</span></dt>
-<dd>The student projects that will be carried out this summer have been announced. See our <a href="/developers/gsoc">GSoC page</a> for details.<dd>
+<dd>The student projects that will be carried out this summer have been announced. See our <a href="/developers/gsoc">GSoC page</a> for details.</dd>
 <dt><a href="/downloads/">NetSurf 1.2 released</a> <span>22 Mar 2008</span></dt>
-<dd>The second update to NetSurf 1 has been released. It offers several bug fixes over the previous release and we recommend that users upgrade.<dd>
-<dt><a href="/developers/gsoc">Google Summer of Code</a> <span>17 Mar 2008</span></dt>
-<dd>NetSurf is participating in Google Summer of Code 2008, as a mentoring organisation. Students interested in getting involved should apply to Google. More information on our <a href="/developers/gsoc">GSoC</a> page.<dd>
+<dd>The second update to NetSurf 1 has been released. It offers several bug fixes over the previous release and we recommend that users upgrade.</dd>
+<dt><a href="http://vlists.pepperfish.net/pipermail/netsurf-users-netsurf-browser.org/2008-March/007411.html">Google Summer of Code</a> <span>17 Mar 2008</span></dt>
+<dd>NetSurf is participating in Google Summer of Code 2008, as a mentoring organisation. Students interested in getting involved should apply to Google. More information on our <a href="/developers/gsoc">GSoC</a> page.</dd>
 <dt><a href="http://vlists.pepperfish.net/pipermail/netsurf-users-netsurf-browser.org/2008-March/007383.html">Summary of recent development</a> <span>02 Mar 2008</span></dt>
-<dd>Pages are now periodically reflowed as images are downloaded. Handling of presentational markup is improved. Better form element handling and many other fixes and improvements.<dd>
+<dd>Pages are now periodically reflowed as images are downloaded. Handling of presentational markup is improved. Better form element handling and many other fixes and improvements.</dd>
 <dt><a href="http://vlists.pepperfish.net/pipermail/netsurf-users-netsurf-browser.org/2008-February/007256.html">Summary of recent development</a> <span>03 Feb 2008</span></dt>
-<dd>NetSurf's cookie and HTTP redirect support have been enhanced. Layout upgrades, including better form element display and float positioning. SVG redraw is now faster on RISC OS.<dd>
+<dd>NetSurf's cookie and HTTP redirect support have been enhanced. Layout upgrades, including better form element display and float positioning. SVG redraw is now faster on RISC OS.</dd>
 <dt><a href="/">NetSurf web site redesigned</a> <span>02 Jan 2008</span></dt>
-<dd>We've redesigned the web site to make it easier to navigate. Much of the content has been rewritten to make it clear that NetSurf is a multi-platform web browser.<dd>
+<dd>We've redesigned the web site to make it easier to navigate. Much of the content has been rewritten to make it clear that NetSurf is a multi-platform web browser.</dd>
 <dt><a href="/developers/">Summary of recent development</a> <span>02 Jan 2008</span></dt>
-<dd>Recent work on the development branch of NetSurf has added SVG support to the GTK build and the beginnings of SVG Tiny support to the RISC OS version. Other changes have included refinements to the web page scaling facilities.<dd>
+<dd>Recent work on the development branch of NetSurf has added SVG support to the GTK build and the beginnings of SVG Tiny support to the RISC OS version. Other changes have included refinements to the web page scaling facilities.</dd>
 <dt><a href="/downloads/">NetSurf 1.1 released</a> <span>13 Aug 2007</span></dt>
-<dd>The first update to NetSurf 1 has been released. It offers several bug fixes over the previous release and we recommend that users upgrade.<dd>
+<dd>The first update to NetSurf 1 has been released. It offers several bug fixes over the previous release and we recommend that users upgrade.</dd>
 <dt><a href="http://packages.debian.org/netsurf">NetSurf in Debian testing</a> <span>03 Jun 2007</span></dt>
-<dd>NetSurf is now packaged in Debian linux. Currently it is in Debian testing.<dd>
+<dd>NetSurf is now packaged in Debian linux. Currently it is in Debian testing.</dd>
 <dt><a href="/downloads/">NetSurf 1.0 released</a> <span>19 May 2007</span></dt>
-<dd>The first stable release of NetSurf is now available. The NetSurf project was first started in 2003 and development builds have been available from the project web site since then.<dd>
+<dd>The first stable release of NetSurf is now available. The NetSurf project was first started in 2003 and development builds have been available from the project web site since then.</dd>
 <dt><a href="http://www.iconbar.com/articles/NetSurf_Update/index1098.html">Media watch</a> <span>04 Dec 2006</span></dt>
-<dd>An article at The Iconbar reviews recent developments and discusses future plans for the project.<dd>
+<dd>An article at The Iconbar reviews recent developments and discusses future plans for the project.</dd>
 <dt><a href="http://vlists.pepperfish.net/pipermail/netsurf-users-netsurf-browser.org/2006-April/005129.html">Moved to subversion</a> <span>09 Apr 2006</span></dt>
-<dd>We have migrated to Subversion, a more powerful and advanced versioning system than CVS.<dd>
+<dd>We have migrated to Subversion, a more powerful and advanced versioning system than CVS.</dd>
 <dt><a href="http://vlists.pepperfish.net/pipermail/netsurf-users-netsurf-browser.org/2006-March/005058.html">The road to 1.0</a> <span>25 Mar 2006</span></dt>
-<dd>Our plans for version 1.0 for the RISC OS and GTK builds.<dd>
+<dd>Our plans for version 1.0 for the RISC OS and GTK builds.</dd>
 <dt><a href="http://source.netsurf-browser.org/import/netsurf/gtk/gtk_gui.c?rev=993&amp;view=rev">Experimental GTK port</a> <span>22 Jun 2004</span></dt>
-<dd>A new GTK front end has been checked in. It allows NetSurf to be tested on Uinx-like systems.<dd>
+<dd>A new GTK front end has been checked in. It allows NetSurf to be tested on Uinx-like systems.</dd>
 <dt><a href="http://sourceforge.net/projects/netsurf/">Sourceforge project registered</a> <span>19 Apr 2002</span></dt>
-<dd>After an online discussion about the deficiencies of existing web browser on the RISC OS plaform, the NetSurf web browser project has been started.<dd>
+<dd>After an online discussion about the deficiencies of existing web browser on the RISC OS plaform, the NetSurf web browser project has been started.</dd>
 </dl>
 
 
