@@ -1,4 +1,7 @@
 NetSurf Logo
 
-NetSurfAW	the NetSurf logo in its original format (ArtWorks)
+full		contains the full NetSurf logo, with text
+emblem		contains the NetSurf globe, used for icons
+
+NetSurf		the NetSurf logo in its original format (ArtWorks)
 NetSurf.svg	conversion of the NetSurf logo to SVG format
