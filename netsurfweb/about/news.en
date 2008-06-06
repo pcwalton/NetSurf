@@ -56,7 +56,7 @@
 <h1>News</h1>
 
 <dl class="news">
-<dt><a href="http://source.netsurf-browser.org/trunk/netsurf/">BeOS port started</a> <span>03 Jun 2008</span></dt>
+<dt><a href="http://source.netsurf-browser.org/trunk/netsurf/Docs/BUILDING-BeOS">BeOS port started</a> <span>03 Jun 2008</span></dt>
 <dd>NetSurf is now running natively on the BeOS operating system. The early port is available from SVN.</dd>
 <dt><a href="/developers/gsoc">GSoC projects selected</a> <span>22 Apr 2008</span></dt>
 <dd>The student projects that will be carried out this summer have been announced. See our <a href="/developers/gsoc">GSoC page</a> for details.</dd>
