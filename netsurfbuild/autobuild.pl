@@ -76,6 +76,15 @@ if (!$release_build) {
 		"const int netsurf_version_minor = 0;\n");
 }
 
+# build libraries
+chdir "$root/libsvgtiny";
+command("svn update --non-interactive");
+command("make TARGET=riscos install");
+
+chdir "$root/libharu";
+command("svn update --non-interactive");
+command("/home/riscos/env/ro-make install");
+
 # build RISC OS version
 chdir "$root/netsurf";
 command("make TARGET=riscos");
