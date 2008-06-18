@@ -307,4 +307,6 @@ extern struct json_object* json_object_new_string_len(char *s, int len);
  */
 extern char* json_object_get_string(struct json_object *obj);
 
+extern char* json_object_get_string_len(struct json_object *obj, int *len);
+
 #endif

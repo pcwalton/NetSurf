@@ -306,7 +306,7 @@ boolean json_object_get_boolean(struct json_object *this)
   case json_type_double:
     return (this->o.c_double != 0);
   case json_type_string:
-    if(strlen(this->o.c_string)) return TRUE;
+    if(strlen(this->o.c_string.data)) return TRUE;
   default:
     return TRUE;
   }
@@ -343,7 +343,7 @@ int json_object_get_int(struct json_object *this)
   case json_type_boolean:
     return this->o.c_boolean;
   case json_type_string:
-    if(sscanf(this->o.c_string, "%d", &cint) == 1) return cint;
+    if(sscanf(this->o.c_string.data, "%d", &cint) == 1) return cint;
   default:
     return 0;
   }
@@ -380,7 +380,7 @@ double json_object_get_double(struct json_object *this)
   case json_type_boolean:
     return this->o.c_boolean;
   case json_type_string:
-    if(sscanf(this->o.c_string, "%lf", &cdouble) == 1) return cdouble;
+    if(sscanf(this->o.c_string.data, "%lf", &cdouble) == 1) return cdouble;
   default:
     return 0.0;
   }
@@ -393,14 +393,14 @@ static int json_object_string_to_json_string(struct json_object* this,
 					     struct printbuf *pb)
 {
   sprintbuf(pb, "\"");
-  json_escape_str(pb, this->o.c_string);
+  json_escape_str(pb, this->o.c_string.data);
   sprintbuf(pb, "\"");
   return 0;
 }
 
 static void json_object_string_delete(struct json_object* this)
 {
-  free(this->o.c_string);
+  free(this->o.c_string.data);
   json_object_generic_delete(this);
 }
 
@@ -410,7 +410,8 @@ struct json_object* json_object_new_string(char *s)
   if(!this) return NULL;
   this->_delete = &json_object_string_delete;
   this->_to_json_string = &json_object_string_to_json_string;
-  this->o.c_string = strdup(s);
+  this->o.c_string.data = strdup(s);
+  this->o.c_string.len = strlen(s);
   return this;
 }
 
@@ -420,7 +421,11 @@ struct json_object* json_object_new_string_len(char *s, int len)
   if(!this) return NULL;
   this->_delete = &json_object_string_delete;
   this->_to_json_string = &json_object_string_to_json_string;
-  this->o.c_string = strndup(s, len);
+  this->o.c_string.data = malloc(len + 1);
+  if (!this->o.c_string.data) return NULL;
+  memcpy(this->o.c_string.data, s, len);
+  this->o.c_string.data[len] = '\0';
+  this->o.c_string.len = len;
   return this;
 }
 
@@ -429,9 +434,24 @@ char* json_object_get_string(struct json_object *this)
   if(!this) return NULL;
   switch(this->o_type) {
   case json_type_string:
-    return this->o.c_string;
+    return this->o.c_string.data;
   default:
     return json_object_to_json_string(this);
+  }
+}
+
+char* json_object_get_string_len(struct json_object *this, int *len)
+{
+  char *out;
+  if (!this) return NULL;
+  switch(this->o_type) {
+  case json_type_string:
+    *len = this->o.c_string.len;
+    return this->o.c_string.data;
+  default:
+    out = json_object_to_json_string(this);
+    *len = strlen(out);
+    return out;
   }
 }
 

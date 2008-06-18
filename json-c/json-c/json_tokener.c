@@ -318,7 +318,7 @@ struct json_object* json_tokener_parse_ex(struct json_tokener *tok,
 
     case json_tokener_state_string:
       if(c == tok->quote_char) {
-	current = json_object_new_string(tok->pb->buf);
+	current = json_object_new_string_len(tok->pb->buf, tok->pb->bpos);
 	saved_state = json_tokener_state_finish;
 	state = json_tokener_state_eatws;
       } else if(c == '\\') {
