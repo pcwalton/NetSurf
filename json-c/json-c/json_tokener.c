@@ -124,6 +124,39 @@ char* strndup(const char* str, size_t n)
 }
 #endif
 
+static void json_tokener_output_ucs(struct printbuf *pb, unsigned int ucs)
+{
+  unsigned char utf_out[4];
+
+  /* Don't permit surrogates or undefined characters */
+  if ((0xd800 <= ucs && ucs <= 0xdfff) || (ucs & 0xfffe) == 0xfffe)
+    ucs = 0xfffd;
+
+  if (ucs < 0x80) {
+    utf_out[0] = ucs;
+    printbuf_memappend(pb, (char*)utf_out, 1);
+  } else if (ucs < 0x800) {
+    utf_out[0] = 0xc0 | (ucs >> 6);
+    utf_out[1] = 0x80 | (ucs & 0x3f);
+    printbuf_memappend(pb, (char*)utf_out, 2);
+  } else if (ucs < 0x10000) {
+    utf_out[0] = 0xe0 | (ucs >> 12);
+    utf_out[1] = 0x80 | ((ucs >> 6) & 0x3f);
+    utf_out[2] = 0x80 | (ucs & 0x3f);
+    printbuf_memappend(pb, (char*)utf_out, 3);
+  } else if (ucs < 0x110000) {
+    utf_out[0] = 0xf0 | (ucs >> 18);
+    utf_out[1] = 0x80 | ((ucs >> 12) & 0x3f);
+    utf_out[2] = 0x80 | ((ucs >> 6) & 0x3f);
+    utf_out[3] = 0x80 | (ucs & 0x3f);
+    printbuf_memappend(pb, (char*)utf_out, 4);  
+  } else {
+    utf_out[0] = 0xef;
+    utf_out[1] = 0xbf;
+    utf_out[2] = 0xbd;
+    printbuf_memappend(pb, (char*)utf_out, 3);
+  }
+}
 
 #define state  tok->stack[tok->depth].state
 #define saved_state  tok->stack[tok->depth].saved_state
@@ -316,6 +349,7 @@ struct json_object* json_tokener_parse_ex(struct json_tokener *tok,
 	break;
       case 'u':
 	tok->ucs_char = 0;
+	tok->ucs_surrogate = 0;
 	tok->st_pos = 0;
 	state = json_tokener_state_escape_unicode;
 	break;
@@ -329,24 +363,42 @@ struct json_object* json_tokener_parse_ex(struct json_tokener *tok,
       if(strchr(json_hex_chars, c)) {
 	tok->ucs_char += ((unsigned int)hexdigit(c) << ((3-tok->st_pos++)*4));
 	if(tok->st_pos == 4) {
-	  unsigned char utf_out[3];
-	  if (tok->ucs_char < 0x80) {
-	    utf_out[0] = tok->ucs_char;
-	    printbuf_memappend(tok->pb, (char*)utf_out, 1);
-	  } else if (tok->ucs_char < 0x800) {
-	    utf_out[0] = 0xc0 | (tok->ucs_char >> 6);
-	    utf_out[1] = 0x80 | (tok->ucs_char & 0x3f);
-	    printbuf_memappend(tok->pb, (char*)utf_out, 2);
+	  if (0xD800 <= tok->ucs_char && tok->ucs_char <= 0xDBFF) {
+	    tok->ucs_surrogate = tok->ucs_char;
+	    tok->ucs_char = 0;
+	    tok->st_pos = 0;
+	    state = json_tokener_state_escape_unicode_surrogate;
 	  } else {
-	    utf_out[0] = 0xe0 | (tok->ucs_char >> 12);
-	    utf_out[1] = 0x80 | ((tok->ucs_char >> 6) & 0x3f);
-	    utf_out[2] = 0x80 | (tok->ucs_char & 0x3f);
-	    printbuf_memappend(tok->pb, (char*)utf_out, 3);
+	    json_tokener_output_ucs(tok->pb, tok->ucs_char);
+	    state = saved_state;
 	  }
-	  state = saved_state;
 	}
       } else {
 	tok->err = json_tokener_error_parse_string;
+	goto out;
+      }
+      break;
+
+    case json_tokener_state_escape_unicode_surrogate:
+      if (tok->st_pos == 0 && c == '\\') {
+        tok->st_pos++;
+      } else if (tok->st_pos == 1 && c == 'u') {
+        tok->st_pos++;
+      } else if (tok->st_pos > 1 && strchr(json_hex_chars, c)) {
+        tok->ucs_char += ((unsigned int)hexdigit(c) << ((5-tok->st_pos++)*4));
+	if (tok->st_pos == 6) {
+	  if (0xDC00 <= tok->ucs_char && tok->ucs_char <= 0xDFFF) {
+            tok->ucs_char = (tok->ucs_surrogate << 10) + tok->ucs_char + 
+	                    (0x10000 - (0xd800 << 10) - 0xdc00);
+	    json_tokener_output_ucs(tok->pb, tok->ucs_char);
+            state = saved_state;
+          } else {
+            tok->err = json_tokener_error_parse_string;
+	    goto out;
+	  }
+	}
+      } else {
+        tok->err = json_tokener_error_parse_string;
 	goto out;
       }
       break;

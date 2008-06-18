@@ -44,6 +44,7 @@ enum json_tokener_state {
   json_tokener_state_string,
   json_tokener_state_string_escape,
   json_tokener_state_escape_unicode,
+  json_tokener_state_escape_unicode_surrogate,
   json_tokener_state_boolean,
   json_tokener_state_number,
   json_tokener_state_array,
@@ -73,7 +74,7 @@ struct json_tokener
   struct printbuf *pb;
   int depth, is_double, st_pos, char_offset;
   ptrdiff_t err;
-  unsigned int ucs_char;
+  unsigned int ucs_char, ucs_surrogate;
   char quote_char;
   struct json_tokener_srec stack[JSON_TOKENER_MAX_DEPTH];
 };

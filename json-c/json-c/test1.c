@@ -144,6 +144,18 @@ int main(int argc, char **argv)
   new_obj = json_tokener_parse("{ \"foo");
   if(is_error(new_obj)) printf("got error as expected\n");
 
+  new_obj = json_tokener_parse("\"\\ud800\\udc00\"");
+  printf("new_obj.to_string()=%s\n", json_object_to_json_string(new_obj));
+
+  new_obj = json_tokener_parse("\"\\udbff\\udfff\"");
+  printf("new_obj.to_string()=%s\n", json_object_to_json_string(new_obj));
+
+  new_obj = json_tokener_parse("\"\\ud800foo\"");
+  if(is_error(new_obj)) printf("got error as expected\n");
+
+  new_obj = json_tokener_parse("\"\\ud800\\ufffd\"");
+  if(is_error(new_obj)) printf("got error as expected\n");
+
   /* test incremental parsing */
   tok = json_tokener_new();
   new_obj = json_tokener_parse_ex(tok, "{ \"foo", 6);
