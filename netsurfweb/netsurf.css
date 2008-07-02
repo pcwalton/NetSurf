@@ -287,7 +287,8 @@ h2.firsthead {
 
 div.frontscreen {
 	overflow: auto;
-	width: 100%; }
+	width: 100%;
+	border-color: #94adff; }
 
 div.frontscreen p.frontscreen {
 	margin: 0 auto;
