@@ -116,7 +116,7 @@
 
 <h2 id="SourceDocumentation">Source documentation</h2>
 
-<p>See the <a href="http://source.netsurf-browser.org/trunk/netsurf/Docs/">Docs</a> directory for source code documentation.</p>
+<p>See the <a href="http://source.netsurf-browser.org/trunk/netsurf/Docs/">Docs</a> directory for source code documentation. Our pictorial <a href="/developers/StyleGuide.pdf">Style Guide</a> (single-page PDF) shows our code style.</p>
 
 
 <h2 id="Communication">Communication</h2>

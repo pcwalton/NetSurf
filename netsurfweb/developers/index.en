@@ -94,6 +94,8 @@
 
 <p>If it is a tiny patch, the third option is best. Otherwise use the first or second.</p>
 
+<p>Our pictorial <a href="StyleGuide.pdf">Style Guide</a> (single-page PDF) shows our code style.</p>
+
 <h2>Porting NetSurf</h2>
 
 <p>We are always interested to hear from people porting NetSurf to different hardware or operating systems. If you are keen to port NetSurf to a new platform please get in touch. NetSurf's developers are keen to ensure NetSurf is highly portable, so feedback is appreciated.</p>
