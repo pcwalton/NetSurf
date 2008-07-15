@@ -87,7 +87,7 @@
 <p>If you've developed a patch for NetSurf you can send it to us by either:</p>
 
 <ol>
-<li>Putting it on the <a href="http://sourceforge.net/tracker/?atid=464314&group_id=51719&func=browse">patch tracker</a>.</li>
+<li>Putting it on the <a href="http://sourceforge.net/tracker/?atid=464314&amp;group_id=51719&amp;func=browse">patch tracker</a>.</li>
 <li>Posting to the <a href="/contact/#MailingLists">NetSurf Development mailing list</a> and attaching the patch.</li>
 <li>Giving the patch to one of the developers in the <a href="/contact/#IRCChannel">NetSurf IRC channel</a>.</li>
 </ol>
