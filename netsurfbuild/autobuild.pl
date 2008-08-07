@@ -85,6 +85,14 @@ chdir "$root/libharu";
 command("svn update --non-interactive");
 command("/home/riscos/env/ro-make install");
 
+chdir "$root/libparserutils";
+command("svn update --non-interactive");
+command("make -f Makefile-riscos install");
+
+chdir "$root/hubbub";
+command("svn update --non-interactive");
+command("make -f Makefile-riscos install");
+
 # build RISC OS version
 chdir "$root/netsurf";
 command("make TARGET=riscos");
