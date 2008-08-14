@@ -93,6 +93,14 @@ chdir "$root/hubbub";
 command("svn update --non-interactive");
 command("make -f Makefile-riscos install");
 
+chdir "$root/libnsbmp";
+command("svn update --non-interactive");
+command("make TARGET=riscos install");
+
+chdir "$root/libnsgif";
+command("svn update --non-interactive");
+command("make TARGET=riscos install");
+
 # build RISC OS version
 chdir "$root/netsurf";
 command("make TARGET=riscos");
