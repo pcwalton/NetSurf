@@ -440,17 +440,14 @@ div.frontscreen span {
 	margin: 0; }
 
 .frontnews dt {
-	color: #005;
 	font-weight: normal;
-	font-style: italic;
 	padding-right:6.5em;
 	position: relative;
 	margin-top: 1em; }
 
 dl.frontnews > dt a:link, dl.frontnews > dt a:visited,
 dl.frontnews > dt a:hover, dl.frontnews > dt a:active  {
-	color: #005;
-	text-decoration: none; }
+	font-weight: bold; }
 
 .frontnews dt span {
 	position: absolute;
@@ -740,11 +737,6 @@ dl.news > dt {
 	color: #000;
 	padding-left: 8em;
 	position: relative; }
-
-dl.news > dt a:link, dl.news > dt a:visited,
-dl.news > dt a:hover, dl.news > dt a:active  {
-	color: #000;
-	text-decoration: none; }
 
 dl.news > dt > span {
 	color: #888;

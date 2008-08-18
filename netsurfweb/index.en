@@ -122,12 +122,12 @@
 <h2 id="news">Latest news</h2>
 
 <dl class="frontnews">
-<dt><a href="http://source.netsurf-browser.org/trunk/netsurf/Docs/BUILDING-BeOS">BeOS port started</a> <span>03 Jun 2008</span></dt>
-<dd>NetSurf is now running natively on the BeOS operating system. The early port is available from SVN.</dd>
-<dt><a href="/developers/gsoc">GSoC projects selected</a> <span>22 Apr 2008</span></dt>
-<dd>The student projects that will be carried out this summer have been announced. See our <a href="/developers/gsoc">GSoC page</a> for details.</dd>
-<dt><a href="/downloads/">NetSurf 1.2 released</a> <span>22 Mar 2008</span></dt>
-<dd>The second update to NetSurf 1 has been released. It offers many bug fixes and improvements over the previous release. We recommend that users upgrade.</dd>
+<dt><a href="http://vlists.pepperfish.net/pipermail/netsurf-users-netsurf-browser.org/2008-August/007794.html">Summary of recent developments</a> <span>18 Aug 2008</span></dt>
+<dd>Bumper development summary, including performance and page layout improvements, better text selection handling, vastly improved GTK front end, ports to new platforms and Google Summer of Code round-up.</dd>
+<dt><a href="http://vlists.pepperfish.net/pipermail/netsurf-users-netsurf-browser.org/2008-August/007801.html">AmigaOS and BeOS ports</a> <span>18 Aug 2008</span></dt>
+<dd>New native port to AmigaOS and work on the BeOS port continues. Both ports are at an early stage, but usable.</dd>
+<dt><a href="http://vlists.pepperfish.net/pipermail/netsurf-users-netsurf-browser.org/2008-August/007757.html">Now using Hubbub</a> <span>11 Aug 2008</span></dt>
+<dd>NetSurf now uses <a href="/projects/hubbub/">Hubbub</a>, our new HTML parser which is compliant with the HTML5 specification. This fixes many issues and ensures we handle broken HTML in the same way as the other mainstream browsers.</dd>
 </dl>
 <p class="more"><a href="/about/news" class="seemore">See more news</a></p>
 
