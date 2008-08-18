@@ -122,10 +122,10 @@
 <h2 id="news">Latest news</h2>
 
 <dl class="frontnews">
-<dt><a href="http://vlists.pepperfish.net/pipermail/netsurf-users-netsurf-browser.org/2008-August/007794.html">Summary of recent developments</a> <span>18 Aug 2008</span></dt>
-<dd>Bumper development summary, including performance and page layout improvements, better text selection handling, vastly improved GTK front end, ports to new platforms and Google Summer of Code round-up.</dd>
 <dt><a href="http://vlists.pepperfish.net/pipermail/netsurf-users-netsurf-browser.org/2008-August/007801.html">AmigaOS and BeOS ports</a> <span>18 Aug 2008</span></dt>
 <dd>New native port to AmigaOS and work on the BeOS port continues. Both ports are at an early stage, but usable.</dd>
+<dt><a href="http://vlists.pepperfish.net/pipermail/netsurf-users-netsurf-browser.org/2008-August/007794.html">Summary of recent developments</a> <span>17 Aug 2008</span></dt>
+<dd>Bumper development summary, including performance and page layout improvements, better text selection handling, vastly improved GTK front end, ports to new platforms and Google Summer of Code round-up.</dd>
 <dt><a href="http://vlists.pepperfish.net/pipermail/netsurf-users-netsurf-browser.org/2008-August/007757.html">Now using Hubbub</a> <span>11 Aug 2008</span></dt>
 <dd>NetSurf now uses <a href="/projects/hubbub/">Hubbub</a>, our new HTML parser which is compliant with the HTML5 specification. This fixes many issues and ensures we handle broken HTML in the same way as the other mainstream browsers.</dd>
 </dl>
