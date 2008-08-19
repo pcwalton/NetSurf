@@ -106,7 +106,7 @@
 <li>if you can narrow a bug down to a minimal test-case, then that's great. Please provide it as it's likely to speed up a fix. (Don't worry if you can't.)</li>
 </ol>
 
-<p>Bug reports should be made on the <a href="http://sourceforge.net/tracker/?func=add&amp;group_id=51719&amp;atid=464312">bug tracker</a>. Follow the &quot;Submit New&quot; link and fill in the form. If you have no SourceForge user account, please include your email address so that the developers can contact you.</p>
+<p>Bug reports should be made on the <a href="http://sourceforge.net/tracker/?func=add&amp;group_id=51719&amp;atid=464312">bug tracker</a>. Follow the &quot;Submit New&quot; link and fill in the form. If you have no SourceForge user account, please include your email address so that the developers can contact you. Note that when uploading files to the bug tracker (e.g. Log files), you may need to compress the file before uploading. The limit is 256kB.</p>
 
 <p>Following the above guidelines will save the developers' time and speed up NetSurf's development.</p>
 
