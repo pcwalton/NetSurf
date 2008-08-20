@@ -24,15 +24,40 @@
 
 <h2>What is Hubbub?</h2>
 
-<p>Hubbub is an HTML5 compliant parsing library, written in C. It is currently in development for use with <a href="/">NetSurf</a> and is intended to be suitable for use in other projects too. For further details, see the <a href="http://source.netsurf-browser.org/trunk/hubbub/README">readme</a>.</p>
+<p>Hubbub is an <a href="http://www.whatwg.org/specs/web-apps/current-work/">HTML5</a> compliant parsing library, written in C. It was developed as part of the <a href="/">NetSurf</a> project and is available for use by other software under the MIT licence.</p>
+
+<p>The HTML5 specification defines a parsing algorithm, based on the behaviour of mainstream browsers, which provides instructions for how to parse all markup, both valid and invalid. As a result, Hubbub parses web content well.</p>
+
+<p>Hubbub is still under active development and has not had an official release, and as such should probably not be relied upon in production code just yet.</p>
+
+<p>If you are looking for an HTML5 parser in Python or Ruby, you may wish to look at <a href="http://code.google.com/p/html5lib/">html5lib</a>.</p>
+
+<h2>Features</h2>
+
+<ul>
+<li>Parses HTML, good and bad</li>
+<li>Simple C API</li>
+<li>Fast</li>
+<li>Character encoding detection</li>
+<li>Well-tested (~90% test coverage)</li>
+</ul>
+
+<p>Future:</p>
+
+<ul>
+<li>Well-documented</li>
+<li>Simple and libxml2 treebuilders</li>
+<li>Available and packaged in major Linux distributions</li>
+<li>Shared library</li>
+</ul>
 
 <h2>Source code</h2>
 
-<p>You can <a href="http://source.netsurf-browser.org/trunk/hubbub/">browse the source code</a> via the online interface. Alternativly, you can check it out of SVN:</p>
+<p>You can <a href="http://source.netsurf-browser.org/trunk/hubbub/">browse the source code</a> via the online interface. Alternatively, you can check it out of SVN:</p>
 
 <p class="svncommand">$ svn co svn://svn.netsurf-browser.org/trunk/hubbub</p>
 
-<p>Hubbub is licensed under the <a href="http://opensource.org/licenses/mit-license.php">MIT License</a>.</p>
+<p>Hubbub is licensed under the <a href="http://opensource.org/licenses/mit-license.php">MIT Licence</a>.</p>
 
 <h2>Contact</h2>
 
