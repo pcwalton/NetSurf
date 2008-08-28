@@ -4,6 +4,7 @@
 <head>
 <title>NetSurf Web Browser</title>
 <link rel="stylesheet" title="Standard" type="text/css" href="netsurf.css">
+<link rel="icon" type="image/png" href="/webimages/favicon.png">
 </head>
 
 <body>
