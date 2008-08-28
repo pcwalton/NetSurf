@@ -61,20 +61,22 @@
 
 <p>Advantage Six Ltd offer design, manufacture and support services for OEM customers. One of their products is the A9home computer which runs the RISC OS operating system.</p>
 
-<p>Advantage Six have donated an A9home to the NetSurf developers. At RISC OS computer shows, Advantage Six have often shared their internet connection with the NetSurf stand. This allows us to show people NetSurf in action, and also for users to show us how they use NetSurf.</p>
+<p>Advantage Six have donated two A9homes to the NetSurf developers. At RISC OS computer shows, Advantage Six have often shared their internet connection with the NetSurf stand. This allows us to show people NetSurf in action, and also for users to show us how they use NetSurf.</p>
 
 <ul>
 <li><a href="http://www.advantagesix.co.uk/">Advantage Six</a></li>
 <li><a href="http://www.advantagesix.co.uk/products/A9home.html">A9home computer</a></li>
 </ul>
 
-<h2><img class="thankslogo" src="/webimages/logommu.png" alt="">Manchester Metropolitan University</h2>
+<h2><img class="thankslogo" src="/webimages/logogsoc2008.png" alt="">Google Summer of Code</h2>
 
-<p>MMU generously provided hosting for an open-access RISC OS box during Google Summer of Code 2008. This allows students with no RISC OS hardware to test the RISC OS version of NetSurf remotely, over the internet. Their Department of Computing and Maths also helped spread the word about GSoC and NetSurf.</p>
+<p>Google Summer of Code generously offers funding for students to work on open source projects over the summer. In the 2008 programme, NetSurf was selected to participate as a mentoring organisation. Four excellent students worked with us over the period and the experience proved a great success for NetSurf.</p>
+
+<p>Our students have completed our new HTML5 parser, vastly overhauled the GTK front end, implemented PDF export, added print functionality to the GTK version and split bits of NetSurf out into separate libraries, for ease of maintenance and use by other projects. In addition to all this, taking part in Google Summer of Code also raised NetSurf's profile in the wider open source community.</p>
 
 <ul>
-<li><a href="http://www.mmu.ac.uk/">Manchester Metropolitan University</a></li>
-<li><a href="http://www.docm.mmu.ac.uk/">Department of Computing and Mathematics</a></li>
+<li><a href="http://code.google.com/soc/2008/">Google Summer of Code 2008</a></li>
+<li><a href="http://code.google.com/soc/2008/netsurf/about.html">GSoC 2008 - NetSurf organisation listing</a></li>
 </ul>
 
 <h2><img class="thankslogo" src="/webimages/logoppf.png" alt="">Pepperfish</h2>
