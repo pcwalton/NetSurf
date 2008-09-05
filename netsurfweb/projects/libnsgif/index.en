@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+        "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>Libnsgif | GIF Decoding Library</title>
+<link rel="stylesheet" type="text/css" href="/projects/projects.css">
+<link rel="icon" type="image/png" href="/webimages/favicon.png">
+</head>
+<body>
+
+<div class="projects">
+<ul>
+<li><a href="/">NetSurf</a></li>
+<li><a href="/projects/hubbub/">Hubbub</a></li>
+<li><a href="/projects/libdom/">Libdom</a></li>
+<li><a href="/projects/libsvgtiny/">Libsvgtiny</a></li>
+<li><a href="/projects/libnsbmp/">Libnsbmp</a></li>
+<li><strong>Libnsgif</strong></li>
+<li><a href="/projects/iconv/">Iconv</a></li>
+<li><a href="/projects/rufl/">RUfl</a></li>
+<li><a href="/projects/tinct/">Tinct</a></li>
+<li><a href="/projects/libpencil/">Libpencil</a></li>
+</ul>
+</div>
+
+<h1>Libnsgif</h1>
+
+<h2>What is Libnsgif?</h2>
+
+<p>Libnsgif is a decoding library for the GIF image file format, written in C. It was developed as part of the <a href="/">NetSurf</a> project and is available for use by other software under the MIT licence.</p>
+
+<h2>Features</h2>
+
+<ul>
+<li>Decodes GIF files</li>
+<li>Example usage demonstration</li>
+</ul>
+
+<h2>Source code</h2>
+
+<p>You can <a href="http://source.netsurf-browser.org/trunk/libnsgif/">browse the source code</a> via the online interface. Alternatively, you can check it out of SVN:</p>
+
+<p class="svncommand">$ svn co svn://svn.netsurf-browser.org/trunk/libnsgif</p>
+
+<p>Libnsgif is licensed under the <a href="http://opensource.org/licenses/mit-license.php">MIT Licence</a>.</p>
+
+<h2>Contact</h2>
+
+<p>If you would like to discuss Libnsgif, please join the NetSurf <a href="http://www.netsurf-browser.org/lists/netsurf-dev">developer mailing list</a>.</p>
+
+</body>
+</html>

@@ -14,6 +14,8 @@
 <li><a href="/projects/hubbub/">Hubbub</a></li>
 <li><a href="/projects/libdom/">Libdom</a></li>
 <li><a href="/projects/libsvgtiny/">Libsvgtiny</a></li>
+<li><a href="/projects/libnsbmp/">Libnsbmp</a></li>
+<li><a href="/projects/libnsgif/">Libnsgif</a></li>
 <li><a href="/projects/iconv/">Iconv</a></li>
 <li><a href="/projects/rufl/">RUfl</a></li>
 <li><a href="/projects/tinct/">Tinct</a></li>
@@ -36,6 +38,10 @@
 <dd>DOM library<dd>
 <dt><a href="/projects/libsvgtiny/">Libsvgtiny</a><dt>
 <dd>SVG Tiny library<dd>
+<dt><a href="/projects/libnsbmp/">Libnsbmp</a></dt>
+<dd>BMP and ICO decoding library<dd>
+<dt><a href="/projects/libnsgif/">Libnsgif</a></dt>
+<dd>GIF decoding library<dd>
 <dt><a href="/projects/iconv/">Iconv</a><dt>
 <dd>RISC OS character encoding support module<dd>
 <dt><a href="/projects/rufl/">RUfl</a><dt>

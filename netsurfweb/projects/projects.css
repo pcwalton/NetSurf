@@ -5,7 +5,8 @@ html, body {
 body {
 	background-color: #ffd;
 	color: #500;
-	padding-bottom: 2em; }
+	padding-bottom: 2em;
+	font-size: 94%; }
 
 h1 {
 	font-size:200%;
