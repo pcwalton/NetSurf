@@ -10,7 +10,7 @@ usage:
 	@echo
 	@echo Optionally append PREFIX=...
 
-export ROOT = $(shell realpath .)
+export ROOT = $(shell pwd)
 export PKG_CONFIG_PATH = $(PREFIX)/lib/pkgconfig
 export PREFIX ?= $(ROOT)/prefix-$(TARGET)
 
