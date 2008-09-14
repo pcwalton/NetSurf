@@ -9,8 +9,8 @@
 
 #include <stdio.h>
 
-#ifndef _LIBNSGIF_LOG_H_
-#define _LIBNSGIF_LOG_H_
+#ifndef _LIBNSBMP_LOG_H_
+#define _LIBNSBMP_LOG_H_
 
 #ifdef NDEBUG
 #  define LOG(x) ((void) 0)
