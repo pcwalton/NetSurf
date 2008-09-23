@@ -1,0 +1,34 @@
+
+<html>
+<head>
+<title>Absolute position test</title>
+</head>
+<body>
+  
+<div style="float:left; width:450px; padding-top:5em;">
+	<div style="position:absolute; top:0; right:0; color:red;">
+		Absolute positioned
+	</div>
+
+	<p>
+		When an absolute positioned element is the first child of a
+		float with a top padding, the following children which are
+		in &quot;normal flow&quot; are not positioned with respect
+		to the top padding, but float children are. Other padding
+		(e.g. left) is no problem.
+	</p>
+
+	<div style="float:left;width:120px;height:60px;border:2px dotted red;">
+		Float
+	</div>
+
+	<p>
+		When an absolute positioned element is the first child of a
+		float with a top padding, the following children which are
+		in &quot;normal flow&quot; are not positioned with respect
+		to the top padding, but float children are. Other padding
+		(e.g. left) is no problem.
+	</p>
+
+</body>
+</html>
