@@ -88,6 +88,17 @@
 <li><a href="http://www.pepperfish.net/">Pepperfish</a></li>
 </ul>
 
+<h2><img class="thankslogo" src="/webimages/logosimtec.png" alt="">Simtec Electronics</h2>
+
+<p>Simtec Electronics is an experienced electronics development and design consultancy. In addition to their range of design and manufacture services, they provide an extensive range of standard hardware and software products that include ARM processor evaluation boards, I/O modules, the ABLE boot loader firmware and an embedded USB host stack.</p>
+
+<p>Simtec sponsored the framebuffer port of NetSurf. This front end requires no GUI toolkit. It runs on the Linux framebuffer and on Simtec's ABLE boot loader. This enables NetSurf to be used on small devices without the overheads of a desktop windowing system.</p>
+
+<ul>
+<li><a href="http://www.simtec.co.uk/">Simtec Electronics</a></li>
+<li><a href="http://www.simtec.co.uk/products/SWABLE/">ABLE boot loader</a></li>
+</ul>
+
 <div class="footer">
 <p>Copyright 2003 - 2008 The NetSurf Developers</p>
 </div>
