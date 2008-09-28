@@ -16,25 +16,14 @@ SOURCE = rufl_init.c rufl_quit.c rufl_dump_state.c \
 	rufl_find.c rufl_decompose.c rufl_metrics.c
 HDRS = rufl.h rufl_internal.h
 
-ifeq (${AB_ELFBUILD},yes)
-EXEEXT=,e1f
-else
-EXEEXT=,ff8
-endif
-
 .PHONY: all install clean
 
 ifeq ($(COMPILER), gcc)
 # cross-compiling using GCCSDK
 GCCSDK_INSTALL_CROSSBIN ?= /home/riscos/cross/bin
 GCCSDK_INSTALL_ENV ?= /home/riscos/env
-ifeq (${AB_ELFBUILD},yes)
-CC = $(GCCSDK_INSTALL_CROSSBIN)/arm-unknown-riscos-gcc
-AR = $(GCCSDK_INSTALL_CROSSBIN)/arm-unknown-riscos-ar
-else
-CC = $(GCCSDK_INSTALL_CROSSBIN)/gcc
-AR = $(GCCSDK_INSTALL_CROSSBIN)/ar
-endif
+CC := $(wildcard $(GCCSDK_INSTALL_CROSSBIN)/*gcc)
+AR := $(wildcard $(GCCSDK_INSTALL_CROSSBIN)/*ar)
 CFLAGS = -std=c99 -O3 -W -Wall -Wundef -Wpointer-arith -Wcast-qual \
 	-Wcast-align -Wwrite-strings -Wstrict-prototypes \
 	-Wmissing-prototypes -Wmissing-declarations \
@@ -44,6 +33,11 @@ ARFLAGS = cr
 LIBS = -L$(GCCSDK_INSTALL_ENV)/lib -lOSLib32
 INSTALL = $(GCCSDK_INSTALL_ENV)/ro-install
 OBJS = $(SOURCE:.c=.o)
+ifneq (,$(findstring arm-unknown-riscos-gcc,$(CC)))
+  EXEEXT=,e1f
+else
+  EXEEXT=,ff8
+endif
 
 all: librufl.a rufl_test$(EXEEXT) rufl_chars$(EXEEXT)
 
@@ -63,8 +57,9 @@ LIBS = OSLib:o.oslib32
 MKDLK = makedlk
 SOURCE += strfuncs.c
 OBJS = $(SOURCE:.c=.o)
+EXEEXT =
 
-all: librufl.a rufl/pyd rufl_test,ff8 rufl_chars,ff8
+all: librufl.a rufl/pyd rufl_test rufl_chars
 
 librufl.a: $(OBJS)
 	$(LD) $(LDFLAGS) -o $@ $(OBJS)

@@ -11,21 +11,10 @@ HDRS =  pencil.h pencil_internal.h
 GCCSDK_INSTALL_CROSSBIN ?= /home/riscos/cross/bin
 GCCSDK_INSTALL_ENV ?= /home/riscos/env
 
-ifeq (${AB_ELFBUILD},yes)
-EXEEXT=,e1f
-else
-EXEEXT=,ff8
-endif
-
 .PHONY: all install clean
 
-ifeq (${AB_ELFBUILD},yes)
-CC = $(GCCSDK_INSTALL_CROSSBIN)/arm-unknown-riscos-gcc
-AR = $(GCCSDK_INSTALL_CROSSBIN)/arm-unknown-riscos-ar
-else
-CC = $(GCCSDK_INSTALL_CROSSBIN)/gcc
-AR = $(GCCSDK_INSTALL_CROSSBIN)/ar
-endif
+CC := $(wildcard $(GCCSDK_INSTALL_CROSSBIN)/*gcc)
+AR := $(wildcard $(GCCSDK_INSTALL_CROSSBIN)/*ar)
 CFLAGS = -std=c99 -O3 -W -Wall -Wundef -Wpointer-arith -Wcast-qual \
 	-Wcast-align -Wwrite-strings -Wstrict-prototypes \
 	-Wmissing-prototypes -Wmissing-declarations \
@@ -34,6 +23,11 @@ CFLAGS = -std=c99 -O3 -W -Wall -Wundef -Wpointer-arith -Wcast-qual \
 ARFLAGS = cr
 LIBS = -L$(GCCSDK_INSTALL_ENV)/lib -lOSLib32 -lrufl
 INSTALL = $(GCCSDK_INSTALL_ENV)/ro-install
+ifneq (,$(findstring arm-unknown-riscos-gcc,$(CC)))
+  EXEEXT=,e1f
+else
+  EXEEXT=,ff8
+endif
 
 OBJS = $(SOURCE:.c=.o)
 
