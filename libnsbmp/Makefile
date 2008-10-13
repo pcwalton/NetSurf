@@ -38,6 +38,8 @@ else
   PREFIX = /usr/local
 endif
 
+-include Makefile.config
+
 OBJDIR = $(TARGET)$(SUBTARGET)objects
 LIBDIR = $(TARGET)$(SUBTARGET)lib
 BINDIR = $(TARGET)$(SUBTARGET)bin
@@ -77,17 +79,17 @@ docs:
 	${DOXYGEN}
 
 install: $(LIBDIR)/libnsbmp.a $(LIBDIR)/libnsbmp.pc
-	mkdir -p $(PREFIX)/lib/pkgconfig
-	mkdir -p $(PREFIX)/lib
-	mkdir -p $(PREFIX)/include
-	$(INSTALL) --mode=644 -t $(PREFIX)/lib $(LIBDIR)/libnsbmp.a
-	$(INSTALL) --mode=644 -t $(PREFIX)/include libnsbmp.h
-	$(INSTALL) --mode=644 -t $(PREFIX)/lib/pkgconfig $(LIBDIR)/libnsbmp.pc
+	mkdir -p $(DESTDIR)$(PREFIX)/lib/pkgconfig
+	mkdir -p $(DESTDIR)$(PREFIX)/lib
+	mkdir -p $(DESTDIR)$(PREFIX)/include
+	$(INSTALL) -m 644 $(LIBDIR)/libnsbmp.a $(DESTDIR)$(PREFIX)/lib
+	$(INSTALL) -m 644 libnsbmp.h $(DESTDIR)$(PREFIX)/include
+	$(INSTALL) -m 644 $(LIBDIR)/libnsbmp.pc $(DESTDIR)$(PREFIX)/lib/pkgconfig
 
 uninstall:
-	rm $(PREFIX)/lib/libnsbmp.a
-	rm $(PREFIX)/include/libnsbmp.h
-	rm $(PREFIX)/lib/pkgconfig/libnsbmp.pc
+	rm $(DESTDIR)$(PREFIX)/lib/libnsbmp.a
+	rm $(DESTDIR)$(PREFIX)/include/libnsbmp.h
+	rm $(DESTDIR)$(PREFIX)/lib/pkgconfig/libnsbmp.pc
 
 clean:
 	-rm $(OBJS) $(LIBDIR)/libnsbmp.a $(LIBDIR)/libnsbmp.pc $(BINDIR)/decode_bmp$(EXEEXT) $(BINDIR)/decode_ico$(EXEEXT)
