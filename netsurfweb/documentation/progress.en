@@ -67,7 +67,7 @@
 <li><a href="#NSF">NetSurf features</a></li>
 </ul>
 
-<p class="updated">Last updated 05 March 2008</p>
+<p class="updated">Last updated 16 October 2008</p>
 
 <h2 id="General"></h2>
 
@@ -153,7 +153,7 @@
 <tr class="complete"><td>display</td><td>Complete</td><td></td></tr>
 <tr class="notstarted"><td>empty-cells</td><td>Not started</td><td></td></tr>
 <tr class="nearlydone"><td>float</td><td>Nearly done</td><td>Some issues with floats remain.</td></tr>
-<tr class="nearlydone"><td>font-familial</td><td>Nearly done</td><td>Only generic font types are recognised, not specific font names.</td></tr>
+<tr class="nearlydone"><td>font-family</td><td>Nearly done</td><td>Only generic font types are recognised, not specific font names.</td></tr>
 <tr class="complete"><td>font-size</td><td>Complete</td><td></td></tr>
 <tr class="notstarted"><td>font-size-adjust</td><td>Not started</td><td></td></tr>
 <tr class="notstarted"><td>font-stretch</td><td>Not started</td><td></td></tr>
@@ -161,10 +161,10 @@
 <tr class="inprogress"><td>font-variant</td><td>In progress</td><td>Small caps not done.</td></tr>
 <tr class="complete"><td>font-weight</td><td>Complete</td><td></td></tr>
 <tr class="complete"><td>font (shorthand)</td><td>Complete</td><td>Dependent on the status of individual properties.</td></tr>
-<tr class="inprogress"><td>height</td><td>In progress</td><td>Percentage heights aren't implemented.</td></tr>
+<tr class="complete"><td>height</td><td>Complete</td><td></td></tr>
 <tr class="complete"><td>left</td><td>Complete</td><td></td></tr>
 <tr class="notstarted"><td>letter-spacing</td><td>Not started</td><td></td></tr>
-<tr class="notstarted"><td>line-height</td><td>Not started</td><td></td></tr>
+<tr class="nearlydone"><td>line-height</td><td>Nearly done</td><td></td></tr>
 <tr class="complete"><td>list-style-image</td><td>Complete</td><td></td></tr>
 <tr class="notstarted"><td>list-style-position</td><td>Not started</td><td></td></tr>
 <tr class="nearlydone"><td>list-style-type</td><td>Nearly done</td><td></td></tr>
@@ -173,21 +173,21 @@
 <tr class="complete"><td>margin (shorthand)</td><td>Complete</td><td>Dependent on the status of individual properties.</td></tr>
 <tr class="notstarted"><td>marker-offset</td><td>Not started</td><td></td></tr>
 <tr class="notstarted"><td>marks</td><td>Not started</td><td></td></tr>
-<tr class="notstarted"><td>max-height</td><td>Not started</td><td></td></tr>
-<tr class="notstarted"><td>max-width</td><td>Not started</td><td></td></tr>
-<tr class="notstarted"><td>min-height</td><td>Not started</td><td></td></tr>
-<tr class="notstarted"><td>min-width</td><td>Not started</td><td></td></tr>
+<tr class="complete"><td>max-height</td><td>Complete</td><td></td></tr>
+<tr class="complete"><td>max-width</td><td>Complete</td><td></td></tr>
+<tr class="complete"><td>min-height</td><td>Complete</td><td></td></tr>
+<tr class="complete"><td>min-width</td><td>Complete</td><td></td></tr>
 <tr class="notstarted"><td>orphans</td><td>Not started</td><td></td></tr>
 <tr class="notstarted"><td>outline-color</td><td>Not started</td><td></td></tr>
 <tr class="notstarted"><td>outline-style</td><td>Not started</td><td></td></tr>
 <tr class="notstarted"><td>outline-width</td><td>Not started</td><td></td></tr>
 <tr class="notstarted"><td>outline (shorthand)</td><td>Not started</td><td></td></tr>
-<tr class="notstarted"><td>overflow</td><td>Not started</td><td></td></tr>
+<tr class="complete"><td>overflow</td><td>Complete</td><td></td></tr>
 <tr class="nearlydone"><td>padding-[top|right|bottom|left]</td><td>Nearly done</td><td>Some issues with inlines.</td></tr>
 <tr class="complete"><td>padding (shorthand)</td><td>Complete</td><td>Dependent on the status of individual properties.</td></tr>
 <tr class="notstarted"><td>page</td><td>Not started</td><td></td></tr>
 <tr class="notstarted"><td>page-break-[after|before|inside]</td><td>Not started</td><td></td></tr>
-<tr class="inprogress"><td>position</td><td>In progress</td><td>Fixed position not implemented<./td></tr>
+<tr class="inprogress"><td>position</td><td>In progress</td><td>Fixed position not implemented.</td></tr>
 <tr class="notstarted"><td>quotes</td><td>Not started</td><td></td></tr>
 <tr class="complete"><td>right</td><td>Complete</td><td></td></tr>
 <tr class="notstarted"><td>size</td><td>Not started</td><td></td></tr>
