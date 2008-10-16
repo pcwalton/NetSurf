@@ -4,7 +4,6 @@ NetSurf bugs causing Acid2 brokenness
 Line(s):	Description:
 
 1		No position: fixed support
-		No {min,max}-width support
 2		CSS engine incorrectly handles escape sequences
 3		None: this line renders correctly
 4-5		Plot order doesn't conform to appendix E.
