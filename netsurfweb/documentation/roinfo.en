@@ -142,7 +142,7 @@
 
 <p>If you see the codes 0091, 0092, 0096, or others starting 009, that indicates that the page is not specifying the character set that it is using correctly. Installing fonts won't help. We haven't yet decided what the best way to work around this problem is.</p>
 
-<p>Any font supplied with a correctly designed &quot;Encoding&quot; file should work. In practice, native fonts covering anything other than Latin 1 are rare. The solution is to convert TrueType fonts using <a href="http://moose.mine.nu/ttf2f_latest.zip">TTF2f</a> (this currently produces fonts suitable for RISC OS 5 only).</p>
+<p>Any font supplied with a correctly designed &quot;Encoding&quot; file should work. In practice, native fonts covering anything other than Latin 1 are rare. The solution is to convert TrueType fonts using <a href="http://jmb.drobe.co.uk/ttf2f-003.zip">TTF2f</a> (this currently produces fonts suitable for RISC OS 5 only).</p>
 
 <p>After installing new fonts, NetSurf will need restarting so that it detects them.</p>
 
