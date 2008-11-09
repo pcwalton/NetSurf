@@ -57,6 +57,8 @@
 <h1>News</h1>
 
 <dl class="news">
+<dt><a href="http://vlists.pepperfish.net/pipermail/netsurf-users-netsurf-browser.org/2008-November/008035.html">Summary of recent developments</a> <span>09 Nov 2008</span></dt>
+<dd>New framebuffer port, better CSS support, improved page layout, tabbed browsing improvements, new features and functionality for BeOS and AmigaOS ports.</dd>
 <dt><a href="http://vlists.pepperfish.net/pipermail/netsurf-users-netsurf-browser.org/2008-August/007801.html">AmigaOS and BeOS ports</a> <span>18 Aug 2008</span></dt>
 <dd>New native port to AmigaOS and work on the BeOS port continues. Both ports are at an early stage, but usable.</dd>
 <dt><a href="http://vlists.pepperfish.net/pipermail/netsurf-users-netsurf-browser.org/2008-August/007794.html">Summary of recent developments</a> <span>17 Aug 2008</span></dt>
