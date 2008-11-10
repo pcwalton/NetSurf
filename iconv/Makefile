@@ -25,7 +25,7 @@ CFLAGS = -std=c99 -D_BSD_SOURCE -I$(TOP)/include/ $(WARNFLAGS)
 RELEASECFLAGS = $(CFLAGS) -DNDEBUG -O2
 DEBUGCFLAGS = $(CFLAGS) -O0 -g
 ARFLAGS := -cru
-LDFLAGS = -L$(TOP)/
+LDFLAGS = -L$(TOP)/ -L$(TOP)/unicode/lib/
 
 CPFLAGS :=
 RMFLAGS := -f

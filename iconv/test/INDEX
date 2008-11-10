@@ -1,5 +1,6 @@
 # Index for testcases
 #
 # Test		Description				DataDir
+iconv		Iconv initialisation/finalisation
 
 # Regression tests

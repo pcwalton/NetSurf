@@ -35,7 +35,7 @@ d              := $(DIR)
 CFLAGS := $(CFLAGS) -I$(TOP)/src/ -I$(d)
 
 # Tests
-TESTS_$(d) := 
+TESTS_$(d) := iconv
 TESTS_$(d) := $(TESTS_$(d))
 
 # Items for top-level makefile to use
