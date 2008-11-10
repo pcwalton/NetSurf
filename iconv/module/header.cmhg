@@ -1,0 +1,18 @@
+help-string: Iconv 0.08
+
+title-string: Iconv
+
+initialisation-code: mod_init
+
+finalisation-code: mod_fini
+
+swi-chunk-base-number: 0x57540
+
+swi-handler-code: swi_handler
+
+swi-decoding-table: Iconv, Open, Iconv, Close, Convert, CreateMenu, DecodeMenu
+
+command-keyword-table: command_handler
+	ReadAliases(min-args: 0, max-args: 0,
+			invalid-syntax: "Syntax: *ReadAliases",
+			help-text: "*ReadAliases rereads the encoding aliases file.\n")

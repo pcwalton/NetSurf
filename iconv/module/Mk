@@ -1,0 +1,80 @@
+# Old RISC OS makefile. This is of no real use now, but is retained
+# so that the useful parts may be integrated into the cross-platform
+# buildsystem at some later date
+
+TARGET = ^.!System.310.Modules.Iconv
+VERSION = 008
+PVERSION = 0.0.8
+CC = cc
+CFLAGS = -Wp -fnah -zM -fussy -ITCPIPLibs:
+CFLAGSDEBUG = -DDEBUG -ITCPIPLibs: -Wnp -fn -fussy
+LD = link
+LDFLAGS = C:o.stubs TCPIPLibs:o.unixlibzm C:unicode.o.ucodelibm-no6937
+CMHG = cmhg -p
+AR = libfile
+
+OBJECTS = eightbit.o header.o iconv.o alias.o aliases.o menu.o utils.o
+
+SOURCES = $(OBJECTS:.o=.c)
+OBJS = $(OBJECTS:%.o=Release.%.o)
+OBJSDEBUG = $(OBJECTS:%.o=Debug.%.o)
+
+all: setup $(TARGET) stubs
+
+debug: setup libiconv/a
+
+$(TARGET): $(OBJS)
+	$(LD) -RMF -o $@ $(LDFLAGS) $^
+	@modsqz -f $@
+
+stubs: Release.stubs.o
+	$(AR) -c -o ^.libiconv/a Release.o.stubs
+	@settype ^.libiconv/a fff
+
+libiconv/a: $(OBJSDEBUG)
+	$(AR) -c -o ^.libiconv/a Debug.o.eightbit Debug.o.iconv Debug.o.alias Debug.o.aliases Debug.o.menu Debug.o.utils ^.ucodelib.o.*
+	@settype ^.libiconv/a fff
+
+Release.header.o:
+	$(CMHG) cmhg.header -o $@ -d header.h
+
+Release.stubs.o: stubs.c
+	$(CC) -c -o $@ $(CFLAGS) $<
+
+Release.%.o: %.c
+	$(CC) -c -o $@ $(CFLAGS) $<
+
+Debug.header.o:
+	$(CMHG) cmhg.header -o $@ -d header.h
+
+Debug.%.o: %.c
+	$(CC) -c -o $@ $(CFLAGSDEBUG) $<
+
+setup:
+	-@cdir Release.o
+	-@cdir Debug.o
+
+clean:
+	-@wipe Release.o ~C~VFR
+	-@wipe Debug.o ~C~VFR
+
+distclean: clean
+	-@wipe ^.!System.310.Modules.Iconv ~C~VFR
+	-@wipe ^.libiconv/a ~C~VFR
+
+zip: all clean
+	-@dir ^
+	-@wipe iconv$(VERSION)/zip ~C~VFR
+	-@zip -9r iconv$(VERSION)/zip !Boot !System libiconv/a ReadMe src doc
+	-@dir src
+
+pkg: all clean
+	-@dir ^
+	-@wipe iconv$(VERSION)pkg ~C~VFR
+	-@copy !Boot.Resources.* pkg.Resources.* ~C~DF~L~N~P~QR~S~T~V
+	-@copy !System.* pkg.System.* ~C~DF~L~N~P~QR~S~T~V
+	-@copy Control pkg.RiscPkg.Control ~C~DF~L~N~P~QR~S~T~V
+	-sed -i -e s/VERSION/$(PVERSION)/ pkg/RiscPkg/Control
+	-@dir pkg
+	-@zip -9r ^.iconv$(VERSION)pkg *
+	-@dir ^.src

@@ -1,0 +1,11 @@
+#ifndef _ICONV_ERRORS_H_
+#define _ICONV_ERRORS_H_
+
+#define ERROR_BASE 0x81b900
+
+#define ICONV_NOMEM (ERROR_BASE+0)
+#define ICONV_INVAL (ERROR_BASE+1)
+#define ICONV_2BIG  (ERROR_BASE+2)
+#define ICONV_ILSEQ (ERROR_BASE+3)
+
+#endif
