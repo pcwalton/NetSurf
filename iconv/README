@@ -15,7 +15,7 @@ Requirements
 
     + A C99 capable C compiler
     + GNU make or compatible
-    + The RISC OS Unicode Library
+    + The RISC OS Unicode Library (see unicode/ReadMe)
     + Perl (for the testcases)
     + Pkg-config (for the testcases)
 
