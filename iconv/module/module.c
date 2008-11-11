@@ -14,9 +14,9 @@
 #include "module.h"
 
 #ifdef __riscos__
-#define ALIASES_FILE "Unicode:Files.Aliases"
+#define ALIASES_FILE "Files.Aliases"
 #else
-#define ALIASES_FILE "Aliases"
+#define ALIASES_FILE "Files/Aliases"
 #endif
 
 static _kernel_oserror ErrorGeneric = { 0x0, "" };
@@ -27,18 +27,39 @@ static int errno_to_iconv_error(int num);
 /* Module initialisation */
 _kernel_oserror *mod_init(const char *tail, int podule_base, void *pw)
 {
+	char *ucpath;
+	int alen;
+	char aliases[4096];
+
 	UNUSED(tail);
 	UNUSED(podule_base);
 	UNUSED(pw);
 
 	/* ensure the !Unicode resource exists */
-	if (!getenv("Unicode$Path")) {
+#ifdef __riscos__
+	ucpath = getenv("Unicode$Path");
+#else
+	ucpath = getenv("UNICODE_DIR");
+#endif
+
+	if (ucpath == NULL) {
 		strncpy(ErrorGeneric.errmess, "!Unicode resource not found.",
 				252);
 		return &ErrorGeneric;
 	}
 
-	if (iconv_initialise(ALIASES_FILE) == false) {
+	strncpy(aliases, ucpath, sizeof(aliases));
+	alen = strlen(ucpath);
+#ifndef __riscos__
+	if (aliases[alen - 1] != '/') {
+		strncat(aliases, "/", sizeof(aliases) - alen - 1);
+		alen += 1;
+	}
+#endif
+	strncat(aliases, ALIASES_FILE, sizeof(aliases) - alen - 1);
+	aliases[sizeof(aliases) - 1] = '\0';
+
+	if (iconv_initialise(aliases) == false) {
 		strncpy(ErrorGeneric.errmess, "Unicode:Files.Aliases not "
 				"found. Please read the Iconv installation "
 				"instructions.", 252);

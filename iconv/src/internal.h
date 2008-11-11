@@ -8,6 +8,7 @@
 #ifndef DEBUG
 #define LOG(x)
 #else
+#include <stdio.h>
 #define LOG(x) (printf(__FILE__ " %s %i: ", __func__, __LINE__), printf x, fputc('\n', stdout))
 #endif
 

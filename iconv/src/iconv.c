@@ -274,7 +274,8 @@ size_t iconv(iconv_t cd, char **inbuf, size_t *inbytesleft, char **outbuf,
 
 	LOG(("done"));
 
-	LOG(("read: %d, ibl: %d, obl: %d", read, *inbytesleft, *outbytesleft));
+	LOG(("read: %d, ibl: %zd, obl: %zd", 
+			read, *inbytesleft, *outbytesleft));
 
 	/* 2 */
 	if (read == *inbytesleft) {
@@ -354,7 +355,7 @@ int character_callback(void *handle, UCS4 c)
 
 	e = (struct encoding_context*)handle;
 
-	LOG(("outbuf: %p, free: %d", *e->outbuf, *e->outbytesleft));
+	LOG(("outbuf: %p, free: %zd", *e->outbuf, *e->outbytesleft));
 	LOG(("writing: %d", c));
 
 	if (e->out) {
