@@ -264,7 +264,6 @@ _kernel_oserror *do_iconv(int argc, const char *args)
 			p += 2;
 			argc--;
 			break;
-		case 'c':
 		case 'o':
 			o = out;
 			p += 2;
@@ -283,6 +282,7 @@ _kernel_oserror *do_iconv(int argc, const char *args)
 				p++;
 			argc--;
 			break;
+		case 'c':
 		case 's':
 		case 'v':
 		default:
