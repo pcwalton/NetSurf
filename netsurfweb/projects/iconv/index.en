@@ -44,6 +44,14 @@
 
 <p>Please <a href="iconv_latest.zip">download iconv</a> and follow the <strong>two</strong> installation steps above.</p>
 
+<h2>Source code</h2>
+
+<p>You can <a href="http://source.netsurf-browser.org/trunk/iconv/">browse the source code</a> via the online interface. Alternatively, you can check it out of SVN:</p>
+
+<p class="svncommand">$ svn co svn://svn.netsurf-browser.org/trunk/iconv</p>
+
+<p>Iconv is licensed under the <a href="http://opensource.org/licenses/mit-license.php">MIT Licence</a>.</p>
+
 <h2>Contact</h2>
 
 <p>Please report any problems with this module directly to <a href="mailto:jmb@netsurf-browser.org">John-Mark Bell</a>.</p>
