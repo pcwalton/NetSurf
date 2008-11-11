@@ -3,7 +3,7 @@
 #ifndef iconv_myswis_h_
 #define iconv_myswis_h_
 
-#include <inttypes.h>
+#include <stdint.h>
 
 typedef struct _kernel_oserror {
 	int errnum;

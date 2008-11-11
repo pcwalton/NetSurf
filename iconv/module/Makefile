@@ -60,7 +60,7 @@ module: release $(OBJS_$(d))
 # Target for building module header (mildly hacky)
 $(HEADER): $(addprefix $(d), header.cmhg)
 ifeq ($(TARGET),riscos)
-	@$(CMHG) $(CMHGFLAGS) $< -o $@ -d $(addprefix $(d), header.h)
+	@$(CMHG) $(CMHGFLAGS) $< -o $@ -d $(subst .o,.h,$@)
 else
 	@$(TOUCH) $@
 endif

@@ -16,8 +16,13 @@ The include directory should contain the exported headers:
  + utf8.h
  + utf16.h
 
-The lib directory should contain the compiled library:
+The lib directory should contain the library compiled for the host platform:
 
  + libunicode.a (renamed from ucodelib.a)
- + libunicode-m.a (renamed from ucodelibm.a)
 
+The libro directory should contain the library compiled for RISC OS:
+
+ + libunicode.a (renamed from ucodelib.a)
+
+If wanting to build the RISC OS module, ensure that the library was built with 
+-mmodule. Otherwise, linking will fail with differing FP implementations.

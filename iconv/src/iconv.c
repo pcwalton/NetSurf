@@ -6,8 +6,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include <sys/errno.h>
-
 #include <unicode/charsets.h>
 #include <unicode/encoding.h>
 

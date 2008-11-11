@@ -1,7 +1,7 @@
 /* Encoding menu */
 
 #include <ctype.h>
-#include <inttypes.h>
+#include <stdint.h>
 #ifdef MTEST
 #include <stdio.h>
 #endif
@@ -334,9 +334,9 @@ static char *menu_op(const struct menu_desc *d, char *buf,
 		*bp++ = 7; *bp++ = 2; *bp++ = 7; *bp++ = 0;
 
 		/* width, height, gap */
-		*((int *)bp) = 200; bp += 4;
-		*((int *)bp) = 44;  bp += 4;
-		*((int *)bp) = 0;   bp += 4;
+		*((int *) (void *) bp) = 200; bp += 4;
+		*((int *) (void *) bp) = 44;  bp += 4;
+		*((int *) (void *) bp) = 0;   bp += 4;
 
 		memcpy(dp, val, strlen(val) + 1);
 		dp += strlen(val) + 1;
@@ -382,16 +382,17 @@ static char *menu_op(const struct menu_desc *d, char *buf,
 			menuf &= ~0x1;
 
 		if (flags & MENU_CLEAR_SELECTIONS) {
-			((wimp_menu *)buf)->entries[e].menu_flags = menuf;
+			((wimp_menu *) (void *) buf)->entries[e].menu_flags = 
+					menuf;
 		}
 
 		if ((flags & MENU_CREATE)) {
-			*((int *)bp) = menuf;             bp += 4;
-			*((int *)bp) = -1;                bp += 4;
-			*((int *)bp) = icon;              bp += 4;
-			*((int *)bp) = (intptr_t)(dp);    bp += 4;
-			*((int *)bp) = (intptr_t)(*data); bp += 4;
-			*((int *)bp) = strlen(pos) + 1;   bp += 4;
+			*((int *) (void *) bp) = menuf;             bp += 4;
+			*((int *) (void *) bp) = -1;                bp += 4;
+			*((int *) (void *) bp) = icon;              bp += 4;
+			*((int *) (void *) bp) = (intptr_t)(dp);    bp += 4;
+			*((int *) (void *) bp) = (intptr_t)(*data); bp += 4;
+			*((int *) (void *) bp) = strlen(pos) + 1;   bp += 4;
 
 			memcpy(dp, pos, strlen(pos) + 1);
 			dp += strlen(pos) + 1;
@@ -403,7 +404,7 @@ static char *menu_op(const struct menu_desc *d, char *buf,
 
 	/* fixup parent's pointer to this menu */
 	if (parent && (flags & MENU_CREATE))
-		parent->entries[which].sub_menu = (int *)buf;
+		parent->entries[which].sub_menu = (int *) (void *) buf;
 
 	/* and recurse */
 	for (e = 0; e < top; e++) {
@@ -419,7 +420,7 @@ static char *menu_op(const struct menu_desc *d, char *buf,
 				sizeof(sub_menus[0]),
 				(int (*)(const void *, const void *))strcmp);
 		if (s)
-			bp = menu_op(s->desc, bp, (wimp_menu *)buf,
+			bp = menu_op(s->desc, bp, (wimp_menu *) (void *) buf,
 						submenus[e].e, flags,
 						charset, s->lut, &dp);
 	}

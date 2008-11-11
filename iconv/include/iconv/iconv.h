@@ -1,8 +1,22 @@
 #ifndef _LIB_ICONV_H
 #define _LIB_ICONV_H
 
+#include <errno.h>
+
+#ifndef E2BIG
+#define E2BIG   7
+#endif
+
+#ifndef ENOMEM
+#define ENOMEM 12
+#endif
+
+#ifndef EINVAL
+#define EINVAL 22
+#endif
+
 #ifndef EILSEQ
-#define EILSEQ ENOENT
+#define EILSEQ 90
 #endif
 
 #undef iconv_t

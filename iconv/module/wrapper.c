@@ -1,10 +1,10 @@
 /* Wrapper around module API so we can run/test it on non-RO machines */
 
-#ifndef __riscos__
-
 #include <stdio.h>
 
 #include "header.h"
+
+#ifndef __riscos__
 
 int main(int argc, char **argv)
 {

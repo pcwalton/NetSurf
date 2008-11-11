@@ -19,17 +19,20 @@ SED := sed
 TOUCH := touch
 LCOV := echo
 GENHTML := echo
+# Filthy hack, as cmunge has the gcc binary name hardcoded, but only looks 
+# for gcc in the current path, and not in GCCSDK_INSTALL_CROSSBIN.
+CMHG := PATH="$(GCCSDK_INSTALL_CROSSBIN):${PATH}" $(GCCSDK_INSTALL_CROSSBIN)/cmunge
 
 # Toolchain flags
 WARNFLAGS := -Wall -Wextra -Wundef -Wpointer-arith -Wcast-align \
 	-Wwrite-strings -Wstrict-prototypes -Wmissing-prototypes \
 	-Wmissing-declarations -Wnested-externs -Werror -pedantic
 CFLAGS = -std=c99 -D_BSD_SOURCE -I$(TOP)/include/ $(WARNFLAGS) \
-	-mpoke-function-name
+	-mpoke-function-name -mmodule
 RELEASECFLAGS = $(CFLAGS) -DNDEBUG -O2
 DEBUGCFLAGS = $(CFLAGS) -O0 -g
 ARFLAGS := -cru
-LDFLAGS = -L$(TOP)/
+LDFLAGS = -mmodule -L$(TOP)/ -L$(TOP)/unicode/libro
 
 CPFLAGS :=
 RMFLAGS := -f
@@ -39,12 +42,9 @@ ECHOFLAGS :=
 MAKEFLAGS :=
 PKGCONFIGFLAGS :=
 TOUCHFLAGS :=
+CMHGFLAGS := -p -tgcc -32bit
 
-ifneq (,$(findstring arm-unknown-riscos-gcc,$(CC)))
-  EXEEXT := ,e1f
-else
-  EXEEXT := ,ff8
-endif
+EXEEXT := ,ffa
 
 # Default installation prefix
 PREFIX ?= $(GCCSDK_INSTALL_ENV)
