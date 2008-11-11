@@ -2,6 +2,7 @@
 
 #include <errno.h>
 #include <stdbool.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
@@ -20,6 +21,7 @@
 static _kernel_oserror ErrorGeneric = { 0x0, "" };
 
 static size_t iconv_convert(_kernel_swi_regs *r);
+static _kernel_oserror *do_iconv(int argc, const char *args);
 static int errno_to_iconv_error(int num);
 
 /* Module initialisation */
@@ -163,9 +165,13 @@ _kernel_oserror *command_handler(const char *arg_string, int argc,
 	UNUSED(pw);
 
 	switch (cmd_no) {
+	case CMD_Iconv:
+		return do_iconv(argc, arg_string);
+		break;
 	case CMD_ReadAliases:
+		/** \todo this is rather nasty, and hard-coded for RISC OS */
 		free_alias_data();
-		if (!create_alias_data(ALIASES_FILE)) {
+		if (!create_alias_data("Unicode:Files.Aliases")) {
 			strcpy(ErrorGeneric.errmess,
 					"Failed reading Aliases file.");
 			return &ErrorGeneric;
@@ -198,6 +204,139 @@ size_t iconv_convert(_kernel_swi_regs *regs)
 	regs->r[4] = (intptr_t) outbytesleft;
 
 	return ret;
+}
+
+_kernel_oserror *do_iconv(int argc, const char *args)
+{
+	char from[64] = "", to[64] = "";
+	char *f, *t;
+	bool list = false;
+	char out[4096] = "";
+	char *o;
+	const char *p = args;
+	FILE *ofp;
+	iconv_t cd;
+
+	/* Parse options */
+	while (argc > 0 && *p == '-') {
+		if (*(p+1) < ' ')
+			break;
+
+		switch (*(p+1)) {
+		case 'f':
+			f = from;
+			p += 2;
+			if (*p == ' ') {
+				argc--;
+				while (*p == ' ')
+					p++;
+			}
+			while (*p > ' ') {
+				if (f - from < (int) sizeof(from) - 1)
+					*f++ = *p;
+				p++;
+			}
+			*f = '\0';
+			while (*p == ' ')
+				p++;
+			argc--;
+			break;
+		case 't':
+			t = to;
+			p += 2;
+			if (*p == ' ') {
+				argc--;
+				while (*p == ' ')
+					p++;
+			}
+			while (*p > ' ') {
+				if (t - to < (int) sizeof(to) - 1)
+					*t++ = *p;
+				p++;
+			}
+			*t = '\0';
+			while (*p == ' ')
+				p++;
+			argc--;
+			break;
+		case 'l':
+			list = true;
+			p += 2;
+			argc--;
+			break;
+		case 'c':
+		case 'o':
+			o = out;
+			p += 2;
+			if (*p == ' ') {
+				argc--;
+				while (*p == ' ')
+					p++;
+			}
+			while (*p > ' ') {
+				if (o - out < (int) sizeof(out) - 1)
+					*o++ = *p;
+				p++;
+			}
+			*o = '\0';
+			while (*p == ' ')
+				p++;
+			argc--;
+			break;
+		case 's':
+		case 'v':
+		default:
+			snprintf(ErrorGeneric.errmess, 
+				sizeof(ErrorGeneric.errmess),
+				"Iconv: invalid option -- %c", *(p+1));
+			return &ErrorGeneric;
+		}
+	}
+
+	if (list) {
+		/** \todo dump aliases */
+		return NULL;
+	}
+
+	/** \todo better defaults */
+	if (from[0] == '\0')
+		strcpy(from, "ISO-8859-1");
+
+	if (to[0] == '\0')
+		strcpy(to, "ISO-8859-1");
+
+	cd = iconv_open(to, from);
+	if (cd == (iconv_t) -1) {
+		snprintf(ErrorGeneric.errmess, sizeof(ErrorGeneric.errmess),
+			"Cannot convert from %s to %s", from, to);
+		return &ErrorGeneric;
+	}
+
+	if (out[0] == '\0')
+		ofp = stdout;
+	else
+		ofp = fopen(out, "w");
+	if (ofp == NULL) {
+		iconv_close(cd);
+		strcpy(ErrorGeneric.errmess, "Unable to open output file.");
+		return &ErrorGeneric;
+	}
+
+	while (argc-- > 0) {
+		/* Remaining parameters are input files */
+
+		/** \todo convert input */
+
+		/* Reset cd */
+		iconv(cd, NULL, NULL, NULL, NULL);
+	}
+
+	if (ofp != stdout)
+		fclose(ofp);
+
+	iconv_close(cd);
+
+	return NULL;
 }
 
 int errno_to_iconv_error(int num)
