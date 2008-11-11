@@ -67,5 +67,7 @@ Iconv Changelog
 0.09 XX-XX-2008
 ---------------
 
-  - Restructured source tree into cross-platform and RO-specific parts
-  - 
+  - Restructured source tree into cross-platform and RO-specific parts.
+  - New build system to go with this.
+  - Fixes for compiling with GCC4.
+  - Introduce *Iconv command which performs command line conversion.
