@@ -9,13 +9,15 @@
 
 #include <iconv/iconv.h>
 
-#include "swis.h"
-
 #include "errors.h"
 #include "header.h"
 #include "module.h"
 
+#ifdef __riscos__
 #define ALIASES_FILE "Unicode:Files.Aliases"
+#else
+#define ALIASES_FILE "Aliases"
+#endif
 
 static _kernel_oserror ErrorGeneric = { 0x0, "" };
 
@@ -61,7 +63,7 @@ _kernel_oserror *mod_fini(int fatal, int podule_base, void *pw)
 /* SWI handler */
 _kernel_oserror *swi_handler(int swi_off, _kernel_swi_regs *regs, void *pw)
 {
-	unsigned int ret;
+	intptr_t ret;
 
 	UNUSED(pw);
 
@@ -70,38 +72,42 @@ _kernel_oserror *swi_handler(int swi_off, _kernel_swi_regs *regs, void *pw)
 
 	switch (swi_off) {
 		case 0: /* Iconv_Open */
-			if ((ret = (unsigned int)
+			if ((ret = (intptr_t)
 				iconv_open((const char*)regs->r[0],
 					(const char*)regs->r[1])) == -1) {
-				ErrorGeneric.errnum = errno;
+				ErrorGeneric.errnum = 
+						errno_to_iconv_error(errno);
 				return &ErrorGeneric;
 			}
 			regs->r[0] = ret;
 			break;
 		case 1: /* Iconv_Iconv */
-			if ((ret = (unsigned int)
+			if ((ret = (intptr_t)
 				iconv((iconv_t)regs->r[0],
 					(char**)regs->r[1],
 					(size_t*)regs->r[2],
 					(char**)regs->r[3],
 					(size_t*)regs->r[4])) == -1) {
-				ErrorGeneric.errnum = errno;
+				ErrorGeneric.errnum = 
+						errno_to_iconv_error(errno);
 				return &ErrorGeneric;
 			}
 			regs->r[0] = ret;
 			break;
 		case 2: /* Iconv_Close */
-			if ((ret = (unsigned int)
+			if ((ret = (intptr_t)
 				iconv_close((iconv_t)regs->r[0])) == -1) {
-				ErrorGeneric.errnum = errno;
+				ErrorGeneric.errnum = 
+						errno_to_iconv_error(errno);
 				return &ErrorGeneric;
 			}
 			regs->r[0] = ret;
 			break;
 		case 3: /* Iconv_Convert */
-			if ((ret = (unsigned int)
+			if ((ret = (intptr_t)
 				iconv_convert(regs)) == -1) {
-				ErrorGeneric.errnum = errno;
+				ErrorGeneric.errnum = 
+						errno_to_iconv_error(errno);
 				return &ErrorGeneric;
 			}
 			regs->r[0] = ret;
@@ -167,10 +173,10 @@ size_t iconv_convert(_kernel_swi_regs *regs)
 	ret = iconv((iconv_t)regs->r[0], &inbuf, &inbytesleft,
 			&outbuf, &outbytesleft);
 
-	regs->r[1] = (int)inbuf;
-	regs->r[2] = (int)inbytesleft;
-	regs->r[3] = (int)outbuf;
-	regs->r[4] = (int)outbytesleft;
+	regs->r[1] = (intptr_t) inbuf;
+	regs->r[2] = (intptr_t) inbytesleft;
+	regs->r[3] = (intptr_t) outbuf;
+	regs->r[4] = (intptr_t) outbytesleft;
 
 	return ret;
 }
@@ -186,7 +192,9 @@ int errno_to_iconv_error(int num)
 		return ICONV_ILSEQ;
 	case EINVAL:
 	default:
-		return ICONV_INVAL:
+		break;
 	}
+
+	return ICONV_INVAL;
 }
 

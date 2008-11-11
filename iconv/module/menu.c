@@ -1,6 +1,7 @@
 /* Encoding menu */
 
 #include <ctype.h>
+#include <inttypes.h>
 #ifdef MTEST
 #include <stdio.h>
 #endif
@@ -30,16 +31,16 @@ typedef struct _menu {
 } wimp_menu;
 
 struct menu_desc {
-	char *title;
+	const char *title;
 	int n_entries;
 	const char *entries[1];
 };
 
 #define menudesc(N)							\
 	struct {							\
-		char *title;						\
+		const char *title;					\
 		int n_entries;						\
-		char *entries[(N)];					\
+		const char *entries[(N)];				\
 	}
 
 /* Menu descriptions.
@@ -262,24 +263,26 @@ static const struct sub_menu {
 	const struct menu_desc *desc;
 	const short *lut;
 } sub_menus[] = {
-	{ "Arabic", (const struct menu_desc *)&arabic_menu,
+	{ "Arabic", (const struct menu_desc *) (void *) &arabic_menu,
 							csmap.arabic },
-	{ "Chinese", (const struct menu_desc *)&chinese_menu,
+	{ "Chinese", (const struct menu_desc *) (void *) &chinese_menu,
 							csmap.chinese },
-	{ "Cyrillic", (const struct menu_desc *)&cyrillic_menu,
+	{ "Cyrillic", (const struct menu_desc *) (void *) &cyrillic_menu,
 							csmap.cyrillic },
-	{ "Greek", (const struct menu_desc *)&greek_menu, csmap.greek },
-	{ "Hebrew", (const struct menu_desc *)&hebrew_menu,
+	{ "Greek", (const struct menu_desc *) (void *) &greek_menu, 
+							csmap.greek },
+	{ "Hebrew", (const struct menu_desc *) (void *) &hebrew_menu,
 							csmap.hebrew },
-	{ "Japanese", (const struct menu_desc *)&japanese_menu,
+	{ "Japanese", (const struct menu_desc *) (void *) &japanese_menu,
 							csmap.japanese },
-	{ "Korean", (const struct menu_desc *)&korean_menu,
+	{ "Korean", (const struct menu_desc *) (void *) &korean_menu,
 							csmap.korean },
-	{ "Latin", (const struct menu_desc *)&latin_menu, csmap.latin },
-	{ "Thai", (const struct menu_desc *)&thai_menu, csmap.thai },
-	{ "Universal", (const struct menu_desc *)&universal_menu,
+	{ "Latin", (const struct menu_desc *) (void *) &latin_menu, 
+							csmap.latin },
+	{ "Thai", (const struct menu_desc *) (void *) &thai_menu, csmap.thai },
+	{ "Universal", (const struct menu_desc *) (void *) &universal_menu,
 							csmap.universal },
-	{ "Vietnamese", (const struct menu_desc *)&vietnamese_menu,
+	{ "Vietnamese", (const struct menu_desc *) (void *) &vietnamese_menu,
 							csmap.vietnamese },
 };
 #define SUB_MENU_COUNT (sizeof(sub_menus) / sizeof(sub_menus[0]))
@@ -309,17 +312,17 @@ static const struct sub_menu {
  */
 static char *menu_op(const struct menu_desc *d, char *buf,
 		wimp_menu *parent, size_t which, size_t flags,
-		size_t charset, const short *lut, char **data)
+		short charset, const short *lut, char **data)
 {
-	size_t e, top = 0;
-	struct { size_t e; const char *name; } submenus[MAX_SUBMENUS];
+	int e, top = 0;
+	struct { int e; const char *name; } submenus[MAX_SUBMENUS];
 	char *bp = buf;
 	char *dp;
 
 	if (data)
 		dp = *data;
 
-	if (!buf && (flags & 0x02))
+	if (!buf && (flags & MENU_CLEAR_SELECTIONS))
 		return buf;
 
 	if ((flags & MENU_CREATE)) {
@@ -365,9 +368,10 @@ static char *menu_op(const struct menu_desc *d, char *buf,
 				icon |= (1<<22);
 		}
 
-		if (e == d->n_entries - 1)
+		if (e == d->n_entries - 1) {
 			/* last item */
 			menuf |= 0x80;
+		}
 
 		if (charset != 0 && lut && lut[e] == charset) {
 			menuf |= 0x1;
@@ -382,12 +386,12 @@ static char *menu_op(const struct menu_desc *d, char *buf,
 		}
 
 		if ((flags & MENU_CREATE)) {
-			*((int *)bp) = menuf;           bp += 4;
-			*((int *)bp) = -1;              bp += 4;
-			*((int *)bp) = icon;            bp += 4;
-			*((int *)bp) = (int)(dp);       bp += 4;
-			*((int *)bp) = (int)(*data);    bp += 4;
-			*((int *)bp) = strlen(pos) + 1; bp += 4;
+			*((int *)bp) = menuf;             bp += 4;
+			*((int *)bp) = -1;                bp += 4;
+			*((int *)bp) = icon;              bp += 4;
+			*((int *)bp) = (intptr_t)(dp);    bp += 4;
+			*((int *)bp) = (intptr_t)(*data); bp += 4;
+			*((int *)bp) = strlen(pos) + 1;   bp += 4;
 
 			memcpy(dp, pos, strlen(pos) + 1);
 			dp += strlen(pos) + 1;
@@ -454,8 +458,8 @@ size_t iconv_createmenu(size_t flags, char *buf, size_t len,
 		return 0;
 
 	/* get required size */
-	reqlen = (int)menu_op((const struct menu_desc *)&enc_menu, 0,
-			NULL, 0, MENU_COUNT_SIZE, 0, NULL, &dp);
+	reqlen = (size_t)menu_op((const struct menu_desc *) (void *) &enc_menu, 
+			0, NULL, 0, MENU_COUNT_SIZE, 0, NULL, &dp);
 
 	datalen = (size_t)dp;
 
@@ -486,7 +490,7 @@ size_t iconv_createmenu(size_t flags, char *buf, size_t len,
 #endif
 
 	dp = data;
-	bp = menu_op((const struct menu_desc *)&enc_menu, buf,
+	bp = menu_op((const struct menu_desc *) (void *) &enc_menu, buf,
 			NULL, 0, MENU_CREATE, sel, NULL, &dp);
 
 	(*dlen) = datalen;
@@ -560,7 +564,7 @@ size_t iconv_decodemenu(size_t flags, void *menu, int *selections,
 		buf[strlen(text)] = '\0';
 	}
 
-	menu_op((const struct menu_desc *)&enc_menu, menu, NULL, 0,
+	menu_op((const struct menu_desc *) (void *) &enc_menu, menu, NULL, 0,
 			MENU_CLEAR_SELECTIONS, s->lut[selections[1]],
 			NULL, NULL);
 

@@ -49,4 +49,6 @@ endif
 # Default installation prefix
 PREFIX ?= $(GCCSDK_INSTALL_ENV)
 
+TARGET := riscos
+
 include build/Makefile.common

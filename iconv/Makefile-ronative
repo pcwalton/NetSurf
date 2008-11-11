@@ -51,6 +51,7 @@ $(shell Iconvpwd Iconv$$Dir)
 TOP := <Iconv$$Dir>
 
 # Tell everyone that we're building on RISC OS, so they can work around things.
+TARGET := riscos
 HOST := riscos
 
 include build/Makefile.common

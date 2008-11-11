@@ -1,18 +1,8 @@
 #ifndef iconv_module_h_
 #define iconv_module_h_
 
-#ifndef DEBUG
-#define LOG(x)
-#else
-#define LOG(x) (printf(__FILE__ " %s %i: ", __func__, __LINE__), printf x, fputc('\n', stdout))
-#endif
-
-#define UNUSED(x) ((x) = (x))
-
-/* In iconv library */
-extern int iconv_eightbit_number_from_name(const char *name);
-extern short mibenum_from_name(const char *alias);
-extern const char *mibenum_to_name(short mibenum);
+/* Ugh. Include libiconv internal header so we get access to aliases stuff */
+#include "internal.h"
 
 /* in menu.c */
 size_t iconv_createmenu(size_t flags, char *buf, size_t buflen,
