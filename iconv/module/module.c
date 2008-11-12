@@ -324,8 +324,51 @@ _kernel_oserror *do_iconv(int argc, const char *args)
 
 	while (argc-- > 0) {
 		/* Remaining parameters are input files */
+		while (*p == ' ')
+			p++;
 
-		/** \todo convert input */
+		args = p;
+
+		while (*p > ' ')
+			p++;
+
+		char fname[p - args + 1];
+
+		memcpy(fname, args, p - args);
+		fname[p - args] = '\0';
+
+		FILE *inf = fopen(fname, "r");
+		if (inf == NULL) {
+			iconv_close(cd);
+			fclose(ofp);
+			snprintf(ErrorGeneric.errmess, 
+					sizeof(ErrorGeneric.errmess),
+					"Failed opening input file '%s'",
+					fname);
+			return &ErrorGeneric;
+		}
+
+		fseek(inf, 0, SEEK_END);
+		size_t input_length = ftell(inf);
+		fseek(inf, 0, SEEK_SET);
+
+		/** \todo This really wants to be a fixed size buffer.
+		 * Relying on being able to allocate huge amounts of space
+		 * is silly (particularly in SVC mode). */
+		char input[input_length];
+		char output[input_length * 4];
+		char *in = input;
+		char *out = output;
+		size_t inlen = input_length;
+		size_t outlen = input_length * 4;
+
+		fread(input, 1, input_length, inf);
+
+		fclose(inf);
+
+		iconv(cd, &in, &inlen, &out, &outlen);
+
+		fwrite(output, 1, input_length * 4 - outlen, ofp);
 
 		/* Reset cd */
 		iconv(cd, NULL, NULL, NULL, NULL);
