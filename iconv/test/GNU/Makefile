@@ -60,7 +60,7 @@ TARGET_TESTS := $(TARGET_TESTS) test_$(d)
 test_$(d): $(d) $(addprefix $(d), $(TESTS_$(d)))
 	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< ASCII
 #	/* General multi-byte encodings */
-	$(TOP)/$<genutf8 > UTF-8.TXT && $(TOP)/$<check-stateless $(TOP) $(TOP)/$< UTF-8
+	$(TOP)/$<genutf8 > $(TOP)/$<UTF-8.TXT && $(TOP)/$<check-stateless $(TOP) $(TOP)/$< UTF-8
 	$(TOP)/$<check-stateful $(TOP) $(TOP)/$< UCS-2BE
 	$(TOP)/$<check-stateful $(TOP) $(TOP)/$< UCS-2LE
 	$(TOP)/$<check-stateful $(TOP) $(TOP)/$< UCS-4BE

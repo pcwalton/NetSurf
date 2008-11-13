@@ -19,25 +19,25 @@ my $charsetf = $charset;
 $charsetf =~ s/:/-/g;
 
 # iconv in one direction.
-command("$srcdir/table-from $charset > tmp-$charsetf.TXT");
+command("$srcdir/table-from $charset > $srcdir/tmp-$charsetf.TXT");
 
 # iconv in the other direction.
-command("$srcdir/table-to $charset | sort > tmp-$charsetf.INVERSE.TXT");
+command("$srcdir/table-to $charset | sort > $srcdir/tmp-$charsetf.INVERSE.TXT");
 
 # Check 1: charmap and iconv forward should be identical.
-command("cmp $srcdir/$charsetf.TXT tmp-$charsetf.TXT 2> /dev/null");
+command("cmp $srcdir/$charsetf.TXT $srcdir/tmp-$charsetf.TXT 2> /dev/null");
 
 # Check 2: the difference between the charmap and iconv backward.
-command("sed -e '/	.* 0x/d' < $srcdir/$charsetf.TXT > tmp-noprecomposed-$charsetf.TXT");
+command("sed -e '/	.* 0x/d' < $srcdir/$charsetf.TXT > $srcdir/tmp-noprecomposed-$charsetf.TXT");
 
 if (-f "$srcdir/$charsetf.IRREVERSIBLE.TXT") {
-	command("cat tmp-noprecomposed-$charsetf.TXT $srcdir/$charsetf.IRREVERSIBLE.TXT | sort | uniq -u > tmp-orig-$charsetf.INVERSE.TXT");
+	command("cat $srcdir/tmp-noprecomposed-$charsetf.TXT $srcdir/$charsetf.IRREVERSIBLE.TXT | sort | uniq -u > $srcdir/tmp-orig-$charsetf.INVERSE.TXT");
 } else {
-	command("cp tmp-noprecomposed-$charsetf.TXT tmp-orig-$charsetf.INVERSE.TXT");
+	command("cp $srcdir/tmp-noprecomposed-$charsetf.TXT $srcdir/tmp-orig-$charsetf.INVERSE.TXT");
 }
-command("cmp tmp-orig-$charsetf.INVERSE.TXT tmp-$charsetf.INVERSE.TXT 2> /dev/null");
+command("cmp $srcdir/tmp-orig-$charsetf.INVERSE.TXT $srcdir/tmp-$charsetf.INVERSE.TXT 2> /dev/null");
 
-command("rm -f tmp-$charsetf.TXT tmp-$charsetf.INVERSE.TXT tmp-noprecomposed-$charsetf.TXT tmp-orig-$charsetf.INVERSE.TXT");
+command("rm -f $srcdir/tmp-$charsetf.TXT $srcdir/tmp-$charsetf.INVERSE.TXT $srcdir/tmp-noprecomposed-$charsetf.TXT $srcdir/tmp-orig-$charsetf.INVERSE.TXT");
 
 sub command {
 	my $cmd = shift;
@@ -46,6 +46,8 @@ sub command {
 	foreach my $line (@output) {
 		print "| $line";
 	}
+	my $status = $? / 256;
+	die "$cmd:\nexit status $status\n" if $status;
 	return @output;
 }
 
