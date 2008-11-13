@@ -2,6 +2,7 @@
 
 #include <errno.h>
 #include <stdbool.h>
+#include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -128,6 +129,10 @@ iconv_t iconv_open(const char *tocode, const char *fromcode)
 				to_force_le = true;
 				break;
 			}
+		} else if (strcasecmp(totemp, "UCS-4-INTERNAL") == 0) {
+			uint32_t test = 0x55aa55aa;
+			to = csUCS4;
+			to_force_le = ((const uint8_t *) &test)[0] == 0xaa;
 		}
 	}
 
@@ -150,6 +155,10 @@ iconv_t iconv_open(const char *tocode, const char *fromcode)
 				from_force_le = true;
 				break;
 			}
+		} else if (strcasecmp(fromtemp, "UCS-4-INTERNAL") == 0) {
+			uint32_t test = 0x55aa55aa;
+			from = csUCS4;
+			from_force_le = ((const uint8_t *) &test)[0] == 0xaa;
 		}
 	}
 
@@ -173,12 +182,12 @@ iconv_t iconv_open(const char *tocode, const char *fromcode)
 			if (from_force_le)
 				flags |= encoding_FLAG_LITTLE_ENDIAN;
 
-			c = alias_canonicalise(fromtemp);
-			if (c && (c->mib_enum == csUCS4 ||
-					c->mib_enum == csUnicode))
+			if (from == csUCS4 || from == csUnicode)
 				flags |= encoding_FLAG_NO_HEADER;
 
 			encoding_set_flags(e->in, flags, flags);
+
+			e->inflags = flags;
 		}
 	}
 
@@ -200,12 +209,12 @@ iconv_t iconv_open(const char *tocode, const char *fromcode)
 			if (to_force_le)
 				flags |= encoding_FLAG_LITTLE_ENDIAN;
 
-			c = alias_canonicalise(totemp);
-			if (c && (c->mib_enum == csUCS4 ||
-					c->mib_enum == csUnicode))
+			if (to == csUCS4 || to == csUnicode)
 				flags |= encoding_FLAG_NO_HEADER;
 
 			encoding_set_flags(e->out, flags, flags);
+
+			e->outflags = flags;
 		}
 	}
 
@@ -247,8 +256,14 @@ size_t iconv(iconv_t cd, char **inbuf, size_t *inbytesleft, char **outbuf,
 	}
 
 	if (inbuf == NULL || *inbuf == NULL) {
-		if (e->in)
+		if (e->in) {
 			encoding_reset(e->in);
+			encoding_set_flags(e->in, e->inflags, e->inflags);
+		}
+		if (e->out) {
+			encoding_reset(e->out);
+			encoding_set_flags(e->out, e->outflags, e->outflags);
+		}
 		return 0;
 	}
 

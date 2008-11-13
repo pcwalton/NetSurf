@@ -16,7 +16,9 @@
 
 struct encoding_context {
 	Encoding *in;
+	unsigned int inflags;
 	Encoding *out;
+	unsigned int outflags;
 	unsigned short *intab, *outtab;
 	char **outbuf;
 	size_t *outbytesleft;
