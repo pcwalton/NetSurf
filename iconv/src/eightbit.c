@@ -147,6 +147,9 @@ unsigned iconv_eightbit_read(struct encoding_context *e,
 				/* character not defined in this encoding */
 				return pos;
 			}
+		} else {
+			/* character not defined in this encoding */
+			break;
 		}
 	}
 
