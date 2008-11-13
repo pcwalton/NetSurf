@@ -1,0 +1,26 @@
+#!/usr/bin/perl
+# Simple check of a stateful encoding.
+# Usage: check-stateful TOP SRCDIR CHARSET
+
+use warnings;
+use strict;
+
+if (@ARGV < 3) {
+	print "Usage: check-stateful <top> <srcdir> <charset>\n";
+	exit;
+}
+
+my $top     = shift @ARGV;
+my $srcdir  = shift @ARGV;
+my $charset = shift @ARGV;
+
+# charset, modified for use in filenames.
+my $charsetf = $charset;
+$charsetf =~ s/:/-/g;
+
+`$top/Iconv -f $charset -t UTF-8 -o tmp-snippet $srcdir/$charsetf-snippet`;
+`cmp $srcdir/$charsetf-snippet.UTF-8 tmp-snippet`;
+`$top/Iconv -f UTF-8 -t $charset -o tmp-snippet $srcdir/$charsetf-snippet.UTF-8`;
+`cmp $srcdir/$charsetf-snippet tmp-snippet`;
+`rm -f tmp-snippet`;
+
