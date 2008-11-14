@@ -18,9 +18,21 @@ my $charset = shift @ARGV;
 my $charsetf = $charset;
 $charsetf =~ s/:/-/g;
 
-`$top/Iconv -f $charset -t UTF-8 -o $srcdir/tmp-snippet $srcdir/$charsetf-snippet`;
-`cmp $srcdir/$charsetf-snippet.UTF-8 $srcdir/tmp-snippet`;
-`$top/Iconv -f UTF-8 -t $charset -o $srcdir/tmp-snippet $srcdir/$charsetf-snippet.UTF-8`;
-`cmp $srcdir/$charsetf-snippet $srcdir/tmp-snippet`;
-`rm -f $srcdir/tmp-snippet`;
+command("$top/Iconv -f $charset -t UTF-8 -o $srcdir/tmp-snippet $srcdir/$charsetf-snippet");
+command("cmp $srcdir/$charsetf-snippet.UTF-8 $srcdir/tmp-snippet");
+command("$top/Iconv -f UTF-8 -t $charset -o $srcdir/tmp-snippet $srcdir/$charsetf-snippet.UTF-8");
+command("cmp $srcdir/$charsetf-snippet $srcdir/tmp-snippet");
+command("rm -f $srcdir/tmp-snippet");
+
+sub command {
+	my $cmd = shift;
+	print "> $cmd\n";
+	my @output = `$cmd 2>&1`;
+	foreach my $line (@output) {
+		print "| $line";
+	}
+	my $status = $? / 256;
+	die "$cmd:\nexit status $status\n" if $status;
+	return @output;
+}
 

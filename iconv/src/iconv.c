@@ -62,6 +62,7 @@ iconv_t iconv_open(const char *tocode, const char *fromcode)
 	struct encoding_context *e;
 	struct canon *c;
 	bool to_force_le = false, from_force_le = false;
+	bool to_no_bom = false, from_no_bom = false;
 	char totemp[128], fromtemp[128];
 	const char *slash;
 	unsigned int len;
@@ -116,23 +117,28 @@ iconv_t iconv_open(const char *tocode, const char *fromcode)
 			switch(c->mib_enum) {
 			case 1013: /* UTF-16BE */
 				to = csUnicode11;
+				to_no_bom = true;
 				break;
 			case 1014: /* UTF-16LE */
 				to = csUnicode11;
 				to_force_le = true;
+				to_no_bom = true;
 				break;
 			case 1018: /* UTF-32BE */
 				to = csUCS4;
+				to_no_bom = true;
 				break;
 			case 1019: /* UTF-32LE */
 				to = csUCS4;
 				to_force_le = true;
+				to_no_bom = true;
 				break;
 			}
 		} else if (strcasecmp(totemp, "UCS-4-INTERNAL") == 0) {
 			uint32_t test = 0x55aa55aa;
 			to = csUCS4;
 			to_force_le = ((const uint8_t *) &test)[0] == 0xaa;
+			to_no_bom = true;
 		}
 	}
 
@@ -142,23 +148,28 @@ iconv_t iconv_open(const char *tocode, const char *fromcode)
 			switch(c->mib_enum) {
 			case 1013: /* UTF-16BE */
 				from = csUnicode11;
+				from_no_bom = true;
 				break;
 			case 1014: /* UTF-16LE */
 				from = csUnicode11;
 				from_force_le = true;
+				from_no_bom = true;
 				break;
 			case 1018: /* UTF-32BE */
 				from = csUCS4;
+				from_no_bom = true;
 				break;
 			case 1019: /* UTF-32LE */
 				from = csUCS4;
 				from_force_le = true;
+				from_no_bom = true;
 				break;
 			}
 		} else if (strcasecmp(fromtemp, "UCS-4-INTERNAL") == 0) {
 			uint32_t test = 0x55aa55aa;
 			from = csUCS4;
 			from_force_le = ((const uint8_t *) &test)[0] == 0xaa;
+			from_no_bom = true;
 		}
 	}
 
@@ -182,7 +193,7 @@ iconv_t iconv_open(const char *tocode, const char *fromcode)
 			if (from_force_le)
 				flags |= encoding_FLAG_LITTLE_ENDIAN;
 
-			if (from == csUCS4 || from == csUnicode)
+			if (from == csUnicode || from_no_bom)
 				flags |= encoding_FLAG_NO_HEADER;
 
 			encoding_set_flags(e->in, flags, flags);
@@ -209,7 +220,7 @@ iconv_t iconv_open(const char *tocode, const char *fromcode)
 			if (to_force_le)
 				flags |= encoding_FLAG_LITTLE_ENDIAN;
 
-			if (to == csUCS4 || to == csUnicode)
+			if (to == csUnicode || to_no_bom)
 				flags |= encoding_FLAG_NO_HEADER;
 
 			encoding_set_flags(e->out, flags, flags);
@@ -261,6 +272,33 @@ size_t iconv(iconv_t cd, char **inbuf, size_t *inbytesleft, char **outbuf,
 			encoding_set_flags(e->in, e->inflags, e->inflags);
 		}
 		if (e->out) {
+			if (outbuf != NULL) {
+				char *prev_outbuf = *outbuf;
+				size_t prev_outbytesleft = *outbytesleft;
+				int ret;
+
+				ret = encoding_write(e->out, NULL_UCS4, 
+						outbuf, (int*) outbytesleft);
+
+				LOG(("ret: %d", ret));
+
+				/* Why the need for this nonsense? UnicodeLib 
+				 * appears to decrease the count of free space
+				 * in the buffer even if it doesn't write into 
+				 * it. This is a bug, as the documentation says 
+				 * that the buffer pointer AND free space count
+				 * are left unmodified if nothing is written.
+				 * Therefore, we have this hack until 
+				 * UnicodeLib gets fixed.
+				 */
+				if (ret == -1) {
+					*outbytesleft = prev_outbytesleft -
+						(*outbuf - prev_outbuf);
+
+					errno = EINVAL;
+					return (size_t)-1;
+				}
+			}
 			encoding_reset(e->out);
 			encoding_set_flags(e->out, e->outflags, e->outflags);
 		}
@@ -367,6 +405,12 @@ int character_callback(void *handle, UCS4 c)
 	int ret;
 
 	e = (struct encoding_context*)handle;
+
+	/* Stop on invalid characters if we're not transliterating */
+	/** \todo is this sane? -- we can't distinguish between illegal input 
+	 * or valid input which just happens to correspond with U+fffd. */
+	if (c == 0xFFFD && !e->transliterate)
+		return 1;
 
 	LOG(("outbuf: %p, free: %zd", *e->outbuf, *e->outbytesleft));
 	LOG(("writing: %d", c));

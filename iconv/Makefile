@@ -22,7 +22,7 @@ WARNFLAGS := -Wall -Wextra -Wundef -Wpointer-arith -Wcast-align \
 	-Wwrite-strings -Wstrict-prototypes -Wmissing-prototypes \
 	-Wmissing-declarations -Wnested-externs -Werror -pedantic
 CFLAGS = -std=c99 -D_BSD_SOURCE -I$(TOP)/include/ $(WARNFLAGS)
-RELEASECFLAGS = $(CFLAGS) -DNDEBUG -O2
+RELEASECFLAGS = $(CFLAGS) -DNDEBUG -O0 -g
 DEBUGCFLAGS = $(CFLAGS) -O0 -g
 ARFLAGS := -cru
 LDFLAGS = -L$(TOP)/ -L$(TOP)/unicode/lib/
