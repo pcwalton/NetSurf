@@ -366,7 +366,16 @@ _kernel_oserror *do_iconv(int argc, const char *args)
 
 		fclose(inf);
 
+		/* Convert text */
 		iconv(cd, &in, &inlen, &out, &outlen);
+
+		fwrite(output, 1, input_length * 4 - outlen, ofp);
+
+		/* Flush through any remaining shift sequences */
+		out = output;
+		outlen = input_length * 4;
+
+		iconv(cd, NULL, NULL, &out, &outlen);
 
 		fwrite(output, 1, input_length * 4 - outlen, ofp);
 
