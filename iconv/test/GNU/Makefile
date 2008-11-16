@@ -78,7 +78,7 @@ test_$(d): $(d) $(addprefix $(d), $(TESTS_$(d)))
 	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< ISO-8859-3
 	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< ISO-8859-4
 	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< ISO-8859-5
-	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< ISO-8859-6
+#	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< ISO-8859-6
 	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< ISO-8859-7
 	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< ISO-8859-8
 	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< ISO-8859-9
