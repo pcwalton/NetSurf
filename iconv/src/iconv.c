@@ -1,6 +1,7 @@
 /* iconv implementation - see iconv.h for docs */
 
 #include <errno.h>
+#include <limits.h>
 #include <stdbool.h>
 #include <stdint.h>
 #include <stdio.h>
@@ -9,6 +10,10 @@
 
 #include <unicode/charsets.h>
 #include <unicode/encoding.h>
+/* Hacktastic */
+#define DEBUG 0
+#include <unicode/encpriv.h>
+#undef DEBUG
 
 #include <iconv/iconv.h>
 
@@ -239,6 +244,34 @@ iconv_t iconv_open(const char *tocode, const char *fromcode)
 		return (iconv_t)(-1);
 	}
 
+	if (e->in) {
+		e->in_save = calloc(1, sizeof(EncodingPriv) + 
+				((EncodingPriv *) e->in)->ws_size);
+		if (!e->in_save) {
+			if (e->out)
+				encoding_delete(e->out);
+			encoding_delete(e->in);
+			iconv_eightbit_delete(e);
+			free(e);
+			errno = ENOMEM;
+			return (iconv_t)(-1);
+		}
+	}
+
+	if (e->out) {
+		e->out_save = calloc(1, sizeof(EncodingPriv) + 
+				((EncodingPriv *) e->out)->ws_size);
+		if (!e->out_save) {
+			encoding_delete(e->out);
+			if (e->in)
+				encoding_delete(e->in);
+			iconv_eightbit_delete(e);
+			free(e);
+			errno = ENOMEM;
+			return (iconv_t)(-1);
+		}
+	}
+
 	/* add to list */
 	e->prev = 0;
 	e->next = context_list;
@@ -253,7 +286,10 @@ size_t iconv(iconv_t cd, char **inbuf, size_t *inbytesleft, char **outbuf,
 		size_t *outbytesleft)
 {
 	struct encoding_context *e;
-	unsigned read;
+	unsigned int read, read2;
+	char *orig_outbuf;
+	size_t orig_outbytesleft;
+	int write_state;
 
 	/* search for cd in list */
 	for (e = context_list; e; e = e->next)
@@ -311,8 +347,40 @@ size_t iconv(iconv_t cd, char **inbuf, size_t *inbytesleft, char **outbuf,
 		return (size_t)(-1);
 	}
 
+	/* This is plain ugly. To be able to detect when each type of 
+	 * conversion error has occurred and maintain the correct pointer
+	 * into the input on error, we have to attempt to perform the
+	 * conversion then try it again and play spot the difference in
+	 * return values. As some encodings are stateful, we also need to
+	 * be able to preserve the current state of encoding contexts. This
+	 * requires knowledge of UnicodeLib's internal data structures. To
+	 * save pain later, I'm assuming that UnicodeLib's encpriv.h is
+	 * available at compile time. The cleaner approach of adding API to 
+	 * UnicodeLib seems pointless, as I can envisage no other use case 
+	 * than API munging for wanting to save/restore the state of codec 
+	 * instances.
+	 */
+
+	orig_outbuf = *outbuf;
+	orig_outbytesleft = *outbytesleft;
+
 	e->outbuf = outbuf;
 	e->outbytesleft = outbytesleft;
+
+	/* Try to convert all the input */
+	e->req_chars = INT_MAX;
+	e->chars_processed = 0;
+	e->write_state = WRITE_SUCCESS;
+
+	/* Save codec states */
+	if (e->in) {
+		memcpy(e->in_save, e->in, sizeof(EncodingPriv) + 
+				((EncodingPriv *) e->in)->ws_size);
+	}
+	if (e->out) {
+		memcpy(e->out_save, e->out, sizeof(EncodingPriv) +
+				((EncodingPriv *) e->out)->ws_size);
+	}
 
 	LOG(("reading"));
 
@@ -323,39 +391,73 @@ size_t iconv(iconv_t cd, char **inbuf, size_t *inbytesleft, char **outbuf,
 		read = iconv_eightbit_read(e, character_callback, *inbuf,
 				*inbytesleft, e);
 
+	/* Record write state of first attempt (determines most errors) */
+	write_state = e->write_state;
+
+	/* Reset the output buffer pointer/length */
+	*outbuf = orig_outbuf;
+	*outbytesleft = orig_outbytesleft;
+
+	/* Shortcut failure to process first character of input */
+	if (e->chars_processed == 0) {
+		errno = write_state == WRITE_SUCCESS 
+			? EINVAL 
+			: write_state == WRITE_FAILED ? EILSEQ : E2BIG;
+		return (size_t) -1;
+	}
+
+	/* Now require the number of chars processed */
+	e->req_chars = e->chars_processed;
+	e->chars_processed = 0;
+	e->write_state = WRITE_SUCCESS;
+
+	/* Restore codec states */
+	if (e->in) {
+		memcpy(e->in, e->in_save, sizeof(EncodingPriv) + 
+				((EncodingPriv *) e->in)->ws_size);
+	}
+	if (e->out) {
+		memcpy(e->out, e->out_save, sizeof(EncodingPriv) +
+				((EncodingPriv *) e->out)->ws_size);
+	}
+
+	/* And try again */
+	if (e->in)
+		read2 = encoding_read(e->in, character_callback, *inbuf,
+				*inbytesleft, e);
+	else
+		read2 = iconv_eightbit_read(e, character_callback, *inbuf,
+				*inbytesleft, e);
+
 	LOG(("done"));
 
 	LOG(("read: %d, ibl: %zd, obl: %zd", 
-			read, *inbytesleft, *outbytesleft));
+			read2, *inbytesleft, *outbytesleft));
 
-	/* 2 */
-	if (read == *inbytesleft) {
-		*inbuf += read;
-		*inbytesleft = 0;
-		return 0;
+	/* 2 or 3 */
+	if (write_state == WRITE_SUCCESS) {
+		*inbuf += read2;
+		*inbytesleft -= read2;
+
+		if (*inbytesleft > 0) {
+			errno = EINVAL;
+		} else {
+			return 0;
+		}
 	}
 	/* 4 */
-	else if ((int)*outbytesleft < 0) {
+	else if (write_state == WRITE_NOMEM) {
 		LOG(("e2big"));
-		*outbytesleft = 0;
-		*inbuf += read - 1;
-		*inbytesleft -= read - 1;
+		*inbuf += read2;
+		*inbytesleft -= read2;
 		errno = E2BIG;
 	}
-	/** \todo find a mechanism for distinguishing between 1 & 3 */
 	/* 1 */
-	else if (read != *inbytesleft) {
-		*inbuf += read;
-		*inbytesleft -= read;
+	else if (write_state == WRITE_FAILED) {
+		*inbuf += read2;
+		*inbytesleft -= read2;
 		LOG(("eilseq"));
 		errno = EILSEQ;
-	}
-	/* 3 */
-	else if ((int)*outbytesleft >= 0) {
-		*inbuf += read;
-		*inbytesleft -= read;
-		LOG(("einval"));
-		errno = EINVAL;
 	}
 
 	LOG(("errno: %d", errno));
@@ -376,10 +478,14 @@ int iconv_close(iconv_t cd)
 	if (!e)
 		return 0;
 
-	if (e->in)
+	if (e->in) {
 		encoding_delete(e->in);
-	if (e->out)
+		free(e->in_save);
+	}
+	if (e->out) {
 		encoding_delete(e->out);
+		free(e->out_save);
+	}
 	iconv_eightbit_delete(e);
 
 	/* remove from list */
@@ -409,8 +515,10 @@ int character_callback(void *handle, UCS4 c)
 	/* Stop on invalid characters if we're not transliterating */
 	/** \todo is this sane? -- we can't distinguish between illegal input 
 	 * or valid input which just happens to correspond with U+fffd. */
-	if (c == 0xFFFD && !e->transliterate)
+	if (c == 0xFFFD && !e->transliterate) {
+		e->write_state = WRITE_FAILED;
 		return 1;
+	}
 
 	LOG(("outbuf: %p, free: %zd", *e->outbuf, *e->outbytesleft));
 	LOG(("writing: %d", c));
@@ -440,6 +548,9 @@ int character_callback(void *handle, UCS4 c)
 				(int*)e->outbytesleft);
 	}
 
+	e->write_state = ret == -1 ? WRITE_FAILED 
+				   : ret == 0 ? WRITE_NOMEM : WRITE_SUCCESS;
+
 	if (ret == -1) {
 		/* Transliterate, if we've been asked to.
 		 * Assumes that output is 8bit/8bit multibyte with ASCII G0.
@@ -448,9 +559,10 @@ int character_callback(void *handle, UCS4 c)
 		 * Also, afaiaa, all supported multibyte encodings are ASCII
 		 * compatible. */
 		/** \todo Actually perform some kind of transliteration */
-		if (e->transliterate && (int)*e->outbytesleft > 0) {
-			if (e->out) {
-				/* Reset encoding write state */
+		if (e->transliterate) {
+			if ((int)*e->outbytesleft > 0) {
+				if (e->out) {
+				/* Flush through any pending shift sequences */
 				/** \todo this is a bit dodgy, as we only
 				 * really need to ensure that the ASCII set
 				 * is mapped into G0 in ISO2022 encodings.
@@ -459,22 +571,35 @@ int character_callback(void *handle, UCS4 c)
 				 * perform some dirty hackery which relies
 				 * upon knowledge of UnicodeLib's internals
 				 */
-				encoding_write(e->out, NULL_UCS4, e->outbuf,
+					encoding_write(e->out, NULL_UCS4, 
+						e->outbuf,
 						(int*)e->outbytesleft);
-			}
+				}
 
-			if ((int)*e->outbytesleft > 0) {
-				*(*e->outbuf)++ = '?';
-				--*e->outbytesleft;
+				if ((int)*e->outbytesleft > 0) {
+					*(*e->outbuf)++ = '?';
+					--*e->outbytesleft;
 
-				ret = 1;
+					e->write_state = WRITE_SUCCESS;
+
+					ret = 1;
+				} else {
+					e->write_state = WRITE_NOMEM;
+					ret = 0;
+				}
 			} else {
+				e->write_state = WRITE_NOMEM;
 				ret = 0;
 			}
 		} else {
-			ret = 1;
+			e->write_state = WRITE_FAILED;
+			ret = 0;
 		}
 	}
+
+	if (e->write_state == WRITE_SUCCESS &&
+			++e->chars_processed == e->req_chars)
+		ret = 0;
 
 	return (!ret);
 }

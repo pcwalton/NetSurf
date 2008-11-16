@@ -16,13 +16,18 @@
 
 struct encoding_context {
 	Encoding *in;
+	void *in_save;
 	unsigned int inflags;
 	Encoding *out;
+	void *out_save;
 	unsigned int outflags;
 	unsigned short *intab, *outtab;
 	char **outbuf;
 	size_t *outbytesleft;
 	char transliterate;
+	enum { WRITE_SUCCESS, WRITE_FAILED, WRITE_NOMEM } write_state;
+	int chars_processed;
+	int req_chars;
 	struct encoding_context *prev, *next;
 };
 

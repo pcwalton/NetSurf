@@ -133,23 +133,34 @@ unsigned iconv_eightbit_read(struct encoding_context *e,
 
 		if (c < 0x80) {
 			/* ASCII */
-			if (callback(handle, c))
+			if (callback(handle, c)) {
+				/* Used character, so update pos */
+				pos++;
 				break;
+			}
 		}
 		else if (c < 0x100 && e->intab) {
 			LOG(("maps to: %x", e->intab[c - 0x80]));
 			/* Look up in mapping table */
 			if (e->intab[c - 0x80] != 0xffff) {
-				if (callback(handle, e->intab[c - 0x80]))
+				if (callback(handle, e->intab[c - 0x80])) {
+					pos++;
 					break;
+				}
 			}
 			else {
 				/* character not defined in this encoding */
-				return pos;
+				if (callback(handle, 0xfffd)) {
+					pos++;
+					break;
+				}
 			}
 		} else {
 			/* character not defined in this encoding */
-			break;
+			if (callback(handle, 0xfffd)) {
+				pos++;
+				break;
+			}
 		}
 	}
 
