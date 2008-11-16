@@ -8,6 +8,12 @@
 
 #include "internal.h"
 
+#ifndef __riscos__
+#define DIR_SEP "/"
+#else
+#define DIR_SEP "."
+#endif
+
 struct table_entry {
 	const char *canon;
 	const char *filename;
@@ -17,63 +23,65 @@ struct table_entry {
 static const struct table_entry mapping_table[] = {
 	{ "US-ASCII", 0 },
 	{ "HP-ROMAN8", "HPR8" },
-	{ "MACINTOSH", "Apple.Roman"},
-	{ "IBM437", "Microsoft.CP437" },
-	{ "IBM775", "Microsoft.CP775" },
-	{ "IBM850", "Microsoft.CP850" },
-	{ "IBM852", "Microsoft.CP852" },
-	{ "IBM855", "Microsoft.CP855" },
-	{ "IBM857", "Microsoft.CP857" },
-	{ "IBM860", "Microsoft.CP860" },
-	{ "IBM861", "Microsoft.CP861" },
-	{ "IBM862", "Microsoft.CP862" },
-	{ "IBM863", "Microsoft.CP863" },
-	{ "IBM864", "Microsoft.CP864" },
-	{ "IBM865", "Microsoft.CP865" },
-	{ "IBM866", "Microsoft.CP866" },
-	{ "IBM869", "Microsoft.CP869" },
+	{ "MACINTOSH", "Apple" DIR_SEP "Roman"},
+	{ "IBM437", "Microsoft" DIR_SEP "CP437" },
+	{ "IBM775", "Microsoft" DIR_SEP "CP775" },
+	{ "IBM850", "Microsoft" DIR_SEP "CP850" },
+	{ "IBM852", "Microsoft" DIR_SEP "CP852" },
+	{ "IBM855", "Microsoft" DIR_SEP "CP855" },
+	{ "IBM857", "Microsoft" DIR_SEP "CP857" },
+	{ "IBM860", "Microsoft" DIR_SEP "CP860" },
+	{ "IBM861", "Microsoft" DIR_SEP "CP861" },
+	{ "IBM862", "Microsoft" DIR_SEP "CP862" },
+	{ "IBM863", "Microsoft" DIR_SEP "CP863" },
+	{ "IBM864", "Microsoft" DIR_SEP "CP864" },
+	{ "IBM865", "Microsoft" DIR_SEP "CP865" },
+	{ "IBM866", "Microsoft" DIR_SEP "CP866" },
+	{ "IBM869", "Microsoft" DIR_SEP "CP869" },
 	{ "KOI8-R", "KOI8-R" },
 	{ "KOI8-U", "KOI8-U" },
-	{ "IBM00858", "Microsoft.CP858" },
-	{ "WINDOWS-1250", "Microsoft.CP1250" },
-	{ "WINDOWS-1251", "Microsoft.CP1251" },
-	{ "WINDOWS-1252", "Microsoft.CP1252" },
-	{ "WINDOWS-1253", "Microsoft.CP1253" },
-	{ "WINDOWS-1254", "Microsoft.CP1254" },
-	{ "WINDOWS-1256", "Microsoft.CP1256" },
-	{ "WINDOWS-1257", "Microsoft.CP1257" },
-	{ "CP737", "Microsoft.CP737" },
-	{ "CP853", "Microsoft.CP853" },
-	{ "CP856", "Microsoft.CP856" },
-	{ "CP874", "Microsoft.CP874" },
-	{ "CP922", "Microsoft.CP922" },
-	{ "CP1046", "Microsoft.CP1046" },
-	{ "CP1124", "Microsoft.CP1124" },
-	{ "CP1125", "Microsoft.CP1125" },
-	{ "CP1129", "Microsoft.CP1129" },
-	{ "CP1133", "Microsoft.CP1133" },
-	{ "CP1161", "Microsoft.CP1161" },
-	{ "CP1162", "Microsoft.CP1162" },
-	{ "CP1163", "Microsoft.CP1163" },
+	{ "IBM00858", "Microsoft" DIR_SEP "CP858" },
+	{ "WINDOWS-1250", "Microsoft" DIR_SEP "CP1250" },
+	{ "WINDOWS-1251", "Microsoft" DIR_SEP "CP1251" },
+	{ "WINDOWS-1252", "Microsoft" DIR_SEP "CP1252" },
+	{ "WINDOWS-1253", "Microsoft" DIR_SEP "CP1253" },
+	{ "WINDOWS-1254", "Microsoft" DIR_SEP "CP1254" },
+	{ "WINDOWS-1256", "Microsoft" DIR_SEP "CP1256" },
+	{ "WINDOWS-1257", "Microsoft" DIR_SEP "CP1257" },
+	{ "CP737", "Microsoft" DIR_SEP "CP737" },
+	{ "CP853", "Microsoft" DIR_SEP "CP853" },
+	{ "CP856", "Microsoft" DIR_SEP "CP856" },
+	{ "CP874", "Microsoft" DIR_SEP "CP874" },
+	{ "CP922", "Microsoft" DIR_SEP "CP922" },
+	{ "CP1046", "Microsoft" DIR_SEP "CP1046" },
+	{ "CP1124", "Microsoft" DIR_SEP "CP1124" },
+	{ "CP1125", "Microsoft" DIR_SEP "CP1125" },
+	{ "CP1129", "Microsoft" DIR_SEP "CP1129" },
+	{ "CP1133", "Microsoft" DIR_SEP "CP1133" },
+	{ "CP1161", "Microsoft" DIR_SEP "CP1161" },
+	{ "CP1162", "Microsoft" DIR_SEP "CP1162" },
+	{ "CP1163", "Microsoft" DIR_SEP "CP1163" },
 	{ "GEORGIAN-ACADEMY", "GeorgA" },
 	{ "GEORGIAN-PS", "GeorgPS" },
 	{ "KOI8-RU", "KOI8-RU" },
 	{ "KOI8-T", "KOI8-T" },
-	{ "MACARABIC", "Apple.Arabic" },
-	{ "MACCROATIAN", "Apple.Croatian" },
-	{ "MACGREEK", "Apple.Greek" },
-	{ "MACHEBREW", "Apple.Hebrew" },
-	{ "MACICELAND", "Apple.Iceland" },
-	{ "MACROMANIA", "Apple.Romania" },
-	{ "MACTHAI", "Apple.Thai" },
-	{ "MACTURKISH", "Apple.Turkish" },
+	{ "MACARABIC", "Apple" DIR_SEP "Arabic" },
+	{ "MACCROATIAN", "Apple" DIR_SEP "Croatian" },
+	{ "MACGREEK", "Apple" DIR_SEP "Greek" },
+	{ "MACHEBREW", "Apple" DIR_SEP "Hebrew" },
+	{ "MACICELAND", "Apple" DIR_SEP "Iceland" },
+	{ "MACROMANIA", "Apple" DIR_SEP" Romania" },
+	{ "MACTHAI", "Apple" DIR_SEP "Thai" },
+	{ "MACTURKISH", "Apple" DIR_SEP "Turkish" },
 	{ "MULELAO-1", "Mulelao" },
-	{ "MACCYRILLIC", "Apple.Cyrillic" },
-	{ "MACUKRAINE", "Apple.Ukrainian" },
-	{ "MACCENTRALEUROPE", "Apple.CentEuro" },
+	{ "MACCYRILLIC", "Apple" DIR_SEP "Cyrillic" },
+	{ "MACUKRAINE", "Apple" DIR_SEP "Ukrainian" },
+	{ "MACCENTRALEUROPE", "Apple" DIR_SEP "CentEuro" },
 };
 
 #define TABLE_SIZE (sizeof(mapping_table) / sizeof(mapping_table[0]))
+
+static const char *get_table_path(const char *table);
 
 /**
  * Look up an encoding number, based on its name
@@ -127,7 +135,7 @@ unsigned iconv_eightbit_read(struct encoding_context *e,
 
 	for (pos = 0; pos != n; pos++) {
 
-		c = s[pos];
+		c = ((unsigned char *) s)[pos];
 
 		LOG(("read: %d (%d)", c, pos));
 
@@ -220,7 +228,7 @@ int iconv_eightbit_write(struct encoding_context *e, UCS4 c,
  */
 unsigned short *iconv_eightbit_new(int enc_num)
 {
-	char filename[64];
+	const char *filename = NULL;
 	const char *name;
 	FILE *fp;
 	unsigned int len;
@@ -237,9 +245,7 @@ unsigned short *iconv_eightbit_new(int enc_num)
 			if (mapping_table[i].filename == 0)
 				return NULL;
 
-			snprintf(filename, sizeof filename,
-				"Unicode:Encodings.%s",
-				mapping_table[i].filename);
+			filename = get_table_path(mapping_table[i].filename);
 
 			break;
 		}
@@ -292,3 +298,37 @@ void iconv_eightbit_delete(struct encoding_context *e)
 	if (e->outtab)
 		free(e->outtab);
 }
+
+const char *get_table_path(const char *table)
+{
+	char *ucpath;
+	int plen;
+	static char path[4096];
+
+	/* Get !Unicode resource path */
+#ifdef __riscos__
+	ucpath = getenv("Unicode$Path");
+#else
+	ucpath = getenv("UNICODE_DIR");
+#endif
+
+	if (ucpath == NULL)
+		return NULL;
+
+	strncpy(path, ucpath, sizeof(path));
+	plen = strlen(ucpath);
+#ifndef __riscos__
+	if (path[plen - 1] != '/') {
+		strncat(path, "/", sizeof(path) - plen - 1);
+		plen += 1;
+	}
+#endif
+
+	strncat(path, "Encodings" DIR_SEP, sizeof(path) - plen - 1);
+
+	strncat(path, table, sizeof(path) - plen - 1);
+	path[sizeof(path) - 1] = '\0';
+
+	return path;
+}
+

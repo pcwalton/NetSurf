@@ -12,24 +12,18 @@
 #include "header.h"
 #include "module.h"
 
-#ifdef __riscos__
-#define ALIASES_FILE "Files.Aliases"
-#else
-#define ALIASES_FILE "Files/Aliases"
-#endif
-
 static _kernel_oserror ErrorGeneric = { 0x0, "" };
 
 static size_t iconv_convert(_kernel_swi_regs *r);
 static _kernel_oserror *do_iconv(int argc, const char *args);
 static int errno_to_iconv_error(int num);
+static const char *get_aliases_path(void);
 
 /* Module initialisation */
 _kernel_oserror *mod_init(const char *tail, int podule_base, void *pw)
 {
 	char *ucpath;
-	int alen;
-	char aliases[4096];
+	const char *aliases;
 
 	UNUSED(tail);
 	UNUSED(podule_base);
@@ -48,16 +42,7 @@ _kernel_oserror *mod_init(const char *tail, int podule_base, void *pw)
 		return &ErrorGeneric;
 	}
 
-	strncpy(aliases, ucpath, sizeof(aliases));
-	alen = strlen(ucpath);
-#ifndef __riscos__
-	if (aliases[alen - 1] != '/') {
-		strncat(aliases, "/", sizeof(aliases) - alen - 1);
-		alen += 1;
-	}
-#endif
-	strncat(aliases, ALIASES_FILE, sizeof(aliases) - alen - 1);
-	aliases[sizeof(aliases) - 1] = '\0';
+	aliases = get_aliases_path();
 
 	if (iconv_initialise(aliases) == false) {
 		strncpy(ErrorGeneric.errmess, "Unicode:Files.Aliases not "
@@ -169,13 +154,19 @@ _kernel_oserror *command_handler(const char *arg_string, int argc,
 		return do_iconv(argc, arg_string);
 		break;
 	case CMD_ReadAliases:
-		/** \todo this is rather nasty, and hard-coded for RISC OS */
+	{
+		const char *aliases = get_aliases_path();
+
+		if (aliases == NULL)
+			return NULL;
+
 		free_alias_data();
-		if (!create_alias_data("Unicode:Files.Aliases")) {
+		if (!create_alias_data(aliases)) {
 			strcpy(ErrorGeneric.errmess,
 					"Failed reading Aliases file.");
 			return &ErrorGeneric;
 		}
+	}
 		break;
 	default:
 		break;
@@ -406,5 +397,41 @@ int errno_to_iconv_error(int num)
 	}
 
 	return ICONV_INVAL;
+}
+
+const char *get_aliases_path(void)
+{
+	char *ucpath;
+	int alen;
+	static char aliases[4096];
+
+#ifdef __riscos__
+#define ALIASES_FILE "Files.Aliases"
+#else
+#define ALIASES_FILE "Files/Aliases"
+#endif
+
+	/* Get !Unicode resource path */
+#ifdef __riscos__
+	ucpath = getenv("Unicode$Path");
+#else
+	ucpath = getenv("UNICODE_DIR");
+#endif
+
+	if (ucpath == NULL)
+		return NULL;
+
+	strncpy(aliases, ucpath, sizeof(aliases));
+	alen = strlen(ucpath);
+#ifndef __riscos__
+	if (aliases[alen - 1] != '/') {
+		strncat(aliases, "/", sizeof(aliases) - alen - 1);
+		alen += 1;
+	}
+#endif
+	strncat(aliases, ALIASES_FILE, sizeof(aliases) - alen - 1);
+	aliases[sizeof(aliases) - 1] = '\0';
+
+	return aliases;
 }
 
