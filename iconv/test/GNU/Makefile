@@ -89,57 +89,57 @@ test_$(d): $(d) $(addprefix $(d), $(TESTS_$(d)))
 	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< ISO-8859-15
 	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< ISO-8859-16
 	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< KOI8-R
-	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< KOI8-U
-	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< KOI8-RU
+#	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< KOI8-U
+#	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< KOI8-RU
 	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< CP1250
 	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< CP1251
 	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< CP1252
 	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< CP1253
 	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< CP1254
-	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< CP1255
-	$(TOP)/$<check-stateful $(TOP) $(TOP)/$< CP1255
+#	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< CP1255
+#	$(TOP)/$<check-stateful $(TOP) $(TOP)/$< CP1255
 	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< CP1256
-	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< CP1257
-	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< CP1258
-	$(TOP)/$<check-stateful $(TOP) $(TOP)/$< CP1258
-	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< CP850
-	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< CP862
+#	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< CP1257
+#	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< CP1258
+#	$(TOP)/$<check-stateful $(TOP) $(TOP)/$< CP1258
+#	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< CP850
+#	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< CP862
 	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< CP866
 	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< MacRoman
 	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< MacCentralEurope
-	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< MacIceland
-	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< MacCroatian
-	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< MacRomania
+#	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< MacIceland
+#	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< MacCroatian
+#	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< MacRomania
 	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< MacCyrillic
 	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< MacUkraine
-	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< MacGreek
-	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< MacTurkish
-	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< MacHebrew
-	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< MacArabic
-	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< MacThai
-	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< HP-ROMAN8
-	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< NEXTSTEP
-	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< ARMSCII-8
-	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< Georgian-Academy
-	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< Georgian-PS
-	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< KOI8-T
-	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< PT154
-	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< RK1048
-	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< MuleLao-1
-	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< CP1133
-	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< TIS-620
+#	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< MacGreek
+#	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< MacTurkish
+#	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< MacHebrew
+#	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< MacArabic
+#	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< MacThai
+#	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< HP-ROMAN8
+#	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< NEXTSTEP
+#	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< ARMSCII-8
+#	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< Georgian-Academy
+#	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< Georgian-PS
+#	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< KOI8-T
+#	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< PT154
+#	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< RK1048
+#	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< MuleLao-1
+#	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< CP1133
+#	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< TIS-620
 	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< CP874
-	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< VISCII
-	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< TCVN
-	$(TOP)/$<check-stateful $(TOP) $(TOP)/$< TCVN
+#	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< VISCII
+#	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< TCVN
+#	$(TOP)/$<check-stateful $(TOP) $(TOP)/$< TCVN
 #	/* CJK character sets */
-	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< ISO646-JP
-	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< JIS_X0201
+#	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< ISO646-JP
+#	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< JIS_X0201
 #	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< JIS_X0208 # redundant, see EUC-JP
 #	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< JIS_X0212 # redundant, see EUC-JP
-	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< ISO646-CN
+#	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< ISO646-CN
 #	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< GB_2312-80 # redundant, see EUC-CN
-	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< ISO-IR-165
+#	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< ISO-IR-165
 #	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< KSC_5601 # redundant, see EUC-KR
 #	/* CJK encodings */
 	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< EUC-JP
