@@ -144,74 +144,74 @@ test_$(d): $(d) $(addprefix $(d), $(TESTS_$(d)))
 #	/* CJK encodings */
 	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< EUC-JP
 	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< SHIFT_JIS
-	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< CP932
+#	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< CP932
 	$(TOP)/$<check-stateful $(TOP) $(TOP)/$< ISO-2022-JP
 	$(TOP)/$<check-stateful $(TOP) $(TOP)/$< ISO-2022-JP-2
 	$(TOP)/$<check-stateful $(TOP) $(TOP)/$< ISO-2022-JP-1
 	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< EUC-CN
 	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< GBK
-	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< CP936
-	{ cat $(TOP)/$<GB18030-BMP.TXT ; $(TOP)/$<gengb18030z ; } | sort > $(TOP)/$<GB18030.TXT && $(TOP)/$<check-stateless $(TOP) $(TOP)/$< GB18030
+#	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< CP936
+#	{ cat $(TOP)/$<GB18030-BMP.TXT ; $(TOP)/$<gengb18030z ; } | sort > $(TOP)/$<GB18030.TXT && $(TOP)/$<check-stateless $(TOP) $(TOP)/$< GB18030
 	$(TOP)/$<check-stateful $(TOP) $(TOP)/$< ISO-2022-CN
 	$(TOP)/$<check-stateful $(TOP) $(TOP)/$< ISO-2022-CN-EXT
-	$(TOP)/$<check-stateful $(TOP) $(TOP)/$< HZ
-	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< EUC-TW
+#	$(TOP)/$<check-stateful $(TOP) $(TOP)/$< HZ
+#	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< EUC-TW
 	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< BIG5
-	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< CP950
-	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< BIG5-HKSCS:1999
-	$(TOP)/$<check-stateful $(TOP) $(TOP)/$< BIG5-HKSCS:1999
-	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< BIG5-HKSCS:2001
-	$(TOP)/$<check-stateful $(TOP) $(TOP)/$< BIG5-HKSCS:2001
-	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< BIG5-HKSCS:2004
-	$(TOP)/$<check-stateful $(TOP) $(TOP)/$< BIG5-HKSCS:2004
+#	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< CP950
+#	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< BIG5-HKSCS:1999
+#	$(TOP)/$<check-stateful $(TOP) $(TOP)/$< BIG5-HKSCS:1999
+#	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< BIG5-HKSCS:2001
+#	$(TOP)/$<check-stateful $(TOP) $(TOP)/$< BIG5-HKSCS:2001
+#	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< BIG5-HKSCS:2004
+#	$(TOP)/$<check-stateful $(TOP) $(TOP)/$< BIG5-HKSCS:2004
 	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< EUC-KR
-	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< CP949
+#	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< CP949
 	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< JOHAB
 	$(TOP)/$<check-stateful $(TOP) $(TOP)/$< ISO-2022-KR
 #	/* transliteration */
-	$(TOP)/$<check-translit $(TOP)/$< Quotes UTF-8 ISO-8859-1
-	$(TOP)/$<check-translit $(TOP)/$< Quotes UTF-8 ASCII
-	$(TOP)/$<check-translit $(TOP)/$< Translit1 ISO-8859-1 ASCII
-	$(TOP)/$<check-translitfailure $(TOP)/$< TranslitFail1 ISO-8859-1 ASCII
+#	$(TOP)/$<check-translit $(TOP)/$< Quotes UTF-8 ISO-8859-1
+#	$(TOP)/$<check-translit $(TOP)/$< Quotes UTF-8 ASCII
+#	$(TOP)/$<check-translit $(TOP)/$< Translit1 ISO-8859-1 ASCII
+#	$(TOP)/$<check-translitfailure $(TOP)/$< TranslitFail1 ISO-8859-1 ASCII
 #	/* substitution */
-	$(TOP)/$<check-subst
+#	$(TOP)/$<check-subst
 #	/* system dependent and extra encodings */
 #	/* AIX specific encodings */
-	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< CP856
-	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< CP922
+#	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< CP856
+#	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< CP922
 #	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< CP943
-	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< CP1046
-	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< CP1124
-	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< CP1129
-	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< CP1161
-	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< CP1162
-	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< CP1163
+#	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< CP1046
+#	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< CP1124
+#	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< CP1129
+#	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< CP1161
+#	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< CP1162
+#	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< CP1163
 #	/* OSF/1 specific encodings */
-	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< DEC-KANJI
-	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< DEC-HANYU
+#	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< DEC-KANJI
+#	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< DEC-HANYU
 #	/* DOS specific encodings */
-	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< CP437
-	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< CP737
-	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< CP775
-	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< CP852
-	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< CP853
-	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< CP855
-	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< CP857
-	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< CP858
-	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< CP860
-	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< CP861
-	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< CP863
-	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< CP864
-	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< CP865
-	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< CP869
-	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< CP1125
+#	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< CP437
+#	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< CP737
+#	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< CP775
+#	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< CP852
+#	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< CP853
+#	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< CP855
+#	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< CP857
+#	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< CP858
+#	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< CP860
+#	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< CP861
+#	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< CP863
+#	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< CP864
+#	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< CP865
+#	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< CP869
+#	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< CP1125
 #	/* Extra encodings */
-	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< EUC-JISX0213
-	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< SHIFT_JISX0213
-	$(TOP)/$<check-stateful $(TOP) $(TOP)/$< ISO-2022-JP-3
-	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< BIG5-2003
-	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< TDS565
-	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< ATARIST
+#	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< EUC-JISX0213
+#	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< SHIFT_JISX0213
+#	$(TOP)/$<check-stateful $(TOP) $(TOP)/$< ISO-2022-JP-3
+#	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< BIG5-2003
+#	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< TDS565
+#	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< ATARIST
 	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< RISCOS-LATIN1
 
 DEP_$(d) :=
@@ -231,7 +231,7 @@ define compile_test
 ifeq ($(HOST),riscos)
 $(2): $(1)
 else
-$(2): $$(TOP)/$$(COMPONENT)-debug.a $(1)
+$(2): $$(TOP)/$$(COMPONENT)-debug.a module $(1)
 endif
 	@$$(ECHO) $$(ECHOFLAGS) "==> $(1)"
 	@$$(CC) -c -g $$(DEBUGCFLAGS) -o $$@.o $(1)
