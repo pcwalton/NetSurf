@@ -101,7 +101,7 @@ int main (int argc, char* argv[])
       if (result != (size_t)(-1))
         result2 = iconv(cd,NULL,NULL,&outbuf,&outbytesleft);
       if (result == (size_t)(-1) || result2 == (size_t)(-1)) {
-        if (errno != EILSEQ) {
+        if (errno != EILSEQ && !(errno == EINVAL && in == 0xfeff)) {
           int saved_errno = errno;
           fprintf(stderr,"0x%02X: iconv error: ",i);
           errno = saved_errno;
