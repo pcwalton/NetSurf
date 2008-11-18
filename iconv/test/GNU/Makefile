@@ -149,7 +149,7 @@ test_$(d): $(d) $(addprefix $(d), $(TESTS_$(d)))
 	$(TOP)/$<check-stateful $(TOP) $(TOP)/$< ISO-2022-JP-2
 	$(TOP)/$<check-stateful $(TOP) $(TOP)/$< ISO-2022-JP-1
 	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< EUC-CN
-	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< GBK
+#	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< GBK
 #	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< CP936
 #	{ cat $(TOP)/$<GB18030-BMP.TXT ; $(TOP)/$<gengb18030z ; } | sort > $(TOP)/$<GB18030.TXT && $(TOP)/$<check-stateless $(TOP) $(TOP)/$< GB18030
 	$(TOP)/$<check-stateful $(TOP) $(TOP)/$< ISO-2022-CN
