@@ -201,7 +201,7 @@ _kernel_oserror *do_iconv(int argc, const char *args)
 {
 	char from[64] = "", to[64] = "";
 	char *f, *t;
-	bool list = false;
+	bool list = false, verbose = false;
 	char out[4096] = "";
 	char *o;
 	const char *p = args;
@@ -273,9 +273,13 @@ _kernel_oserror *do_iconv(int argc, const char *args)
 				p++;
 			argc--;
 			break;
+		case 'v':
+			verbose = true;
+			p += 2;
+			argc--;
+			break;
 		case 'c':
 		case 's':
-		case 'v':
 		default:
 			snprintf(ErrorGeneric.errmess, 
 				sizeof(ErrorGeneric.errmess),
@@ -358,7 +362,11 @@ _kernel_oserror *do_iconv(int argc, const char *args)
 		fclose(inf);
 
 		/* Convert text */
-		iconv(cd, &in, &inlen, &out, &outlen);
+		size_t read = iconv(cd, &in, &inlen, &out, &outlen);
+		if (verbose && read == (size_t) -1) {
+			fprintf(stderr, "Conversion failed: %s\n",
+					strerror(errno));
+		}
 
 		fwrite(output, 1, input_length * 4 - outlen, ofp);
 

@@ -10,10 +10,6 @@
 
 #include <unicode/charsets.h>
 #include <unicode/encoding.h>
-/* Hacktastic */
-#define DEBUG 0
-#include <unicode/encpriv.h>
-#undef DEBUG
 
 #include <iconv/iconv.h>
 
@@ -244,34 +240,6 @@ iconv_t iconv_open(const char *tocode, const char *fromcode)
 		return (iconv_t)(-1);
 	}
 
-	if (e->in) {
-		e->in_save = calloc(1, sizeof(EncodingPriv) + 
-				((EncodingPriv *) e->in)->ws_size);
-		if (!e->in_save) {
-			if (e->out)
-				encoding_delete(e->out);
-			encoding_delete(e->in);
-			iconv_eightbit_delete(e);
-			free(e);
-			errno = ENOMEM;
-			return (iconv_t)(-1);
-		}
-	}
-
-	if (e->out) {
-		e->out_save = calloc(1, sizeof(EncodingPriv) + 
-				((EncodingPriv *) e->out)->ws_size);
-		if (!e->out_save) {
-			encoding_delete(e->out);
-			if (e->in)
-				encoding_delete(e->in);
-			iconv_eightbit_delete(e);
-			free(e);
-			errno = ENOMEM;
-			return (iconv_t)(-1);
-		}
-	}
-
 	/* add to list */
 	e->prev = 0;
 	e->next = context_list;
@@ -286,10 +254,7 @@ size_t iconv(iconv_t cd, char **inbuf, size_t *inbytesleft, char **outbuf,
 		size_t *outbytesleft)
 {
 	struct encoding_context *e;
-	unsigned int read, read2;
-	char *orig_outbuf;
-	size_t orig_outbytesleft;
-	int write_state;
+	unsigned int read;
 
 	/* search for cd in list */
 	for (e = context_list; e; e = e->next)
@@ -347,117 +312,59 @@ size_t iconv(iconv_t cd, char **inbuf, size_t *inbytesleft, char **outbuf,
 		return (size_t)(-1);
 	}
 
-	/* This is plain ugly. To be able to detect when each type of 
-	 * conversion error has occurred and maintain the correct pointer
-	 * into the input on error, we have to attempt to perform the
-	 * conversion then try it again and play spot the difference in
-	 * return values. As some encodings are stateful, we also need to
-	 * be able to preserve the current state of encoding contexts. This
-	 * requires knowledge of UnicodeLib's internal data structures. To
-	 * save pain later, I'm assuming that UnicodeLib's encpriv.h is
-	 * available at compile time. The cleaner approach of adding API to 
-	 * UnicodeLib seems pointless, as I can envisage no other use case 
-	 * than API munging for wanting to save/restore the state of codec 
-	 * instances.
-	 */
-
-	orig_outbuf = *outbuf;
-	orig_outbytesleft = *outbytesleft;
-
 	e->outbuf = outbuf;
 	e->outbytesleft = outbytesleft;
 
-	/* Try to convert all the input */
-	e->req_chars = INT_MAX;
-	e->chars_processed = 0;
-	e->write_state = WRITE_SUCCESS;
-
-	/* Save codec states */
-	if (e->in) {
-		memcpy(e->in_save, e->in, sizeof(EncodingPriv) + 
-				((EncodingPriv *) e->in)->ws_size);
-	}
-	if (e->out) {
-		memcpy(e->out_save, e->out, sizeof(EncodingPriv) +
-				((EncodingPriv *) e->out)->ws_size);
-	}
-
 	LOG(("reading"));
 
-	if (e->in)
-		read = encoding_read(e->in, character_callback, *inbuf,
-				*inbytesleft, e);
-	else
-		read = iconv_eightbit_read(e, character_callback, *inbuf,
-				*inbytesleft, e);
+	/* Perform the conversion.
+	 *
+	 * To ensure that we detect the correct error conditions
+	 * and point to the _start_ of erroneous input on error, we
+	 * have to convert each character independently. Then we
+	 * inspect for errors and only continue if there were none.
+	 */
+	while (*inbytesleft > 0) {
+		/* Clear current write state */
+		e->write_state = WRITE_NONE;
 
-	/* Record write state of first attempt (determines most errors) */
-	write_state = e->write_state;
+		if (e->in)
+			read = encoding_read(e->in, character_callback, *inbuf,
+					*inbytesleft, e);
+		else
+			read = iconv_eightbit_read(e, character_callback, 
+					*inbuf, *inbytesleft, e);
 
-	/* Reset the output buffer pointer/length */
-	*outbuf = orig_outbuf;
-	*outbytesleft = orig_outbytesleft;
+		/* Stop on error */
+		if (e->write_state != WRITE_SUCCESS)
+			break;
 
-	/* Shortcut failure to process first character of input */
-	if (e->chars_processed == 0) {
-		errno = write_state == WRITE_SUCCESS 
-			? EINVAL 
-			: write_state == WRITE_FAILED ? EILSEQ : E2BIG;
-		return (size_t) -1;
+		/* Advance input */
+		*inbuf += read;
+		*inbytesleft -= read;
 	}
-
-	/* Now require the number of chars processed */
-	e->req_chars = e->chars_processed;
-	e->chars_processed = 0;
-	e->write_state = WRITE_SUCCESS;
-
-	/* Restore codec states */
-	if (e->in) {
-		memcpy(e->in, e->in_save, sizeof(EncodingPriv) + 
-				((EncodingPriv *) e->in)->ws_size);
-	}
-	if (e->out) {
-		memcpy(e->out, e->out_save, sizeof(EncodingPriv) +
-				((EncodingPriv *) e->out)->ws_size);
-	}
-
-	/* And try again */
-	if (e->in)
-		read2 = encoding_read(e->in, character_callback, *inbuf,
-				*inbytesleft, e);
-	else
-		read2 = iconv_eightbit_read(e, character_callback, *inbuf,
-				*inbytesleft, e);
 
 	LOG(("done"));
 
 	LOG(("read: %d, ibl: %zd, obl: %zd", 
-			read2, *inbytesleft, *outbytesleft));
+			read, *inbytesleft, *outbytesleft));
 
-	/* 2 or 3 */
-	if (write_state == WRITE_SUCCESS) {
-		*inbuf += read2;
-		*inbytesleft -= read2;
-
-		if (*inbytesleft > 0) {
-			errno = EINVAL;
-		} else {
-			return 0;
-		}
-	}
-	/* 4 */
-	else if (write_state == WRITE_NOMEM) {
-		LOG(("e2big"));
-		*inbuf += read2;
-		*inbytesleft -= read2;
+	/* Determine correct return value/error code */
+	switch (e->write_state) {
+	case WRITE_SUCCESS: /* 2 */
+		/** \todo We really should calculate the correct number of 
+		 * irreversible conversions that have been performed. For now, 
+		 * assume everything's reversible. */
+		return 0;
+	case WRITE_NONE:    /* 3 */
+		errno = EINVAL;
+		break;
+	case WRITE_NOMEM:   /* 4 */
 		errno = E2BIG;
-	}
-	/* 1 */
-	else if (write_state == WRITE_FAILED) {
-		*inbuf += read2;
-		*inbytesleft -= read2;
-		LOG(("eilseq"));
+		break;
+	case WRITE_FAILED:  /* 1 */
 		errno = EILSEQ;
+		break;
 	}
 
 	LOG(("errno: %d", errno));
@@ -478,14 +385,10 @@ int iconv_close(iconv_t cd)
 	if (!e)
 		return 0;
 
-	if (e->in) {
+	if (e->in)
 		encoding_delete(e->in);
-		free(e->in_save);
-	}
-	if (e->out) {
+	if (e->out)
 		encoding_delete(e->out);
-		free(e->out_save);
-	}
 	iconv_eightbit_delete(e);
 
 	/* remove from list */
@@ -581,27 +484,19 @@ int character_callback(void *handle, UCS4 c)
 					--*e->outbytesleft;
 
 					e->write_state = WRITE_SUCCESS;
-
-					ret = 1;
 				} else {
 					e->write_state = WRITE_NOMEM;
-					ret = 0;
 				}
 			} else {
 				e->write_state = WRITE_NOMEM;
-				ret = 0;
 			}
 		} else {
 			e->write_state = WRITE_FAILED;
-			ret = 0;
 		}
 	}
 
-	if (e->write_state == WRITE_SUCCESS &&
-			++e->chars_processed == e->req_chars)
-		ret = 0;
-
-	return (!ret);
+	/* Always stop after processing each character */
+	return 1;
 }
 
 void parse_parameters(struct encoding_context *e, const char *params,
