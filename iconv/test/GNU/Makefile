@@ -212,7 +212,7 @@ test_$(d): $(d) $(addprefix $(d), $(TESTS_$(d)))
 #	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< BIG5-2003
 #	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< TDS565
 #	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< ATARIST
-	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< RISCOS-LATIN1
+	$(TOP)/$<check-stateless $(TOP) $(TOP)/$< X-ACORN-LATIN1
 
 DEP_$(d) :=
 
