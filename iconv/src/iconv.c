@@ -418,7 +418,7 @@ int character_callback(void *handle, UCS4 c)
 	/* Stop on invalid characters if we're not transliterating */
 	/** \todo is this sane? -- we can't distinguish between illegal input 
 	 * or valid input which just happens to correspond with U+fffd. */
-	if (c == 0xFFFD && !e->transliterate) {
+	if ((c == 0xFFFD || c == 0xFFFF) && !e->transliterate) {
 		e->write_state = WRITE_FAILED;
 		return 1;
 	}
