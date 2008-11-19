@@ -14,7 +14,7 @@
 #define Module_VersionString	"0.09"
 #define Module_VersionNumber	9
 #ifndef Module_Date
-#define Module_Date		"19 Nov 2008"
+#define Module_Date		"20 Nov 2008"
 #endif
 
 #ifdef __cplusplus
