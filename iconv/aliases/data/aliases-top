@@ -1,0 +1,10 @@
+# > Unicode:Files.Aliases
+# Mapping of character set encoding names to their canonical form
+#
+# Lines starting with a '#' are comments, blank lines are ignored.
+#
+# Based on http://www.iana.org/assignments/character-sets and
+# http://www.iana.org/assignments/ianacharset-mib
+#
+# Canonical Form	MIBenum		Aliases...
+#
