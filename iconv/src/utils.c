@@ -46,7 +46,7 @@ int strncasecmp(const char *s1, const char *s2, size_t len)
 	if (s1 == s2)
 		return 0;
 
-	while (len-- && (i = tolower(*s1)) && i == tolower(*s2))
+	while (--len && (i = tolower(*s1)) && i == tolower(*s2))
 		s1++, s2++;
 
 	return ((unsigned char) tolower(*s1) - (unsigned char) tolower(*s2));
