@@ -64,8 +64,8 @@ Iconv Changelog
   - Remove StubsG build as A9home now has a C99 capable C library.
   - Overhaul documentation.
 
-0.09 XX-XX-2008
----------------
+0.09 20-Nov-2008
+----------------
 
   - Restructured source tree into cross-platform and RO-specific parts.
   - New build system to go with this.
