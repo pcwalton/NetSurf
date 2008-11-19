@@ -409,7 +409,7 @@ int errno_to_iconv_error(int num)
 
 const char *get_aliases_path(void)
 {
-	char *ucpath;
+	const char *ucpath;
 	int alen;
 	static char aliases[4096];
 
@@ -421,7 +421,7 @@ const char *get_aliases_path(void)
 
 	/* Get !Unicode resource path */
 #ifdef __riscos__
-	ucpath = getenv("Unicode$Path");
+	ucpath = "Unicode:";
 #else
 	ucpath = getenv("UNICODE_DIR");
 #endif

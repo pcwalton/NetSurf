@@ -104,7 +104,7 @@ int main (int argc, char* argv[])
   const char* charset;
   iconv_t cd;
   int search_depth;
-  char *ucpath;
+  const char *ucpath;
   int alen;
   char aliases[4096];
 
@@ -116,7 +116,7 @@ int main (int argc, char* argv[])
 
   /* ensure the !Unicode resource exists */
 #ifdef __riscos__
-  ucpath = getenv("Unicode$Path");
+  ucpath = "Unicode:");
 #else
   ucpath = getenv("UNICODE_DIR");
 #endif

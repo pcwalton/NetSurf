@@ -301,13 +301,13 @@ void iconv_eightbit_delete(struct encoding_context *e)
 
 const char *get_table_path(const char *table)
 {
-	char *ucpath;
+	const char *ucpath;
 	int plen;
 	static char path[4096];
 
 	/* Get !Unicode resource path */
 #ifdef __riscos__
-	ucpath = getenv("Unicode$Path");
+	ucpath = "Unicode:";
 #else
 	ucpath = getenv("UNICODE_DIR");
 #endif
