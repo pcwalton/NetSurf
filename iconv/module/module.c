@@ -289,7 +289,9 @@ _kernel_oserror *do_iconv(int argc, const char *args)
 	}
 
 	if (list) {
-		/** \todo dump aliases */
+		printf("Here's a list of all the encoding names that Iconv "
+		       "knows about:.\n\n");
+		dump_alias_data();
 		return NULL;
 	}
 

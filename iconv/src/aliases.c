@@ -23,8 +23,6 @@ static struct canon *create_canon(const char *canon, short mibenum);
 static int hash_val(const char *alias);
 
 #ifdef TEST
-static void dump_alias_data(void);
-
 int main (void)
 {
 	struct canon *c;
@@ -165,7 +163,6 @@ void free_alias_data(void)
 	}
 }
 
-#ifdef TEST
 /**
  * Dump all alias data to stdout
  */
@@ -178,22 +175,23 @@ void dump_alias_data(void)
 
 	for (i = 0; i != HASH_SIZE; i++) {
 		for (c = canon_tab[i]; c; c = c->next) {
-			printf("%d %s\n", i, c->name);
+			printf("%s\n", c->name);
 			size += offsetof(struct canon, name) + c->name_len;
 		}
 
 		for (a = alias_tab[i]; a; a = a->next) {
-			printf("%d %s\n", i, a->name);
+			printf("%s\n", a->name);
 			size += offsetof(struct alias, name) + a->name_len;
 		}
 	}
 
+#ifdef TEST
 	size += (sizeof(canon_tab) / sizeof(canon_tab[0]));
 	size += (sizeof(alias_tab) / sizeof(alias_tab[0]));
 
 	printf("%d\n", size);
-}
 #endif
+}
 
 /**
  * Create alias data from Aliases file

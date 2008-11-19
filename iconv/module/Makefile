@@ -78,7 +78,7 @@ endef
 
 # Build rules for each module object
 define compile_module
-$(2): $(1)
+$(2): aliases $(1)
 	@$$(ECHO) $$(ECHOFLAGS) "==> $(1)"
 	@$$(CC) -c $$(RELEASECFLAGS) -o $$@ $(1)
 

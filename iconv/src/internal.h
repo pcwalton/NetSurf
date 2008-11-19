@@ -56,6 +56,7 @@ struct canon {
 /* in aliases.c */
 int create_alias_data(const char *filename);
 void free_alias_data(void);
+void dump_alias_data(void);
 struct canon *alias_canonicalise(const char *alias);
 short mibenum_from_name(const char *alias);
 const char *mibenum_to_name(short mibenum);
