@@ -61,6 +61,8 @@ ITEMS_DISTCLEAN := $(ITEMS_DISTCLEAN) iconv.zip iconv-pkg.zip
 
 riscos-dist: module aliases
 	@svn export riscos riscos-dist
+	@$(CP) $(CPFLAGS) riscos/!Boot/Resources/!Unicode/Files/Aliases \
+			riscos-dist/!Boot/Resources/!Unicode/Files/
 	@$(CP) $(CPFLAGS) Iconv,ffa riscos-dist/!System/310/Modules/
 	@svn export doc riscos-dist/doc
 	@$(RM) $(RMFLAGS) -r riscos-dist/doc/Standards
