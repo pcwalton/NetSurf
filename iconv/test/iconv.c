@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-#include <iconv/iconv.h>
+#include <iconv-internal/iconv.h>
 
 #include "testutils.h"
 

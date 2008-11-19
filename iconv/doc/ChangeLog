@@ -71,3 +71,4 @@ Iconv Changelog
   - New build system to go with this.
   - Fixes for compiling with GCC4.
   - Introduce *Iconv command which performs command line conversion.
+  - Many, many bugfixes.

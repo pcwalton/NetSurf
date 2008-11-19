@@ -80,7 +80,7 @@ clean:
 	-@$(RM) $(RMFLAGS) $(COMPONENT).pc
 
 distclean: clean
-	-@$(RM) $(RMFLAGS) $(ITEMS_DISTCLEAN)
+	-@$(RM) $(RMFLAGS) -r $(ITEMS_DISTCLEAN)
 	-@$(RM) $(RMFLAGS) -r $(TOP)/dist
 
 setup:

@@ -6,7 +6,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include <iconv/iconv.h>
+#include <iconv-internal/iconv.h>
 
 #include "errors.h"
 #include "header.h"

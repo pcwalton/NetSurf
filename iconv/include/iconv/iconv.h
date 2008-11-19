@@ -23,16 +23,6 @@
 typedef void *iconv_t;
 
 /*
- * Initialise the iconv library
- */
-int iconv_initialise(const char *aliases_file);
-
-/*
- * Finalise the iconv library
- */
-void iconv_finalise(void);
-
-/*
  * Allocate a conversion descriptor suitable for converting byte sequences
  * from encoding from code to encoding tocode.
  * The resulting conversion descriptor may be used any number of times and

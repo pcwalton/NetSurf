@@ -24,7 +24,7 @@
 #include <string.h>
 #include <errno.h>
 
-#include <iconv/iconv.h>
+#include <iconv-internal/iconv.h>
 
 #ifdef __riscos__
 #define ALIASES_FILE "Files.Aliases"

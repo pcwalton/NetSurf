@@ -11,7 +11,7 @@
 #include <unicode/charsets.h>
 #include <unicode/encoding.h>
 
-#include <iconv/iconv.h>
+#include <iconv-internal/iconv.h>
 
 #include "internal.h"
 

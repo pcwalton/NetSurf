@@ -14,19 +14,17 @@ Use the Boot merge facility in Configure to merge the provided !Boot directory
 with the one on your system. If there is no !Boot merge facility provided on
 your system, simply drag the !Boot directory over your existing boot structure.
 
-Module source can be found in the "src" directory.
 Further documentation can be found in the "doc" directory.
 
 Note for developers:
 ~~~~~~~~~~~~~~~~~~~~
-The libiconv stubs provided are suitable for use with the SCL.
-UnixLib users should be aware that an interface for this module is provided by 
-UnixLib itself.
+The "stubs" directory contains source for a set of C stubs. 
+See the ReadMe file in that directory for further information.
 
 Licence
 =======
 
-Iconv is Copyright © 2004-7 J-M Bell
+Iconv is Copyright © 2004-8 J-M Bell
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

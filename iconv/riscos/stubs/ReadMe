@@ -1,0 +1,11 @@
+Iconv module stubs
+==================
+
+This directory contains the source code required to build suitable stubs
+for interfacing with the Iconv module from C. The stubs provide the standard
+iconv_open, iconv, and iconv_close API entry points.
+
+UnixLib users should use the veneers provided by that library. These stubs are
+provided for the convenience of those using the Shared C Library, or other
+runtime.
+

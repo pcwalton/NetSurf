@@ -11,10 +11,10 @@
 
 #define Module_Title		"Iconv"
 #define Module_Help		"Iconv"
-#define Module_VersionString	"0.08"
-#define Module_VersionNumber	8
+#define Module_VersionString	"0.09"
+#define Module_VersionNumber	9
 #ifndef Module_Date
-#define Module_Date		"11 Nov 2008"
+#define Module_Date		"19 Nov 2008"
 #endif
 
 #ifdef __cplusplus

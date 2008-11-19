@@ -52,3 +52,15 @@ PREFIX ?= $(GCCSDK_INSTALL_ENV)
 TARGET := riscos
 
 include build/Makefile.common
+
+# And the RISC OS distribution targets
+
+ITEMS_DISTCLEAN := $(ITEMS_DISTCLEAN) riscos-dist
+
+riscos-dist: module
+	@svn export riscos riscos-dist
+	@$(CP) $(CPFLAGS) Iconv,ffa riscos-dist/!System/310/Modules/
+	@svn export doc riscos-dist/doc
+	@$(RM) $(RMFLAGS) -r riscos-dist/doc/Standards
+	@$(CP) $(CPFLAGS) include/iconv/iconv.h riscos-dist/stubs/
+
