@@ -71,4 +71,21 @@ Iconv Changelog
   - New build system to go with this.
   - Fixes for compiling with GCC4.
   - Introduce *Iconv command which performs command line conversion.
-  - Many, many bugfixes.
+  - Fixes/improvements to the handlers for:
+      + US-ASCII
+      + UTF-8
+      + ISO-8859-7
+      + ISO-8859-8
+      + ISO-8859-11
+      + Windows-1256
+      + MacRoman
+      + JIS X 0208
+      + JIS X 0212
+      + KS X 1001
+      + EUC-JP
+      + Any ISO-2022 based charset that uses a 94x94 table in GR
+      + Johab
+      + ShiftJIS
+  - Add support for ISO-8859-16 (Latin 10)
+  - Significantly improve detection and reporting of error conditions
+
