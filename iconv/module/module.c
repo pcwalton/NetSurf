@@ -201,7 +201,7 @@ _kernel_oserror *do_iconv(int argc, const char *args)
 {
 	char from[64] = "", to[64] = "";
 	char *f, *t;
-	bool list = false, verbose = false;
+	bool list = false, verbose = false, stop_on_invalid = true;
 	char out[4096] = "";
 	char *o;
 	const char *p = args;
@@ -279,6 +279,10 @@ _kernel_oserror *do_iconv(int argc, const char *args)
 			argc--;
 			break;
 		case 'c':
+			stop_on_invalid = false;
+			p += 2;
+			argc--;
+			break;
 		case 's':
 		default:
 			snprintf(ErrorGeneric.errmess, 
@@ -349,39 +353,71 @@ _kernel_oserror *do_iconv(int argc, const char *args)
 		size_t input_length = ftell(inf);
 		fseek(inf, 0, SEEK_SET);
 
-		/** \todo This really wants to be a fixed size buffer.
-		 * Relying on being able to allocate huge amounts of space
-		 * is silly (particularly in SVC mode). */
-		char input[input_length];
-		char output[input_length * 4];
-		char *in = input;
-		char *out = output;
-		size_t inlen = input_length;
-		size_t outlen = input_length * 4;
+		/* Perform conversion, using fixed size buffers. */
+		char input[1024];
+		char output[4096];
+		size_t leftover = 0;
 
-		fread(input, 1, input_length, inf);
+#ifndef min
+#define min(x,y) (x) < (y) ? (x) : (y)
+#endif
 
-		fclose(inf);
+		while (input_length > 0) {
+			char *in = input;
+			char *out = output;
+			size_t inbytes = min(sizeof(input), 
+					input_length + leftover);
+			size_t inlen = inbytes;
+			size_t outlen = sizeof(output);
 
-		/* Convert text */
-		size_t read = iconv(cd, &in, &inlen, &out, &outlen);
-		if (verbose && read == (size_t) -1) {
-			fprintf(stderr, "Conversion failed: %s\n",
-					strerror(errno));
+			/* Fill input buffer */
+			fread(input + leftover, 1, inlen - leftover, inf);
+
+			/* Convert text */
+			size_t read = iconv(cd, &in, &inlen, &out, &outlen);
+			if (read == (size_t) -1) {
+				switch (errno) {
+				case EILSEQ:
+					if (verbose) {
+						fprintf(stderr, 
+							"Illegal multibyte "
+							"character sequence: "
+							"'%10s'\n", in);
+					}
+					if (stop_on_invalid) {
+						iconv_close(cd);
+						fclose(ofp);
+						fclose(inf);
+						return NULL;
+					}
+					break;
+				default:
+					break;
+				}
+			}
+
+			/* Write output buffer */
+			fwrite(output, 1, sizeof(output) - outlen, ofp);
+
+			/* Save leftover for next time */
+			leftover = inlen;
+			memmove(input, in, leftover);
+
+			input_length -= (inbytes - leftover);
 		}
 
-		fwrite(output, 1, input_length * 4 - outlen, ofp);
-
 		/* Flush through any remaining shift sequences */
-		out = output;
-		outlen = input_length * 4;
+		char *out = output;
+		size_t outlen = sizeof(output);
 
 		iconv(cd, NULL, NULL, &out, &outlen);
 
-		fwrite(output, 1, input_length * 4 - outlen, ofp);
+		fwrite(output, 1, sizeof(output) - outlen, ofp);
 
-		/* Reset cd */
+		/* Reset cd ready for next file */
 		iconv(cd, NULL, NULL, NULL, NULL);
+
+		fclose(inf);
 	}
 
 	if (ofp != stdout)
