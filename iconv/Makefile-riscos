@@ -55,7 +55,7 @@ include build/Makefile.common
 
 # And the RISC OS distribution targets
 
-ITEMS_DISTCLEAN := $(ITEMS_DISTCLEAN) riscos-dist
+ITEMS_DISTCLEAN := $(ITEMS_DISTCLEAN) iconv.zip
 
 riscos-dist: module
 	@svn export riscos riscos-dist
@@ -63,4 +63,6 @@ riscos-dist: module
 	@svn export doc riscos-dist/doc
 	@$(RM) $(RMFLAGS) -r riscos-dist/doc/Standards
 	@$(CP) $(CPFLAGS) include/iconv/iconv.h riscos-dist/stubs/
+	@zip -9r iconv.zip riscos-dist/*
+	@$(RM) $(RMFLAGS) -r riscos-dist
 
