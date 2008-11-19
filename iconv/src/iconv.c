@@ -441,8 +441,12 @@ int character_callback(void *handle, UCS4 c)
 		 * documentation says that the buffer pointer AND free
 		 * space count are left unmodified if nothing is written.
 		 * Therefore, we have this hack until UnicodeLib gets fixed.
+		 *
+		 * We need to restore the space remaining in the output buffer
+		 * on memory exhaustion, too. Otherwise, it will be negative,
+		 * which will break the client.
 		 */
-		if (ret == -1) {
+		if (ret <= 0) {
 			*e->outbytesleft = prev_outbytesleft -
 					(*e->outbuf - prev_outbuf);
 		}
