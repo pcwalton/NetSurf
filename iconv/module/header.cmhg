@@ -1,7 +1,5 @@
 help-string: Iconv 0.09
 
-date-string: 20 Nov 2008
-
 title-string: Iconv
 
 initialisation-code: mod_init
