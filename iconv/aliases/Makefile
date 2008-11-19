@@ -38,7 +38,7 @@ SRCS_$(d) := makealiases.c
 
 DATA_$(d) := aliases-top character-sets aliases-bottom
 
-ALIASES := $(addprefix $(d), Aliases)
+ALIASES := $(TOP)/riscos/!Boot/Resources/!Unicode/Files/Aliases
 
 MAKEALIASES := $(addprefix $(d), makealiases)
 
@@ -55,7 +55,7 @@ aliases: $(MAKEALIASES) $(addprefix $(d)data/, $(DATA_$(d)))
 
 # Target for building makealiases binary
 $(MAKEALIASES): $(addprefix $(d), $(SRCS_$(d)))
-	@$(CC) $(CCFLAGS) -o $@ $^
+	@$(HOST_CC) $(HOST_CCFLAGS) -o $@ $^
 
 # Now include any children we may have
 MAKE_INCLUDES := $(wildcard $(d)*/Makefile)

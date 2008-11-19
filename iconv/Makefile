@@ -1,4 +1,6 @@
 # Toolchain definitions for building on the destination platform
+HOST_CC := gcc
+
 CC := gcc
 AR := ar
 LD := gcc

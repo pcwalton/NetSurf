@@ -1,6 +1,8 @@
 # Toolchain definitions for building on RISC OS
 GCCSDK_INSTALL_ENV ?= <NSLibs$$Dir>
 
+HOST_CC := gcc
+
 CC := gcc
 AR := ar
 LD := gcc

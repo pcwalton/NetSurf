@@ -2,6 +2,8 @@
 GCCSDK_INSTALL_CROSSBIN ?= /home/riscos/cross/bin
 GCCSDK_INSTALL_ENV ?= /home/riscos/env
 
+HOST_CC := gcc
+
 CC := $(wildcard $(GCCSDK_INSTALL_CROSSBIN)/*gcc)
 AR := $(wildcard $(GCCSDK_INSTALL_CROSSBIN)/*ar)
 LD := $(CC)
@@ -57,7 +59,7 @@ include build/Makefile.common
 
 ITEMS_DISTCLEAN := $(ITEMS_DISTCLEAN) iconv.zip iconv-pkg.zip
 
-riscos-dist: module
+riscos-dist: module aliases
 	@svn export riscos riscos-dist
 	@$(CP) $(CPFLAGS) Iconv,ffa riscos-dist/!System/310/Modules/
 	@svn export doc riscos-dist/doc

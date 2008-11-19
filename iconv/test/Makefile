@@ -75,7 +75,7 @@ define compile_test
 ifeq ($(HOST),riscos)
 $(2): $(1)
 else
-$(2): $$(TOP)/$$(COMPONENT)-debug.a $(1)
+$(2): $$(TOP)/$$(COMPONENT)-debug.a aliases $(1)
 endif
 	@$$(ECHO) $$(ECHOFLAGS) "==> $(1)"
 	@$$(CC) -c -g $$(DEBUGCFLAGS) -o $$@.o $(1)
