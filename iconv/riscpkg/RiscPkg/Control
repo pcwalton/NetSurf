@@ -1,0 +1,10 @@
+Package: Iconv
+Priority: Optional
+Section: Module
+Maintainer: John-Mark Bell <jmb@netsurf-browser.org>
+Version: 0.0.9
+Licence: Free
+Standards-Version: 0.1.0
+Description: Character set conversion resource
+ Iconv allows conversion of textual data from one character set to
+ another. 
