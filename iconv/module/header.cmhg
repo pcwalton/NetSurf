@@ -15,7 +15,7 @@ swi-decoding-table: Iconv, Open, Iconv, Close, Convert, CreateMenu, DecodeMenu
 command-keyword-table: command_handler
 	Iconv(min-args: 0, max-args: 255,
 			invalid-syntax: "Syntax: *Iconv [OPTION...] [FILE...]",
-			help-text: "*Iconv converts the given files from one encoding to another.\n\n Input/Output format specification:\n  -f <encoding> encoding of original text\n  -t <encoding> encoding for output\n\n Information:\n  -l list all known coded character sets\n\n Output control:\n  -c omit invalid characters from output\n  -o <file> output file\n  -s suppress warnings\n  -v print progress information\n"),
+			help-text: "*Iconv converts the given files from one encoding to another.\n\n Input/Output format specification:\n  -f <encoding> encoding of original text\n  -t <encoding> encoding for output\n\n Information:\n  -l list all known coded character sets\n\n Output control:\n  -c omit invalid characters from output\n  -o <file> output file\n  -v print progress information\n"),
 	ReadAliases(min-args: 0, max-args: 0,
 			invalid-syntax: "Syntax: *ReadAliases",
 			help-text: "*ReadAliases rereads the encoding aliases file.\n")
