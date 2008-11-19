@@ -1,0 +1,40 @@
+Version $VERSION of the Iconv module is now available for download. This is a 
+recommended update for all users - new builds of NetSurf will require it.
+
+New in this version:
+
+  * a
+  * b
+  * c
+
+Fixed in this version:
+
+  * a
+  * b
+  * c
+
+Changed in this version:
+
+  * a
+  * b
+  * c
+
+About Iconv
+===========
+
+Iconv is a module providing character set conversion facilities for 
+third-party applications. It is currently used by a number of 
+applications, most notably NetSurf. UnixLib's iconv support also requires 
+this module.
+
+Updating from earlier versions
+==============================
+
+If updating from earlier versions, please perform _both_ a !Boot and 
+!System merge with the contents of the Iconv distribution archive as 
+documented in the Installation section of the ReadMe file.
+
+Where to get it
+===============
+
+Iconv may be downloaded from http://www.netsurf-browser.org/projects/iconv/
