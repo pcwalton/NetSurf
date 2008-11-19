@@ -371,10 +371,14 @@ _kernel_oserror *do_iconv(int argc, const char *args)
 			size_t outlen = sizeof(output);
 
 			/* Fill input buffer */
-			fread(input + leftover, 1, inlen - leftover, inf);
+			size_t read = fread(input + leftover, 1, 
+					inlen - leftover, inf);
+			/** \todo Do we want better error handling? */
+			if (read < inlen - leftover)
+				break;
 
 			/* Convert text */
-			size_t read = iconv(cd, &in, &inlen, &out, &outlen);
+			read = iconv(cd, &in, &inlen, &out, &outlen);
 			if (read == (size_t) -1) {
 				switch (errno) {
 				case EILSEQ:
@@ -389,6 +393,18 @@ _kernel_oserror *do_iconv(int argc, const char *args)
 						fclose(ofp);
 						fclose(inf);
 						return NULL;
+					}
+
+					/* Resynchronise after junk input */
+					while (inlen > 0) {
+						read = iconv(cd, &in, &inlen,
+								&out, &outlen);
+						if (read != (size_t) -1 ||
+								errno != EILSEQ)
+							break;
+
+						in++;
+						inlen--;
 					}
 					break;
 				default:
