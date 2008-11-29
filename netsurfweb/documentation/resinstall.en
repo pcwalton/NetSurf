@@ -84,7 +84,7 @@
 
 <p class="guidescreenshotfeature"><img src="images/resinstall/configure.png" title="Configure Window" alt=""></p>
 
-<p>After running Configure you will have a window which looks like the above. Note that the icons you see will vary depending on which version of RISC OS you run.</p>
+<p>After running Configure you will have a window which looks like the above. Note that the icons you see will vary depending on which version of RISC OS you have.</p>
 
 <h2 id="SystemMerge">Merging a !System directory</h2>
 
