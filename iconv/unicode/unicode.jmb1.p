@@ -4,8 +4,8 @@ RCS file: /home/rool/cvsroot/castle/RiscOS/Sources/Lib/Unicode/c/enc_utf8,v
 retrieving revision 1.9
 diff -u -r1.9 enc_utf8
 --- c/enc_utf8	10 Jun 2002 15:08:35 -0000	1.9
-+++ c/enc_utf8	29 Nov 2008 11:57:03 -0000
-@@ -81,22 +81,23 @@
++++ c/enc_utf8	29 Nov 2008 14:58:52 -0000
+@@ -81,22 +81,22 @@
              }
              else
              {
@@ -16,8 +16,8 @@ diff -u -r1.9 enc_utf8
                      if (ucs_out(handle, 0xFFFD))
                      {
 -                        /* Character has been used, so ensure its counted */
-+                        /* Character has been used, so ensure it's counted */
-                         count--;
+-                        count--;
++                        /* Do not consume the invalid continuation byte */
                          break;
                      }
  
@@ -33,7 +33,14 @@ diff -u -r1.9 enc_utf8
                  u = c;
              else if (c < 0xC0 || c >= 0xFE)
                  u = 0xFFFD;
-@@ -121,7 +122,7 @@
+@@ -118,10 +118,14 @@
+ 
+         ue->first = 0;
+ 
++	/* Disallow surrogates and FFFE/FFFF */
++	if ((0xD800 <= u && u <= 0xE000) || u == 0xFFFE || u == 0xFFFF)
++		u = 0xFFFD;
++
          if (ucs_out)
              if (ucs_out(handle, u))
              {
