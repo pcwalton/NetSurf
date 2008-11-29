@@ -4,8 +4,27 @@ RCS file: /home/rool/cvsroot/castle/RiscOS/Sources/Lib/Unicode/c/enc_utf8,v
 retrieving revision 1.9
 diff -u -r1.9 enc_utf8
 --- c/enc_utf8	10 Jun 2002 15:08:35 -0000	1.9
-+++ c/enc_utf8	19 Nov 2008 18:55:18 -0000
-@@ -96,7 +96,7 @@
++++ c/enc_utf8	29 Nov 2008 11:57:03 -0000
+@@ -81,22 +81,23 @@
+             }
+             else
+             {
++		/* Reset the count of expected continuation bytes */
++                ue->count = 0;
++
+                 if (ucs_out)
+                     if (ucs_out(handle, 0xFFFD))
+                     {
+-                        /* Character has been used, so ensure its counted */
++                        /* Character has been used, so ensure it's counted */
+                         count--;
+                         break;
+                     }
+ 
+-                ue->count = 0;
+-
+                 goto retry;
+             }
          }
          else
          {
@@ -14,13 +33,22 @@ diff -u -r1.9 enc_utf8
                  u = c;
              else if (c < 0xC0 || c >= 0xFE)
                  u = 0xFFFD;
+@@ -121,7 +122,7 @@
+         if (ucs_out)
+             if (ucs_out(handle, u))
+             {
+-                /* Character has been used, so ensure its counted */
++                /* Character has been used, so ensure it's counted */
+                 count--;
+                 break;
+             }
 Index: c/encoding
 ===================================================================
 RCS file: /home/rool/cvsroot/castle/RiscOS/Sources/Lib/Unicode/c/encoding,v
 retrieving revision 1.39
 diff -u -r1.39 encoding
 --- c/encoding	26 Aug 2005 15:02:17 -0000	1.39
-+++ c/encoding	19 Nov 2008 18:55:19 -0000
++++ c/encoding	29 Nov 2008 11:57:03 -0000
 @@ -67,20 +67,20 @@
  static EncList enclist[] =
  {
@@ -54,7 +82,7 @@ RCS file: /home/rool/cvsroot/castle/RiscOS/Sources/Lib/Unicode/c/iso2022,v
 retrieving revision 1.19
 diff -u -r1.19 iso2022
 --- c/iso2022	25 Aug 2005 11:57:08 -0000	1.19
-+++ c/iso2022	19 Nov 2008 18:55:19 -0000
++++ c/iso2022	29 Nov 2008 11:57:04 -0000
 @@ -32,6 +32,7 @@
  #include <stdio.h>
  #include <string.h>
@@ -231,7 +259,7 @@ RCS file: /home/rool/cvsroot/castle/RiscOS/Sources/Lib/Unicode/c/iso6937,v
 retrieving revision 1.1
 diff -u -r1.1 iso6937
 --- c/iso6937	25 Aug 2005 11:57:08 -0000	1.1
-+++ c/iso6937	19 Nov 2008 18:55:20 -0000
++++ c/iso6937	29 Nov 2008 11:57:04 -0000
 @@ -354,11 +354,13 @@
  
  static int iso6937_find_accent_pair(UCS4 u)
@@ -254,7 +282,7 @@ RCS file: /home/rool/cvsroot/castle/RiscOS/Sources/Lib/Unicode/c/johab,v
 retrieving revision 1.6
 diff -u -r1.6 johab
 --- c/johab	10 Jun 2002 15:08:35 -0000	1.6
-+++ c/johab	19 Nov 2008 18:55:20 -0000
++++ c/johab	29 Nov 2008 11:57:05 -0000
 @@ -116,10 +116,10 @@
              /* Hangul is --X */
              static const unsigned char final_only[28] =
@@ -318,7 +346,7 @@ RCS file: /home/rool/cvsroot/castle/RiscOS/Sources/Lib/Unicode/c/shiftjis,v
 retrieving revision 1.13
 diff -u -r1.13 shiftjis
 --- c/shiftjis	10 Jun 2002 15:08:35 -0000	1.13
-+++ c/shiftjis	19 Nov 2008 18:55:20 -0000
++++ c/shiftjis	29 Nov 2008 11:57:05 -0000
 @@ -173,7 +173,7 @@
          else
          {
@@ -357,7 +385,7 @@ RCS file: /home/rool/cvsroot/castle/RiscOS/Sources/Lib/Unicode/c/textconv,v
 retrieving revision 1.4
 diff -u -r1.4 textconv
 --- c/textconv	25 Aug 2005 11:57:08 -0000	1.4
-+++ c/textconv	19 Nov 2008 18:55:20 -0000
++++ c/textconv	29 Nov 2008 11:57:05 -0000
 @@ -67,8 +67,8 @@
  
  static int src_enc = csCurrent;
@@ -391,7 +419,7 @@ RCS file: /home/rool/cvsroot/castle/RiscOS/Sources/Lib/Unicode/c/unix,v
 retrieving revision 1.3
 diff -u -r1.3 unix
 --- c/unix	5 Mar 2004 18:16:24 -0000	1.3
-+++ c/unix	19 Nov 2008 18:55:20 -0000
++++ c/unix	29 Nov 2008 11:57:05 -0000
 @@ -33,6 +33,8 @@
  #include "layers_dbg.h"
  #endif
@@ -452,7 +480,7 @@ RCS file: /home/rool/cvsroot/castle/RiscOS/Sources/Lib/Unicode/ccsolaris/Makefil
 retrieving revision 1.2
 diff -u -r1.2 Makefile
 --- ccsolaris/Makefile	25 Aug 2005 11:57:08 -0000	1.2
-+++ ccsolaris/Makefile	19 Nov 2008 18:55:21 -0000
++++ ccsolaris/Makefile	29 Nov 2008 11:57:05 -0000
 @@ -17,9 +17,25 @@
  # 
  # Project:   Unicode
