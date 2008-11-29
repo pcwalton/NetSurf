@@ -254,7 +254,7 @@ size_t iconv(iconv_t cd, char **inbuf, size_t *inbytesleft, char **outbuf,
 		size_t *outbytesleft)
 {
 	struct encoding_context *e;
-	unsigned int read;
+	unsigned int read = 0;
 
 	/* search for cd in list */
 	for (e = context_list; e; e = e->next)
