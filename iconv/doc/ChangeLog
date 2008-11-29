@@ -89,3 +89,12 @@ Iconv Changelog
   - Add support for ISO-8859-16 (Latin 10)
   - Significantly improve detection and reporting of error conditions
 
+0.10 29-Nov-2008
+----------------
+
+  - Fixes to the *Iconv command parameter parsing
+  - Ensure *Iconv outputs all converted data when the input is invalid
+  - Fix handling of illegal UTF-8 byte sequences
+  - Fix handling of incomplete multibyte input sequences.
+
+
