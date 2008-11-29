@@ -228,8 +228,6 @@ _kernel_oserror *do_iconv(int argc, const char *args)
 				p++;
 			}
 			*f = '\0';
-			while (*p == ' ')
-				p++;
 			argc--;
 			break;
 		case 't':
@@ -246,8 +244,6 @@ _kernel_oserror *do_iconv(int argc, const char *args)
 				p++;
 			}
 			*t = '\0';
-			while (*p == ' ')
-				p++;
 			argc--;
 			break;
 		case 'l':
@@ -269,8 +265,6 @@ _kernel_oserror *do_iconv(int argc, const char *args)
 				p++;
 			}
 			*o = '\0';
-			while (*p == ' ')
-				p++;
 			argc--;
 			break;
 		case 'v':
@@ -290,6 +284,9 @@ _kernel_oserror *do_iconv(int argc, const char *args)
 				"Iconv: invalid option -- %c", *(p+1));
 			return &ErrorGeneric;
 		}
+
+		while (*p == ' ')
+			p++;
 	}
 
 	if (list) {
@@ -388,7 +385,12 @@ _kernel_oserror *do_iconv(int argc, const char *args)
 							"character sequence: "
 							"'%10s'\n", in);
 					}
+
 					if (stop_on_invalid) {
+						/* Flush through any output */
+						fwrite(output, 1, 
+							sizeof(output) - outlen,
+							ofp);
 						iconv_close(cd);
 						fclose(ofp);
 						fclose(inf);
