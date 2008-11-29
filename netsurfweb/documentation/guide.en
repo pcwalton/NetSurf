@@ -680,7 +680,7 @@
 
 <p>Whenever you follow a link to a file that NetSurf doesn't know how to handle, NetSurf opens the download window. This allows you to save a local copy of the file. The download window is shown below.</p>
 
-<p class="guidescreenshot"><img src="images/dwnld" title="Download Window" alt=""></p>
+<p class="guidescreenshot"><img src="images/dwnld.png" title="Download Window" alt=""></p>
 
 <p>As soon as the download window opens, NetSurf starts downloading the file to your Scrap directory. At any time, either as the file downloads or after it has finished, it is possible drag the file icon at the top of the window to the directory where you wish to keep the file. This action causes the file to be moved to your desired location from Scrap and if the download is incomplete, the remainder of the file will also go to the new location.</p>
 

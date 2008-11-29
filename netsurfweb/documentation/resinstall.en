@@ -82,7 +82,7 @@
 <li>On some versions of the OS from RISCOS Ltd you can click <span class="action">menu</span> over the <em>switcher</em> icon which resides at the extreme right hand side of the iconbar. Choose the &quot;Choices...&quot; option from the menu.</li>
 </ul>
 
-<p class="guidescreenshot"><img src="images/resinstall/configure.png" title="Configure Window" alt=""></p>
+<p class="guidescreenshotfeature"><img src="images/resinstall/configure.png" title="Configure Window" alt=""></p>
 
 <p>After running Configure you will have a window which looks like the above. Note that the icons you see will vary depending on which version of RISC OS you run.</p>
 
@@ -90,7 +90,7 @@
 
 <p>In the Configure window, click on the &quot;System&quot; icon. This opens the <em>System Merge</em> window, as pictured below.</p>
 
-<p class="guidescreenshot"><img src="images/resinstall/system.png" title="System Merge Window" alt=""></p>
+<p class="guidescreenshotfeature"><img src="images/resinstall/system.png" title="System Merge Window" alt=""></p>
 
 <p>Simply drag the !System directory supplied with the software onto this window and click the &quot;Merge&quot; button. The System Merge tool will then automatically merge the new resources into your Boot Structure.</p>
 
@@ -98,11 +98,11 @@
 
 <p>In the Configure window, click on the &quot;Boot&quot; icon. This opens the <em>Boot sequence</em> Configure window, as pictured below.</p>
 
-<p class="guidescreenshot"><img src="images/resinstall/boot.png" title="Boot sequence Configure Window" alt=""></p>
+<p class="guidescreenshotfeature"><img src="images/resinstall/boot.png" title="Boot sequence Configure Window" alt=""></p>
 
 <p>In this window, click on the &quot;Install&quot; icon. This opens the <em>Boot Merge</em> window, as pictured below.</p>
 
-<p class="guidescreenshot"><img src="images/resinstall/bootinstall.png" title="Boot Merge Window" alt=""></p>
+<p class="guidescreenshotfeature"><img src="images/resinstall/bootinstall.png" title="Boot Merge Window" alt=""></p>
 
 <p>Simply drag the !Boot directory supplied with the software onto this window and click the &quot;Merge&quot; button. The System Merge tool will then automatically merge the new resources into your Boot Structure.</p>
 

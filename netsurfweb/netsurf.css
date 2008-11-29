@@ -803,6 +803,9 @@ dl.news > dd {
 	float:right;
 	padding:0 0 1em 1em; }
 
+.guidescreenshotfeature {
+	text-align: center; }
+
 .guideiconinfo {
 	clear: left; }
 
