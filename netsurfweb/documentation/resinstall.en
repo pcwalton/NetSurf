@@ -68,9 +68,9 @@
 
 <p>Many RISC OS applications depend on some shared resources and modules in order to run. These shared resources can be used by several different programs at the same time and are stored inside the RISC OS <strong>Boot Structure</strong>.</p>
 
-<p>NetSurf, like many RISC OS applications comes with two directories, <strong>!Boot</strong> and <strong>!System</strong>. These directories contain all the resources that NetSurf requires to run. The Boot Structure is specifically organised so that applications can find the resources they need to run.</p>
+<p>NetSurf, like many RISC OS applications, comes with two directories; <strong>!Boot</strong> and <strong>!System</strong>. These directories contain all the resources that NetSurf requires to run. The Boot Structure is specifically organised so that applications can find the resources they need to run.</p>
 
-<p>In order to install the resources that NetSurf depends on, the supplied !Boot and !System directories need to be merged with your system's Boot Structure. Fortunately this procedure is automated by drag-and-drop tools which do this job for you.</p>
+<p>To install the resources that NetSurf depends on, the supplied !Boot and !System directories need to be merged with your system's Boot Structure. Fortunately this procedure is automated by drag-and-drop tools which do this job for you.</p>
 
 <h3>Running Configure</h3>
 
@@ -104,7 +104,7 @@
 
 <p class="guidescreenshotfeature"><img src="images/resinstall/bootinstall.png" title="Boot Merge Window" alt=""></p>
 
-<p>Simply drag the !Boot directory supplied with the software onto this window and click the &quot;Merge&quot; button. The System Merge tool will then automatically merge the new resources into your Boot Structure.</p>
+<p>Simply drag the !Boot directory supplied with the software onto this window and click the &quot;Merge&quot; button. The Boot Merge tool will then automatically merge the new resources into your Boot Structure.</p>
 
 <p><strong>Note:</strong> some old versions of RISC OS do not have a Boot Merge tool. In this case, you must instead drop the supplied !Boot over the !Boot directory which resides in the root directory of your hard disc drive.</p>
 
