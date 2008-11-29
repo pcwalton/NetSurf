@@ -535,8 +535,8 @@ bmp_image *ico_find(ico_collection *ico, uint16_t width, uint16_t height) {
  * \param bmp	the BMP image to invalidate
  */
 static void bmp_invalidate(void *bitmap, void *private_word) {
-	UNUSED(bitmap);
 	bmp_image *bmp = (bmp_image *)private_word;
+	UNUSED(bitmap);
 
 	bmp->decoded = false;
 }
