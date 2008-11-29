@@ -90,6 +90,8 @@
 
 <p>Double click on !NetSurf in your chosen location to launch NetSurf.</p>
 
+<p><strong>Note:</strong> if you are unsure how to follow steps <em>1</em> and <em>2</em> above, then please see our pictorial <a href="resinstall">guide to resource installation</a>.</p>
+
 <h3 id="GettingStartedRequirements">Requirements</h3>
 
 <p>When NetSurf is run it will look for all the resources it needs to function correctly. If anything is not found, it displays an error message indicating the resource it could not locate on your system. If such a message appears, NetSurf is likely to be requesting one of the following resources.</p>
