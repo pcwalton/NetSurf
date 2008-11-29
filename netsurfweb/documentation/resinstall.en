@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+        "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>NetSurf | RISC OS Resource Installation Guide</title>
+<link rel="stylesheet" type="text/css" href="/netsurf.css">
+<link rel="icon" type="image/png" href="/webimages/favicon.png">
+</head>
+
+<body>
+<p class="banner"><a href="/"><img src="/netsurf.png" alt="NetSurf"></a></p>
+
+<div class="navigation">
+<div class="navsection">
+<ul>
+<li><a href="/about/">About NetSurf</a></li>
+<li><a href="/downloads/">Downloads</a></li>
+<li><a href="/documentation/">Documentation</a>
+<ul>
+<li><a href="/documentation/info">User info</a></li>
+<li><a href="/documentation/guide">User guide</a></li>
+<li><a href="/documentation/progress">Project progress</a></li>
+<li><a href="/documentation/develop">Developer info</a></li>
+</ul>
+</li>
+<li><a href="/developers/">Development area</a></li>
+<li><a href="/webmasters/">Webmaster area</a></li>
+<li><a href="/contact/">Contact</a></li>
+</ul>
+</div>
+
+<div class="navsection">
+<ul class="languages">
+<!--<li><a href="index.de">Deutsch</a></li>-->
+<li>English</li>
+<!--<li><a href="index.fr">Français</a></li>-->
+<!--<li><a href="index.nl">Nederlands</a></li>-->
+</ul>
+</div>
+
+<div class="navsection">
+<ul class="sitelinks">
+<li><a href="http://wiki.netsurf-browser.org/">Development wiki</a></li>
+<li><a href="http://planet.netsurf-browser.org/">Planet NetSurf</a></li>
+<li><a href="http://source.netsurf-browser.org/">SVN repository viewer</a></li>
+</ul>
+</div>
+
+</div>
+
+<div class="content">
+
+<p class="breadcrumbs"><a href="/">Home</a> » <a href="/documentation/">Documentation</a> » Resource Installation Guide</p>
+
+<h1>RISC OS Resource Installation Guide</h1>
+
+<p>This page is a pictorial guide to installing resources on RISC OS.</p>
+
+<ul>
+<li><a href="#Introduction">Introduction</a></li>
+<li><a href="#SystemMerge">Merging a !System directory</a></li>
+<li><a href="#BootMerge">Merging a !Boot directory</a></li>
+</ul>
+
+<p class="updated">Last updated 29 November 2008</p>
+
+<h2 id="Introduction">Introduction</h2>
+
+<p>Many RISC OS applications depend on some shared resources and modules in order to run. These shared resources can be used by several different programs at the same time and are stored inside the RISC OS <strong>Boot Structure</strong>.</p>
+
+<p>NetSurf, like many RISC OS applications comes with two directories, <strong>!Boot</strong> and <strong>!System</strong>. These directories contain all the resources that NetSurf requires to run. The Boot Structure is specifically organised so that applications can find the resources they need to run.</p>
+
+<p>In order to install the resources that NetSurf depends on, the supplied !Boot and !System directories need to be merged with your system's Boot Structure. Fortunately this procedure is automated by drag-and-drop tools which do this job for you.</p>
+
+<h3>Running Configure</h3>
+
+<p>First of all, we need to run the RISC OS Configure application. There are several ways to do this:</p>
+
+<ul>
+<li>The most common way to run Configure is to double click !Boot, in the root directory of your hard disc.</li>
+<li>On RISC OS 5 you can click <span class="action">menu</span> over the <em>switcher</em> icon which resides at the extreme right hand side of the iconbar. Choose the &quot;Configure&quot; option from the menu.</li>
+<li>On some versions of the OS from RISCOS Ltd you can click <span class="action">menu</span> over the <em>switcher</em> icon which resides at the extreme right hand side of the iconbar. Choose the &quot;Choices...&quot; option from the menu.</li>
+</ul>
+
+<p class="guidescreenshot"><img src="images/resinstall/configure.png" title="Configure Window" alt=""></p>
+
+<p>After running Configure you will have a window which looks like the above. Note that the icons you see will vary depending on which version of RISC OS you run.</p>
+
+<h2 id="SystemMerge">Merging a !System directory</h2>
+
+<p>In the Configure window, click on the &quot;System&quot; icon. This opens the <em>System Merge</em> window, as pictured below.</p>
+
+<p class="guidescreenshot"><img src="images/resinstall/system.png" title="System Merge Window" alt=""></p>
+
+<p>Simply drag the !System directory supplied with the software onto this window and click the &quot;Merge&quot; button. The System Merge tool will then automatically merge the new resources into your Boot Structure.</p>
+
+<h2 id="BootMerge">Merging a !Boot directory</h2>
+
+<p>In the Configure window, click on the &quot;Boot&quot; icon. This opens the <em>Boot sequence</em> Configure window, as pictured below.</p>
+
+<p class="guidescreenshot"><img src="images/resinstall/boot.png" title="Boot sequence Configure Window" alt=""></p>
+
+<p>In this window, click on the &quot;Install&quot; icon. This opens the <em>Boot Merge</em> window, as pictured below.</p>
+
+<p class="guidescreenshot"><img src="images/resinstall/bootinstall.png" title="Boot Merge Window" alt=""></p>
+
+<p>Simply drag the !Boot directory supplied with the software onto this window and click the &quot;Merge&quot; button. The System Merge tool will then automatically merge the new resources into your Boot Structure.</p>
+
+<p><strong>Note:</strong> some old versions of RISC OS do not have a Boot Merge tool. In this case, you must instead drop the supplied !Boot over the !Boot directory which resides in the root directory of your hard disc drive.</p>
+
+
+
+<div class="footer">
+<p>Copyright 2003 - 2008 The NetSurf Developers</p>
+</div>
+
+</div>
+
+
+<form method="get" action="http://www.google.co.uk/search">
+<div class="searchbox">
+<input type="hidden" name="q" value="site:netsurf-browser.org">
+<input type="text" name="q" maxlength="255"><br>
+<input type="submit" value="Search" name="btnG">
+</div>
+</form>
+
+</body>
+</html>
