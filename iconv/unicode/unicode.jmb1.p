@@ -48,14 +48,6 @@ diff -u -r1.39 encoding
   {   csISO6937, 2, "/ISO-IR-156/", lang_ENGLISH, &enc_iso6937, "\x1B\x2D\x52", NULL },                         /* Select ISO6937 right half */
   {   csISO6937DVB, 2, "/X-ISO-6937-DVB/X-DVB/", lang_ENGLISH, &enc_iso6937, NULL, NULL },
   {   csShiftJIS /* 17 */, 2, "/SHIFT_JIS/X-SJIS/", lang_JAPANESE, &enc_shiftjis, NULL, NULL },
-@@ -593,6 +593,7 @@
-     }
-     else
-     {
-+        UNIDBG(("encoding_load_map_file: failed\n"));
- 	encoding__free(t->name);
- 	encoding__free(t);
- 	t = NULL;
 Index: c/iso2022
 ===================================================================
 RCS file: /home/rool/cvsroot/castle/RiscOS/Sources/Lib/Unicode/c/iso2022,v
@@ -172,14 +164,13 @@ diff -u -r1.19 iso2022
  	UNIDBG(("iso2022: %02x\n", c));
  
  	/* check for illegal single shifts */
--	if ((i->tempset == 1 && (c < 0x20 || c > 0x7F)) ||
-+	if ((i->tempset == 1 && (c < 0x21 || c > 0x7E)) ||
+	if ((i->tempset == 1 && (c < 0x20 || c > 0x7F)) ||
  	    (i->tempset == 2 && (c < 0xA0)))
  	{
  	    u = 0xFFFD;
  	}
 +        /* or illegal continuation bytes */
-+        else if ((i->sync[_GL] && (c < 0x21 || c > 0x7E)) ||
++        else if ((i->sync[_GL] && (c < 0x20 || c > 0x7F)) ||
 +                 (i->sync[_GR] && (c < 0xA0)))
 +        {
 +            u = 0xFFFD;
@@ -211,18 +202,6 @@ diff -u -r1.19 iso2022
 +            case 0x8F: if (i->esc_disabled < 2) { iso2022_ss(i, G3); continue; }
                         break;
          }
- 
-@@ -772,7 +819,10 @@
- 
- 	if (u != NULL_UCS4)
- 	    buf[out++] = u;
--    }
-+    } 
-+
-+    else if (0x007F <= u && u <= 0x009F)
-+        buf[out++] = u;
- 
-     /* main chars */
  
 @@ -877,6 +927,9 @@
  
@@ -524,16 +503,3 @@ diff -u -r1.2 Makefile
  
  clean:
  	@-rm mkunictype textconv
-Index: ccsolaris/mklinks
-===================================================================
-RCS file: /home/rool/cvsroot/castle/RiscOS/Sources/Lib/Unicode/ccsolaris/mklinks,v
-retrieving revision 1.1
-diff -u -r1.1 mklinks
---- ccsolaris/mklinks	12 Mar 1999 17:10:01 -0000	1.1
-+++ ccsolaris/mklinks	19 Nov 2008 18:55:21 -0000
-@@ -1,4 +1,4 @@
--#!/usr/local/bin/bash
-+#!/bin/bash
- 
- # usage: wantlink source dest
- wantlink()
