@@ -29,6 +29,7 @@ struct encoding_context {
 		WRITE_NOMEM, 
 		WRITE_NONE
 	} write_state;
+	int skip;
 	struct encoding_context *prev, *next;
 };
 

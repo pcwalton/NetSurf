@@ -268,10 +268,16 @@ size_t iconv(iconv_t cd, char **inbuf, size_t *inbytesleft, char **outbuf,
 	}
 
 	if (inbuf == NULL || *inbuf == NULL) {
+		/* Clear skip */
+		e->skip = 0;
+
+		/* Reset read codec */
 		if (e->in) {
 			encoding_reset(e->in);
 			encoding_set_flags(e->in, e->inflags, e->inflags);
 		}
+
+		/* Reset write codec, flushing shift sequences, if asked */
 		if (e->out) {
 			if (outbuf != NULL) {
 				char *prev_outbuf = *outbuf;
@@ -317,6 +323,21 @@ size_t iconv(iconv_t cd, char **inbuf, size_t *inbytesleft, char **outbuf,
 
 	LOG(("reading"));
 
+	/* If, on the previous attempt to convert data, we reached the end
+	 * of the input buffer mid-sequence, then we retain the number of
+	 * bytes into the sequence we have read so far. We need to skip over
+	 * these bytes in the input now because UnicodeLib expects the next
+	 * byte to be the next in the sequence rather than the iconv()
+	 * semantics of replaying the entire incomplete sequence from the 
+	 * start.
+	 */
+	if (e->skip != 0) {
+		*inbuf += e->skip;
+		*inbytesleft -= e->skip;
+
+		e->skip = 0;
+	}
+
 	/* Perform the conversion.
 	 *
 	 * To ensure that we detect the correct error conditions
@@ -357,6 +378,8 @@ size_t iconv(iconv_t cd, char **inbuf, size_t *inbytesleft, char **outbuf,
 		 * assume everything's reversible. */
 		return 0;
 	case WRITE_NONE:    /* 3 */
+		/* Mark where we need to start in the next call */
+		e->skip = read;
 		errno = EINVAL;
 		break;
 	case WRITE_NOMEM:   /* 4 */
@@ -414,6 +437,9 @@ int character_callback(void *handle, UCS4 c)
 	int ret;
 
 	e = (struct encoding_context*)handle;
+
+	if (c == 0xFFFE)
+		c = 0xFFFD;
 
 	/* Stop on invalid characters if we're not transliterating */
 	/** \todo is this sane? -- we can't distinguish between illegal input 
