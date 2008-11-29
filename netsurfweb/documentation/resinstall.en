@@ -58,6 +58,7 @@
 
 <ul>
 <li><a href="#Introduction">Introduction</a></li>
+<li><a href="#Configure">Running Configure</a></li>
 <li><a href="#SystemMerge">Merging a !System directory</a></li>
 <li><a href="#BootMerge">Merging a !Boot directory</a></li>
 </ul>
@@ -72,7 +73,7 @@
 
 <p>To install the resources that NetSurf depends on, the supplied !Boot and !System directories need to be merged with your system's Boot Structure. Fortunately this procedure is automated by drag-and-drop tools which do this job for you.</p>
 
-<h3>Running Configure</h3>
+<h2 id="Configure">Running Configure</h2>
 
 <p>First of all, we need to run the RISC OS Configure application. There are several ways to do this:</p>
 
@@ -88,7 +89,7 @@
 
 <h2 id="SystemMerge">Merging a !System directory</h2>
 
-<p>In the Configure window, click on the &quot;System&quot; icon. This opens the <em>System Merge</em> window, as pictured below.</p>
+<p>In the <a href="#Configure">Configure</a> window, click on the &quot;System&quot; icon. This opens the <em>System Merge</em> window, as pictured below.</p>
 
 <p class="guidescreenshotfeature"><img src="images/resinstall/system.png" title="System Merge Window" alt=""></p>
 
@@ -96,7 +97,7 @@
 
 <h2 id="BootMerge">Merging a !Boot directory</h2>
 
-<p>In the Configure window, click on the &quot;Boot&quot; icon. This opens the <em>Boot sequence</em> Configure window, as pictured below.</p>
+<p>In the <a href="#Configure">Configure</a> window, click on the &quot;Boot&quot; icon. This opens the <em>Boot sequence</em> Configure window, as pictured below.</p>
 
 <p class="guidescreenshotfeature"><img src="images/resinstall/boot.png" title="Boot sequence Configure Window" alt=""></p>
 
