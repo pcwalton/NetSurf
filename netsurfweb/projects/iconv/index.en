@@ -40,6 +40,8 @@
 <dd><p>Use the <strong>Boot merge</strong> facility in Configure to merge the supplied !Boot directory with the one on your system.</p><p>If there is no Boot merge facility provided on your system, simply drag the supplied !Boot directory over your existing boot structure.</p></dd>
 </dl>
 
+<p><strong>Note:</strong> if you are unsure how to follow these steps, then please see the pictorial <a href="/documentation/resinstall">guide to resource installation</a> on the NetSurf site.</p>
+
 <h2>Download</h2>
 
 <p>Please <a href="iconv_latest.zip">download iconv</a> and follow the <strong>two</strong> installation steps above.</p>
