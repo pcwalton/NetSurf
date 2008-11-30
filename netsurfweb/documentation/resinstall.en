@@ -80,7 +80,7 @@
 <ul>
 <li>The most common way to run Configure is to double click !Boot, in the root directory of your hard disc.</li>
 <li>On RISC OS 5 you can click <span class="action">menu</span> over the <em>switcher</em> icon which resides at the extreme right hand side of the iconbar. Choose the &quot;Configure&quot; option from the menu.</li>
-<li>On some versions of the OS from RISCOS Ltd you can click <span class="action">menu</span> over the <em>switcher</em> icon which resides at the extreme right hand side of the iconbar. Choose the &quot;Choices...&quot; option from the menu.</li>
+<li>On some versions of the OS from RISCOS Ltd there is a &quot;Choices...&quot; option, which runs Configure, on the <em>switcher</em> menu.</li>
 </ul>
 
 <p class="guidescreenshotfeature"><img src="images/resinstall/configure.png" title="Configure Window" alt=""></p>
