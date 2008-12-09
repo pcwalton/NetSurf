@@ -256,10 +256,6 @@ foreach my $lang (@langs) {
 }
 
 # create zip for regular build
-my $slot_size = (command('./slotsize riscos-zip/!NetSurf/!RunImage,ff8'))[0];
-my $run = load('netsurf/!NetSurf/!Run,feb');
-$run =~ s/2240/$slot_size/g;
-save('riscos-zip/!NetSurf/!Run,feb', $run);
 chdir "$root/riscos-zip";
 command('/home/riscos/cross/bin/zip -9vr, ../netsurf.zip *');
 chdir $root;
