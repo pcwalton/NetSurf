@@ -30,7 +30,7 @@ ifeq ($(TARGET),riscos)
 else
   CFLAGS += -g
   LIBS =
-  PREFIX = /usr/local
+  PREFIX = $(GCCSDK_INSTALL_CROSSBIN)/..
 endif
 
 -include Makefile.config
