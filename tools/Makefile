@@ -28,6 +28,7 @@ ifeq ($(TARGET),riscos)
   endif
   PREFIX = $(GCCSDK_INSTALL_ENV)
 else
+  CC := gcc
   CFLAGS += -g
   LIBS =
   PREFIX = $(GCCSDK_INSTALL_CROSSBIN)/..
