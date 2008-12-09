@@ -76,7 +76,7 @@
 
 <h2>Michael Drake</h2>
 
-<p>Michael contributes to several areas of the project: documentation, the project web site, testing and graphics work. He designs promotional material such as posters and banners, as well as toolbar and interface icons. Michael likes to be involved with planning the design of NetSurf's user interface. Recently he has started to develop NetSurf itself, and is particularly interested in the layout code.</p>
+<p>Michael contributes to several areas of the project. He is most interested in developing the layout code and has worked on other areas including text export and text selection. Before he started programming for the project, he worked on the documentation, testing and graphics. He designs promotional material such as posters and banners, as well as toolbar and interface icons. Creating and maintaining NetSurf's web site is also one of Michael's responsibilities.</p>
 
 <p>Michael uses an Iyonix for most of his work on the NetSurf project. He also has a VirtualRPC Laptop for testing on RISCOS Ltd's brand of RISC OS and an Ubuntu machine for playing with nsgtk.</p>
 
@@ -100,7 +100,7 @@
 
 <h2>John Tytgat</h2>
 
-<p>John is an occasional NetSurf contributor mostly related to cross-compile build aspects based on his knowledge and involvement in the <a href="http://gccsdk.riscos.info/">GCCSDK</a> project and OSLib <a href="http://ro-oslib.sourceforge.net">OSLib</a>. He also contributed the first Unicode related changes in NetSurf.</p>
+<p>John is an occasional NetSurf contributor mostly related to cross-compile build aspects based on his knowledge and involvement in the <a href="http://gccsdk.riscos.info/">GCCSDK</a> project and <a href="http://ro-oslib.sourceforge.net">OSLib</a>. He also contributed the first Unicode related changes in NetSurf.</p>
 
 <p>His RISC OS NetSurf builds are done using the GCCSDK cross-compiler on an Ubuntu Linux desktop machine and tested on RiscPC and A9home.</p>
 
@@ -133,6 +133,32 @@
 <li>First check in: 13 March 2006</li>
 <li>IRC name: rjek, SVN name: rjek</li>
 </ul>
+
+<h2>Vincent Sanders</h2>
+
+<ul>
+<li>First check in: 8 August 2007</li>
+<li>IRC name: kyllikki, SVN name: vince</li>
+</ul>
+
+<h2>Fran&ccedil;ois Revol</h2>
+
+<p>Fran&ccedil;ois is a BeOS fan and Haiku developer. He started porting NetSurf to BeOS to fill the void between Links and Firefox, and to replace the closed-source NetPositive as default browser in Haiku.</p>
+
+<p>He's always rushing to fix C89 breakages since BeOS binaries must be built using gcc 2.95 because of C++ ABI compatibility. Currently Fran&ccedil;ois builds under ZETA (BeOS R6), and tests under Haiku both on real hardware and in QEMU.</p>
+
+<ul>
+<li>First check in: 3 June 2008</li>
+<li>IRC name: mmu_man, SVN name: mmu_man</li>
+</ul>
+
+<h2>Chris Young</h2>
+
+<ul>
+<li>First check in: 2 August 2008</li>
+<li>SVN name: chris_y</li>
+</ul>
+
 
 
 <div class="footer">
