@@ -13,22 +13,46 @@ INSTALL := install
 MKDIR := mkdir
 MKDIRFLAGS := -p
 
-ifeq ($(TARGET),riscos)
-  GCCSDK_INSTALL_CROSSBIN ?= /home/riscos/cross/bin
-  GCCSDK_INSTALL_ENV ?= /home/riscos/env
-  CC := $(wildcard $(GCCSDK_INSTALL_CROSSBIN)/*gcc)
-  CFLAGS += -Driscos -mpoke-function-name -I$(GCCSDK_INSTALL_ENV)/include
-  LIBS = -L$(GCCSDK_INSTALL_ENV)/lib
-  ifneq (,$(findstring arm-unknown-riscos-gcc,$(CC)))
-    EXEEXT := ,e1f
-    SUBTARGET := -elf-
-  else
-    EXEEXT := ,ff8
-    SUBTARGET := -aof-
+# Detect host platform
+HOST := $(shell uname -s)
+ifeq ($(HOST),)
+  # Assume RISC OS, as uname's broken there)
+  HOST := riscos
+else
+  ifeq ($(HOST),RISC OS)
+    HOST := riscos
   endif
+endif
+
+ifeq ($(HOST),riscos)
+  ifeq ($(TARGET),)
+    TARGET := riscos
+  endif
+endif
+
+ifeq ($(TARGET),riscos)
+  ifeq ($(HOST),riscos)
+    GCCSDK_INSTALL_ENV := <NSLibs$$Dir>
+    CC := gcc
+    EXEEXT :=
+    SUBTARGET :=
+  else
+    GCCSDK_INSTALL_CROSSBIN ?= /home/riscos/cross/bin
+    GCCSDK_INSTALL_ENV ?= /home/riscos/env
+    CC := $(wildcard $(GCCSDK_INSTALL_CROSSBIN)/*gcc)
+    ifneq (,$(findstring arm-unknown-riscos-gcc,$(CC)))
+      EXEEXT := ,e1f
+      SUBTARGET := -elf-
+    else
+      EXEEXT := ,ff8
+      SUBTARGET := -aof-
+    endif
+  endif
+
+  CFLAGS += -Driscos -mpoke-function-name -I$(GCCSDK_INSTALL_ENV)/include
+  LIBS = -L$(GCCSDK_INSTALL_ENV)/lib -lOSLib32
   PREFIX = $(GCCSDK_INSTALL_ENV)
 else
-  CC := gcc
   CFLAGS += -g
   LIBS =
   PREFIX = $(GCCSDK_INSTALL_CROSSBIN)/..
@@ -47,7 +71,7 @@ all: $(BINS)
 $(BINDIR)/%$(EXEEXT): %.c
 	@$(ECHO) "   BUILD: $@"
 	@$(MKDIR) $(MKDIRFLAGS) $(BINDIR)
-	@$(CC) $(CFLAGS) -o $@ $< 
+	@$(CC) $(CFLAGS) -o $@ $< $(LIBS)
 
 install: $(BINS)
 	$(MKDIR) $(MKDIRFLAGS) $(DESTDIR)$(PREFIX)/bin
