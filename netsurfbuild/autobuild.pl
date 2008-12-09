@@ -115,25 +115,25 @@ sub process_html {
 	my ($source, $dest, $language) = @_;
 	my $html = load($source);
 	# Append "_xx" to all anchors which don't already encode the language
-	$html =~ s{a href="([a-z]+)((#[a-zA-Z]+)?)"}
+	$html =~ s{a href="([a-z\/]+[a-z]+)((#[a-zA-Z]+)?)"}
 	          {a href="$1_$language$2"}g;
 	# Rewrite anchors from (e.g) "index.en" to "index_en"
-	$html =~ s{a href="([a-z]+)[.]([a-z][a-z])((#[a-zA-Z]+)?)"}
+	$html =~ s{a href="([a-z\/]+[a-z]+)[.]([a-z][a-z])((#[a-zA-Z]+)?)"}
 	          {a href="$1_$2$3"}g;
 	# Rewrite image @src to from (e.g) "foo/index.en" to "foo/index_en"
-	$html =~ s{src="([a-z\/]+)[.]([a-z][a-z])"}
+	$html =~ s{src="([a-z\/]+[a-z]+)[.]([a-z][a-z])"}
 	          {src="$1_$2"}g;
 	# Rewrite "/netsurf.css" to "../netsurf"
 	$html =~ s{"/netsurf.css"}
 	          {"../netsurf"}g;
 	# Rewrite all image links from "img.png" to "img_png"
-	$html =~ s{"([a-z]+).png"}
+	$html =~ s{"([a-z\/]+[a-z]+).png"}
 	          {"$1_png"}g;
 	# Rewrite "/netsurf.png" to "../netsurf_png"
 	$html =~ s{"/netsurf.png"}
 		  {"../netsurf_png"}g;
 	# Append _png to all documentation image links
-	$html =~ s{src="images/([a-z]+)"}
+	$html =~ s{src="images/([a-z\/]+[a-z]+)"}
 		  {src="images/$1_png"}g;
 	# Rewrite all links to the document root to "../welcome/index_xx"
 	$html =~ s{href="/"}
