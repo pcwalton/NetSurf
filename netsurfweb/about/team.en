@@ -154,6 +154,10 @@
 
 <h2>Chris Young</h2>
 
+<p>Chris is responsible for porting NetSurf to AmigaOS 4, to get an all-round decent web browser on the platform rather than having to use several outdated or incomplete ones. He refuses to deal with any of the core code beyond prodding it with a pointy stick when it doesn't quite work as expected.</p>
+
+<p>His development work, testing and compiling is all done on an AmigaOne G4-XE.</p>
+
 <ul>
 <li>First check in: 2 August 2008</li>
 <li>SVN name: chris_y</li>
