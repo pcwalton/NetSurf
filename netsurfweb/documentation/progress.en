@@ -85,7 +85,7 @@
 <tr><th class="progresstitle">Title</th><th class="progressstatus">Status</th><th>Notes</th></tr>
 <tr class="nearlydone"><td>Cookies</td><td>Nearly done</td><td>User interface to handle invalid cookies not available.</td></tr>
 <tr class="nearlydone"><td>CSS 1</td><td>Nearly done</td><td></td></tr>
-<tr class="inprogress"><td>CSS 2</td><td>In progress</td><td></td></tr>
+<tr class="nearlydone"><td>CSS 2</td><td>Nearly done</td><td></td></tr>
 <tr class="juststarted"><td>CSS 3</td><td>Just started</td><td>Some of the selectors have been implemented.</td></tr>
 <tr class="nearlydone"><td>HTML 4</td><td>Nearly done</td><td></td></tr>
 <tr class="juststarted"><td>HTML 5</td><td>Just started</td><td>An HTML 5 compliant parser is being developed.</td></tr>
@@ -103,10 +103,10 @@
 
 <table class="progress">
 <tr><th class="progresstitle">Title</th><th class="progressstatus">Status</th><th>Notes</th></tr>
-<tr class="nearlydone"><td>Forms</td><td>Nearly done</td><td>Don't work fully with Scale View.</td></tr>
+<tr class="nearlydone"><td>Forms</td><td>Nearly done</td><td></td></tr>
 <tr class="nearlydone"><td>Frames</td><td>Nearly done</td><td>Margin attributes are unimplemented.<br>Frames affect back / forward navigation and history thumbnails.</td></tr>
 <tr class="complete"><td>Image Maps</td><td>Complete</td><td></td></tr>
-<tr class="nearlydone"><td>Lists</td><td>Nearly done</td><td></td></tr>
+<tr class="complete"><td>Lists</td><td>Complete</td><td></td></tr>
 <tr class="nearlydone"><td>Tables</td><td>Nearly done</td><td>Elements col, colgroup, rowgroup and caption not implemented.<br>Extra space is divided equally among columns instead of in proportion with content width.</td></tr>
 </table>
 
@@ -127,19 +127,19 @@
 <table class="progress">
 <tr><th class="progresstitle">Title</th><th class="progressstatus">Status</th><th>Notes</th></tr>
 <tr class="notstarted"><td>background-attachment</td><td>Not started</td><td></td></tr>
-<tr class="nearlydone"><td>background-color</td><td>Nearly done</td><td>Some problems with inlines.</td></tr>
-<tr class="nearlydone"><td>background-image</td><td>Nearly done</td><td>Some problems with inlines.</td></tr>
-<tr class="nearlydone"><td>background-position</td><td>Nearly done</td><td>Some problems with inlines.</td></tr>
-<tr class="nearlydone"><td>background-repeat</td><td>Nearly done</td><td>Some problems with inlines.</td></tr>
-<tr class="complete"><td>background (shorthand)</td><td>Complete</td><td>Dependent on the status of individual properties.</td></tr>
-<tr class="nearlydone"><td>border-collapse</td><td>Nearly done</td><td>Some problems with inlines.</td></tr>
-<tr class="nearlydone"><td>border-color</td><td>Nearly done</td><td>Some problems with inlines.</td></tr>
-<tr class="nearlydone"><td>border-spacing</td><td>Nearly done</td><td>Some problems with inlines.</td></tr>
-<tr class="nearlydone"><td>border-style</td><td>Nearly done</td><td>Some problems with inlines.</td></tr>
-<tr class="nearlydone"><td>border-[top|right|bottom|left]</td><td>Nearly done</td><td>Some problems with inlines.</td></tr>
-<tr class="nearlydone"><td>border-*-color</td><td>Nearly done</td><td>Some problems with inlines.</td></tr>
-<tr class="nearlydone"><td>border-*-style</td><td>Nearly done</td><td>Some problems with inlines.</td></tr>
-<tr class="nearlydone"><td>border-*-width</td><td>Nearly done</td><td>Some problems with inlines.</td></tr>
+<tr class="complete"><td>background-color</td><td>Complete</td><td></td></tr>
+<tr class="complete"><td>background-image</td><td>Complete</td><td></td></tr>
+<tr class="complete"><td>background-position</td><td>Complete</td><td></td></tr>
+<tr class="complete"><td>background-repeat</td><td>Complete</td><td></td></tr>
+<tr class="complete"><td>background (shorthand)</td><td>Complete</td><td></td></tr>
+<tr class="complete"><td>border-collapse</td><td>Complete</td><td></td></tr>
+<tr class="complete"><td>border-color</td><td>Complete</td><td></td></tr>
+<tr class="complete"><td>border-spacing</td><td>Complete</td><td></td></tr>
+<tr class="complete"><td>border-style</td><td>Complete</td><td></td></tr>
+<tr class="complete"><td>border-[top|right|bottom|left]</td><td>Complete</td><td></td></tr>
+<tr class="complete"><td>border-*-color</td><td>Complete</td><td></td></tr>
+<tr class="complete"><td>border-*-style</td><td>Complete</td><td></td></tr>
+<tr class="complete"><td>border-*-width</td><td>Complete</td><td></td></tr>
 <tr class="complete"><td>bottom</td><td>Complete</td><td></td></tr>
 <tr class="notstarted"><td>caption-side</td><td>Not started</td><td></td></tr>
 <tr class="nearlydone"><td>clear</td><td>Nearly done</td><td>Some issues with floats remain.</td></tr>
@@ -169,8 +169,8 @@
 <tr class="notstarted"><td>list-style-position</td><td>Not started</td><td></td></tr>
 <tr class="nearlydone"><td>list-style-type</td><td>Nearly done</td><td></td></tr>
 <tr class="complete"><td>list-style (shorthand)</td><td>Complete</td><td>Dependent on the status of individual properties.</td></tr>
-<tr class="nearlydone"><td>margin-[top|right|bottom|left]</td><td>Nearly done</td><td>Some issues with inlines.</td></tr>
-<tr class="complete"><td>margin (shorthand)</td><td>Complete</td><td>Dependent on the status of individual properties.</td></tr>
+<tr class="complete"><td>margin-[top|right|bottom|left]</td><td>Complete</td><td></td></tr>
+<tr class="complete"><td>margin (shorthand)</td><td>Complete</td><td></td></tr>
 <tr class="notstarted"><td>marker-offset</td><td>Not started</td><td></td></tr>
 <tr class="notstarted"><td>marks</td><td>Not started</td><td></td></tr>
 <tr class="complete"><td>max-height</td><td>Complete</td><td></td></tr>
@@ -183,8 +183,8 @@
 <tr class="notstarted"><td>outline-width</td><td>Not started</td><td></td></tr>
 <tr class="notstarted"><td>outline (shorthand)</td><td>Not started</td><td></td></tr>
 <tr class="complete"><td>overflow</td><td>Complete</td><td></td></tr>
-<tr class="nearlydone"><td>padding-[top|right|bottom|left]</td><td>Nearly done</td><td>Some issues with inlines.</td></tr>
-<tr class="complete"><td>padding (shorthand)</td><td>Complete</td><td>Dependent on the status of individual properties.</td></tr>
+<tr class="complete"><td>padding-[top|right|bottom|left]</td><td>Complete</td><td></td></tr>
+<tr class="complete"><td>padding (shorthand)</td><td>Complete</td><td></td></tr>
 <tr class="notstarted"><td>page</td><td>Not started</td><td></td></tr>
 <tr class="notstarted"><td>page-break-[after|before|inside]</td><td>Not started</td><td></td></tr>
 <tr class="inprogress"><td>position</td><td>In progress</td><td>Fixed position not implemented.</td></tr>
@@ -248,7 +248,7 @@
 <tr class="nearlydone"><td>Documentation (RISC&nbsp;OS)</td><td>Nearly done</td><td>See the <a href="/documentation/">contents page</a>.</td></tr>
 <tr class="juststarted"><td>Documentation (GTK)</td><td>Just started</td><td>Currently only build instructions exist for nsgtk. There is no user guide.</td></tr>
 <tr class="complete"><td>Downloads (RISC&nbsp;OS)</td><td>Complete</td><td>Following a link to a file NetSurf can't render opens the download dialogue box.</td></tr>
-<tr class="juststarted"><td>Downloads (GTK)</td><td>Just started</td><td></td></tr>
+<tr class="complete"><td>Downloads (GTK)</td><td>Complete</td><td></td></tr>
 <tr class="nearlydone"><td>Find Text (RISC&nbsp;OS)</td><td>Nearly done</td><td>Doesn't find phrases if they are split across lines.</td></tr>
 <tr class="notstarted"><td>Find Text (GTK)</td><td>Not started</td><td></td></tr>
 <tr class="nearlydone"><td>Full Save (RISC&nbsp;OS)</td><td>Nearly done</td><td>Save pages with CSS files and images.<br>Doesn't rewrite URLs for CSS background images.</td></tr>
@@ -269,8 +269,7 @@
 <tr class="inprogress"><td>Save as Text (RISC&nbsp;OS)</td><td>In progress</td><td>Some issues with spacing out of text.</td></tr>
 <tr class="notstarted"><td>Save as Text (GTK)</td><td>Not started</td><td></td></tr>
 <tr class="complete"><td>Scale View (RISC&nbsp;OS)</td><td>Complete</td><td>Web pages and images can be scaled up and down.</td></tr>
-<tr class="inprogress"><td>Text Selection (RISC&nbsp;OS)</td><td>In progress</td><td>Text selection in text areas is incomplete.</td></tr>
-<tr class="notstarted"><td>Text Selection (GTK)</td><td>Not started</td><td>The core should take care of it once the nsgtk UI exposes drag events.</td></tr>
+<tr class="nearlydone"><td>Text Selection</td><td>Nearly done</td><td>Text selection in text areas is incomplete.</td></tr>
 <tr class="complete"><td>Themes (RISC&nbsp;OS)</td><td>Complete</td><td>Themes are available from the <a href="http://www.netsurf-browser.org/downloads/themes/">NetSurf themes page</a>.</td></tr>
 <tr class="inprogress"><td>Themes (GTK)</td><td>In progress</td><td></td></tr>
 <tr class="complete"><td>Toolbar Customisation (RISC&nbsp;OS)</td><td>Complete</td><td>Toolbars can be customised to show the icons you want, in the order you want.<br>Details in the <a href="guide#ConfigurationToolbar">User Guide</a>.</td></tr>
