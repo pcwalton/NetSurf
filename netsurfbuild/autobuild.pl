@@ -173,8 +173,8 @@ sub process_css
 
 	$css .= 'a[href ^="http://"], a[href ^="https://"], ' .
 		'a[href ^="ftp://"] { ' .
-		'background: url(online) center left no-repeat; ' .
-		'padding-left: 13px; }';
+		'background: url(online) center right no-repeat; ' .
+		'padding-right: 13px; }';
 
 	save($dest, $css);
 }
