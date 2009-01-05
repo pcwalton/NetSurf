@@ -21,7 +21,7 @@ struct table_entry {
 
 /* Table should be ordered by enc_num */
 static const struct table_entry mapping_table[] = {
-	{ "US-ASCII", 0 },
+	{ "US-ASCII", NULL },
 	{ "HP-ROMAN8", "HPR8" },
 	{ "MACINTOSH", "Apple" DIR_SEP "Roman"},
 	{ "IBM437", "Microsoft" DIR_SEP "CP437" },
@@ -224,9 +224,12 @@ int iconv_eightbit_write(struct encoding_context *e, UCS4 c,
  * Load an 8bit encoding
  *
  * \param enc_num  The encoding number to load
- * \return Pointer to lookup table for encoding, or NULL on error
+ * \param table    Pointer to location to receive LUT
+ * \return EIGHTBIT_OK on success, 
+ *                 _NOMEM on memory exhaustion, 
+ *              or _UNKNOWN if a LUT cannot be found.
  */
-unsigned short *iconv_eightbit_new(int enc_num)
+eightbit_ret iconv_eightbit_new(int enc_num, unsigned short **table)
 {
 	const char *filename = NULL;
 	const char *name;
@@ -237,13 +240,14 @@ unsigned short *iconv_eightbit_new(int enc_num)
 
 	name = mibenum_to_name(enc_num);
 	if (!name)
-		return NULL;
+		return EIGHTBIT_UNKNOWN;
 
 	/* Lookup filename in table */
 	for (i = 0; i != TABLE_SIZE; i++)
 		if (strcasecmp(mapping_table[i].canon, name) == 0) {
-			if (mapping_table[i].filename == 0)
-				return NULL;
+			/* Found in the map, but no LUT needed (i.e. ASCII) */
+			if (mapping_table[i].filename == NULL)
+				return EIGHTBIT_OK;
 
 			filename = get_table_path(mapping_table[i].filename);
 
@@ -255,7 +259,7 @@ unsigned short *iconv_eightbit_new(int enc_num)
 	/* Open */
 	fp = fopen(filename, "rb");
 	if (!fp) {
-		return NULL;
+		return EIGHTBIT_UNKNOWN;
 	}
 
 	/* Get extent */
@@ -266,21 +270,23 @@ unsigned short *iconv_eightbit_new(int enc_num)
 	/* Unexpected length => give up */
 	if (len != 256) {
 		fclose(fp);
-		return NULL;
+		return EIGHTBIT_UNKNOWN;
 	}
 
 	/* Create buffer */
 	ret = calloc(128, sizeof(short));
 	if (!ret) {
 		fclose(fp);
-		return NULL;
+		return EIGHTBIT_NOMEM;
 	}
 
 	fread(ret, 128, sizeof(short), fp);
 
 	fclose(fp);
 
-	return ret;
+	*table = ret;
+
+	return EIGHTBIT_OK;
 }
 
 /**

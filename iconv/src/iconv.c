@@ -67,6 +67,7 @@ iconv_t iconv_open(const char *tocode, const char *fromcode)
 	char totemp[128], fromtemp[128];
 	const char *slash;
 	unsigned int len;
+	eightbit_ret error;
 
 	/* can't do anything without these */
 	if (!tocode || !fromcode) {
@@ -184,60 +185,66 @@ iconv_t iconv_open(const char *tocode, const char *fromcode)
 	}
 
 	/* bit 30 set indicates that this is an 8bit encoding */
-	if (from & (1<<30))
-		e->intab = iconv_eightbit_new(from & ~(1<<30));
-	else {
+	if (from & (1<<30)) {
+		error = iconv_eightbit_new(from & ~(1<<30), &e->intab);
+		if (error != EIGHTBIT_OK) {
+			free(e);
+			errno = (error == EIGHTBIT_NOMEM) ? ENOMEM : EINVAL;
+			return (iconv_t)(-1);
+		}
+	} else {
 		e->in = encoding_new(from, encoding_READ);
-		if (e->in) {
-			/* Set encoding flags */
-			unsigned int flags = 0;
-			if (from_force_le)
-				flags |= encoding_FLAG_LITTLE_ENDIAN;
-
-			if (from == csUnicode || from_no_bom)
-				flags |= encoding_FLAG_NO_HEADER;
-
-			encoding_set_flags(e->in, flags, flags);
-
-			e->inflags = flags;
+		if (e->in == NULL) {
+			free(e);
+			errno = ENOMEM;		/* Assume memory exhaustion */
+			return (iconv_t)(-1);
 		}
+
+		/* Set encoding flags */
+		unsigned int flags = 0;
+		if (from_force_le)
+			flags |= encoding_FLAG_LITTLE_ENDIAN;
+
+		if (from == csUnicode || from_no_bom)
+			flags |= encoding_FLAG_NO_HEADER;
+
+		encoding_set_flags(e->in, flags, flags);
+
+		e->inflags = flags;
 	}
 
-	/* neither created => memory error or somesuch. assume ENOMEM */
-	/* no table is ever generated for ASCII */
-	if (!e->in && !e->intab && (from & ~(1<<30)) != csASCII) {
-		free(e);
-		errno = ENOMEM;
-		return (iconv_t)(-1);
-	}
-
-	if (to & (1<<30))
-		e->outtab = iconv_eightbit_new(to & ~(1<<30));
-	else {
+	if (to & (1<<30)) {
+		error = iconv_eightbit_new(to & ~(1<<30), &e->outtab);
+		if (error != EIGHTBIT_OK) {
+			if (e->in)
+				encoding_delete(e->in);
+			iconv_eightbit_delete(e);
+			free(e);
+			errno = (error == EIGHTBIT_NOMEM) ? ENOMEM : EINVAL;
+			return (iconv_t)(-1);
+		}
+	} else {
 		e->out = encoding_new(to, encoding_WRITE_STRICT);
-		if (e->out) {
-			/* Set encoding flags */
-			unsigned int flags = 0;
-			if (to_force_le)
-				flags |= encoding_FLAG_LITTLE_ENDIAN;
-
-			if (to == csUnicode || to_no_bom)
-				flags |= encoding_FLAG_NO_HEADER;
-
-			encoding_set_flags(e->out, flags, flags);
-
-			e->outflags = flags;
+		if (e->out == NULL) {
+			if (e->in)
+				encoding_delete(e->in);
+			iconv_eightbit_delete(e);
+			free(e);
+			errno = ENOMEM;		/* Assume memory exhaustion */
+			return (iconv_t)(-1);
 		}
-	}
 
-	/* neither created => ENOMEM */
-	if (!e->out && !e->outtab && (to & ~(1<<30)) != csASCII) {
-		if (e->in)
-			encoding_delete(e->in);
-		iconv_eightbit_delete(e);
-		free(e);
-		errno = ENOMEM;
-		return (iconv_t)(-1);
+		/* Set encoding flags */
+		unsigned int flags = 0;
+		if (to_force_le)
+			flags |= encoding_FLAG_LITTLE_ENDIAN;
+
+		if (to == csUnicode || to_no_bom)
+			flags |= encoding_FLAG_NO_HEADER;
+
+		encoding_set_flags(e->out, flags, flags);
+
+		e->outflags = flags;
 	}
 
 	/* add to list */

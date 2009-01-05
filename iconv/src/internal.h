@@ -34,13 +34,18 @@ struct encoding_context {
 };
 
 /* in eightbit.c */
+typedef enum eightbit_ret {
+	EIGHTBIT_OK,
+	EIGHTBIT_UNKNOWN,
+	EIGHTBIT_NOMEM
+} eightbit_ret;
 int iconv_eightbit_number_from_name(const char *name);
 unsigned iconv_eightbit_read(struct encoding_context *e,
 		int (*callback)(void *handle, UCS4 c), const char *s,
 		unsigned int n, void *handle);
 int iconv_eightbit_write(struct encoding_context *e, UCS4 c,
 		char **buf, int *bufsize);
-unsigned short *iconv_eightbit_new(int enc_num);
+eightbit_ret iconv_eightbit_new(int enc_num, unsigned short **table);
 void iconv_eightbit_delete(struct encoding_context *e);
 
 /* in alias.c */
