@@ -184,7 +184,6 @@ is fairly simple, it made sense to implement it within the module.
 With use of the iconv module, the list of outstanding encodings is
 reduced to:
 
-	ISO-8859-16 (easily implemented, if required)
 	CP1255 (requires state-based transcoding)
 
 	GB18030 (not 8bit - reportedly a requirement of PRC)
