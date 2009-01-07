@@ -83,7 +83,7 @@
 
 <p>The recommended compiler is GCC. A guide to <a href="robuild">building NetSurf on RISC OS</a> is available, as are instructions for <a href="http://source.netsurf-browser.org/*checkout*/trunk/netsurf/Docs/BUILDING-GTK">building the GTK version</a>. NetSurf can also be cross-compiled for RISC OS using <a href="http://gccsdk.riscos.info/">GCCSDK</a>.</p>
 
-<p>The <a href="http://www.netsurf-browser.org/downloads/testbuilds">autobuilder</a> compiles NetSurf every 15 minutes if changes have been checked into SVN.</p>
+<p>The <a href="http://www.netsurf-browser.org/downloads/riscos/testbuilds">autobuilder</a> compiles NetSurf every 15 minutes if changes have been checked into SVN.</p>
 
 <p>A debug version of NetSurf can be built. This is command-line only and does not include any GUI code. It runs natively on Linux so can be debugged and checked using gdb, efence, valgrind, etc.</p>
 

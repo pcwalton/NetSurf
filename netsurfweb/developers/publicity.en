@@ -53,6 +53,7 @@
 <h1>Publicity</h1>
 
 <p>There isn't much here yet, except the NetSurf logo image in vector format.</p>
+
 <dl>
 <dt>Full NetSurf logo</dt>
 <dd>
@@ -68,7 +69,7 @@
 <li><a href="http://source.netsurf-browser.org/trunk/art/logo/emblem/NetSurf.svg">SVG format</a></li>
 </ul>
 </dd>
-</ul>
+</dl>
 
 <p>More coming soon.</p>
 
