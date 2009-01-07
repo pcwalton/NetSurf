@@ -127,7 +127,7 @@
 <h2 id="news">Latest news</h2>
 
 <dl class="frontnews">
-<dt><a href="/about/awards">Another year, another accolade</a> <span>07 Jan 2000</span></dt>
+<dt><a href="/about/awards">Another year, another accolade</a> <span>07 Jan 2009</span></dt>
 <dd>At the end of a busy year for NetSurf, with the release of NetSurf 1.2, the development of many new features, ports to new operating systems and participation in Google Summer of Code, NetSurf was voted for an award by Drobe's venerable readership. Thanks to everyone who voted for us!</dd>
 <dt><a href="http://vlists.pepperfish.net/pipermail/netsurf-users-netsurf-browser.org/2008-November/008035.html">Summary of recent developments</a> <span>09 Nov 2008</span></dt>
 <dd>New framebuffer port, better CSS support, improved page layout, tabbed browsing improvements, new features and functionality for BeOS and AmigaOS ports.</dd>
