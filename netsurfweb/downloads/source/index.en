@@ -61,7 +61,7 @@
 <p>Using Subversion, as described above, is the recommended way to obtain the source, however it is possible to download it from here.</p>
 
 <ul class="developmentbuilds">
-<!--#include virtual="development/source.inc"-->
+<!--#include virtual="/downloads/development/source.inc"-->
 </ul>
 
 <h2 id="BuildInstructions">Build Instructions</h2>
