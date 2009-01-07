@@ -74,6 +74,9 @@
 <h3>RISC OS</h3>
 <p>RISC OS users should consult the <a href="/documentation/robuild">build instructions</a> in the <a href="/documentation">documentation</a>.</p>
 
+<h3>Haiku and BeOS</h3>
+<p>Users of BeOS-like platforms should follow the build instructions provided in the <a href="http://source.netsurf-browser.org/*checkout*/trunk/netsurf/Docs/BUILDING-BeOS"><code>Docs/BUILDING-BeOS</code></a> file. This can be found in the source tree or viewed in the SVN web interface.</p>
+
 <h2>Release source code</h2>
 
 <p>The source code for each release version of NetSurf is also available.</p>
