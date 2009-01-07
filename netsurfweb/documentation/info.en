@@ -72,7 +72,7 @@
 <dl>
 <dt><a href="/downloads/">Stable releases</a><dt>
 <dd>These are recommended for most users, particularly if this is your first experience of NetSurf.<dd>
-<dt><a href="/downloads/testbuilds">Development builds</a><dt>
+<dt><a href="/downloads/riscos/testbuilds">Development builds</a><dt>
 <dd>These are built automatically from the latest bleeding-edge source code and may be unstable. Development builds are currently available only for RISC OS users. Users of other platforms can <a href="/developers/">obtain the latest source code</a> and follow the simple compilation instructions.<dd>
 </dl>
 
