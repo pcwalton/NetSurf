@@ -52,7 +52,25 @@
 
 <h1>Publicity</h1>
 
-<p>Coming soon.</p>
+<p>There isn't much here yet, except the NetSurf logo image in vector format.</p>
+<dl>
+<dt>Full NetSurf logo</dt>
+<dd>
+<ul>
+<li><a href="http://source.netsurf-browser.org/trunk/art/logo/full/NetSurf%2Cd94">Original ArtWorks format</a></li>
+<li><a href="http://source.netsurf-browser.org/trunk/art/logo/full/NetSurf.svg">SVG format</a></li>
+</ul>
+</dd>
+<dt>NetSurf emblem (no text)</dt>
+<dd>
+<ul>
+<li><a href="http://source.netsurf-browser.org/trunk/art/logo/emblem/NetSurf%2Cd94">Original ArtWorks format</a></li>
+<li><a href="http://source.netsurf-browser.org/trunk/art/logo/emblem/NetSurf.svg">SVG format</a></li>
+</ul>
+</dd>
+</ul>
+
+<p>More coming soon.</p>
 
 <h2>Web buttons</h2>
 
