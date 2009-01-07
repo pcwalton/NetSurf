@@ -629,7 +629,7 @@ p.award a img {
 	display: table-cell;
 	padding-top: 34px; }
 
-.developmentbuilds li a[href="development/netsurf.zip"] {
+.developmentbuilds li a[href="/downloads/development/netsurf.zip"] {
 	background: url("webimages/netsurf.png") no-repeat top center; }
 
 .developmentbuilds li a[href^="/downloads/development/netsurf-r"] {
