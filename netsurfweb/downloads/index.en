@@ -16,9 +16,7 @@
 <li><a href="/about/">About NetSurf</a></li>
 <li><a href="/downloads/">Downloads</a>
 <ul>
-<li><a href="/downloads/testbuilds">Test builds</a></li>
-<li><a href="/downloads/packages">Packages</a></li>
-<li><a href="/downloads/source">Source</a></li>
+<li><a href="/downloads/source/">Source</a></li>
 <li><a href="/downloads/extras">Extras</a></li>
 </ul>
 </li>
@@ -54,71 +52,20 @@
 
 <h1>NetSurf Downloads</h1>
 
-<div class="bignote">
-<dl>
-<dt><a href="testbuilds">Test builds</a></dt>
-<dd>Bleeding-edge test builds are available for those that want to try the latest experimental features.</dd>
-</dl>
-</div>
+<p>Download NetSurf for your operating system:</p>
 
-<div class="downloadlatestouter">
-<div class="downloadlatest">
-<div class="downloadlatestbox">
-<p class="downloadmain downloadfirst"><a href="releases/netsurf-1.2.zip"><span>NetSurf 1.2 for RISC&nbsp;OS</span> <span>(2.2MB)</span> <span class="downloaddate">22 Mar 2008</span></a></p>
-<p class="downloadinstructions"><a href="/documentation/roinfo#GettingStartedInstallation">Installation instructions</a></p>
-<p class="preul">Binary download includes:</p>
-<ul>
-<li><a href="http://sudden.recoil.org/others/">AcornURI</a></li>
-<li><a href="/projects/iconv/">Iconv</a></li>
-<li><a href="http://www.riscos.info/downloads/gccsdk/sharedunixlib/system.zip">SharedUnixLibrary</a></li>
-<li><a href="/projects/tinct/">Tinct</a></li>
+<ul class="downloadosselection">
+<li class="riscos"><a href="riscos/">RISC OS</a></li>
+<li class="gtk"><a href="gtk/">Linux and other Unix-likes</a></li>
+<li class="beos"><a href="beos/">Haiku &amp; BeOS</a></li>
+<li class="amiga"><a href="amiga/">AmigaOS</a></li>
 </ul>
-<p class="preul">Requires either:</p>
-<ul>
-<li>RISC OS 6; any version</li>
-<li>RISC OS 5.07 or later</li>
-<li>RISC OS 4.02 or later</li>
-</ul>
-</div>
 
-<div class="downloadlatestbox downloadlast">
-<p class="downloadmain"><a href="releases/netsurf-1.2-src.tar.gz"><span>NetSurf 1.2 source code</span> <span>(1.0MB)</span> <span class="downloaddate">22 Mar 2008</span></a></p>
-<p class="downloadinstructions"><a href="source#BuildInstructions">Build instructions</a></p>
-<p class="preul">Build NetSurf for:</p>
-<ul>
-<li>Linux</li>
-<li>Free/NetBSD</li>
-<li>Solaris</li>
-<li>RISC OS</li>
-<li>And more</li>
-</ul>
-</div>
-</div>
-<div class="arrow"></div>
-</div>
+<p>Alternatively, download NetSurf's source code:</p>
 
-<p>Check out the <a href="releases/ChangeLog.txt">change log</a> to see what's changed since the last release.</p>
-
-<h2>Packages</h2>
-<p>If you're not using RISC OS and don't want to build NetSurf yourself, check the <a href="packages">packages page</a> for a prebuilt package for your system.</p>
-
-<h2>Previous releases</h2>
-<dl>
-<dt>NetSurf 1.1</dt>
-<dd>
-<ul>
-<li><a href="releases/netsurf-1.1.zip">NetSurf 1.1 browser for RISC OS</a> (13 Aug 2007)</li>
-<li><a href="releases/netsurf-1.1-src.tar.gz">NetSurf 1.1 source code</a> (13 Aug 2007)</li>
+<ul class="downloadosselection">
+<li class="source"><a href="source/">Source code</a></li>
 </ul>
-</dd>
-<dt>NetSurf 1.0</dt>
-<dd>
-<ul>
-<li><a href="releases/netsurf-1.0.zip">NetSurf 1.0 browser for RISC OS</a> (17 May 2007)</li>
-<li><a href="releases/netsurf-1.0-src.tar.gz">NetSurf 1.0 source code</a> (17 May 2007)</li>
-</ul>
-</dd>
-</dl>
 
 
 <div class="footer">

@@ -2,7 +2,7 @@
         "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 <head>
-<title>NetSurf | Extras</title>
+<title>NetSurf | RISC OS Development Builds</title>
 <link rel="stylesheet" type="text/css" href="/netsurf.css">
 <link rel="icon" type="image/png" href="/webimages/favicon.png">
 </head>
@@ -16,6 +16,7 @@
 <li><a href="/about/">About NetSurf</a></li>
 <li><a href="/downloads/">Downloads</a>
 <ul>
+<li><a href="/downloads/testbuilds">Test builds</a></li>
 <li><a href="/downloads/source/">Source</a></li>
 <li><a href="/downloads/extras">Extras</a></li>
 </ul>
@@ -48,19 +49,28 @@
 
 <div class="content">
 
-<p class="breadcrumbs"><a href="/">Home</a> » <a href="/downloads/">Downloads</a> » Extras</p>
+<p class="breadcrumbs"><a href="/">Home</a> » <a href="/downloads/">Downloads</a> » <a href="/downloads/riscos/">RISC OS</a> » Test builds</p>
 
-<h1>NetSurf Extras</h1>
+<h1>RISC OS Development Builds</h1>
 
-<p>This page contains additional downloads available for NetSurf users.</p>
+<p>The development build available on this page is built automatically from the latest source code in SVN. <strong>It is likely to be unstable and may crash your machine.</strong></p>
 
 <!--#config timefmt="%d %b %Y %R %Z" sizefmt="abbrev"-->
 <ul class="developmentbuilds">
-<li><a href="releases/nstheme.zip">NSTheme 0.02 for RISC&nbsp;OS</a> <span><!--#fsize file="releases/nstheme.zip"--></span> <span><!--#flastmod file="releases/nstheme.zip"--></span></li>
+<li><a href="/downloads/development/netsurf.zip">NetSurf for RISC&nbsp;OS</a> <span><!--#fsize virtual="/downloads/development/netsurf.zip"--></span> <span><!--#flastmod virtual="/downloads/development/netsurf.zip"--></span></li>
 </ul>
 
-<p>NSTheme is a theme packager for the RISC OS version of NetSurf. Themes can be installed from the <a href="themes/">themes page</a>.</p>
+<p>By regularly running a recent development build you can help us improve NetSurf by providing feedback to the authors.</p>
 
+<p>Any bug reports or feature requests should be posted on the NetSurf <a href="/contact/#UserSupportTracker">issue tracker</a>. If you aren't running RISC OS, you can fetch the <a href="/downloads/source/">latest source</a> and build NetSurf for your system.</p>
+
+<h2>Recent SVN Activity</h2>
+<p>All times are in UTC.</p>
+<!--#include virtual="/downloads/development/svnlog.txt"-->
+
+<h2>Development Build Packages</h2>
+
+<p>NetSurf development builds for RISC OS are also available though the <a href="http://www.riscpkg.org/">RiscPKG</a> packaging system. To use the package, add the line<br><code>pkg http://www.netsurf-browser.org/downloads/development/riscpkg/packages</code><br>to <code>Choices:RiscPkg.Sources</code>. See the RiscPkg documentation for more information.</p>
 
 <div class="footer">
 <p>Copyright 2003 - 2008 The NetSurf Developers</p>

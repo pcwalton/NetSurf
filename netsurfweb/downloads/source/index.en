@@ -16,9 +16,7 @@
 <li><a href="/about/">About NetSurf</a></li>
 <li><a href="/downloads/">Downloads</a>
 <ul>
-<li><a href="/downloads/testbuilds">Test builds</a></li>
-<li><a href="/downloads/packages">Packages</a></li>
-<li><a href="/downloads/source">Source</a></li>
+<li><a href="/downloads/source/">Source</a></li>
 <li><a href="/downloads/extras">Extras</a></li>
 </ul>
 </li>
@@ -60,13 +58,11 @@
 
 <p>The latest source code can also be viewed via a <a href="http://source.netsurf-browser.org/trunk/netsurf">web interface</a>.</p>
 
-<p>If you don't have Subversion, the latest source can be downloaded here.</p>
+<p>Using Subversion, as described above, is the recommended way to obtain the source, however it is possible to download it from here.</p>
 
 <ul class="developmentbuilds">
 <!--#include virtual="development/source.inc"-->
 </ul>
-
-<p>The source code for each release version of NetSurf is available on the main <a href="/downloads/">downloads page</a>.</p>
 
 <h2 id="BuildInstructions">Build Instructions</h2>
 
@@ -77,6 +73,17 @@
 
 <h3>RISC OS</h3>
 <p>RISC OS users should consult the <a href="/documentation/robuild">build instructions</a> in the <a href="/documentation">documentation</a>.</p>
+
+<h2>Release source code</h2>
+
+<p>The source code for each release version of NetSurf is also available.</p>
+
+<ul>
+<li><a href="/downloads/releases/netsurf-1.2-src.tar.gz">NetSurf 1.2 source code</a> (22 Mar 2008)</li>
+<li><a href="/downloads/releases/netsurf-1.1-src.tar.gz">NetSurf 1.1 source code</a> (13 Aug 2007)</li>
+<li><a href="/downloads/releases/netsurf-1.0-src.tar.gz">NetSurf 1.0 source code</a> (17 May 2007)</li>
+</ul>
+
 
 <div class="footer">
 <p>Copyright 2003 - 2008 The NetSurf Developers</p>
@@ -95,3 +102,4 @@
 
 </body>
 </html>
+

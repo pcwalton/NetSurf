@@ -486,6 +486,45 @@ p.award a img {
 	padding-top: 0.4em;
 	border-top: 2px solid #94adff; }
 
+.downloadosselection {
+	margin: 1.2em auto;
+	width: 80%;
+	font-size: 130%;
+	border-spacing: 0.2em;
+	padding: 0; }
+
+.downloadosselection li {
+	display: block;
+	border-top: 1px #bbcbff solid;
+	border-bottom: 1px #bbcbff solid;
+	margin: 0;
+	padding: 0; }
+
+.downloadosselection li + li {
+	display: block;
+	border-top: none; }
+
+.downloadosselection li a {
+	display: block;
+	padding: 10px 0 10px 50px;
+	min-height: 20px;
+	margin: 0; }
+
+.downloadosselection li.riscos {
+	background: url("webimages/dlriscos.png") no-repeat 0% 50%; }
+
+.downloadosselection li.gtk {
+	background: url("webimages/dllinux.png") no-repeat 0% 50%; }
+
+.downloadosselection li.beos {
+	background: url("webimages/dlhaiku.png") no-repeat 0% 50%; }
+
+.downloadosselection li.amiga {
+	background: url("webimages/dlamiga.png") no-repeat 0% 50%; }
+
+.downloadosselection li.source {
+	background: url("webimages/source.png") no-repeat 0% 50%; }
+
 .downloadlatestouter {
 	width:93%;
 	margin: 0 auto;

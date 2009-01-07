@@ -2,7 +2,7 @@
         "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 <head>
-<title>NetSurf | Extras</title>
+<title>NetSurf | BeOS Downloads</title>
 <link rel="stylesheet" type="text/css" href="/netsurf.css">
 <link rel="icon" type="image/png" href="/webimages/favicon.png">
 </head>
@@ -16,6 +16,7 @@
 <li><a href="/about/">About NetSurf</a></li>
 <li><a href="/downloads/">Downloads</a>
 <ul>
+<li><a href="/downloads/testbuilds">Test builds</a></li>
 <li><a href="/downloads/source/">Source</a></li>
 <li><a href="/downloads/extras">Extras</a></li>
 </ul>
@@ -48,18 +49,15 @@
 
 <div class="content">
 
-<p class="breadcrumbs"><a href="/">Home</a> » <a href="/downloads/">Downloads</a> » Extras</p>
+<p class="breadcrumbs"><a href="/">Home</a> » <a href="/">Downloads</a> » BeOS</p>
 
-<h1>NetSurf Extras</h1>
+<h1>Haiku and BeOS NetSurf Downloads</h1>
 
-<p>This page contains additional downloads available for NetSurf users.</p>
+<p>NetSurf for Haiku and BeOS has not yet seen a formal release. However, the latest <a href="http://revolf.free.fr/beos/netsurf-bone.zip">development build</a> is available.</p>
 
-<!--#config timefmt="%d %b %Y %R %Z" sizefmt="abbrev"-->
-<ul class="developmentbuilds">
-<li><a href="releases/nstheme.zip">NSTheme 0.02 for RISC&nbsp;OS</a> <span><!--#fsize file="releases/nstheme.zip"--></span> <span><!--#flastmod file="releases/nstheme.zip"--></span></li>
-</ul>
+<h2>Source</h2>
 
-<p>NSTheme is a theme packager for the RISC OS version of NetSurf. Themes can be installed from the <a href="themes/">themes page</a>.</p>
+<p>Alternatively, you can obtain the <a href="/downloads/source/">latest source</a>, if you want to play with the Haiku port.</p>
 
 
 <div class="footer">

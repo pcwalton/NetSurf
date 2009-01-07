@@ -2,7 +2,7 @@
         "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 <head>
-<title>NetSurf | RISC OS Development Builds</title>
+<title>NetSurf | AmigaOS Downloads</title>
 <link rel="stylesheet" type="text/css" href="/netsurf.css">
 <link rel="icon" type="image/png" href="/webimages/favicon.png">
 </head>
@@ -17,8 +17,7 @@
 <li><a href="/downloads/">Downloads</a>
 <ul>
 <li><a href="/downloads/testbuilds">Test builds</a></li>
-<li><a href="/downloads/packages">Packages</a></li>
-<li><a href="/downloads/source">Source</a></li>
+<li><a href="/downloads/source/">Source</a></li>
 <li><a href="/downloads/extras">Extras</a></li>
 </ul>
 </li>
@@ -50,24 +49,16 @@
 
 <div class="content">
 
-<p class="breadcrumbs"><a href="/">Home</a> » <a href="/downloads/">Downloads</a> » Test builds</p>
+<p class="breadcrumbs"><a href="/">Home</a> » <a href="/">Downloads</a> » AmigaOS</p>
 
-<h1>RISC OS Development Builds</h1>
+<h1>AmigaOS NetSurf Downloads</h1>
 
-<p>The development build available on this page is built automatically from the latest source code in SVN. <strong>It is likely to be unstable and may crash your machine.</strong></p>
+<p>NetSurf for AmigaOS has not yet seen a formal release. However, the latest <a href="http://www.aminet.net/comm/www/netsurf.lha">development build</a> is available.</p>
 
-<!--#config timefmt="%d %b %Y %R %Z" sizefmt="abbrev"-->
-<ul class="developmentbuilds">
-<li><a href="development/netsurf.zip">NetSurf for RISC&nbsp;OS</a> <span><!--#fsize virtual="development/netsurf.zip"--></span> <span><!--#flastmod virtual="development/netsurf.zip"--></span></li>
-</ul>
+<h2>Source</h2>
 
-<p>By regularly running a recent development build you can help us improve NetSurf by providing feedback to the authors.</p>
+<p>Alternatively, you can obtain the <a href="/downloads/source/">latest source</a>, if you want to play with the AmigaOS port.</p>
 
-<p>Any bug reports or feature requests should be posted on the NetSurf <a href="/contact/#UserSupportTracker">issue tracker</a>. If you aren't running RISC OS, you can fetch the <a href="source">latest source</a> and build NetSurf for your system.</p>
-
-<h2>Recent SVN Activity</h2>
-<p>All times are in UTC.</p>
-<!--#include virtual="development/svnlog.txt"-->
 
 <div class="footer">
 <p>Copyright 2003 - 2008 The NetSurf Developers</p>

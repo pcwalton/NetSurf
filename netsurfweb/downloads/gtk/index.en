@@ -2,7 +2,7 @@
         "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 <head>
-<title>NetSurf | Packages</title>
+<title>NetSurf | GTK Downloads</title>
 <link rel="stylesheet" type="text/css" href="/netsurf.css">
 <link rel="icon" type="image/png" href="/webimages/favicon.png">
 </head>
@@ -17,8 +17,7 @@
 <li><a href="/downloads/">Downloads</a>
 <ul>
 <li><a href="/downloads/testbuilds">Test builds</a></li>
-<li><a href="/downloads/packages">Packages</a></li>
-<li><a href="/downloads/source">Source</a></li>
+<li><a href="/downloads/source/">Source</a></li>
 <li><a href="/downloads/extras">Extras</a></li>
 </ul>
 </li>
@@ -50,11 +49,41 @@
 
 <div class="content">
 
-<p class="breadcrumbs"><a href="/">Home</a> » <a href="/downloads/">Downloads</a> » Packages</p>
+<p class="breadcrumbs"><a href="/">Home</a> » <a href="/">Downloads</a> » GTK</p>
 
-<h1>NetSurf Packages</h1>
+<h1>GTK NetSurf Downloads</h1>
 
-<!--<p>We provide packages for installation of NetSurf releases on various systems.</p>
+<div class="bignote">
+<dl>
+<dt><a href="/downloads/source/">Latest development source</a></dt>
+<dd>Bleeding-edge source code is available for those that want to try the latest experimental features.</dd>
+</dl>
+</div>
+
+<p>NetSurf's GTK front end works on systems that provive a Unix-like environment, such as Linux, FreeBSD, NetBSD, Solaris and others. If your distribution packages NetSurf, you can use that. Otherwise you can download and build the source code.</p>
+
+<div class="downloadlatestouter">
+<div class="downloadlatest">
+<div class="downloadlatestbox downloadlast">
+<p class="downloadmain downloadfirst"><a href="/downloads/releases/netsurf-1.2-src.tar.gz"><span>NetSurf 1.2 source code</span> <span>(1.0MB)</span> <span class="downloaddate">22 Mar 2008</span></a></p>
+<p class="downloadinstructions"><a href="/downloads/source/#BuildInstructions">Build instructions</a></p>
+<p class="preul">Build NetSurf for:</p>
+<ul>
+<li>Linux</li>
+<li>Free/NetBSD</li>
+<li>Solaris</li>
+<li>RISC OS</li>
+<li>And more</li>
+</ul>
+</div>
+</div>
+<div class="arrow"></div>
+</div>
+
+<p>Check out the <a href="/downloads/releases/ChangeLog.txt">change log</a> to see what's changed since the last release.</p>
+
+<!--<h2>Packages</h2>
+<p>We provide packages for installation of NetSurf releases on various systems.</p>
 
 <dl class="packagelist">
 <dt>NetSurf 1.1</dt>
@@ -70,7 +99,7 @@
 
 <h2>Externally Hosted Packages</h2>
 
-<p>NetSurf is also available in some distributions' package repositories.</p>
+<p>NetSurf is available in some distributions' package repositories.</p>
 
 <dl>
 <dt>Debian</dt>
@@ -96,9 +125,28 @@
 </ul></dd>
 </dl>
 
-<h2>Development Build Packages</h2>
+<h2>Previous releases</h2>
+<dl>
+<dt>NetSurf 1.1</dt>
+<dd>
+<ul>
+<li><a href="/downloads/releases/netsurf-1.1-src.tar.gz">NetSurf 1.1 source code</a> (13 Aug 2007)</li>
+</ul>
+</dd>
+<dt>NetSurf 1.0</dt>
+<dd>
+<ul>
+<li><a href="/downloads/releases/netsurf-1.0-src.tar.gz">NetSurf 1.0 source code</a> (17 May 2007)</li>
+</ul>
+</dd>
+</dl>
 
-<p>RISC OS <a href="testbuilds">development builds</a> of NetSurf are available though the <a href="http://www.riscpkg.org/">RiscPKG</a> packaging system. To use the package, add the line<br><code>pkg http://www.netsurf-browser.org/downloads/development/riscpkg/packages</code><br>to <code>Choices:RiscPkg.Sources</code>. See the RiscPkg documentation for more information.</p>
+<h2>Framebuffer NetSurf</h2>
+
+<p>There are actually two versions of NetSurf available for Unix-like systems. In addition to the GTK front end, which is for normal desktop usage, there is a framebuffer front end for NetSurf which requires no windowing environment or GUI toolkits. It currently supports the Linux framebuffer and ABLE's framebuffer.</p>
+
+<p>Please obtain the <a href="/downloads/source/">latest source</a>, if you want to play with the framebuffer build.</p>
+
 
 <div class="footer">
 <p>Copyright 2003 - 2008 The NetSurf Developers</p>
