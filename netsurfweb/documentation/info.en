@@ -90,7 +90,7 @@
 <p>Before submitting a bug report, please:</p>
 
 <ol>
-<li>check that the bug exhibits itself in the latest version <a href="http://www.netsurf-browser.org/downloads/testbuilds">available for download</a> at the time.</li>
+<li>check that the bug exhibits itself in the latest version <a href="http://www.netsurf-browser.org/downloads/riscos/testbuilds">available for download</a> at the time.</li>
 <li>try to find a reproducible way of triggering the bug.</li>
 <li>check the <a href="progress">progress</a> page be sure that something has actually been implemented.</li>
 </ol>
