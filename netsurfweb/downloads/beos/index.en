@@ -52,7 +52,7 @@
 
 <h1>Haiku and BeOS NetSurf Downloads</h1>
 
-<p>NetSurf for Haiku and BeOS has not yet seen a formal release. However, the latest <a href="http://revolf.free.fr/beos/netsurf-bone.zip">development build</a> is available.</p>
+<p>NetSurf for Haiku and BeOS has not yet seen a formal release. However, the latest <a href="http://revolf.free.fr/beos/netsurf-bone.zip">development build</a> is available, which should be unzipped to <em>&quot;/boot&quot;</em>.</p>
 
 <h2>Source</h2>
 
