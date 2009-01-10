@@ -69,13 +69,16 @@
 <p>There are two versions of NetSurf: NetSurf for RISC OS and GTK NetSurf (often referred to as nsgtk).</p>
 
 <h3>Unix-like platforms</h3>
-<p>Users of Unix-like platforms, including Linux, should follow the build instructions provided in the <a href="http://source.netsurf-browser.org/*checkout*/trunk/netsurf/Docs/BUILDING-GTK"><code>Docs/BUILDING-GTK</code></a> file. This can be found in the source tree or viewed in the SVN web interface.</p>
+<p>Users of Unix-like platforms, including Linux, should follow the build instructions provided in the <a href="http://source.netsurf-browser.org/*checkout*/trunk/netsurf/Docs/BUILDING-GTK"><code>Docs/BUILDING-GTK</code></a> file. This can be found in the source tree or viewed via the SVN web interface.</p>
 
 <h3>RISC OS</h3>
 <p>RISC OS users should consult the <a href="/documentation/robuild">build instructions</a> in the <a href="/documentation">documentation</a>.</p>
 
 <h3>Haiku and BeOS</h3>
-<p>Users of BeOS-like platforms should follow the build instructions provided in the <a href="http://source.netsurf-browser.org/*checkout*/trunk/netsurf/Docs/BUILDING-BeOS"><code>Docs/BUILDING-BeOS</code></a> file. This can be found in the source tree or viewed in the SVN web interface.</p>
+<p>Users of BeOS-like platforms should follow the build instructions provided in the <a href="http://source.netsurf-browser.org/*checkout*/trunk/netsurf/Docs/BUILDING-BeOS"><code>Docs/BUILDING-BeOS</code></a> file. This can be found in the source tree or viewed via the SVN web interface.</p>
+
+<h3>AmigaOS</h3>
+<p>Users of AmigaOS should follow the build instructions provided in the <a href="http://source.netsurf-browser.org/*checkout*/trunk/netsurf/Docs/BUILDING-AmigaOS"><code>Docs/BUILDING-AmigaOS</code></a> file. This can be found in the source tree or viewed via the SVN web interface.</p>
 
 <h2>Release source code</h2>
 
