@@ -510,20 +510,23 @@ p.award a img {
 	min-height: 20px;
 	margin: 0; }
 
-.downloadosselection li.riscos {
+.downloadosselection li.riscos a {
 	background: url("webimages/dlriscos.png") no-repeat 0% 50%; }
 
-.downloadosselection li.gtk {
+.downloadosselection li.gtk a {
 	background: url("webimages/dllinux.png") no-repeat 0% 50%; }
 
-.downloadosselection li.beos {
+.downloadosselection li.beos a {
 	background: url("webimages/dlhaiku.png") no-repeat 0% 50%; }
 
-.downloadosselection li.amiga {
+.downloadosselection li.amiga a {
 	background: url("webimages/dlamiga.png") no-repeat 0% 50%; }
 
-.downloadosselection li.source {
+.downloadosselection li.source a {
 	background: url("webimages/source.png") no-repeat 0% 50%; }
+
+.downloadosselection li a:hover {
+	background-color: #e8edff; }
 
 .downloadlatestouter {
 	width:93%;
