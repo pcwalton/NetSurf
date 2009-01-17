@@ -171,6 +171,10 @@ bmp_result bmp_analyse(bmp_image *bmp, size_t size, unsigned char *cdata) {
 	bmp->bitmap_offset = read_uint32(data, 10);
 	data += BMP_FILE_HEADER_SIZE;
 
+	/* boundary checking */
+	if (bmp->bitmap_offset >= size)
+		return BMP_INSUFFICIENT_DATA;
+
 	/* decode the BMP header */
 	return bmp_analyse_header(bmp, data);
 }
