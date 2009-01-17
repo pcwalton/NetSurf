@@ -106,6 +106,33 @@ static inline uint32_t read_uint32(uint8_t *data, unsigned int o) {
 	return (uint32_t) (data[o] | (data[o+1] << 8) | (data[o+2] << 16) | (data[o+3] << 24));
 }
 
+
+/**
+ * Multiplies two 32-bit unsigned integers and checks for overflow
+ *
+ * \return 1 if successful; 0 if overflow occurred
+ */
+static uint8_t uint32_mult(uint32_t a, uint32_t b, uint32_t *c) {
+	uint64_t x = (uint64_t)a * b;
+	if (x > 0xffffffff)
+		return 0;
+	*c = x & 0xffffffff;
+	return 1;
+}
+
+/**
+ * Adds two 32-bit unsigned integers and checks for overflow
+ *
+ * \return 1 if successful; 0 if overflow occurred
+ */
+static uint8_t uint32_add(uint32_t a, uint32_t b, uint32_t *c) {
+	uint64_t x = (uint64_t)a + b;
+	if (x > 0xffffffff)
+		return 0;
+	*c = x & 0xffffffff;
+	return 1;
+}
+
 static bmp_result next_ico_image(ico_collection *ico, ico_image *image);
 static bmp_result bmp_analyse_header(bmp_image *bmp, unsigned char *data);
 static bmp_result bmp_decode_rgb24(bmp_image *bmp, uint8_t **start, int bytes);
@@ -294,6 +321,7 @@ static bmp_result bmp_analyse_header(bmp_image *bmp, uint8_t *data) {
 	int32_t width, height;
 	uint8_t palette_size;
 	unsigned int flags;
+	uint32_t colour_table_size;
 
 	/* a variety of different bitmap headers can follow, depending
 	 * on the BMP variant. A full description of the various headers
@@ -464,8 +492,18 @@ static bmp_result bmp_analyse_header(bmp_image *bmp, uint8_t *data) {
 		 * if the palette is from an OS/2 or Win2.x file then the entries
 		 * are padded with an extra byte.
 		 */
-		if (bmp->buffer_size < (14 + header_size + (4 * bmp->colours)))
+
+		/* boundary checking */
+		if (!uint32_mult(bmp->colours, 4, &colour_table_size))
 			return BMP_INSUFFICIENT_DATA;
+		if (!uint32_add(BMP_FILE_HEADER_SIZE, colour_table_size, &colour_table_size))
+			return BMP_INSUFFICIENT_DATA;
+		if (!uint32_add(header_size, colour_table_size, &colour_table_size))
+			return BMP_INSUFFICIENT_DATA;
+		if (bmp->buffer_size < colour_table_size)
+			return BMP_INSUFFICIENT_DATA;
+
+		/* create the colour table */
 		bmp->colour_table = (uint32_t *)malloc(bmp->colours * 4);
 		if (!bmp->colour_table)
 			return BMP_INSUFFICIENT_MEMORY;
