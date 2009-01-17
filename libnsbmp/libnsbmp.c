@@ -367,6 +367,8 @@ static bmp_result bmp_analyse_header(bmp_image *bmp, uint8_t *data) {
 		if (read_uint16(data, 8) != 1)
 			return BMP_DATA_ERROR;
 		bmp->bpp = read_uint16(data, 10);
+		if (bmp->bpp == 0)
+			return BMP_DATA_ERROR;
 		bmp->colours = (1 << bmp->bpp);
 		palette_size = 3;
 	} else if (header_size < 40) {
