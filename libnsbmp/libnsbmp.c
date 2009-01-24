@@ -367,7 +367,16 @@ static bmp_result bmp_analyse_header(bmp_image *bmp, uint8_t *data) {
 		if (read_uint16(data, 8) != 1)
 			return BMP_DATA_ERROR;
 		bmp->bpp = read_uint16(data, 10);
-		if (bmp->bpp == 0)
+		/**
+		 * The bpp value should be in the range 1-32, but the only
+		 * values considered legal are:
+		 * RGB ENCODING: 1, 4, 8, 16, 24 and 32
+		 */
+		if ((bmp->bpp != 1) && (bmp->bpp != 4) &&
+				(bmp->bpp != 8) &&
+				(bmp->bpp != 16) &&
+				(bmp->bpp != 24) &&
+				(bmp->bpp != 32))
 			return BMP_DATA_ERROR;
 		bmp->colours = (1 << bmp->bpp);
 		palette_size = 3;
@@ -437,15 +446,45 @@ static bmp_result bmp_analyse_header(bmp_image *bmp, uint8_t *data) {
 		if (bmp->bpp == 0)
 			bmp->bpp = 8;
 		bmp->encoding = read_uint32(data, 16);
-		if (bmp->encoding > BMP_ENCODING_BITFIELDS)
-			return BMP_DATA_ERROR;
+		/**
+		 * The bpp value should be in the range 1-32, but the only
+		 * values considered legal are:
+		 * RGB ENCODING: 1, 4, 8, 16, 24 and 32
+		 * RLE4 ENCODING: 4
+		 * RLE8 ENCODING: 8
+		 * BITFIELD ENCODING: 16 and 32
+		 */
+		switch (bmp->encoding) {
+			case BMP_ENCODING_RGB:
+				if ((bmp->bpp != 1) && (bmp->bpp != 4) &&
+						(bmp->bpp != 8) &&
+						(bmp->bpp != 16) &&
+						(bmp->bpp != 24) &&
+						(bmp->bpp != 32))
+					return BMP_DATA_ERROR;
+				break;
+			case BMP_ENCODING_RLE8:
+				if (bmp->bpp != 8)
+					return BMP_DATA_ERROR;
+				break;
+			case BMP_ENCODING_RLE4:
+				if (bmp->bpp != 4)
+					return BMP_DATA_ERROR;
+				break;
+			case BMP_ENCODING_BITFIELDS:
+				if ((bmp->bpp != 16) && (bmp->bpp != 32))
+					return BMP_DATA_ERROR;
+				break;
+			/* invalid encoding */
+			default:
+				return BMP_DATA_ERROR;
+				break;
+		}
 		/* Bitfield encoding means we have red, green, blue, and alpha masks.
 		 * Here we aquire the masks and determine the required bit shift to
 		 * align them in our 24-bit color 8-bit alpha format.
 		 */
 		if (bmp->encoding == BMP_ENCODING_BITFIELDS) {
-			if ((bmp->bpp != 16) && (bmp->bpp != 32))
-				return BMP_DATA_ERROR;
 			if (header_size == 40) {
 				header_size += 12;
 				if (bmp->buffer_size < (14 + header_size))
@@ -608,9 +647,9 @@ bmp_result bmp_decode(bmp_image *bmp) {
 
 	switch (bmp->encoding) {
 		case BMP_ENCODING_RGB:
-			if (bmp->bpp >= 24)
+			if ((bmp->bpp == 24) || (bmp->bpp == 32))
 				result = bmp_decode_rgb24(bmp, &data, bytes);
-			else if (bmp->bpp > 8)
+			else if (bmp->bpp == 16)
 				result = bmp_decode_rgb16(bmp, &data, bytes);
 			else
 				result = bmp_decode_rgb(bmp, &data, bytes);
