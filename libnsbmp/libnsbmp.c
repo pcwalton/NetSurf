@@ -733,7 +733,7 @@ static bmp_result bmp_decode_rgb24(bmp_image *bmp, uint8_t **start, int bytes) {
 		if (bmp->encoding == BMP_ENCODING_BITFIELDS)
 			bmp->transparent_index = read_uint32(data, 0);
 		else
-			bmp->transparent_index = data[2] | (data[1] << 8) | (data[0] << 16) | (data[3] << 24);
+			bmp->transparent_index = data[2] | (data[1] << 8) | (data[0] << 16);
 	}
 
 	for (y = 0; y < bmp->height; y++) {
