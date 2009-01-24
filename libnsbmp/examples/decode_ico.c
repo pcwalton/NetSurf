@@ -74,18 +74,19 @@ int main(int argc, char *argv[])
 	bmp = ico_find(&ico, width, height);
 	assert(bmp);
 
-	printf("P3\n");
-	printf("# %s\n", argv[1]);
-	printf("# width                %u \n", bmp->width);
-	printf("# height               %u \n", bmp->height);
-	printf("%u %u 256\n", bmp->width, bmp->height);
-
 	code = bmp_decode(bmp);
 	/* code = bmp_decode_trans(bmp, TRANSPARENT_COLOR); */
 	if (code != BMP_OK) {
 		warning("bmp_decode", code);
 		exit(1);
 	}
+
+	printf("P3\n");
+	printf("# %s\n", argv[1]);
+	printf("# width                %u \n", bmp->width);
+	printf("# height               %u \n", bmp->height);
+	printf("%u %u 256\n", bmp->width, bmp->height);
+
 	{
 		uint16_t row, col;
 		uint8_t *image;
