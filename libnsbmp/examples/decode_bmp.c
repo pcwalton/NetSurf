@@ -43,6 +43,7 @@ int main(int argc, char *argv[])
 	bmp_result code;
 	bmp_image bmp;
 	size_t size;
+	unsigned short res = 0;
 
 	if (argc != 2) {
 		fprintf(stderr, "Usage: %s image.bmp\n", argv[0]);
@@ -59,7 +60,8 @@ int main(int argc, char *argv[])
 	code = bmp_analyse(&bmp, size, data);
 	if (code != BMP_OK) {
 		warning("bmp_analyse", code);
-		exit(1);
+		res = 1;
+		goto cleanup;
 	}
 
 	/* decode the image */
@@ -67,7 +69,8 @@ int main(int argc, char *argv[])
 	/* code = bmp_decode_trans(&bmp, TRANSPARENT_COLOR); */
 	if (code != BMP_OK) {
 		warning("bmp_decode", code);
-		exit(1);
+		res = 1;
+		goto cleanup;
 	}
 
 	printf("P3\n");
@@ -91,11 +94,12 @@ int main(int argc, char *argv[])
 		}
 	}
 
+cleanup:
 	/* clean up */
 	bmp_finalise(&bmp);
 	free(data);
 
-	return 0;
+	return res;
 }
 
 

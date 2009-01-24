@@ -49,6 +49,7 @@ int main(int argc, char *argv[])
 	bmp_result code;
 	struct bmp_image *bmp;
 	size_t size;
+	unsigned short res = 0;
 
 	if ((argc < 2) || (argc > 4)) {
 		fprintf(stderr, "Usage: %s collection.ico [width=255] [height=255]\n", argv[0]);
@@ -67,7 +68,8 @@ int main(int argc, char *argv[])
 	code = ico_analyse(&ico, size, data);
 	if (code != BMP_OK) {
 		warning("ico_analyse", code);
-		exit(1);
+		res = 1;
+		goto cleanup;
 	}
 
 	/* decode the image */
@@ -78,7 +80,8 @@ int main(int argc, char *argv[])
 	/* code = bmp_decode_trans(bmp, TRANSPARENT_COLOR); */
 	if (code != BMP_OK) {
 		warning("bmp_decode", code);
-		exit(1);
+		res = 1;
+		goto cleanup;
 	}
 
 	printf("P3\n");
@@ -102,11 +105,12 @@ int main(int argc, char *argv[])
 		}
 	}
 
+cleanup:
 	/* clean up */
 	ico_finalise(&ico);
 	free(data);
 
-	return 0;
+	return res;
 }
 
 
