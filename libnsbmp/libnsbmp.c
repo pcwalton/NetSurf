@@ -730,6 +730,8 @@ static bmp_result bmp_decode_rgb24(bmp_image *bmp, uint8_t **start, int bytes) {
 
 	/* Determine transparent index */
 	if (bmp->limited_trans) {
+		if ((data + skip) > end)
+			return BMP_INSUFFICIENT_DATA;
 		if (bmp->encoding == BMP_ENCODING_BITFIELDS)
 			bmp->transparent_index = read_uint32(data, 0);
 		else
@@ -739,6 +741,8 @@ static bmp_result bmp_decode_rgb24(bmp_image *bmp, uint8_t **start, int bytes) {
 	for (y = 0; y < bmp->height; y++) {
 		while (addr != (((intptr_t)data) & 3))
 			data++;
+		if ((data + (skip * bmp->width)) > end)
+			return BMP_INSUFFICIENT_DATA;
 		if (bmp->reversed)
 			scanline = (uint32_t *)(top + (y * swidth));
 		else
@@ -754,7 +758,7 @@ static bmp_result bmp_decode_rgb24(bmp_image *bmp, uint8_t **start, int bytes) {
 				/* 32-bit BMPs have alpha masks, but sometimes they're not utilized */
 				if (bmp->opaque)
 					scanline[x] |= (0xff << 24);
-				data += 4;
+				data += skip;
 			}
 		} else {
 			for (x = 0; x < bmp->width; x++) {
@@ -799,11 +803,14 @@ static bmp_result bmp_decode_rgb16(bmp_image *bmp, uint8_t **start, int bytes) {
 	bmp->decoded = true;
 
 	/* Determine transparent index */
-	if (bmp->limited_trans)
+	if (bmp->limited_trans) {
+		if ((data + 2) > end)
+			return BMP_INSUFFICIENT_DATA;
 		bmp->transparent_index = read_uint16(data, 0);
+	}
 
 	for (y = 0; y < bmp->height; y++) {
-		if (addr != (((intptr_t)data) & 3))
+		while (addr != (((intptr_t)data) & 3))
 			data += 2;
 		if ((data + (2 * bmp->width)) > end)
 			return BMP_INSUFFICIENT_DATA;
@@ -1067,6 +1074,10 @@ static bmp_result bmp_decode_rle(bmp_image *bmp, uint8_t *data, int bytes, int s
 			}
 			if (length > pixels_left)
 				length = pixels_left;
+			
+			/* boundary checking */
+			if (data + 1 > end)
+				return BMP_INSUFFICIENT_DATA;
 
 			/* the following code could be easily optimised by simply
 			 * checking the bounds on entry and using some simply copying
