@@ -80,8 +80,11 @@ int main(int argc, char *argv[])
 	/* code = bmp_decode_trans(bmp, TRANSPARENT_COLOR); */
 	if (code != BMP_OK) {
 		warning("bmp_decode", code);
-		res = 1;
-		goto cleanup;
+		/* allow partially decoded images */
+		if (code != BMP_INSUFFICIENT_DATA) {
+			res = 1;
+			goto cleanup;
+		}
 	}
 
 	printf("P3\n");
