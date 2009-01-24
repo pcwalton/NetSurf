@@ -325,7 +325,8 @@ static bmp_result bmp_analyse_header(bmp_image *bmp, uint8_t *data) {
 
 	/* a variety of different bitmap headers can follow, depending
 	 * on the BMP variant. A full description of the various headers
-	 * can be found at http://www.fileformat.info/format/bmp/
+	 * can be found at
+	 * http://msdn.microsoft.com/en-us/library/ms532301(VS.85).aspx
 	 */
 	header_size = read_uint32(data, 0);
 	if (bmp->buffer_size < (14 + header_size))
