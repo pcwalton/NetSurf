@@ -537,11 +537,11 @@ static bmp_result bmp_analyse_header(bmp_image *bmp, uint8_t *data) {
 
 		/* boundary checking */
 		if (!uint32_mult(bmp->colours, 4, &colour_table_size))
-			return BMP_INSUFFICIENT_DATA;
+			return BMP_DATA_ERROR;
 		if (!uint32_add(BMP_FILE_HEADER_SIZE, colour_table_size, &colour_table_size))
-			return BMP_INSUFFICIENT_DATA;
+			return BMP_DATA_ERROR;
 		if (!uint32_add(header_size, colour_table_size, &colour_table_size))
-			return BMP_INSUFFICIENT_DATA;
+			return BMP_DATA_ERROR;
 		if (bmp->buffer_size < colour_table_size)
 			return BMP_INSUFFICIENT_DATA;
 
@@ -706,7 +706,9 @@ bmp_result bmp_decode_trans(bmp_image *bmp, uint32_t colour) {
  * \param bmp	the BMP image to decode
  * \param start	the data to decode, updated to last byte read on success
  * \param bytes	the number of bytes of data available
- * \return BMP_OK on success
+ * \return	BMP_OK on success
+ *		BMP_INSUFFICIENT_DATA if the bitmap data ends unexpectedly;
+ *			in this case, the image may be partially viewable
  */
 static bmp_result bmp_decode_rgb24(bmp_image *bmp, uint8_t **start, int bytes) {
 	uint8_t *top, *bottom, *end, *data;
@@ -782,7 +784,9 @@ static bmp_result bmp_decode_rgb24(bmp_image *bmp, uint8_t **start, int bytes) {
  * \param bmp	the BMP image to decode
  * \param start	the data to decode, updated to last byte read on success
  * \param bytes	the number of bytes of data available
- * \return BMP_OK on success
+ * \return	BMP_OK on success
+ *		BMP_INSUFFICIENT_DATA if the bitmap data ends unexpectedly;
+ *			in this case, the image may be partially viewable
  */
 static bmp_result bmp_decode_rgb16(bmp_image *bmp, uint8_t **start, int bytes) {
 	uint8_t *top, *bottom, *end, *data;
@@ -863,7 +867,9 @@ static bmp_result bmp_decode_rgb16(bmp_image *bmp, uint8_t **start, int bytes) {
  * \param bmp	the BMP image to decode
  * \param start	the data to decode, updated to last byte read on success
  * \param bytes	the number of bytes of data available
- * \return BMP_OK on success
+ * \return	BMP_OK on success
+ *		BMP_INSUFFICIENT_DATA if the bitmap data ends unexpectedly;
+ *			in this case, the image may be partially viewable
  */
 static bmp_result bmp_decode_rgb(bmp_image *bmp, uint8_t **start, int bytes) {
 	uint8_t *top, *bottom, *end, *data;
@@ -965,7 +971,9 @@ static bmp_result bmp_decode_mask(bmp_image *bmp, uint8_t *data, int bytes) {
  * \param data	the data to decode
  * \param bytes	the number of bytes of data available
  * \param size	the size of the RLE tokens (4 or 8)
- * \return BMP_OK on success
+ * \return	BMP_OK on success
+ *		BMP_INSUFFICIENT_DATA if the bitmap data ends unexpectedly;
+ *			in this case, the image may be partially viewable
  */
 static bmp_result bmp_decode_rle(bmp_image *bmp, uint8_t *data, int bytes, int size) {
 	uint8_t *top, *bottom, *end;
