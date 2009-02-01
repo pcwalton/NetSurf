@@ -40,9 +40,9 @@ endif
 
 -include Makefile.config
 
-OBJDIR = $(TARGET)$(SUBTARGET)objects
-LIBDIR = $(TARGET)$(SUBTARGET)lib
-BINDIR = $(TARGET)$(SUBTARGET)bin
+OBJDIR = build-$(TARGET)$(SUBTARGET)objects
+LIBDIR = build-$(TARGET)$(SUBTARGET)lib
+BINDIR = build-$(TARGET)$(SUBTARGET)bin
 
 OBJS = $(addprefix $(OBJDIR)/, $(SOURCE:.c=.o))
 
@@ -92,5 +92,4 @@ uninstall:
 	rm $(DESTDIR)$(PREFIX)/lib/pkgconfig/libnsbmp.pc
 
 clean:
-	-rm $(OBJS) $(LIBDIR)/libnsbmp.a $(LIBDIR)/libnsbmp.pc $(BINDIR)/decode_bmp$(EXEEXT) $(BINDIR)/decode_ico$(EXEEXT)
-	-rm -rf doc
+	-rm -rf $(OBJDIR) $(LIBDIR) $(BINDIR) doc
