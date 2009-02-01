@@ -56,6 +56,6 @@ riscos:
 	make install --directory=libsvgtiny TARGET=$(TARGET) PREFIX=$(PREFIX)
 	make install --directory=pencil TARGET=$(TARGET) PREFIX=$(PREFIX)
 	make install --directory=rufl TARGET=$(TARGET) PREFIX=$(PREFIX)
-	make install --directory=tools TARGET=$(TARGET) PREFIX=$(PREFIX)
+	make install --directory=tools PREFIX=$(PREFIX)
 	make --directory=netsurf TARGET=$(TARGET) PREFIX=$(PREFIX)
 
