@@ -1,19 +1,43 @@
-# Simple wrapper Makefile to build the libharu development snapshot we made.
-# To update snapshot, use http://libharu.org/files/snapshots/libharu-latest.tar.gz
+# Simple wrapper Makefile to build the libharu development snapshot we once
+# made.  To update the snapshot, fetch a copy at
+# http://libharu.org/files/snapshots/libharu-latest.tar.gz
+#
+# To build for current host:
+#   $ make
+#
+# To build for RISC OS using cross-compiler:
+#   $ make TARGET=riscos
+#
+# Use 'clean' rule to cleanup.
+
+ifeq ($(TARGET),)
+  TARGET = native
+endif
 
 GCCSDK_INSTALL_ENV ?= /home/riscos/env
 ROOT = $(shell pwd)
 PREFIX ?= $(ROOT)/prefix-$(TARGET)
 
-.PHONY: gtk riscos
+SRCDIR := $(ROOT)/upstream
+BUILDDIR := build-$(TARGET)
 
-gtk: TARGET=gtk
-gtk:
-	cd upstream && ./configure --prefix=$(PREFIX) --with-zlib=$(PREFIX) --with-png=$(PREFIX)
-	cd upstream && make install
+.PHONY: all gtk native riscos clean
 
-riscos: TARGET=riscos
+all: $(TARGET)
+
+gtk: native
+native:
+	mkdir -p $(BUILDDIR)
+	cd $(BUILDDIR) && $(SRCDIR)/configure --prefix=$(PREFIX)
+	cd $(BUILDDIR) && make install
+
 riscos:
-	cd upstream && $(GCCSDK_INSTALL_ENV)/ro-config --disable-shared --enable-static --prefix=$(PREFIX) --with-zlib=$(PREFIX) --with-png=$(PREFIX)
-	cd upstream && $(GCCSDK_INSTALL_ENV)/ro-make install
+	mkdir -p $(BUILDDIR)
+	cd $(BUILDDIR) && RO_CPATH=$(SRCDIR) $(GCCSDK_INSTALL_ENV)/ro-config --disable-shared --enable-static --prefix=$(PREFIX) --with-zlib=$(PREFIX) --with-png=$(PREFIX)
+	cd $(BUILDDIR) && $(GCCSDK_INSTALL_ENV)/ro-make install
+
+clean:
+	-rm -rf $(BUILDDIR)
+	# ro-config changes configure script
+	-svn revert $(SRCDIR)/configure
 

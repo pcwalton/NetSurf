@@ -101,6 +101,10 @@ chdir "$root/libnsgif";
 command("svn update --non-interactive");
 command("make TARGET=riscos install");
 
+chdir "$root/libharu";
+command("svn update --non-interactive");
+command("make TARGET=riscos");
+
 # build RISC OS version
 chdir "$root/netsurf";
 command("make TARGET=riscos");
