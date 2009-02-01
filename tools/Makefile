@@ -60,7 +60,7 @@ endif
 
 -include Makefile.config
 
-BINDIR = $(TARGET)$(SUBTARGET)bin
+BINDIR = build-$(TARGET)$(SUBTARGET)bin
 
 BINS = $(addprefix $(BINDIR)/, $(addsuffix $(EXEEXT), $(BINARIES)))
 
