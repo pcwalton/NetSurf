@@ -83,7 +83,7 @@ command("make TARGET=riscos install");
 
 chdir "$root/libharu";
 command("svn update --non-interactive");
-command("/home/riscos/env/ro-make install");
+command("make TARGET=riscos");
 
 chdir "$root/libparserutils";
 command("svn update --non-interactive");
@@ -100,10 +100,6 @@ command("make TARGET=riscos install");
 chdir "$root/libnsgif";
 command("svn update --non-interactive");
 command("make TARGET=riscos install");
-
-chdir "$root/libharu";
-command("svn update --non-interactive");
-command("make TARGET=riscos");
 
 # build RISC OS version
 chdir "$root/netsurf";
