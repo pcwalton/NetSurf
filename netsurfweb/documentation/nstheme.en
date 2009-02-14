@@ -135,7 +135,7 @@
 
 <h2 id="Distribution">Distribution</h2>
 
-<p>Completed themes can be submitted for inclusion on NetSurf's <a href="index">themes page</a>. They are served as <code>Content-Type: application/x-netsurf-theme</code> which NetSurf recognizes and installs as themes.</p>
+<p>Completed themes can be submitted for inclusion on NetSurf's <a href="/downloads/themes/">themes page</a>. They are served as <code>Content-Type: application/x-netsurf-theme</code> which NetSurf recognizes and installs as themes.</p>
 
 
 <div class="footer">
