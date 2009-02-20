@@ -321,6 +321,7 @@
 <tr><th class="menutitle" colspan="2">NetSurf</th></tr>
 <tr><td><a href="#BrowserWindowMenuPage">Page</a></td><td class="menuarrow">&gt;</td></tr>
 <tr><td><a href="#BrowserWindowMenuObject">Object</a></td><td class="menuarrow">&gt;</td></tr>
+<tr><td><a href="#BrowserWindowMenuSelection">Selection</a></td><td class="menuarrow">&gt;</td></tr>
 <tr><td><a href="#BrowserWindowMenuNavigate">Navigate</a></td><td class="menuarrow">&gt;</td></tr>
 <tr><td><a href="#BrowserWindowMenuDisplay">Display</a></td><td class="menuarrow">&gt;</td></tr>
 <tr><td><a href="#BrowserWindowMenuUtilities">Utilities</a></td><td class="menuarrow">&gt;</td></tr>
@@ -338,8 +339,9 @@
 <tr><td><a href="#BrowserWindowMenuPageFullSave">Full save</a></td><td class="menuarrow">&gt;</td></tr>
 <tr><td><a href="#BrowserWindowMenuPageExport">Export</a></td><td class="menuarrow">&gt;</td></tr>
 <tr><td><a href="#BrowserWindowMenuPageSaveLocation">Save location</a></td><td class="menuarrow">&gt;</td></tr>
-<tr><td><a href="#BrowserWindowMenuPagePrint">Print</a></td><td></td></tr>
+<tr><td><a href="#BrowserWindowMenuPagePrint">Print</a></td><td class="menuarrow">&gt;</td></tr>
 <tr><td class="menusplit"><a href="#BrowserWindowMenuPageNewwindow">New window</a></td><td class="menusplit"></td></tr>
+<tr><td><a href="#BrowserWindowMenuPageFindText">Find text</a></td><td class="menuarrow">&gt;</td></tr>
 <tr><td><a href="#BrowserWindowMenuPageViewSource">View source</a></td><td class="menuarrow"></td></tr>
 </table>
 
@@ -358,11 +360,15 @@
 <table class="menu">
 <tr><th class="menutitle" colspan="2">Export as</th></tr>
 <tr><td><a href="#BrowserWindowMenuPageExportDraw">Draw</a></td><td class="menuarrow">&gt;</td></tr>
+<tr><td><a href="#BrowserWindowMenuPageExportPDF">PDF</a></td><td class="menuarrow">&gt;</td></tr>
 <tr><td><a href="#BrowserWindowMenuPageExportText">Text</a></td><td class="menuarrow">&gt;</td></tr>
 </table>
 
 <p class="menupath" id="BrowserWindowMenuPageExportDraw">Page &gt; Export &gt; Draw</p>
 <p class="menuitem">This option opens a save dialogue box, allowing the current page to be saved as a drawfile.</p>
+
+<p class="menupath" id="BrowserWindowMenuPageExportPDF">Page &gt; Export &gt; PDF</p>
+<p class="menuitem">This option opens a save dialogue box, allowing the current page to be saved as a multi-page PDF document.</p>
 
 <p class="menupath" id="BrowserWindowMenuPageExportText">Page &gt; Export &gt; Text</p>
 <p class="menuitem">This option opens a save dialogue box, allowing the current page to be saved as a text file.</p>
@@ -392,60 +398,143 @@
 <p class="menupath" id="BrowserWindowMenuPageNewwindow">Page &gt; New window</p>
 <p class="menuitem">This option opens the current page in a new window.</p>
 
+<p class="menupath" id="BrowserWindowMenuPageFindText">Page &gt; Find text</p>
+<p class="menuitem">This option allows you to search the current page for a text string. The same function is available on the <a href="#BrowserWindowToolbar">toolbar</a>.</p>
+
 <p class="menupath" id="BrowserWindowMenuPageViewSource">Page &gt; View source</p>
 <p class="menuitem">This option opens the source code of the current page in a text editor window.</p>
 
 <h4 id="BrowserWindowMenuObject" class="submenu">Object Submenu</h4>
 
-<p>The Object submenu contains the following options relevant to the current object. This submenu is only available when the pointer is placed over an object such as an image.</p>
+<p>The Object submenu contains the following options relevant to the current object. This submenu is only available when the pointer is placed over an object such as a link or an image.</p>
 
 <table class="menu">
 <tr><th class="menutitle" colspan="2">Object</th></tr>
-<tr><td><a href="#BrowserWindowMenuObjectInfo">Info</a></td><td class="menuarrow">&gt;</td></tr>
-<tr><td><a href="#BrowserWindowMenuObjectSave">Save</a></td><td class="menuarrow">&gt;</td></tr>
-<tr><td><a href="#BrowserWindowMenuObjectExport">Export</a></td><td class="menuarrow">&gt;</td></tr>
-<tr><td><a href="#BrowserWindowMenuObjectSaveLocation">Save location</a></td><td class="menuarrow">&gt;</td></tr>
-<tr><td class="menusplit"><a href="#BrowserWindowMenuObjectReload">Reload</a></td><td class="menusplit"></td></tr>
+<tr><td><a href="#BrowserWindowMenuObjectObject">Object</a></td><td class="menuarrow">&gt;</td></tr>
+<tr><td><a href="#BrowserWindowMenuObjectLink">Link</a></td><td class="menuarrow">&gt;</td></tr>
 </table>
 
-<p class="menupath" id="BrowserWindowMenuObjectInfo">Object &gt; Info</p>
+<p class="menupath" id="BrowserWindowMenuObjectObject">Object &gt; Object</p>
+<p class="menuitem">This submenu contains options relating to the current object &ndash; e.g. the image under the pointer where the menu was opened.</p>
+
+<table class="menu">
+<tr><th class="menutitle" colspan="2">Object</th></tr>
+<tr><td><a href="#BrowserWindowMenuObjectObjectInfo">Info</a></td><td class="menuarrow">&gt;</td></tr>
+<tr><td><a href="#BrowserWindowMenuObjectObjectSave">Save</a></td><td class="menuarrow">&gt;</td></tr>
+<tr><td><a href="#BrowserWindowMenuObjectObjectExport">Export</a></td><td class="menuarrow">&gt;</td></tr>
+<tr><td><a href="#BrowserWindowMenuObjectObjectSaveLocation">Save location</a></td><td class="menuarrow">&gt;</td></tr>
+<tr><td><a href="#BrowserWindowMenuObjectObjectReload">Reload</a></td><td></td></tr>
+</table>
+
+<p class="menupath" id="BrowserWindowMenuObjectObjectInfo">Object &gt; Object &gt; Info</p>
 <p class="menuitem">This option displays information about the current object.</p>
 
-<p class="menupath" id="BrowserWindowMenuObjectSave">Object &gt; Save</p>
+<p class="menupath" id="BrowserWindowMenuObjectObjectSave">Object &gt; Object &gt; Save</p>
 <p class="menuitem">This option opens a save dialogue box, allowing the object under the pointer to be saved in its original format.</p>
 
-<p class="menupath" id="BrowserWindowMenuObjectExport">Object &gt; Export</p>
+<p class="menupath" id="BrowserWindowMenuObjectObjectExport">Object &gt; Object &gt; Export</p>
 <p class="menuitem">This option offers various export options for the current object. The options available are:</p>
 
 <table class="menu">
-<tr><th class="menutitle" colspan="2">Export as</th></tr>
-<tr><td><a href="#BrowserWindowMenuObjectExportSprite">Sprite</a></td><td class="menuarrow">&gt;</td></tr>
+<tr><th class="menutitle" colspan="2">Export</th></tr>
+<tr><td><a href="#BrowserWindowMenuObjectObjectExportSprite">Sprite</a></td><td class="menuarrow">&gt;</td></tr>
+<tr><td><a href="#BrowserWindowMenuObjectObjectExportDraw">Draw</a></td><td class="menuarrow">&gt;</td></tr>
 </table>
 
-<p class="menupath" id="BrowserWindowMenuObjectExportSprite">Object &gt; Export &gt; Sprite</p>
+<p class="menupath" id="BrowserWindowMenuObjectObjectExportSprite">Object &gt; Object &gt; Export &gt; Sprite</p>
 <p class="menuitem">This option opens a save dialogue box, allowing the current object to be saved as a sprite.</p>
 
-<p class="menupath" id="BrowserWindowMenuObjectSaveLocation">Object &gt; Save location</p>
+<p class="menupath" id="BrowserWindowMenuObjectObjectExportDraw">Object &gt; Object &gt; Export &gt; Draw</p>
+<p class="menuitem">This option opens a save dialogue box, allowing the current object to be saved as a drawfile. This option is only available for vector images, such as SVG.</p>
+
+<p class="menupath" id="BrowserWindowMenuObjectObjectSaveLocation">Object &gt; Object &gt; Save location</p>
 <p class="menuitem">This option allows the address of the current object to be saved in various formats. The options available are:</p>
 
 <table class="menu">
-<tr><th class="menutitle" colspan="2">Link</th></tr>
-<tr><td><a href="#BrowserWindowMenuObjectSaveLocationAcorn">Acorn URI</a></td><td class="menuarrow">&gt;</td></tr>
-<tr><td><a href="#BrowserWindowMenuObjectSaveLocationAnt">Ant URL</a></td><td class="menuarrow">&gt;</td></tr>
-<tr><td><a href="#BrowserWindowMenuObjectSaveLocationText">Text</a></td><td class="menuarrow">&gt;</td></tr>
+<tr><th class="menutitle" colspan="2">Save location</th></tr>
+<tr><td><a href="#BrowserWindowMenuObjectObjectSaveLocationAcorn">Acorn URI</a></td><td class="menuarrow">&gt;</td></tr>
+<tr><td><a href="#BrowserWindowMenuObjectObjectSaveLocationAnt">Ant URL</a></td><td class="menuarrow">&gt;</td></tr>
+<tr><td><a href="#BrowserWindowMenuObjectObjectSaveLocationText">Text</a></td><td class="menuarrow">&gt;</td></tr>
 </table>
 
-<p class="menupath" id="BrowserWindowMenuObjectSaveLocationAcorn">Object &gt; Save location &gt; Acorn URI</p>
+<p class="menupath" id="BrowserWindowMenuObjectObjectSaveLocationAcorn">Object &gt; Object &gt; Save location &gt; Acorn URI</p>
 <p class="menuitem">This option opens a save dialogue box, allowing the address of the current object to be saved to disc in Acorn URI format.</p>
 
-<p class="menupath" id="BrowserWindowMenuObjectSaveLocationAnt">Object &gt; Save location &gt; Ant URL</p>
+<p class="menupath" id="BrowserWindowMenuObjectObjectSaveLocationAnt">Object &gt; Object &gt; Save location &gt; Ant URL</p>
 <p class="menuitem">This option opens a save dialogue box, allowing the address of the current object to be saved to disc in Ant URL format.</p>
 
-<p class="menupath" id="BrowserWindowMenuObjectSaveLocationText">Object &gt; Save location &gt; Text</p>
+<p class="menupath" id="BrowserWindowMenuObjectObjectSaveLocationText">Object &gt; Object &gt; Save location &gt; Text</p>
 <p class="menuitem">This option opens a save dialogue box, allowing the address of the current object to be saved to disc in plain text format.</p>
 
-<p class="menupath" id="BrowserWindowMenuObjectReload">Object &gt; Reload</p>
+<p class="menupath" id="BrowserWindowMenuObjectObjectReload">Object &gt; Object &gt; Reload</p>
 <p class="menuitem">This option reloads the current page and any objects that the page contains.</p>
+
+<p class="menupath" id="BrowserWindowMenuObjectLink">Object &gt; Link</p>
+<p class="menuitem">This submenu contains options relating to the current link &ndash; i.e. the link under the pointer where the menu was opened.</p>
+
+<table class="menu">
+<tr><th class="menutitle" colspan="2">Link</th></tr>
+<tr><td><a href="#BrowserWindowMenuObjectLinkSave">Save</a></td><td class="menuarrow">&gt;</td></tr>
+<tr><td><a href="#BrowserWindowMenuObjectLinkDownloadtarget">Download target</a></td><td></td></tr>
+<tr><td class="menusplit"><a href="#BrowserWindowMenuObjectLinkNewwindow">New window</a></td><td class="menusplit"></td></tr>
+</table>
+
+<p class="menupath" id="BrowserWindowMenuObjectLinkSave">Object &gt; Link &gt; Save</p>
+<p class="menuitem">This option allows the address of the current link to be saved in various formats. The options available are:</p>
+
+<table class="menu">
+<tr><th class="menutitle" colspan="2">Save</th></tr>
+<tr><td><a href="#BrowserWindowMenuObjectLinkSaveAcorn">Acorn URI</a></td><td class="menuarrow">&gt;</td></tr>
+<tr><td><a href="#BrowserWindowMenuObjectLinkSaveAnt">Ant URL</a></td><td class="menuarrow">&gt;</td></tr>
+<tr><td><a href="#BrowserWindowMenuObjectLinkSaveText">Text</a></td><td class="menuarrow">&gt;</td></tr>
+</table>
+
+<p class="menupath" id="BrowserWindowMenuObjectLinkSaveAcorn">Object &gt; Link &gt; Save &gt; Acorn URI</p>
+<p class="menuitem">This option opens a save dialogue box, allowing the address of the current link to be saved to disc in Acorn URI format.</p>
+
+<p class="menupath" id="BrowserWindowMenuObjectLinkSaveAnt">Object &gt; Link &gt; Save &gt; Ant URL</p>
+<p class="menuitem">This option opens a save dialogue box, allowing the address of the current link to be saved to disc in Ant URL format.</p>
+
+<p class="menupath" id="BrowserWindowMenuObjectLinkSaveText">Object &gt; Link &gt; Save &gt; Text</p>
+<p class="menuitem">This option opens a save dialogue box, allowing the address of the current link to be saved to disc in plain text format.</p>
+
+<p class="menupath" id="BrowserWindowMenuObjectLinkDownloadtarget">Object &gt; Link &gt; Download target</p>
+<p class="menuitem">This option starts a download of the file pointed to by the current link. It is the same as <span class="action">shift + clicking</span> on the link.</p>
+
+<p class="menupath" id="BrowserWindowMenuObjectLinkNewwindow">Object &gt; Link &gt; New window</p>
+<p class="menuitem">This option opens the page pointed to by the current link in a new window. It is the same as following a link with <span class="action">adjust</span>.</p>
+
+<h4 id="BrowserWindowMenuSelection" class="submenu">Selection Submenu</h4>
+
+<p>The selection submenu contains the following options, for manipulating the current selection and performing clipboard actions.</p>
+
+<table class="menu">
+<tr><th class="menutitle" colspan="2">Selection</th></tr>
+<tr><td><a href="#BrowserWindowMenuSelectionSave">Save</a></td><td class="menuarrow">&gt;</td></tr>
+<tr><td class="menusplit"><a href="#BrowserWindowMenuSelectionCopytoclipboard">Copy to clipboard</a></td><td class="menusplit"></td></tr>
+<tr><td><a href="#BrowserWindowMenuSelectionCuttoclipboard">Cut to clipboard</a></td><td class="menuarrow"></td></tr>
+<tr><td><a href="#BrowserWindowMenuSelectionPastefromclipboard">Paste from clipboard</a></td><td></td></tr>
+<tr><td class="menusplit"><a href="#BrowserWindowMenuSelectionClearselection">Clear selection</a></td><td class="menusplit"></td></tr>
+<tr><td><a href="#BrowserWindowMenuSelectionSelectall">Select all</a></td><td class="menuarrow"></td></tr>
+</table>
+
+<p class="menupath" id="BrowserWindowMenuSelectionSave">Selection &gt; Save</p>
+<p class="menuitem">This option opens a save dialogue box, allowing the current selection page to be saved to disc as a text file.</p>
+
+<p class="menupath" id="BrowserWindowMenuSelectionCopytoclipboard">Selection &gt; Copy to clipboard</p>
+<p class="menuitem">This option copies the current selection to the clipboard, allowing it to be pasted into other applications or elsewhere in NetSurf.</p>
+
+<p class="menupath" id="BrowserWindowMenuSelectionCuttoclipboard">Selection &gt; Cut to clipboard</p>
+<p class="menuitem">This option cuts the current selection to the clipboard. It is only available when the current selection is editable, such as selections within a form's text area.</p>
+
+<p class="menupath" id="BrowserWindowMenuSelectionPastefromclipboard">Selection &gt; Paste from clipboard</p>
+<p class="menuitem">This option pastes the current clipboard contents at the postman of the caret.</p>
+
+<p class="menupath" id="BrowserWindowMenuSelectionClearselection">Selection &gt; Clear selection</p>
+<p class="menuitem">This option deselects any selected text on the current page.</p>
+
+<p class="menupath" id="BrowserWindowMenuSelectionSelectall">Selection &gt; Select all</p>
+<p class="menuitem">This option selects all the text on the current page.</p>
 
 <h4 id="BrowserWindowMenuNavigate" class="submenu">Navigate Submenu</h4>
 
@@ -456,7 +545,8 @@
 <tr><td><a href="#BrowserWindowMenuNavigateHome">Home page</a></td><td class="menuarrow"></td></tr>
 <tr><td><a href="#BrowserWindowMenuNavigateBack">Back one page</a></td><td class="menuarrow"></td></tr>
 <tr><td><a href="#BrowserWindowMenuNavigateForward">Forward one page</a></td><td class="menuarrow"></td></tr>
-<tr><td class="menusplit"><a href="#BrowserWindowMenuNavigateReload">Reload this page</a></td><td></td></tr>
+<tr><td><a href="#BrowserWindowMenuNavigateUponelevel">Up one level</a></td><td class="menuarrow"></td></tr>
+<tr><td class="menusplit"><a href="#BrowserWindowMenuNavigateReload">Reload this page</a></td><td class="menusplit"></td></tr>
 <tr><td><a href="#BrowserWindowMenuNavigateStop">Stop loading this page</a></td><td class="menuarrow"></td></tr>
 </table>
 
@@ -469,11 +559,14 @@
 <p class="menupath" id="BrowserWindowMenuNavigateForward">Navigate &gt; Forward one page</p>
 <p class="menuitem">This option takes you forward one page in the local history. Any form information will not be resubmitted. The same function is available on the <a href="#BrowserWindowToolbar">toolbar</a>.</p>
 
+<p class="menupath" id="BrowserWindowMenuNavigateUponelevel">Navigate &gt; Up one level</p>
+<p class="menuitem">This option moves up the directory tree. For example, if you are looking at http://www.domain.com/directory/page.html, clicking on the up icon takes you to http://www.domain.com/directory/ and a further click would result in a location of http://www.domain.com/. The same function is available on the <a href="#BrowserWindowToolbar">toolbar</a>.</p>
+
 <p class="menupath" id="BrowserWindowMenuNavigateReload">Navigate &gt; Reload this page</p>
-<p class="menuitem"> This fetches and displays the current page again. Any copy of the page that exists in the local cache will be overwritten. The same function is available on the <a href="#BrowserWindowToolbar">toolbar</a>.</p>
+<p class="menuitem">This fetches and displays the current page again. Any copy of the page that exists in the local cache will be overwritten. The same function is available on the <a href="#BrowserWindowToolbar">toolbar</a>.</p>
 
 <p class="menupath" id="BrowserWindowMenuNavigateStop">Navigate &gt; Stop loading this page</p>
-<p class="menuitem"> This stops the current page from continuing to load. The same function is available on the <a href="#BrowserWindowToolbar">toolbar</a>.</p>
+<p class="menuitem">This stops the current page from continuing to load. The same function is available on the <a href="#BrowserWindowToolbar">toolbar</a>.</p>
 
 <h4 id="BrowserWindowMenuDisplay" class="submenu">Display Submenu</h4>
 
@@ -485,7 +578,8 @@
 <tr><td><a href="#BrowserWindowMenuDisplayImages">Images</a></td><td class="menuarrow">&gt;</td></tr>
 <tr><td><a href="#BrowserWindowMenuDisplayToolbars">Toolbars</a></td><td class="menuarrow">&gt;</td></tr>
 <tr><td><a href="#BrowserWindowMenuDisplayRender">Render</a></td><td class="menuarrow">&gt;</td></tr>
-<tr><td class="menusplit"><a href="#BrowserWindowMenuDisplaySaveDefault">Save as default</a></td><td></td></tr>
+<tr><td class="menusplit"><a href="#BrowserWindowMenuDisplaySaveDefault">Save as default</a></td><td class="menusplit"></td></tr>
+<tr><td class="menusplit"><a href="#BrowserWindowMenuDisplayWindow">Window</a></td><td class="menusplit">&gt;</td></tr>
 </table>
 
 <p class="menupath" id="BrowserWindowMenuDisplayScale">Display &gt; Scale View</p>
@@ -553,6 +647,29 @@
 <p class="menupath" id="BrowserWindowMenuDisplaySetDefault">Display &gt; Save as default</p>
 <p class="menuitem">This option makes NetSurf use the display options you have set up for the current window as the default options.</p>
 
+<p class="menupath" id="BrowserWindowMenuDisplayWindow">Display &gt; Window</p>
+<p class="menuitem">The Window submenu allows you to control the size and positioning of new windows.</p>
+
+<table class="menu">
+<tr><th class="menutitle" colspan="2">Window</th></tr>
+<tr><td><a href="#BrowserWindowMenuDisplayWindowSetdefault">Set as default position</a></td><td class="menuarrow"></td></tr>
+<tr><td><a href="#BrowserWindowMenuDisplayWindowStagger">Stagger window position</a></td><td class="menuarrow"></td></tr>
+<tr><td><a href="#BrowserWindowMenuDisplayWindowCopyposition">Copy window position</a></td><td class="menuarrow"></td></tr>
+<tr><td class="menusplit"><a href="#BrowserWindowMenuDisplayWindowResetdefault">Reset default position</a></td><td></td></tr>
+</table>
+
+<p class="menupath" id="BrowserWindowMenuDisplayWindowSetdefault">Display &gt; Window &gt; Set as default position</p>
+<p class="menuitem">This option sets the size and position of the current window to be the default size and position for new browser windows. If no default position is set, NetSurf opens new windows in the centre of the screen.</p>
+
+<p class="menupath" id="BrowserWindowMenuDisplayWindowStagger">Display &gt; Window &gt; Stagger window position</p>
+<p class="menuitem">This option toggles staggered window opening positions for new windows. When turned on, this option means that new windows will open with a small offset from the position of the previously opened window. This option is only available when a user defined default window position has been set.</p>
+
+<p class="menupath" id="BrowserWindowMenuDisplayWindowCopyposition">Display &gt; Window &gt; Copy window position</p>
+<p class="menuitem">This option toggles the copy window position feature. When the feature is turned off, all newly opened windows open at the default position. With this feature enabled, browser windows opened from other browser windows (by adjust clicking on a link), will inherit the size and position of the parent window, rather than use the default position.</p>
+
+<p class="menupath" id="BrowserWindowMenuDisplayWindowResetdefault">Display &gt; Window &gt; Reset default position</p>
+<p class="menuitem">This option removes any user defined default window position. The option is only available when a user defined default window position has been set.</p>
+
 <h4 id="BrowserWindowMenuUtilities" class="submenu">Utilities Submenu</h4>
 
 <p>The Utilities submenu allows you to access some of NetSurf's extra features.</p>
@@ -561,8 +678,7 @@
 <tr><th class="menutitle" colspan="2">Utilities</th></tr>
 <tr><td><a href="#BrowserWindowMenuUtilitiesHotlist">Hotlist</a></td><td class="menuarrow">&gt;</td></tr>
 <tr><td><a href="#BrowserWindowMenuUtilitiesHistory">History</a></td><td class="menuarrow">&gt;</td></tr>
-<tr><td><a href="#BrowserWindowMenuUtilitiesFindText">Find text</a></td><td class="menuarrow">&gt;</td></tr>
-<tr><td><a href="#BrowserWindowMenuUtilitiesWindow">Window</a></td><td class="menuarrow">&gt;</td></tr>
+<tr><td><a href="#BrowserWindowMenuUtilitiesCookies">Cookies</a></td><td class="menuarrow">&gt;</td></tr>
 </table>
 
 <p class="menupath" id="BrowserWindowMenuUtilitiesHotlist">Utilities &gt; Hotlist</p>
@@ -595,31 +711,20 @@
 <p class="menupath" id="BrowserWindowMenuUtilitiesHistoryGlobal">Utilities &gt; History &gt; Show global History</p>
 <p class="menuitem">This option opens the <a href="#HistoryGlobal">global history window</a>. The same function is available on the <a href="#BrowserWindowToolbar">toolbar</a>.</p>
 
-<p class="menupath" id="BrowserWindowMenuUtilitiesFindText">Utilities &gt; Find text</p>
-<p class="menuitem">This option allows you to search the current page for a text string. The same function is available on the <a href="#BrowserWindowToolbar">toolbar</a>.</p>
-
-<p class="menupath" id="BrowserWindowMenuUtilitiesWindow">Utilities &gt; Window</p>
-<p class="menuitem">The Window submenu allows you to control the size and positioning of new windows.</p>
+<p class="menupath" id="BrowserWindowMenuUtilitiesHistory">Utilities &gt; Cookies</p>
+<p class="menuitem">The Cookies submenu allows you to perform actions on the cookies stored by NetSurf.</p>
 
 <table class="menu">
-<tr><th class="menutitle" colspan="2">Window</th></tr>
-<tr><td><a href="#BrowserWindowMenuUtilitiesWindowSetdefault">Set as default position</a></td><td class="menuarrow"></td></tr>
-<tr><td><a href="#BrowserWindowMenuUtilitiesWindowStagger">Stagger window position</a></td><td class="menuarrow"></td></tr>
-<tr><td><a href="#BrowserWindowMenuUtilitiesWindowCopyposition">Copy window position</a></td><td class="menuarrow"></td></tr>
-<tr><td class="menusplit"><a href="#BrowserWindowMenuUtilitiesWindowResetdefault">Reset default position</a></td><td></td></tr>
+<tr><th class="menutitle" colspan="2">Cookies</th></tr>
+<tr><td><a href="#BrowserWindowMenuUtilitiesCookiesShowcookies">Show cookies</a></td><td class="menuarrow"></td></tr>
+<tr><td><a href="#BrowserWindowMenuUtilitiesCookiesDeleteallcookies">Delete all cookies</a></td><td class="menuarrow"></td></tr>
 </table>
 
-<p class="menupath" id="BrowserWindowMenuUtilitiesWindowSetdefault">Utilities &gt; Window &gt; Set as default position</p>
-<p class="menuitem">This option sets the size and position of the current window to be the default size and position for new browser windows. If no default position is set, NetSurf opens new windows in the centre of the screen.</p>
+<p class="menupath" id="BrowserWindowMenuUtilitiesCookiesShowcookies">Utilities &gt; Cookies &gt; Show cookies</p>
+<p class="menuitem">This option opens the cookie management window.</p>
 
-<p class="menupath" id="BrowserWindowMenuUtilitiesWindowStagger">Utilities &gt; Window &gt; Stagger window position</p>
-<p class="menuitem">This option toggles staggered window opening positions for new windows. When turned on, this option means that new windows will open with a small offset from the position of the previously opened window. This option is only available when a user defined default window position has been set.</p>
-
-<p class="menupath" id="BrowserWindowMenuUtilitiesWindowCopyposition">Utilities &gt; Window &gt; Copy window position</p>
-<p class="menuitem">This option toggles the copy window position feature. When the feature is turned off, all newly opened windows open at the default position. With this feature enabled, browser windows opened from other browser windows (by adjust clicking on a link), will inherit the size and position of the parent window, rather than use the default position.</p>
-
-<p class="menupath" id="BrowserWindowMenuUtilitiesWindowResetdefault">Utilities &gt; Window &gt; Reset default position</p>
-<p class="menuitem">This option removes any user defined default window position. The option is only available when a user defined default window position has been set.</p>
+<p class="menupath" id="BrowserWindowMenuUtilitiesCookiesDeleteallcookies">Utilities &gt; Cookies &gt; Delete all cookies</p>
+<p class="menuitem">This option deletes all the cookies currently stored by NetSurf.</p>
 
 <h4 id="BrowserWindowMenuHelp" class="submenu">Help Submenu</h4>
 

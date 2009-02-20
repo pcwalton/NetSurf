@@ -479,6 +479,7 @@ p.award a img {
 .footer {
 	clear: both;
 	font-style: italic;
+	color:#666;
 	text-align: right; }
 
 .footer p {
