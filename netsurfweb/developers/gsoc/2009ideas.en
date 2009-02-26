@@ -89,7 +89,7 @@
 
 <h2>Native Windows or Mac OS X port</h2>
 <p>NetSurf currently has user-interface layers for several systems including the RISC OS, GTK (on Linux, FreeBSD, etc.), AmigaOS and BeOS. The GTK interface works on Windows or Mac OS X, but a native interface for these systems would give a better experience.</p>
-<p>The existing front end implementations can be used for examples. Of these the framebuffer front end is very self contained and the debug front end is the most minimal. For the rendering of NetSurf's content area, a set of plotters need to be implemented for drawing primitives such as rectangles, plotting bitmaps and text.</p>
+<p>The existing front end implementations can be used as examples. Of these, the framebuffer front end is very self contained and the debug front end is the most minimal. For the rendering of NetSurf's content area, a set of plotters needs to be implemented for drawing primitives such as rectangles, plotting bitmaps and text.</p>
 <p><strong>Skills required:</strong> C, Windows UI development or Mac OS X UI development</p>
 <p><strong>Difficulty:</strong> Medium</p>
 <p><strong>Existing code:</strong> <a href="http://source.netsurf-browser.org/trunk/netsurf/desktop/gui.h?view=markup">Declarations of functions that each interface must implement</a>, <a href="http://source.netsurf-browser.org/trunk/netsurf/desktop/plotters.h?view=markup">plotters interface</a>, <a href="http://source.netsurf-browser.org/trunk/netsurf/riscos/">RISC OS specific code</a>, <a href="http://source.netsurf-browser.org/trunk/netsurf/gtk/">GTK specific code</a>, <a href="http://source.netsurf-browser.org/trunk/netsurf/beos/">BeOS specific code</a>, <a href="http://source.netsurf-browser.org/trunk/netsurf/amiga/">AmigaOS specific code</a>, <a href="http://source.netsurf-browser.org/trunk/netsurf/framebuffer/">framebuffer specific code</a></p>
@@ -190,9 +190,7 @@
 <li>Bookmarks (also see core UI enhancements idea)</li>
 <li>Improved contextual right-click menu (&quot;Save image as...&quot; and &quot;Open in new tab...&quot; for example)</li>
 <li>GUI should adjust to match GTK interface preferences (icons in menu, text under toolbar buttons, etc.)</li>
-<li>Rewrite preferences.c and scaffolding.c <strong>??? To what end? ???</strong></li>
 <li>File uploads</li>
-<li>Disk cache editor <strong>??? What is this? ???</strong></li></li>
 <li>View source</li>
 <li>Documentation (user guide)</li>
 <li>Favicons</li>
