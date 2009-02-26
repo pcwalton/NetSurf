@@ -2,7 +2,7 @@
 	"http://www.w3.org/TR/html4/strict.dtd">
 <html>
 <head>
-<title>NetSurf | Google Summer of Code 2008 Ideas</title>
+<title>NetSurf | Google Summer of Code 2009 Ideas</title>
 <link rel="stylesheet" title="Standard" type="text/css" href="/netsurf.css">
 </head>
 
@@ -51,7 +51,7 @@
 
 <h1>Google Summer of Code Ideas</h1>
 
-<p>This page lists our project ideas for <strong><a href="http://code.google.com/soc/2008/">Google Summer of Code 2009</a></strong>.</p>
+<p>This page lists our project ideas for <strong><a href="http://code.google.com/soc/">Google Summer of Code 2009</a></strong>.</p>
 
 <dl>
 <dt>Before applying for a project<dt>
@@ -89,10 +89,10 @@
 
 <h2>Native Windows or Mac OS X port</h2>
 <p>NetSurf currently has user-interface layers for several systems including the RISC OS, GTK (on Linux, FreeBSD, etc.), AmigaOS and BeOS. The GTK interface works on Windows or Mac OS X, but a native interface for these systems would give a better experience.</p>
-<p><strong>??? Something here about using the existing front end code for a examples. Debug and Framebuffer are simplest and most self contained. Mention plotters. ???</strong></p>
+<p>The existing front end implementations can be used for examples. Of these the framebuffer front end is very self contained and the debug front end is the most minimal. For the rendering of NetSurf's content area, a set of plotters need to be implemented for drawing primitives such as rectangles, plotting bitmaps and text.</p>
 <p><strong>Skills required:</strong> C, Windows UI development or Mac OS X UI development</p>
 <p><strong>Difficulty:</strong> Medium</p>
-<p><strong>Existing code:</strong> <a href="http://source.netsurf-browser.org/trunk/netsurf/desktop/gui.h?view=markup">Declarations of functions that each interface must implement</a>, <a href="http://source.netsurf-browser.org/trunk/netsurf/riscos/">RISC OS specific code</a>, <a href="http://source.netsurf-browser.org/trunk/netsurf/gtk/">GTK specific code</a>, <a href="http://source.netsurf-browser.org/trunk/netsurf/beos/">BeOS specific code</a>, <a href="http://source.netsurf-browser.org/trunk/netsurf/amiga/">AmigaOS specific code</a>, <a href="http://source.netsurf-browser.org/trunk/netsurf/framebuffer/">framebuffer specific code</a></p>
+<p><strong>Existing code:</strong> <a href="http://source.netsurf-browser.org/trunk/netsurf/desktop/gui.h?view=markup">Declarations of functions that each interface must implement</a>, <a href="http://source.netsurf-browser.org/trunk/netsurf/desktop/plotters.h?view=markup">plotters interface</a>, <a href="http://source.netsurf-browser.org/trunk/netsurf/riscos/">RISC OS specific code</a>, <a href="http://source.netsurf-browser.org/trunk/netsurf/gtk/">GTK specific code</a>, <a href="http://source.netsurf-browser.org/trunk/netsurf/beos/">BeOS specific code</a>, <a href="http://source.netsurf-browser.org/trunk/netsurf/amiga/">AmigaOS specific code</a>, <a href="http://source.netsurf-browser.org/trunk/netsurf/framebuffer/">framebuffer specific code</a></p>
 <p><strong>References:</strong></p>
 
 <h2>Keyboard navigation</h2>
@@ -179,15 +179,15 @@
 <p>Further to the above, the way NetSurf's core implements HTML frames is not particularly portable. This could be addressed as an extension.</p>
 <p><strong>Skills required:</strong> C</p>
 <p><strong>Difficulty:</strong> Easy &ndash; Medium</p>
-<p><strong>Existing code:</strong> <a href="http://source.netsurf-browser.org/trunk/netsurf/desktop/tree.c?view=markup">Core options code</a></p>
-<p><strong>References:</strong> <a href="http://source.netsurf-browser.org/trunk/netsurf/desktop/plotters.h?view=markup">plotters interface</a></p>
+<p><strong>Existing code:</strong> <a href="http://source.netsurf-browser.org/trunk/netsurf/desktop/tree.h?view=markup">Core treeview interface</a>, <a href="http://source.netsurf-browser.org/trunk/netsurf/desktop/tree.c?view=markup">Core treeview code</a></p>
+<p><strong>References:</strong> <a href="http://source.netsurf-browser.org/trunk/netsurf/desktop/plotters.h?view=markup">plotters interface</a>, <a href="http://source.netsurf-browser.org/trunk/netsurf/riscos/textarea.c?view=markup">textarea widget code</a></p>
 
 <h2>Improved GTK front end</h2>
 <p>NetSurf's GTK frontend is fairly usable at present, but would benefit from enhancement.</p>
 <p>Outstanding functionality includes:</p>
 <ul>
 <li>Find</li>
-<li>Bookmarks (also see core UI enchancements idea)</li>
+<li>Bookmarks (also see core UI enhancements idea)</li>
 <li>Improved contextual right-click menu (&quot;Save image as...&quot; and &quot;Open in new tab...&quot; for example)</li>
 <li>GUI should adjust to match GTK interface preferences (icons in menu, text under toolbar buttons, etc.)</li>
 <li>Rewrite preferences.c and scaffolding.c <strong>??? To what end? ???</strong></li>
@@ -208,11 +208,11 @@
 <ul>
 <li>Tabs</li>
 <li>Download window</li>
-<li>Bookmarks, also see core UI enchancements idea</li>
-<li>History, also see core UI enchancements idea</li>
-<li>Fix &lt;frame&gt; support, also see core UI enchancements idea</li>
+<li>Bookmarks, also see core UI enhancements idea</li>
+<li>History, also see core UI enhancements idea</li>
+<li>Fix &lt;frame&gt; support, also see core UI enhancements idea</li>
 <li>Printing</li>
-<li>Preferencess window</li>
+<li>Preferences window</li>
 </ul>
 <p><strong>Skills required:</strong> C++, BeOS/Haiku UI toolkits</p>
 <p><strong>Difficulty:</strong> Easy &ndash; Medium</p>

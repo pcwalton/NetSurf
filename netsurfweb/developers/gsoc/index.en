@@ -2,7 +2,7 @@
 	"http://www.w3.org/TR/html4/strict.dtd">
 <html>
 <head>
-<title>NetSurf | Google Summer of Code 2008</title>
+<title>NetSurf | Google Summer of Code</title>
 <link rel="stylesheet" title="Standard" type="text/css" href="/netsurf.css">
 </head>
 
@@ -49,9 +49,15 @@
 
 <p class="breadcrumbs"><a href="/">Home</a> » <a href="/developers/">Developer area</a> » Google Summer of Code</p>
 
-<h1>Google Summer of Code 2008</h1>
+<h1>Google Summer of Code</h1>
 
-<p>NetSurf is participating as a mentoring organisation in <a href="http://code.google.com/soc/2008/">Google Summer of Code 2008</a>. Our four students are listed below.</p>
+<p>The NetSurf project intends to apply to become a mentoring organisation for the <a href="http://code.google.com/soc/"> Google Summer of Code 2009</a>. We our working on our <a href="2009ideas">ideas page</a>.</p>
+
+<p>We ask students to keep NetSurf's <a href="http://www.netsurf-browser.org/about/#ProjectGoals">project goals</a> in mind, especially the first point. We also ask them to communicate with the developers as much as possible. More information for students is available on the <a href="http://wiki.netsurf-browser.org/">development wiki</a>.</p>
+
+<h2>Google Summer of Code 2008</h2>
+
+<p>NetSurf participated as a mentoring organisation in <a href="http://code.google.com/soc/2008/">Google Summer of Code 2008</a>. We ran four projects which are listed below.</p>
 
 <dl class="gsocstudents">
 <dt>Adam Blokus</dt>
@@ -88,11 +94,9 @@
 </dd>
 </dl>
 
-<p>We ask our students to keep NetSurf's <a href="http://www.netsurf-browser.org/about/#ProjectGoals">project goals</a> in mind, especially the first point. We also ask them to communicate with the developers as much as possible. More information for students is available on the <a href="http://wiki.netsurf-browser.org/">development wiki</a>.</p>
+<!--p>Our students are blogging their progress this summer. You can follow their activities on <a href="http://planet.netsurf-browser.org/">Planet NetSurf</a>.</p-->
 
-<p>Our students are blogging their progress this summer. You can follow their activities on <a href="http://planet.netsurf-browser.org/">Planet NetSurf</a>.</p>
-
-<p>Our original <a href="2008ideas">GSoC ideas page</a> is still available.</p>
+<p>Our <a href="2008ideas">2008 GSoC ideas page</a> is still available.</p>
 
 
 <div class="footer">
