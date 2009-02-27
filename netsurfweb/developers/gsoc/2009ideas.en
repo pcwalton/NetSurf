@@ -83,12 +83,12 @@
 
 <p>Please <a href="/contact/">get in touch</a> if any of these ideas appeal to you or if you have your own idea for either <a href="/">NetSurf</a> or one of NetSurf's <a href="/projects/">sub-projects</a>. Come and chat to the developers in the NetSurf IRC channel or post to the developer mailing list.</p>
 
-<p>All these ideas require knowledge of C, as NetSurf is entirely written in C.</p>
+<p><strong>All these ideas require knowledge of C</strong>, as NetSurf is entirely written in C.</p>
 
 <p>See the <a href="http://sourceforge.net/tracker/?func=browse&amp;group_id=51719&amp;atid=464315">Feature Requests</a> tracker for more ideas.</p>
 
 <h2>Native Windows or Mac OS X port</h2>
-<p>NetSurf currently has user-interface layers for several systems including the RISC OS, GTK (on Linux, FreeBSD, etc.), AmigaOS and BeOS. The GTK interface works on Windows or Mac OS X, but a native interface for these systems would give a better experience.</p>
+<p>NetSurf currently has user-interface layers for several systems including RISC OS, GTK (on Linux, FreeBSD, etc.), AmigaOS and BeOS. The GTK interface works on Windows or Mac OS X, but a native interface for these systems would give a better experience.</p>
 <p>The existing front end implementations can be used as examples. Of these, the framebuffer front end is very self contained and the debug front end is the most minimal. For the rendering of NetSurf's content area, a set of plotters needs to be implemented for drawing primitives such as rectangles, plotting bitmaps and text.</p>
 <p><strong>Skills required:</strong> C, Windows UI development or Mac OS X UI development</p>
 <p><strong>Difficulty:</strong> Medium</p>
@@ -123,7 +123,7 @@
 <li>Stacking order</li>
 <li>Fixed position boxes</li>
 <li>Fixed backgrounds</li>
-<li>Table stuff (various issues with row style)</li>
+<li>Table stuff (various issues with row style) <strong>??? What is this? ???</strong></li>
 <li>Vertical alignment</li>
 <li>Handling of whitespace</li>
 </ul>
@@ -135,8 +135,8 @@
 <h2>LibDOM</h2>
 <p>LibDOM is an implementation of the W3C DOM. It currently implements a large proportion of DOM Level 3 Core. It is a work in progress and requires a fairly large number of fixes and additions before it can be integrated into NetSurf. Things that need doing include:</p>
 <ul>
-<li>Fixing so it compiles</li>
-<li>Sort out the mess that is dom_string</li>
+<li>Make it compile again</li>
+<li>Rationalise the dom_string structure into a pointer + length pair</li>
 <li>Use vtables rather than known function names + switching on node type</li>
 <li>Test suite</li>
 <li>Write a binding to Hubbub</li>
@@ -144,12 +144,12 @@
 <ul>
 <li>Events</li>
 <li>HTML</li>
-<li>The rest</li>
+<li>Everything else</li>
 </ul>
 </li>
 <li>Integration with NetSurf</li>
 </ul>
-<p><strong>Skills required:</strong> DOM</p>
+<p><strong>Skills required:</strong> C, DOM</p>
 <p><strong>Difficulty:</strong> Medium &ndash; Hard</p>
 <p><strong>Existing code:</strong> <a href="http://source.netsurf-browser.org/trunk/libdom/">LibDOM sources</a></p>
 <p><strong>References:</strong> <a href="http://www.w3.org/DOM/DOMTR">DOM specifications</a></p>
