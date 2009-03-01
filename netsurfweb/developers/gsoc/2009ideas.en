@@ -155,21 +155,36 @@
 <p><strong>References:</strong> <a href="http://www.w3.org/DOM/DOMTR">DOM specifications</a></p>
 
 <h2>LibSVGTiny</h2>
-<p><strong>??? Need details. ???</strong></li></p>
-<p><strong>Skills required:</strong> C, computer graphics, SVG</p>
+<p><strong>??? Need details. ???</strong></p>
+<p><strong>Skills required:</strong> Computer graphics, SVG</p>
 <p><strong>Difficulty:</strong> Medium <strong>??? ? ???</strong></p>
 <p><strong>Existing code:</strong> <a href="http://source.netsurf-browser.org/trunk/libsvgtiny/">LibSVGTiny sources</a></p>
 <p><strong>References:</strong> <a href="http://source.netsurf-browser.org/trunk/libsvgtiny/README">LibSVGTiny overview document</a>, <a href="http://www.w3.org/Graphics/SVG/">W3C SVG section</a>, <a href="http://www.w3.org/TR/SVGTiny12/">SVG Tiny 1.2 specification</a></p>
 
 <h2>Automated NetSurf layout test suite</h2>
-<p><strong>??? Need details. ???</strong></li></p>
-<p><strong>Skills required:</strong> C, HTML, CSS</p>
+<p>When NetSurf's layout engine is modified there is a risk that the change may break other pages. When problems are found, we create test cases which demonstrate the problem and keep them as regression tests once the issue is fixed. Currently, it takes quite a lot of manual effort to test NetSurf against all these test pages manually, after making a change to NetSurf's layout engine.</p>
+<p>This project will create a tool for automatically testing NetSurf's layout engine for regressions. There are four components that will make up the completed progect:</p>
+<dl>
+<dt>Minimal test front end</dt>
+<dd>
+<p>The first task will be to write the code necessary to call NetSurf's core engine to fetch a page, perform layout on it and dump the page's box tree. The box dump specifies the x/y coordinates, width and height of every box in the render tree, as well as other pertinent information.</p>
+<p>This will involve the implementation of a simple test &quot;front end&quot;. Unlike the GTK, RISC OS or BeOS, etc front ends, it is not to be a usable web browser, but a command line tool. The minimal debug and framebuffer front ends can be used as example code.</p>
+</dd>
+<dt>Test suite</dt>
+<dd><p>This is a series of web pages crafted to test various core parts of NetSurf's layout engine. NetSurf's existing test page repository can be used as a starting point.</p></dd>
+<dt>Ground truthed data</dt>
+<dd><p>A box tree must be produced by hand which expresses the correct box tree for each page in the test suite.</p></dd>
+<dt>A test runner</dt>
+<dd><p>This can be some kind of script that runs the NetSurf test code for each page in the test suite and compares the box dump NetSurf produces with the expected data. It can output the test name and then PASS or FAIL.</p></dd>
+</dl>
+<p>Finally, there may be time to produce a test suite for NetSurf's plotters. This would take the form of a reference rendering of a &quot;test card&quot; featuring all the shapes NetSurf's plotter interface allows. The output on each platform NetSurf is ported to could then be compared to the reference image.</p>
+<p><strong>Skills required:</strong> HTML, CSS, scripting</p>
 <p><strong>Difficulty:</strong> Medium <strong>??? ? ???</strong></p>
-<p><strong>Existing code:</strong></p>
+<p><strong>Existing code:</strong> <a href="http://source.netsurf-browser.org/trunk/netsurftest/">existing test case repository</a>, <a href="http://source.netsurf-browser.org/trunk/netsurf/render/box.c?view=markup">box dump code &ndash; box_dump()</a>, <a href="http://source.netsurf-browser.org/trunk/netsurf/debug/">debug front end</a>, <a href="http://source.netsurf-browser.org/trunk/netsurf/framebuffer/">framebuffer front end</a></p>
 <p><strong>References:</strong></p>
 
 <h2>Core UI enhancements</h2>
-<p>So that NetSurf can draw pages on different platforms, there is an interface between the core cross-platform code and the frontend UI code that abstracts plotting. This interface is used to plot everything within the browser's content area.</p>
+<p>So that NetSurf can draw pages on different platforms, there is an interface between the core cross-platform code and the front end UI code that abstracts plotting. This interface is used to plot everything within the browser's content area.</p>
 <p>There are parts of NetSurf's user interface which are common across platforms. However, each platform frontend has to implement these separately. This results in unnecessary duplication of functionality. Therefore, it would be good to move support for some of the common widgets into the core and draw them using the same plotting interface as used for the content area.</p>
 <p>Initially, this will require:</p>
 <ul>
@@ -177,13 +192,13 @@
 <li>A plotter-based (single &amp; multi line) text input widget.</li>
 </ul>
 <p>Further to the above, the way NetSurf's core implements HTML frames is not particularly portable. This could be addressed as an extension.</p>
-<p><strong>Skills required:</strong> C</p>
+<p><strong>Skills required:</strong> Usability</p>
 <p><strong>Difficulty:</strong> Easy &ndash; Medium</p>
 <p><strong>Existing code:</strong> <a href="http://source.netsurf-browser.org/trunk/netsurf/desktop/tree.h?view=markup">Core treeview interface</a>, <a href="http://source.netsurf-browser.org/trunk/netsurf/desktop/tree.c?view=markup">Core treeview code</a></p>
 <p><strong>References:</strong> <a href="http://source.netsurf-browser.org/trunk/netsurf/desktop/plotters.h?view=markup">plotters interface</a>, <a href="http://source.netsurf-browser.org/trunk/netsurf/riscos/textarea.c?view=markup">textarea widget code</a></p>
 
 <h2>Improved GTK front end</h2>
-<p>NetSurf's GTK frontend is fairly usable at present, but would benefit from enhancement.</p>
+<p>NetSurf's GTK front end is fairly usable at present, but would benefit from enhancement.</p>
 <p>Outstanding functionality includes:</p>
 <ul>
 <li>Find</li>
@@ -218,7 +233,7 @@
 <p><strong>References:</strong></p>
 
 <h2>Improved RISC OS front end</h2>
-<p>NetSurf's RISC OS frontend is the most feature complete. There are various ways in which it could be improved. These include:</p>
+<p>NetSurf's RISC OS front end is the most feature complete. There are various ways in which it could be improved. These include:</p>
 <ul>
 <li>Tabs</li>
 <li>Better config e.g. web page language choice option</li>
