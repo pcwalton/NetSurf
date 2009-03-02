@@ -120,13 +120,13 @@
 <h2>Layout engine improvements</h2>
 <p>The layout engine forms part of the core of the browser. It is responsible for calculating the position of each part of the page. It currently has a number of deficiencies which should be addressed. These include the following parts of the CSS specification:</p>
 <ul>
-<li>Stacking order (<code>z-index</code> CSS property)</li>
-<li>Fixed position (<code>position: fixed;</code>)</li>
-<li>Fixed backgrounds (<code>background-attachment: fixed;</code>)</li>
-<li>Vertical alignment (<code>vertical-align</code> CSS property)</li>
-<li>Handling of white space and wrapping (<code>white-space</code> CSS property)</li>
+<li>Stacking order (<code style="color:#46a;">z-index</code>)</li>
+<li>Fixed position (<code style="color:#46a;">position: fixed;</code>)</li>
+<li>Fixed backgrounds (<code style="color:#46a;">background-attachment: fixed;</code>)</li>
+<li>Vertical alignment (<code style="color:#46a;">vertical-align</code>)</li>
+<li>Handling of white space and wrapping (<code style="color:#46a;">white-space</code>)</li>
 </ul>
-<p>There are also other layout issues which could be tackled. For example in table layout some CSS properties, like <code>height</code> are not handled for table rows.</p>
+<p>There are also other layout issues which could be tackled. For example in table layout some CSS properties, like <code style="color:#46a;">height</code>, are not handled for table rows.</p>
 <p><strong>Skills required:</strong> C, HTML, CSS</p>
 <p><strong>Difficulty:</strong> Medium &ndash; Hard</p>
 <p><strong>Existing code:</strong> <a href="http://source.netsurf-browser.org/trunk/netsurf/render/layout.c?view=markup">layout engine</a>, <a href="http://source.netsurf-browser.org/trunk/netsurf/render/html_redraw.c?view=markup">rendering code</a></p>
