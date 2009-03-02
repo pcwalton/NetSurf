@@ -118,25 +118,31 @@
 <p><strong>References:</strong> <a href="http://espeak.sourceforge.net/">eSpeak text to speech synthesizer</a></p>
 
 <h2>Layout engine improvements</h2>
-<p>The layout engine forms part of the core of the browser. It is responsible for calculating the position of each part of the page. It currently has a number of deficiencies which should be addressed. These include:</p>
+<p>The layout engine forms part of the core of the browser. It is responsible for calculating the position of each part of the page. It currently has a number of deficiencies which should be addressed. These include the following parts of the CSS specification:</p>
 <ul>
-<li>Stacking order</li>
-<li>Fixed position boxes</li>
-<li>Fixed backgrounds</li>
-<li>Table stuff (various issues with row style) <strong>??? What is this? ???</strong></li>
-<li>Vertical alignment</li>
-<li>Handling of whitespace</li>
+<li>Stacking order (<code>z-index</code> CSS property)</li>
+<li>Fixed position (<code>position: fixed;</code>)</li>
+<li>Fixed backgrounds (<code>background-attachment: fixed;</code>)</li>
+<li>Vertical alignment (<code>vertical-align</code> CSS property)</li>
+<li>Handling of white space and wrapping (<code>white-space</code> CSS property)</li>
 </ul>
+<p>There are also other layout issues which could be tackled. For example in table layout some CSS properties, like <code>height</code> are not handled for table rows.</p>
 <p><strong>Skills required:</strong> C, HTML, CSS</p>
 <p><strong>Difficulty:</strong> Medium &ndash; Hard</p>
 <p><strong>Existing code:</strong> <a href="http://source.netsurf-browser.org/trunk/netsurf/render/layout.c?view=markup">layout engine</a>, <a href="http://source.netsurf-browser.org/trunk/netsurf/render/html_redraw.c?view=markup">rendering code</a></p>
-<p><strong>References:</strong> <a href="http://www.w3.org/TR/CSS21">CSS 2.1 specification</a></p>
+<p><strong>References:</strong> <a href="http://www.w3.org/TR/CSS21">CSS 2.1 specification</a>, <a href="http://www.w3.org/TR/CSS21/propidx.html">CSS 2.1 property index</a></p>
 
 <h2>LibDOM</h2>
-<p>LibDOM is an implementation of the W3C DOM. It currently implements a large proportion of DOM Level 3 Core. It is a work in progress and requires a fairly large number of fixes and additions before it can be integrated into NetSurf. Things that need doing include:</p>
+<p>LibDOM is an implementation of the W3C DOM. It currently implements a large proportion of DOM Level 3 Core. It is a work in progress and requires a fairly large number of fixes and additions before it can be integrated into NetSurf.</p>
+<div class="details">
+<p>Things that need doing include:</p>
 <ul>
-<li>Make it compile again</li>
-<li>Rationalise the dom_string structure into a pointer + length pair (see hubbub_string)</li>
+<li>
+<p>Make it compile again</p>
+</li>
+<li>
+<p>Rationalise the dom_string structure into a pointer + length pair (see hubbub_string)</p>
+</li>
 <li>
 <p>Use vtables rather than known function names + switching on node type</p>
 <p>A vtable is a structure containing function pointers. Each node type will populate the vtable with the appropriate functions. These may then be called by any client without the client needing to know what the node type is.</p>
@@ -146,18 +152,22 @@
 <p>Test suite</p>
 <p>The W3C provide a test suite for DOM implementations. It is stored in an XML format and currently, has transformations from this format to Java and JavaScript source code. Ideally, a transformation into C source code will be written so that LibDOM may be tested automatically.</p>
 </li>
-<li>The rest of DOM 3/2/1/0 implementing:
+<li>
+<p>The rest of DOM 3/2/1/0 implementing:</p>
 <ul>
 <li>Events</li>
 <li>HTML</li>
 <li>Other DOM modules</li>
 </ul>
 </li>
-<li>Integration with NetSurf</li>
+<li>
+<p>Integration with NetSurf</p>
+</li>
 </ul>
+</div>
 <p><strong>Skills required:</strong> C, DOM, XSLT (for the test suite)</p>
 <p><strong>Difficulty:</strong> Medium &ndash; Hard</p>
-<p><strong>Existing code:</strong> <a href="http://source.netsurf-browser.org/trunk/libdom/">LibDOM sources</a></p>
+<p><strong>Existing code:</strong> <a href="http://source.netsurf-browser.org/trunk/dom/">LibDOM sources</a></p>
 <p><strong>References:</strong> <a href="http://www.w3.org/DOM/DOMTR">DOM specifications</a></p>
 
 <h2>LibSVGTiny</h2>
@@ -169,6 +179,7 @@
 
 <h2>Automated layout test engine</h2>
 <p>When NetSurf's layout engine is modified there is a risk that the change may break other pages. When problems are found, we create test cases which demonstrate the problem and keep them as regression tests once the issue is fixed. Currently, it takes quite a lot of manual effort to test NetSurf against all these test pages manually.</p>
+<div class="details">
 <p>This project will create a tool for automatically testing NetSurf's layout engine for regressions. There are three components that will make up the completed project:</p>
 <dl>
 <dt>Minimal test front end</dt>
@@ -186,6 +197,7 @@
 <p>This can be some kind of script that runs the NetSurf test code for each page in the test suite and compares the box dump NetSurf produces with the expected data. It can output the test name and then PASS or FAIL.</p>
 </dd>
 </dl>
+</div>
 <p><strong>Skills required:</strong> C, HTML, CSS, scripting</p>
 <p><strong>Difficulty:</strong> Medium</p>
 <p><strong>Existing code:</strong> <a href="http://source.netsurf-browser.org/trunk/netsurftest/">existing test case repository</a>, <a href="http://source.netsurf-browser.org/trunk/netsurf/render/box.c?view=markup">box dump code &ndash; box_dump() (note that this is extremely verbose and contains much data that is of little use in automated testing)</a>, <a href="http://source.netsurf-browser.org/trunk/netsurf/debug/">debug front end</a>, <a href="http://source.netsurf-browser.org/trunk/netsurf/framebuffer/">framebuffer front end</a></p>
