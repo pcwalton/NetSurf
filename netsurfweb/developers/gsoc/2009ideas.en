@@ -137,28 +137,22 @@
 <div class="details">
 <p>Things that need doing include:</p>
 <ul>
-<li>
-<p>Make it compile again</p>
-</li>
-<li>
-<p>Rationalise the dom_string structure into a pointer + length pair (see hubbub_string)</p>
-</li>
+<li>Write a binding to Hubbub (there is already one to libxml2)</li>
 <li>
 <p>Use vtables rather than known function names + switching on node type</p>
 <p>A vtable is a structure containing function pointers. Each node type will populate the vtable with the appropriate functions. These may then be called by any client without the client needing to know what the node type is.</p>
 </li>
-<li>Write a binding to Hubbub (there is already one to libxml2)</li>
 <li>
-<p>Test suite</p>
-<p>The W3C provide a test suite for DOM implementations. It is stored in an XML format and currently, has transformations from this format to Java and JavaScript source code. Ideally, a transformation into C source code will be written so that LibDOM may be tested automatically.</p>
-</li>
-<li>
-<p>The rest of DOM 3/2/1/0 implementing:</p>
+<p>Implement the rest of DOM 3/2/1/0, primarily:</p>
 <ul>
 <li>Events</li>
 <li>HTML</li>
 <li>Other DOM modules</li>
 </ul>
+</li>
+<li>
+<p>Test suite</p>
+<p>The W3C provide a test suite for DOM implementations. It is stored in an XML format and currently, has transformations from this format to Java and JavaScript source code. Ideally, a transformation into C source code will be written so that LibDOM may be tested automatically.</p>
 </li>
 <li>
 <p>Integration with NetSurf</p>
