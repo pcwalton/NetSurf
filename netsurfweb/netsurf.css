@@ -770,6 +770,15 @@ dl.projectgoals > dt:before {
 	content: counter(goal) ". ";
 	counter-increment: goal; }
 
+table.timeline th {
+	white-space: nowrap;
+	text-align: left;
+	vertical-align: top;
+	padding-right: 1em; }
+
+table.timeline td {
+	text-align: left;
+	vertical-align: top; }
 
 /*
  *  News
