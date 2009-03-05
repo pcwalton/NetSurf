@@ -147,7 +147,7 @@
 
 <h2>NetSurf in Action</h2>
 
-<p>Since NetSurf started out on RISC OS hardware, which is not particularly fast &ndash; the most widely used RISC OS hardware is a 200 MHz StrongARM RiscPC &ndash; it runs well on resource constrained hardware such as handhelds. Even on fast modern desktops, users benefit from NetSurf's efficiency though its fast startup time any lightweight approach.</p>
+<p>Since NetSurf started out on RISC OS hardware, which is not particularly fast &ndash; the most widely used RISC OS hardware is a 200 MHz StrongARM RiscPC &ndash; so it runs well on resource constrained hardware such as handhelds. Even on fast modern desktops, users benefit from NetSurf's efficiency though its fast startup time any lightweight approach.</p>
 
 <p style="text-align:center;"><img src="../webimages/depicture.jpg" alt="Photo of NetSurf running on a Simtec DePicture."></p>
 
