@@ -147,13 +147,13 @@
 
 <h2>NetSurf in Action</h2>
 
-<p>Since NetSurf started out on RISC OS hardware, which is not particularly fast &ndash; the most widely used RISC OS hardware is a 200 MHz StrongARM RiscPC &ndash; so it runs well on resource constrained hardware such as handhelds. Even on fast modern desktops, users benefit from NetSurf's efficiency though its fast startup time and lightweight approach.</p>
+<p>Since NetSurf started out on RISC OS hardware, which is not particularly fast &ndash; the most widely used RISC OS hardware is a 200 MHz StrongARM RiscPC &ndash; so it runs well on resource constrained hardware such as handhelds. Even on fast modern desktops, users benefit from NetSurf's efficiency through its fast startup time and lightweight approach.</p>
 
 <p style="text-align:center;"><img src="../webimages/depicture.jpg" alt="Photo of NetSurf running on a Simtec DePicture."></p>
 
 <p>The image above shows NetSurf's framebuffer front end running on top of a Simtec <a href="http://www.simtec.co.uk/products/BBD20EUROU/">DePicture</a>'s bootloader! It's using an ARM9-based Samsung S3C2440 CPU running at 400 MHz.</p>
 
-<p>People also use NetSurf on other handheld gadgets, such as the Openmoko mobile phone and the Nokia N810 internet tablet. NetSurf's full page scaling abilities help it to make best use of a small screen.</p>
+<p>People also use NetSurf on other handheld gadgets, such as the Openmoko mobile phone and the Nokia N810 internet tablet. NetSurf's full page scaling abilities help it to make the best use of a small screen.</p>
 
 <h2>Want to help?</h2>
 
