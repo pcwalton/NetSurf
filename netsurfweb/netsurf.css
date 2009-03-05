@@ -245,6 +245,10 @@ dd > ul {
 	background: transparent;
 	text-decoration: none; }
 
+a.seemore, span.seemore {
+	text-align: right;
+	font-weight: bold; }
+
 a.seemore:after, span.seemore:after {
 	content: " »"; }
 
@@ -319,8 +323,7 @@ div.frontscreen span {
 	display: block;
 	margin: 0;
 	padding: 0.2em;
-	text-align: right;
-	font-weight: bold;
+	text-align: center;
 	background-color: #d8e2ff;
 	border-top: 2px solid #c5d3ff; }
 
@@ -901,6 +904,16 @@ dl.news > dd {
 	text-align: right;
 	font-style: italic;
 	margin: 0 1em 0 0; }
+
+.window p.throbber {
+	display: table-cell;
+	vertical-align: middle;
+	text-align: left;
+	padding: 0 1em 0.5em 0.5em;
+	margin: 0; }
+
+.window p.throbber + .throbber {
+	padding-left: 0; }
 
 .window span a {
 	text-decoration: none; }
