@@ -153,7 +153,7 @@
 
 <p>The image above shows NetSurf's framebuffer front end running on top of a Simtec <a href="http://www.simtec.co.uk/products/BBD20EUROU/">DePicture</a>'s bootloader! It's using an ARM9 based Samsung 2440 CPU running at 400 MHz.</p>
 
-<p>People also use NetSurf on other handheld gadgets, such as the Openmoko mobile phone and the Nokia N810 internet tablet. NetSurf full page scaling abilities help it to make best use of a small screen.</p>
+<p>People also use NetSurf on other handheld gadgets, such as the Openmoko mobile phone and the Nokia N810 internet tablet. NetSurf's full page scaling abilities help it to make best use of a small screen.</p>
 
 <h2>Want to help?</h2>
 
