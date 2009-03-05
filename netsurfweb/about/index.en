@@ -3,12 +3,12 @@
 <html>
 <head>
 <title>NetSurf | About NetSurf</title>
-<link rel="stylesheet" type="text/css" href="/netsurf.css">
+<link rel="stylesheet" type="text/css" href="../netsurf.css">
 <link rel="icon" type="image/png" href="/webimages/favicon.png">
 </head>
 
 <body>
-<p class="banner"><a href="/"><img src="/netsurf.png" alt="NetSurf"></a></p>
+<p class="banner"><a href="/"><img src="../netsurf.png" alt="NetSurf"></a></p>
 
 <div class="navigation">
 <div class="navsection">
@@ -58,6 +58,8 @@
 
 <p>NetSurf is a free, open source web browser. It is written in C and released under the GNU Public Licence version 2. NetSurf has its own layout and rendering engine entirely written from scratch. It is small and capable of handling many of the web standards in use today.</p>
 
+<div class="leftcol">
+
 <h2 id="ProjectGoals">Project Goals</h2>
 
 <p>The NetSurf project's goals and aims are:</p>
@@ -77,19 +79,90 @@
 <dd>Many of of the components designed for NetSurf are <a href="/projects/">available separately</a>, so that others might use them in their own projects.</dd>
 </dl>
 
+<h2>Project History</h2>
+
+<p>The NetSurf project was started in April 2002 in response to a discussion of the deficiencies of the RISC OS browsers that were available at the time. NetSurf has been developed continuously ever since. The latest features and bug fixes have always been available immediately to RISC OS users though the project's <a href="http://www.netsurf-browser.org/downloads/riscos/testbuilds">autobuilder</a>. NetSurf had become the most widely used browser on RISC OS before NetSurf's first release, version 1.0, on 17th May 2007. Development builds have continued to be more widely used than release versions by RISC OS users.</p>
+
+<div class="frontscreen"><p class="frontscreen"><a href="../webimages/oldnetsurf.png"><img src="../webimages/oldnetsurf_t.png" alt="Screenshot of an ancient NetSurf version."></a> <span>An old version from April 2004 displaying the <em>Drobe</em> web site in March 2009.</span></p></div>
+
+<p>A GTK port was started in June 2004, which runs on Unix-like platforms. Initially this port was created in order to aid the development and testing of the RISC OS version. Over time, the GTK port has become a fully fledged part of the project and cemented NetSurf's commitment to portability.</p>
+
+<div class="window">
+<p class="throbber"><img src="../webimages/oldthrobber.gif" alt="Old NetSurf throbber animation."></p>
+<p class="throbber">NetSurf's exuberant throbber animation in 2004.</p>
+</div>
+
+<p>NetSurf has now been ported to many more platforms with native front ends being created for BeOS &amp; Haiku, as well as AmigaOS 4. A dumb framebuffer port also exists, which has no particular operating system or GUI toolkit requirements.</p>
+
+<h3>Timeline</h3>
+
+<p>Some of the major events and changes in the project's history are chronicled below.</p>
+
+<table class="timeline">
+<tr><th>Apr 2002</th><td>NetSurf project started</td></tr>
+<tr><th>Jun 2004</th><td>GTK port available</td></tr>
+<tr><th>May 2007</th><td>NetSurf 1.0 released</td></tr>
+<tr><th>Jun 2007</th><td>NetSurf packaged in Debian</td></tr>
+<tr><th>Jun 2007</th><td>Hubbub HTML parser started</td></tr>
+<tr><th>Jul 2007</th><td>LibDOM DOM implementation started</td></tr>
+<tr><th>Aug 2007</th><td>NetSurf 1.1 released</td></tr>
+<tr><th>Jan 2008</th><td>NetSurf web site redesigend and rewritten</td></tr>
+<tr><th>Mar 2008</th><td>NetSurf 1.2 released</td></tr>
+<tr><th>May 2008</th><td>LibCSS CSS parser started</td></tr>
+<tr><th>Jun 2008</th><td>BeOS &amp; Haiku port available</td></tr>
+<tr><th>Aug 2008</th><td>AmigaOS 4 port available</td></tr>
+<tr><th>Aug 2008</th><td>Hubbub used by NetSurf development builds</td></tr>
+<tr><th>Sep 2008</th><td>Framebuffer port available</td></tr>
+</table>
+
+</div>
+
+<div class="rightcol">
+<div>
+
+<h2>Ports &amp; Availability</h2>
+
+<p>This section explains the various NetSurf front ends and should cover whether NetSurf is available for your system. NetSurf currently has five different front ends. These are for RISC OS, GTK, BeOS, AmigaOS and dumb framebuffers.</p>
+
+<p>The RISC OS front end is suitable for RISC OS 4 and greater. The AmigaOS front end is suitable for AmigaOS 4. The BeOS front end works on BeOS, Zeta and Haiku.</p>
+
+<p>NetSurf's GTK front end works on Unix-like systems, including Linux, FreeBSD, NetBSD, Solaris and others. There are no native Windows or MacOS X ports of NetSurf at the moment, however the GTK front end can be built for those platforms. The GTK front end is available from the package repositories of many Linux distributions including Debian and Ubuntu.</p>
+
+<p>NetSurf's framebuffer front end has no particular operating system or GUI toolkit requirements. Its mouse pointer, all its widgets etc, are drawn though NetSurf's internal plotters, the same rendering interface used to draw web pages. This makes the framebuffer front end highly portable. Currently the framebuffer can target the following:</p>
+
+<dl>
+<dt>The Linux framebuffer</dt>
+<dd>Output to a Linux framebuffer and input from Linux input event device nodes. The output device may be specified and defaults to <code style="color:#46a;">/dev/fb0</code>. The input node search path may also be specified, and defaults to <code style="color:#46a;">/dev/input/</code>.</dd>
+<dt>SDL</dt>
+<dd>The SDL frontend is a straightforward port to the SDL library which is available for many operating systems. This allows the framebuffer NetSurf front end to be run inside a desktop window, making development easier.</dd>
+<dt>VNC</dt>
+<dd>The VNC server frontend uses the libvncserver library to provide a straightforward unsecured VNC server. Multiple clients may connect.</dd>
+<dt>The ABLE framebuffer</dt>
+<dd>This front end runs on the ABLE bootloader shipped with hardware from Simtec.</dd>
+</dl>
+
+<h3>Releases vs Development trunk</h3>
+
+<p>NetSurf 1.0 was released in May 2007. The NetSurf 1.x releases since then have comprised largely of bug fixes merged from NetSurf's main development trunk back to the 1.x branch. Users building NetSurf from source are encouraged to build the current HEAD, rather than a release, as it is most up-to-date and has features that may not yet have been released.</p>
+
+<h2>NetSurf in Action</h2>
+
+<p>Since NetSurf started out on RISC OS hardware, which is not particularly fast &ndash; the most widely used RISC OS hardware is a 200 MHz StrongARM RiscPC &ndash; it runs well on resource constrained hardware such as handhelds. Even on fast modern desktops, users benefit from NetSurf's efficiency though its fast startup time any lightweight approach.</p>
+
+<p style="text-align:center;"><img src="../webimages/depicture.jpg" alt="Photo of NetSurf running on a Simtec DePicture."></p>
+
+<p>The image above shows NetSurf's framebuffer front end running on top of a Simtec <a href="http://www.simtec.co.uk/products/BBD20EUROU/">DePicture</a>'s bootloader! It's using an ARM9 based Samsung 2440 CPU running at 400 MHz.</p>
+
+<p>People also use NetSurf on other handheld gadgets, such as the Openmoko mobile phone and the Nokia N810 internet tablet. NetSurf full page scaling abilities help it to make best use of a small screen.</p>
+
 <h2>Want to help?</h2>
 
 <p>The NetSurf project needs help and input if it is to keep moving forward. There are many ways for users to contribute to the NetSurf project. One of the simplest is to try the latest development build regularly. If you find any bugs, features you like or changes you don't like you can give feedback to the developers. It is this valuable feedback that helps shape NetSurf into a program people enjoy using.</p>
 
 <p>Visit the &quot;<a href="/developers/contribute">How can I help?</a>&quot; page to see other ideas for contributing to the project. If you can program and you'd like to improve NetSurf, then we'd love to hear from you. Pick an area you'd like to improve or a feature you want to add and <a href="/contact/">contact the developers</a>. Also, take a look at the <a href="/developers/">developer and contributor</a> area of this site.</p>
 
-<h2>Project History</h2>
-
-<p>The NetSurf project was started in April 2002 in response to a discussion of the deficiencies of the RISC OS browsers that were available at the time. NetSurf has been developed continuously since then with the latest features and bug fixes made available for download as soon as they're written.</p>
-
-<p>A GTK port was started in June 2004, which runs on Unix-like platforms. Initially this port was created in order to aid the development and testing of the RISC OS version. Over time, the GTK port has become a fully fledged part of the project and cemented NetSurf's commitment to portability.</p>
-
-<p>The first stable release of NetSurf was made on 19th May 2007 for both RISC OS and Unix-like platforms.</p>
+</div>
+</div>
 
 
 <div class="footer">
