@@ -137,7 +137,6 @@
 <div class="details">
 <p>Things that need doing include:</p>
 <ul>
-<li>Write a binding to Hubbub (there is already one to libxml2)</li>
 <li>
 <p>Use vtables rather than known function names + switching on node type</p>
 <p>A vtable is a structure containing function pointers. Each node type will populate the vtable with the appropriate functions. These may then be called by any client without the client needing to know what the node type is.</p>
