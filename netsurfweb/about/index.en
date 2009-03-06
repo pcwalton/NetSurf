@@ -3,12 +3,12 @@
 <html>
 <head>
 <title>NetSurf | About NetSurf</title>
-<link rel="stylesheet" type="text/css" href="../netsurf.css">
+<link rel="stylesheet" type="text/css" href="/netsurf.css">
 <link rel="icon" type="image/png" href="/webimages/favicon.png">
 </head>
 
 <body>
-<p class="banner"><a href="/"><img src="../netsurf.png" alt="NetSurf"></a></p>
+<p class="banner"><a href="/"><img src="/netsurf.png" alt="NetSurf"></a></p>
 
 <div class="navigation">
 <div class="navsection">
@@ -81,14 +81,14 @@
 
 <h2>Project History</h2>
 
-<p>The NetSurf project was started in April 2002 in response to a discussion of the deficiencies of the RISC OS browsers that were available at the time. NetSurf has been developed continuously ever since. The latest features and bug fixes have always been available immediately to RISC OS users though the project's <a href="http://www.netsurf-browser.org/downloads/riscos/testbuilds">autobuilder</a>. NetSurf had become the most widely used browser on RISC OS before NetSurf's first release, version 1.0, on 17th May 2007. Development builds have continued to be more widely used than release versions by RISC OS users.</p>
+<p>The NetSurf project was started in April 2002 in response to a discussion of the deficiencies of the RISC OS browsers that were available at the time. NetSurf has been developed continuously ever since. The latest features and bug fixes have always been available immediately to RISC OS users through the project's <a href="http://www.netsurf-browser.org/downloads/riscos/testbuilds">autobuilder</a>. NetSurf had become the most widely used browser on RISC OS before NetSurf's first release, version 1.0, on 17th May 2007. Development builds have continued to be more widely used than release versions by RISC OS users.</p>
 
-<div class="frontscreen"><p class="frontscreen"><a href="../webimages/oldnetsurf.png"><img src="../webimages/oldnetsurf_t.png" alt="Screenshot of an ancient NetSurf version."></a> <span>An old version from April 2004 displaying the <em>Drobe</em> web site in March 2009.</span></p></div>
+<div class="frontscreen"><p class="frontscreen"><a href="/webimages/oldnetsurf.png"><img src="/webimages/oldnetsurf_t.png" alt="Screenshot of an ancient NetSurf version."></a> <span>An old version from April 2004 displaying the <em>Drobe</em> web site in March 2009.</span></p></div>
 
 <p>A GTK port was started in June 2004, which runs on Unix-like platforms. Initially this port was created in order to aid the development and testing of the RISC OS version. Over time, the GTK port has become a fully fledged part of the project and cemented NetSurf's commitment to portability.</p>
 
 <div class="window">
-<p class="throbber"><img src="../webimages/oldthrobber.gif" alt="Old NetSurf throbber animation."></p>
+<p class="throbber"><img src="/webimages/oldthrobber.gif" alt="Old NetSurf throbber animation."></p>
 <p class="throbber">NetSurf's exuberant throbber animation in 2004.</p>
 </div>
 
@@ -149,7 +149,7 @@
 
 <p>Since NetSurf started out on RISC OS hardware, which is not particularly fast &ndash; the most widely used RISC OS hardware is a 200 MHz StrongARM RiscPC &ndash; so it runs well on resource constrained hardware such as handhelds. Even on fast modern desktops, users benefit from NetSurf's efficiency through its fast startup time and lightweight approach.</p>
 
-<p style="text-align:center;"><img src="../webimages/depicture.jpg" alt="Photo of NetSurf running on a Simtec DePicture."></p>
+<p style="text-align:center;overflow:hidden;"><img src="/webimages/depicture.jpg" alt="Photo of NetSurf running on a Simtec DePicture."></p>
 
 <p>The image above shows NetSurf's framebuffer front end running on top of a Simtec <a href="http://www.simtec.co.uk/products/BBD20EUROU/">DePicture</a>'s bootloader! It's using an ARM9-based Samsung S3C2440 CPU running at 400 MHz.</p>
 
