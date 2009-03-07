@@ -163,13 +163,6 @@
 <p><strong>Existing code:</strong> <a href="http://source.netsurf-browser.org/trunk/dom/">LibDOM sources</a></p>
 <p><strong>References:</strong> <a href="http://www.w3.org/DOM/DOMTR">DOM specifications</a></p>
 
-<h2>LibSVGTiny</h2>
-<p><strong>??? Need details. ???</strong></p>
-<p><strong>Skills required:</strong> C, Computer graphics, SVG</p>
-<p><strong>Difficulty:</strong> Medium <strong>??? ? ???</strong></p>
-<p><strong>Existing code:</strong> <a href="http://source.netsurf-browser.org/trunk/libsvgtiny/">LibSVGTiny sources</a></p>
-<p><strong>References:</strong> <a href="http://source.netsurf-browser.org/trunk/libsvgtiny/README">LibSVGTiny overview document</a>, <a href="http://www.w3.org/Graphics/SVG/">W3C SVG section</a>, <a href="http://www.w3.org/TR/SVGTiny12/">SVG Tiny 1.2 specification</a></p>
-
 <h2>Automated layout test engine</h2>
 <p>When NetSurf's layout engine is modified there is a risk that the change may break other pages. When problems are found, we create test cases which demonstrate the problem and keep them as regression tests once the issue is fixed. Currently, it takes quite a lot of manual effort to test NetSurf against all these test pages manually.</p>
 <div class="details">
