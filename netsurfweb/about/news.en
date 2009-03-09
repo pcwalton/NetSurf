@@ -57,6 +57,8 @@
 <h1>News</h1>
 
 <dl class="news">
+<dt><a href="http://vlists.pepperfish.net/pipermail/netsurf-users-netsurf-browser.org/2009-March/008453.html">NetSurf 2.0 plan &amp; summary of recent development</a> <span>09 Mar 2009</span></dt>
+<dd>NetSurf 2.0 to be released next month. Recent changes to page layout, form submission improved, upgraded AmigaOS port, framebuffer front end advanced and many other changes.</dd>
 <dt><a href="/about/awards">Another year, another accolade</a> <span>07 Jan 2009</span></dt>
 <dd>At the end of a busy year for NetSurf, with the release of NetSurf 1.2, the development of many new features, ports to new operating systems and participation in Google Summer of Code, NetSurf was voted for an award by Drobe's venerable readership. Thanks to everyone who voted for us!</dd>
 <dt><a href="http://vlists.pepperfish.net/pipermail/netsurf-users-netsurf-browser.org/2008-November/008035.html">Summary of recent developments</a> <span>09 Nov 2008</span></dt>
