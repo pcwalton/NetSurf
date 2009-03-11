@@ -58,17 +58,22 @@
 <dd>
 <ul>
 <li>Join our IRC channel <code>#netsurf</code> on <a href="http://freenode.net/">Freenode</a> and introduce yourself. Also, subscribe to the <a href="http://www.netsurf-browser.org/lists/netsurf-dev">developer mailing list</a>.</li>
-<li>Have access to a computer with supported OS (RISC OS, Linux, FreeBSD, etc) or an OS relevant for the project you want to apply for (Windows, Mac OS).</li>
+<li>Have access to a computer with supported OS (RISC OS, Linux, FreeBSD, BeOS, AmigaOS etc) or an OS relevant for the project you want to apply for (Windows, Mac OS).</li>
 <li>Get up to speed with <a href="http://subversion.tigris.org/">Subversion</a>, as we use this for source control, and get the NetSurf <a href="http://www.netsurf-browser.org/documentation/develop#Subversion">source code</a>.</li>
 <li><a href="http://www.netsurf-browser.org/documentation/develop#Compiling">Build NetSurf</a> and enjoy using it. (Ask if you need help.)</li>
 <li>Get familiarised with the source code &ndash; read the <a href="http://source.netsurf-browser.org/trunk/netsurf/Docs/">code documentation</a>.</li>
+<li>Consider submitting a patch to fix an issue on our <a href="http://sourceforge.net/tracker/?func=browse&group_id=51719&atid=464312">bug tracker</a> or <a href="http://sourceforge.net/tracker/?func=browse&group_id=51719&atid=464315">feature request tracker</a></li>
 </ul>
 <dd>
 <dt>When applying for a project<dt>
 <dd>
 <ul>
+<li>Tell us about yourself, your experience, and why you want to work with us.</li>
+<li>Describe the project you want to do, and how you plan to go about doing it. <strong>Do not simply copy the project description from the ideas page.</strong></li>
 <li>Create a set of project milestones (ranging from a couple to maximum 10) with expected completion dates. This will be useful for you as guidance and for us to set our expectations right.</li>
+<li>Describe how you will test your contributions.</li>
 <li>Include your IRC nick in your application if you've spoken with us on <code>#netsurf</code>, so that we recognise you. <strong>We strongly recommend that you communicate with us before submitting an application.</strong></li>
+<li>We expect GSoC to be mostly equivalent to a full-time job. Therefore, please tell us if you have any other demands on your time.</li>
 </ul>
 <dd>
 <dt>During the project</dt>
@@ -86,14 +91,6 @@
 <p><strong>All these ideas require knowledge of C</strong>, as NetSurf is entirely written in C.</p>
 
 <p>See the <a href="http://sourceforge.net/tracker/?func=browse&amp;group_id=51719&amp;atid=464315">Feature Requests</a> tracker for more ideas.</p>
-
-<h2>Native Windows or Mac OS X port</h2>
-<p>NetSurf currently has user-interface layers for several systems including RISC OS, GTK (on Linux, FreeBSD, etc.), AmigaOS and BeOS. The GTK interface works on Windows or Mac OS X, but a native interface for these systems would give a better experience.</p>
-<p>The existing front end implementations can be used as examples. Of these, the framebuffer front end is very self contained and the debug front end is the most minimal. For the rendering of NetSurf's content area, a set of plotters needs to be implemented for drawing primitives such as rectangles, plotting bitmaps and text.</p>
-<p><strong>Skills required:</strong> C, Windows UI development or Mac OS X UI development</p>
-<p><strong>Difficulty:</strong> Medium</p>
-<p><strong>Existing code:</strong> <a href="http://source.netsurf-browser.org/trunk/netsurf/desktop/gui.h?view=markup">Declarations of functions that each interface must implement</a>, <a href="http://source.netsurf-browser.org/trunk/netsurf/desktop/plotters.h?view=markup">plotters interface</a>, <a href="http://source.netsurf-browser.org/trunk/netsurf/riscos/">RISC OS specific code</a>, <a href="http://source.netsurf-browser.org/trunk/netsurf/gtk/">GTK specific code</a>, <a href="http://source.netsurf-browser.org/trunk/netsurf/beos/">BeOS specific code</a>, <a href="http://source.netsurf-browser.org/trunk/netsurf/amiga/">AmigaOS specific code</a>, <a href="http://source.netsurf-browser.org/trunk/netsurf/framebuffer/">framebuffer specific code</a></p>
-<p><strong>References:</strong></p>
 
 <h2>Keyboard navigation</h2>
 <p>The browser currently requires a mouse to use. Keyboard shortcuts would move between and activate links, inputs, etc. The document structure is stored in a tree, and algorithms for walking through the tree to find the next link or input would need to be developed. A further improvement would be to take layout position into account and implement moving in 2D.</p>
@@ -117,23 +114,8 @@
 <p><strong>Existing code:</strong></p>
 <p><strong>References:</strong> <a href="http://espeak.sourceforge.net/">eSpeak text to speech synthesizer</a></p>
 
-<h2>Layout engine improvements</h2>
-<p>The layout engine forms part of the core of the browser. It is responsible for calculating the position of each part of the page. It currently has a number of deficiencies which should be addressed. These include the following parts of the CSS specification:</p>
-<ul>
-<li>Stacking order (<code style="color:#46a;">z-index</code>)</li>
-<li>Fixed position (<code style="color:#46a;">position: fixed;</code>)</li>
-<li>Fixed backgrounds (<code style="color:#46a;">background-attachment: fixed;</code>)</li>
-<li>Vertical alignment (<code style="color:#46a;">vertical-align</code>)</li>
-<li>Handling of white space and wrapping (<code style="color:#46a;">white-space</code>)</li>
-</ul>
-<p>There are also other layout issues which could be tackled. For example in table layout some CSS properties, like <code style="color:#46a;">height</code>, are not handled for table rows.</p>
-<p><strong>Skills required:</strong> C, HTML, CSS</p>
-<p><strong>Difficulty:</strong> Medium &ndash; Hard</p>
-<p><strong>Existing code:</strong> <a href="http://source.netsurf-browser.org/trunk/netsurf/render/layout.c?view=markup">layout engine</a>, <a href="http://source.netsurf-browser.org/trunk/netsurf/render/html_redraw.c?view=markup">rendering code</a></p>
-<p><strong>References:</strong> <a href="http://www.w3.org/TR/CSS21">CSS 2.1 specification</a>, <a href="http://www.w3.org/TR/CSS21/propidx.html">CSS 2.1 property index</a></p>
-
 <h2>LibDOM</h2>
-<p>LibDOM is an implementation of the W3C DOM. It currently implements a large proportion of DOM Level 3 Core. It is a work in progress and requires a fairly large number of fixes and additions before it can be integrated into NetSurf.</p>
+<p>LibDOM is an implementation of the W3C DOM. It currently implements a large proportion of DOM Level 3 Core. It is a work in progress and requires a fairly large number of fixes and additions before it can be integrated into NetSurf. Note that the scope of this project is quite large. We expect you to prioritise the parts you intend to implement.</p>
 <div class="details">
 <p>Things that need doing include:</p>
 <ul>
@@ -162,6 +144,21 @@
 <p><strong>Difficulty:</strong> Medium &ndash; Hard</p>
 <p><strong>Existing code:</strong> <a href="http://source.netsurf-browser.org/trunk/dom/">LibDOM sources</a></p>
 <p><strong>References:</strong> <a href="http://www.w3.org/DOM/DOMTR">DOM specifications</a></p>
+
+<h2>Layout engine improvements</h2>
+<p>The layout engine forms part of the core of the browser. It is responsible for calculating the position of each part of the page. It currently has a number of deficiencies which should be addressed. These include the following parts of the CSS specification:</p>
+<ul>
+<li>Stacking order (<code style="color:#46a;">z-index</code>)</li>
+<li>Fixed position (<code style="color:#46a;">position: fixed;</code>)</li>
+<li>Fixed backgrounds (<code style="color:#46a;">background-attachment: fixed;</code>)</li>
+<li>Vertical alignment (<code style="color:#46a;">vertical-align</code>)</li>
+<li>Handling of white space and wrapping (<code style="color:#46a;">white-space</code>)</li>
+</ul>
+<p>There are also other layout issues which could be tackled. For example in table layout some CSS properties, like <code style="color:#46a;">height</code>, are not handled for table rows.</p>
+<p><strong>Skills required:</strong> C, HTML, CSS</p>
+<p><strong>Difficulty:</strong> Medium &ndash; Hard</p>
+<p><strong>Existing code:</strong> <a href="http://source.netsurf-browser.org/trunk/netsurf/render/layout.c?view=markup">layout engine</a>, <a href="http://source.netsurf-browser.org/trunk/netsurf/render/html_redraw.c?view=markup">rendering code</a></p>
+<p><strong>References:</strong> <a href="http://www.w3.org/TR/CSS21">CSS 2.1 specification</a>, <a href="http://www.w3.org/TR/CSS21/propidx.html">CSS 2.1 property index</a></p>
 
 <h2>Automated layout test engine</h2>
 <p>When NetSurf's layout engine is modified there is a risk that the change may break other pages. When problems are found, we create test cases which demonstrate the problem and keep them as regression tests once the issue is fixed. Currently, it takes quite a lot of manual effort to test NetSurf against all these test pages manually.</p>
@@ -202,6 +199,14 @@
 <p><strong>Difficulty:</strong> Easy &ndash; Medium</p>
 <p><strong>Existing code:</strong> <a href="http://source.netsurf-browser.org/trunk/netsurf/desktop/tree.h?view=markup">Core treeview interface</a>, <a href="http://source.netsurf-browser.org/trunk/netsurf/desktop/tree.c?view=markup">Core treeview code</a></p>
 <p><strong>References:</strong> <a href="http://source.netsurf-browser.org/trunk/netsurf/desktop/plotters.h?view=markup">plotters interface</a>, <a href="http://source.netsurf-browser.org/trunk/netsurf/riscos/textarea.c?view=markup">textarea widget code</a></p>
+
+<h2>Native Windows or Mac OS X port</h2>
+<p>NetSurf currently has user-interface layers for several systems including RISC OS, GTK (on Linux, FreeBSD, etc.), AmigaOS and BeOS. The GTK interface works on Windows or Mac OS X, but a native interface for these systems would give a better experience.</p>
+<p>The existing front end implementations can be used as examples. Of these, the framebuffer front end is very self contained and the debug front end is the most minimal. For the rendering of NetSurf's content area, a set of plotters needs to be implemented for drawing primitives such as rectangles, plotting bitmaps and text.</p>
+<p><strong>Skills required:</strong> C, Windows UI development or Mac OS X UI development</p>
+<p><strong>Difficulty:</strong> Medium</p>
+<p><strong>Existing code:</strong> <a href="http://source.netsurf-browser.org/trunk/netsurf/desktop/gui.h?view=markup">Declarations of functions that each interface must implement</a>, <a href="http://source.netsurf-browser.org/trunk/netsurf/desktop/plotters.h?view=markup">plotters interface</a>, <a href="http://source.netsurf-browser.org/trunk/netsurf/riscos/">RISC OS specific code</a>, <a href="http://source.netsurf-browser.org/trunk/netsurf/gtk/">GTK specific code</a>, <a href="http://source.netsurf-browser.org/trunk/netsurf/beos/">BeOS specific code</a>, <a href="http://source.netsurf-browser.org/trunk/netsurf/amiga/">AmigaOS specific code</a>, <a href="http://source.netsurf-browser.org/trunk/netsurf/framebuffer/">framebuffer specific code</a></p>
+<p><strong>References:</strong></p>
 
 <h2>Improved GTK front end</h2>
 <p>NetSurf's GTK front end is fairly usable at present, but would benefit from enhancement.</p>
