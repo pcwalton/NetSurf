@@ -109,7 +109,7 @@
 
 <h5>RISC OS specific libraries</h5>
 <ul>
-<li>OSLib 6.80 or later (<a href="http://ro-oslib.sf.net/">http://ro-oslib.sf.net</a>)</li>
+<li>OSLib 6.80 or later (<a href="http://ro-oslib.sourceforge.net/">http://ro-oslib.sourceforge.net/</a>)</li>
 <li>Pencil (<a href="http://source.netsurf-browser.org/trunk/pencil/">http://source.netsurf-browser.org/trunk/pencil/</a>)</li>
 <li>RUfl (<a href="http://zamez.org/rufl">http://zamez.org/rufl</a>)</li>
 </ul>
