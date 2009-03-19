@@ -173,10 +173,10 @@
 
 <h2>Abstract RISC OS GUI code into a separate library</h2>
 <p>NetSurf's RISC OS user interface is rich and powerful. It supports many features such as editable toolbars, dialogue box handling and menu generation. If the interface code was abstracted into a separate library, other RISC OS applications could benefit from the availability of a sophisticated, tried and tested and style guide compliant GUI toolkit.</p>
-<p><strong>Skills required:</strong> C, RISC OS WIMP, <a href="http://ro-oslib.sourceforge.net/">OSLib</a></p>
+<p><strong>Skills required:</strong> C, RISC OS WIMP, OSLib</p>
 <p><strong>Difficulty:</strong> Medium &ndash; Hard</p>
 <p><strong>Existing code:</strong> <a href="http://source.netsurf-browser.org/trunk/netsurf/riscos/">RISC OS specific code</a></p>
-<p><strong>References:</strong></p>
+<p><strong>References:</strong> <a href="http://ro-oslib.sourceforge.net/">OSLib</a></p>
 
 <h2>Extracting the core into a library</h2>
 <p>NetSurf is currently conceptually split in two &ndash; the front-end (GUI) and the back-end (core):</p>

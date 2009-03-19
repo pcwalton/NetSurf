@@ -252,10 +252,10 @@
 <li>OLE</li>
 <li>Favicons</li>
 </ul>
-<p><strong>Skills required:</strong> C, RISC OS Wimp programming using <a href="http://ro-oslib.sourceforge.net/">OSLib</a></p>
+<p><strong>Skills required:</strong> C, RISC OS Wimp programming using OSLib</p>
 <p><strong>Difficulty:</strong> Medium</p>
 <p><strong>Existing code:</strong> <a href="http://source.netsurf-browser.org/trunk/netsurf/riscos/">RISC OS specific code</a></p>
-<p><strong>References:</strong></p>
+<p><strong>References:</strong> <a href="http://ro-oslib.sourceforge.net/">OSLib</a></p>
 
 <div class="footer">
 <p>Copyright 2003 - 2009 The NetSurf Developers</p>
