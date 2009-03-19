@@ -79,9 +79,9 @@
 <dd>Many of of the components designed for NetSurf are <a href="/projects/">available separately</a>, so that others might use them in their own projects.</dd>
 </dl>
 
-<h2>Project History</h2>
+<h2 id="ProjectHistory">Project History</h2>
 
-<p>The NetSurf project was started in April 2002 in response to a discussion of the deficiencies of the RISC OS browsers that were available at the time. NetSurf has been developed continuously ever since. The latest features and bug fixes have always been available immediately to RISC OS users through the project's <a href="http://www.netsurf-browser.org/downloads/riscos/testbuilds">autobuilder</a>. NetSurf had become the most widely used browser on RISC OS before NetSurf's first release, version 1.0, on 17th May 2007. Development builds have continued to be more widely used than release versions by RISC OS users.</p>
+<p>The NetSurf project was started in April 2002 in response to a discussion of the deficiencies of the RISC OS browsers that were available at the time. NetSurf has been developed continuously ever since. The latest features and bug fixes have always been available immediately to RISC OS users through the project's <a href="http://www.netsurf-browser.org/downloads/riscos/testbuilds">autobuilder</a>. NetSurf had become the most widely used browser on RISC OS well before NetSurf's first release, version 1.0, on 17th May 2007. Development builds have continued to be more widely used than release versions by RISC OS users.</p>
 
 <div class="frontscreen"><p class="frontscreen"><a href="/webimages/oldnetsurf.png"><img src="/webimages/oldnetsurf_t.png" alt="Screenshot of an ancient NetSurf version."></a> <span>An old version from April 2004 displaying the <em>Drobe</em> web site in March 2009.</span></p></div>
 
@@ -120,7 +120,7 @@
 <div class="rightcol">
 <div>
 
-<h2>Ports &amp; Availability</h2>
+<h2 id="PortsAvailability">Ports &amp; Availability</h2>
 
 <p>This section explains the various NetSurf front ends and should cover whether NetSurf is available for your system. NetSurf currently has five different front ends. These are for RISC OS, GTK, BeOS, AmigaOS and dumb framebuffers.</p>
 
@@ -149,7 +149,7 @@
 
 <p>NetSurf 1.0 was released in May 2007. The NetSurf 1.x releases since then have comprised largely of bug fixes merged from NetSurf's main development trunk back to the 1.x branch. Users building NetSurf from source are encouraged to build the current HEAD, rather than a release, as it is most up-to-date and has features that may not yet have been released.</p>
 
-<h2>NetSurf in Action</h2>
+<h2 id="NetSurfInAction">NetSurf in Action</h2>
 
 <p>Since NetSurf started out on RISC OS hardware, which is not particularly fast &ndash; the most widely used RISC OS hardware is a 200 MHz StrongARM RiscPC &ndash; so it runs well on resource constrained hardware such as handhelds. Even on fast modern desktops, users benefit from NetSurf's efficiency through its fast startup time and lightweight approach.</p>
 
@@ -159,7 +159,7 @@
 
 <p>People also use NetSurf on other handheld gadgets, such as the Openmoko mobile phone and the Nokia N810 internet tablet. NetSurf's full page scaling abilities help it to make the best use of a small screen.</p>
 
-<h2>Want to help?</h2>
+<h2 id="WantToHelp">Want to help?</h2>
 
 <p>The NetSurf project needs help and input if it is to keep moving forward. There are many ways for users to contribute to the NetSurf project. One of the simplest is to try the latest development build regularly. If you find any bugs, features you like or changes you don't like you can give feedback to the developers. It is this valuable feedback that helps shape NetSurf into a program people enjoy using.</p>
 
