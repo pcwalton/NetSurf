@@ -86,6 +86,8 @@
 </dd>
 </dl>
 
+<p>There is some more information in the <a href="http://wiki.netsurf-browser.org/google-summer-of-code">GSoC section</a> of our wiki. Note particularly the <a href="http://wiki.netsurf-browser.org/gsoc-student-guidelines">student guidelines</a>.</p>
+
 <p>Please <a href="/contact/">get in touch</a> if any of these ideas appeal to you or if you have your own idea for either <a href="/">NetSurf</a> or one of NetSurf's <a href="/projects/">sub-projects</a>. Come and chat to the developers in the NetSurf IRC channel or post to the developer mailing list.</p>
 
 <p><strong>All these ideas require knowledge of C</strong>, as NetSurf is entirely written in C.</p>
