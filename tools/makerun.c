@@ -47,21 +47,27 @@ int main(int argc, char **argv)
 
 	fclose(f);
 
-	if ((header.entry >> 24) != 0xEB) {
-		fprintf(stderr, "%s not binary\n", argv[1]);
-		return 1;
-	}
-
-	if (header.rosize + header.rwsize + header.dbsize != file_size) {
-		if ((header.decompress >> 24) != 0xEB) {
-			fprintf(stderr, "Mismatched field sizes\n");
+	if (header.decompress == 0x464c457f /* FLE\x7f */) {
+		/* ELF binary */
+		file_size += 0x8000; /* Add 32k of scratch space */
+	} else {
+		if ((header.entry >> 24) != 0xEB) {
+			fprintf(stderr, "%s not binary\n", argv[1]);
 			return 1;
 		}
-	}
 
-	file_size = header.rosize + header.rwsize + 
-			header.dbsize + header.zisize + 
-			0x8000 /* 32k of scratch space */;
+		if (header.rosize + header.rwsize + header.dbsize != 
+				file_size) {
+			if ((header.decompress >> 24) != 0xEB) {
+				fprintf(stderr, "Mismatched field sizes\n");
+				return 1;
+			}
+		}
+
+		file_size = header.rosize + header.rwsize + 
+				header.dbsize + header.zisize + 
+				0x8000 /* 32k of scratch space */;
+	}
 
 	f = fopen(argv[2], "r");
 	if (f == NULL) {
