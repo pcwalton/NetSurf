@@ -1,43 +1,45 @@
 #!/usr/bin/perl
 # Complete check of a stateless encoding.
-# Usage: check-stateless TOP SRCDIR CHARSET
+# Usage: check-stateless BUILDDIR SRCDIR CHARSET
 
 use warnings;
 use strict;
 
 if (@ARGV < 3) {
-	print "Usage: check-stateless <top> <srcdir> <charset\n";
+	print "Usage: check-stateless <builddir> <srcdir> <charset>\n";
 	exit;
 }
 
-my $top     = shift @ARGV;
-my $srcdir  = shift @ARGV;
-my $charset = shift @ARGV;
+my $builddir = shift @ARGV;
+my $srcdir   = shift @ARGV;
+my $charset  = shift @ARGV;
+
+my $prefix = $builddir . "/test_GNU_";
 
 # charset, modified for use in filenames.
 my $charsetf = $charset;
 $charsetf =~ s/:/-/g;
 
 # iconv in one direction.
-command("$srcdir/table-from $charset > $srcdir/tmp-$charsetf.TXT");
+command("${prefix}table-from $charset > $builddir/tmp-$charsetf.TXT");
 
 # iconv in the other direction.
-command("$srcdir/table-to $charset | sort > $srcdir/tmp-$charsetf.INVERSE.TXT");
+command("${prefix}table-to $charset | sort > $builddir/tmp-$charsetf.INVERSE.TXT");
 
 # Check 1: charmap and iconv forward should be identical.
-command("cmp $srcdir/$charsetf.TXT $srcdir/tmp-$charsetf.TXT 2> /dev/null");
+command("cmp $srcdir/$charsetf.TXT $builddir/tmp-$charsetf.TXT 2> /dev/null");
 
 # Check 2: the difference between the charmap and iconv backward.
-command("sed -e '/	.* 0x/d' < $srcdir/$charsetf.TXT > $srcdir/tmp-noprecomposed-$charsetf.TXT");
+command("sed -e '/	.* 0x/d' < $srcdir/$charsetf.TXT > $builddir/tmp-noprecomposed-$charsetf.TXT");
 
 if (-f "$srcdir/$charsetf.IRREVERSIBLE.TXT") {
-	command("cat $srcdir/tmp-noprecomposed-$charsetf.TXT $srcdir/$charsetf.IRREVERSIBLE.TXT | sort | uniq -u > $srcdir/tmp-orig-$charsetf.INVERSE.TXT");
+	command("cat $builddir/tmp-noprecomposed-$charsetf.TXT $srcdir/$charsetf.IRREVERSIBLE.TXT | sort | uniq -u > $builddir/tmp-orig-$charsetf.INVERSE.TXT");
 } else {
-	command("cp $srcdir/tmp-noprecomposed-$charsetf.TXT $srcdir/tmp-orig-$charsetf.INVERSE.TXT");
+	command("cp $builddir/tmp-noprecomposed-$charsetf.TXT $builddir/tmp-orig-$charsetf.INVERSE.TXT");
 }
-command("cmp $srcdir/tmp-orig-$charsetf.INVERSE.TXT $srcdir/tmp-$charsetf.INVERSE.TXT 2> /dev/null");
+command("cmp $builddir/tmp-orig-$charsetf.INVERSE.TXT $builddir/tmp-$charsetf.INVERSE.TXT 2> /dev/null");
 
-command("rm -f $srcdir/tmp-$charsetf.TXT $srcdir/tmp-$charsetf.INVERSE.TXT $srcdir/tmp-noprecomposed-$charsetf.TXT $srcdir/tmp-orig-$charsetf.INVERSE.TXT");
+command("rm -f $builddir/tmp-$charsetf.TXT $builddir/tmp-$charsetf.INVERSE.TXT $builddir/tmp-noprecomposed-$charsetf.TXT $builddir/tmp-orig-$charsetf.INVERSE.TXT");
 
 sub command {
 	my $cmd = shift;

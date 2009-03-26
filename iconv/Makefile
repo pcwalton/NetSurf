@@ -8,6 +8,10 @@ include build/makefiles/Makefile.tools
 
 TESTRUNNER := $(PERL) build/testtools/testrunner.pl
 
+ifneq ($(HOST),riscos)
+  export UNICODE_DIR := $(CURDIR)/riscos/!Boot/Resources/!Unicode/
+endif
+
 # Toolchain flags
 WARNFLAGS := -Wall -Wextra -Wundef -Wpointer-arith -Wcast-align \
 	-Wwrite-strings -Wstrict-prototypes -Wmissing-prototypes \

@@ -18,8 +18,6 @@ $(aliases): $(makealiases) $(addprefix $(DIR)data/, $(aliases_DATA))
 $(makealiases): $(addprefix $(DIR), $(makealiases_SRCS))
 	$(Q)$(HOST_CC) $(HOST_CFLAGS) -o $@ $^
 
-ifeq ($(MAKECMDGOALS),riscos-dist)
-  POST_TARGETS := $(POST_TARGETS) $(aliases)
-endif
+POST_TARGETS := $(POST_TARGETS) $(aliases)
 
 include build/makefiles/Makefile.subdir
