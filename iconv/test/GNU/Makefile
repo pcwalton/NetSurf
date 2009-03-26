@@ -1,5 +1,6 @@
 # Tests
-DIR_TEST_ITEMS := table-from table-to genutf8 gengb18030z
+DIR_TEST_ITEMS := table-from:table-from.c table-to:table-to.c
+DIR_TEST_ITEMS := $(DIR_TEST_ITEMS) genutf8:genutf8.c gengb18030z:gengb18030z.c
 
 testGNU: $(DIR)
 	$(CURDIR)/$<check-stateless $(CURDIR) $(CURDIR)/$< ASCII
