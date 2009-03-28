@@ -87,11 +87,11 @@ command("make TARGET=riscos PREFIX=/home/riscos/env");
 
 chdir "$root/libparserutils";
 command("svn update --non-interactive");
-command("make -f Makefile-riscos install");
+command("make TARGET=riscos install");
 
 chdir "$root/hubbub";
 command("svn update --non-interactive");
-command("make -f Makefile-riscos install");
+command("make TARGET=riscos install");
 
 chdir "$root/libnsbmp";
 command("svn update --non-interactive");
