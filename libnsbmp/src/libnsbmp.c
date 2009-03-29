@@ -13,7 +13,9 @@
 #include <string.h>
 #include <stdlib.h>
 #include <stdint.h>
-#include "libnsbmp.h"
+
+#include <libnsbmp.h>
+
 #include "utils/log.h"
 
 /*	The functions provided by this file allow for the decoding of
