@@ -12,6 +12,7 @@
 <ul>
 <li><a href="/">NetSurf</a></li>
 <li><a href="/projects/hubbub/">Hubbub</a></li>
+<li><a href="/projects/libcss/">LibCSS</a></li>
 <li><strong>Libdom</strong></li>
 <li><a href="/projects/libsvgtiny/">Libsvgtiny</a></li>
 <li><a href="/projects/libnsbmp/">Libnsbmp</a></li>
@@ -39,7 +40,7 @@
 
 <h2>Contact</h2>
 
-<p>If you would like to help develop Libdom, please join the NetSurf <a href="http://www.netsurf-browser.org/lists/netsurf-dev">developer mailing list</a>.</p>
+<p>If you would like to help develop Libdom, or have questions about the library, please join the NetSurf <a href="http://www.netsurf-browser.org/lists/netsurf-dev">developer mailing list</a>.</p>
 
 </body>
 </html>
