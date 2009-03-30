@@ -240,10 +240,13 @@
 <li>Printing</li>
 <li>Preferences window</li>
 </ul>
+<div class="details">
+<p><strong>Note:</strong> Any student interested in working on this front end should apply to both the NetSurf and Haiku organisations. The developer who would mentor this project is also a mentor for the Haiku organisation.</p>
+</div>
 <p><strong>Skills required:</strong> C++, BeOS/Haiku UI toolkits</p>
 <p><strong>Difficulty:</strong> Easy &ndash; Medium</p>
 <p><strong>Existing code:</strong> <a href="http://source.netsurf-browser.org/trunk/netsurf/beos/">BeOS specific code</a></p>
-<p><strong>References:</strong></p>
+<p><strong>References:</strong> <a href="http://www.haiku-os.org/community/gsoc2009/ideas">Haiku organisation ideas</a></p>
 
 <h2>Improved RISC OS front end</h2>
 <p>NetSurf's RISC OS front end is the most feature complete. There are various ways in which it could be improved. These include:</p>
