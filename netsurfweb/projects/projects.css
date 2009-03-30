@@ -23,26 +23,27 @@ h1 {
 	font-size: 92%; }
 
 .projects ul {
-	display: table;
-	margin: 0 0 0 auto;
-	padding: 0; }
+	display: block;
+	margin: 0;
+	padding: 0;
+	text-align: right; }
 
 .projects li {
-	display: table-cell;
+	display: inline;
 	background: #500;
 	color: #ffd;
 	margin: 0;
 	padding: 0; }
 
 .projects li strong {
-	display: block;
+	display: inline;
 	background: #500;
 	color: #ffd;
 	margin: 0;
 	padding: 0.3em 0.5em; }
 
 .projects li a {
-	display: block;
+	display: inline;
 	background: #ffd;
 	color: #500;
 	text-decoration: none;
