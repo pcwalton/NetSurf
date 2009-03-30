@@ -24,13 +24,12 @@ h1 {
 
 .projects ul {
 	display: block;
-	margin: 0;
+	margin: 2px 0;
 	padding: 0;
 	text-align: right; }
 
 .projects li {
 	display: inline;
-	background: #500;
 	color: #ffd;
 	margin: 0;
 	padding: 0; }
@@ -40,15 +39,14 @@ h1 {
 	background: #500;
 	color: #ffd;
 	margin: 0;
-	padding: 0.3em 0.5em; }
+	padding: 2px 0.5em; }
 
 .projects li a {
 	display: inline;
-	background: #ffd;
 	color: #500;
 	text-decoration: none;
 	margin: 0;
-	padding: 0.3em 0.4em; }
+	padding: 2px 0.3em; }
 
 .projects li a:hover {
 	text-decoration: underline; }
