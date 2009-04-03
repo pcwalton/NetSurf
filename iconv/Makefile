@@ -1,5 +1,6 @@
 # Component settings
 COMPONENT := iconv
+COMPONENT_VERSION := 0.10.0
 # Default to a static library
 COMPONENT_TYPE ?= lib-static
 
@@ -28,9 +29,10 @@ endif
 include build/makefiles/Makefile.top
 
 # Extra installation rules
-INSTALL_ITEMS := $(INSTALL_ITEMS) /include/iconv:include/iconv/iconv.h
+I := /include/iconv$(major-version)/iconv
+INSTALL_ITEMS := $(INSTALL_ITEMS) $(I):include/iconv/iconv.h
 INSTALL_ITEMS := $(INSTALL_ITEMS) /lib/pkgconfig:lib$(COMPONENT).pc.in
-INSTALL_ITEMS := $(INSTALL_ITEMS) /lib:$(BUILDDIR)/lib$(COMPONENT)$(LIBEXT)
+INSTALL_ITEMS := $(INSTALL_ITEMS) /lib:$(OUTPUT)
 
 ifeq ($(COMPONENT_TYPE),riscos-module)
   # And the RISC OS-specific targets
