@@ -5,6 +5,6 @@ includedir=${prefix}/include
 
 Name: libnsbmp
 Description: Provides bmp loading and conversion
-Version: 0.0.1
-Libs: -L${libdir} -lnsbmp
-Cflags: -I${includedir}
+Version: VERSION
+Libs: -L${libdir} -lnsbmpMAJOR
+Cflags: -I${includedir}/libnsbmpMAJOR

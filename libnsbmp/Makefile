@@ -1,5 +1,6 @@
 # Component settings
 COMPONENT := nsbmp
+COMPONENT_VERSION := 0.0.1
 # Default to a static library
 COMPONENT_TYPE ?= lib-static
 
@@ -16,6 +17,7 @@ CFLAGS := $(CFLAGS) -std=c99 -D_BSD_SOURCE -I$(CURDIR)/include/ \
 include build/makefiles/Makefile.top
 
 # Extra installation rules
-INSTALL_ITEMS := $(INSTALL_ITEMS) /include:include/libnsbmp.h
+I := /include/libnsbmp$(major-version)
+INSTALL_ITEMS := $(INSTALL_ITEMS) $(I):include/libnsbmp.h
 INSTALL_ITEMS := $(INSTALL_ITEMS) /lib/pkgconfig:lib$(COMPONENT).pc.in
-INSTALL_ITEMS := $(INSTALL_ITEMS) /lib:$(BUILDDIR)/lib$(COMPONENT)$(LIBEXT)
+INSTALL_ITEMS := $(INSTALL_ITEMS) /lib:$(OUTPUT)
