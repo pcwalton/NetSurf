@@ -44,6 +44,7 @@
 <li>Fast</li>
 <li>Character encoding detection</li>
 <li>Well-tested (~90% test coverage)</li>
+<li>Portable</li>
 <li>Shared library</li>
 </ul>
 
