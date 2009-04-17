@@ -44,15 +44,14 @@
 <li>Fast</li>
 <li>Character encoding detection</li>
 <li>Well-tested (~90% test coverage)</li>
+<li>Shared library</li>
 </ul>
 
 <p>Future:</p>
 
 <ul>
 <li>Well-documented</li>
-<li>Simple and libxml2 treebuilders</li>
 <li>Available and packaged in major Linux distributions</li>
-<li>Shared library</li>
 </ul>
 
 <h2>Source code</h2>
