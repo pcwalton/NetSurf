@@ -1,9 +1,9 @@
 /* Iconv stubs */
 
 #include <errno.h>
+#include <stdlib.h>
 
-#include <sys/errno.h>
-
+#include "kernel.h"
 #include "swis.h"
 
 #include "iconv.h"
