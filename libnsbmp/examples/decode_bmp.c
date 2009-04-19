@@ -15,7 +15,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <sys/stat.h>
-#include "../libnsbmp.h"
+#include "../include/libnsbmp.h"
 
 #define BYTES_PER_PIXEL 4
 #define TRANSPARENT_COLOR 0xffffffff
