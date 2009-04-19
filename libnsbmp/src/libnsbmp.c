@@ -523,6 +523,7 @@ static bmp_result bmp_analyse_header(bmp_image *bmp, uint8_t *data) {
 			if (bmp->opaque)
 				bmp->colour_table[i] |= (0xff << 24);
 			data += palette_size;
+			bmp->colour_table[i] = read_uint32((uint8_t *)&bmp->colour_table[i],0);
 		}
 	}
 
