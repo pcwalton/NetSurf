@@ -731,6 +731,7 @@ static bmp_result bmp_decode_rgb24(bmp_image *bmp, uint8_t **start, int bytes) {
 				if (bmp->opaque)
 					scanline[x] |= (0xff << 24);
 				data += skip;
+				scanline[x] = read_uint32((uint8_t *)&scanline[x],0);
 			}
 		} else {
 			for (x = 0; x < bmp->width; x++) {
@@ -740,6 +741,7 @@ static bmp_result bmp_decode_rgb24(bmp_image *bmp, uint8_t **start, int bytes) {
 				if (bmp->opaque)
 					scanline[x] |= (0xff << 24);
 				data += skip;
+				scanline[x] = read_uint32((uint8_t *)&scanline[x],0);
 			}
 		}
 	}
@@ -808,6 +810,7 @@ static bmp_result bmp_decode_rgb16(bmp_image *bmp, uint8_t **start, int bytes) {
 						scanline[x] |= (0xff << 24);
 				}
 				data += 2;
+				scanline[x] = read_uint32((uint8_t *)&scanline[x],0);
 			}
 		} else {
 			for (x = 0; x < bmp->width; x++) {
@@ -823,6 +826,7 @@ static bmp_result bmp_decode_rgb16(bmp_image *bmp, uint8_t **start, int bytes) {
 				if (bmp->opaque)
 					scanline[x] |= (0xff << 24);
 				data += 2;
+				scanline[x] = read_uint32((uint8_t *)&scanline[x],0);
 			}
 		}
 	}
