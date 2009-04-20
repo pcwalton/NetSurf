@@ -51,7 +51,38 @@
 
 <h1>Google Summer of Code</h1>
 
-<p>The NetSurf project was selected to participate in <a href="http://code.google.com/soc/"> Google Summer of Code 2009</a> as a mentoring organisation. Students interested in working with NetSurf over the summer should take a look at our <a href="2009ideas">ideas page</a>.</p>
+<p>The NetSurf project was selected to participate in <a href="http://code.google.com/soc/"> Google Summer of Code 2009</a> as a mentoring organisation. This year we are mentoring three students.</p>
+
+<dl class="gsocstudents">
+<dt>Bo Yang</dt>
+<dd>
+<ul>
+<li><span>Project:</span> Add DOM support to NetSurf</li>
+<li><span>Mentor:</span> John-Mark Bell (jmb)</li>
+<li><span>Details:</span> <a href="http://socghop.appspot.com/student_project/show/google/gsoc2009/netsurf/t124022820965">Abstract</a></li>
+</ul>
+</dd>
+<dt>Paul Blokus</dt>
+<dd>
+<ul>
+<li><span>Project:</span> Core UI enhancements and keyboard navigation</li>
+<li><span>Mentor:</span> Michael Drake (tlsa)</li>
+<li><span>Details:</span> <a href="http://socghop.appspot.com/student_project/show/google/gsoc2009/netsurf/t124022821160">Abstract</a></li>
+</ul>
+</dd>
+<dt>Mark Benjamin</dt>
+<dd>
+<ul>
+<li><span>Project:</span> NetSurf GTK+ interface improvements</li>
+<li><span>Mentor:</span> Rob Kendrick (rjek)</li>
+<li><span>Details:</span> <a href="http://socghop.appspot.com/student_project/show/google/gsoc2009/netsurf/t124022821359">Abstract</a></li>
+</ul>
+</dd>
+</dl>
+
+<!--p>Our students are blogging their progress this summer. You can follow their activities on <a href="http://planet.netsurf-browser.org/">Planet NetSurf</a>.</p-->
+
+<p>Our <a href="2009ideas">project ideas</a> page for Google Summer of Code is still available.</p>
 
 <p>We ask students to keep NetSurf's <a href="http://www.netsurf-browser.org/about/#ProjectGoals">project goals</a> in mind, especially the first point. We also ask them to communicate with the developers as much as possible. More information for students is available on the <a href="http://wiki.netsurf-browser.org/">development wiki</a>.</p>
 
@@ -93,8 +124,6 @@
 </ul>
 </dd>
 </dl>
-
-<!--p>Our students are blogging their progress this summer. You can follow their activities on <a href="http://planet.netsurf-browser.org/">Planet NetSurf</a>.</p-->
 
 <p>Our <a href="2008ideas">2008 GSoC ideas page</a> is still available.</p>
 

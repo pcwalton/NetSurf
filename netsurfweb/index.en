@@ -129,12 +129,12 @@
 <h2 id="news">Latest news</h2>
 
 <dl class="frontnews">
+<dt><a href="/developers/gsoc/">GSoC students selected</a> <span>20 Apr 2009</span></dt>
+<dd>This year we will have students working on a Document Object Model implementation, the usability and feature set of NetSurf's core multi-platform interface, and adding features to the GTK front end.</dd>
 <dt><a href="/developers/gsoc/2009ideas">Google Summer of Code</a> <span>18 Mar 2009</span></dt>
 <dd>NetSurf has been accepted into Google Summer of Code 2009, as a mentoring organisation. Students interested in getting involved should check out our <a href="/developers/gsoc/2009ideas">project ideas</a>.</dd>
 <dt><a href="http://vlists.pepperfish.net/pipermail/netsurf-users-netsurf-browser.org/2009-March/008453.html">NetSurf 2.0 plan &amp; summary of recent development</a> <span>09 Mar 2009</span></dt>
 <dd>NetSurf 2.0 to be released next month. Recent changes to page layout, form submission improved, upgraded AmigaOS port, framebuffer front end advanced and many other changes.</dd>
-<dt><a href="/about/awards">Another year, another accolade</a> <span>07 Jan 2009</span></dt>
-<dd>At the end of a busy year for NetSurf, with the release of NetSurf 1.2, the development of many new features, ports to new operating systems and participation in Google Summer of Code, NetSurf was voted for an award by Drobe's venerable readership. Thanks to everyone who voted for us!</dd>
 </dl>
 <p class="more"><a href="/about/news" class="seemore">See more news</a></p>
 

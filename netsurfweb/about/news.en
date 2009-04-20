@@ -57,6 +57,8 @@
 <h1>News</h1>
 
 <dl class="news">
+<dt><a href="/developers/gsoc/">GSoC students selected</a> <span>20 Apr 2009</span></dt>
+<dd>This year we will have students working on a Document Object Model implementation, the usability and feature set of NetSurf's core multi-platform interface, and adding features to the GTK front end.</dd>
 <dt><a href="/developers/gsoc/2009ideas">Google Summer of Code</a> <span>18 Mar 2009</span></dt>
 <dd>NetSurf has been accepted into Google Summer of Code 2009, as a mentoring organisation. Students interested in getting involved should check out our <a href="/developers/gsoc/2009ideas">project ideas</a>.</dd>
 <dt><a href="http://vlists.pepperfish.net/pipermail/netsurf-users-netsurf-browser.org/2009-March/008453.html">NetSurf 2.0 plan &amp; summary of recent development</a> <span>09 Mar 2009</span></dt>
