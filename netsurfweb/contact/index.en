@@ -83,7 +83,9 @@
 </dl>
 
 <h2 id="IRCChannel">IRC channel</h2>
-<p>The #netsurf IRC channel on the <a href="http://freenode.net/">Freenode</a> network is used for discussion of NetSurf development.</p>
+<p>The <a href="irc://irc.freenode.net/netsurf">#netsurf</a> IRC channel on the <a href="http://freenode.net/">Freenode</a> network is used for discussion of NetSurf development. Developers are usually around on the IRC channel between 1000 and 0100 UTC.</p>
+
+<p>If you're new to IRC, don't ask if you can ask a question &ndash; just ask the question! Also, give people a chance to see your question and reply. Developers don't have their eyes glued to their IRC terminal but they'll have it open in the background while they do other things. If you disconnect two minutes after asking something noone may see until after you've gone.</p>
 
 <p>If you want to contribute to the NetSurf project, please contact the developers via the development mailing list or on IRC.</p>
 
