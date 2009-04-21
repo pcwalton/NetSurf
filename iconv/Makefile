@@ -29,7 +29,7 @@ endif
 include build/makefiles/Makefile.top
 
 # Extra installation rules
-I := /include/iconv$(major-version)/iconv
+I := /include/iconv
 INSTALL_ITEMS := $(INSTALL_ITEMS) $(I):include/iconv/iconv.h
 INSTALL_ITEMS := $(INSTALL_ITEMS) /lib/pkgconfig:lib$(COMPONENT).pc.in
 INSTALL_ITEMS := $(INSTALL_ITEMS) /lib:$(OUTPUT)

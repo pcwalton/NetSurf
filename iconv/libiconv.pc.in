@@ -6,5 +6,5 @@ includedir=${prefix}/include
 Name: libiconv
 Description: Character set conversion library
 Version: VERSION
-Libs: -L${libdir} -liconvMAJOR -lunicode
-Cflags: -I${includedir}/iconvMAJOR
+Libs: -L${libdir} -liconv -lunicode
+Cflags: -I${includedir}
