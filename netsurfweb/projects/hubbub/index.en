@@ -32,8 +32,6 @@
 
 <p>The HTML5 specification defines a parsing algorithm, based on the behaviour of mainstream browsers, which provides instructions for how to parse all markup, both valid and invalid. As a result, Hubbub parses web content well.</p>
 
-<p>Hubbub is still under active development and has not had an official release, and as such should probably not be relied upon in production code just yet.</p>
-
 <p>If you are looking for an HTML5 parser in Python or Ruby, you may wish to look at <a href="http://code.google.com/p/html5lib/">html5lib</a>.</p>
 
 <h2>Features</h2>
