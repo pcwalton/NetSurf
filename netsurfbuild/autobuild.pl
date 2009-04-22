@@ -304,7 +304,7 @@ command("rm --verbose --force $outputdir/netsurf-*.tar.gz");
 command('rm --recursive --verbose --force export');
 mkdir "$root/export";
 chdir "$root/export";
-command("svn export --non-interactive $source_tree");
+command("svn export --non-interactive $source_tree netsurf");
 command("tar czf netsurf-r$revno.tar.gz netsurf");
 chdir $root;
 command("mv --verbose export/netsurf-*.tar.gz $outputdir/");
