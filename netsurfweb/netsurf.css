@@ -773,6 +773,9 @@ dl.projectgoals > dt:before {
 	content: counter(goal) ". ";
 	counter-increment: goal; }
 
+table.timeline {
+	margin-bottom: 1em; }
+
 table.timeline th {
 	white-space: nowrap;
 	text-align: left;
