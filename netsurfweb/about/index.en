@@ -128,6 +128,8 @@
 
 <p>The RISC OS front end is suitable for RISC OS 4 and greater. The AmigaOS front end is suitable for AmigaOS 4. The BeOS front end works on BeOS, Zeta and Haiku.</p>
 
+<div class="frontscreen"><p class="frontscreen"><a href="screenshots/fullsize/gtkbbcnews.png"><img src="screenshots/thumbnails/gtkbbcnews.png" alt="GTK NetSurf screenshot."></a> <span>NetSurf's GTK front end showing <em>BBC News</em> in a tab.</span></p></div>
+
 <p>NetSurf's GTK front end works on Unix-like systems, including Linux, FreeBSD, NetBSD, Solaris and others. There are no native Windows or MacOS X ports of NetSurf at the moment, however the GTK front end can be built for those platforms. The GTK front end is available from the package repositories of many Linux distributions including Debian and Ubuntu.</p>
 
 <h3>Framebuffer front end</h3>
