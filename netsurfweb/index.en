@@ -80,7 +80,7 @@
 
 <div class="content">
 <div class="frontpageintro">
-<p id="leader">Small as a mouse, fast as a cheetah and available for free. NetSurf is a web browser for <a href="http://www.riscosopen.org/">RISC&nbsp;OS</a> and UNIX-like platforms including Linux.</p>
+<p id="leader">Small as a mouse, fast as a cheetah and available for free. NetSurf is a multi-platform web browser for <a href="http://www.riscosopen.org/">RISC&nbsp;OS</a> and UNIX-like platforms, including Linux, and more.</p>
 
 <p>Whether you want to check your webmail, read the news or post to discussion forums, NetSurf is your lightweight gateway to the world wide web. Actively developed, NetSurf is continually evolving and improving.</p>
 
@@ -111,10 +111,11 @@
 <div class="downloadbox">
 <div class="downloadcontainer">
 <div class="downloadcontent">
-<h2 id="downloadrelease"><a href="/downloads/">Download NetSurf&nbsp;1.2</a></h2>
+<h2 id="downloadrelease"><a href="/downloads/">Download NetSurf&nbsp;2.0</a></h2>
 <ul>
 <li><a href="/downloads/">For RISC&nbsp;OS</a></li>
 <li><a href="/downloads/">For Linux</a></li>
+<li><a href="/downloads/">Other systems</a></li>
 <li><a href="/downloads/">Source code</a></li>
 </ul>
 </div>
@@ -138,31 +139,34 @@
 </dl>
 <p class="more"><a href="/about/news" class="seemore">See more news</a></p>
 
-<h2 id="features">NetSurf 1.2 features</h2>
+<h2 id="features">NetSurf 2.0 features</h2>
+
+<p>NetSurf 2.0 is available for RISC OS, Linux and other UNIX-like systems, BeOS, Haiku and AmigaOS.</p>
 
 <dl>
 <dt>General</dt>
 <dd>
 <ul>
 <li>Web standards: HTML 4.01 and CSS 2.1</li>
-<li>Image formats: PNG, GIF, JPEG, JNG, MNG and BMP</li>
+<li>Image formats: PNG, GIF, JPEG, SVG, JNG, MNG and BMP</li>
 <li>HTTPS for secure online transactions</li>
 <li>Unicode text</li>
 <li>Web page thumbnailing</li>
 <li>Local history trees</li>
+<li>Global history</li>
 <li>URL completion</li>
+<li>Text selection</li>
 <li>Scale view</li>
+<li>PDF export</li>
 </ul>
 </dd>
 <dt>RISC OS only</dt>
 <dd>
 <ul>
 <li>Image formats: Sprite, Drawfile and ArtWorks</li>
-<li>Global history</li>
 <li>Hotlist management (bookmarks)</li>
 <li>Cookie viewer</li>
 <li>Drawfile export</li>
-<li>Text selection</li>
 <li>Search-as-you-type text search highlighting</li>
 </ul>
 </dd>
