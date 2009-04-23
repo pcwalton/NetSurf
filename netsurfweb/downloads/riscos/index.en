@@ -63,7 +63,7 @@
 <div class="downloadlatestouter">
 <div class="downloadlatest">
 <div class="downloadlatestbox">
-<p class="downloadmain downloadfirst"><a href="/downloads/releases/netsurf-1.2.zip"><span>NetSurf 1.2 for RISC&nbsp;OS</span> <span>(2.2MB)</span> <span class="downloaddate">22 Mar 2008</span></a></p>
+<p class="downloadmain downloadfirst"><a href="/downloads/releases/netsurf-2.0.zip"><span>NetSurf 2.0 for RISC&nbsp;OS</span> <span>(2.5MB)</span> <span class="downloaddate">25 Apr 2009</span></a></p>
 <p class="downloadinstructions"><a href="/documentation/roinfo#GettingStartedInstallation">Installation instructions</a></p>
 <p class="preul">Binary download includes:</p>
 <ul>
@@ -81,14 +81,14 @@
 </div>
 
 <div class="downloadlatestbox downloadlast">
-<p class="downloadmain"><a href="/downloads/releases/netsurf-1.2-src.tar.gz"><span>NetSurf 1.2 source code</span> <span>(1.0MB)</span> <span class="downloaddate">22 Mar 2008</span></a></p>
+<p class="downloadmain"><a href="/downloads/releases/netsurf-2.0-src.tar.gz"><span>NetSurf 2.0 source code</span> <span>(1.4MB)</span> <span class="downloaddate">25 Apr 2009</span></a></p>
 <p class="downloadinstructions"><a href="/downloads/source/#BuildInstructions">Build instructions</a></p>
 <p class="preul">Build NetSurf for:</p>
 <ul>
+<li>RISC OS</li>
 <li>Linux</li>
 <li>Free/NetBSD</li>
 <li>Solaris</li>
-<li>RISC OS</li>
 <li>And more</li>
 </ul>
 </div>
@@ -100,6 +100,13 @@
 
 <h2>Previous releases</h2>
 <dl>
+<dt>NetSurf 1.2</dt>
+<dd>
+<ul>
+<li><a href="/downloads/releases/netsurf-1.2.zip">NetSurf 1.2 browser for RISC OS</a> (22 Mar 2008)</li>
+<li><a href="/downloads/releases/netsurf-1.2-src.tar.gz">NetSurf 1.2 source code</a> (22 Mar 2008)</li>
+</ul>
+</dd>
 <dt>NetSurf 1.1</dt>
 <dd>
 <ul>
