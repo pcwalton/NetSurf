@@ -65,9 +65,9 @@
 
 <pre class="example">NetSurf/[version] ([operating system]; [CPU architecture])</pre>
 
-<p>So, for example, NetSurf 1.2 running on a RISC OS Iyonix would give,</p>
+<p>So, for example, NetSurf 2.0 running on a RISC OS Iyonix would give,</p>
 
-<pre class="example">NetSurf/1.2 (RISC OS; armv5l)</pre>
+<pre class="example">NetSurf/2.0 (RISC OS; armv5l)</pre>
 
 <p>and NetSurf 1.2 running on an Ubuntu Linux machine might give,</p>
 
