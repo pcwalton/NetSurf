@@ -52,11 +52,40 @@
 
 <h1>Haiku and BeOS NetSurf Downloads</h1>
 
-<p>NetSurf for Haiku and BeOS has not yet seen a formal release. However, the latest <a href="http://revolf.free.fr/beos/netsurf-bone.zip">development build</a> is available, which should be unzipped to <em>&quot;/boot&quot;</em>.</p>
+<div class="downloadlatestouter">
+<div class="downloadlatest">
+<div class="downloadlatestbox">
+<p class="downloadmain downloadfirst"><a href="NetSurf-2.0-Haiku-gcc2.zip"><span>NetSurf 2.0 for Haiku</span> <span>(6.2MB)</span> <span class="downloaddate">25 Apr 2009</span></a></p>
+<p class="downloadinstructions">Extract to boot and create symlink for Deskbar</p>
+<!--<p class="preul">Requires:</p>
+<ul>
+<li>Haiku</li>
+</ul>-->
+</div>
+
+<div class="downloadlatestbox downloadlast">
+<p class="downloadmain"><a href="/downloads/releases/netsurf-2.0-src.tar.gz"><span>NetSurf 2.0 source code</span> <span>(1.4MB)</span> <span class="downloaddate">25 Apr 2009</span></a></p>
+<p class="downloadinstructions"><a href="/downloads/source/#BuildInstructions">Build instructions</a></p>
+<p class="preul">Build NetSurf for:</p>
+<ul>
+<li>Haiku</li>
+<li>BeOS</li>
+<li>Linux</li>
+<li>Free/NetBSD</li>
+<li>And more</li>
+</ul>
+</div>
+</div>
+<div class="arrow"></div>
+</div>
+
+<p>Check out the <a href="/downloads/releases/ChangeLog.txt">change log</a> to see what's changed since the last release.</p>
+
+<p>The latest <a href="http://revolf.free.fr/beos/netsurf-bone.zip">development build</a> is available, which should be unzipped to <em>&quot;/boot&quot;</em>.</p>
 
 <h2>Source</h2>
 
-<p>Alternatively, you can obtain the <a href="/downloads/source/">latest source</a>, if you want to play with the Haiku port.</p>
+<p>Alternatively, you can obtain the <a href="/downloads/source/">latest source</a>, if you want to play with the BeOS/Haiku port.</p>
 
 
 <div class="footer">

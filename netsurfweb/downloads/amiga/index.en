@@ -52,7 +52,40 @@
 
 <h1>AmigaOS NetSurf Downloads</h1>
 
-<p>NetSurf for AmigaOS has not yet seen a formal release. However, the latest <a href="http://www.aminet.net/comm/www/netsurf.lha">development build</a> is available.</p>
+<div class="bignote">
+<dl>
+<dt><a href="http://www.aminet.net/comm/www/netsurf.lha">Test build</a> (Aminet)</dt>
+<dd>A development build is available for those that want to try the latest experimental features.</dd>
+</dl>
+</div>
+
+<div class="downloadlatestouter">
+<div class="downloadlatest">
+<div class="downloadlatestbox">
+<p class="downloadmain downloadfirst"><a href="netsurf-2.0.lha"><span>NetSurf 2.0 for AmigaOS</span> <span>(5.1MB)</span> <span class="downloaddate">25 Apr 2009</span></a></p>
+<!--<p class="downloadinstructions"><a href="/documentation/roinfo#GettingStartedInstallation">Installation instructions</a></p>-->
+<p class="preul">Requires:</p>
+<ul>
+<li>AmigaOS 4</li>
+</ul>
+</div>
+
+<div class="downloadlatestbox downloadlast">
+<p class="downloadmain"><a href="/downloads/releases/netsurf-2.0-src.tar.gz"><span>NetSurf 2.0 source code</span> <span>(1.4MB)</span> <span class="downloaddate">25 Apr 2009</span></a></p>
+<p class="downloadinstructions"><a href="/downloads/source/#BuildInstructions">Build instructions</a></p>
+<p class="preul">Build NetSurf for:</p>
+<ul>
+<li>AmigaOS</li>
+<li>Linux</li>
+<li>Free/NetBSD</li>
+<li>And more</li>
+</ul>
+</div>
+</div>
+<div class="arrow"></div>
+</div>
+
+<p>Check out the <a href="/downloads/releases/ChangeLog.txt">change log</a> to see what's changed since the last release.</p>
 
 <h2>Source</h2>
 
