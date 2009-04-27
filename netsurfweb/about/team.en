@@ -118,6 +118,10 @@
 
 <h2>Daniel Silverstone</h2>
 
+<p>Generally grumpy, occasionally clever, but consistently ginger; Daniel works mostly on the GTK port of NetSurf and in a more airy hand-wavy way on most of the newer libraries which make up the NetSurf project.</p>
+
+<p>Daniel does most of his development work on his Ubuntu systems and is also half-responsible for the Debian and Ubuntu packaging of the project's output.  Daniel also helps to maintain the server that hosts the project's web site and mailing lists.</p>
+
 <ul>
 <li>First check in: 9 March 2006</li>
 <li>IRC name: Kinnison, SVN name: dsilvers</li>
