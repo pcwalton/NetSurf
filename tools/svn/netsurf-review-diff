@@ -1,0 +1,73 @@
+#!/bin/bash
+
+# Generates a diff for review on stdout...
+
+PRECISFILE=$1
+test "x$PRECISFILE" = "x" && PRECISFILE=/tmp/precis
+
+(
+
+if test -s $PRECISFILE; then
+echo "Precis:"
+echo
+cat $PRECISFILE
+echo
+echo
+fi
+
+echo "Added files"
+echo
+echo
+for F in $(svn st | grep "^A" | cut -b8-); do
+  echo "Index: $F"
+  echo "==================================================================="
+  diff -u /dev/null $F
+done
+
+echo
+echo
+echo "Changed files"
+echo
+echo
+
+TMPFILE=$(mktemp -t)
+
+if [ ! -f ${TMPFILE} ]; then
+    echo temporary file creation failed >&2
+    exit 1
+fi
+
+for F in $(svn st | grep "^M" | cut -b8-); do
+ svn diff $F >>${TMPFILE}
+done
+
+diffstat ${TMPFILE}
+
+echo
+echo
+
+cat ${TMPFILE}
+
+rm ${TMPFILE}
+
+echo
+echo
+echo "Conflicted files"
+echo
+echo
+
+for F in $(svn st | grep "^C" | cut -b8-); do
+ svn diff $F
+done
+
+echo
+echo
+echo "Removed files"
+echo
+echo
+
+svn st | grep "^D" | cut -b8-
+
+)
+
+

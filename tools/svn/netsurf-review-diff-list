@@ -1,0 +1,94 @@
+#!/bin/bash
+
+if test "x$NETSURF_USERNAME" = "x"; then
+  NETSURF_USERNAME=$(whoami)
+fi
+
+if test "x$NETSURF_REALNAME" = "x"; then
+  NETSURF_REALNAME=$(getent passwd $(whoami) | cut -d: -f 5 | cut -d, -f1)
+fi
+
+SENDCMD="/usr/lib/sendmail -t -r ${NETSURF_USERNAME}@netsurf-browser.org"
+if test "x$1" = "x--test"; then
+    SENDCMD="less -S"
+    shift
+fi
+
+test -x /usr/lib/sendmail || {
+    echo "Unable to find /usr/lib/sendmail"
+    exit 1
+}
+
+SUBJECT="$*"
+
+test "x$SUBJECT" = "x" && {
+    echo "No subject supplied."
+    exit 1
+}
+
+DIR=$(dirname $0)
+pushd $DIR
+DIR=$(pwd)
+popd
+
+yesno ()
+{
+    YNDEF=$1
+    shift
+    echo -n "$@ [$YNDEF]: "
+    read YNRES
+    YNRES=$(echo $YNRES | tr A-Z a-z)
+    test "x$YNRES" = "x" && YNRES=$YNDEF
+    test "x$YNRES" = "xyes" && return 0
+    test "x$YNRES" = "xno" && return 1
+    echo "Please enter 'yes' or 'no'"
+    yesno $YNDEF "$@"
+}
+
+do_precis ()
+{
+    PRECISFILE=$(tempfile)
+    /usr/bin/editor "$PRECISFILE"
+    test -s "$PRECISFILE" && return 0
+    yesno yes "You did not enter a precis. Do you wish to abort?" && exit 1
+    yesno yes "You did not enter a precis. Do you want to try again?" && do_precis
+    rm "$PRECISFILE"
+    PRECISFILE=""
+}
+
+TMPF=$(tempfile)
+
+PRECISFILE=""
+PRECISBKP=""
+if test -s /tmp/precis; then
+    PRECISFILE=/tmp/precis
+    yesno "yes" "The file /tmp/precis exists. Do you wish to use it?" || {
+	PRECISFILE=""
+	PRECISBKP=$(tempfile)
+	mv /tmp/precis $PRECISBKP
+    }
+fi
+
+if test "x$PRECISFILE" = "x"; then
+    yesno "yes" "Do you wish to write a precis?" && do_precis
+fi
+
+"${DIR}/netsurf-review-diff" $PRECISFILE | perl -pe's/^From />From /;' > "$TMPF"
+
+test "x$PRECISFILE" = "x/tmp/precis" && PRECISFILE=""
+
+test "x$PRECISFILE" = "x" || rm $PRECISFILE
+test "x$PRECISBKP" = "x" || mv $PRECISBKP /tmp/precis
+
+HEADER="From: ${NETSURF_REALNAME} <${NETSURF_USERNAME}@simtec.co.uk>
+To: NetSurf Development List <netsurf-dev@netsurf-browser.org>
+Subject: Review: $*
+
+"
+
+echo "Submitting to $SENDCMD"
+
+( echo "$HEADER"; cat $TMPF ) | $SENDCMD
+
+rm $TMPF
+
