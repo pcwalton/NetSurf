@@ -80,7 +80,7 @@ test "x$PRECISFILE" = "x/tmp/precis" && PRECISFILE=""
 test "x$PRECISFILE" = "x" || rm $PRECISFILE
 test "x$PRECISBKP" = "x" || mv $PRECISBKP /tmp/precis
 
-HEADER="From: ${NETSURF_REALNAME} <${NETSURF_USERNAME}@simtec.co.uk>
+HEADER="From: ${NETSURF_REALNAME} <${NETSURF_USERNAME}@netsurf-browser.org>
 To: NetSurf Development List <netsurf-dev@netsurf-browser.org>
 Subject: Review: $*
 
