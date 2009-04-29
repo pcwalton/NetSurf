@@ -31,6 +31,35 @@
 
 <p>LibParserUtils is a library for building efficient parsers, written in C. It was developed as part of the <a href="/">NetSurf</a> project and is available for use by other software under the MIT licence.</p>
 
+<h2>Features</h2>
+
+<ul>
+<li>No manditory dependencies (<code>iconv()</code> implmentation optional for enhanced charset support)</li>
+<li>A number of built-in character set convertors</li>
+<li>Mapping of character set names to/from MIB enum values</li>
+<li>UTF-8 and UTF-16 (host endian) support functions</li>
+<li>Various simple data structures (resizeable buffer, stack, vector)</li>
+<li>A UTF-8 input stream</li>
+<li>Simple C API</li>
+<li>Portable</li>
+<li>Shared library</li>
+</ul>
+
+<h3>Charset support</h3>
+
+<p>LibParserUtils has the following built-in charset converters.</p>
+
+<ul>
+<li>UTF-8</li>
+<li>UTF-16 (platform-native endian)</li>
+<li>ISO-8859-n</li>
+<li>Windows-125n</li>
+<li>US-ASCII</li>
+</ul>
+
+<p><strong>Note:</strong> LibParserUtils can optionally be built to use <code>iconv()</code>, enabling support for many more charsets. See the <a href="http://source.netsurf-browser.org/trunk/libparserutils/README">readme</a> file for details.</p>
+
+
 <h2>Source code</h2>
 
 <p>You can <a href="http://source.netsurf-browser.org/trunk/libparserutils/">browse the source code</a> via the online interface. Alternatively, you can check it out of SVN:</p>
