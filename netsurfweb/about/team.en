@@ -2,7 +2,7 @@
         "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 <head>
-<title>NetSurf | Development Team</title>
+<title>NetSurf | The NetSurf Developers</title>
 <link rel="stylesheet" type="text/css" href="/netsurf.css">
 <link rel="icon" type="image/png" href="/webimages/favicon.png">
 </head>
@@ -52,9 +52,9 @@
 
 <div class="content">
 
-<p class="breadcrumbs"><a href="/">Home</a> » <a href="/about/">About NetSurf</a> » Team</p>
+<p class="breadcrumbs"><a href="/">Home</a> » <a href="/about/">About NetSurf</a> » The NetSurf Developers</p>
 
-<h1>NetSurf's Development Team</h1>
+<h1>The NetSurf Developers</h1>
 
 <h2>James Bursa</h2>
 
