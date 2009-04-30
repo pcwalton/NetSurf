@@ -67,7 +67,7 @@
 <li><a href="#NSF">NetSurf features</a></li>
 </ul>
 
-<p class="updated">Last updated 16 October 2008</p>
+<p class="updated">Last updated 30 April 2009</p>
 
 <h2 id="General"></h2>
 
@@ -250,7 +250,7 @@
 <tr class="complete"><td>Downloads (RISC&nbsp;OS)</td><td>Complete</td><td>Following a link to a file NetSurf can't render opens the download dialogue box.</td></tr>
 <tr class="complete"><td>Downloads (GTK)</td><td>Complete</td><td></td></tr>
 <tr class="nearlydone"><td>Find Text (RISC&nbsp;OS)</td><td>Nearly done</td><td>Doesn't find phrases if they are split across lines.</td></tr>
-<tr class="notstarted"><td>Find Text (GTK)</td><td>Not started</td><td></td></tr>
+<tr class="juststarted"><td>Find Text (GTK)</td><td>Just started</td><td></td></tr>
 <tr class="nearlydone"><td>Full Save (RISC&nbsp;OS)</td><td>Nearly done</td><td>Save pages with CSS files and images.<br>Doesn't rewrite URLs for CSS background images.</td></tr>
 <tr class="notstarted"><td>Full Save (GTK)</td><td>Not started</td><td></td></tr>
 <tr class="nearlydone"><td>History - Global (RISC&nbsp;OS)</td><td>Nearly done</td><td>Details in the <a href="guide#History">User Guide</a>.</td></tr>
@@ -262,8 +262,8 @@
 <tr class="nearlydone"><td>Interactive Help (RISC&nbsp;OS)</td><td>Nearly done</td><td></td></tr>
 <tr class="nearlydone"><td>Interactive Help (GTK)</td><td>Nearly done</td><td>Extensive tool tips for GUI but none for rendering area.</td></tr>
 <tr class="complete"><td>Memory Cache</td><td>Complete</td><td></td></tr>
-<tr class="inprogress"><td>Printing (RISC&nbsp;OS)</td><td>In progress</td><td>Printing on RISC&nbsp;OS 5 doesn't work, due to lack of support in the Font Manager and printer drivers. Details on the <a href="roinfo#Unicode">RISC&nbsp;OS User Information</a> page.</td></tr>
-<tr class="notstarted"><td>Printing (GTK)</td><td>Not started</td><td>Started to think about it. Needs Cairo backend updating.</td></tr>
+<tr class="complete"><td>Printing (RISC&nbsp;OS)</td><td>Complete</td><td>Printing on RISC&nbsp;OS 5 doesn't work, due to lack of support in the Font Manager and printer drivers. Details on the <a href="roinfo#Unicode">RISC&nbsp;OS User Information</a> page.</td></tr>
+<tr class="complete"><td>Printing (GTK)</td><td>Complete</td><td></td></tr>
 <tr class="inprogress"><td>Proxy Support</td><td>In progress</td><td>Protocols other than HTTP are incorrectly proxied.</td></tr>
 <tr class="nearlydone"><td>Save as Drawfile (RISC&nbsp;OS)</td><td>Nearly done</td><td>Embedded drawfiles aren't exported when saving page as Draw. (Draw is a RISC OS vector graphics format.)</td></tr>
 <tr class="inprogress"><td>Save as Text (RISC&nbsp;OS)</td><td>In progress</td><td>Some issues with spacing out of text.</td></tr>
@@ -278,7 +278,7 @@
 <tr class="complete"><td>Unicode Font Support (GTK)</td><td>Complete</td><td></td></tr>
 <tr class="complete"><td>URL Completion</td><td>Complete</td><td>When typing a URL into the URL bar, NetSurf will display suggestions for the full address.</td></tr>
 <tr class="complete"><td>View Source (RISC&nbsp;OS)</td><td>Complete</td><td>Press F8 or <i>Page &gt; View source</i> on main menu.</td></tr>
-<tr class="notstarted"><td>View Source (GTK)</td><td>Not started</td><td></td></tr>
+<tr class="complete"><td>View Source (GTK)</td><td>Complete</td><td></td></tr>
 </table>
 
 
