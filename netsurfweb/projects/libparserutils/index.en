@@ -34,8 +34,8 @@
 <h2>Features</h2>
 
 <ul>
-<li>No manditory dependencies (<code>iconv()</code> implmentation optional for enhanced charset support)</li>
-<li>A number of built-in character set convertors</li>
+<li>No mandatory dependencies (<code>iconv()</code> implementation optional for enhanced charset support)</li>
+<li>A number of built-in character set converters</li>
 <li>Mapping of character set names to/from MIB enum values</li>
 <li>UTF-8 and UTF-16 (host endian) support functions</li>
 <li>Various simple data structures (resizeable buffer, stack, vector)</li>
