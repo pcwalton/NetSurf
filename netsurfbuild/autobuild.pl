@@ -17,7 +17,7 @@ $| = 1;
 
 # Process command line options
 my $release_build = 0;
-my $version = "2.0 (Dev)";
+my $version = "3.0 (Dev)";
 GetOptions('release=s' => sub { my ($name, $value) = @_; 
 	   			$release_build = 1; 
 				$version = $value;
@@ -72,7 +72,7 @@ if (!$release_build) {
 	# create version.c -- keep major/minor in sync with $version
 	save('netsurf/desktop/version.c',
 		"const char * const netsurf_version = \"$full_version\";\n" .
-		"const int netsurf_version_major = 2;\n" .
+		"const int netsurf_version_major = 3;\n" .
 		"const int netsurf_version_minor = 0;\n");
 }
 
