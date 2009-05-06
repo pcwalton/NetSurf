@@ -16,7 +16,7 @@
 
 static int rufl_family_list_cmp(const void *keyval, const void *datum);
 static rufl_code rufl_place_in_cache(unsigned int font, unsigned int font_size,
-		font_f f);
+		const char *encoding, font_f f);
 
 /**
  * Find a font family.
@@ -99,8 +99,17 @@ rufl_code rufl_find_font(unsigned int font, unsigned int font_size,
 	assert(fhandle != NULL);
 
 	for (i = 0; i != rufl_CACHE_SIZE; i++) {
+		/* Comparing pointers for the encoding is fine, as the 
+		 * encoding string passed to us is either:
+		 *
+		 *    a) NULL
+		 * or b) statically allocated
+		 * or c) resides in the font's umap, which is constant
+		 *       for the lifetime of the application.
+		 */
 		if (rufl_cache[i].font == font &&
-				rufl_cache[i].size == font_size)
+				rufl_cache[i].size == font_size &&
+				rufl_cache[i].encoding == encoding)
 			break;
 	}
 	if (i != rufl_CACHE_SIZE) {
@@ -136,7 +145,7 @@ rufl_code rufl_find_font(unsigned int font, unsigned int font_size,
 			return rufl_FONT_MANAGER_ERROR;
 		}
 		/* place in cache */
-		code = rufl_place_in_cache(font, font_size, f);
+		code = rufl_place_in_cache(font, font_size, encoding, f);
 		if (code != rufl_OK)
 			return code;
 	}
@@ -160,7 +169,7 @@ int rufl_family_list_cmp(const void *keyval, const void *datum)
  */
 
 rufl_code rufl_place_in_cache(unsigned int font, unsigned int font_size,
-		font_f f)
+		const char *encoding, font_f f)
 {
 	unsigned int i;
 	unsigned int max_age = 0;
@@ -184,6 +193,7 @@ rufl_code rufl_place_in_cache(unsigned int font, unsigned int font_size,
 	}
 	rufl_cache[evict].font = font;
 	rufl_cache[evict].size = font_size;
+	rufl_cache[evict].encoding = encoding;
 	rufl_cache[evict].f = f;
 	rufl_cache[evict].last_used = rufl_cache_time++;
 

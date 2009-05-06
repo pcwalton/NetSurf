@@ -33,9 +33,14 @@ void rufl_dump_state(void)
 			printf("    (no charset table)\n");
 		}
 		if (rufl_font_list[i].umap) {
-			printf("    ");
-			rufl_dump_unicode_map(rufl_font_list[i].umap);
-			printf("\n");
+			for (j = 0; j < rufl_font_list[i].num_umaps; j++) {
+				struct rufl_unicode_map *map =
+						rufl_font_list[i].umap + j;
+
+				printf("    ");
+				rufl_dump_unicode_map(map);
+				printf("\n");
+			}
                 }
 	}
 
@@ -102,6 +107,9 @@ void rufl_dump_character_set(struct rufl_character_set *charset)
 void rufl_dump_unicode_map(struct rufl_unicode_map *umap)
 {
 	unsigned int i;
+
+	if (umap->encoding)
+		printf("%s: ", umap->encoding);
 
 	for (i = 0; i != umap->entries; i++)
 		printf("%x:%x ", umap->map[i].u, umap->map[i].c);

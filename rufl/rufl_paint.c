@@ -355,7 +355,8 @@ rufl_code rufl_process_span(rufl_action action,
 						font_RETURN_CARET_POS : 0),
 				(click_x - *x) * 400, 0x7fffffff, 0, 0,
 				n * 2,
-				(char **)(void *)&split_point, &x_out, &y_out, 0);
+				(char **)(void *)&split_point, 
+				&x_out, &y_out, 0);
 		*offset = split_point - s;
 	} else {
 		rufl_fm_error = xfont_scan_string(f, (const char *) s,
@@ -395,13 +396,13 @@ rufl_code rufl_process_span_old(rufl_action action,
 	bool oblique = slant && !rufl_font_list[font].slant;
 	font_f f;
 	rufl_code code;
-	struct rufl_unicode_map_entry *entry;
-
-	code = rufl_find_font(font, font_size, NULL, &f);
-	if (code != rufl_OK)
-		return code;
 
 	if (action == rufl_FONT_BBOX) {
+		/* Don't need encoding for bounding box */
+		code = rufl_find_font(font, font_size, NULL, &f);
+		if (code != rufl_OK)
+			return code;
+
 		rufl_fm_error = xfont_read_info(f, &x[0], &x[1], &x[2], &x[3]);
 		if (rufl_fm_error) {
 			LOG("xfont_read_info: 0x%x: %s",
@@ -412,68 +413,117 @@ rufl_code rufl_process_span_old(rufl_action action,
 		return rufl_OK;
 	}
 
-	/* convert Unicode string into character string */
-	for (i = 0; i != n; i++) {
-		entry = bsearch(&s[i], rufl_font_list[font].umap->map,
-				rufl_font_list[font].umap->entries,
-				sizeof rufl_font_list[font].umap->map[0],
+	if (offset)
+		*offset = 0;
+
+	/* Process the span in map-coherent chunks */
+	do {
+		struct rufl_unicode_map *map;
+		struct rufl_unicode_map_entry *entry = NULL;
+		unsigned int j;
+
+		i = 0;
+
+		/* Find map for first character */
+		for (j = 0; j < rufl_font_list[font].num_umaps; j++) {
+			map = rufl_font_list[font].umap + j;
+
+			entry = bsearch(&s[i], map->map, map->entries,
+				sizeof map->map[0],
 				rufl_unicode_map_search_cmp);
-		s2[i] = entry->c;
-	}
-	s2[i] = 0;
-
-	if (action == rufl_PAINT) {
-		/* paint span */
-		/* call Font_SetFont to work around broken PS printer driver,
-		 * which doesn't use the font handle from Font_Paint */
-		rufl_fm_error = xfont_set_font(f);
-		if (rufl_fm_error) {
-			LOG("xfont_set_font: 0x%x: %s",
-					rufl_fm_error->errnum,
-					rufl_fm_error->errmess);
-			return rufl_FONT_MANAGER_ERROR;
+			if (entry)
+				break;
 		}
-		rufl_fm_error = xfont_paint(f, s2, font_OS_UNITS |
-				(oblique ? font_GIVEN_TRFM : 0) |
-				font_GIVEN_LENGTH | font_GIVEN_FONT |
-				font_KERN |
-				((flags & rufl_BLEND_FONT) ?
-						font_BLEND_FONT : 0),
-				*x, y, 0, &trfm_oblique, n);
-		if (rufl_fm_error) {
-			LOG("xfont_paint: 0x%x: %s",
-					rufl_fm_error->errnum,
-					rufl_fm_error->errmess);
-			return rufl_FONT_MANAGER_ERROR;
-		}
-	} else if (action == rufl_PAINT_CALLBACK) {
-		callback(context, rufl_font_list[font].identifier,
-				font_size, s2, 0, n, *x, y);
-	}
+		assert(map != NULL);
+		assert(entry != NULL);
 
-	/* increment x by width of span */
-	if (action == rufl_X_TO_OFFSET || action == rufl_SPLIT) {
-		rufl_fm_error = xfont_scan_string(f, s2,
-				font_GIVEN_LENGTH | font_GIVEN_FONT |
-				font_KERN |
-				((action == rufl_X_TO_OFFSET) ?
+		/* Collect characters: s[0..i) use map */
+		do {
+			entry = bsearch(&s[i], map->map, map->entries,
+				sizeof map->map[0],
+				rufl_unicode_map_search_cmp);
+
+			if (entry)
+				s2[i++] = entry->c;
+		} while (i != n && entry != NULL);
+
+		s2[i] = 0;
+
+		code = rufl_find_font(font, font_size, map->encoding, &f);
+		if (code != rufl_OK)
+			return code;
+
+		if (action == rufl_PAINT) {
+			/* paint span */
+			/* call Font_SetFont to work around broken PS printer 
+			 * driver, which doesn't use the font handle from 
+			 * Font_Paint */
+			rufl_fm_error = xfont_set_font(f);
+			if (rufl_fm_error) {
+				LOG("xfont_set_font: 0x%x: %s",
+						rufl_fm_error->errnum,
+						rufl_fm_error->errmess);
+				return rufl_FONT_MANAGER_ERROR;
+			}
+
+			rufl_fm_error = xfont_paint(f, s2, font_OS_UNITS |
+					(oblique ? font_GIVEN_TRFM : 0) |
+					font_GIVEN_LENGTH | font_GIVEN_FONT |
+					font_KERN |
+					((flags & rufl_BLEND_FONT) ?
+							font_BLEND_FONT : 0),
+					*x, y, 0, &trfm_oblique, i);
+			if (rufl_fm_error) {
+				LOG("xfont_paint: 0x%x: %s",
+						rufl_fm_error->errnum,
+						rufl_fm_error->errmess);
+				return rufl_FONT_MANAGER_ERROR;
+			}
+		} else if (action == rufl_PAINT_CALLBACK) {
+			char font_name[80];
+
+			if (map->encoding)
+				snprintf(font_name, sizeof font_name, "%s\\E%s",
+					rufl_font_list[font].identifier,
+					map->encoding);
+			else
+				snprintf(font_name, sizeof font_name, "%s",
+					rufl_font_list[font].identifier);
+
+			callback(context, font_name, font_size, 
+					s2, 0, i, *x, y);
+		}
+
+		/* increment x by width of span */
+		if (action == rufl_X_TO_OFFSET || action == rufl_SPLIT) {
+			rufl_fm_error = xfont_scan_string(f, s2,
+					font_GIVEN_LENGTH | font_GIVEN_FONT |
+					font_KERN |
+					((action == rufl_X_TO_OFFSET) ?
 						font_RETURN_CARET_POS : 0),
-				(click_x - *x) * 400, 0x7fffffff, 0, 0, n,
-				&split_point, &x_out, &y_out, 0);
-		*offset = split_point - s2;
-	} else {
-		rufl_fm_error = xfont_scan_string(f, s2,
-				font_GIVEN_LENGTH | font_GIVEN_FONT | font_KERN,
-				0x7fffffff, 0x7fffffff, 0, 0, n,
-				0, &x_out, &y_out, 0);
-	}
-	if (rufl_fm_error) {
-		LOG("xfont_scan_string: 0x%x: %s",
-				rufl_fm_error->errnum,
-				rufl_fm_error->errmess);
-		return rufl_FONT_MANAGER_ERROR;
-	}
-	*x += x_out / 400;
+					(click_x - *x) * 400, 0x7fffffff, 
+					0, 0, i,
+					&split_point, &x_out, &y_out, 0);
+			*offset += split_point - s2;
+		} else {
+			rufl_fm_error = xfont_scan_string(f, s2,
+					font_GIVEN_LENGTH | font_GIVEN_FONT | 
+					font_KERN,
+					0x7fffffff, 0x7fffffff, 0, 0, i,
+					0, &x_out, &y_out, 0);
+		}
+		if (rufl_fm_error) {
+			LOG("xfont_scan_string: 0x%x: %s",
+					rufl_fm_error->errnum,
+					rufl_fm_error->errmess);
+			return rufl_FONT_MANAGER_ERROR;
+		}
+		*x += x_out / 400;
+
+		/* Now update s and n for the next chunk */
+		s += i;
+		n -= i;
+	} while (n != 0);
 
 	return rufl_OK;
 }

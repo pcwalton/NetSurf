@@ -119,15 +119,18 @@ rufl_code rufl_glyph_metrics(const char *font_family,
 		int *width, int *height,
 		int *x_advance, int *y_advance)
 {
+	const char *font_encoding = NULL;
 	unsigned int font, font1, u;
 	unsigned short u1[2];
 	struct rufl_character_set *charset;
+	struct rufl_unicode_map_entry *umap_entry = NULL;
 	font_f f;
 	rufl_code code;
 	font_scan_block block;
 	font_string_flags flags;
 	int xa, ya;
 
+	/* Find font family containing glyph */
 	code = rufl_find_font_family(font_family, font_style,
 			&font, NULL, &charset);
 	if (code != rufl_OK)
@@ -141,7 +144,28 @@ rufl_code rufl_glyph_metrics(const char *font_family,
 	else
 		font1 = rufl_CACHE_CORPUS;
 
-	code = rufl_find_font(font1, font_size, NULL, &f);
+	/* Old font managers need the font encoding, too */
+	if (rufl_old_font_manager && font1 != rufl_CACHE_CORPUS) {
+		unsigned int i;
+		unsigned short u16 = (unsigned short) u;
+
+		for (i = 0; i < rufl_font_list[font1].num_umaps; i++) {
+			struct rufl_unicode_map *map =
+					rufl_font_list[font1].umap + i;
+
+			umap_entry = bsearch(&u16, map->map, map->entries,
+					sizeof map->map[0],
+					rufl_unicode_map_search_cmp);
+			if (umap_entry) {
+				font_encoding = map->encoding;
+				break;
+			}
+		}
+
+		assert(umap_entry != NULL);
+	}
+
+	code = rufl_find_font(font1, font_size, font_encoding, &f);
 	if (code != rufl_OK)
 		return code;
 
@@ -224,12 +248,10 @@ rufl_code rufl_glyph_metrics(const char *font_family,
 	} else if (rufl_old_font_manager) {
 		/* Old Font Manager */
 		char s[2];
-		struct rufl_unicode_map_entry *entry;
-		entry = bsearch(&u1[0], rufl_font_list[font1].umap->map,
-				rufl_font_list[font1].umap->entries,
-				sizeof rufl_font_list[font1].umap->map[0],
-				rufl_unicode_map_search_cmp);
-		s[0] = entry->c;
+
+		/* We found the correct umap entry when 
+		 * looking for the font encoding */
+		s[0] = umap_entry->c;
 		s[1] = 0;
 
 		rufl_fm_error = xfont_scan_string(f, s, flags,

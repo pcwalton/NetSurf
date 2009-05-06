@@ -49,9 +49,14 @@ struct rufl_unicode_map_entry {
 
 
 /** Old font manager: mapping from Unicode to character code. This is simply
- * an array sorted by Unicode value, suitable for bsearch(). */
+ * an array sorted by Unicode value, suitable for bsearch(). If a font has
+ * support for multiple encodings, then it will have multiple unicode maps.
+ * The encoding field contains the name of the encoding to pass to the 
+ * font manager. This will be NULL if the font is a Symbol font. */
 struct rufl_unicode_map {
-	/** Number of valid entries in u and c. */
+	/** Corresponding encoding name */
+	char *encoding;
+	/** Number of valid entries in map. */
 	unsigned int entries;
 	/** Map from Unicode to character code. */
 	struct rufl_unicode_map_entry map[256];
@@ -64,7 +69,9 @@ struct rufl_font_list_entry {
 	char *identifier;
 	/** Character set of font. */
 	struct rufl_character_set *charset;
-	/** Mapping from Unicode to character code. */
+	/** Number of Unicode mapping tables */
+	unsigned int num_umaps;
+	/** Mappings from Unicode to character code. */
 	struct rufl_unicode_map *umap;
 	/** Family that this font belongs to (index in rufl_family_list and
 	 * rufl_family_map). */
@@ -77,7 +84,7 @@ struct rufl_font_list_entry {
 /** List of all available fonts. */
 extern struct rufl_font_list_entry *rufl_font_list;
 /** Number of entries in rufl_font_list. */
-extern unsigned int rufl_font_list_entries;
+extern size_t rufl_font_list_entries;
 
 
 /** An entry in rufl_family_map. */
@@ -111,6 +118,8 @@ struct rufl_cache_entry {
 #define rufl_CACHE_CORPUS (UINT_MAX - 1)
 	/** Font size. */
 	unsigned int size;
+	/** Font encoding */
+	const char *encoding;
 	/** Value of rufl_cache_time when last used. */
 	unsigned int last_used;
 	/** RISC OS font handle. */
@@ -161,7 +170,7 @@ bool rufl_character_set_test(struct rufl_character_set *charset,
 	}
 
 #define rufl_CACHE "<Wimp$ScrapDir>.RUfl_cache"
-#define rufl_CACHE_VERSION 2
+#define rufl_CACHE_VERSION 3
 
 
 struct rufl_glyph_map_entry {
