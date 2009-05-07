@@ -50,7 +50,7 @@
 
 <p>If the underlying font manager is Unicode capable, then RUfl will plot the text using the selected font. If a particular glyph does not exist in the selected font, then it looks up a substitute font that does contain the glyph and uses that. If no fonts on the system contain the glyph, a Unicode codepoint is plotted in place of the glyph.</p>
 
-<p>When running on a non-Unicode font manager, RUfl checks whether the selected font contains the glyph, and if it does, which font encoding contains it. It then converts to an 8 bit character code and plots the text using the encoding found. This enables applications to make full use of fonts, such as Homerton and Trinity, that contain additional glyphs in other encodings. If the font did not contain a particular glyph, it looks for another font that does. If it finds one, it does the same endoding lookup and plots it accordingly. If no fonts on the system contain the glyph, a Unicode codepoint is plotted in place of the glyph.</p>
+<p>When running on a non-Unicode font manager, RUfl checks whether the selected font contains the glyph, and if it does, which font encoding contains it. It then converts to an 8 bit character code and plots the text using the encoding found. This enables applications to make full use of fonts, such as Homerton and Trinity, that contain additional glyphs in other encodings. If the font did not contain a particular glyph, it looks for another font that does. If it finds one, it does the same encoding lookup and plots it accordingly. If no fonts on the system contain the glyph, a Unicode codepoint is plotted in place of the glyph.</p>
 
 <p>RUfl manages to do all this efficiently by maintaining cached lookup tables containing various mappings.</p>
 
