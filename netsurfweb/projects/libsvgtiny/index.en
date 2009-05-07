@@ -31,9 +31,9 @@
 
 <p>Libsvgtiny is an implementation of <a href="http://www.w3.org/TR/SVGMobile/">SVG Tiny</a>, written in C. It is currently in development for use with <a href="/">NetSurf</a> and is intended to be suitable for use in other projects too.</p>
 
-<p>The overall idea of the library is to take some SVG as input, and return a list of paths and texts which can be rendered easily. The library does not do the actual rendering. For further details, see the <a href="http://source.netsurf-browser.org/trunk/libsvgtiny/README">readme</a>.</p>
-
 <p class="screenshot"><img src="images/svgtiger.png" alt="" title="Screenshot of NetSurf displaying an SVG with Libsvgtiny"></p>
+
+<p>The overall idea of the library is to take some SVG as input, and return a list of paths and texts which can be rendered easily. The library does not do the actual rendering. For further details, see the <a href="http://source.netsurf-browser.org/trunk/libsvgtiny/README">readme</a>.</p>
 
 <h2>Source code</h2>
 

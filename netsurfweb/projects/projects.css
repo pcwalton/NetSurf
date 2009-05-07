@@ -114,7 +114,8 @@ dl.instructions dd > p + p {
 	padding: 0; }
 
 p.screenshot {
-	text-align:center; }
+	float: right;
+	padding: 0 0 1em 0; }
 
 p.screenshot img {
 	border: 3px solid #500; }
