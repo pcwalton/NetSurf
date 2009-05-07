@@ -2,7 +2,9 @@
 #include <stdlib.h>
 #include <string.h>
 
+#ifdef __riscos__
 #include "swis.h"
+#endif
 
 #include "fm.h"
 #include "ft.h"
@@ -136,8 +138,10 @@ void write_outlines(const char *savein, const char *name,
 
 	fclose(output);
 
+#ifdef __riscos__
 	/* set type */
 	_swix(OS_File, _INR(0,2), 18, out, 0xFF6);
+#endif
 }
 
 /**

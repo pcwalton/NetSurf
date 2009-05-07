@@ -2,7 +2,9 @@
 #include <stdlib.h>
 #include <string.h>
 
+#ifdef __riscos__
 #include "swis.h"
+#endif
 
 #include "fm.h"
 #include "glyph.h"
@@ -144,8 +146,10 @@ void write_intmetrics(const char *savein, const char *name,
 	fwrite(xwidthtab, sizeof(short), xwidthtab_size, output);
 	fclose(output);
 
+#ifdef __riscos__
 	/* set type */
 	_swix(OS_File, _INR(0,2), 18, out, 0xFF6);
+#endif
 
 	if (character_map)
 		free(character_map);
