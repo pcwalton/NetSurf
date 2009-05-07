@@ -58,9 +58,9 @@
 
 <p>You can <a href="http://source.netsurf-browser.org/trunk/rufl/">browse the source code</a> via the online interface. Alternatively, you can check it out of SVN:</p>
 
-<p class="svncommand">$ svn co svn://svn.netsurf-browser.org/trunk/libsvgtiny</p>
+<p class="svncommand">$ svn co svn://svn.netsurf-browser.org/trunk/rufl</p>
 
-<p>Libsvgtiny is licensed under the <a href="http://opensource.org/licenses/mit-license.php">MIT Licence</a>.</p>
+<p>RUfl is licensed under the <a href="http://opensource.org/licenses/mit-license.php">MIT Licence</a>.</p>
 
 <h2>Contact</h2>
 
