@@ -1,0 +1,31 @@
+<Obey$Dir>.!Boot
+
+RMEnsure UtilityModule 3.00 Error TTF2f needs RISC OS 3 or later
+
+RMEnsure WindowManager 3.98 Error TTF2f requires the Nested WIMP
+
+| Ensure CallASWI etc is installed
+| http://www.iyonix.com/32bit/
+RMEnsure UtilityModule 3.70 RMEnsure CallASWI 0.02 RMLoad System:Modules.CallASWI
+RMEnsure UtilityModule 3.70 RMEnsure CallASWI 0.02 Error TTF2f requires the CallASWI module. This can be downloaded from http://www.iyonix.com/32bit/system.shtml
+
+RMEnsure FPEmulator 4.03 RMLoad System:Modules.FPEmulator
+RMEnsure FPEmulator 4.03 Error TTF2f requires FPEmulator 4.03 or later
+
+RMEnsure SharedCLibrary 5.17 RMLoad System:Modules.CLib
+RMEnsure SharedCLibrary 5.34 Error TTF2f requires SharedCLibrary 5.34 or later
+
+| Toolbox modules - version numbers correspond to those distributed with 5.03
+RMEnsure Toolbox  0.00 RMLoad System:Modules.Toolbox.Toolbox
+RMEnsure Toolbox  1.52 Error TTF2f requires the Toolbox module
+RMEnsure Window   0.00 RMLoad System:Modules.Toolbox.Window
+RMEnsure Window   1.69 Error TTF2f requires the Window module
+RMEnsure Iconbar  0.00 RMLoad System:Modules.Toolbox.Iconbar
+RMEnsure Iconbar  1.20 Error TTF2f requires the Iconbar module
+RMEnsure Menu     0.00 RMLoad System:Modules.Toolbox.Menu
+RMEnsure Menu     0.36 Error TTF2f requires the Menu module
+RMEnsure ProgInfo 0.00 RMLoad System:Modules.Toolbox.ProgInfo
+RMEnsure ProgInfo 0.17 Error TTF2f requires the ProgInfo module
+
+WimpSlot -min 400k -max 400k
+/<TTF2f$Dir>.!RunImage %*0 2>null:

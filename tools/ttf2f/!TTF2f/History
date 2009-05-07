@@ -1,0 +1,27 @@
+TTF2f Changelog
+===============
+
+0.03 (15-Aug-2005)
+~~~~~~~~~~~~~~~~~~
+No longer create language fonts, as the font manager appears capable
+of handling encoding files with /uniXXXX for symbol fonts. Quite why
+this behaviour didn't appear to work when originally tested, I've no
+idea. This change avoids any necessity to move Encodings files around.
+
+0.02 (10-Sep-2004)
+~~~~~~~~~~~~~~~~~~
+Remove buggy metrics code which caused fonts with <= 256 different 
+horiAdvance values to have broken glyph spacings. All fonts now use 
+the extended table format where the glyph number is the table index.
+(Thanks to Paul Sprangers for reporting this)
+
+Fix for fonts which don't embed glyph names (or use incorrect ones).
+The glyph names are now retrieved from the Glyphs file. The format 
+of the Glyphs file is as per the Adobe Glyph List comment. TTF2f
+uses only columns 1 and 2.
+
+Improve multitasking when extracting glyph metrics.
+
+0.01 (07-Sep-2004)
+~~~~~~~~~~~~~~~~~~
+Initial release

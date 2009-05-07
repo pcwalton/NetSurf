@@ -1,0 +1,11 @@
+Set TTF2f$Dir <Obey$Dir>
+
+| Application system variables
+Set TTF2f$Help <TTF2f$Dir>.!Help
+Set TTF2f$Version "0.01 (07 Sep 2004)"
+Set TTF2f$Title "TTF2f"
+Set TTF2f$Publisher "J-M Bell"
+Set TTF2f$Description "Font conversion utility"
+
+| IconSprites
+IconSprites <TTF2f$Dir>.!Sprites

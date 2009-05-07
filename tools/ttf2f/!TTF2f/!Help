@@ -1,0 +1,193 @@
+TTF2f
+-----
+
+TTF2f converts TTF and other font formats supported by FreeType2 
+(http://www.freetype.org) to RISC OS format fonts suitable for use with
+the Unicode Font Manager.
+
+NOTE: Please read the section "Converting a font" as a minimum _before_ 
+      using this software.
+
+Contents
+========
+
+1. Converting a font
+2. Progress Bar
+3. Future Enhancements
+4. Known Issues
+5. Licence
+6. Credits and Copyrights
+
+
+1. Converting a font
+====================
+
+  In order to convert a font, follow the following process:
+
+    1) Run the application and open the main window.
+    2) Drag the source font file to the window - the file path will appear 
+       in the Converting display field.
+    3) Choose a RISC OS font name for the font and enter it into the 
+       Fontname writable field.
+    4) Select the location to save the output font from the drop down menu
+       (this is comprised of all entries in your current Font$Path)
+    5) Click convert and wait for conversion to complete.
+
+2. Progress Bar
+===============
+
+  During the conversion process, the progress bar will be filled three 
+  times - once per file being created. This is indicated by the colour of
+  the bar:
+
+    Dark Green indicates that the glyph metrics are being extracted.
+    Red indicates that the IntMetrics file is being written.
+    Blue indicates that the Outlines file is being written.
+    Green indicates that the Encoding file is being written.
+
+
+3. Future Enhancements
+======================
+
+  There are a number of possible enhancements which could be made to TTF2f.
+
+  1) Kerning data.
+
+     At present, any kerning data present in the source font is ignored. It
+     may be desirable to copy this data across into the RISC OS IntMetrics
+     file.
+
+  2) Improve conversion speed.
+
+     TTF2f is not particularly fast at conversion, although in most cases
+     conversion time should be acceptable. Particularly large fonts do take
+     some time to convert (for example; BitStream.Cyberbit (a font  
+     containing about 30,000 glyphs which cover much of the common Unicode 
+     character range) takes approximately 25 minutes to convert on my 
+     Iyonix).
+
+
+4. Known Issues
+===============
+
+  At the time of writing there is one known issue.
+
+  1) Attempts to quit TTF2f whilst conversion is occuring will be ignored 
+     (this includes use of Alt-Break).
+
+
+5. Licence
+==========
+
+  Copyright (c) 2004-5, J-M Bell <jmb202@ecs.soton.ac.uk>.
+  All rights reserved.
+
+    Redistribution and use in source and binary forms, with or without
+    modification, are permitted provided that the following conditions
+    are met:
+    1. Redistributions of source code must retain the above copyright
+       notice, this list of conditions and the following disclaimer.
+    2. Redistributions in binary form must reproduce the above copyright
+       notice, this list of conditions and the following disclaimer in the
+       documentation and/or other materials provided with the distribution.
+ 
+    THIS SOFTWARE IS PROVIDED BY THE AUTHORS AND CONTRIBUTORS ``AS IS'' AND
+    ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+    IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR 
+    PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHORS OR CONTRIBUTORS 
+    BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR 
+    CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF 
+    SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+    INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN 
+    CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+    ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF 
+    THE POSSIBILITY OF SUCH DAMAGE.
+
+
+6. Credits & Copyrights
+=======================
+
+Section Contents
+----------------
+
+	1) TTF2PT1 licence
+	2a) FreeType declaration
+	2b) FreeType PCF driver licence
+
+1) TTF2PT1 Licence
+~~~~~~~~~~~~~~~~~~
+This product includes software developed by the TTF2PT1 Project and its
+contributors under the following licence:
+
+  Copyright (c) 1997-2003 by the AUTHORS:
+   Andrew Weeks <ccsaw@bath.ac.uk> 
+   Frank M. Siegert <fms@this.net> 
+   Mark Heath <mheath@netspace.net.au> 
+   Thomas Henlich <thenlich@rcs.urz.tu-dresden.de>
+   Sergey Babkin <babkin@users.sourceforge.net>, <sab123@hotmail.com>
+   Turgut Uyar <uyar@cs.itu.edu.tr>
+   Rihardas Hepas <rch@WriteMe.Com>
+   Szalay Tamas <tomek@elender.hu>
+   Johan Vromans <jvromans@squirrel.nl>
+   Petr Titera <P.Titera@sh.cvut.cz>
+   Lei Wang <lwang@amath8.amt.ac.cn>
+   Chen Xiangyang <chenxy@sun.ihep.ac.cn>
+   Zvezdan Petkovic <z.petkovic@computer.org>
+   Rigel <rigel863@yahoo.com>
+  All rights reserved.
+ 
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+  1. Redistributions of source code must retain the above copyright
+     notice, this list of conditions and the following disclaimer.
+  2. Redistributions in binary form must reproduce the above copyright
+     notice, this list of conditions and the following disclaimer in the
+     documentation and/or other materials provided with the distribution.
+  3. All advertising materials mentioning features or use of this software
+     must display the following acknowledgement:
+       This product includes software developed by the TTF2PT1 Project
+       and its contributors.
+ 
+  THIS SOFTWARE IS PROVIDED BY THE AUTHORS AND CONTRIBUTORS ``AS IS'' AND
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+  IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+  ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHORS OR CONTRIBUTORS BE LIABLE
+  FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+  DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+  OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+  HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+  LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+  OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+  SUCH DAMAGE.
+
+2a) FreeType Declaration
+~~~~~~~~~~~~~~~~~~~~~~~~
+  Portions of this software are copyright © 1996-2002 The FreeType Project 
+  (www.freetype.org).  All rights reserved.
+
+2b) FreeType PCF driver licence
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The PCF driver component of libfreetype is distributed under the following 
+licence:
+
+  Copyright (C) 2000 by Francesco Zappa Nardelli
+
+  Permission is hereby granted, free of charge, to any person obtaining
+  a copy of this software and associated documentation files (the
+  "Software"), to deal in the Software without restriction, including
+  without limitation the rights to use, copy, modify, merge, publish,
+  distribute, sublicense, and/or sell copies of the Software, and to
+  permit persons to whom the Software is furnished to do so, subject to
+  the following conditions:
+
+  The above copyright notice and this permission notice shall be
+  included in all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+  EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+  MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+  IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+  CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+  TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+  SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
