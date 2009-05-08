@@ -4,6 +4,9 @@ COMPONENT_VERSION := 0.0.3
 # We produce an application binary
 COMPONENT_TYPE := binary
 
+# Default frontend is cli
+FRONTEND ?= cli
+
 # Setup the tooling
 include build/makefiles/Makefile.tools
 
