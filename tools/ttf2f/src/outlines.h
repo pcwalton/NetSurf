@@ -52,9 +52,9 @@ struct char_data {
 struct glyph;
 struct font_metrics;
 
-ttf2f_result write_outlines(const char *savein, const char *name,
+ttf2f_result outlines_write(const char *savein, const char *name,
 		struct glyph *glyph_list, int list_size,
-		struct font_metrics *metrics,
+		const struct font_metrics *metrics,
 		void (*callback)(int progress));
 
 #endif

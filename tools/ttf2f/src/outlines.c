@@ -13,7 +13,8 @@
 #include "utils.h"
 
 ttf2f_result write_chunk(FILE* file, int chunk_no,
-	struct glyph *glyph_list, int list_size, unsigned int *out_chunk_size);
+		struct glyph *glyph_list, int list_size, 
+		unsigned int *out_chunk_size);
 
 /**
  * Write the font outlines to file
@@ -24,9 +25,9 @@ ttf2f_result write_chunk(FILE* file, int chunk_no,
  * \param list_size  Size of glyph list
  * \param metrics    Global font metrics
  */
-ttf2f_result write_outlines(const char *savein, const char *name,
+ttf2f_result outlines_write(const char *savein, const char *name,
 		struct glyph *glyph_list, int list_size,
-		struct font_metrics *metrics,
+		const struct font_metrics *metrics,
 		void (*callback)(int progress))
 {
 	struct outlines_header header;
@@ -175,10 +176,11 @@ error_write:
  * \param list_size  Size of glyph list
  * \return Size of this chunk, or 0 on failure
  */
-ttf2f_result write_chunk(FILE* file, int chunk_no, struct glyph *glyph_list,
-			 int list_size, unsigned int *out_chunk_size)
+ttf2f_result write_chunk(FILE* file, int chunk_no, 
+		struct glyph *glyph_list, int list_size, 
+		unsigned int *out_chunk_size)
 {
-	struct glyph *g;
+	const struct glyph *g;
 	struct chunk *chunk;
 	unsigned int chunk_size;
 	struct outline *o, *next;
@@ -247,65 +249,81 @@ ttf2f_result write_chunk(FILE* file, int chunk_no, struct glyph *glyph_list,
 
 			/* movement type */
 			switch (o->type) {
-				case TERMINATE:
-					/* end of outline */
-					chunk = realloc((char*)chunk,
-							chunk_size+1);
-					if (chunk == NULL)
-						return TTF2F_RESULT_NOMEM;
-					*((char*)chunk+chunk_size-1) = 0;
-					chunk_size += 1;
-					break;
-				case MOVE_TO:
-					/* move to point */
-					chunk = realloc((char*)chunk,
-							chunk_size+4);
-					if (chunk == NULL)
-						return TTF2F_RESULT_NOMEM;
-					/* id, no scaffold */
-					*((char*)chunk+chunk_size-1) = 1;
-					/* x, y */
-					*((char*)chunk+chunk_size) = o->data.move_to.x & 0xFF;
-					*((char*)chunk+chunk_size+1) = (((o->data.move_to.y << 4) & 0xF0) | ((o->data.move_to.x >> 8) & 0xF));
-					*((char*)chunk+chunk_size+2) = (o->data.move_to.y >> 4) & 0xFF;
-					chunk_size += 4;
-					break;
-				case LINE_TO:
-					/* draw line to point */
-					chunk = realloc((char*)chunk,
-							chunk_size+4);
-					if (chunk == NULL)
-						return TTF2F_RESULT_NOMEM;
-					/* id, no scaffold */
-					*((char*)chunk+chunk_size-1) = 2;
-					/* x, y */
-					*((char*)chunk+chunk_size) = o->data.line_to.x & 0xFF;
-					*((char*)chunk+chunk_size+1) = (((o->data.line_to.y << 4) & 0xF0) | ((o->data.line_to.x >> 8) & 0xF));
-					*((char*)chunk+chunk_size+2) = (o->data.line_to.y >> 4) & 0xFF;
-					chunk_size += 4;
-					break;
-				case CURVE:
-					/* draw bezier curve to point */
-					chunk = realloc((char*)chunk,
-							chunk_size+10);
-					if (chunk == NULL)
-						return TTF2F_RESULT_NOMEM;
-					/* id, no scaffold */
-					*((char*)chunk+chunk_size-1) = 3;
-					/* x1, y1 */
-					*((char*)chunk+chunk_size) = o->data.curve.x1 & 0xFF;
-					*((char*)chunk+chunk_size+1) = (((o->data.curve.y1 << 4) & 0xF0) | ((o->data.curve.x1 >> 8) & 0xF));
-					*((char*)chunk+chunk_size+2) = (o->data.curve.y1 >> 4) & 0xFF;
-					/* x2, y2 */
-					*((char*)chunk+chunk_size+3) = o->data.curve.x2 & 0xFF;
-					*((char*)chunk+chunk_size+4) = (((o->data.curve.y2 << 4) & 0xF0) | ((o->data.curve.x2 >> 8) & 0xF));
-					*((char*)chunk+chunk_size+5) = (o->data.curve.y2 >> 4) & 0xFF;
-					/* x3, y3 */
-					*((char*)chunk+chunk_size+6) = o->data.curve.x3 & 0xFF;
-					*((char*)chunk+chunk_size+7) = (((o->data.curve.y3 << 4) & 0xF0) | ((o->data.curve.x3 >> 8) & 0xF));
-					*((char*)chunk+chunk_size+8) = (o->data.curve.y3 >> 4) & 0xFF;
-					chunk_size += 10;
-					break;
+			case TERMINATE:
+				/* end of outline */
+				chunk = realloc((char*)chunk, chunk_size + 1);
+				if (chunk == NULL)
+					return TTF2F_RESULT_NOMEM;
+				*((char*)chunk+chunk_size-1) = 0;
+				chunk_size += 1;
+				break;
+			case MOVE_TO:
+				/* move to point */
+				chunk = realloc((char*)chunk, chunk_size + 4);
+				if (chunk == NULL)
+					return TTF2F_RESULT_NOMEM;
+				/* id, no scaffold */
+				*((char*)chunk+chunk_size-1) = 1;
+				/* x, y */
+				*((char*)chunk+chunk_size) = 
+						o->data.move_to.x & 0xFF;
+				*((char*)chunk+chunk_size+1) = 
+					(((o->data.move_to.y << 4) & 0xF0) | 
+					((o->data.move_to.x >> 8) & 0xF));
+				*((char*)chunk+chunk_size+2) = 
+					(o->data.move_to.y >> 4) & 0xFF;
+				chunk_size += 4;
+				break;
+			case LINE_TO:
+				/* draw line to point */
+				chunk = realloc((char*)chunk, chunk_size + 4);
+				if (chunk == NULL)
+					return TTF2F_RESULT_NOMEM;
+				/* id, no scaffold */
+				*((char*)chunk+chunk_size-1) = 2;
+				/* x, y */
+				*((char*)chunk+chunk_size) = 
+						o->data.line_to.x & 0xFF;
+				*((char*)chunk+chunk_size+1) = 
+					(((o->data.line_to.y << 4) & 0xF0) | 
+					((o->data.line_to.x >> 8) & 0xF));
+				*((char*)chunk+chunk_size+2) = 
+					(o->data.line_to.y >> 4) & 0xFF;
+				chunk_size += 4;
+				break;
+			case CURVE:
+				/* draw bezier curve to point */
+				chunk = realloc((char*)chunk, chunk_size + 10);
+				if (chunk == NULL)
+					return TTF2F_RESULT_NOMEM;
+				/* id, no scaffold */
+				*((char*)chunk+chunk_size-1) = 3;
+				/* x1, y1 */
+				*((char*)chunk+chunk_size) = 
+						o->data.curve.x1 & 0xFF;
+				*((char*)chunk+chunk_size+1) = 
+					(((o->data.curve.y1 << 4) & 0xF0) | 
+					((o->data.curve.x1 >> 8) & 0xF));
+				*((char*)chunk+chunk_size+2) = 
+					(o->data.curve.y1 >> 4) & 0xFF;
+				/* x2, y2 */
+				*((char*)chunk+chunk_size+3) = 
+					o->data.curve.x2 & 0xFF;
+				*((char*)chunk+chunk_size+4) = 
+					(((o->data.curve.y2 << 4) & 0xF0) | 
+					((o->data.curve.x2 >> 8) & 0xF));
+				*((char*)chunk+chunk_size+5) = 
+					(o->data.curve.y2 >> 4) & 0xFF;
+				/* x3, y3 */
+				*((char*)chunk+chunk_size+6) = 
+					o->data.curve.x3 & 0xFF;
+				*((char*)chunk+chunk_size+7) = 
+					(((o->data.curve.y3 << 4) & 0xF0) | 
+					((o->data.curve.x3 >> 8) & 0xF));
+				*((char*)chunk+chunk_size+8) = 
+					(o->data.curve.y3 >> 4) & 0xFF;
+				chunk_size += 10;
+				break;
 			}
 
 			next = o->next;
