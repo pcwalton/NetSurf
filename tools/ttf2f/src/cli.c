@@ -27,8 +27,8 @@ int main(int argc, char **argv)
 	int fail;
 	ttf2f_result err = TTF2F_RESULT_OK;
 	int nglyphs;
-	struct glyph *glist;
-	struct font_metrics *metrics;
+	struct glyph *glist = NULL;
+	struct font_metrics *metrics = NULL;
 
 	if (argc != 3) {
 		fprintf(stderr, "Usage: %s <input.ttf> <output>\n", argv[0]);
@@ -36,7 +36,9 @@ int main(int argc, char **argv)
 	}
 
 	ft_init();
-	load_glyph_list();
+
+	if ((err = glyph_load_list()) != TTF2F_RESULT_OK)
+		goto error_out;
 
 	fail = open_font(argv[1]);
 	if (fail) {
@@ -122,7 +124,7 @@ error_out:
 	close_font();
 
 	ft_fini();
-	destroy_glyphs();
+	glyph_destroy_list();
 
 	exit(err == TTF2F_RESULT_OK ? EXIT_SUCCESS : EXIT_FAILURE);
 }

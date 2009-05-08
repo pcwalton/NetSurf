@@ -10,9 +10,9 @@ struct glyph_entry {
 	struct glyph_entry *next;
 };
 
-struct glyph_entry glyphs[256];
+static struct glyph_entry glyphs[256];
 
-void load_glyph_list(void)
+ttf2f_result glyph_load_list(void)
 {
 	FILE *fp;
 	char line[1024];
@@ -24,10 +24,8 @@ void load_glyph_list(void)
 #else
 	fp = fopen("Glyphs", "r");
 #endif
-	if (!fp) {
-		fprintf(stderr, "Failed opening glyphs file\n");
-		exit(255);
-	}
+	if (fp == NULL)
+		return TTF2F_RESULT_OPEN;
 
 	while(fgets(line, 1024, fp)) {
 		/* skip comments & blank lines */
@@ -47,15 +45,15 @@ void load_glyph_list(void)
 			*semi = 0;
 
 		g = calloc(1, sizeof(struct glyph_entry));
-		if (!g) {
-			fprintf(stderr, "malloc failed\n");
-			exit(255);
-		}
+		if (g == NULL)
+			return TTF2F_RESULT_NOMEM;
 
 		g->code = (unsigned short)strtoul(line, NULL, 16);
 		g->name = strdup(name);
-
-//		fprintf(stderr, "%04.4X: %s\n", g->code, g->name);
+		if (g->name == NULL) {
+			free(g);
+			return TTF2F_RESULT_NOMEM;
+		}
 
 		for (cur = &glyphs[g->code / 256];
 				cur->next && cur->code < g->code;
@@ -74,9 +72,11 @@ void load_glyph_list(void)
 	}
 
 	fclose(fp);
+
+	return TTF2F_RESULT_OK;
 }
 
-char *glyph_name(unsigned short code)
+const char *glyph_name(unsigned short code)
 {
 	struct glyph_entry *g;
 
@@ -84,13 +84,10 @@ char *glyph_name(unsigned short code)
 		if (g->code == code)
 			break;
 
-	if (!g)
-		return NULL;
-
-	return g->name;
+	return g != NULL ? g->name : NULL;
 }
 
-void destroy_glyphs(void)
+void glyph_destroy_list(void)
 {
 	int i;
 	struct glyph_entry *a, *b;

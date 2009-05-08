@@ -24,7 +24,7 @@ struct composite {
 
 struct glyph {
 	unsigned int code;           /* glyph code */
-	char *name;                  /* glyph name */
+	const char *name;            /* glyph name */
 	int  xMin:12, yMin:12;
 	int  xMax:12, yMax:12;       /* glyph control box */
 	int lsb;                     /* left side bearing of glyph,
