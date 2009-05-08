@@ -63,7 +63,7 @@ ttf2f_result encoding_write(const char *savein, const char *name,
 			} else if (g->code != (unsigned int) -1) {
 				fprintf(output, "/uni%4.4X\n", g->code);
 			} else {
-				fprintf(output, "/.NotDef\n");
+				fprintf(output, "/.notdef\n");
 			}
 		}
 	}
