@@ -56,6 +56,13 @@ struct pencil_item {
 	int width, height;
 	const char *sprite;
 
+	struct {
+		int x0;
+		int y0;
+		int x1;
+		int y1;
+	} bbox;
+
 	struct pencil_item *parent;
 	struct pencil_item *next;
 	struct pencil_item *children;

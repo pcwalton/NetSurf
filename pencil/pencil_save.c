@@ -15,6 +15,7 @@
 
 #define _GNU_SOURCE  /* for strndup */
 #include <assert.h>
+#include <limits.h>
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdio.h>
@@ -37,6 +38,7 @@ struct pencil_save_context {
 	struct pencil_item *item;
 	char *buffer;
 	char *b;
+	os_box bbox;
 };
 
 
@@ -59,7 +61,8 @@ pencil_code pencil_save_drawfile(struct pencil_diagram *diagram,
 		char **drawfile_buffer, size_t *drawfile_size)
 {
 	struct pencil_save_context context =
-			{ pencil_OK, diagram, 0, 0, 0, 0, 0, 0 };
+			{ pencil_OK, diagram, 0, 0, 0, 0, 0, 0, 
+			  { INT_MAX, INT_MAX, INT_MIN, INT_MIN } };
 	unsigned int i;
 	size_t size, font_table_size;
 	char *buffer;
@@ -107,7 +110,8 @@ pencil_code pencil_save_drawfile(struct pencil_diagram *diagram,
 	strncpy(header->source, source, 12);
 	for (i = strlen(source); i < 12; i++)
 		header->source[i] = ' ';
-	b = buffer + 40;
+	header->bbox = context.bbox;
+	b = buffer + sizeof(drawfile_diagram_base);
 
 	/* font table */
 	font_table = (drawfile_object *) b;
@@ -125,7 +129,7 @@ pencil_code pencil_save_drawfile(struct pencil_diagram *diagram,
 	context.buffer = buffer;
 	context.b = b;
 	pencil_save_pass2(&context, diagram->root, 0);
-
+	
 	/* free font list */
 	for (i = 0; i != context.font_count; i++)
 		free(context.font_list[i]);
@@ -152,6 +156,28 @@ void pencil_save_pass1(struct pencil_save_context *context,
 
 	assert(item);
 
+	/* Initialise item bounding box */
+	item->bbox.x0 = INT_MAX;
+	item->bbox.y0 = INT_MAX;
+	item->bbox.x1 = INT_MIN;
+	item->bbox.y1 = INT_MIN;
+
+	for (child = item->children; child; child = child->next) {
+		pencil_save_pass1(context, child, depth + 1);
+		if (context->code != pencil_OK)
+			return;
+
+		/* Update item bounding box to include child */
+		if (child->bbox.x0 < item->bbox.x0)
+			item->bbox.x0 = child->bbox.x0;
+		if (child->bbox.y0 < item->bbox.y0)
+			item->bbox.y0 = child->bbox.y0;
+		if (child->bbox.x1 > item->bbox.x1)
+			item->bbox.x1 = child->bbox.x1;
+		if (child->bbox.y1 > item->bbox.y1)
+			item->bbox.y1 = child->bbox.y1;
+	}
+
 	switch (item->type) {
 	case pencil_GROUP:
 		if (!item->children || MAX_DEPTH <= depth)
@@ -159,6 +185,10 @@ void pencil_save_pass1(struct pencil_save_context *context,
 		context->size += 36;
 		break;
 	case pencil_TEXT:
+	{
+		int bbox[4];
+		int width;
+
 		code = rufl_paint_callback(item->font_family, item->font_style,
 				item->font_size, item->text, strlen(item->text),
 				item->x, item->y,
@@ -167,25 +197,88 @@ void pencil_save_pass1(struct pencil_save_context *context,
 			context->code = code;
 		if (context->code != pencil_OK)
 			return;
+
+		code = rufl_font_bbox(item->font_family, item->font_style,
+				item->font_size, bbox);
+		if (code != rufl_OK)
+			context->code = code;
+		if (context->code != pencil_OK)
+			return;
+
+		code = rufl_width(item->font_family, item->font_style,
+				item->font_size, item->text, strlen(item->text),
+				&width);
+		if (code != rufl_OK)
+			context->code = code;
+		if (context->code != pencil_OK)
+			return;
+
+		item->bbox.x0 = item->x * 256;
+		item->bbox.y0 = item->y * 256;
+		item->bbox.x1 = (item->x + width) * 256;
+		item->bbox.y1 = (item->y + (bbox[3] - bbox[1])) * 256;
+	}
 		break;
 	case pencil_PATH:
 		context->size += 24 + 16 + item->path_size * 4;
 		if (item->pattern != pencil_SOLID)
 			context->size += 12;
+
+		/* Calculate bounding box */
+		for (unsigned int i = 0; i != item->path_size; ) {
+			switch (item->path[i]) {
+			case 0:
+			case 5:
+				i++;
+				break;
+			case 2:
+			case 6:
+			case 8:
+			{
+				int points = item->path[i++] == 6 ? 3 : 1;
+
+				for (; points > 0; points--) {
+					int x = item->path[i++] * 256;
+					int y = item->path[i++] * 256;
+
+					if (x < item->bbox.x0)
+						item->bbox.x0 = x;
+					if (y < item->bbox.y0)
+						item->bbox.y0 = y;
+					if (x > item->bbox.x1)
+						item->bbox.x1 = x;
+					if (y > item->bbox.y1)
+						item->bbox.y1 = y;
+				}
+			}
+				break;
+			default:
+				assert(0);
+			}
+		}
 		break;
 	case pencil_SPRITE:
 		context->size += 24 + ((const osspriteop_header *)
 				item->sprite)->size;
+
+		item->bbox.x0 = item->x * 256;
+		item->bbox.y0 = item->y * 256;
+		item->bbox.x1 = (item->x + item->width) * 256;
+		item->bbox.y1 = (item->y + item->height) * 256;
 		break;
 	default:
 		assert(0);
 	}
 
-	for (child = item->children; child; child = child->next) {
-		pencil_save_pass1(context, child, depth + 1);
-		if (context->code != pencil_OK)
-			return;
-	}
+	/* Update global bounding box */
+	if (item->bbox.x0 < context->bbox.x0)
+		context->bbox.x0 = item->bbox.x0;
+	if (item->bbox.y0 < context->bbox.y0)
+		context->bbox.y0 = item->bbox.y0;
+	if (item->bbox.x1 > context->bbox.x1)
+		context->bbox.x1 = item->bbox.x1;
+	if (item->bbox.y1 > context->bbox.y1)
+		context->bbox.y1 = item->bbox.y1;
 }
 
 
@@ -266,6 +359,10 @@ void pencil_save_pass2(struct pencil_save_context *context,
 		strncpy(object->data.group.name, item->group_name, 12);
 		for (i = strlen(item->group_name); i < 12; i++)
 			object->data.group.name[i] = ' ';
+		object->data.group.bbox.x0 = item->bbox.x0;
+		object->data.group.bbox.y0 = item->bbox.y0;
+		object->data.group.bbox.x1 = item->bbox.x1;
+		object->data.group.bbox.y1 = item->bbox.y1;
 		context->b += object->size;
 		break;
 	case pencil_TEXT:
@@ -282,10 +379,10 @@ void pencil_save_pass2(struct pencil_save_context *context,
 	case pencil_PATH:
 		object->type = drawfile_TYPE_PATH;
 		object->size = 24 + 16 + item->path_size * 4;
-		object->data.path.bbox.x0 = 0;
-		object->data.path.bbox.y0 = 0;
-		object->data.path.bbox.x1 = 0;
-		object->data.path.bbox.y1 = 0;
+		object->data.path.bbox.x0 = item->bbox.x0;
+		object->data.path.bbox.y0 = item->bbox.y0;
+		object->data.path.bbox.x1 = item->bbox.x1;
+		object->data.path.bbox.y1 = item->bbox.y1;
 		object->data.path.fill = item->fill_colour;
 		object->data.path.outline = item->outline_colour;
 		object->data.path.width = item->thickness * 256;
@@ -337,10 +434,10 @@ void pencil_save_pass2(struct pencil_save_context *context,
 		object->type = drawfile_TYPE_SPRITE;
 		object->size = 24 + ((const osspriteop_header *)
 				item->sprite)->size;
-		object->data.sprite.bbox.x0 = item->x * 256;
-		object->data.sprite.bbox.y0 = item->y * 256;
-		object->data.sprite.bbox.x1 = (item->x + item->width) * 256;
-		object->data.sprite.bbox.y1 = (item->y + item->height) * 256;
+		object->data.sprite.bbox.x0 = item->bbox.x0;
+		object->data.sprite.bbox.y0 = item->bbox.y0;
+		object->data.sprite.bbox.x1 = item->bbox.x1;
+		object->data.sprite.bbox.y1 = item->bbox.y1;
 		memcpy(&object->data.sprite.header, item->sprite,
 				object->size - 24);
 		context->b += object->size;
@@ -378,10 +475,10 @@ void pencil_save_pass2_text_callback(void *c,
 	assert(i != context->font_count);
 
 	object->type = drawfile_TYPE_TRFM_TEXT;
-	object->data.trfm_text.bbox.x0 = x * 256;
-	object->data.trfm_text.bbox.y0 = y * 256;
-	object->data.trfm_text.bbox.x1 = x * 256;
-	object->data.trfm_text.bbox.y1 = y * 256;
+	object->data.trfm_text.bbox.x0 = context->item->bbox.x0;
+	object->data.trfm_text.bbox.y0 = context->item->bbox.y0;
+	object->data.trfm_text.bbox.x1 = context->item->bbox.x1;
+	object->data.trfm_text.bbox.y1 = context->item->bbox.y1;
 	object->data.trfm_text.trfm.entries[0][0] = 0x10000;
 	object->data.trfm_text.trfm.entries[0][1] = 0;
 	object->data.trfm_text.trfm.entries[1][0] = 0;
