@@ -137,7 +137,7 @@ void write_intmetrics(const char *savein, const char *name,
 
 	mapsize = charmap_size;
 
-	snprintf(out, 1024, "%s.IntMetrics", savein);
+	snprintf(out, 1024, "%s" DIR_SEP "IntMetrics", savein);
 	output = fopen(out, "wb+");
 	fwrite((void*)&header, sizeof(struct intmetrics_header), 1, output);
 	fputc(mapsize & 0xFF, output);

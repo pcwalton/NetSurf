@@ -25,7 +25,7 @@ void write_encoding(const char *savein, const char *name,
 	int i;
 	char out[1024];
 
-	snprintf(out, 1024, "%s.Encoding", savein);
+	snprintf(out, 1024, "%s" DIR_SEP "Encoding", savein);
 	output = fopen(out, "w+");
 
 	fprintf(output, "%% %sEncoding 1.00\n", name);

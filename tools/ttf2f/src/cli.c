@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include <sys/stat.h>
+
 #include "encoding.h"
 #include "fm.h"
 #include "ft.h"
@@ -79,13 +81,15 @@ int main(int argc, char **argv)
 		return 1;
 	}
 
-	glmetrics(glist, NULL);
+	glmetrics(glist, progress);
 
-	write_intmetrics("", argv[2], glist, nglyphs, metrics, progress);
+	mkdir(argv[2], 0755);
 
-	write_outlines("", argv[2], glist, nglyphs, metrics, progress);
+	write_intmetrics(argv[2], argv[2], glist, nglyphs, metrics, progress);
 
-	write_encoding("", argv[2], glist, nglyphs, 0, progress);
+	write_outlines(argv[2], argv[2], glist, nglyphs, metrics, progress);
+
+	write_encoding(argv[2], argv[2], glist, nglyphs, 0, progress);
 
 	free(metrics);
 	free(glist);

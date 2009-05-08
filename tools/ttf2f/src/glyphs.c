@@ -19,7 +19,11 @@ void load_glyph_list(void)
 	char *semi, *name;
 	struct glyph_entry *g, *cur;
 
+#ifdef __riscos__
 	fp = fopen("<TTF2f$Dir>.Glyphs", "r");
+#else
+	fp = fopen("Glyphs", "r");
+#endif
 	if (!fp) {
 		fprintf(stderr, "Failed opening glyphs file\n");
 		exit(255);

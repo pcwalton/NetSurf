@@ -60,7 +60,7 @@ void write_outlines(const char *savein, const char *name,
 	header.chunk_data.reserved[3] = 0;
 	header.chunk_data.reserved[4] = 0;
 
-	snprintf(out, 1024, "%s.Outlines", savein);
+	snprintf(out, 1024, "%s" DIR_SEP "Outlines", savein);
 	output = fopen(out, "wb+");
 	/* write file header */
 	fwrite((void*)&header, sizeof(struct outlines_header), 1, output);
