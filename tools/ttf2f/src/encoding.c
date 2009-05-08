@@ -7,7 +7,7 @@
 #include "utils.h"
 
 /**
- * Write font encoding file (UCS style sparse encoding)
+ * Write font encoding file
  *
  * \param savein     Location to save in
  * \param name       The font name
@@ -16,8 +16,8 @@
  * \param type       File format to use - 0 = full; 1 = sparse
  * \param callback   Progress callback function
  */
-ttf2f_result write_encoding(const char *savein, const char *name,
-		struct glyph *glyph_list, int list_size, int type,
+ttf2f_result encoding_write(const char *savein, const char *name,
+		struct glyph *glyph_list, int list_size, encoding_type type,
 		void (*callback)(int progress))
 {
 	FILE *output;
@@ -32,7 +32,7 @@ ttf2f_result write_encoding(const char *savein, const char *name,
 	fprintf(output, "%% %sEncoding 1.00\n", name);
 	fprintf(output, "%% Encoding file for font '%s'\n\n", name);
 
-	if (!type) {
+	if (type == ENCODING_TYPE_NORMAL) {
 		for (i = 0; i != 32; i++) {
 			fprintf(output, "/.notdef\n");
 		}
@@ -44,26 +44,27 @@ ttf2f_result write_encoding(const char *savein, const char *name,
 		callback(i * 100 / list_size);
 		ttf2f_poll(1);
 
-		if (type) {
+		if (type == ENCODING_TYPE_SPARSE) {
 			if (g->name != 0) {
 				/* .notdef is implicit */
 				if (strcmp(g->name, ".notdef") == 0)
 					continue;
 				fprintf(output, "%4.4X;%s;COMMENT\n", i+32,
 							g->name);
-			} else if (g->code != (unsigned int) -1)
+			} else if (g->code != (unsigned int) -1) {
 				fprintf(output, "%4.4X;uni%04X;COMMENT\n",
 							i+32, g->code);
-			else
+			} else {
 				fprintf(output, "# Skipping %4.4X\n", i+32);
-		}
-		else {
+			}
+		} else {
 			if (g->name != 0) {
 				fprintf(output, "/%s\n", g->name);
-			} else if (g->code != (unsigned int) -1)
+			} else if (g->code != (unsigned int) -1) {
 				fprintf(output, "/uni%4.4X\n", g->code);
-			else
+			} else {
 				fprintf(output, "/.NotDef\n");
+			}
 		}
 	}
 

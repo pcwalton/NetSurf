@@ -92,7 +92,7 @@ int main(int argc, char **argv)
 	if ((err = write_outlines(argv[2], argv[2], glist, nglyphs,
 		metrics, progress)) != TTF2F_RESULT_OK) goto error_out;
 
-	if ((err = write_encoding(argv[2], argv[2], glist, nglyphs,
+	if ((err = encoding_write(argv[2], argv[2], glist, nglyphs,
 		0, progress)) != TTF2F_RESULT_OK) goto error_out;
 
 error_out:
