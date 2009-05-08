@@ -6,9 +6,9 @@
 struct glyph;
 struct font_metrics;
 
-ttf2f_result write_intmetrics(const char *savein,
-		const char *name, struct glyph *glyph_list, 
-		int list_size, struct font_metrics *metrics,
+ttf2f_result intmetrics_write(const char *savein,
+		const char *name, const struct glyph *glyph_list, 
+		int list_size, const struct font_metrics *metrics,
 		void (*callback)(int progress));
 
 #endif

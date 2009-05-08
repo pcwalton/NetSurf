@@ -11,6 +11,10 @@
 #define DIR_SEP "/"
 #endif
 
+#ifndef max
+#define max(a,b) (((a) > (b)) ? (a) : (b))
+#endif
+
 typedef enum ttf2f_result {
 	TTF2F_RESULT_OK,
 	TTF2F_RESULT_NOMEM,
