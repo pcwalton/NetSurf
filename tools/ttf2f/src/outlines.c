@@ -12,8 +12,8 @@
 #include "outlines.h"
 #include "utils.h"
 
-static unsigned int write_chunk(FILE* file, int chunk_no,
-		struct glyph *glyph_list, int list_size);
+ttf2f_result write_chunk(FILE* file, int chunk_no,
+	struct glyph *glyph_list, int list_size, unsigned int *out_chunk_size);
 
 /**
  * Write the font outlines to file
@@ -24,7 +24,7 @@ static unsigned int write_chunk(FILE* file, int chunk_no,
  * \param list_size  Size of glyph list
  * \param metrics    Global font metrics
  */
-void write_outlines(const char *savein, const char *name,
+ttf2f_result write_outlines(const char *savein, const char *name,
 		struct glyph *glyph_list, int list_size,
 		struct font_metrics *metrics,
 		void (*callback)(int progress))
@@ -61,22 +61,28 @@ void write_outlines(const char *savein, const char *name,
 	header.chunk_data.reserved[4] = 0;
 
 	snprintf(out, 1024, "%s" DIR_SEP "Outlines", savein);
-	output = fopen(out, "wb+");
+	if ((output = fopen(out, "wb+") ) == NULL)
+		return TTF2F_RESULT_OPEN;
+	
 	/* write file header */
-	fwrite((void*)&header, sizeof(struct outlines_header), 1, output);
+	if (fwrite((void*)&header, sizeof(struct outlines_header), 1, output)
+		!= 1) goto error_write;
+
 	/* write scaffold table */
-	fputc(0x3, output);
-	fputc(0x0, output);
-	fputc(0x0, output);
+	if (fputc(0x3, output) == EOF) goto error_write;
+	if (fputc(0x0, output) == EOF) goto error_write;
+	if (fputc(0x0, output) == EOF) goto error_write;
+
 	/* table end */
-	fprintf(output, "%s", name);
-	fputc(0x0, output);
-	fprintf(output, "Outlines");
-	fputc(0x0, output);
+	if (fprintf(output, "%s", name) < 0) goto error_write;
+	if (fputc(0x0, output) == EOF) goto error_write;
+	if (fprintf(output, "Outlines") < 0) goto error_write;
+	if (fputc(0x0, output) == EOF) goto error_write;
+
 	/* word align */
 	i = table_end_len + 3 + sizeof(struct outlines_header);
 	while (i++ < header.chunk_data.chunk_table_offset)
-		fputc(0x0, output);
+		if (fputc(0x0, output) == EOF) goto error_write;
 
 	/* write chunk table */
 	chunk_table_entry = 1;
@@ -85,30 +91,35 @@ void write_outlines(const char *savein, const char *name,
 
 	/* initialise chunk table */
 	for (i = 0; i <= header.chunk_data.nchunks; i++) {
-		fwrite((void*)&current_chunk_offset, sizeof(int),
-			1, output);
+		if (fwrite((void*)&current_chunk_offset, sizeof(int),
+			1, output) != 1) goto error_write;
 	}
 
 	/* write copyright information to file */
-	fputc(0x0, output);
-	fprintf(output,
+	if (fputc(0x0, output) == EOF) goto error_write;
+	if (fprintf(output,
 		"\n\n\n%s is %s\nConverted to RISC OS by TTF2F\n\n\n",
-		metrics->name_full, metrics->name_copyright);
-	fputc(0x0, output);
+		metrics->name_full, metrics->name_copyright) < 0) goto error_write;
+	if (fputc(0x0, output) == EOF) goto error_write;
 	current_chunk_offset += 42 + strlen(metrics->name_full) +
 				strlen(metrics->name_copyright);
 
 	while(current_chunk_offset % 4) {
-		fputc(0x0, output);
+		if (fputc(0x0, output) == EOF) goto error_write;
 		current_chunk_offset++;
 	}
 
 	/* fill in offsets 0 and 1 */
 	fseek(output, header.chunk_data.chunk_table_offset, SEEK_SET);
-	fwrite((void*)&current_chunk_offset, sizeof(int), 1, output);
-	fwrite((void*)&current_chunk_offset, sizeof(int), 1, output);
+	if (fwrite((void*)&current_chunk_offset, sizeof(int), 1, output) != 1)
+		goto error_write;
+
+	if (fwrite((void*)&current_chunk_offset, sizeof(int), 1, output) != 1)
+		goto error_write;
 
 	for (; header.chunk_data.nchunks > 1; header.chunk_data.nchunks--) {
+		unsigned int chunk_size;
+		ttf2f_result err;
 
 		callback((chunk_table_entry * 100) / ((list_size / 32) + 2));
 		ttf2f_poll(1);
@@ -117,21 +128,27 @@ void write_outlines(const char *savein, const char *name,
 		fseek(output, current_chunk_offset, SEEK_SET);
 
 		/* write chunk */
-		current_chunk_offset += write_chunk(output,
-				chunk_table_entry - 1, glyph_list,
-				list_size);
+		err = write_chunk(output, chunk_table_entry - 1, glyph_list,
+				  list_size, &chunk_size);
+
+		if (err != TTF2F_RESULT_OK) {
+			fclose(output);
+			return err;
+		}
+
+		current_chunk_offset += chunk_size;
 
 		/* align to word boundary */
 		while (current_chunk_offset % 4) {
-			fputc(0x0, output);
+			if (fputc(0x0, output) == EOF) goto error_write;
 			current_chunk_offset++;
 		}
 
 		/* fill in next chunk table entry */
 		fseek(output, header.chunk_data.chunk_table_offset +
 				(chunk_table_entry+1) * 4, SEEK_SET);
-		fwrite((void*)&current_chunk_offset, sizeof(int), 1,
-			output);
+		if (fwrite((void*)&current_chunk_offset, sizeof(int), 1,
+			output) != 1) goto error_write;
 
 		chunk_table_entry++;
 	}
@@ -142,6 +159,11 @@ void write_outlines(const char *savein, const char *name,
 	/* set type */
 	_swix(OS_File, _INR(0,2), 18, out, 0xFF6);
 #endif
+	return TTF2F_RESULT_OK;
+
+error_write:
+	fclose(output);
+	return TTF2F_RESULT_WRITE;
 }
 
 /**
@@ -153,8 +175,8 @@ void write_outlines(const char *savein, const char *name,
  * \param list_size  Size of glyph list
  * \return Size of this chunk, or 0 on failure
  */
-unsigned int write_chunk(FILE* file, int chunk_no, struct glyph *glyph_list,
-		int list_size)
+ttf2f_result write_chunk(FILE* file, int chunk_no, struct glyph *glyph_list,
+			 int list_size, unsigned int *out_chunk_size)
 {
 	struct glyph *g;
 	struct chunk *chunk;
@@ -163,10 +185,12 @@ unsigned int write_chunk(FILE* file, int chunk_no, struct glyph *glyph_list,
 	struct char_data *character;
 	int i;
 
+	*out_chunk_size = 0;
+
 	/* create chunk */
 	chunk = calloc(1, sizeof(struct chunk));
-	if (!chunk)
-		return 0;
+	if (chunk == NULL)
+		return TTF2F_RESULT_NOMEM;
 
 	chunk->flags = 0x80000000;
 
@@ -195,8 +219,9 @@ unsigned int write_chunk(FILE* file, int chunk_no, struct glyph *glyph_list,
 
 		chunk = realloc((char*)chunk,
 				chunk_size+sizeof(struct char_data));
-		if (!chunk)
-			return 0;
+		if (chunk == NULL)
+			return TTF2F_RESULT_NOMEM;
+
 		character = (struct char_data*)(void*)((char*)chunk + chunk_size);
 
 		chunk_size += sizeof(struct char_data);
@@ -226,8 +251,8 @@ unsigned int write_chunk(FILE* file, int chunk_no, struct glyph *glyph_list,
 					/* end of outline */
 					chunk = realloc((char*)chunk,
 							chunk_size+1);
-					if (!chunk)
-						return 0;
+					if (chunk == NULL)
+						return TTF2F_RESULT_NOMEM;
 					*((char*)chunk+chunk_size-1) = 0;
 					chunk_size += 1;
 					break;
@@ -235,8 +260,8 @@ unsigned int write_chunk(FILE* file, int chunk_no, struct glyph *glyph_list,
 					/* move to point */
 					chunk = realloc((char*)chunk,
 							chunk_size+4);
-					if (!chunk)
-						return 0;
+					if (chunk == NULL)
+						return TTF2F_RESULT_NOMEM;
 					/* id, no scaffold */
 					*((char*)chunk+chunk_size-1) = 1;
 					/* x, y */
@@ -249,8 +274,8 @@ unsigned int write_chunk(FILE* file, int chunk_no, struct glyph *glyph_list,
 					/* draw line to point */
 					chunk = realloc((char*)chunk,
 							chunk_size+4);
-					if (!chunk)
-						return 0;
+					if (chunk == NULL)
+						return TTF2F_RESULT_NOMEM;
 					/* id, no scaffold */
 					*((char*)chunk+chunk_size-1) = 2;
 					/* x, y */
@@ -263,8 +288,8 @@ unsigned int write_chunk(FILE* file, int chunk_no, struct glyph *glyph_list,
 					/* draw bezier curve to point */
 					chunk = realloc((char*)chunk,
 							chunk_size+10);
-					if (!chunk)
-						return 0;
+					if (chunk == NULL)
+						return TTF2F_RESULT_NOMEM;
 					/* id, no scaffold */
 					*((char*)chunk+chunk_size-1) = 3;
 					/* x1, y1 */
@@ -292,10 +317,15 @@ unsigned int write_chunk(FILE* file, int chunk_no, struct glyph *glyph_list,
 	}
 
 	/* write chunk to file */
-	fwrite((void*)chunk, chunk_size, 1, file);
+	if (fwrite((void*)chunk, chunk_size, 1, file) != 1) {
+		free(chunk);
+		return TTF2F_RESULT_WRITE;
+	}
 
 	free(chunk);
 
-	return chunk_size;
+	*out_chunk_size = chunk_size;
+
+	return TTF2F_RESULT_OK;
 }
 

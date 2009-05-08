@@ -16,7 +16,7 @@
  * \param type       File format to use - 0 = full; 1 = sparse
  * \param callback   Progress callback function
  */
-void write_encoding(const char *savein, const char *name,
+ttf2f_result write_encoding(const char *savein, const char *name,
 		struct glyph *glyph_list, int list_size, int type,
 		void (*callback)(int progress))
 {
@@ -26,7 +26,8 @@ void write_encoding(const char *savein, const char *name,
 	char out[1024];
 
 	snprintf(out, 1024, "%s" DIR_SEP "Encoding", savein);
-	output = fopen(out, "w+");
+	if ((output = fopen(out, "w+")) == NULL)
+		return TTF2F_RESULT_OPEN;
 
 	fprintf(output, "%% %sEncoding 1.00\n", name);
 	fprintf(output, "%% Encoding file for font '%s'\n\n", name);
@@ -67,5 +68,7 @@ void write_encoding(const char *savein, const char *name,
 	}
 
 	fclose(output);
+
+	return TTF2F_RESULT_OK;
 }
 

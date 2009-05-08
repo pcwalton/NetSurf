@@ -1,6 +1,8 @@
 #ifndef _TTF2F_OUTLINES_H_
 #define _TTF2F_OUTLINES_H_
 
+#include "utils.h"
+
 struct chunk_data {
 	int chunk_table_offset;
 	int nchunks;
@@ -50,7 +52,7 @@ struct char_data {
 struct glyph;
 struct font_metrics;
 
-void write_outlines(const char *savein, const char *name,
+ttf2f_result write_outlines(const char *savein, const char *name,
 		struct glyph *glyph_list, int list_size,
 		struct font_metrics *metrics,
 		void (*callback)(int progress));

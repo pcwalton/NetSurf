@@ -85,10 +85,9 @@ struct kern_pair_16 {
  * \param list_size  Size of glyph list
  * \param metrics    Global font metrics
  */
-void write_intmetrics(const char *savein, const char *name,
-		struct glyph *glyph_list, int list_size,
-		struct font_metrics *metrics,
-		void (*callback)(int progress))
+ttf2f_result write_intmetrics(const char *savein,
+		const char *name,struct glyph *glyph_list, int list_size,
+		struct font_metrics *metrics, void (*callback)(int progress))
 {
 	struct intmetrics_header header;
 	int charmap_size = 0;
@@ -102,10 +101,9 @@ void write_intmetrics(const char *savein, const char *name,
 
 	/* allow for chunk 0 */
 	xwidthtab = calloc(33, sizeof(short));
-	if (!xwidthtab) {
-		fprintf(stderr, "malloc failed\n");
-		return;
-	}
+	if (xwidthtab == NULL)
+		return TTF2F_RESULT_NOMEM;
+
 	xwidthtab_size = 32;
 
 	/* create xwidthtab - char code is now the index */
@@ -119,10 +117,8 @@ void write_intmetrics(const char *savein, const char *name,
 		xwidthtab[i+32] = g->width;
 		xwidthtab = realloc(xwidthtab,
 				(xwidthtab_size+1) * sizeof(short));
-		if (!xwidthtab) {
-			fprintf(stderr, "malloc failed\n");
-			return;
-		}
+		if (xwidthtab == NULL)
+			return TTF2F_RESULT_NOMEM;
 	}
 
 	/* fill in header */
@@ -138,12 +134,23 @@ void write_intmetrics(const char *savein, const char *name,
 	mapsize = charmap_size;
 
 	snprintf(out, 1024, "%s" DIR_SEP "IntMetrics", savein);
-	output = fopen(out, "wb+");
-	fwrite((void*)&header, sizeof(struct intmetrics_header), 1, output);
-	fputc(mapsize & 0xFF, output);
-	fputc((mapsize & 0xFF00) >> 8, output);
-	fwrite(character_map, sizeof(char), charmap_size, output);
-	fwrite(xwidthtab, sizeof(short), xwidthtab_size, output);
+	if ((output = fopen(out, "wb+")) == NULL) {
+		free(xwidthtab);
+		return TTF2F_RESULT_OPEN;
+	}
+
+	if (fwrite((void*)&header, sizeof(struct intmetrics_header),
+		   1, output) != 1) goto error_write;
+
+	if (fputc(mapsize & 0xFF, output) == EOF) goto error_write;
+	if (fputc((mapsize & 0xFF00) >> 8, output) == EOF) goto error_write;
+
+	if (fwrite(character_map, sizeof(char), charmap_size, output)
+		!= (size_t)charmap_size) goto error_write;
+	
+	if (fwrite(xwidthtab, sizeof(short), xwidthtab_size, output)
+		!= xwidthtab_size) goto error_write;
+
 	fclose(output);
 
 #ifdef __riscos__
@@ -154,5 +161,14 @@ void write_intmetrics(const char *savein, const char *name,
 	if (character_map)
 		free(character_map);
 	free(xwidthtab);
+	
+	return TTF2F_RESULT_OK;
+
+error_write:
+	free(character_map);
+	free(xwidthtab);
+	fclose(output);
+
+	return TTF2F_RESULT_WRITE;
 }
 

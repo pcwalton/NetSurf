@@ -11,6 +11,13 @@
 #define DIR_SEP "/"
 #endif
 
+typedef enum ttf2f_result {
+	TTF2F_RESULT_OK,
+	TTF2F_RESULT_NOMEM,
+	TTF2F_RESULT_OPEN,
+	TTF2F_RESULT_WRITE
+} ttf2f_result;
+
 void ttf2f_poll(int active);
 char *strndup(const char *s, size_t n);
 long convert_units(long raw, long ppem);

@@ -25,6 +25,7 @@ void ttf2f_poll(int active)
 int main(int argc, char **argv)
 {
 	int fail;
+	ttf2f_result err = TTF2F_RESULT_OK;
 	int nglyphs;
 	struct glyph *glist;
 	struct font_metrics *metrics;
@@ -85,11 +86,35 @@ int main(int argc, char **argv)
 
 	mkdir(argv[2], 0755);
 
-	write_intmetrics(argv[2], argv[2], glist, nglyphs, metrics, progress);
+	if ((err = write_intmetrics(argv[2], argv[2], glist, nglyphs,
+		metrics, progress)) != TTF2F_RESULT_OK) goto error_out;
 
-	write_outlines(argv[2], argv[2], glist, nglyphs, metrics, progress);
+	if ((err = write_outlines(argv[2], argv[2], glist, nglyphs,
+		metrics, progress)) != TTF2F_RESULT_OK) goto error_out;
 
-	write_encoding(argv[2], argv[2], glist, nglyphs, 0, progress);
+	if ((err = write_encoding(argv[2], argv[2], glist, nglyphs,
+		0, progress)) != TTF2F_RESULT_OK) goto error_out;
+
+error_out:
+	if (err != TTF2F_RESULT_OK) {
+		switch (err) {
+		case TTF2F_RESULT_NOMEM:
+			fprintf(stderr, "ERROR: failed to allocate memory\n");
+			break;
+		case TTF2F_RESULT_OPEN:
+			fprintf(stderr, "ERROR: failed to open output file\n");
+			break;
+		case TTF2F_RESULT_WRITE:
+			fprintf(stderr, "ERROR: failed to write to file\n");
+			break;
+
+		case TTF2F_RESULT_OK:
+			/* keeps gcc quiet, even though this will never occur.
+			 * we avoid default: so we get a warning is we add more
+			 */
+			break;
+		}
+	}
 
 	free(metrics);
 	free(glist);
@@ -99,6 +124,6 @@ int main(int argc, char **argv)
 	ft_fini();
 	destroy_glyphs();
 
-	return 0;
+	exit(err == TTF2F_RESULT_OK ? EXIT_SUCCESS : EXIT_FAILURE);
 }
 
