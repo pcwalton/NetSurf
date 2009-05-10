@@ -1,8 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include <sys/stat.h>
 
+#include "context.h"
 #include "encoding.h"
 #include "fm.h"
 #include "ft.h"
@@ -24,16 +26,16 @@ void ttf2f_poll(int active)
 
 int main(int argc, char **argv)
 {
+	ttf2f_ctx ctx;
 	int fail;
 	ttf2f_result err = TTF2F_RESULT_OK;
-	int nglyphs;
-	struct glyph *glist = NULL;
-	struct font_metrics *metrics = NULL;
 
 	if (argc != 3) {
 		fprintf(stderr, "Usage: %s <input.ttf> <output>\n", argv[0]);
 		return 1;
 	}
+
+	memset(&ctx, 0, sizeof(ctx));
 
 	ft_init();
 
@@ -46,55 +48,56 @@ int main(int argc, char **argv)
 		return 1;
 	}
 
-	nglyphs = count_glyphs();
+	ctx.nglyphs = count_glyphs();
 
-	glist = calloc(nglyphs, sizeof(struct glyph));
-	if (glist == NULL) {
+	ctx.glyphs = calloc(ctx.nglyphs, sizeof(struct glyph));
+	if (ctx.glyphs == NULL) {
 		fprintf(stderr, "ERROR: insufficient memory for glyphs\n");
 		return 1;
 	}
 
-	for (int i = 0; i != nglyphs; i++) {
-		struct glyph *g = &glist[i];
+	for (size_t i = 0; i != ctx.nglyphs; i++) {
+		struct glyph *g = &ctx.glyphs[i];
 
 		g->code = -1;
 	}
 
-	metrics = calloc(1, sizeof(struct font_metrics));
-	if (metrics == NULL) {
-		fprintf(stderr, "ERROR: insufficient memory for font metrics\n");
+	ctx.metrics = calloc(1, sizeof(struct font_metrics));
+	if (ctx.metrics == NULL) {
+		fprintf(stderr, 
+			"ERROR: insufficient memory for font metrics\n");
 		return 1;
 	}
 
-	fail = fnmetrics(metrics);
+	fail = fnmetrics(ctx.metrics);
 	if (fail) {
 		fprintf(stderr, "ERROR: failed reading font metrics\n");
 		return 1;
 	}
 
-	fail = glenc(glist);
+	fail = glenc(ctx.glyphs);
 	if (fail) {
 		fprintf(stderr, "ERROR: failed reading glyph encoding\n");
 		return 1;
 	}
 
-	fail = glnames(glist);
+	fail = glnames(ctx.glyphs);
 	if (fail) {
 		fprintf(stderr, "ERROR: failed reading glyph names\n");
 		return 1;
 	}
 
-	glmetrics(glist, progress);
+	glmetrics(ctx.glyphs, progress);
 
 	mkdir(argv[2], 0755);
 
-	if ((err = intmetrics_write(argv[2], argv[2], glist, nglyphs,
-		metrics, progress)) != TTF2F_RESULT_OK) goto error_out;
+	if ((err = intmetrics_write(argv[2], argv[2], ctx.glyphs, ctx.nglyphs,
+		ctx.metrics, progress)) != TTF2F_RESULT_OK) goto error_out;
 
-	if ((err = outlines_write(argv[2], argv[2], glist, nglyphs,
-		metrics, progress)) != TTF2F_RESULT_OK) goto error_out;
+	if ((err = outlines_write(argv[2], argv[2], ctx.glyphs, ctx.nglyphs,
+		ctx.metrics, progress)) != TTF2F_RESULT_OK) goto error_out;
 
-	if ((err = encoding_write(argv[2], argv[2], glist, nglyphs,
+	if ((err = encoding_write(argv[2], argv[2], ctx.glyphs, ctx.nglyphs,
 		0, progress)) != TTF2F_RESULT_OK) goto error_out;
 
 error_out:
@@ -118,8 +121,8 @@ error_out:
 		}
 	}
 
-	free(metrics);
-	free(glist);
+	free(ctx.metrics);
+	free(ctx.glyphs);
 
 	close_font();
 
