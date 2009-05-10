@@ -236,7 +236,7 @@ ttf2f_result write_chunk(FILE* file, int chunk_no, ttf2f_ctx *ctx,
 		character->xsys[2] = ((g->yMax - g->yMin) >> 4) & 0xFF;
 
 		/* decompose glyph path */
-		glpath(ctx->face, (chunk_no * 32) + i, ctx->glyphs);
+		glpath(ctx, (chunk_no * 32) + i);
 
 		for (o = g->outline; o; o = next) {
 			if (!o)

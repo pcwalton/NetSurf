@@ -48,7 +48,7 @@ int main(int argc, char **argv)
 		return 1;
 	}
 
-	ctx.nglyphs = count_glyphs(ctx.face);
+	ctx.nglyphs = count_glyphs(&ctx);
 
 	ctx.glyphs = calloc(ctx.nglyphs, sizeof(struct glyph));
 	if (ctx.glyphs == NULL) {
@@ -69,25 +69,25 @@ int main(int argc, char **argv)
 		return 1;
 	}
 
-	fail = fnmetrics(ctx.face, ctx.metrics);
+	fail = fnmetrics(&ctx);
 	if (fail) {
 		fprintf(stderr, "ERROR: failed reading font metrics\n");
 		return 1;
 	}
 
-	fail = glenc(ctx.face, ctx.glyphs);
+	fail = glenc(&ctx);
 	if (fail) {
 		fprintf(stderr, "ERROR: failed reading glyph encoding\n");
 		return 1;
 	}
 
-	fail = glnames(ctx.face, ctx.glyphs);
+	fail = glnames(&ctx);
 	if (fail) {
 		fprintf(stderr, "ERROR: failed reading glyph names\n");
 		return 1;
 	}
 
-	glmetrics(ctx.face, ctx.glyphs, progress);
+	glmetrics(&ctx, progress);
 
 	mkdir(argv[2], 0755);
 

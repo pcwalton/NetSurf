@@ -82,9 +82,11 @@ void close_font(void *face)
  * Get the number of glyphs in font.
  */
 
-size_t count_glyphs(void *face)
+size_t count_glyphs(ttf2f_ctx *ctx)
 {
-	return (size_t) ((FT_Face) face)->num_glyphs;
+	FT_Face f = (FT_Face) ctx->face;
+
+	return (size_t) f->num_glyphs;
 }
 
 /*
@@ -92,13 +94,14 @@ size_t count_glyphs(void *face)
  * Returns 0 if the names were assigned, non-zero on error
  */
 
-int glnames(void *face, struct glyph *glyph_list)
+int glnames(ttf2f_ctx *ctx)
 {
+	FT_Face f = (FT_Face) ctx->face;
 	int i;
 
-	for (i = 0; i != ((FT_Face) face)->num_glyphs; i++) {
+	for (i = 0; i != f->num_glyphs; i++) {
 		ttf2f_poll(1);
-		glyph_list[i].name = glyph_name(glyph_list[i].code);
+		ctx->glyphs[i].name = glyph_name(ctx->glyphs[i].code);
 	}
 
 	return 0;
@@ -108,10 +111,9 @@ int glnames(void *face, struct glyph *glyph_list)
  * Get the metrics of the glyphs.
  */
 
-void glmetrics(void *face, struct glyph *glyph_list, 
-		void (*callback)(int progress))
+void glmetrics(ttf2f_ctx *ctx, void (*callback)(int progress))
 {
-	FT_Face f = (FT_Face) face;
+	FT_Face f = (FT_Face) ctx->face;
 	struct glyph *g;
 	int i;
 	FT_Glyph_Metrics *met;
@@ -119,7 +121,7 @@ void glmetrics(void *face, struct glyph *glyph_list,
 	FT_Glyph gly;
 
 	for (i = 0; i < f->num_glyphs; i++) {
-		g = &(glyph_list[i]);
+		g = &ctx->glyphs[i];
 
 		callback(i * 100 / f->num_glyphs);
 		ttf2f_poll(1);
@@ -168,9 +170,9 @@ void glmetrics(void *face, struct glyph *glyph_list,
  * Map charcodes to glyph ids using the unicode encoding
  */
 
-int glenc(void *face, struct glyph *glyph_list)
+int glenc(ttf2f_ctx *ctx)
 {
-	FT_Face f = (FT_Face) face;
+	FT_Face f = (FT_Face) ctx->face;
 	unsigned charcode, glyphid;
 
 	if (!f->charmaps || FT_Select_Charmap(f, FT_ENCODING_UNICODE)) {
@@ -181,7 +183,7 @@ int glenc(void *face, struct glyph *glyph_list)
 	charcode = FT_Get_First_Char(f, &glyphid);
 	while (glyphid != 0) {
 		ttf2f_poll(1);
-		glyph_list[glyphid].code = charcode;
+		ctx->glyphs[glyphid].code = charcode;
 		charcode = FT_Get_Next_Char(f, charcode, &glyphid);
 	}
 
@@ -191,9 +193,10 @@ int glenc(void *face, struct glyph *glyph_list)
 /*
  * Get the font metrics
  */
-int fnmetrics(void *face, struct font_metrics *fm)
+int fnmetrics(ttf2f_ctx *ctx)
 {
-	FT_Face f = (FT_Face) face;
+	FT_Face f = (FT_Face) ctx->face;
+	struct font_metrics *fm = ctx->metrics;
 	char *str;
 	static char *fieldstocheck[3];
 	FT_SfntName sn;
@@ -455,14 +458,14 @@ static FT_Outline_Funcs ft_outl_funcs = {
  * Get the path of contours for a glyph.
  */
 
-void glpath(void *face, int glyphno, struct glyph *glyf_list)
+void glpath(ttf2f_ctx *ctx, int glyphno)
 {
-	FT_Face f = (FT_Face) face;
+	FT_Face f = (FT_Face) ctx->face;
 	FT_Outline *ol;
 	FT_Glyph gly;
 	struct outline *o;
 
-	curg = &glyf_list[glyphno];
+	curg = &ctx->glyphs[glyphno];
 	cur_outline_entry = 0;
 
 	if (FT_Load_Glyph(f, glyphno, 
@@ -512,7 +515,7 @@ void glpath(void *face, int glyphno, struct glyph *glyf_list)
  * Get the kerning data.
  */
 
-void kerning(struct glyph *glyph_list)
+void kerning(ttf2f_ctx *ctx)
 {
 	int	i, j, n;
 	int	nglyphs = face->num_glyphs;
