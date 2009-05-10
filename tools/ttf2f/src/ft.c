@@ -24,9 +24,17 @@
 #include "glyphs.h"
 #include "utils.h"
 
-/* statics */
-
 static FT_Library library;
+
+/**
+ * Acorn Latin 1 characters
+ */
+static unsigned int acornLatin1[32] = {
+  0x20ac, 0x0174, 0x0175, 0xffff, 0xffff, 0x0176, 0x0177, 0xffff, 
+  0xffff, 0xffff, 0xffff, 0xffff, 0x2026, 0x2122, 0x2030, 0x2022, 
+  0x2018, 0x2019, 0x2039, 0x203a, 0x201c, 0x201d, 0x201e, 0x2013, 
+  0x2014, 0x2212, 0x0152, 0x0153, 0x2020, 0x2021, 0xfb01, 0xfb02
+};
 
 void ft_init(void)
 {
@@ -90,7 +98,7 @@ size_t count_glyphs(ttf2f_ctx *ctx)
 }
 
 /*
- * Get the names of the glyphs.
+ * Get the names of the glyphs and populate the latin1 table
  * Returns 0 if the names were assigned, non-zero on error
  */
 
@@ -100,8 +108,33 @@ int glnames(ttf2f_ctx *ctx)
 	int i;
 
 	for (i = 0; i != f->num_glyphs; i++) {
+		unsigned int code = ctx->glyphs[i].code;
+
 		ttf2f_poll(1);
-		ctx->glyphs[i].name = glyph_name(ctx->glyphs[i].code);
+		ctx->glyphs[i].name = glyph_name(code);
+
+		/* Insert into latin1 table, if appropriate */
+		if (0x0020 <= code && code < 0x007f)
+			ctx->latin1tab[code - 0x20] = &ctx->glyphs[i];
+		else if (0x00a0 <= code && code <= 0x00ff)
+			ctx->latin1tab[code - 0x20] = &ctx->glyphs[i];
+		else {
+			int j;
+
+			for (j = 0; j < 32; j++) {
+				/* Skip unmapped chars */
+				if (acornLatin1[j] == 0xffff)
+					continue;
+
+				if (code == acornLatin1[j])
+					break;
+			}
+
+			if (j != 32) {
+				ctx->latin1tab[j + 0x80 - 0x20] = 
+						&ctx->glyphs[i];
+			}
+		}
 	}
 
 	return 0;
