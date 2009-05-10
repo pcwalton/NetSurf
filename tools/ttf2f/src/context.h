@@ -7,6 +7,8 @@
 typedef struct ttf2f_ctx ttf2f_ctx;
 
 struct ttf2f_ctx {
+	void *face;
+
 	struct font_metrics *metrics;
 
 	size_t nglyphs;

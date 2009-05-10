@@ -42,13 +42,13 @@ int main(int argc, char **argv)
 	if ((err = glyph_load_list()) != TTF2F_RESULT_OK)
 		goto error_out;
 
-	fail = open_font(argv[1]);
-	if (fail) {
+	ctx.face = open_font(argv[1]);
+	if (ctx.face == NULL) {
 		fprintf(stderr, "ERROR: Failed opening font %s\n", argv[1]);
 		return 1;
 	}
 
-	ctx.nglyphs = count_glyphs();
+	ctx.nglyphs = count_glyphs(ctx.face);
 
 	ctx.glyphs = calloc(ctx.nglyphs, sizeof(struct glyph));
 	if (ctx.glyphs == NULL) {
@@ -69,36 +69,36 @@ int main(int argc, char **argv)
 		return 1;
 	}
 
-	fail = fnmetrics(ctx.metrics);
+	fail = fnmetrics(ctx.face, ctx.metrics);
 	if (fail) {
 		fprintf(stderr, "ERROR: failed reading font metrics\n");
 		return 1;
 	}
 
-	fail = glenc(ctx.glyphs);
+	fail = glenc(ctx.face, ctx.glyphs);
 	if (fail) {
 		fprintf(stderr, "ERROR: failed reading glyph encoding\n");
 		return 1;
 	}
 
-	fail = glnames(ctx.glyphs);
+	fail = glnames(ctx.face, ctx.glyphs);
 	if (fail) {
 		fprintf(stderr, "ERROR: failed reading glyph names\n");
 		return 1;
 	}
 
-	glmetrics(ctx.glyphs, progress);
+	glmetrics(ctx.face, ctx.glyphs, progress);
 
 	mkdir(argv[2], 0755);
 
-	if ((err = intmetrics_write(argv[2], argv[2], ctx.glyphs, ctx.nglyphs,
-		ctx.metrics, progress)) != TTF2F_RESULT_OK) goto error_out;
+	if ((err = intmetrics_write(argv[2], argv[2], &ctx, progress)) != 
+			TTF2F_RESULT_OK) goto error_out;
 
-	if ((err = outlines_write(argv[2], argv[2], ctx.glyphs, ctx.nglyphs,
-		ctx.metrics, progress)) != TTF2F_RESULT_OK) goto error_out;
+	if ((err = outlines_write(argv[2], argv[2], &ctx, progress)) != 
+			TTF2F_RESULT_OK) goto error_out;
 
-	if ((err = encoding_write(argv[2], argv[2], ctx.glyphs, ctx.nglyphs,
-		0, progress)) != TTF2F_RESULT_OK) goto error_out;
+	if ((err = encoding_write(argv[2], argv[2], &ctx, 0, progress)) != 
+			TTF2F_RESULT_OK) goto error_out;
 
 error_out:
 	if (err != TTF2F_RESULT_OK) {
@@ -124,7 +124,7 @@ error_out:
 	free(ctx.metrics);
 	free(ctx.glyphs);
 
-	close_font();
+	close_font(ctx.face);
 
 	ft_fini();
 	glyph_destroy_list();

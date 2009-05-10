@@ -68,25 +68,19 @@ struct kern_pair_16 {
  *
  * \param savein     Location to save in
  * \param name       Font name
- * \param glyph_list List of all glyphs in font
- * \param list_size  Size of glyph list
- * \param metrics    Global font metrics
+ * \param context    Conversion context
  */
 ttf2f_result intmetrics_write(const char *savein, const char *name, 
-		const struct glyph *glyph_list, int list_size,
-		const struct font_metrics *metrics, 
-		void (*callback)(int progress))
+		ttf2f_ctx *ctx, void (*callback)(int progress))
 {
 	struct intmetrics_header header;
 	short *xwidthtab = NULL;
 	unsigned int xwidthtab_size = 0;
 	short mapsize;
-	int i, name_len;
+	size_t i, name_len;
 	const struct glyph *g;
 	char out[1024];
 	FILE *output;
-
-	UNUSED(metrics);
 
 	/* allow for chunk 0 */
 	xwidthtab = calloc(33, sizeof(short));
@@ -96,12 +90,12 @@ ttf2f_result intmetrics_write(const char *savein, const char *name,
 	xwidthtab_size = 32;
 
 	/* create xwidthtab - char code is now the index */
-	for (i = 0; i != list_size; i++) {
+	for (i = 0; i != ctx->nglyphs; i++) {
 		short *temp;
 
-		g = &glyph_list[i];
+		g = &ctx->glyphs[i];
 
-		callback((i * 100) / list_size);
+		callback((i * 100) / ctx->nglyphs);
 		ttf2f_poll(1);
 
 		xwidthtab_size++;

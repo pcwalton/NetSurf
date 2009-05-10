@@ -1,6 +1,7 @@
 #ifndef _TTF2F_ENCODING_H_
 #define _TTF2F_ENCODING_H_
 
+#include "context.h"
 #include "utils.h"
 
 typedef enum encoding_type {
@@ -11,7 +12,7 @@ typedef enum encoding_type {
 struct glyph;
 
 ttf2f_result encoding_write(const char *savein, const char *name,
-		struct glyph *glyph_list, int list_size, encoding_type type,
+		ttf2f_ctx *ctx, encoding_type type,
 		void (*callback)(int progress));
 
 #endif

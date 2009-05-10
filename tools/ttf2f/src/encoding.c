@@ -11,18 +11,17 @@
  *
  * \param savein     Location to save in
  * \param name       The font name
- * \param glyph_list List of all glyphs in the font
- * \param list_size  Size of glyph list
+ * \param ctx        Conversion context
  * \param type       File format to use - 0 = full; 1 = sparse
  * \param callback   Progress callback function
  */
 ttf2f_result encoding_write(const char *savein, const char *name,
-		struct glyph *glyph_list, int list_size, encoding_type type,
+		ttf2f_ctx *ctx, encoding_type type,
 		void (*callback)(int progress))
 {
 	FILE *output;
 	struct glyph *g;
-	int i;
+	size_t i;
 	char out[1024];
 
 	snprintf(out, 1024, "%s" DIR_SEP "Encoding", savein);
@@ -38,10 +37,10 @@ ttf2f_result encoding_write(const char *savein, const char *name,
 		}
 	}
 
-	for (i = 0; i != list_size; i++) {
-		g = &glyph_list[i];
+	for (i = 0; i != ctx->nglyphs; i++) {
+		g = &ctx->glyphs[i];
 
-		callback(i * 100 / list_size);
+		callback(i * 100 / ctx->nglyphs);
 		ttf2f_poll(1);
 
 		if (type == ENCODING_TYPE_SPARSE) {
@@ -49,13 +48,13 @@ ttf2f_result encoding_write(const char *savein, const char *name,
 				/* .notdef is implicit */
 				if (strcmp(g->name, ".notdef") == 0)
 					continue;
-				fprintf(output, "%4.4X;%s;COMMENT\n", i+32,
+				fprintf(output, "%4.4zX;%s;COMMENT\n", i+32,
 							g->name);
 			} else if (g->code != (unsigned int) -1) {
-				fprintf(output, "%4.4X;uni%04X;COMMENT\n",
+				fprintf(output, "%4.4zX;uni%04X;COMMENT\n",
 							i+32, g->code);
 			} else {
-				fprintf(output, "# Skipping %4.4X\n", i+32);
+				fprintf(output, "# Skipping %4.4zX\n", i+32);
 			}
 		} else {
 			if (g->name != 0) {

@@ -12,8 +12,7 @@
 #include "outlines.h"
 #include "utils.h"
 
-ttf2f_result write_chunk(FILE* file, int chunk_no,
-		struct glyph *glyph_list, int list_size, 
+ttf2f_result write_chunk(FILE* file, int chunk_no, ttf2f_ctx *ctx,
 		unsigned int *out_chunk_size);
 
 /**
@@ -21,13 +20,10 @@ ttf2f_result write_chunk(FILE* file, int chunk_no,
  *
  * \param savein     Location to save in
  * \param name       Font name
- * \param glyph_list List of all glyphs in font
- * \param list_size  Size of glyph list
- * \param metrics    Global font metrics
+ * \param ctx        Conversion context
  */
 ttf2f_result outlines_write(const char *savein, const char *name,
-		struct glyph *glyph_list, int list_size,
-		const struct font_metrics *metrics,
+		ttf2f_ctx *ctx,
 		void (*callback)(int progress))
 {
 	struct outlines_header header;
@@ -45,13 +41,13 @@ ttf2f_result outlines_write(const char *savein, const char *name,
 	header.bpp = 0;
 	header.version = 8;
 	header.flags = 1000; /* design size of converted font */
-	header.x0 = metrics->bbox[0];
-	header.y0 = metrics->bbox[1];
-	header.X = metrics->bbox[2] - metrics->bbox[0];
-	header.Y = metrics->bbox[3] - metrics->bbox[1];
+	header.x0 = ctx->metrics->bbox[0];
+	header.y0 = ctx->metrics->bbox[1];
+	header.X = ctx->metrics->bbox[2] - ctx->metrics->bbox[0];
+	header.Y = ctx->metrics->bbox[3] - ctx->metrics->bbox[1];
 	header.chunk_data.chunk_table_offset =
 		sizeof(struct outlines_header) + ((table_end_len + 6) & ~3);
-	header.chunk_data.nchunks = (list_size / 32) + 2;
+	header.chunk_data.nchunks = (ctx->nglyphs / 32) + 2;
 	header.chunk_data.num_scaffold = 1; /* no scaffold lines */
 	header.chunk_data.scaffold_flags = OUTLINES_SCAFFOLD_16BIT |
 					OUTLINES_SCAFFOLD_NON_ZERO_WINDING;
@@ -100,10 +96,11 @@ ttf2f_result outlines_write(const char *savein, const char *name,
 	if (fputc(0x0, output) == EOF) goto error_write;
 	if (fprintf(output,
 		"\n\n\n%s is %s\nConverted to RISC OS by TTF2F\n\n\n",
-		metrics->name_full, metrics->name_copyright) < 0) goto error_write;
+		ctx->metrics->name_full, 
+		ctx->metrics->name_copyright) < 0) goto error_write;
 	if (fputc(0x0, output) == EOF) goto error_write;
-	current_chunk_offset += 42 + strlen(metrics->name_full) +
-				strlen(metrics->name_copyright);
+	current_chunk_offset += 42 + strlen(ctx->metrics->name_full) +
+				strlen(ctx->metrics->name_copyright);
 
 	while(current_chunk_offset % 4) {
 		if (fputc(0x0, output) == EOF) goto error_write;
@@ -122,15 +119,15 @@ ttf2f_result outlines_write(const char *savein, const char *name,
 		unsigned int chunk_size;
 		ttf2f_result err;
 
-		callback((chunk_table_entry * 100) / ((list_size / 32) + 2));
+		callback((chunk_table_entry * 100) / ((ctx->nglyphs / 32) + 2));
 		ttf2f_poll(1);
 
 		/* seek to start of current chunk */
 		fseek(output, current_chunk_offset, SEEK_SET);
 
 		/* write chunk */
-		err = write_chunk(output, chunk_table_entry - 1, glyph_list,
-				  list_size, &chunk_size);
+		err = write_chunk(output, chunk_table_entry - 1, ctx, 
+				&chunk_size);
 
 		if (err != TTF2F_RESULT_OK) {
 			fclose(output);
@@ -172,12 +169,10 @@ error_write:
  *
  * \param file       Stream handle
  * \param chunk_no   The current chunk number (0..nchunks-1)
- * \param glyph_list List of all glyphs in font
- * \param list_size  Size of glyph list
+ * \param ctx        Conversion context
  * \return Size of this chunk, or 0 on failure
  */
-ttf2f_result write_chunk(FILE* file, int chunk_no, 
-		struct glyph *glyph_list, int list_size, 
+ttf2f_result write_chunk(FILE* file, int chunk_no, ttf2f_ctx *ctx,
 		unsigned int *out_chunk_size)
 {
 	const struct glyph *g;
@@ -185,7 +180,7 @@ ttf2f_result write_chunk(FILE* file, int chunk_no,
 	unsigned int chunk_size;
 	struct outline *o, *next;
 	struct char_data *character;
-	int i;
+	size_t i;
 
 	*out_chunk_size = 0;
 
@@ -203,12 +198,12 @@ ttf2f_result write_chunk(FILE* file, int chunk_no,
 
 		ttf2f_poll(1);
 
-		if ((chunk_no * 32) + i >= list_size)
+		if ((chunk_no * 32) + i >= ctx->nglyphs)
 			/* exit if we've reached the end of the input */
 			break;
 
 		/* get glyph */
-		g = &glyph_list[(chunk_no * 32) + i];
+		g = &ctx->glyphs[(chunk_no * 32) + i];
 
 		/* no path => skip character */
 		if (g->ttf_pathlen == 0) {
@@ -241,7 +236,7 @@ ttf2f_result write_chunk(FILE* file, int chunk_no,
 		character->xsys[2] = ((g->yMax - g->yMin) >> 4) & 0xFF;
 
 		/* decompose glyph path */
-		glpath((chunk_no * 32) + i, glyph_list);
+		glpath(ctx->face, (chunk_no * 32) + i, ctx->glyphs);
 
 		for (o = g->outline; o; o = next) {
 			if (!o)

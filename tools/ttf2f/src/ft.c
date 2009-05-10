@@ -27,7 +27,6 @@
 /* statics */
 
 static FT_Library library;
-static FT_Face face;
 
 void ft_init(void)
 {
@@ -39,9 +38,6 @@ void ft_init(void)
 
 void ft_fini(void)
 {
-	if (face)
-		close_font();
-
 	if (FT_Done_FreeType(library)) {
 		fprintf(stderr, "Errors when stopping FreeType, ignored\n");
 	}
@@ -52,8 +48,9 @@ void ft_fini(void)
  * May print error and warning messages.
  */
 
-int open_font(char *fname)
+void *open_font(char *fname)
 {
+	FT_Face face;
 	FT_Error error;
 
 	if ((error = FT_New_Face(library, fname, 0, &face)) != 0) {
@@ -63,10 +60,10 @@ int open_font(char *fname)
 				fname);
 		} else
 			fprintf(stderr, "**** Cannot access %s ****\n", fname);
-		return 1;
+		return NULL;
 	}
 
-	return 0;
+	return face;
 }
 
 /*
@@ -74,22 +71,20 @@ int open_font(char *fname)
  * Exit on error.
  */
 
-void close_font(void)
+void close_font(void *face)
 {
-	if (FT_Done_Face(face)) {
+	if (FT_Done_Face((FT_Face) face)) {
 		fprintf(stderr, "Errors when closing the font file, ignored\n");
 	}
-
-	face = 0;
 }
 
 /*
  * Get the number of glyphs in font.
  */
 
-int count_glyphs(void)
+size_t count_glyphs(void *face)
 {
-	return (int) face->num_glyphs;
+	return (size_t) ((FT_Face) face)->num_glyphs;
 }
 
 /*
@@ -97,11 +92,11 @@ int count_glyphs(void)
  * Returns 0 if the names were assigned, non-zero on error
  */
 
-int glnames(struct glyph *glyph_list)
+int glnames(void *face, struct glyph *glyph_list)
 {
 	int i;
 
-	for (i = 0; i != face->num_glyphs; i++) {
+	for (i = 0; i != ((FT_Face) face)->num_glyphs; i++) {
 		ttf2f_poll(1);
 		glyph_list[i].name = glyph_name(glyph_list[i].code);
 	}
@@ -113,43 +108,44 @@ int glnames(struct glyph *glyph_list)
  * Get the metrics of the glyphs.
  */
 
-void glmetrics(struct glyph *glyph_list, void (*callback)(int progress))
+void glmetrics(void *face, struct glyph *glyph_list, 
+		void (*callback)(int progress))
 {
+	FT_Face f = (FT_Face) face;
 	struct glyph *g;
 	int i;
 	FT_Glyph_Metrics *met;
 	FT_BBox bbox;
 	FT_Glyph gly;
 
-	for (i = 0; i < face->num_glyphs; i++) {
+	for (i = 0; i < f->num_glyphs; i++) {
 		g = &(glyph_list[i]);
 
-		callback(i * 100 / face->num_glyphs);
+		callback(i * 100 / f->num_glyphs);
 		ttf2f_poll(1);
 
-		if (FT_Load_Glyph(face, i, 
-				FT_LOAD_NO_BITMAP|FT_LOAD_NO_SCALE)) {
+		if (FT_Load_Glyph(f, i, FT_LOAD_NO_BITMAP|FT_LOAD_NO_SCALE)) {
 			fprintf(stderr, "Can't load glyph %s, skipped\n", 
 					g->name);
 			continue;
 		}
 
-		met = &face->glyph->metrics;
+		met = &f->glyph->metrics;
 
-		if (FT_HAS_HORIZONTAL(face)) {
+		if (FT_HAS_HORIZONTAL(f)) {
 			g->width = convert_units(met->horiAdvance,
-							face->units_per_EM);
+							f->units_per_EM);
 			g->lsb = convert_units(met->horiBearingX,
-							face->units_per_EM);
+							f->units_per_EM);
 		} else {
 			fprintf(stderr, "Glyph %s has no horizontal metrics\n",
 					g->name);
 			g->width = convert_units(met->width,
-							face->units_per_EM);
+							f->units_per_EM);
 			g->lsb = 0;
 		}
 
-		if (FT_Get_Glyph(face->glyph, &gly)) {
+		if (FT_Get_Glyph(f->glyph, &gly)) {
 			fprintf(stderr, 
 				"Can't access glyph %s bbox, skipped\n", 
 				g->name);
@@ -157,12 +153,12 @@ void glmetrics(struct glyph *glyph_list, void (*callback)(int progress))
 		}
 
 		FT_Glyph_Get_CBox(gly, ft_glyph_bbox_unscaled, &bbox);
-		g->xMin = convert_units(bbox.xMin, face->units_per_EM);
-		g->yMin = convert_units(bbox.yMin, face->units_per_EM);
-		g->xMax = convert_units(bbox.xMax, face->units_per_EM);
-		g->yMax = convert_units(bbox.yMax, face->units_per_EM);
+		g->xMin = convert_units(bbox.xMin, f->units_per_EM);
+		g->yMin = convert_units(bbox.yMin, f->units_per_EM);
+		g->xMax = convert_units(bbox.xMax, f->units_per_EM);
+		g->yMax = convert_units(bbox.yMax, f->units_per_EM);
 
-		g->ttf_pathlen = face->glyph->outline.n_points;
+		g->ttf_pathlen = f->glyph->outline.n_points;
 
 		FT_Done_Glyph(gly);
 	}
@@ -172,20 +168,21 @@ void glmetrics(struct glyph *glyph_list, void (*callback)(int progress))
  * Map charcodes to glyph ids using the unicode encoding
  */
 
-int glenc(struct glyph *glyph_list)
+int glenc(void *face, struct glyph *glyph_list)
 {
+	FT_Face f = (FT_Face) face;
 	unsigned charcode, glyphid;
 
-	if (!face->charmaps || FT_Select_Charmap(face, FT_ENCODING_UNICODE)) {
+	if (!f->charmaps || FT_Select_Charmap(f, FT_ENCODING_UNICODE)) {
 		fprintf(stderr, "**** Cannot set charmap in FreeType ****\n");
 		return 1;
 	}
 
-	charcode = FT_Get_First_Char(face, &glyphid);
+	charcode = FT_Get_First_Char(f, &glyphid);
 	while (glyphid != 0) {
 		ttf2f_poll(1);
 		glyph_list[glyphid].code = charcode;
-		charcode = FT_Get_Next_Char(face, charcode, &glyphid);
+		charcode = FT_Get_Next_Char(f, charcode, &glyphid);
 	}
 
 	return 0;
@@ -194,52 +191,53 @@ int glenc(struct glyph *glyph_list)
 /*
  * Get the font metrics
  */
-int fnmetrics(struct font_metrics *fm)
+int fnmetrics(void *face, struct font_metrics *fm)
 {
+	FT_Face f = (FT_Face) face;
 	char *str;
 	static char *fieldstocheck[3];
 	FT_SfntName sn;
 	TT_Postscript *post;
 	int i, j, len;
 
-	fm->underline_position = convert_units(face->underline_position,
-						face->units_per_EM);
-	fm->underline_thickness = convert_units(face->underline_thickness,
-						face->units_per_EM);
-	fm->is_fixed_pitch = FT_IS_FIXED_WIDTH(face);
+	fm->underline_position = convert_units(f->underline_position,
+						f->units_per_EM);
+	fm->underline_thickness = convert_units(f->underline_thickness,
+						f->units_per_EM);
+	fm->is_fixed_pitch = FT_IS_FIXED_WIDTH(f);
 
-	fm->ascender = convert_units(face->ascender, face->units_per_EM);
-	fm->descender = convert_units(face->descender, face->units_per_EM);
+	fm->ascender = convert_units(f->ascender, f->units_per_EM);
+	fm->descender = convert_units(f->descender, f->units_per_EM);
 
-	fm->units_per_em =  face->units_per_EM;
+	fm->units_per_em =  f->units_per_EM;
 
-	fm->bbox[0] = convert_units(face->bbox.xMin, face->units_per_EM);
-	fm->bbox[1] = convert_units(face->bbox.yMin, face->units_per_EM);
-	fm->bbox[2] = convert_units(face->bbox.xMax, face->units_per_EM);
-	fm->bbox[3] = convert_units(face->bbox.yMax, face->units_per_EM);
+	fm->bbox[0] = convert_units(f->bbox.xMin, f->units_per_EM);
+	fm->bbox[1] = convert_units(f->bbox.yMin, f->units_per_EM);
+	fm->bbox[2] = convert_units(f->bbox.xMax, f->units_per_EM);
+	fm->bbox[3] = convert_units(f->bbox.yMax, f->units_per_EM);
 
-	if ((post = (TT_Postscript*)FT_Get_Sfnt_Table(face, 
-				ft_sfnt_post)) != NULL) {
+	if ((post = (TT_Postscript*) FT_Get_Sfnt_Table(f, 
+			ft_sfnt_post)) != NULL) {
 		fm->italic_angle = post->italicAngle;
 	} else {
 		fprintf(stderr, "hidden");
 		fm->italic_angle = 0.0; /* FreeType hides the angle */
 	}
 
-	if (FT_Get_Sfnt_Name(face, TT_NAME_ID_COPYRIGHT, &sn)) {
+	if (FT_Get_Sfnt_Name(f, TT_NAME_ID_COPYRIGHT, &sn)) {
 		fm->name_copyright = (char *) "";
 	} else {
 		fm->name_copyright = strndup((const char*)sn.string, 
 				sn.string_len);
 	}
 
-	fm->name_family = face->family_name;
+	fm->name_family = f->family_name;
 
-	fm->name_style = face->style_name;
+	fm->name_style = f->style_name;
 	if (fm->name_style == NULL)
 		fm->name_style = (char *) "";
 
-	if (FT_Get_Sfnt_Name(face, TT_NAME_ID_FULL_NAME, &sn)) {
+	if (FT_Get_Sfnt_Name(f, TT_NAME_ID_FULL_NAME, &sn)) {
 		int len;
 
 		len = strlen(fm->name_family) + strlen(fm->name_style) + 2;
@@ -256,14 +254,14 @@ int fnmetrics(struct font_metrics *fm)
 	} else
 		fm->name_full = strndup((const char*)sn.string, sn.string_len);
 
-	if (FT_Get_Sfnt_Name(face, TT_NAME_ID_VERSION_STRING, &sn)) {
+	if (FT_Get_Sfnt_Name(f, TT_NAME_ID_VERSION_STRING, &sn)) {
 		fm->name_version = (char *) "1.0";
 	} else {
 		fm->name_version = strndup((const char*)sn.string, 
 				sn.string_len);
 	}
 
-	if (FT_Get_Sfnt_Name(face, TT_NAME_ID_PS_NAME , &sn)) {
+	if (FT_Get_Sfnt_Name(f, TT_NAME_ID_PS_NAME , &sn)) {
 		if ((fm->name_ps = strdup(fm->name_full)) == NULL) {
 			fprintf(stderr, "****malloc failed %s line %d\n", 
 					__FILE__, __LINE__);
@@ -314,11 +312,10 @@ static struct glyph *curg;
 static struct outline *cur_outline_entry;
 static long lastx, lasty;
 
-static int outl_moveto(const FT_Vector *to, void *unused)
+static int outl_moveto(const FT_Vector *to, void *face)
 {
+	FT_Face f = (FT_Face) face;
 	struct outline *o;
-
-	UNUSED(unused);
 
 	o = calloc(1, sizeof(struct outline));
 	if (!o) {
@@ -327,8 +324,8 @@ static int outl_moveto(const FT_Vector *to, void *unused)
 	}
 
 	o->type = MOVE_TO;
-	o->data.move_to.x = convert_units(to->x, face->units_per_EM);
-	o->data.move_to.y = convert_units(to->y, face->units_per_EM);
+	o->data.move_to.x = convert_units(to->x, f->units_per_EM);
+	o->data.move_to.y = convert_units(to->y, f->units_per_EM);
 
 	if (cur_outline_entry)
 		cur_outline_entry->next = o;
@@ -336,17 +333,16 @@ static int outl_moveto(const FT_Vector *to, void *unused)
 		curg->outline = o;
 	cur_outline_entry = o;
 
-	lastx = convert_units(to->x, face->units_per_EM);
-	lasty = convert_units(to->y, face->units_per_EM);
+	lastx = convert_units(to->x, f->units_per_EM);
+	lasty = convert_units(to->y, f->units_per_EM);
 
 	return 0;
 }
 
-static int outl_lineto(const FT_Vector *to, void *unused)
+static int outl_lineto(const FT_Vector *to, void *face)
 {
+	FT_Face f = (FT_Face) face;
 	struct outline *o;
-
-	UNUSED(unused);
 
 	o = calloc(1, sizeof(struct outline));
 	if (!o) {
@@ -355,8 +351,8 @@ static int outl_lineto(const FT_Vector *to, void *unused)
 	}
 
 	o->type = LINE_TO;
-	o->data.line_to.x = convert_units(to->x, face->units_per_EM);
-	o->data.line_to.y = convert_units(to->y, face->units_per_EM);
+	o->data.line_to.x = convert_units(to->x, f->units_per_EM);
+	o->data.line_to.y = convert_units(to->y, f->units_per_EM);
 
 	if (cur_outline_entry)
 		cur_outline_entry->next = o;
@@ -364,19 +360,18 @@ static int outl_lineto(const FT_Vector *to, void *unused)
 		curg->outline = o;
 	cur_outline_entry = o;
 
-	lastx = convert_units(to->x, face->units_per_EM);
-	lasty = convert_units(to->y, face->units_per_EM);
+	lastx = convert_units(to->x, f->units_per_EM);
+	lasty = convert_units(to->y, f->units_per_EM);
 
 	return 0;
 }
 
 static int outl_conicto(const FT_Vector *control1, const FT_Vector *to, 
-		void *unused)
+		void *face)
 {
+	FT_Face f = (FT_Face) face;
 	struct outline *o;
 	double c1x, c1y;
-
-	UNUSED(unused);
 
 	o = calloc(1, sizeof(struct outline));
 	if (!o) {
@@ -385,23 +380,23 @@ static int outl_conicto(const FT_Vector *control1, const FT_Vector *to,
 	}
 
 	c1x = (double)lastx + 2.0 *
-		((double)convert_units(control1->x, face->units_per_EM) -
+		((double)convert_units(control1->x, f->units_per_EM) -
 		(double)lastx) / 3.0;
 	c1y = (double)lasty + 2.0 *
-		((double)convert_units(control1->y, face->units_per_EM) -
+		((double)convert_units(control1->y, f->units_per_EM) -
 		(double)lasty) / 3.0;
 
 	o->type = CURVE;
 	o->data.curve.x1 = (int)c1x;
 	o->data.curve.y1 = (int)c1y;
 	o->data.curve.x2 = (int)(c1x +
-			((double)convert_units(to->x, face->units_per_EM) -
+			((double)convert_units(to->x, f->units_per_EM) -
 			(double)lastx) / 3.0);
 	o->data.curve.y2 = (int)(c1y +
-			((double)convert_units(to->y, face->units_per_EM) -
+			((double)convert_units(to->y, f->units_per_EM) -
 			(double)lasty) / 3.0);
-	o->data.curve.x3 = convert_units(to->x, face->units_per_EM);
-	o->data.curve.y3 = convert_units(to->y, face->units_per_EM);
+	o->data.curve.x3 = convert_units(to->x, f->units_per_EM);
+	o->data.curve.y3 = convert_units(to->y, f->units_per_EM);
 
 	if (cur_outline_entry)
 		cur_outline_entry->next = o;
@@ -409,18 +404,17 @@ static int outl_conicto(const FT_Vector *control1, const FT_Vector *to,
 		curg->outline = o;
 	cur_outline_entry = o;
 
-	lastx = convert_units(to->x, face->units_per_EM);
-	lasty = convert_units(to->y, face->units_per_EM);
+	lastx = convert_units(to->x, f->units_per_EM);
+	lasty = convert_units(to->y, f->units_per_EM);
 
 	return 0;
 }
 
 static int outl_cubicto(const FT_Vector *control1, const FT_Vector *control2,
-		const FT_Vector *to, void *unused)
+		const FT_Vector *to, void *face)
 {
+	FT_Face f = (FT_Face) face;
 	struct outline *o;
-
-	UNUSED(unused);
 
 	o = calloc(1, sizeof(struct outline));
 	if (!o) {
@@ -429,12 +423,12 @@ static int outl_cubicto(const FT_Vector *control1, const FT_Vector *control2,
 	}
 
 	o->type = CURVE;
-	o->data.curve.x1 = convert_units(control1->x, face->units_per_EM);
-	o->data.curve.y1 = convert_units(control1->y, face->units_per_EM);
-	o->data.curve.x2 = convert_units(control2->x, face->units_per_EM);
-	o->data.curve.y2 = convert_units(control2->y, face->units_per_EM);
-	o->data.curve.x3 = convert_units(to->x, face->units_per_EM);
-	o->data.curve.y3 = convert_units(to->y, face->units_per_EM);
+	o->data.curve.x1 = convert_units(control1->x, f->units_per_EM);
+	o->data.curve.y1 = convert_units(control1->y, f->units_per_EM);
+	o->data.curve.x2 = convert_units(control2->x, f->units_per_EM);
+	o->data.curve.y2 = convert_units(control2->y, f->units_per_EM);
+	o->data.curve.x3 = convert_units(to->x, f->units_per_EM);
+	o->data.curve.y3 = convert_units(to->y, f->units_per_EM);
 
 	if (cur_outline_entry)
 		cur_outline_entry->next = o;
@@ -442,8 +436,8 @@ static int outl_cubicto(const FT_Vector *control1, const FT_Vector *control2,
 		curg->outline = o;
 	cur_outline_entry = o;
 
-	lastx = convert_units(to->x, face->units_per_EM);
-	lasty = convert_units(to->y, face->units_per_EM);
+	lastx = convert_units(to->x, f->units_per_EM);
+	lasty = convert_units(to->y, f->units_per_EM);
 
 	return 0;
 }
@@ -461,8 +455,9 @@ static FT_Outline_Funcs ft_outl_funcs = {
  * Get the path of contours for a glyph.
  */
 
-void glpath(int glyphno, struct glyph *glyf_list)
+void glpath(void *face, int glyphno, struct glyph *glyf_list)
 {
+	FT_Face f = (FT_Face) face;
 	FT_Outline *ol;
 	FT_Glyph gly;
 	struct outline *o;
@@ -470,17 +465,17 @@ void glpath(int glyphno, struct glyph *glyf_list)
 	curg = &glyf_list[glyphno];
 	cur_outline_entry = 0;
 
-	if (FT_Load_Glyph(face, glyphno, 
+	if (FT_Load_Glyph(f, glyphno, 
 		FT_LOAD_NO_BITMAP|FT_LOAD_NO_SCALE|FT_LOAD_NO_HINTING)
-			|| face->glyph->format != ft_glyph_format_outline) {
+			|| f->glyph->format != ft_glyph_format_outline) {
 		fprintf(stderr, "Can't load glyph %s, skipped\n", curg->name);
 		return;
 	}
 
-	ol = &face->glyph->outline;
+	ol = &f->glyph->outline;
 	lastx = 0; lasty = 0;
 
-	if (FT_Outline_Decompose(ol, &ft_outl_funcs, NULL)) {
+	if (FT_Outline_Decompose(ol, &ft_outl_funcs, f)) {
 		fprintf(stderr, 
 			"Can't decompose outline of glyph %s, skipped\n", 
 			curg->name);
@@ -503,7 +498,7 @@ void glpath(int glyphno, struct glyph *glyf_list)
 		curg->outline = o;
 	cur_outline_entry = o;
 
-	if (FT_Get_Glyph(face->glyph, &gly)) {
+	if (FT_Get_Glyph(f->glyph, &gly)) {
 		fprintf(stderr, "Can't access glyph %s bbox, skipped\n", 
 				curg->name);
 		return;

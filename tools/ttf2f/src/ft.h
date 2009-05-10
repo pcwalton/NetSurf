@@ -6,15 +6,16 @@ struct glyph;
 
 void ft_init(void);
 void ft_fini(void);
-int open_font(char *fname);
-void close_font(void);
-int count_glyphs(void);
-int glnames(struct glyph *glyph_list);
-void glmetrics(struct glyph *glyph_list, void (*callback)(int progress));
-int glenc(struct glyph *glyph_list);
-int fnmetrics(struct font_metrics *fm);
-void glpath(int glyphno, struct glyph *glyph_list);
-void kerning(struct glyph *glyph_list);
+void *open_font(char *fname);
+void close_font(void *face);
+size_t count_glyphs(void *face);
+int glnames(void *face, struct glyph *glyph_list);
+void glmetrics(void *face, struct glyph *glyph_list, 
+		void (*callback)(int progress));
+int glenc(void *face, struct glyph *glyph_list);
+int fnmetrics(void *face, struct font_metrics *fm);
+void glpath(void *face, int glyphno, struct glyph *glyph_list);
+void kerning(void *face, struct glyph *glyph_list);
 
 #endif
 
