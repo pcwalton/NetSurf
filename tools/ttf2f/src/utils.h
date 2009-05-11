@@ -15,6 +15,10 @@
 #define max(a,b) (((a) > (b)) ? (a) : (b))
 #endif
 
+#ifndef min
+#define min(a,b) (((a) > (b)) ? (b) : (a))
+#endif
+
 #ifndef N_ELEMENTS
 #define N_ELEMENTS(x) (sizeof((x)) / sizeof((x)[0]))
 #endif
