@@ -18,8 +18,8 @@ struct font_metrics {
 
 	/* name */
 	char *name_copyright;
-	char *name_family;
-	char *name_style;
+	const char *name_family;
+	const char *name_style;
 	char *name_full;
 	char *name_version;
 	char *name_ps;

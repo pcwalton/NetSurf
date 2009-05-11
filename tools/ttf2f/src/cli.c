@@ -122,6 +122,10 @@ error_out:
 		}
 	}
 
+	free(ctx.metrics->name_copyright);
+	free(ctx.metrics->name_full);
+	free(ctx.metrics->name_version);
+	free(ctx.metrics->name_ps);
 	free(ctx.metrics);
 	free(ctx.glyphs);
 

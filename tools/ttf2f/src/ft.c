@@ -234,8 +234,8 @@ int fnmetrics(ttf2f_ctx *ctx)
 {
 	FT_Face f = (FT_Face) ctx->face;
 	struct font_metrics *fm = ctx->metrics;
-	char *str;
-	static char *fieldstocheck[3];
+	const char *str;
+	const char *fieldstocheck[3];
 	FT_SfntName sn;
 	TT_Postscript *post;
 	int i, j, len;
@@ -265,7 +265,7 @@ int fnmetrics(ttf2f_ctx *ctx)
 	}
 
 	if (FT_Get_Sfnt_Name(f, TT_NAME_ID_COPYRIGHT, &sn)) {
-		fm->name_copyright = (char *) "";
+		fm->name_copyright = strdup("");
 	} else {
 		fm->name_copyright = strndup((const char*)sn.string, 
 				sn.string_len);
@@ -295,7 +295,7 @@ int fnmetrics(ttf2f_ctx *ctx)
 		fm->name_full = strndup((const char*)sn.string, sn.string_len);
 
 	if (FT_Get_Sfnt_Name(f, TT_NAME_ID_VERSION_STRING, &sn)) {
-		fm->name_version = (char *) "1.0";
+		fm->name_version = strdup("1.0");
 	} else {
 		fm->name_version = strndup((const char*)sn.string, 
 				sn.string_len);
@@ -323,18 +323,16 @@ int fnmetrics(ttf2f_ctx *ctx)
 	fieldstocheck[1] = fm->name_full;
 	fieldstocheck[2] = fm->name_ps;
 
-	for (i = 0; !fm->force_bold && 
-		i < (int) (sizeof fieldstocheck / sizeof(fieldstocheck[0])); 
+	for (i = 0; !fm->force_bold && i < (int) N_ELEMENTS(fieldstocheck); 
 			i++) {
-		str=fieldstocheck[i];
+		str = fieldstocheck[i];
 		len = strlen(str);
 
 		for (j = 0; j < len; j++) {
-			if ((str[j]=='B'
-				|| str[j]=='b')
-					&& (j==0 || !isalpha(str[j-1]))
-			&& !strncmp("old",&str[j+1],3)
-			&& (j+4 >= len || !islower(str[j+4]))) {
+			if ((str[j] == 'B' || str[j] == 'b') && 
+					(j == 0 || !isalpha(str[j-1])) &&
+					!strncmp("old", &str[j+1], 3) &&
+					(j + 4 >= len || !islower(str[j+4]))) {
 				fm->force_bold=1;
 				break;
 			}
