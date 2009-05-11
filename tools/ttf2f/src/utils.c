@@ -6,21 +6,18 @@
 
 char *strndup(const char *s, size_t n)
 {
-	/* this assumes s is NUL terminated - if not,
-	 * some silly value will be returned */
-	size_t len = strlen(s);
+	size_t len = 0;
 	char *res;
 
-	/* limit to n */
-	if (len > n || n == 0)
-		len = n;
+	while (len < n && s[len] != '\0')
+		len++;
 
-	res = (char *) malloc(len + 1);
+	res = malloc(len + 1);
 	if (res == NULL)
 		return NULL;
 
 	res[len] = '\0';
-	return (char *) memcpy(res, s, len);
+	return memcpy(res, s, len);
 }
 
 /**
