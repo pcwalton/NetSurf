@@ -129,7 +129,7 @@ ttf2f_result intmetrics_write(const char *savein, const char *name,
 	/* No character map */
 	mapsize = 0;
 
-	snprintf(out, 1024, "%s" DIR_SEP "IntMetrics", savein);
+	snprintf(out, 1024, "%s/IntMetrics", savein);
 	if ((output = fopen(out, "wb")) == NULL) {
 		free(xwidthtab);
 		return TTF2F_RESULT_OPEN;

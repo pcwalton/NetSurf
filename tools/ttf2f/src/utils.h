@@ -5,12 +5,6 @@
 #define UNUSED(x) ((x)=(x))
 #endif
 
-#ifdef __riscos__
-#define DIR_SEP "."
-#else
-#define DIR_SEP "/"
-#endif
-
 #ifndef max
 #define max(a,b) (((a) > (b)) ? (a) : (b))
 #endif
