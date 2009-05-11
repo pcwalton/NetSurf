@@ -76,37 +76,42 @@ ttf2f_result intmetrics_write(const char *savein, const char *name,
 	struct intmetrics_header header;
 	short *xwidthtab = NULL;
 	unsigned int xwidthtab_size = 0;
+	int xwidthtab_idx = sizeof(ctx->latin1tab);
 	short mapsize;
 	size_t i, name_len;
-	const struct glyph *g;
+	struct glyph *g;
 	char out[1024];
 	FILE *output;
 
-	/* allow for chunk 0 */
-	xwidthtab = calloc(33, sizeof(short));
+	/* Total number of slots is the number of glyphs plus any spare
+	 * required for the latin1 table */
+	xwidthtab_size = ctx->nglyphs + sizeof(ctx->latin1tab) - ctx->nlatin1;
+
+	xwidthtab = calloc(xwidthtab_size, sizeof(short));
 	if (xwidthtab == NULL)
 		return TTF2F_RESULT_NOMEM;
 
-	xwidthtab_size = 32;
+	/* fill latin1 subset first */
+	for (i = 0; i != sizeof(ctx->latin1tab); i++) {
+		g = ctx->latin1tab[i];
 
-	/* create xwidthtab - char code is now the index */
+		xwidthtab[i] = g != NULL ? g->width : 0;
+
+		if (g != NULL)
+			g->done_intmetrics = 1;
+	}
+
+	/* then the rest, skipping those we've already written */
 	for (i = 0; i != ctx->nglyphs; i++) {
-		short *temp;
-
 		g = &ctx->glyphs[i];
 
 		callback((i * 100) / ctx->nglyphs);
 		ttf2f_poll(1);
 
-		xwidthtab_size++;
-		/* +32 to skip chunk 0 */
-		xwidthtab[i + 32] = g->width;
-		temp = realloc(xwidthtab, (xwidthtab_size + 1) * sizeof(short));
-		if (temp == NULL) {
-			free(xwidthtab);
-			return TTF2F_RESULT_NOMEM;
+		if (g->done_intmetrics == 0) {
+			xwidthtab[xwidthtab_idx++] = g->width;
+			g->done_intmetrics = 1;
 		}
-		xwidthtab = temp;
 	}
 
 	/* fill in header */
@@ -129,7 +134,7 @@ ttf2f_result intmetrics_write(const char *savein, const char *name,
 		return TTF2F_RESULT_OPEN;
 	}
 
-	if (fwrite((void*)&header, sizeof(struct intmetrics_header),
+	if (fwrite((void*) &header, sizeof(struct intmetrics_header),
 		   1, output) != 1) goto error_write;
 
 	if (fputc(mapsize & 0xFF, output) == EOF) goto error_write;

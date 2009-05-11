@@ -115,9 +115,9 @@ int glnames(ttf2f_ctx *ctx)
 
 		/* Insert into latin1 table, if appropriate */
 		if (0x0020 <= code && code < 0x007f)
-			ctx->latin1tab[code - 0x20] = &ctx->glyphs[i];
+			ctx->latin1tab[code] = &ctx->glyphs[i];
 		else if (0x00a0 <= code && code <= 0x00ff)
-			ctx->latin1tab[code - 0x20] = &ctx->glyphs[i];
+			ctx->latin1tab[code] = &ctx->glyphs[i];
 		else {
 			int j;
 
@@ -131,10 +131,14 @@ int glnames(ttf2f_ctx *ctx)
 			}
 
 			if (j != 32) {
-				ctx->latin1tab[j + 0x80 - 0x20] = 
-						&ctx->glyphs[i];
+				ctx->latin1tab[j + 0x80] = &ctx->glyphs[i];
 			}
 		}
+	}
+
+	for (i = 0; i != sizeof(ctx->latin1tab); i++) {
+		if (ctx->latin1tab[i] != NULL)
+			ctx->nlatin1++;
 	}
 
 	return 0;

@@ -14,7 +14,8 @@ struct ttf2f_ctx {
 	size_t nglyphs;
 	struct glyph *glyphs;
 
-	struct glyph *latin1tab[256 - 32]; /* Not chunk zero */
+	struct glyph *latin1tab[256];
+	size_t nlatin1;
 };
 
 #endif

@@ -33,6 +33,10 @@ struct glyph {
 	short width;                 /* advance width of glyph */
 	struct outline *outline;     /* outline of glyph */
 	struct composite *composite; /* list of composite inclusions */
+
+	int done_intmetrics : 2,
+	    done_outlines   : 2,
+	    done_encoding   : 2;
 };
 
 #endif
