@@ -97,7 +97,8 @@ int main(int argc, char **argv)
 	if ((err = outlines_write(argv[2], argv[2], &ctx, progress)) != 
 			TTF2F_RESULT_OK) goto error_out;
 
-	if ((err = encoding_write(argv[2], argv[2], &ctx, 0, progress)) != 
+	if ((err = encoding_write(argv[2], argv[2], &ctx, 
+			ENCODING_TYPE_NORMAL, progress)) != 
 			TTF2F_RESULT_OK) goto error_out;
 
 error_out:
