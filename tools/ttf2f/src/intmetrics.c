@@ -116,7 +116,7 @@ ttf2f_result intmetrics_write(const char *savein, const char *name,
 	}
 
 	/* fill in header */
-	name_len = max(39, strlen(name));
+	name_len = min(39, strlen(name));
 	snprintf(header.name, 40, "%s", name);
 	memset(header.name + name_len, 0xD, 40 - name_len);
 	header.a = header.b = 16;
@@ -130,13 +130,13 @@ ttf2f_result intmetrics_write(const char *savein, const char *name,
 	mapsize = 0;
 
 	snprintf(out, 1024, "%s" DIR_SEP "IntMetrics", savein);
-	if ((output = fopen(out, "wb+")) == NULL) {
+	if ((output = fopen(out, "wb")) == NULL) {
 		free(xwidthtab);
 		return TTF2F_RESULT_OPEN;
 	}
 
-	if (fwrite((void*) &header, sizeof(struct intmetrics_header),
-		   1, output) != 1) goto error_write;
+	if (fwrite(&header, sizeof(struct intmetrics_header), 1, output) != 1)
+		goto error_write;
 
 	if (fputc(mapsize & 0xFF, output) == EOF) goto error_write;
 	if (fputc((mapsize & 0xFF00) >> 8, output) == EOF) goto error_write;
