@@ -15,6 +15,10 @@
 #define max(a,b) (((a) > (b)) ? (a) : (b))
 #endif
 
+#ifndef N_ELEMENTS
+#define N_ELEMENTS(x) (sizeof((x)) / sizeof((x)[0]))
+#endif
+
 typedef enum ttf2f_result {
 	TTF2F_RESULT_OK,
 	TTF2F_RESULT_NOMEM,

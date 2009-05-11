@@ -136,7 +136,7 @@ int glnames(ttf2f_ctx *ctx)
 		}
 	}
 
-	for (i = 0; i != sizeof(ctx->latin1tab); i++) {
+	for (i = 0; i != N_ELEMENTS(ctx->latin1tab); i++) {
 		if (ctx->latin1tab[i] != NULL)
 			ctx->nlatin1++;
 	}

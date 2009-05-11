@@ -76,7 +76,7 @@ ttf2f_result intmetrics_write(const char *savein, const char *name,
 	struct intmetrics_header header;
 	short *xwidthtab = NULL;
 	unsigned int xwidthtab_size = 0;
-	int xwidthtab_idx = sizeof(ctx->latin1tab);
+	int xwidthtab_idx = N_ELEMENTS(ctx->latin1tab);
 	short mapsize;
 	size_t i, name_len;
 	struct glyph *g;
@@ -85,14 +85,15 @@ ttf2f_result intmetrics_write(const char *savein, const char *name,
 
 	/* Total number of slots is the number of glyphs plus any spare
 	 * required for the latin1 table */
-	xwidthtab_size = ctx->nglyphs + sizeof(ctx->latin1tab) - ctx->nlatin1;
+	xwidthtab_size = ctx->nglyphs + 
+			N_ELEMENTS(ctx->latin1tab) - ctx->nlatin1;
 
 	xwidthtab = calloc(xwidthtab_size, sizeof(short));
 	if (xwidthtab == NULL)
 		return TTF2F_RESULT_NOMEM;
 
 	/* fill latin1 subset first */
-	for (i = 0; i != sizeof(ctx->latin1tab); i++) {
+	for (i = 0; i != N_ELEMENTS(ctx->latin1tab); i++) {
 		g = ctx->latin1tab[i];
 
 		xwidthtab[i] = g != NULL ? g->width : 0;

@@ -35,7 +35,7 @@ ttf2f_result encoding_write(const char *savein, const char *name,
 	fprintf(output, "%% Encoding file for font '%s'\n\n", name);
 
 	/* Write latin1 first */
-	for (i = 0; i != sizeof(ctx->latin1tab); i++) {
+	for (i = 0; i != N_ELEMENTS(ctx->latin1tab); i++) {
 		if (ctx->latin1tab[i] == NULL) {
 			if (type == ENCODING_TYPE_NORMAL) {
 				fprintf(output, "/.notdef\n");
@@ -56,7 +56,7 @@ ttf2f_result encoding_write(const char *savein, const char *name,
 		ttf2f_poll(1);
 
 		if (g->done_encoding == 0) {
-			encoding_write_glyph(i + sizeof(ctx->latin1tab), 
+			encoding_write_glyph(i + N_ELEMENTS(ctx->latin1tab), 
 					g, type, output);
 
 			g->done_encoding = 1;
