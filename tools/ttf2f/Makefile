@@ -1,6 +1,6 @@
 # Component settings
 COMPONENT := ttf2f
-COMPONENT_VERSION := 0.0.3
+COMPONENT_VERSION := 0.0.4
 # We produce an application binary
 COMPONENT_TYPE := binary
 
