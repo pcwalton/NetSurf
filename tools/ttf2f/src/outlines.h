@@ -32,7 +32,6 @@ struct outlines_header {
 struct chunk {
 	unsigned int  flags;
 	unsigned int  offset[32];
-	unsigned char depend[4];
 };
 
 struct char_data {
