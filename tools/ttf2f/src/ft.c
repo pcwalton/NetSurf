@@ -359,13 +359,16 @@ int fnmetrics(ttf2f_ctx *ctx)
  * Functions to decompose the outlines
  */
 
-static struct glyph *curg;
-static struct outline *cur_outline_entry;
-static long lastx, lasty;
+typedef struct ft_decomp_ctx {
+	FT_Face f;
+	struct glyph *g;
+	struct outline *outline_entry;
+	long lastx, lasty;
+} ft_decomp_ctx;
 
-static int outl_moveto(const FT_Vector *to, void *face)
+static int outl_moveto(const FT_Vector *to, void *ctx)
 {
-	FT_Face f = (FT_Face) face;
+	ft_decomp_ctx *c = ctx;
 	struct outline *o;
 
 	o = calloc(1, sizeof(struct outline));
@@ -375,24 +378,24 @@ static int outl_moveto(const FT_Vector *to, void *face)
 	}
 
 	o->type = MOVE_TO;
-	o->data.move_to.x = convert_units(to->x, f->units_per_EM);
-	o->data.move_to.y = convert_units(to->y, f->units_per_EM);
+	o->data.move_to.x = convert_units(to->x, c->f->units_per_EM);
+	o->data.move_to.y = convert_units(to->y, c->f->units_per_EM);
 
-	if (cur_outline_entry)
-		cur_outline_entry->next = o;
+	if (c->outline_entry)
+		c->outline_entry->next = o;
 	else
-		curg->outline = o;
-	cur_outline_entry = o;
+		c->g->outline = o;
+	c->outline_entry = o;
 
-	lastx = convert_units(to->x, f->units_per_EM);
-	lasty = convert_units(to->y, f->units_per_EM);
+	c->lastx = convert_units(to->x, c->f->units_per_EM);
+	c->lasty = convert_units(to->y, c->f->units_per_EM);
 
 	return 0;
 }
 
-static int outl_lineto(const FT_Vector *to, void *face)
+static int outl_lineto(const FT_Vector *to, void *ctx)
 {
-	FT_Face f = (FT_Face) face;
+	ft_decomp_ctx *c = ctx;
 	struct outline *o;
 
 	o = calloc(1, sizeof(struct outline));
@@ -402,25 +405,25 @@ static int outl_lineto(const FT_Vector *to, void *face)
 	}
 
 	o->type = LINE_TO;
-	o->data.line_to.x = convert_units(to->x, f->units_per_EM);
-	o->data.line_to.y = convert_units(to->y, f->units_per_EM);
+	o->data.line_to.x = convert_units(to->x, c->f->units_per_EM);
+	o->data.line_to.y = convert_units(to->y, c->f->units_per_EM);
 
-	if (cur_outline_entry)
-		cur_outline_entry->next = o;
+	if (c->outline_entry)
+		c->outline_entry->next = o;
 	else
-		curg->outline = o;
-	cur_outline_entry = o;
+		c->g->outline = o;
+	c->outline_entry = o;
 
-	lastx = convert_units(to->x, f->units_per_EM);
-	lasty = convert_units(to->y, f->units_per_EM);
+	c->lastx = convert_units(to->x, c->f->units_per_EM);
+	c->lasty = convert_units(to->y, c->f->units_per_EM);
 
 	return 0;
 }
 
 static int outl_conicto(const FT_Vector *control1, const FT_Vector *to, 
-		void *face)
+		void *ctx)
 {
-	FT_Face f = (FT_Face) face;
+	ft_decomp_ctx *c = ctx;
 	struct outline *o;
 	double c1x, c1y;
 
@@ -430,41 +433,41 @@ static int outl_conicto(const FT_Vector *control1, const FT_Vector *to,
 		return 1;
 	}
 
-	c1x = (double)lastx + 2.0 *
-		((double)convert_units(control1->x, f->units_per_EM) -
-		(double)lastx) / 3.0;
-	c1y = (double)lasty + 2.0 *
-		((double)convert_units(control1->y, f->units_per_EM) -
-		(double)lasty) / 3.0;
+	c1x = (double)c->lastx + 2.0 *
+		((double)convert_units(control1->x, c->f->units_per_EM) -
+		(double)c->lastx) / 3.0;
+	c1y = (double)c->lasty + 2.0 *
+		((double)convert_units(control1->y, c->f->units_per_EM) -
+		(double)c->lasty) / 3.0;
 
 	o->type = CURVE;
 	o->data.curve.x1 = (int)c1x;
 	o->data.curve.y1 = (int)c1y;
 	o->data.curve.x2 = (int)(c1x +
-			((double)convert_units(to->x, f->units_per_EM) -
-			(double)lastx) / 3.0);
+			((double)convert_units(to->x, c->f->units_per_EM) -
+			(double)c->lastx) / 3.0);
 	o->data.curve.y2 = (int)(c1y +
-			((double)convert_units(to->y, f->units_per_EM) -
-			(double)lasty) / 3.0);
-	o->data.curve.x3 = convert_units(to->x, f->units_per_EM);
-	o->data.curve.y3 = convert_units(to->y, f->units_per_EM);
+			((double)convert_units(to->y, c->f->units_per_EM) -
+			(double)c->lasty) / 3.0);
+	o->data.curve.x3 = convert_units(to->x, c->f->units_per_EM);
+	o->data.curve.y3 = convert_units(to->y, c->f->units_per_EM);
 
-	if (cur_outline_entry)
-		cur_outline_entry->next = o;
+	if (c->outline_entry)
+		c->outline_entry->next = o;
 	else
-		curg->outline = o;
-	cur_outline_entry = o;
+		c->g->outline = o;
+	c->outline_entry = o;
 
-	lastx = convert_units(to->x, f->units_per_EM);
-	lasty = convert_units(to->y, f->units_per_EM);
+	c->lastx = convert_units(to->x, c->f->units_per_EM);
+	c->lasty = convert_units(to->y, c->f->units_per_EM);
 
 	return 0;
 }
 
 static int outl_cubicto(const FT_Vector *control1, const FT_Vector *control2,
-		const FT_Vector *to, void *face)
+		const FT_Vector *to, void *ctx)
 {
-	FT_Face f = (FT_Face) face;
+	ft_decomp_ctx *c = ctx;
 	struct outline *o;
 
 	o = calloc(1, sizeof(struct outline));
@@ -474,21 +477,21 @@ static int outl_cubicto(const FT_Vector *control1, const FT_Vector *control2,
 	}
 
 	o->type = CURVE;
-	o->data.curve.x1 = convert_units(control1->x, f->units_per_EM);
-	o->data.curve.y1 = convert_units(control1->y, f->units_per_EM);
-	o->data.curve.x2 = convert_units(control2->x, f->units_per_EM);
-	o->data.curve.y2 = convert_units(control2->y, f->units_per_EM);
-	o->data.curve.x3 = convert_units(to->x, f->units_per_EM);
-	o->data.curve.y3 = convert_units(to->y, f->units_per_EM);
+	o->data.curve.x1 = convert_units(control1->x, c->f->units_per_EM);
+	o->data.curve.y1 = convert_units(control1->y, c->f->units_per_EM);
+	o->data.curve.x2 = convert_units(control2->x, c->f->units_per_EM);
+	o->data.curve.y2 = convert_units(control2->y, c->f->units_per_EM);
+	o->data.curve.x3 = convert_units(to->x, c->f->units_per_EM);
+	o->data.curve.y3 = convert_units(to->y, c->f->units_per_EM);
 
-	if (cur_outline_entry)
-		cur_outline_entry->next = o;
+	if (c->outline_entry)
+		c->outline_entry->next = o;
 	else
-		curg->outline = o;
-	cur_outline_entry = o;
+		c->g->outline = o;
+	c->outline_entry = o;
 
-	lastx = convert_units(to->x, f->units_per_EM);
-	lasty = convert_units(to->y, f->units_per_EM);
+	c->lastx = convert_units(to->x, c->f->units_per_EM);
+	c->lasty = convert_units(to->y, c->f->units_per_EM);
 
 	return 0;
 }
@@ -508,28 +511,31 @@ static FT_Outline_Funcs ft_outl_funcs = {
 
 void glpath(ttf2f_ctx *ctx, int glyphno)
 {
-	FT_Face f = (FT_Face) ctx->face;
+	ft_decomp_ctx decomp_ctx;
 	FT_Outline *ol;
 	FT_Glyph gly;
 	struct outline *o;
 
-	curg = &ctx->glyphs[glyphno];
-	cur_outline_entry = 0;
+	decomp_ctx.f = ctx->face;
+	decomp_ctx.g = &ctx->glyphs[glyphno];
+	decomp_ctx.outline_entry = 0;
+	decomp_ctx.lastx = 0;
+	decomp_ctx.lasty = 0;
 
-	if (FT_Load_Glyph(f, curg->glyphidx, 
-		FT_LOAD_NO_BITMAP|FT_LOAD_NO_SCALE|FT_LOAD_NO_HINTING)
-			|| f->glyph->format != ft_glyph_format_outline) {
-		fprintf(stderr, "Can't load glyph %s, skipped\n", curg->name);
+	if (FT_Load_Glyph(decomp_ctx.f, decomp_ctx.g->glyphidx, 
+		FT_LOAD_NO_BITMAP | FT_LOAD_NO_SCALE | FT_LOAD_NO_HINTING) || 
+		decomp_ctx.f->glyph->format != ft_glyph_format_outline) {
+		fprintf(stderr, "Can't load glyph %s, skipped\n", 
+				decomp_ctx.g->name);
 		return;
 	}
 
-	ol = &f->glyph->outline;
-	lastx = 0; lasty = 0;
+	ol = &decomp_ctx.f->glyph->outline;
 
-	if (FT_Outline_Decompose(ol, &ft_outl_funcs, f)) {
+	if (FT_Outline_Decompose(ol, &ft_outl_funcs, &decomp_ctx)) {
 		fprintf(stderr, 
 			"Can't decompose outline of glyph %s, skipped\n", 
-			curg->name);
+			decomp_ctx.g->name);
 		return;
 	}
 
@@ -543,15 +549,15 @@ void glpath(ttf2f_ctx *ctx, int glyphno)
 	/* todo - handle composite glyphs */
 	o->data.terminate.composite = 0;
 
-	if (cur_outline_entry)
-		cur_outline_entry->next = o;
+	if (decomp_ctx.outline_entry)
+		decomp_ctx.outline_entry->next = o;
 	else
-		curg->outline = o;
-	cur_outline_entry = o;
+		decomp_ctx.g->outline = o;
+	decomp_ctx.outline_entry = o;
 
-	if (FT_Get_Glyph(f->glyph, &gly)) {
+	if (FT_Get_Glyph(decomp_ctx.f->glyph, &gly)) {
 		fprintf(stderr, "Can't access glyph %s bbox, skipped\n", 
-				curg->name);
+				decomp_ctx.g->name);
 		return;
 	}
 
