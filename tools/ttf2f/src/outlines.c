@@ -153,6 +153,12 @@ ttf2f_result outlines_write(const char *savein, const char *name,
 		}
 	}
 
+	/* Finally, write offset to end of file */
+	fseek(output, header.chunk_data.chunk_table_offset +
+			chunk_table_entry * 4, SEEK_SET);
+	if (fwrite(&current_chunk_offset, sizeof(int), 1, output) != 1)
+		goto error_write;
+
 	fclose(output);
 
 #ifdef __riscos__
