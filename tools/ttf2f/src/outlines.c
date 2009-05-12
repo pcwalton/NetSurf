@@ -32,7 +32,7 @@ ttf2f_result outlines_write(const char *savein, const char *name,
 	struct outlines_header header;
 	int table_end_len, i;
 	unsigned int current_chunk_offset;
-	unsigned int chunk_table_entry;
+	int chunk_table_entry;
 	size_t cur_glyph = 0;
 	unsigned int slots;
 	FILE *output;
@@ -92,7 +92,6 @@ ttf2f_result outlines_write(const char *savein, const char *name,
 	}
 
 	/* write chunk table */
-	chunk_table_entry = 1;
 	current_chunk_offset = header.chunk_data.chunk_table_offset +
 				header.chunk_data.nchunks * 4 + 4;
 
@@ -117,23 +116,26 @@ ttf2f_result outlines_write(const char *savein, const char *name,
 		current_chunk_offset++;
 	}
 
-	/* Write first chunk offset */
-	fseek(output, header.chunk_data.chunk_table_offset, SEEK_SET);
-	if (fwrite(&current_chunk_offset, sizeof(int), 1, output) != 1)
-		goto error_write;
-
-	for (; header.chunk_data.nchunks > 1; header.chunk_data.nchunks--) {
+	for (chunk_table_entry = 0; 
+			chunk_table_entry != header.chunk_data.nchunks; 
+			chunk_table_entry++) {
 		unsigned int chunk_size;
 		ttf2f_result err;
 
 		callback((chunk_table_entry * 100) / ((slots + 31) + ~31) / 32);
 		ttf2f_poll(1);
 
+		/* Write chunk offset */
+		fseek(output, header.chunk_data.chunk_table_offset +
+				chunk_table_entry * 4, SEEK_SET);
+		if (fwrite(&current_chunk_offset, sizeof(int), 1, output) != 1)
+			goto error_write;
+
 		/* seek to start of current chunk */
 		fseek(output, current_chunk_offset, SEEK_SET);
 
 		/* write chunk */
-		err = write_chunk(output, chunk_table_entry - 1, ctx, 
+		err = write_chunk(output, chunk_table_entry, ctx, 
 				&cur_glyph, &chunk_size);
 
 		if (err != TTF2F_RESULT_OK) {
@@ -148,14 +150,6 @@ ttf2f_result outlines_write(const char *savein, const char *name,
 			if (fputc(0x0, output) == EOF) goto error_write;
 			current_chunk_offset++;
 		}
-
-		/* fill in next chunk table entry */
-		fseek(output, header.chunk_data.chunk_table_offset +
-				(chunk_table_entry+1) * 4, SEEK_SET);
-		if (fwrite(&current_chunk_offset, sizeof(int), 1,
-			output) != 1) goto error_write;
-
-		chunk_table_entry++;
 	}
 
 	fclose(output);
