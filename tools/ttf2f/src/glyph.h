@@ -23,6 +23,7 @@ struct composite {
 };
 
 struct glyph {
+	unsigned int glyphidx;       /* glyph index */
 	unsigned int code;           /* glyph code */
 	const char *name;            /* glyph name */
 	int  xMin:12, yMin:12;

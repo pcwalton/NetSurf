@@ -93,8 +93,17 @@ void close_font(void *face)
 size_t count_glyphs(ttf2f_ctx *ctx)
 {
 	FT_Face f = (FT_Face) ctx->face;
+	unsigned int glyphid, charcode;
+	size_t num_glyphs = 0;
 
-	return (size_t) f->num_glyphs;
+	charcode = FT_Get_First_Char(f, &glyphid);
+	while (glyphid != 0) {
+		num_glyphs++;
+
+		charcode = FT_Get_Next_Char(f, charcode, &glyphid);
+	}
+
+	return num_glyphs;
 }
 
 /*
@@ -104,10 +113,9 @@ size_t count_glyphs(ttf2f_ctx *ctx)
 
 int glnames(ttf2f_ctx *ctx)
 {
-	FT_Face f = (FT_Face) ctx->face;
-	int i;
+	size_t i;
 
-	for (i = 0; i != f->num_glyphs; i++) {
+	for (i = 0; i != ctx->nglyphs; i++) {
 		unsigned int code = ctx->glyphs[i].code;
 
 		ttf2f_poll(1);
@@ -152,18 +160,19 @@ void glmetrics(ttf2f_ctx *ctx, void (*callback)(int progress))
 {
 	FT_Face f = (FT_Face) ctx->face;
 	struct glyph *g;
-	int i;
+	size_t i;
 	FT_Glyph_Metrics *met;
 	FT_BBox bbox;
 	FT_Glyph gly;
 
-	for (i = 0; i < f->num_glyphs; i++) {
+	for (i = 0; i < ctx->nglyphs; i++) {
 		g = &ctx->glyphs[i];
 
-		callback(i * 100 / f->num_glyphs);
+		callback(i * 100 / ctx->nglyphs);
 		ttf2f_poll(1);
 
-		if (FT_Load_Glyph(f, i, FT_LOAD_NO_BITMAP|FT_LOAD_NO_SCALE)) {
+		if (FT_Load_Glyph(f, g->glyphidx, 
+				FT_LOAD_NO_BITMAP | FT_LOAD_NO_SCALE)) {
 			fprintf(stderr, "Can't load glyph %s, skipped\n", 
 					g->name);
 			continue;
@@ -210,7 +219,8 @@ void glmetrics(ttf2f_ctx *ctx, void (*callback)(int progress))
 int glenc(ttf2f_ctx *ctx)
 {
 	FT_Face f = (FT_Face) ctx->face;
-	unsigned charcode, glyphid;
+	unsigned int charcode, glyphid;
+	size_t index = 0;
 
 	if (!f->charmaps || FT_Select_Charmap(f, FT_ENCODING_UNICODE)) {
 		fprintf(stderr, "**** Cannot set charmap in FreeType ****\n");
@@ -220,7 +230,10 @@ int glenc(ttf2f_ctx *ctx)
 	charcode = FT_Get_First_Char(f, &glyphid);
 	while (glyphid != 0) {
 		ttf2f_poll(1);
-		ctx->glyphs[glyphid].code = charcode;
+
+		ctx->glyphs[index].glyphidx = glyphid;
+		ctx->glyphs[index++].code = charcode;
+
 		charcode = FT_Get_Next_Char(f, charcode, &glyphid);
 	}
 
@@ -503,7 +516,7 @@ void glpath(ttf2f_ctx *ctx, int glyphno)
 	curg = &ctx->glyphs[glyphno];
 	cur_outline_entry = 0;
 
-	if (FT_Load_Glyph(f, glyphno, 
+	if (FT_Load_Glyph(f, curg->glyphidx, 
 		FT_LOAD_NO_BITMAP|FT_LOAD_NO_SCALE|FT_LOAD_NO_HINTING)
 			|| f->glyph->format != ft_glyph_format_outline) {
 		fprintf(stderr, "Can't load glyph %s, skipped\n", curg->name);
@@ -553,16 +566,15 @@ void glpath(ttf2f_ctx *ctx, int glyphno)
 void kerning(ttf2f_ctx *ctx)
 {
 	int	i, j, n;
-	int	nglyphs = face->num_glyphs;
 	FT_Vector k;
 	struct glyph *gl;
 
-	if (nglyphs == 0 || !FT_HAS_KERNING(face)) {
+	if (ctx->nglyphs == 0 || !FT_HAS_KERNING(face)) {
 		fputs("No Kerning data\n", stderr);
 		return;
 	}
 
-	for (i = 0; i < nglyphs; i++)  {
+	for (i = 0; i < ctx->nglyphs; i++)  {
 		if ((glyph_list[i].flags & GF_USED) == 0)
 			continue;
 		for (j = 0; j < nglyphs; j++) {
