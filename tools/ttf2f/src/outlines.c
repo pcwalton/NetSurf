@@ -1,3 +1,4 @@
+#include <assert.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -265,8 +266,8 @@ ttf2f_result append_glyph(struct glyph *g, size_t idx, ttf2f_ctx *ctx,
 
 	ttf2f_poll(1);
 
-	/* no path => skip character */
-	if (g->ttf_pathlen == 0) {
+	/* no path => skip character unless space */
+	if (g->ttf_pathlen == 0 && g->code != 0x0020) {
 		(*chunk)->offset[idx] = 0;
 		return TTF2F_RESULT_OK;
 	}
@@ -293,6 +294,25 @@ ttf2f_result append_glyph(struct glyph *g, size_t idx, ttf2f_ctx *ctx,
 	character->xsys[1] = (((g->yMax - g->yMin) << 4) & 0xF) |
 				(((g->xMax - g->xMin) >> 8) & 0xF);
 	character->xsys[2] = ((g->yMax - g->yMin) >> 4) & 0xFF;
+
+	/* Nasty hack for space character */
+	if (g->ttf_pathlen == 0) {
+		assert(g->code == 0x0020);
+
+		temp = realloc((*chunk), (*chunk_size) + 1);
+		if (temp == NULL)
+			return TTF2F_RESULT_NOMEM;
+		(*chunk) = temp;
+
+		outline = (char *) (*chunk) + (*chunk_size);
+
+		(*chunk_size) += 1;
+
+		/* Just terminate path */
+		(*outline) = 0;
+
+		return TTF2F_RESULT_OK;
+	}
 
 	/* decompose glyph path */
 	glpath(ctx, g - ctx->glyphs);
