@@ -4,14 +4,13 @@
 #include <ctype.h>
 #include <time.h>
 
-#include "swis.h"
-
-#include "tboxlibs/event.h"
-#include "tboxlibs/gadgets.h"
-#include "tboxlibs/quit.h"
-#include "tboxlibs/toolbox.h"
-#include "tboxlibs/wimp.h"
-#include "tboxlibs/wimplib.h"
+#include <oslib/displayfield.h>
+#include <oslib/osfile.h>
+#include <oslib/quit.h>
+#include <oslib/slider.h>
+#include <oslib/stringset.h>
+#include <oslib/writablefield.h>
+#include <Event.h>
 
 #include "encoding.h"
 #include "ft.h"
@@ -24,36 +23,56 @@
 
 #define Convert_Font 0x101
 
-int ttf2f_quit = 0;
-MessagesFD messages_file;
-ObjectId main_window;
-int converting = 0;
+static int ttf2f_quit;
+static messagetrans_control_block messages_file;
+static toolbox_o main_window;
+static int converting;
+
+typedef struct ttf2f_message_list {
+	int first;
+	int rest[];
+} ttf2f_message_list;
+
+typedef union message_list {
+	ttf2f_message_list ttf2f;
+	wimp_message_list wimp;
+	toolbox_action_list toolbox;
+} message_list;
+
+#define PTR_WIMP_MESSAGE_LIST(l) ((wimp_message_list *) (message_list *) (l))
+#define PTR_TOOLBOX_ACTION_LIST(l) ((toolbox_action_list *) (message_list *) (l))
 
 /* Wimp Messages we're interested in */
-static int messages [] ={
-	Wimp_MDataLoad,
-	Wimp_MQuit,
-	0};
+static ttf2f_message_list messages = {
+	message_DATA_LOAD,
+	{
+		message_QUIT,
+		0
+	}
+};
 
 /* Toolbox events we're interested in */
-static int tbcodes [] ={
+static ttf2f_message_list tbcodes = {
 	Convert_Font,
-	Quit_Quit,
-	Toolbox_Error,
-	0};
+	{
+		quit_QUIT,
+		action_ERROR,
+		0
+	}
+};
 
 static void ttf2f_init(int argc, char **argv);
 static void ttf2f_exit(void);
 static void register_toolbox_handlers(void);
-static int toolbox_event_quit(int event_code, ToolboxEvent *event,
-		IdBlock *id_block, void *handle);
-static int toolbox_event_error(int event_code, ToolboxEvent *event,
-		IdBlock *id_block, void *handle);
-static int convert_font(int event_code, ToolboxEvent *event,
-		IdBlock *id_block, void *handle);
+static osbool toolbox_event_quit(bits event_code, toolbox_action *event,
+		toolbox_block *id_block, void *handle);
+static osbool toolbox_event_error(bits event_code, toolbox_action *event,
+		toolbox_block *id_block, void *handle);
+static osbool convert_font(bits event_code, toolbox_action *event,
+		toolbox_block *id_block, void *handle);
 static void register_message_handlers(void);
-static int wimp_message_quit(WimpMessage *message,void *handle);
-static int wimp_message_dataload(WimpMessage *message,void *handle);
+static int wimp_message_quit(wimp_message *message,void *handle);
+static int wimp_message_dataload(wimp_message *message,void *handle);
 static void progress_bar(int value);
 
 int main(int argc, char **argv)
@@ -71,32 +90,36 @@ int main(int argc, char **argv)
 
 void ttf2f_init(int argc, char **argv)
 {
-	_kernel_oserror *error;
-	IdBlock toolbox_block;
+	os_error *error;
+	toolbox_block toolbox_block;
 	char *stringset;
+	ttf2f_result res;
+
+	UNUSED(argc);
+	UNUSED(argv);
 
 	ft_init();
-	load_glyph_list();
 
-	error = event_initialise(&toolbox_block);
-	if (error) {
-		fprintf(stderr, "event_initialise: 0x%x: %s\n",
-			error->errnum, error->errmess);
+	res = glyph_load_list();
+	if (res != TTF2F_RESULT_OK)
 		exit(1);
-	}
 
-	event_set_mask(Wimp_Poll_NullMask |
-			Wimp_Poll_PointerLeavingWindowMask |
-			Wimp_Poll_PointerEnteringWindowMask |
-			Wimp_Poll_MouseClickMask |
-			Wimp_Poll_KeyPressedMask |
-			Wimp_Poll_LoseCaretMask |
-			Wimp_Poll_GainCaretMask);
+	event_initialise(&toolbox_block);
+
+	event_set_mask(wimp_MASK_NULL |
+			wimp_MASK_LEAVING |
+			wimp_MASK_ENTERING |
+			wimp_QUEUE_MOUSE |
+			wimp_QUEUE_KEY |
+			wimp_MASK_LOSE |
+			wimp_MASK_GAIN);
 
 	register_toolbox_handlers();
 	register_message_handlers();
 
-	error = toolbox_initialise(0, 310, messages, tbcodes,
+	error = xtoolbox_initialise(0, 310,
+				PTR_WIMP_MESSAGE_LIST(&messages), 
+				PTR_TOOLBOX_ACTION_LIST(&tbcodes),
 				"<TTF2F$Dir>", &messages_file,
 				&toolbox_block, NULL, NULL, NULL);
 	if (error) {
@@ -105,7 +128,7 @@ void ttf2f_init(int argc, char **argv)
 			exit(1);
 	}
 
-	error = toolbox_create_object(0, "main", &main_window);
+	error = xtoolbox_create_object(0, (toolbox_id) "main", &main_window);
 	if (error) {
 		fprintf(stderr, "toolbox_create_object: 0x%x: %s\n",
 			error->errnum, error->errmess);
@@ -114,7 +137,7 @@ void ttf2f_init(int argc, char **argv)
 
 	stringset = getenv("Font$Path");
 	if (stringset) {
-		error = stringset_set_available(0, main_window, 7,
+		error = xstringset_set_available(0, main_window, 7,
 				stringset);
 		if (error) {
 			fprintf(stderr,
@@ -127,35 +150,25 @@ void ttf2f_init(int argc, char **argv)
 
 void ttf2f_poll(int active)
 {
-	_kernel_oserror *error;
 	int event;
 	unsigned int mask;
-	WimpPollBlock block;
+	wimp_block block;
 
 	if (active || converting) {
 		event_set_mask(0x3972);
-		error = event_poll(&event, &block, 0);
+		event_poll(&event, &block, 0);
 	} else {
 		event_get_mask(&mask);
-		event_set_mask(mask | Wimp_Poll_NullMask);
-		error = event_poll(&event, &block, 0);
+		event_set_mask(mask | wimp_MASK_NULL);
+		event_poll(&event, &block, 0);
 	}
-	if (error)
-		fprintf(stderr, "event_poll: 0x%x: %s\n",
-			error->errnum, error->errmess);
 }
 
 void ttf2f_exit(void)
 {
-	_kernel_oserror *error;
-
 	ft_fini();
-	destroy_glyphs();
 
-	error = event_finalise();
-	if (error)
-		fprintf(stderr, "event_finalise: 0x%x: %s\n",
-			error->errnum, error->errmess);
+	glyph_destroy_list();
 }
 
 /**
@@ -163,50 +176,57 @@ void ttf2f_exit(void)
  */
 void register_toolbox_handlers(void)
 {
-	_kernel_oserror *error;
+	osbool success;
 
-	error = event_register_toolbox_handler(-1, Quit_Quit,
-				toolbox_event_quit, 0);
-	if (error)
-		fprintf(stderr, "registering Quit_Quit: 0x%x: %s\n",
-			error->errnum, error->errmess);
+	success = event_register_toolbox_handler(event_ANY,
+			quit_QUIT, toolbox_event_quit, NULL);
+	if (success == FALSE)
+		fprintf(stderr, "registering quit_QUIT failed\n");
 
-	error = event_register_toolbox_handler(-1, Toolbox_Error,
-				toolbox_event_error, 0);
-	if (error)
-		fprintf(stderr, "registering Quit_Quit: 0x%x: %s\n",
-			error->errnum, error->errmess);
+	success = event_register_toolbox_handler(event_ANY, 
+			action_ERROR, toolbox_event_error, NULL);
+	if (success == FALSE)
+		fprintf(stderr, "registering action_ERROR failed\n");
 
-	error = event_register_toolbox_handler(-1, Convert_Font,
-				convert_font, 0);
-	if (error)
-		fprintf(stderr, "registering Convert_Font: 0x%x: %s\n",
-				error->errnum, error->errmess);
+	success = event_register_toolbox_handler(event_ANY, 
+			Convert_Font, convert_font, NULL);
+	if (success == FALSE)
+		fprintf(stderr, "registering Convert_Font failed\n");
 }
 
 /**
  * Handle quit events
  */
-int toolbox_event_quit(int event_code, ToolboxEvent *event,
-		IdBlock *id_block, void *handle)
+osbool toolbox_event_quit(bits event_code, toolbox_action *event,
+		toolbox_block *id_block, void *handle)
 {
+	UNUSED(event_code);
+	UNUSED(event);
+	UNUSED(id_block);
+	UNUSED(handle);
+
 	ttf2f_quit = 1;
 
-	return 1;
+	return TRUE;
 }
 
 /**
  * Handle toolbox errors
  */
-int toolbox_event_error(int event_code, ToolboxEvent *event,
-		IdBlock *id_block, void *handle)
+osbool toolbox_event_error(bits event_code, toolbox_action *event,
+		toolbox_block *id_block, void *handle)
 {
-	ToolboxErrorEvent *error = (ToolboxErrorEvent *)event;
+	toolbox_action_error_block *error = 
+			(toolbox_action_error_block *) event;
+
+	UNUSED(event_code);
+	UNUSED(id_block);
+	UNUSED(handle);
 
 	fprintf(stderr, "toolbox error: 0x%x: %s\n",
 		error->errnum, error->errmess);
 
-	return 1;
+	return TRUE;
 }
 
 /**
@@ -214,93 +234,101 @@ int toolbox_event_error(int event_code, ToolboxEvent *event,
  */
 void register_message_handlers(void)
 {
-	_kernel_oserror *error;
+	osbool success;
 
-	error = event_register_message_handler(Wimp_MQuit, wimp_message_quit,
-				0);
-	if (error)
-		fprintf(stderr, "registering Wimp_MQuit handler: 0x%x: %s\n",
-			error->errnum, error->errmess);
+	success = event_register_message_handler(message_QUIT, 
+			wimp_message_quit, NULL);
+	if (success == FALSE)
+		fprintf(stderr, "registering message_QUIT handler failed\n");
 
-	error = event_register_message_handler(Wimp_MDataLoad,
-				wimp_message_dataload,
-				0);
-	if (error)
+	success = event_register_message_handler(message_DATA_LOAD,
+			wimp_message_dataload, NULL);
+	if (success == FALSE)
 		fprintf(stderr,
-			"registering Wimp_MDataLoad handler: 0x%x: %s\n",
-			error->errnum, error->errmess);
+			"registering message_DATA_LOAD handler failed\n");
 }
 
 /**
  * Handle quit messages
  */
-int wimp_message_quit(WimpMessage *message,void *handle)
+osbool wimp_message_quit(wimp_message *message, void *handle)
 {
+	UNUSED(message);
+	UNUSED(handle);
+
 	ttf2f_quit = 1;
 
-	return 1;
+	return TRUE;
 }
 
 /**
  * Handle dataload messages
  */
-int wimp_message_dataload(WimpMessage *message,void *handle)
+osbool wimp_message_dataload(wimp_message *message, void *handle)
 {
-	_kernel_oserror *error;
-	WimpDataLoadMessage *dl = &message->data.data_load;
+	os_error *error;
+	wimp_message_data_xfer *dl = &message->data.data_xfer;
 
-	error = displayfield_set_value(0, main_window, 0, dl->leaf_name);
-	if (error) {
+	UNUSED(handle);
+
+	error = xdisplayfield_set_value(0, main_window, 0, dl->file_name);
+	if (error != NULL) {
 		fprintf(stderr, "displayfield_set_value: 0x%x: %s\n",
 			error->errnum, error->errmess);
 	}
 
-	message->hdr.action_code = Wimp_MDataLoadAck;
-	message->hdr.your_ref = message->hdr.my_ref;
-	error = wimp_send_message(17, message, message->hdr.sender, 0, 0);
-	if (error) {
+	message->action = message_DATA_LOAD_ACK;
+	message->your_ref = message->my_ref;
+
+	error = xwimp_send_message(wimp_USER_MESSAGE, message, message->sender);
+	if (error != NULL) {
 		fprintf(stderr, "wimp_send_message: 0x%x: %s\n",
 			error->errnum, error->errmess);
 	}
 
-	return 1;
+	return TRUE;
 }
 
 
 
 
-int convert_font(int event_code, ToolboxEvent *event,
-		IdBlock *id_block, void *handle)
+osbool convert_font(bits event_code, toolbox_action *event,
+		toolbox_block *id_block, void *handle)
 {
-	_kernel_oserror *error, erblock = { 123456, "Invalid Parameters" };
+	os_error *error, erblock = { 123456, "Invalid Parameters" };
 	char ifilename[256], ofilename[256], save_in[1024];
-	char *token;
-	int count = 0;
-	int nglyphs, i;
-	struct glyph *glyph_list, *g;
-	struct font_metrics *metrics;
+	char *dot, *last_dot, *save;
+	int fail;
+	ttf2f_ctx ctx;
+	ttf2f_result res;
+
+	UNUSED(event_code);
+	UNUSED(event);
+	UNUSED(id_block);
+	UNUSED(handle);
 
 	if (converting)
-		return 1;
+		return TRUE;
 
 	converting = 1;
 
 	/* get input file */
-	error = displayfield_get_value(0, main_window, 0, ifilename, 256, 0);
+	error = xdisplayfield_get_value(0, main_window, 0, ifilename, 256, 0);
 	if (error) {
 		fprintf(stderr, "displayfield_get_value: 0x%x: %s\n",
 			error->errnum, error->errmess);
 	}
 
 	/* read font name */
-	error = writablefield_get_value(0, main_window, 3, ofilename, 256, 0);
+	error = xwritablefield_get_value(0, main_window, 3, ofilename, 256, 0);
 	if (error) {
 		fprintf(stderr, "writablefield_get_value: 0x%x: %s\n",
 			error->errnum, error->errmess);
 	}
 
 	/* read save location */
-	error = stringset_get_selected(0, main_window, 7, save_in, 1024, 0);
+	error = xstringset_get_selected_string(0, main_window, 7, 
+			save_in, 1024, 0);
 	if (error) {
 		fprintf(stderr, "stringset_get_selected: 0x%x: %s\n",
 			error->errnum, error->errmess);
@@ -311,142 +339,191 @@ int convert_font(int event_code, ToolboxEvent *event,
 		strcmp(ifilename, "Filename") == 0) {
 		wimp_report_error(&erblock, 0x5, "TTF2f");
 		converting = 0;
-		return 1;
+		return TRUE;
 	}
 
 	/* create output directories */
-	token = strtok(ofilename, ".");
-	while (token) {
-		if (count)
-			strcat(save_in, ".");
-		strcat(save_in, token);
-		error = _swix(OS_File, _INR(0,1) | _IN(4), 8, save_in, 0);
-		if (error) {
-			fprintf(stderr, "os_file: 0x%x: %s\n",
-				error->errnum, error->errmess);
-			wimp_report_error(error, 0x5, "TTF2f");
-			converting  = 0;
-			return 1;
+	last_dot = ofilename;
+	save = save_in + strlen(save_in);
+
+	for (dot = last_dot; *dot != '\0'; dot++) {
+		if (*dot == '.') {
+			error = xosfile_create_dir(save_in, 0);
+			if (error) {
+				fprintf(stderr, "os_file: 0x%x: %s\n",
+					error->errnum, error->errmess);
+				wimp_report_error(error, 0x5, "TTF2f");
+				converting  = 0;
+				return TRUE;
+			}
 		}
-		token = strtok(NULL, ".");
-		count++;
+
+		*(save++) = *dot;
 	}
 
-	/* re-read font name - previously corrupted by strtok */
-	error = writablefield_get_value(0, main_window, 3, ofilename, 256, 0);
-	if (error) {
-		fprintf(stderr, "writablefield_get_value: 0x%x: %s\n",
-			error->errnum, error->errmess);
-	}
-
-	if (open_font(ifilename)) {
+	ctx.face = open_font(ifilename);
+	if (ctx.face == NULL) {
 		snprintf(erblock.errmess, 252, "Unknown font format");
 		wimp_report_error(&erblock, 0x5, "TTF2f");
 		converting = 0;
-		return 1;
+		return TRUE;
 	}
 
-	nglyphs = count_glyphs();
+	ctx.nglyphs = count_glyphs(&ctx);
 
-	fprintf(stderr, "%d x %d = %d\n", nglyphs, sizeof(struct glyph), nglyphs * sizeof(struct glyph));
-
-	glyph_list = (struct glyph *)calloc(nglyphs, sizeof(struct glyph));
-	if (!glyph_list) {
+	ctx.glyphs = calloc(ctx.nglyphs, sizeof(struct glyph));
+	if (ctx.glyphs == NULL) {
+		close_font(ctx.face);
 		fprintf(stderr, "malloc failed\n");
 		snprintf(erblock.errmess, 252, "Insufficient memory");
 		wimp_report_error(&erblock, 0x5, "TTF2f");
 		converting = 0;
-		return 1;
+		return TRUE;
 	}
 
 	/* Initialise glyph list */
-	for (i = 0; i != nglyphs; i++) {
-		g = &glyph_list[i];
+	for (size_t i = 0; i != ctx.nglyphs; i++) {
+		struct glyph *g = &ctx.glyphs[i];
 
 		g->code = -1;
 	}
 
 	/* create buffer for font metrics data */
-	metrics = calloc(1, sizeof(struct font_metrics));
-	if (!metrics) {
-		free(glyph_list);
-		close_font();
+	ctx.metrics = calloc(1, sizeof(struct font_metrics));
+	if (ctx.metrics == NULL) {
+		free(ctx.glyphs);
+		close_font(ctx.face);
 		fprintf(stderr, "malloc failed\n");
 		snprintf(erblock.errmess, 252, "Insufficient memory");
 		wimp_report_error(&erblock, 0x5, "TTF2f");
 		converting = 0;
-		return 1;
+		return TRUE;
 	}
 
 	/* read global font metrics */
-	if (fnmetrics(metrics)) {
-		free(glyph_list);
-		free(metrics);
-		close_font();
+	fail = fnmetrics(&ctx);
+	if (fail) {
+		free(ctx.metrics);
+		free(ctx.glyphs);
+		close_font(ctx.face);
 		snprintf(erblock.errmess, 252, "Insufficient memory");
 		wimp_report_error(&erblock, 0x5, "TTF2f");
 		converting = 0;
-		return 1;
+		return TRUE;
 	}
 
 	/* map glyph ids to charcodes */
-	if (glenc(glyph_list)) {
-		free(glyph_list);
-		free(metrics);
-		close_font();
+	fail = glenc(&ctx);
+	if (fail) {
+		free(ctx.metrics->name_copyright);
+		free(ctx.metrics->name_full);
+		free(ctx.metrics->name_version);
+		free(ctx.metrics->name_ps);
+		free(ctx.metrics);
+		free(ctx.glyphs);
+		close_font(ctx.face);
 		snprintf(erblock.errmess, 252, "Unknown encoding");
 		wimp_report_error(&erblock, 0x5, "TTF2f");
 		converting = 0;
-		return 1;
+		return TRUE;
 	}
 
 	/* extract glyph names */
-	if (glnames(glyph_list)) {
-		free(glyph_list);
-		free(metrics);
-		close_font();
+	fail = glnames(&ctx);
+	if (fail) {
+		free(ctx.metrics->name_copyright);
+		free(ctx.metrics->name_full);
+		free(ctx.metrics->name_version);
+		free(ctx.metrics->name_ps);
+		free(ctx.metrics);
+		free(ctx.glyphs);
+		close_font(ctx.face);
 		snprintf(erblock.errmess, 252, "Insufficient memory");
 		wimp_report_error(&erblock, 0x5, "TTF2f");
 		converting = 0;
-		return 1;
+		return TRUE;
 	}
 
 	/* olive */
 	slider_set_colour(0, main_window, 8, 13, 0);
 
 	/* extract glyph metrics */
-	glmetrics(glyph_list, progress_bar);
+	glmetrics(&ctx, progress_bar);
 
 	/* red */
 	slider_set_colour(0, main_window, 8, 11, 13);
 
 	/* write intmetrics file */
-	write_intmetrics(save_in, ofilename, glyph_list, nglyphs, metrics, progress_bar);
+	res = intmetrics_write(save_in, ofilename, &ctx, progress_bar);
+	if (res != TTF2F_RESULT_OK) {
+		free(ctx.metrics->name_copyright);
+		free(ctx.metrics->name_full);
+		free(ctx.metrics->name_version);
+		free(ctx.metrics->name_ps);
+		free(ctx.metrics);
+		free(ctx.glyphs);
+		close_font(ctx.face);
+		snprintf(erblock.errmess, 252, "Insufficient memory");
+		wimp_report_error(&erblock, 0x5, "TTF2f");
+		converting = 0;
+		return TRUE;
+	}
 
 	/* blue */
 	slider_set_colour(0, main_window, 8, 8, 11);
 
 	/* write outlines file */
-	write_outlines(save_in, ofilename, glyph_list, nglyphs, metrics, progress_bar);
+	res = outlines_write(save_in, ofilename, &ctx, progress_bar);
+	if (res != TTF2F_RESULT_OK) {
+		free(ctx.metrics->name_copyright);
+		free(ctx.metrics->name_full);
+		free(ctx.metrics->name_version);
+		free(ctx.metrics->name_ps);
+		free(ctx.metrics);
+		free(ctx.glyphs);
+		close_font(ctx.face);
+		snprintf(erblock.errmess, 252, "Insufficient memory");
+		wimp_report_error(&erblock, 0x5, "TTF2f");
+		converting = 0;
+		return TRUE;
+	}
 
 	/* green */
 	slider_set_colour(0, main_window, 8, 10, 8);
 
 	/* write encoding file */
-	write_encoding(save_in, ofilename, glyph_list, nglyphs, 0, progress_bar);
+	res = encoding_write(save_in, ofilename, &ctx, 
+			ENCODING_TYPE_NORMAL, progress_bar);
+	if (res != TTF2F_RESULT_OK) {
+		free(ctx.metrics->name_copyright);
+		free(ctx.metrics->name_full);
+		free(ctx.metrics->name_version);
+		free(ctx.metrics->name_ps);
+		free(ctx.metrics);
+		free(ctx.glyphs);
+		close_font(ctx.face);
+		snprintf(erblock.errmess, 252, "Insufficient memory");
+		wimp_report_error(&erblock, 0x5, "TTF2f");
+		converting = 0;
+		return TRUE;
+	}
 
 	/* reset slider */
 	slider_set_colour(0, main_window, 8, 8, 0);
 	slider_set_value(0, main_window, 8, 0);
 
-	free(glyph_list);
-	free(metrics);
+	free(ctx.metrics->name_copyright);
+	free(ctx.metrics->name_full);
+	free(ctx.metrics->name_version);
+	free(ctx.metrics->name_ps);
+	free(ctx.metrics);
+	free(ctx.glyphs);
 
-	close_font();
+	close_font(ctx.face);
 
 	converting = 0;
 
-	return 1;
+	return TRUE;
 }
 
 void progress_bar(int value)
