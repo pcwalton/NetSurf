@@ -57,7 +57,7 @@
 <h1>News</h1>
 
 <dl class="news">
-<dt><a href="/downloads/">NetSurf 2.0 released</a> <span>25 Apr 2008</span></dt>
+<dt><a href="/downloads/">NetSurf 2.0 released</a> <span>25 Apr 2009</span></dt>
 <dd>NetSurf 2 is a major update over the 1.x release series, and represents almost two years of development. New features include a new HTML parser, SVG support, PDF export, improved page layout and a more complete GTK interface. This is also the first release for our new framebuffer target and the native ports to AmigaOS, BeOS and Haiku.</dd>
 <dt><a href="/developers/gsoc/">GSoC students selected</a> <span>20 Apr 2009</span></dt>
 <dd>This year we will have students working on a Document Object Model implementation, the usability and feature set of NetSurf's core multi-platform interface, and adding features to the GTK front end.</dd>
