@@ -93,7 +93,7 @@ void ttf2f_init(int argc, char **argv)
 {
 	os_error *error;
 	toolbox_block toolbox_block;
-	char *stringset;
+	const char *fontpath;
 	ttf2f_result res;
 
 	UNUSED(argc);
@@ -136,10 +136,42 @@ void ttf2f_init(int argc, char **argv)
 		exit(1);
 	}
 
-	stringset = getenv("Font$Path");
-	if (stringset) {
-		error = xstringset_set_available(0, main_window, 7,
-				stringset);
+	fontpath = getenv("Font$Path");
+	if (fontpath) {
+		size_t len = strlen(fontpath);
+		char buf[len];
+		char *b;
+		const char *p;
+
+		for (b = buf, p = fontpath; *p != '\0'; ) {
+			/* Strip leading spaces */
+			while (*p != '\0' && *p == ' ')
+				p++;
+
+			/* Ignore paths that begin with a '.'. 
+			 * These cannot be valid */
+			if (*p == '.' && (b == buf || *(b - 1) == ',')) {
+				/* Skip to end or next comma */
+				while (*p != '\0' && *p != ',')
+					p++;
+				/* Skip comma */
+				if (*p == ',')
+					p++;
+			} else if (*p != '\0') {
+				*(b++) = *(p++);
+			}
+
+			/* Strip trailing spaces */
+			if (b > buf && *(b - 1) == ',') {
+				b--;
+				while (b > buf && *(b - 1) == ' ')
+					b--;
+				*(b++) = ',';
+			}
+		}
+		*b = '\0';
+
+		error = xstringset_set_available(0, main_window, 7, buf);
 		if (error) {
 			fprintf(stderr,
 				"stringset_set_available: 0x%x: %s\n",
