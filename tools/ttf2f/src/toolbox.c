@@ -3,10 +3,13 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include <time.h>
-#include <unixlib/local.h>
+
+#include <sys/stat.h>
 
 #include <oslib/displayfield.h>
 #include <oslib/osfile.h>
+#include <oslib/osfscontrol.h>
+#include <oslib/osgbpb.h>
 #include <oslib/quit.h>
 #include <oslib/slider.h>
 #include <oslib/stringset.h>
@@ -169,6 +172,9 @@ void ttf2f_init(int argc, char **argv)
 				*(b++) = ',';
 			}
 		}
+		/* Strip trailing spaces */
+		while (b > buf && *(b - 1) == ' ')
+			b--;
 		*b = '\0';
 
 		error = xstringset_set_available(0, main_window, 7, buf);
@@ -329,9 +335,13 @@ osbool convert_font(bits event_code, toolbox_action *event,
 		toolbox_block *id_block, void *handle)
 {
 	os_error *error, erblock = { 123456, "Invalid Parameters" };
-	char ifilename[256], ofilename[256], save_in[1024];
-	char *dot, *save;
-	int fail;
+	struct stat stat_buf;
+	char ifilename[256], ofilename[256], save_in[768], temp[256];
+	char *dot, *save, *t;
+	char *end_of_dest_dir = NULL;
+	char *end_of_dest_family = NULL;
+	char *end_of_temp_family = NULL;
+	int fail, context = 0;
 	ttf2f_ctx ctx;
 	ttf2f_result res;
 
@@ -378,12 +388,30 @@ osbool convert_font(bits event_code, toolbox_action *event,
 	}
 
 	/* create output directories */
+	error = xosfile_create_dir("<Wimp$ScrapDir>.TTF2f", 0);
+	if (error) {
+		fprintf(stderr, "os_file: 0x%x: %s\n",
+			error->errnum, error->errmess);
+		wimp_report_error(error, 0x5, "TTF2f");
+		converting  = 0;
+		return TRUE;
+	}
+
+	strcpy(temp, "<Wimp$ScrapDir>.TTF2f.");
+	t = temp + strlen(temp);
 	save = save_in + strlen(save_in);
+	/* Record end of target directory (-1 to strip trailing dot) */
+	end_of_dest_dir = save - 1;
 
 	for (dot = ofilename; *dot != '\0'; dot++) {
 		if (*dot == '.') {
-			(*save) = '\0';
-			error = xosfile_create_dir(save_in, 0);
+			if (end_of_dest_family == NULL) {
+				end_of_dest_family = save;
+				end_of_temp_family = t;
+			}
+
+			(*t) = '\0';
+			error = xosfile_create_dir(temp, 0);
 			if (error) {
 				fprintf(stderr, "os_file: 0x%x: %s\n",
 					error->errnum, error->errmess);
@@ -394,15 +422,30 @@ osbool convert_font(bits event_code, toolbox_action *event,
 		}
 
 		*(save++) = *dot;
+		*(t++) = *dot;
 	}
 	*save = '\0';
+	*t = '\0';
 
-	error = xosfile_create_dir(save_in, 0);
+	if (end_of_dest_family == NULL) {
+		end_of_dest_family = save;
+		end_of_temp_family = t;
+	}
+
+	error = xosfile_create_dir(temp, 0);
 	if (error) {
 		fprintf(stderr, "os_file: 0x%x: %s\n",
 			error->errnum, error->errmess);
 		wimp_report_error(error, 0x5, "TTF2f");
 		converting  = 0;
+		return TRUE;
+	}
+
+	if (stat(save_in, &stat_buf) == 0) {
+		snprintf(erblock.errmess, 252, "Font '%s' already exists",
+				ofilename);
+		wimp_report_error(&erblock, 0x5, "TTF2f");
+		converting = 0;
 		return TRUE;
 	}
 
@@ -503,7 +546,7 @@ osbool convert_font(bits event_code, toolbox_action *event,
 	slider_set_colour(0, main_window, 8, 11, 13);
 
 	/* write intmetrics file */
-	res = intmetrics_write(save_in, ofilename, &ctx, progress_bar);
+	res = intmetrics_write(temp, ofilename, &ctx, progress_bar);
 	if (res != TTF2F_RESULT_OK) {
 		free(ctx.metrics->name_copyright);
 		free(ctx.metrics->name_full);
@@ -523,7 +566,7 @@ osbool convert_font(bits event_code, toolbox_action *event,
 	slider_set_colour(0, main_window, 8, 8, 11);
 
 	/* write outlines file */
-	res = outlines_write(save_in, ofilename, &ctx, progress_bar);
+	res = outlines_write(temp, ofilename, &ctx, progress_bar);
 	if (res != TTF2F_RESULT_OK) {
 		free(ctx.metrics->name_copyright);
 		free(ctx.metrics->name_full);
@@ -543,7 +586,7 @@ osbool convert_font(bits event_code, toolbox_action *event,
 	slider_set_colour(0, main_window, 8, 10, 8);
 
 	/* write encoding file */
-	res = encoding_write(save_in, ofilename, &ctx, 
+	res = encoding_write(temp, ofilename, &ctx, 
 			ENCODING_TYPE_NORMAL, progress_bar);
 	if (res != TTF2F_RESULT_OK) {
 		free(ctx.metrics->name_copyright);
@@ -572,6 +615,59 @@ osbool convert_font(bits event_code, toolbox_action *event,
 	free(ctx.glyphs);
 
 	close_font(ctx.face);
+
+	/* Truncate source and destination paths to font family names */
+	*end_of_temp_family = '\0';
+	*end_of_dest_family = '\0';
+
+	/* Merge into target -- we know it doesn't already exist, 
+	 * as we checked before attempting to convert */
+	error = xosfscontrol_copy(temp, save_in,
+			osfscontrol_COPY_RECURSE | osfscontrol_COPY_DELETE,
+			0, 0, 0, 0, NULL);
+	if (error) {
+		wimp_report_error(error, 0x5, "TTF2f");
+		converting = 0;
+		return TRUE;
+	}
+
+	/* Truncate back to destination directory name */
+	*end_of_dest_dir = '\0';
+
+	/* Finally, synchronise any MessagesN files */
+	while (context != -1) {
+		osgbpb_INFO(100) info;
+		int count;
+
+		error = xosgbpb_dir_entries_info(save_in, 
+				(osgbpb_info_list *) &info,
+				1, context, sizeof(info), "Messages*",
+				&count, &context);
+		if (error) {
+			wimp_report_error(error, 0x5, "TTF2f");
+			converting = 0;
+			return TRUE;
+		}
+
+		/* Process file */
+		if (count != 0 && info.obj_type == fileswitch_IS_FILE) {
+			FILE *fp;
+
+			*end_of_dest_dir = '.';
+			memcpy(end_of_dest_dir + 1, info.name, 
+					strlen(info.name) + 1);
+
+			fp = fopen(save_in, "a+");
+			if (fp != NULL) {
+				/* We only ever produce symbol fonts */
+				fprintf(fp, "Font_%s:*\n", ofilename);
+
+				fclose(fp);
+			}
+
+			*end_of_dest_dir = '\0';
+		}
+	}
 
 	converting = 0;
 
