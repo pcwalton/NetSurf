@@ -31,7 +31,6 @@ ttf2f_result encoding_write(const char *savein, const char *name,
 	if ((output = fopen(out, "w+")) == NULL)
 		return TTF2F_RESULT_OPEN;
 
-	fprintf(output, "%% %sEncoding 1.00\n", name);
 	fprintf(output, "%% Encoding file for font '%s'\n\n", name);
 
 	/* Write latin1 first */
