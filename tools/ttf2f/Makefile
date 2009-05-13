@@ -14,8 +14,8 @@ include build/makefiles/Makefile.tools
 WARNFLAGS := -Wall -Wextra -Wundef -Wpointer-arith -Wcast-align \
 	-Wwrite-strings -Wstrict-prototypes -Wmissing-prototypes \
 	-Wmissing-declarations -Wnested-externs -Werror #-pedantic
-CFLAGS := $(CFLAGS) -std=c99 -D_BSD_SOURCE -I$(CURDIR)/include/ \
-	-I$(CURDIR)/src $(WARNFLAGS) -Dasm="__asm"
+CFLAGS := $(CFLAGS) -std=c99 -D_BSD_SOURCE -D_POSIX_C_SOURCE \
+	-I$(CURDIR)/include/ -I$(CURDIR)/src $(WARNFLAGS) -Dasm="__asm"
 
 # Freetype2
 ifneq ($(findstring clean,$(MAKECMDGOALS)),clean)
@@ -31,8 +31,8 @@ endif
 # OSLib (RISC OS target only)
 ifneq ($(findstring clean,$(MAKECMDGOALS)),clean)
   ifeq ($(TARGET),riscos)
-    CFLAGS := $(CFLAGS) -I$(PREFIX)/include
-    LDFLAGS := $(LDFLAGS) -lOSLib32 -lOSLibSupport32
+    CFLAGS := $(CFLAGS) -I$(PREFIX)/include -static
+    LDFLAGS := $(LDFLAGS) -lOSLib32 -lOSLibSupport32 -static
   endif
 endif
 
