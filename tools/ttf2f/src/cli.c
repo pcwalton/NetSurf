@@ -5,6 +5,10 @@
 
 #include <sys/stat.h>
 
+#ifdef __riscos__
+#include <unixlib/local.h>
+#endif
+
 #include "context.h"
 #include "encoding.h"
 #include "fm.h"
@@ -14,6 +18,10 @@
 #include "intmetrics.h"
 #include "outlines.h"
 #include "utils.h"
+
+#ifdef __riscos__
+int __riscosify_control = __RISCOSIFY_NO_PROCESS;
+#endif
 
 static void progress(int value)
 {
