@@ -298,7 +298,7 @@ osbool convert_font(bits event_code, toolbox_action *event,
 {
 	os_error *error, erblock = { 123456, "Invalid Parameters" };
 	char ifilename[256], ofilename[256], save_in[1024];
-	char *dot, *last_dot, *save;
+	char *dot, *save;
 	int fail;
 	ttf2f_ctx ctx;
 	ttf2f_result res;
@@ -346,11 +346,11 @@ osbool convert_font(bits event_code, toolbox_action *event,
 	}
 
 	/* create output directories */
-	last_dot = ofilename;
 	save = save_in + strlen(save_in);
 
-	for (dot = last_dot; *dot != '\0'; dot++) {
+	for (dot = ofilename; *dot != '\0'; dot++) {
 		if (*dot == '.') {
+			(*save) = '\0';
 			error = xosfile_create_dir(save_in, 0);
 			if (error) {
 				fprintf(stderr, "os_file: 0x%x: %s\n",
