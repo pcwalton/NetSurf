@@ -360,6 +360,16 @@ osbool convert_font(bits event_code, toolbox_action *event,
 
 		*(save++) = *dot;
 	}
+	*save = '\0';
+
+	error = xosfile_create_dir(save_in, 0);
+	if (error) {
+		fprintf(stderr, "os_file: 0x%x: %s\n",
+			error->errnum, error->errmess);
+		wimp_report_error(error, 0x5, "TTF2f");
+		converting  = 0;
+		return TRUE;
+	}
 
 	ctx.face = open_font(ifilename);
 	if (ctx.face == NULL) {
