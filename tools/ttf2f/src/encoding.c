@@ -27,7 +27,7 @@ ttf2f_result encoding_write(const char *savein, const char *name,
 	size_t i;
 	char out[1024];
 
-	snprintf(out, 1024, "%s/Encoding", savein);
+	snprintf(out, 1024, "%s" DIR_SEP "Encoding", savein);
 	if ((output = fopen(out, "w+")) == NULL)
 		return TTF2F_RESULT_OPEN;
 

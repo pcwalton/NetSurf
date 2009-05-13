@@ -66,7 +66,7 @@ ttf2f_result outlines_write(const char *savein, const char *name,
 	header.chunk_data.reserved[3] = 0;
 	header.chunk_data.reserved[4] = 0;
 
-	snprintf(out, 1024, "%s/Outlines", savein);
+	snprintf(out, 1024, "%s" DIR_SEP "Outlines" XXX_EXT, savein);
 	if ((output = fopen(out, "wb") ) == NULL)
 		return TTF2F_RESULT_OPEN;
 	

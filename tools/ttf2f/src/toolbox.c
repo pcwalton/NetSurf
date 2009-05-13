@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include <time.h>
+#include <unixlib/local.h>
 
 #include <oslib/displayfield.h>
 #include <oslib/osfile.h>
@@ -312,6 +313,8 @@ osbool convert_font(bits event_code, toolbox_action *event,
 
 	converting = 1;
 
+	memset(&ctx, 0, sizeof(ttf2f_ctx));
+
 	/* get input file */
 	error = xdisplayfield_get_value(0, main_window, 0, ifilename, 256, 0);
 	if (error) {
@@ -385,7 +388,8 @@ osbool convert_font(bits event_code, toolbox_action *event,
 	if (ctx.glyphs == NULL) {
 		close_font(ctx.face);
 		fprintf(stderr, "malloc failed\n");
-		snprintf(erblock.errmess, 252, "Insufficient memory");
+		snprintf(erblock.errmess, 252, 
+				"Insufficient memory for glyphs");
 		wimp_report_error(&erblock, 0x5, "TTF2f");
 		converting = 0;
 		return TRUE;
@@ -404,7 +408,8 @@ osbool convert_font(bits event_code, toolbox_action *event,
 		free(ctx.glyphs);
 		close_font(ctx.face);
 		fprintf(stderr, "malloc failed\n");
-		snprintf(erblock.errmess, 252, "Insufficient memory");
+		snprintf(erblock.errmess, 252, 
+				"Insufficient memory for metrics");
 		wimp_report_error(&erblock, 0x5, "TTF2f");
 		converting = 0;
 		return TRUE;
@@ -416,7 +421,8 @@ osbool convert_font(bits event_code, toolbox_action *event,
 		free(ctx.metrics);
 		free(ctx.glyphs);
 		close_font(ctx.face);
-		snprintf(erblock.errmess, 252, "Insufficient memory");
+		snprintf(erblock.errmess, 252, 
+				"Insufficient memory for metrics data");
 		wimp_report_error(&erblock, 0x5, "TTF2f");
 		converting = 0;
 		return TRUE;
@@ -448,7 +454,8 @@ osbool convert_font(bits event_code, toolbox_action *event,
 		free(ctx.metrics);
 		free(ctx.glyphs);
 		close_font(ctx.face);
-		snprintf(erblock.errmess, 252, "Insufficient memory");
+		snprintf(erblock.errmess, 252, 
+				"Insufficient memory for glyph names");
 		wimp_report_error(&erblock, 0x5, "TTF2f");
 		converting = 0;
 		return TRUE;
@@ -473,7 +480,8 @@ osbool convert_font(bits event_code, toolbox_action *event,
 		free(ctx.metrics);
 		free(ctx.glyphs);
 		close_font(ctx.face);
-		snprintf(erblock.errmess, 252, "Insufficient memory");
+		snprintf(erblock.errmess, 252, 
+				"Insufficient memory for intmetrics (%d)", res);
 		wimp_report_error(&erblock, 0x5, "TTF2f");
 		converting = 0;
 		return TRUE;
@@ -492,7 +500,8 @@ osbool convert_font(bits event_code, toolbox_action *event,
 		free(ctx.metrics);
 		free(ctx.glyphs);
 		close_font(ctx.face);
-		snprintf(erblock.errmess, 252, "Insufficient memory");
+		snprintf(erblock.errmess, 252, 
+				"Insufficient memory for outlines");
 		wimp_report_error(&erblock, 0x5, "TTF2f");
 		converting = 0;
 		return TRUE;
@@ -512,7 +521,8 @@ osbool convert_font(bits event_code, toolbox_action *event,
 		free(ctx.metrics);
 		free(ctx.glyphs);
 		close_font(ctx.face);
-		snprintf(erblock.errmess, 252, "Insufficient memory");
+		snprintf(erblock.errmess, 252, 
+				"Insufficient memory for encoding");
 		wimp_report_error(&erblock, 0x5, "TTF2f");
 		converting = 0;
 		return TRUE;
