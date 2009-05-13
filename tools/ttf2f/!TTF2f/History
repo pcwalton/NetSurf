@@ -1,6 +1,17 @@
 TTF2f Changelog
 ===============
 
+0.04 (XX-XXX-2009)
+~~~~~~~~~~~~~~~~~~
+Output the first 256 glyphs in Acorn Latin1 order so converted fonts
+are useful in applications that don't ask for a specific font encoding.
+
+Fix handling of fonts that map multiple codepoints to a single glyph.
+
+Ensure that any MessagesNN files are updated with details of converted fonts.
+
+Many bug fixes and general improvements.
+
 0.03 (15-Aug-2005)
 ~~~~~~~~~~~~~~~~~~
 No longer create language fonts, as the font manager appears capable
