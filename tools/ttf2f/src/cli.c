@@ -1,3 +1,4 @@
+#include <limits.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -29,9 +30,15 @@ int main(int argc, char **argv)
 	ttf2f_ctx ctx;
 	int fail;
 	ttf2f_result err = TTF2F_RESULT_OK;
+	char *dot, *path;
+	char full_path[PATH_MAX]; /* Lazy */
 
-	if (argc != 3) {
-		fprintf(stderr, "Usage: %s <input.ttf> <output>\n", argv[0]);
+	if (argc != 4) {
+		fprintf(stderr, 
+			"Usage: %s <input.ttf> <destdir> <font name>\n"
+			"<destdir> must be in the platform's path format\n"
+			"<font name> must be in the form Trinity.Bold\n", 
+			argv[0]);
 		return 1;
 	}
 
@@ -91,13 +98,31 @@ int main(int argc, char **argv)
 
 	mkdir(argv[2], 0755);
 
-	if ((err = intmetrics_write(argv[2], argv[2], &ctx, progress)) != 
+	strncpy(full_path, argv[2], sizeof(full_path));
+	path = full_path + strlen(full_path);
+
+	if (*(path - 1) != *DIR_SEP)
+		*(path++) = *DIR_SEP;
+
+	for (dot = argv[3]; *dot != '\0'; dot++) {
+		if (*dot == '.') {
+			*path = '\0';
+			mkdir(full_path, 0755);
+			*(path++) = *DIR_SEP;
+		} else {
+			*(path++) = *dot;
+		}
+	}
+	*path = '\0';
+	mkdir(full_path, 0755);
+
+	if ((err = intmetrics_write(full_path, argv[3], &ctx, progress)) != 
 			TTF2F_RESULT_OK) goto error_out;
 
-	if ((err = outlines_write(argv[2], argv[2], &ctx, progress)) != 
+	if ((err = outlines_write(full_path, argv[3], &ctx, progress)) != 
 			TTF2F_RESULT_OK) goto error_out;
 
-	if ((err = encoding_write(argv[2], argv[2], &ctx, 
+	if ((err = encoding_write(full_path, argv[3], &ctx, 
 			ENCODING_TYPE_NORMAL, progress)) != 
 			TTF2F_RESULT_OK) goto error_out;
 
