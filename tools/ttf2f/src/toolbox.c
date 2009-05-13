@@ -55,8 +55,8 @@ static ttf2f_message_list messages = {
 static ttf2f_message_list tbcodes = {
 	Convert_Font,
 	{
-		quit_QUIT,
 		action_ERROR,
+		action_QUIT_QUIT,
 		0
 	}
 };
@@ -179,7 +179,7 @@ void register_toolbox_handlers(void)
 	osbool success;
 
 	success = event_register_toolbox_handler(event_ANY,
-			quit_QUIT, toolbox_event_quit, NULL);
+			action_QUIT_QUIT, toolbox_event_quit, NULL);
 	if (success == FALSE)
 		fprintf(stderr, "registering quit_QUIT failed\n");
 
