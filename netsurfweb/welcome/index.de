@@ -19,15 +19,13 @@
 <div class="onlycontent">
 <h2 class="version">Willkommen zu NetSurf</h2>
 
-<p class="intro">NetSurf ist ein kleiner, schneller Opensource Webbrowser.
-Wir sind st&auml;ndig daran interessiert, unseren Browser zu verbessern. Bitte kontaktieren Sie uns,
-wenn Sie irgend welche Probleme bemerken.<br>
+<p class="intro">NetSurf ist ein kleiner, schneller Opensource Webbrowser. Wir sind st&auml;ndig daran interessiert, unseren Browser zu verbessern. Bitte kontaktieren Sie uns, wenn Sie irgend welche Probleme bemerken.<br>
 Danke, dass Sie sich f&uuml;r NetSurf entschieden haben!</p>
 
-<form method="get" action="http://www.google.co.uk/search">
+<form method="get" action="http://www.google.de/search">
 <div class="websearch">
 <input type="text" name="q" size="42" maxlength="255">
-<input type="submit" value="Google Search" name="btnG">
+<input type="submit" value="Google-Suche" name="btnG">
 </div>
 </form>
 
@@ -46,9 +44,9 @@ Danke, dass Sie sich f&uuml;r NetSurf entschieden haben!</p>
 </ul>
 
 <ul>
-<li><a href="http://en.wikipedia.org/wiki/Main_Page">Wikipedia</a></li>
-<li><a href="http://google.co.uk/">Google</a></li>
-<li><a href="http://yahoo.co.uk/">Yahoo!</a></li>
+<li><a href="http://de.wikipedia.org/">Wikipedia</a></li>
+<li><a href="http://www.google.de/">Google</a></li>
+<li><a href="http://de.yahoo.com/">Yahoo!</a></li>
 <li><a href="http://www.imdb.com/">IMDB</a></li>
 </ul>
 
