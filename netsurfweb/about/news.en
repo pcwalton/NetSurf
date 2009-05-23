@@ -57,6 +57,10 @@
 <h1>News</h1>
 
 <dl class="news">
+<dt><a href="/downloads/">NetSurf 2.1 released</a> <span>23 May 2009</span></dt>
+<dd>NetSurf 2.1 is a bug fix release. It contains some improvements to page rendering as well as some front-end specific fixes. Full details in the change log. We recommend all users upgrade.</dd>
+<dt><a href="/downloads/">NetSurf as an embedded web kiosk</a> <span>12 May 2009</span></dt>
+<dd>Media watch: LinuxDevices has put up a tutorial for setting up NetSurf's framebuffer front end on embedded linux devices and creating a web kiosk.</dd>
 <dt><a href="/downloads/">NetSurf 2.0 released</a> <span>25 Apr 2009</span></dt>
 <dd>NetSurf 2 is a major update over the 1.x release series, and represents almost two years of development. New features include a new HTML parser, SVG support, PDF export, improved page layout and a more complete GTK interface. This is also the first release for our new framebuffer target and the native ports to AmigaOS, BeOS and Haiku.</dd>
 <dt><a href="/developers/gsoc/">GSoC students selected</a> <span>20 Apr 2009</span></dt>

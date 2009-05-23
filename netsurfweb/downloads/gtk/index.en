@@ -64,7 +64,7 @@
 <div class="downloadlatestouter">
 <div class="downloadlatest">
 <div class="downloadlatestbox downloadlast">
-<p class="downloadmain downloadfirst"><a href="/downloads/releases/netsurf-2.0-src.tar.gz"><span>NetSurf 2.0 source code</span> <span>(1.4MB)</span> <span class="downloaddate">25 Apr 2009</span></a></p>
+<p class="downloadmain downloadfirst"><a href="/downloads/releases/netsurf-2.1-src.tar.gz"><span>NetSurf 2.1 source code</span> <span>(1.4MB)</span> <span class="downloaddate">23 May 2009</span></a></p>
 <p class="downloadinstructions"><a href="/downloads/source/#BuildInstructions">Build instructions</a></p>
 <p class="preul">Build NetSurf for:</p>
 <ul>
@@ -126,6 +126,12 @@
 
 <h2>Previous releases</h2>
 <dl>
+<dt>NetSurf 2.0</dt>
+<dd>
+<ul>
+<li><a href="/downloads/releases/netsurf-2.0-src.tar.gz">NetSurf 2.0 source code</a> (25 Apr 2009)</li>
+</ul>
+</dd>
 <dt>NetSurf 1.2</dt>
 <dd>
 <ul>
