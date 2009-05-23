@@ -180,9 +180,15 @@ void pencil_save_pass1(struct pencil_save_context *context,
 
 	switch (item->type) {
 	case pencil_GROUP:
-		if (!item->children || MAX_DEPTH <= depth)
+		if (!item->children || MAX_DEPTH <= depth ||
+				(item->bbox.x0 == INT_MAX && 
+				item->bbox.y0 == INT_MAX &&
+				item->bbox.x1 == INT_MIN &&
+				item->bbox.y1 == INT_MIN))
 			break;
+
 		context->size += 36;
+
 		break;
 	case pencil_TEXT:
 	{
@@ -351,8 +357,13 @@ void pencil_save_pass2(struct pencil_save_context *context,
 
 	switch (item->type) {
 	case pencil_GROUP:
-		if (!item->children || MAX_DEPTH <= depth)
+		if (!item->children || MAX_DEPTH <= depth ||
+				(item->bbox.x0 == INT_MAX && 
+				item->bbox.y0 == INT_MAX &&
+				item->bbox.x1 == INT_MIN &&
+				item->bbox.y1 == INT_MIN))
 			break;
+
 		group = true;
 		object->type = drawfile_TYPE_GROUP;
 		object->size = 36;
