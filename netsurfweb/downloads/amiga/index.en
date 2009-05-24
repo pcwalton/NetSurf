@@ -62,7 +62,7 @@
 <div class="downloadlatestouter">
 <div class="downloadlatest">
 <div class="downloadlatestbox">
-<p class="downloadmain downloadfirst"><a href="netsurf-2.0.lha"><span>NetSurf 2.0 for AmigaOS</span> <span>(5.1MB)</span> <span class="downloaddate">25 Apr 2009</span></a></p>
+<p class="downloadmain downloadfirst"><a href="netsurf-2.1.lha"><span>NetSurf 2.1 for AmigaOS</span> <span>(5.1MB)</span> <span class="downloaddate">23 May 2009</span></a></p>
 <!--<p class="downloadinstructions"><a href="/documentation/roinfo#GettingStartedInstallation">Installation instructions</a></p>-->
 <p class="preul">Requires:</p>
 <ul>
@@ -71,7 +71,7 @@
 </div>
 
 <div class="downloadlatestbox downloadlast">
-<p class="downloadmain"><a href="/downloads/releases/netsurf-2.0-src.tar.gz"><span>NetSurf 2.0 source code</span> <span>(1.4MB)</span> <span class="downloaddate">25 Apr 2009</span></a></p>
+<p class="downloadmain"><a href="/downloads/releases/netsurf-2.1-src.tar.gz"><span>NetSurf 2.1 source code</span> <span>(1.4MB)</span> <span class="downloaddate">23 May 2009</span></a></p>
 <p class="downloadinstructions"><a href="/downloads/source/#BuildInstructions">Build instructions</a></p>
 <p class="preul">Build NetSurf for:</p>
 <ul>
@@ -87,7 +87,18 @@
 
 <p>Check out the <a href="/downloads/releases/ChangeLog.txt">change log</a> to see what's changed since the last release.</p>
 
-<h2>Source</h2>
+<h2>Previous releases</h2>
+<dl>
+<dt>NetSurf 2.0</dt>
+<dd>
+<ul>
+<li><a href="netsurf-2.0.lha">NetSurf 2.0 browser for AmigaOS 4</a> (25 Apr 2009)</li>
+<li><a href="/downloads/releases/netsurf-2.0-src.tar.gz">NetSurf 2.0 source code</a> (25 Apr 2009)</li>
+</ul>
+</dd>
+</dl>
+
+<h2>Latest Source</h2>
 
 <p>Alternatively, you can obtain the <a href="/downloads/source/">latest source</a>, if you want to play with the AmigaOS port.</p>
 
