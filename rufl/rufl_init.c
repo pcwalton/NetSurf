@@ -1085,8 +1085,8 @@ rufl_code rufl_load_cache(void)
 	FILE *fp;
 	struct rufl_font_list_entry *entry;
 	struct rufl_character_set *charset;
-	struct rufl_unicode_map *umap = 0;
-	unsigned int num_umaps;
+	struct rufl_unicode_map *umap = NULL;
+	unsigned int num_umaps = 0;
 
 	fp = fopen(rufl_CACHE, "rb");
 	if (!fp) {
