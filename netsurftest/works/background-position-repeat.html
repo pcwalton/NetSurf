@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+        "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<style>
+body {
+	background: #666; }
+
+p {
+	margin: 1em;
+	float: left;
+	border: 10px transparent solid;
+	width: 130px;
+	height: 130px;
+	background-color: #000;
+	background-image:url(../images/3x3.png);
+	padding:5px;
+	color: #fff; }
+
+p.circle {
+	border: 0;
+	width: 150px;
+	height: 150px;
+	background-image:url(../images/circle.png); }
+
+p.circle span {
+	display: block;
+	padding: 10px;
+	background-image:url(../images/circle.png); }
+
+</style>
+<body>
+
+<p style="background-position:top left;">
+<span>repeat-x and repeat-y, top left</span>
+</p>
+
+<p style="background-repeat:no-repeat;background-position:top left;">
+<span>no repeat, top left</span>
+</p>
+
+<p style="background-repeat:no-repeat;background-position:top right;">
+<span>no repeat, top right</span>
+</p>
+
+<p style="background-repeat:no-repeat;background-position:bottom left;">
+<span>no repeat, bottom left</span>
+</p>
+
+<p style="background-repeat:no-repeat;background-position:bottom right;">
+<span>no repeat, bottom right</span>
+</p>
+
+<p style="background-repeat:no-repeat;background-position:center center;">
+<span>no repeat, center</span>
+</p>
+
+<p style="background-repeat:repeat-x;background-position:center center;">
+<span>repeat-x, center</span>
+</p>
+
+<p style="background-repeat:repeat-y;background-position:center center;">
+<span>repeat-y, center</span>
+</p>
+
+<p style="background-repeat:repeat-y;background-position:0% 0%;">
+<span>repeat-y, 0% 0%</span>
+</p>
+
+<p style="background-repeat:repeat-x;background-position:20% 20%;">
+<span>repeat-x, 20% 20%</span>
+</p>
+
+<p style="background-repeat:repeat-y;background-position:40% 40%;">
+<span>repeat-y, 40% 40%</span>
+</p>
+
+<p style="background-repeat:repeat-x;background-position:60% 60%;">
+<span>repeat-x, 60% 60%</span>
+</p>
+
+<p style="background-repeat:repeat-y;background-position:80% 80%;">
+<span>repeat-y, 80% 80%</span>
+</p>
+
+<p style="background-repeat:repeat-x;background-position:100% 100%;">
+<span>repeat-x, 100% 100%</span>
+</p>
+
+<p style="background-repeat:repeat-x;background-position:75% 100%;">
+<span>repeat-x, 75% 100%</span>
+</p>
+
+<p style="background-repeat:repeat-y;background-position:100% 25%;">
+<span>repeat-y, 100% 25%</span>
+</p>
+
+<p class="circle" style="background-position:top left;">
+<span>repeat-x and repeat-y, top left</span>
+</p>
+
+<p class="circle" style="background-position:bottom right;">
+<span>repeat-x and repeat-y, bottom right</span>
+</p>
+
+<p class="circle" style="background-position:center center;">
+<span>repeat-x and repeat-y, center</span>
+</p>
+
+</body>
+</html>
