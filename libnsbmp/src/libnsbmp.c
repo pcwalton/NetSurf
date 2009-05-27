@@ -294,7 +294,6 @@ static bmp_result bmp_analyse_header(bmp_image *bmp, uint8_t *data) {
 	uint32_t i;
 	uint8_t j;
 	int32_t width, height;
-	uint32_t uheight;
 	uint8_t palette_size;
 	unsigned int flags = 0;
 
@@ -397,7 +396,7 @@ static bmp_result bmp_analyse_header(bmp_image *bmp, uint8_t *data) {
 			return BMP_DATA_ERROR;
 		if (height < 0) {
 			bmp->reversed = true;
-			uheight = -height;
+			height = -height;
 		}
 		/* ICOs only support 256*256 resolutions
 		 * In the case of the ICO header, the height is actually the added
