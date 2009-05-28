@@ -19,11 +19,30 @@ HDRS = rufl.h rufl_internal.h
 .PHONY: all install clean
 
 ifeq ($(COMPILER), gcc)
-# cross-compiling using GCCSDK
-GCCSDK_INSTALL_CROSSBIN ?= /home/riscos/cross/bin
-GCCSDK_INSTALL_ENV ?= /home/riscos/env
-CC := $(wildcard $(GCCSDK_INSTALL_CROSSBIN)/*gcc)
-AR := $(wildcard $(GCCSDK_INSTALL_CROSSBIN)/*ar)
+# cross-compiling using GCCSDK or native build with GCC
+
+HOST := $(shell uname -s)
+ifeq ($(HOST),)
+  HOST := riscos
+  $(warning Build platform determination failed but that's a known problem for RISC OS so we're assuming a native RISC OS build.)
+else
+  ifeq ($(HOST),RISC OS)
+    # Fixup uname -s returning "RISC OS"
+    HOST := riscos
+  endif
+endif
+
+ifeq ($(HOST),riscos)
+  GCCSDK_INSTALL_ENV ?= <NSLibs$$Dir>
+  CC := gcc
+  AR := ar
+else
+  GCCSDK_INSTALL_CROSSBIN ?= /home/riscos/cross/bin
+  GCCSDK_INSTALL_ENV ?= /home/riscos/env
+  CC := $(wildcard $(GCCSDK_INSTALL_CROSSBIN)/*gcc)
+  AR := $(wildcard $(GCCSDK_INSTALL_CROSSBIN)/*ar)
+endif
+
 CFLAGS = -std=c99 -O3 -W -Wall -Wundef -Wpointer-arith -Wcast-qual \
 	-Wcast-align -Wwrite-strings -Wstrict-prototypes \
 	-Wmissing-prototypes -Wmissing-declarations \
