@@ -6,6 +6,7 @@
  */
 
 #include <stdlib.h>
+#include <string.h>
 
 #include <libnspng.h>
 
@@ -22,7 +23,7 @@ static uint32_t get_interlaced_row(const nspng_image *image, uint32_t row,
 			/* This pass runs over odd scanlines */
 			result = image->passes[pass].idx + (row >> 1);
 		}
-	} else if (row % 8 == 0) {
+	} else if ((row & 7) == 0) {
 		if (pass == 0) {
 			/* This pass runs over every 8th scanline */
 			result = image->passes[pass].idx + (row >> 3);
@@ -36,7 +37,7 @@ static uint32_t get_interlaced_row(const nspng_image *image, uint32_t row,
 			/* This pass runs over every 2nd scanline */
 			result = image->passes[pass].idx + (row >> 1);
 		}
-	} else if (row % 4 == 0) {
+	} else if ((row & 3) == 0) {
 		if (pass == 2) {
 			/* This pass runs over every scanline that is a 
 			 * multiple of 4 but not a multiple of 8. */
@@ -49,7 +50,7 @@ static uint32_t get_interlaced_row(const nspng_image *image, uint32_t row,
 			/* This pass runs over every 2nd scanline */
 			result = image->passes[pass].idx + (row >> 1);
 		}
-	} else if (row % 2 == 0) {
+	} else if ((row & 1) == 0) {
 		if (pass == 4) {
 			/* This pass runs over every scanline that is a
 			 * multiple of 2 but not a multiple of 4. */
@@ -90,43 +91,42 @@ static void process_scanline(nspng_ctx *ctx, const uint8_t *data, uint32_t len,
 	const nspng_image *image = &ctx->image;
 	uint32_t start = 0;
 	uint32_t *curpix = rowbuf + pix_init[pass];
+	int32_t aidx = 0 - image->filtered_byte_offset;
+	const uint32_t colour_type = image->colour_type;
+	const uint32_t bit_depth = image->bit_depth;
+	const uint32_t width = image->width;
+	const uint32_t bytes_per_pixel = image->bits_per_pixel >> 3;
+	const uint32_t *palette = image->palette;
 
 	for (uint32_t byte = 0; byte < len; byte++) {
-		uint32_t a, x;
-
-		a = (byte >= image->filtered_byte_offset) 
-			? scanline[byte - image->filtered_byte_offset] 
-			: 0;
-		x = data[byte];
-
 		/* Reconstruct original byte value */
-		scanline[byte] = x + a;
+		uint32_t x = data[byte] + scanline[aidx++];
+
+		scanline[byte] = x;
 
 		/* Unpack pixel data from byte into rowbuf */
-		if (image->colour_type == COLOUR_TYPE_INDEXED ||
-			(image->colour_type == COLOUR_TYPE_GREY && 
-				image->bit_depth < 8)) {
+		if (colour_type == COLOUR_TYPE_INDEXED ||
+				(colour_type == COLOUR_TYPE_GREY && 
+				bit_depth < 8)) {
 			/* Paletted images */
 			for (uint32_t bit = 0; bit < 8 && 
-				(uint32_t) (curpix - rowbuf) < image->width; 
-					bit += image->bit_depth) {
-				uint32_t index = (scanline[byte] >> 
-					(8 - bit - image->bit_depth)) & 
-					((1 << image->bit_depth) - 1);
+				(uint32_t) (curpix - rowbuf) < width; 
+					bit += bit_depth) {
+				uint32_t index = (x >> (8 - bit - bit_depth)) & 
+						((1 << bit_depth) - 1);
 
-				*curpix = image->palette[index];
+				*curpix = palette[index];
 				curpix += pix_step[pass];
 			}
-		} else if ((image->colour_type & COLOUR_BITS_TRUE) == 0) {
+		} else if ((colour_type & COLOUR_BITS_TRUE) == 0) {
 			/* Greyscale (+ alpha) 8 & 16 bpc images */
-			if (byte + 1 - start == (image->bits_per_pixel >> 3)) {
+			if (byte + 1 - start == bytes_per_pixel) {
 				uint32_t g, a;
 
-				if (image->bit_depth == 8) {
+				if (bit_depth == 8) {
 					g = scanline[start];
 
-					if (image->colour_type == 
-							COLOUR_TYPE_GREY_A) {
+					if (colour_type == COLOUR_TYPE_GREY_A) {
 						a = scanline[start + 1];
 					} else {
 						a = 0xff;
@@ -135,8 +135,7 @@ static void process_scanline(nspng_ctx *ctx, const uint8_t *data, uint32_t len,
 					/* Downsample to 8bpc */
 					g = scanline[start];
 
-					if (image->colour_type ==
-							COLOUR_TYPE_GREY_A) {
+					if (colour_type == COLOUR_TYPE_GREY_A) {
 						a = scanline[start + 2];
 					} else {
 						a = 0xff;
@@ -150,16 +149,15 @@ static void process_scanline(nspng_ctx *ctx, const uint8_t *data, uint32_t len,
 			}
 		} else {
 			/* 8/16 bpc RGB(A) images */
-			if (byte + 1 - start == (image->bits_per_pixel >> 3)) {
+			if (byte + 1 - start == bytes_per_pixel) {
 				uint32_t r, g, b, a;
 
-				if (image->bit_depth == 8) {
+				if (bit_depth == 8) {
 					r = scanline[start];
 					g = scanline[start + 1];
 					b = scanline[start + 2];
 
-					if (image->colour_type == 
-							COLOUR_TYPE_GREY_A) {
+					if (colour_type == COLOUR_TYPE_RGBA) {
 						a = scanline[start + 3];
 					} else {
 						a = 0xff;
@@ -170,8 +168,7 @@ static void process_scanline(nspng_ctx *ctx, const uint8_t *data, uint32_t len,
 					g = scanline[start + 2];
 					b = scanline[start + 4];
 
-					if (image->colour_type ==
-							COLOUR_TYPE_GREY_A) {
+					if (colour_type == COLOUR_TYPE_RGBA) {
 						a = scanline[start + 6];
 					} else {
 						a = 0xff;
@@ -196,6 +193,7 @@ nspng_error nspng_render(nspng_ctx *ctx, const nspng_rect *clip,
 {
 	const nspng_image *image = &ctx->image;
 	uint8_t *scanline_buf;
+	uint8_t *scanline;
 	uint32_t *rowbuf;
 	nspng_error error = NSPNG_OK;
 
@@ -205,15 +203,23 @@ nspng_error nspng_render(nspng_ctx *ctx, const nspng_rect *clip,
 	if (ctx->state != STATE_HAD_IEND)
 		return NSPNG_INVALID;
 
-	scanline_buf = ctx->alloc(NULL, image->bytes_per_scanline, ctx->pw);
+	/* Allocate filtered_byte_offset more bytes than needed, so there
+	 * is no need to check for indices being within the array bounds */
+	scanline_buf = ctx->alloc(NULL, 
+			image->bytes_per_scanline + image->filtered_byte_offset,
+			ctx->pw);
 	if (scanline_buf == NULL)
 		return NSPNG_NOMEM;
+	/* Ensure these bytes are zero, as they are never written to */
+	memset(scanline_buf, 0, image->filtered_byte_offset);
 
 	rowbuf = ctx->alloc(NULL, image->width * sizeof(uint32_t), ctx->pw);
 	if (rowbuf == NULL) {
 		ctx->alloc(scanline_buf, 0, ctx->pw);
 		return NSPNG_NOMEM;
 	}
+
+	scanline = scanline_buf + image->filtered_byte_offset;
 
 	/* Process scanlines */
 	for (uint32_t row = clip->y0; row < clip->y1; row++) {
@@ -229,20 +235,20 @@ nspng_error nspng_render(nspng_ctx *ctx, const nspng_rect *clip,
 				if (idx == (uint32_t) -1)
 					continue;
 
-				get_scanline_data(image, idx, scanline_buf,
+				get_scanline_data(image, idx, scanline,
 						&data, &len);
 
-				process_scanline(ctx, data, len, scanline_buf,
+				process_scanline(ctx, data, len, scanline,
 						pass, rowbuf);
 			}
 		} else {
 			/* Image is not interlaced */
-			get_scanline_data(image, row, scanline_buf, 
+			get_scanline_data(image, row, scanline, 
 					&data, &len);
 
 			/* Just use the logic for pass 7 
 			 * (i.e. all pixels in scanline) */
-			process_scanline(ctx, data, len, scanline_buf, 
+			process_scanline(ctx, data, len, scanline, 
 					6, rowbuf);
 		}
 
