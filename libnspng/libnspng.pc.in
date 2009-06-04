@@ -1,0 +1,10 @@
+prefix=PREFIX
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: libnspng
+Description: Provides png loading and conversion
+Version: VERSION
+Libs: -L${libdir} -lnspng
+Cflags: -I${includedir}
