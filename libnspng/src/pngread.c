@@ -385,6 +385,197 @@ static nspng_error process_ihdr(nspng_ctx *ctx)
 	return NSPNG_OK;
 }
 
+static void process_idat_get_bps(const nspng_image *image, uint32_t scanline,
+		uint32_t *bps, bool *first)
+{
+	/* Retrieve number of bytes to process in current 
+	 * scanline. Also determine if the current scanline
+	 * is the first in the (sub) image */
+	if (image->interlace) {
+		/* Image is interlaced */
+		if (image->height > 1 && scanline >= image->passes[6].idx) {
+			/* Pass 7 */
+			*bps = image->passes[6].bps;
+			*first = (scanline == image->passes[6].idx);
+		} else if (image->width > 1 &&
+				scanline >= image->passes[5].idx) {
+			/* Pass 6 */
+			*bps = image->passes[5].bps;
+			*first = (scanline == image->passes[5].idx);
+		} else if (image->height > 2 &&
+				scanline >= image->passes[4].idx) {
+			/* Pass 5 */
+			*bps = image->passes[4].bps;
+			*first = (scanline == image->passes[4].idx);
+		} else if (image->width > 2 &&
+				scanline >= image->passes[3].idx) {
+			/* Pass 4 */
+			*bps = image->passes[3].bps;
+			*first = (scanline == image->passes[3].idx);
+		} else if (image->height > 4 &&
+				scanline >= image->passes[2].idx) {
+			/* Pass 3 */
+			*bps = image->passes[2].bps;
+			*first = (scanline == image->passes[2].idx);
+		} else if (image->width > 4 &&
+				scanline >= image->passes[1].idx) {
+			/* Pass 2 */
+			*bps = image->passes[1].bps;
+			*first = (scanline == image->passes[1].idx);
+		} else if (image->width > 0 && image->height > 0 && 
+				scanline >= image->passes[0].idx) {
+			/* Pass 1 */
+			*bps = image->passes[0].bps;
+			*first = (scanline == image->passes[0].idx);
+		}
+	} else {
+		/* Non-interlaced image */
+		*bps = image->bytes_per_scanline;
+		*first = (scanline == 0);
+	}
+}
+
+static nspng_error process_idat_process_scanline(nspng_ctx *ctx, 
+		nspng_image *image, const uint8_t *data, uint32_t avail, 
+		uint32_t bps, uint32_t *consumed)
+{
+	const uint32_t fbo = image->filtered_byte_offset;
+	uint32_t brfs = ctx->bytes_read_for_scanline;
+	const uint32_t bytes_remaining = bps + 1 - brfs;
+	/* Compensate for oversize buffer */
+	uint8_t *src_scanline = ctx->src_scanline + fbo;
+	uint8_t *dst_scanline = ctx->dst_scanline;
+	uint8_t *ppixel = ctx->prev_pixel;
+	nspng_adaptive_filter_type filter = ctx->scanline_filter;
+	uint32_t max_idx;
+	uint32_t i;
+	int32_t aidx;
+	uint32_t ppidx;
+
+	/* Clamp maximum bytes to that remaining for this scanline */
+	if (avail > bytes_remaining)
+		avail = bytes_remaining;
+
+	/* Determine maximum index, for loop termination */
+	max_idx = brfs + avail - 1;
+
+	/* If we've read nothing for this scanline and we have data, 
+	 * then extract the scanline filter type */
+	if (brfs == 0 && avail > 0) {
+		filter = ctx->scanline_filter = *(data++);
+		brfs++;
+	}
+
+	/* Calculate initial indices for a and c */
+	aidx = (int32_t) (brfs - 1 - fbo);
+	ppidx = (brfs - 1) % fbo;
+
+	/* Process remaining bytes, starting where we left off */
+	for (i = brfs - 1; i < max_idx; i++) {
+		uint32_t a, x = *(data++);
+
+		/* Safe, as scanline points fbo bytes into scanline 
+		 * buffer, buffer is fbo bytes oversized, and the 
+		 * first fbo bytes are zero */
+		a = src_scanline[aidx++];
+
+		/* Reconstruct original byte value */
+		if (filter == ADAPTIVE_FILTER_NONE) {
+			/* Nothing to do */
+		} else if (filter == ADAPTIVE_FILTER_SUB) {
+			x += a;
+		} else if (filter == ADAPTIVE_FILTER_UP) {
+			uint32_t b = src_scanline[i];
+			x += b;
+		} else if (filter == ADAPTIVE_FILTER_AVERAGE) {
+			uint32_t b = src_scanline[i];
+			x += ((a + b) >> 1);
+		} else if (filter == ADAPTIVE_FILTER_PAETH) {
+			uint32_t b = src_scanline[i];
+			uint32_t c = ppixel[ppidx];
+			uint32_t p = a + b - c;
+			uint32_t pa = abs(p - a);
+			uint32_t pb = abs(p - b);
+			uint32_t pc = abs(p - c);
+
+			if (pa <= pb && pa <= pc) {
+				x += a;
+			} else if (pb <= pc) {
+				x += b;
+			} else {
+				x += c;
+			}
+
+			ppixel[ppidx] = b;
+
+			if (++ppidx == fbo) {
+				ppidx -= fbo;
+			}
+		}
+
+		/* Write out calculated source byte */
+		src_scanline[i] = x;
+
+		/* Re-encode using SUB filter */
+		dst_scanline[i] = x - a;
+	}
+
+	if (max_idx + 1 > bps) { 
+		uint8_t *temp;
+		uint32_t written;
+
+		/* Create/extend image buffer */
+#define OUTPUT_CHUNK_SIZE 8192
+		while (image->data_len + bps > image->data_alloc) {
+			temp = ctx->alloc(image->data, 
+					image->data_alloc + OUTPUT_CHUNK_SIZE, 
+					ctx->pw);
+			if (temp == NULL) {
+				return NSPNG_NOMEM;
+			}
+
+			image->data = temp;
+			image->data_alloc += OUTPUT_CHUNK_SIZE;
+		}
+#undef OUTPUT_CHUNK_SIZE
+
+		/* Compress scanline into buffer */
+		written = lzf_compress(dst_scanline, 
+				bps, 
+				image->data + image->data_len, 
+				bps - 1);
+		if (written == 0) {
+			/* Would be larger - use uncompressed */
+			memcpy(image->data + image->data_len,
+				dst_scanline,
+				bps);
+		}
+
+		/* Write index, flagging compressed */
+		image->scanline_idx[ctx->cur_scanline++] = image->data_len | 
+				((written != 0) ? SCANLINE_COMPRESSED_FLAG : 0);
+
+		/* Add scanline data to total length */
+		image->data_len += ((written == 0) ? bps : written);
+
+		/* Maximum permissible bytes in decoded 
+		 * image is 2^31-1 as we use bit 31 to store
+		 * the compression flag */
+		if (image->data_len > INT32_MAX)
+			return NSPNG_INVALID;
+
+		/* Reset for next scanline */
+		memset(ctx->prev_pixel, 0, sizeof(ctx->prev_pixel));
+		ctx->bytes_read_for_scanline = 0;
+	} else {
+		ctx->bytes_read_for_scanline = max_idx + 1;
+	}
+
+	*consumed = avail;
+
+	return NSPNG_OK;
+}
+
 static nspng_error process_idat(nspng_ctx *ctx)
 {
 	const nspng_chunk *chunk;
@@ -401,11 +592,19 @@ static nspng_error process_idat(nspng_ctx *ctx)
 
 	/* Create scanline buffers */
 	if (ctx->src_scanline == NULL) {
-		ctx->src_scanline = ctx->alloc(NULL, image->bytes_per_scanline, 
+		/* The source buffer needs filtered_byte_offset bytes more
+		 * than the maximum bytes per scanline. This is so that we
+		 * can just read from index - filtered_byte_offset without
+		 * having to check to see if the index is large enough. */
+		ctx->src_scanline = ctx->alloc(NULL, 
+				image->bytes_per_scanline + 
+				image->filtered_byte_offset, 
 				ctx->pw);
 		if (ctx->src_scanline == NULL) {
 			return NSPNG_NOMEM;
 		}
+		/* Set the initial filtered_byte_offset bytes to 0 */
+		memset(ctx->src_scanline, 0, image->filtered_byte_offset);
 	}
 
 	if (ctx->dst_scanline == NULL) {
@@ -422,6 +621,8 @@ static nspng_error process_idat(nspng_ctx *ctx)
 
 	/* Decompress into the output buffer */
 	do {
+		uint32_t usedbuf;
+
 		ctx->zlib_stream.avail_out = sizeof(buf);
 		ctx->zlib_stream.next_out = buf;
 
@@ -436,184 +637,32 @@ static nspng_error process_idat(nspng_ctx *ctx)
 			} 
 		} while (zlib_ret == Z_OK && ctx->zlib_stream.avail_out > 0);
 
+		usedbuf = sizeof(buf) - ctx->zlib_stream.avail_out;
+
 		/* Process scanlines */
-		for (uint32_t idx = 0; 
-				idx < sizeof(buf) - ctx->zlib_stream.avail_out; 
-				idx++) {
+		for (uint32_t idx = 0; idx < usedbuf; ) {
+			nspng_error error;
 			uint32_t bps = 0;
 			bool first = false;
+			uint32_t consumed;
 
-			/* Retrieve number of bytes to process in current 
-			 * scanline. Also determine if the current scanline
-			 * is the first in the (sub) image */
-			if (image->interlace) {
-				/* Image is interlaced */
-				if (image->height > 1 && ctx->cur_scanline >= 
-						image->passes[6].idx) {
-					/* Pass 7 */
-					bps = image->passes[6].bps;
-					first = (ctx->cur_scanline == 
-							image->passes[6].idx);
-				} else if (image->width > 1 &&
-						ctx->cur_scanline >= 
-						image->passes[5].idx) {
-					/* Pass 6 */
-					bps = image->passes[5].bps;
-					first = (ctx->cur_scanline == 
-							image->passes[5].idx);
-				} else if (image->height > 2 &&
-						ctx->cur_scanline >= 
-						image->passes[4].idx) {
-					/* Pass 5 */
-					bps = image->passes[4].bps;
-					first = (ctx->cur_scanline == 
-							image->passes[4].idx);
-				} else if (image->width > 2 &&
-						ctx->cur_scanline >= 
-						image->passes[3].idx) {
-					/* Pass 4 */
-					bps = image->passes[3].bps;
-					first = (ctx->cur_scanline == 
-							image->passes[3].idx);
-				} else if (image->height > 4 &&
-						ctx->cur_scanline >= 
-						image->passes[2].idx) {
-					/* Pass 3 */
-					bps = image->passes[2].bps;
-					first = (ctx->cur_scanline == 
-							image->passes[2].idx);
-				} else if (image->width > 4 &&
-						ctx->cur_scanline >= 
-						image->passes[1].idx) {
-					/* Pass 2 */
-					bps = image->passes[1].bps;
-					first = (ctx->cur_scanline == 
-							image->passes[1].idx);
-				} else if (image->width > 0 && 
-						image->height > 0 && 
-						ctx->cur_scanline >= 
-						image->passes[0].idx) {
-					/* Pass 1 */
-					bps = image->passes[0].bps;
-					first = (ctx->cur_scanline == 
-							image->passes[0].idx);
-				}
-			} else {
-				/* Non-interlaced image */
-				bps = image->bytes_per_scanline;
-				first = (ctx->cur_scanline == 0);
+			process_idat_get_bps(image, ctx->cur_scanline,
+					&bps, &first);
+
+			/* Clear src scanline if this is the 
+			 * first scanline in a (sub) image */
+			if (first) {
+				memset(ctx->src_scanline +
+					image->filtered_byte_offset, 0, bps);
 			}
 
-			if (ctx->bytes_read_for_scanline == 0) {
-				/* Filter type byte */
-				ctx->scanline_filter = buf[idx];
-			} else {
-				/* Scanline data */
-				uint32_t i = ctx->bytes_read_for_scanline - 1;
-				uint32_t fbo = image->filtered_byte_offset;
-				uint32_t a, b, c, x;
+			error = process_idat_process_scanline(ctx, image, 
+					buf + idx, usedbuf - idx, bps,
+					&consumed);
+			if (error != NSPNG_OK)
+				return error;
 
-				a = (i >= fbo) ? ctx->src_scanline[i - fbo] : 0;
-				b = (first == false) ? ctx->src_scanline[i] : 0;
-				c = (first == false && i >= fbo) 
-					? ctx->prev_pixel[i % fbo] : 0;
-				x = buf[idx];
-
-				ctx->prev_pixel[i % fbo] = ctx->src_scanline[i];
-
-				/* Reconstruct original byte value */
-				if (ctx->scanline_filter == 
-						ADAPTIVE_FILTER_NONE) {
-					ctx->src_scanline[i] = x;
-				} else if (ctx->scanline_filter == 
-						ADAPTIVE_FILTER_SUB) {
-					ctx->src_scanline[i] = x + a;
-				} else if (ctx->scanline_filter == 
-						ADAPTIVE_FILTER_UP) {
-					ctx->src_scanline[i] = x + b;
-				} else if (ctx->scanline_filter == 
-						ADAPTIVE_FILTER_AVERAGE) {
-					ctx->src_scanline[i] = 
-							x + ((a + b) >> 1);
-				} else /* if (ctx->scanline_filter == 
-						ADAPTIVE_FILTER_PAETH) */ {
-					uint32_t p = a + b - c;
-					uint32_t pa = abs(p - a);
-					uint32_t pb = abs(p - b);
-					uint32_t pc = abs(p - c);
-
-					if (pa <= pb && pa <= pc) {
-						ctx->src_scanline[i] = x + a;
-					} else if (pb <= pc) {
-						ctx->src_scanline[i] = x + b;
-					} else {
-						ctx->src_scanline[i] = x + c;
-					}
-				}
-
-				/* Re-encode using SUB filter */
-				if (i < fbo) {
-					ctx->dst_scanline[i] = 
-						ctx->src_scanline[i];
-				} else {
-					ctx->dst_scanline[i] = 
-						ctx->src_scanline[i] -
-						ctx->src_scanline[i - fbo];
-				}
-			}
-
-			if (++ctx->bytes_read_for_scanline > bps) { 
-				uint32_t written;
-
-				/* Create/extend image buffer */
-#define OUTPUT_CHUNK_SIZE 8192
-				while (image->data_len + bps > 
-						image->data_alloc) {
-					temp = ctx->alloc(image->data, 
-							image->data_alloc + 
-							OUTPUT_CHUNK_SIZE, 
-							ctx->pw);
-					if (temp == NULL) {
-						return NSPNG_NOMEM;
-					}
-
-					image->data = temp;
-					image->data_alloc += OUTPUT_CHUNK_SIZE;
-				}
-#undef OUTPUT_CHUNK_SIZE
-
-				/* Compress scanline into buffer */
-				written = lzf_compress(ctx->dst_scanline, 
-						bps, 
-						image->data + image->data_len, 
-						bps - 1);
-				if (written == 0) {
-					/* Would be larger - use uncompressed */
-					memcpy(image->data + image->data_len,
-						ctx->dst_scanline,
-						bps);
-				}
-
-				/* Write index, flagging compressed */
-				image->scanline_idx[ctx->cur_scanline++] =
-					image->data_len | 
-					((written != 0) 
-						? SCANLINE_COMPRESSED_FLAG : 0);
-
-				/* Add scanline data to total length */
-				image->data_len += (written == 0) 
-						? bps 
-						: written;
-
-				/* Maximum permissible bytes in decoded 
-				 * image is 2^31-1 as we use bit 31 to store
-				 * the compression flag */
-				if (image->data_len > INT32_MAX)
-					return NSPNG_INVALID;
-
-				/* Reset for next scanline */
-				ctx->bytes_read_for_scanline = 0;
-			}
+			idx += consumed;
 		}
 	} while (zlib_ret == Z_OK);
 

@@ -1,6 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#ifdef __riscos__
+#include <swis.h>
+#endif
+
 #include <libnspng.h>
 
 #define UNUSED(x) ((x)=(x))
@@ -12,6 +16,7 @@ static void *myrealloc(void *ptr, size_t len, void *pw)
 	return realloc(ptr, len);
 }
 
+#if 0
 static nspng_error row_handler(const uint8_t *row, uint32_t rowbytes,
 		uint32_t rownum, int pass, void *pw)
 {
@@ -35,6 +40,7 @@ static nspng_error row_handler(const uint8_t *row, uint32_t rowbytes,
 
 	return NSPNG_OK;
 }
+#endif
 
 int main(int argc, char **argv)
 {
@@ -42,12 +48,16 @@ int main(int argc, char **argv)
 	uint8_t buf[4096];
 	size_t read;
 	nspng_ctx *ctx;
+#if 0
 	nspng_rect clip;
 	uint32_t width;
 	uint32_t height;
+#endif
 	nspng_error error;
 
 	UNUSED(argc);
+
+for (int i = 0; i < 20; i++) {
 
 	fp = fopen(argv[1], "rb");
 	if (fp == NULL) {
@@ -61,6 +71,11 @@ int main(int argc, char **argv)
 		return 1;
 	}
 
+#ifdef __riscos__
+int startTime, endTime;
+_swix(OS_ReadMonotonicTime, _OUT(0), &startTime);
+#endif
+
 	while ((read = fread(buf, 1, sizeof(buf), fp)) > 0) {
 		error = nspng_process_data(ctx, buf, read);
 		if (error != NSPNG_OK && error != NSPNG_NEEDDATA) {
@@ -69,6 +84,12 @@ int main(int argc, char **argv)
 		}
 	}
 
+#ifdef __riscos__
+_swix(OS_ReadMonotonicTime, _OUT(0), &endTime);
+printf("%d cs\n", endTime - startTime);
+#endif
+
+#if 0
 	error = nspng_get_dimensions(ctx, &width, &height);
 	if (error != NSPNG_OK) {
 		printf("FAIL: nspng_get_dimensions: %d\n", error);
@@ -88,10 +109,13 @@ int main(int argc, char **argv)
 		printf("FAIL: nspng_render: %d\n", error);
 		return 1;
 	}
+#endif
 
 	nspng_ctx_destroy(ctx);
 
 	fclose(fp);
+
+}
 
 	//printf("PASS\n");
 
