@@ -89,14 +89,16 @@ static void process_scanline(nspng_ctx *ctx, const uint8_t *data, uint32_t len,
 	static const uint32_t pix_init[7] = { 0, 4, 0, 2, 0, 1, 0 };
 	static const uint32_t pix_step[7] = { 8, 8, 4, 4, 2, 2, 1 };
 	const nspng_image *image = &ctx->image;
-	uint32_t start = 0;
-	uint32_t *curpix = rowbuf + pix_init[pass];
-	int32_t aidx = 0 - image->filtered_byte_offset;
 	const uint32_t colour_type = image->colour_type;
 	const uint32_t bit_depth = image->bit_depth;
 	const uint32_t width = image->width;
 	const uint32_t bytes_per_pixel = image->bits_per_pixel >> 3;
 	const uint32_t *palette = image->palette;
+	const uint32_t step = pix_step[pass];
+	uint32_t *curpix = rowbuf + pix_init[pass];
+	int32_t aidx = 0 - image->filtered_byte_offset;
+	uint32_t bytes_read_for_pixel = 0;
+	uint32_t rgba = 0;
 
 	for (uint32_t byte = 0; byte < len; byte++) {
 		/* Reconstruct original byte value */
@@ -105,10 +107,39 @@ static void process_scanline(nspng_ctx *ctx, const uint8_t *data, uint32_t len,
 		scanline[byte] = x;
 
 		/* Unpack pixel data from byte into rowbuf */
-		if (colour_type == COLOUR_TYPE_INDEXED ||
-				(colour_type == COLOUR_TYPE_GREY && 
-				bit_depth < 8)) {
-			/* Paletted images */
+		if (colour_type != COLOUR_TYPE_INDEXED && bit_depth >= 8) {
+			/* RGB / Greyscale (+ alpha) 8 & 16 bpc images */
+
+			/* Taking only the even numbered bytes in the 16bpc 
+			 * case results in some rudimentary downsampling. */
+			if (bit_depth == 8 || (byte & 1) == 0) {
+				rgba = (rgba << 8) | x;
+			}
+
+			if (++bytes_read_for_pixel == bytes_per_pixel) {
+				/* Add default alpha if there isn't any */
+				if ((colour_type & COLOUR_BITS_ALPHA) == 0) {
+					rgba = (rgba << 8) | 0xff;
+				}
+
+				/* Promote greyscale images to RGB */
+				if ((colour_type & COLOUR_BITS_TRUE) == 0) {
+					uint32_t g;
+
+					/* Currently 00GA, want GGGA */
+					g = (rgba & 0xff00) << 8;
+					g = g | (g << 8);
+					rgba |= g;
+				}
+
+				*curpix = rgba;
+				curpix += step;
+
+				rgba = 0;
+				bytes_read_for_pixel = 0;
+			}
+		} else {
+			/* <8bpc greyscale or paletted images */
 			for (uint32_t bit = 0; bit < 8 && 
 				(uint32_t) (curpix - rowbuf) < width; 
 					bit += bit_depth) {
@@ -116,69 +147,7 @@ static void process_scanline(nspng_ctx *ctx, const uint8_t *data, uint32_t len,
 						((1 << bit_depth) - 1);
 
 				*curpix = palette[index];
-				curpix += pix_step[pass];
-			}
-		} else if ((colour_type & COLOUR_BITS_TRUE) == 0) {
-			/* Greyscale (+ alpha) 8 & 16 bpc images */
-			if (byte + 1 - start == bytes_per_pixel) {
-				uint32_t g, a;
-
-				if (bit_depth == 8) {
-					g = scanline[start];
-
-					if (colour_type == COLOUR_TYPE_GREY_A) {
-						a = scanline[start + 1];
-					} else {
-						a = 0xff;
-					}
-				} else {
-					/* Downsample to 8bpc */
-					g = scanline[start];
-
-					if (colour_type == COLOUR_TYPE_GREY_A) {
-						a = scanline[start + 2];
-					} else {
-						a = 0xff;
-					}
-				}
-
-				*curpix = (g << 24) | (g << 16) | (g << 8) | a;
-				curpix += pix_step[pass];
-
-				start = byte + 1;
-			}
-		} else {
-			/* 8/16 bpc RGB(A) images */
-			if (byte + 1 - start == bytes_per_pixel) {
-				uint32_t r, g, b, a;
-
-				if (bit_depth == 8) {
-					r = scanline[start];
-					g = scanline[start + 1];
-					b = scanline[start + 2];
-
-					if (colour_type == COLOUR_TYPE_RGBA) {
-						a = scanline[start + 3];
-					} else {
-						a = 0xff;
-					}
-				} else {
-					/* Downsample to 8bpc */
-					r = scanline[start];
-					g = scanline[start + 2];
-					b = scanline[start + 4];
-
-					if (colour_type == COLOUR_TYPE_RGBA) {
-						a = scanline[start + 6];
-					} else {
-						a = 0xff;
-					}
-				}
-
-				*curpix = (r << 24) | (g << 16) | (b << 8) | a;
-				curpix += pix_step[pass];
-
-				start = byte + 1;
+				curpix += step;
 			}
 		}
 	}
