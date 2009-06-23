@@ -1,0 +1,19 @@
+#!/bin/sh
+
+ROOT=svn://svn.netsurf-browser.org/branches
+
+BRANCH=$1
+shift
+
+FOO=$(svn status --ignore-externals |grep -v "^X")
+
+if [ "x$FOO" != "x" ]; then
+   echo "Unable to proceed, local changes prevent merge"
+   exit 1
+fi
+
+BASE=$(svn log -q --stop-on-copy $ROOT/$BRANCH | grep -v -- "--" | tail -1 | cut -d\  -f1)
+
+svn merge -$BASE:HEAD $ROOT/$BRANCH
+
+echo "Merged $BASE:HEAD"
