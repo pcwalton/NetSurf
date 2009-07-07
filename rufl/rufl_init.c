@@ -38,7 +38,6 @@ bool rufl_old_font_manager = false;
 wimp_w rufl_status_w = 0;
 char rufl_status_buffer[80];
 
-
 /** An entry in rufl_weight_table. */
 struct rufl_weight_table_entry {
 	const char *name;
@@ -74,6 +73,7 @@ static rufl_code rufl_init_add_font(const char *identifier,
 		const char *local_name);
 static int rufl_weight_table_cmp(const void *keyval, const void *datum);
 static rufl_code rufl_init_scan_font(unsigned int font);
+static rufl_code rufl_init_scan_font_no_enumerate(unsigned int font);
 static bool rufl_is_space(unsigned int u);
 static rufl_code rufl_init_scan_font_old(unsigned int font_index);
 static rufl_code rufl_init_scan_font_in_encoding(const char *font_name, 
@@ -101,6 +101,7 @@ static void rufl_init_status_close(void);
 
 rufl_code rufl_init(void)
 {
+	bool rufl_broken_font_enumerate_characters = false;
 	unsigned int changes = 0;
 	unsigned int i;
 	int fm_version;
@@ -130,6 +131,25 @@ rufl_code rufl_init(void)
 			xhourglass_off();
 			return rufl_FONT_MANAGER_ERROR;
 		}
+	} else {
+		/* New font manager; see if character enumeration works */
+		int next;
+
+		rufl_fm_error = xfont_enumerate_characters(font, 0, 
+				&next, NULL);
+		/* Broken if SWI fails or it doesn't return 0x20 as the first
+		 * character to process. Font Managers earlier than 3.64 have
+		 * a bug that means they do not return the first available
+		 * range of characters in a font. We detect this by asking
+		 * for the first character in Homerton.Medium, which we know
+		 * is 0x20 (i.e. space). If the value returned is not this,
+		 * then we assume the font manager is broken and fall back to
+		 * the old code which is significantly slower.
+		 */
+		if (rufl_fm_error || next != 0x20)
+			rufl_broken_font_enumerate_characters = true;
+
+		xfont_lose_font(font);
 	}
 	LOG("%s font manager", rufl_old_font_manager ? "old" : "new");
 
@@ -169,6 +189,8 @@ rufl_code rufl_init(void)
 				(float) i / rufl_font_list_entries);
 		if (rufl_old_font_manager)
 			code = rufl_init_scan_font_old(i);
+		else if (rufl_broken_font_enumerate_characters)
+			code = rufl_init_scan_font_no_enumerate(i);
 		else
 			code = rufl_init_scan_font(i);
 		if (code != rufl_OK) {
@@ -552,6 +574,125 @@ rufl_code rufl_init_scan_font(unsigned int font_index)
 	return rufl_OK;
 }
 
+/**
+ * Scan a font for available characters (version without character enumeration)
+ */
+
+rufl_code rufl_init_scan_font_no_enumerate(unsigned int font_index)
+{
+	char font_name[80];
+	int x_out, y_out;
+	unsigned int byte, bit;
+	unsigned int block_count = 0;
+	unsigned int last_used = 0;
+	unsigned int string[2] = { 0, 0 };
+	unsigned int u;
+	struct rufl_character_set *charset;
+	struct rufl_character_set *charset2;
+	font_f font;
+	font_scan_block block = { { 0, 0 }, { 0, 0 }, -1, { 0, 0, 0, 0 } };
+
+	/*LOG("font %u \"%s\"", font_index,
+ 			rufl_font_list[font_index].identifier);*/
+
+	charset = calloc(1, sizeof *charset);
+	if (!charset)
+		return rufl_OUT_OF_MEMORY;
+
+	snprintf(font_name, sizeof font_name, "%s\\EUTF8",
+			rufl_font_list[font_index].identifier);
+
+	rufl_fm_error = xfont_find_font(font_name, 160, 160, 0, 0, &font, 0, 0);
+	if (rufl_fm_error) {
+		LOG("xfont_find_font(\"%s\"): 0x%x: %s", font_name,
+				rufl_fm_error->errnum, rufl_fm_error->errmess);
+		free(charset);
+		return rufl_OK;
+	}
+
+	/* scan through all characters */
+	for (u = 0x0020; u != 0x10000; u++) {
+		if (u == 0x007f) {
+			/* skip DELETE and C1 controls */
+			u = 0x009f;
+			continue;
+		}
+
+		if (u % 0x200 == 0)
+			rufl_init_status(0, 0);
+
+		string[0] = u;
+		rufl_fm_error = xfont_scan_string(font, (char *) string,
+				font_RETURN_BBOX | font_GIVEN32_BIT |
+				font_GIVEN_FONT | font_GIVEN_LENGTH |
+				font_GIVEN_BLOCK,
+				0x7fffffff, 0x7fffffff,
+				&block, 0, 4,
+				0, &x_out, &y_out, 0);
+		if (rufl_fm_error)
+			break;
+
+		if (block.bbox.x0 == 0x20000000) {
+			/* absent (no definition) */
+		} else if (x_out == 0 && y_out == 0 &&
+				block.bbox.x0 == 0 && block.bbox.y0 == 0 &&
+				block.bbox.x1 == 0 && block.bbox.y1 == 0) {
+			/* absent (empty) */
+                } else if (block.bbox.x0 == 0 && block.bbox.y0 == 0 &&
+				block.bbox.x1 == 0 && block.bbox.y1 == 0 &&
+				!rufl_is_space(u)) {
+			/* absent (space but not a space character - some
+			 * fonts do this) */
+		} else {
+			/* present */
+			byte = (u >> 3) & 31;
+			bit = u & 7;
+			charset->block[last_used][byte] |= 1 << bit;
+
+			block_count++;
+		}
+
+		if ((u + 1) % 256 == 0) {
+			/* end of block */
+			if (block_count == 0)
+				charset->index[u >> 8] = BLOCK_EMPTY;
+			else if (block_count == 256) {
+				charset->index[u >> 8] = BLOCK_FULL;
+				for (byte = 0; byte != 32; byte++)
+					charset->block[last_used][byte] = 0;
+			} else {
+				charset->index[u >> 8] = last_used;
+				last_used++;
+				if (last_used == 254)
+					/* too many characters */
+					break;
+			}
+			block_count = 0;
+		}
+	}
+
+	xfont_lose_font(font);
+
+	if (rufl_fm_error) {
+		free(charset);
+		LOG("xfont_scan_string: 0x%x: %s",
+				rufl_fm_error->errnum, rufl_fm_error->errmess);
+		return rufl_FONT_MANAGER_ERROR;
+	}
+
+	/* shrink-wrap */
+	charset->size = offsetof(struct rufl_character_set, block) +
+			32 * last_used;
+	charset2 = realloc(charset, charset->size);
+	if (!charset2) {
+		free(charset);
+		return rufl_OUT_OF_MEMORY;
+	}
+
+	rufl_font_list[font_index].charset = charset;
+
+	return rufl_OK;
+}
 
 /**
  * A character is one of the Unicode space characters.
