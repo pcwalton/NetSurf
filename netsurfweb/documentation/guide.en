@@ -151,7 +151,7 @@
 
 <p>The browser window is used to fetch and display web pages and other content available on the World Wide Web. It can also display files that are stored locally on your computer. The <a href="#FileTypes">file types</a> that NetSurf can handle include HTML, CSS and various image formats.</p>
 
-<p class="guidescreenshot"><img src="images/bwin" title="Browser Window" alt=""></p>
+<p class="guidescreenshot"><img src="images/bwin.png" title="Browser Window" alt=""></p>
 
 <p>The area at the top of the browser window is called the <a href="#BrowserWindowToolbar">toolbar</a>. At the bottom, it can be seen that the horizontal scroll bar does not cover the full width of the window. Next to the horizontal scroll bar, is the <a href="#BrowserWindowStatusBar">status bar</a>. The main section in the middle of the window is the most important part, the content area.</p>
 
@@ -165,29 +165,29 @@
 
 <h3>Toolbar Icons</h3>
 
-<p class="guideiconinfo"><strong><img src="images/back" alt="Back" title="Back Button" class="guideicon"></strong> Clicking on this button makes NetSurf go back to the previous page in the local history list. Select click to view the previous page in the current window. Adjust click to view it in a new window. Form information is not resubmitted.</p>
+<p class="guideiconinfo"><strong><img src="images/back.png" alt="Back" title="Back Button" class="guideicon"></strong> Clicking on this button makes NetSurf go back to the previous page in the local history list. Select click to view the previous page in the current window. Adjust click to view it in a new window. Form information is not resubmitted.</p>
 
-<p class="guideiconinfo"><strong><img src="images/forward" class="guideicon" alt="Forward" title="Forward Button"></strong> Clicking on this button allows you to advance through the local history list. Select click to view the next page in the current window. Adjust click to view it in a new window. Form information is not resubmitted.</p>
+<p class="guideiconinfo"><strong><img src="images/forward.png" class="guideicon" alt="Forward" title="Forward Button"></strong> Clicking on this button allows you to advance through the local history list. Select click to view the next page in the current window. Adjust click to view it in a new window. Form information is not resubmitted.</p>
 
-<p class="guideiconinfo"><strong><img src="images/history" class="guideicon" alt="History" title="History Button"></strong> Select clicking on this button opens a window containing the local history tree. Adjust clicking opens the global history window. More detailed information can be found in the <a href="#History">History</a> section.</p>
+<p class="guideiconinfo"><strong><img src="images/history.png" class="guideicon" alt="History" title="History Button"></strong> Select clicking on this button opens a window containing the local history tree. Adjust clicking opens the global history window. More detailed information can be found in the <a href="#History">History</a> section.</p>
 
-<p class="guideiconinfo"><strong><img src="images/home" class="guideicon" alt="Home" title="Home Button"></strong> Clicking on this button returns to the configured home page.</p>
+<p class="guideiconinfo"><strong><img src="images/home.png" class="guideicon" alt="Home" title="Home Button"></strong> Clicking on this button returns to the configured home page.</p>
 
-<p class="guideiconinfo"><strong><img src="images/hotlist" class="guideicon" alt="Hotlist" title="Hotlist Button"></strong> Select clicking on this button opens the hotlist management window. Adjust clicking adds the current location to the hotlist.</p>
+<p class="guideiconinfo"><strong><img src="images/hotlist.png" class="guideicon" alt="Hotlist" title="Hotlist Button"></strong> Select clicking on this button opens the hotlist management window. Adjust clicking adds the current location to the hotlist.</p>
 
-<p class="guideiconinfo"><strong><img src="images/print" class="guideicon" alt="Print" title="Print Button"></strong> Clicking on this button will open the print dialogue box.</p>
+<p class="guideiconinfo"><strong><img src="images/print.png" class="guideicon" alt="Print" title="Print Button"></strong> Clicking on this button will open the print dialogue box.</p>
 
-<p class="guideiconinfo"><strong><img src="images/reload" class="guideicon" alt="reload" title="Reload Button"></strong> Select clicking on this button will make NetSurf fetch and redraw the current page again. Adjust clicking forces NetSurf to fetch the current page as well as any objects it contains, such as images and style sheets.</p>
+<p class="guideiconinfo"><strong><img src="images/reload.png" class="guideicon" alt="reload" title="Reload Button"></strong> Select clicking on this button will make NetSurf fetch and redraw the current page again. Adjust clicking forces NetSurf to fetch the current page as well as any objects it contains, such as images and style sheets.</p>
 
-<p class="guideiconinfo"><strong><img src="images/save" class="guideicon" alt="Save" title="Save Button"></strong> Clicking on this button will open a save dialogue box, to allow you to save the page for future reference.</p>
+<p class="guideiconinfo"><strong><img src="images/save.png" class="guideicon" alt="Save" title="Save Button"></strong> Clicking on this button will open a save dialogue box, to allow you to save the page for future reference.</p>
 
-<p class="guideiconinfo"><strong><img src="images/scale" class="guideicon" alt="Scale" title="Scale Button"></strong> Clicking on this button will open the scale view window. It allows you to scale documents, affecting both text and pictures.</p>
+<p class="guideiconinfo"><strong><img src="images/scale.png" class="guideicon" alt="Scale" title="Scale Button"></strong> Clicking on this button will open the scale view window. It allows you to scale documents, affecting both text and pictures.</p>
 
-<p class="guideiconinfo"><strong><img src="images/search" class="guideicon" alt="Search" title="Search Button"></strong> Clicking on this button opens the find text window. It allows you to search for a string of text within a document.</p>
+<p class="guideiconinfo"><strong><img src="images/search.png" class="guideicon" alt="Search" title="Search Button"></strong> Clicking on this button opens the find text window. It allows you to search for a string of text within a document.</p>
 
-<p class="guideiconinfo"><strong><img src="images/stop" class="guideicon" alt="Stop" title="Stop Button"></strong> Clicking on this button stops whatever process the window is doing.</p>
+<p class="guideiconinfo"><strong><img src="images/stop.png" class="guideicon" alt="Stop" title="Stop Button"></strong> Clicking on this button stops whatever process the window is doing.</p>
 
-<p class="guideiconinfo"><strong><img src="images/up" class="guideicon" alt="Up" title="Up Button"></strong> Clicking on this button moves up the directory tree. For example, if you are looking at <em>http://www.domain.com/directory/page.html</em>, clicking on the up icon takes you to <em>http://www.domain.com/directory/</em> and a further click would result in a location of <em>http://www.domain.com/</em>.</p>
+<p class="guideiconinfo"><strong><img src="images/up.png" class="guideicon" alt="Up" title="Up Button"></strong> Clicking on this button moves up the directory tree. For example, if you are looking at <em>http://www.domain.com/directory/page.html</em>, clicking on the up icon takes you to <em>http://www.domain.com/directory/</em> and a further click would result in a location of <em>http://www.domain.com/</em>.</p>
 
 <p>Icons that are greyed out indicate that their function is unavailable. This happens when a new browser window is first opened. Since the window will be displaying its first page, there would be no previous page and the back button is greyed out. Also, as this is the first page, the forward button is also greyed out.</p>
 
@@ -823,13 +823,13 @@
 
 <p>The global history toolbar allows quick access to various commonly used features. More functions are available through the <a href="#HistoryGlobalMenus">menus</a>. The toolbar can be customised to contain only the icons you want, in the order you want, in toolbar edit mode. This is covered in the <a href="#ConfigurationToolbar">toolbar customisation</a> section. Available icons are listed below.</p>
 
-<p class="guideiconinfo"><strong><img src="images/delete" class="guideicon" alt="Delete Selection" title="Delete Selection Button"></strong> Clicking on this button deletes any selected directories or addresses from the global history.</p>
+<p class="guideiconinfo"><strong><img src="images/delete.png" class="guideicon" alt="Delete Selection" title="Delete Selection Button"></strong> Clicking on this button deletes any selected directories or addresses from the global history.</p>
 
-<p class="guideiconinfo"><strong><img src="images/expand" class="guideicon" alt="Expand Addresses" title="Expand Addresses Button"></strong> Select clicking on this button expands any addresses that are being shown, to display additional information about each one. Adjust clicking hides the additional information for any expanded addresses.</p>
+<p class="guideiconinfo"><strong><img src="images/expand.png" class="guideicon" alt="Expand Addresses" title="Expand Addresses Button"></strong> Select clicking on this button expands any addresses that are being shown, to display additional information about each one. Adjust clicking hides the additional information for any expanded addresses.</p>
 
-<p class="guideiconinfo"><strong><img src="images/launch" class="guideicon" alt="Launch Selection" title="Launch Selection Button"></strong> Clicking on this button launches all selected addresses in separate <a href="#BrowserWindow">browser windows</a>. If a directory is selected any addresses it contains will be launched.</p>
+<p class="guideiconinfo"><strong><img src="images/launch.png" class="guideicon" alt="Launch Selection" title="Launch Selection Button"></strong> Clicking on this button launches all selected addresses in separate <a href="#BrowserWindow">browser windows</a>. If a directory is selected any addresses it contains will be launched.</p>
 
-<p class="guideiconinfo"><strong><img src="images/open" class="guideicon" alt="Open Directories" title="Open Directories Button"></strong> Select clicking on this button opens every directory in the global history. Adjust clicking closes any open directories.</p>
+<p class="guideiconinfo"><strong><img src="images/open.png" class="guideicon" alt="Open Directories" title="Open Directories Button"></strong> Select clicking on this button opens every directory in the global history. Adjust clicking closes any open directories.</p>
 
 <h4 id="HistoryGlobalMenus">Menus</h4>
 
@@ -957,15 +957,15 @@
 
 <h4>Toolbar Icons</h4>
 
-<p class="guideiconinfo"><strong><img src="images/create" alt="Create Directory" title="Create Directory Button" class="guideicon"></strong> Clicking on this button adds a new directory to the bottom of the hotlist. The cursor is placed at the name of the new directory. Either type Ctrl-U and rename it or press Return to accept the default name.</p>
+<p class="guideiconinfo"><strong><img src="images/create.png" alt="Create Directory" title="Create Directory Button" class="guideicon"></strong> Clicking on this button adds a new directory to the bottom of the hotlist. The cursor is placed at the name of the new directory. Either type Ctrl-U and rename it or press Return to accept the default name.</p>
 
-<p class="guideiconinfo"><strong><img src="images/delete" class="guideicon" alt="Delete Selection" title="Delete Selection Button"></strong> Clicking on this button deletes any selected directories or addresses from the hotlist.</p>
+<p class="guideiconinfo"><strong><img src="images/delete.png" class="guideicon" alt="Delete Selection" title="Delete Selection Button"></strong> Clicking on this button deletes any selected directories or addresses from the hotlist.</p>
 
-<p class="guideiconinfo"><strong><img src="images/expand" class="guideicon" alt="Expand Addresses" title="Expand Addresses Button"></strong> Select clicking on this button expands any addresses that are being shown, to display additional information about each one. Adjust clicking hides the additional information for any expanded addresses.</p>
+<p class="guideiconinfo"><strong><img src="images/expand.png" class="guideicon" alt="Expand Addresses" title="Expand Addresses Button"></strong> Select clicking on this button expands any addresses that are being shown, to display additional information about each one. Adjust clicking hides the additional information for any expanded addresses.</p>
 
-<p class="guideiconinfo"><strong><img src="images/launch" class="guideicon" alt="Launch Selection" title="Launch Selection Button"></strong> Clicking on this button launches all selected addresses in separate <a href="#BrowserWindow">browser windows</a>. If a directory is selected any addresses it contains will be launched.</p>
+<p class="guideiconinfo"><strong><img src="images/launch.png" class="guideicon" alt="Launch Selection" title="Launch Selection Button"></strong> Clicking on this button launches all selected addresses in separate <a href="#BrowserWindow">browser windows</a>. If a directory is selected any addresses it contains will be launched.</p>
 
-<p class="guideiconinfo"><strong><img src="images/open" class="guideicon" alt="Open Directories" title="Open Directories Button"></strong> Select clicking on this button opens every directory in the hotlist. Adjust clicking closes any open directories.</p>
+<p class="guideiconinfo"><strong><img src="images/open.png" class="guideicon" alt="Open Directories" title="Open Directories Button"></strong> Select clicking on this button opens every directory in the hotlist. Adjust clicking closes any open directories.</p>
 
 <p>Icons that are greyed out indicate that their function is unavailable.</p>
 
@@ -1105,17 +1105,17 @@
 
 <div class="window">
 <ul>
-<li><span><a href="#ConfigurationGlobalCache"><img src="images/cache" alt=""></a></span><a href="#ConfigurationGlobalCache">Cache</a></li>
-<li><span><a href="#ConfigurationGlobalConnection"><img src="images/connect" alt=""></a></span><a href="#ConfigurationGlobalConnection">Connection</a></li>
-<li><span><a href="#ConfigurationGlobalContent"><img src="images/content" alt=""></a></span><a href="#ConfigurationGlobalContent">Content</a></li>
-<li><span><a href="#ConfigurationGlobalFonts"><img src="images/fonts" alt=""></a></span><a href="#ConfigurationGlobalFonts">Fonts</a></li>
-<li><span><a href="#ConfigurationGlobalHome"><img src="images/homeconf" alt=""></a></span><a href="#ConfigurationGlobalHome">Home page</a></li>
-<li><span><a href="#ConfigurationGlobalImages"><img src="images/images" alt=""></a></span><a href="#ConfigurationGlobalImages">Images</a></li>
-<li><span><a href="#ConfigurationGlobalInterface"><img src="images/interface" alt=""></a></span><a href="#ConfigurationGlobalInterface">Interface</a></li>
-<li><span><a href="#ConfigurationGlobalLanguage"><img src="images/language" alt=""></a></span><a href="#ConfigurationGlobalLanguage">Language</a></li>
-<li><span><a href="#ConfigurationGlobalMemory"><img src="images/memory" alt=""></a></span><a href="#ConfigurationGlobalMemory">Memory</a></li>
-<li><span><a href="#ConfigurationGlobalSecurity"><img src="images/security" alt=""></a></span><a href="#ConfigurationGlobalSecurity">Security</a></li>
-<li><span><a href="#ConfigurationGlobalThemes"><img src="images/themes" alt=""></a></span><a href="#ConfigurationGlobalThemes">Themes</a></li>
+<li><span><a href="#ConfigurationGlobalCache"><img src="images/cache.png" alt=""></a></span><a href="#ConfigurationGlobalCache">Cache</a></li>
+<li><span><a href="#ConfigurationGlobalConnection"><img src="images/connect.png" alt=""></a></span><a href="#ConfigurationGlobalConnection">Connection</a></li>
+<li><span><a href="#ConfigurationGlobalContent"><img src="images/content.png" alt=""></a></span><a href="#ConfigurationGlobalContent">Content</a></li>
+<li><span><a href="#ConfigurationGlobalFonts"><img src="images/fonts.png" alt=""></a></span><a href="#ConfigurationGlobalFonts">Fonts</a></li>
+<li><span><a href="#ConfigurationGlobalHome"><img src="images/homeconf.png" alt=""></a></span><a href="#ConfigurationGlobalHome">Home page</a></li>
+<li><span><a href="#ConfigurationGlobalImages"><img src="images/images.png" alt=""></a></span><a href="#ConfigurationGlobalImages">Images</a></li>
+<li><span><a href="#ConfigurationGlobalInterface"><img src="images/interface.png" alt=""></a></span><a href="#ConfigurationGlobalInterface">Interface</a></li>
+<li><span><a href="#ConfigurationGlobalLanguage"><img src="images/language.png" alt=""></a></span><a href="#ConfigurationGlobalLanguage">Language</a></li>
+<li><span><a href="#ConfigurationGlobalMemory"><img src="images/memory.png" alt=""></a></span><a href="#ConfigurationGlobalMemory">Memory</a></li>
+<li><span><a href="#ConfigurationGlobalSecurity"><img src="images/security.png" alt=""></a></span><a href="#ConfigurationGlobalSecurity">Security</a></li>
+<li><span><a href="#ConfigurationGlobalThemes"><img src="images/themes.png" alt=""></a></span><a href="#ConfigurationGlobalThemes">Themes</a></li>
 </ul>
 
 <p>NetSurf's global configuration sections</p>
