@@ -1,0 +1,39 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+        "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<style>
+
+.column {
+	float: left; }
+
+.leftCol {
+	width: 200px;
+	margin-left: -500px;
+	background: red;
+	height:100px; }
+
+.mainCol {
+	margin: 0 0 0 200px;
+	width: 300px;
+	background: orange; }
+
+.rightCol {
+	width: 100px;
+	background: yellow;
+	height:50px; }
+
+span {
+	display: block;
+	position: relative;
+	left: 5px; }
+</style>
+</head>
+
+<body>
+
+<div class="column mainCol"><span>Main</span></div>
+<div class="column leftCol"><span>Left</span></div>
+<div class="column rightCol"><span><br>Right</span></div>
+</body>
+</html>
