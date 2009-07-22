@@ -711,7 +711,7 @@
 <p class="menupath" id="BrowserWindowMenuUtilitiesHistoryGlobal">Utilities &gt; History &gt; Show global History</p>
 <p class="menuitem">This option opens the <a href="#HistoryGlobal">global history window</a>. The same function is available on the <a href="#BrowserWindowToolbar">toolbar</a>.</p>
 
-<p class="menupath" id="BrowserWindowMenuUtilitiesHistory">Utilities &gt; Cookies</p>
+<p class="menupath" id="BrowserWindowMenuUtilitiesCookies">Utilities &gt; Cookies</p>
 <p class="menuitem">The Cookies submenu allows you to perform actions on the cookies stored by NetSurf.</p>
 
 <table class="menu">

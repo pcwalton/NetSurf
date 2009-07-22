@@ -62,7 +62,7 @@
 <li>Get up to speed with <a href="http://subversion.tigris.org/">Subversion</a>, as we use this for source control, and get the NetSurf <a href="http://www.netsurf-browser.org/documentation/develop#Subversion">source code</a>.</li>
 <li><a href="http://www.netsurf-browser.org/documentation/develop#Compiling">Build NetSurf</a> and enjoy using it. (Ask if you need help.)</li>
 <li>Get familiarised with the source code &ndash; read the <a href="http://source.netsurf-browser.org/trunk/netsurf/Docs/">code documentation</a>.</li>
-<li>Consider submitting a patch to fix an issue on our <a href="http://sourceforge.net/tracker/?func=browse&group_id=51719&atid=464312">bug tracker</a> or <a href="http://sourceforge.net/tracker/?func=browse&group_id=51719&atid=464315">feature request tracker</a></li>
+<li>Consider submitting a patch to fix an issue on our <a href="http://sourceforge.net/tracker/?func=browse&group_id=51719&atid=464312">bug tracker</a> or <a href="http://sourceforge.net/tracker/?func=browse&amp;group_id=51719&atid=464315">feature request tracker</a></li>
 </ul>
 <dd>
 <dt>When applying for a project<dt>
