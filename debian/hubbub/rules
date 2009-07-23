@@ -1,0 +1,42 @@
+#!/usr/bin/make -f
+
+build: build-stamp
+build-stamp:
+	dh_testdir
+	$(MAKE) COMPONENT_TYPE=lib-shared PREFIX=/usr
+	touch $@
+
+clean:
+	dh_testdir
+	dh_testroot
+	rm -f build-stamp
+	$(MAKE) COMPONENT_TYPE=lib-shared clean
+	dh_clean
+
+install: build
+	dh_testdir
+	dh_testroot
+	dh_prep
+	dh_installdirs
+	$(MAKE) COMPONENT_TYPE=lib-shared DESTDIR=$$(pwd)/debian/tmp PREFIX=/usr install
+
+binary-indep:
+
+binary-arch: build install
+	dh_testdir -a
+	dh_testroot -a
+	dh_installchangelogs -a
+	dh_installdocs -a
+	dh_install -a
+	dh_strip -a --dbg-package=libhubbub0-dbg
+	dh_makeshlibs -a
+	dh_installdeb -a
+	dh_shlibdeps -a
+	dh_compress -a
+	dh_fixperms -a
+	dh_gencontrol -a
+	dh_md5sums -a
+	dh_builddeb -a
+
+binary: binary-arch
+.PHONY: build clean binary-indep binary-arch binary install

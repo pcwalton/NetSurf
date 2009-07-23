@@ -1,0 +1,5 @@
+libnsgif.so.0 libnsgif0 #MINVER#
+ gif_create@Base 0.0.1
+ gif_decode_frame@Base 0.0.1
+ gif_finalise@Base 0.0.1
+ gif_initialise@Base 0.0.1

@@ -1,0 +1,79 @@
+This package was debianized by the Debian/Ubuntu NetSurf Package Team
+<deb@netsurf-browser.org> on Tue, 21 Apr 2009.
+
+
+It was downloaded from: http://www.netsurf-browser.org/download/netsurf-2.1-src.tar.gz
+
+Upstream Authors: John M Bell, James Bursa, Philip Pemberton, Phil Mellor, Rob Jackson, Richard Wilson, Andrew Timmins, John Tytgat, Kevin Bagust, Adrian Lees, Daniel Silverstone, Rob Kendrick, Daniel Stenberg, Andrew Tridgell, François Revel, Chris Young, Adam Blokus, Sean Fox, Mike Lester, Mark Benjamin, Chris Tarnowski
+
+Copyright: 2003 - 2009 John M Bell <jmb202@ecs.soton.ac.uk>
+           2003 - 2009 James Bursa <bursa@users.sourceforge.net>
+           2003 Philip Pemberton <philpem@users.sourceforge.net>
+           2003 Phil Mellor <monkeyson@users.sourceforge.net>
+           2003 Rob Jackson <jacko@xms.ms>
+           2004 - 2009 Richard Wilson <info@tinct.net>
+           2004 Andrew Timmins <atimmins@blueyonder.co.uk>
+           2004 - 2009 John Tytgat <John.Tytgat@aaug.net>
+           2004 Kevin Bagust <kevin.bagust@ntlworld.com>
+           2005 - 2009 Adrian Lees <adrianl@users.sourceforge.net>
+           2006 - 2009 Daniel Silverstone <dsilvers@digital-scurf.org>
+           2006 - 2009 Rob Kendrick <rjek@netsurf-browser.org>
+           2007 - 2009 Vincent Sanders <vince@debian.org>
+           1998 - 2004 Daniel Stenberg <daniel@haxx.se>
+           2004 - 2005 Andrew Tridgell
+	   2008 - 2009 François Revel
+	   2008 - 2009 Chris Young
+	   2008 Adam Blokus
+	   2008 Sean Fox
+	   2008 - 2009 Mike Lester
+	   2009 Mark Benjamin
+	   2009 Chris Tarnowski
+           
+
+License:
+
+  NetSurf is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; version 2 of the License.
+  
+  In addition, as a special exception, permission is granted to link the
+  code of this release of NetSurf with the OpenSSL project's "OpenSSL"
+  library (or with modified versions of it that use the same licence as 
+  the "OpenSSL" library), and distribute the linked executables. You must
+  obey the GNU General Public License version 2 in all respects for all of 
+  the code used other than "OpenSSL". If you modify the code, you may 
+  extend this exception to your version of the code, but you are not
+  obligated to do so. If you do not wish to do so, delete this exception
+  statement from your version.
+
+  All visual artwork contained within NetSurf is licensed under the terms of 
+  the MIT License.
+
+ On Debian systems, the complete text of the GNU General Public
+ License, version 2, can be found in /usr/share/common-licenses/GPL-2.
+
+The MIT License is:
+
+Permission is hereby granted, free of charge, to any person obtaining a copy 
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights 
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell 
+copies of the Software, and to permit persons to whom the Software is 
+furnished to do so, subject to the following conditions: 
+
+The above copyright notice and this permission notice shall be included in 
+all copies or substantial portions of the Software. 
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR 
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE 
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN 
+THE SOFTWARE. 
+
+
+The Debian packaging is Copyright 2009, Vincent Sanders
+<vince@debian.org> and Daniel Silverstone <dsilvers@debian.org> and is
+licensed under the GPL, see `/usr/share/common-licenses/GPL-2'.
+

@@ -1,0 +1,11 @@
+# Debian/Ubuntu configuration for NetSurf Browser (VNC)
+
+override NETSURF_FB_FRONTEND := vnc
+override NETSURF_FB_FONTLIB := freetype
+
+override NETSURF_USE_HARU_PDF := NO
+override NETSURF_USE_MNG := NO
+override NETSURF_USE_PNG := YES
+
+override NETSURF_FB_RESPATH_vnc := $(PREFIX)/share/netsurf-framebuffer/
+

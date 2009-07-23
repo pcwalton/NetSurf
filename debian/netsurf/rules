@@ -1,0 +1,118 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+CFLAGS = 
+DB2MAN=/usr/share/xml/docbook/stylesheet/nwalsh/manpages/docbook.xsl
+XP=xsltproc --nonet
+
+ifneq (,$(findstring noopt,$(DEB_BUILD_OPTIONS)))
+	CFLAGS += -O0
+else
+	CFLAGS += -O2
+endif
+
+build: build-stamp
+
+netsurf.1: debian/manpage.xml
+	$(XP) $(DB2MAN) $<
+
+netsurf-%.1: netsurf.1
+	cp $< $@
+
+build-stamp: netsurf-gtk.1 netsurf-linuxfb.1 netsurf-sdl.1 netsurf-vnc.1
+	dh_testdir
+	cp debian/Makefile.config.gtk Makefile.config
+	CFLAGS="$(CFLAGS)" $(MAKE) clean
+	CFLAGS="$(CFLAGS)" $(MAKE) TARGET=gtk PREFIX=/usr
+	$(MAKE) TARGET=gtk PREFIX=/usr DESTDIR=$$(pwd)/debian/buildstage/gtk install
+	for FBFE in linuxfb sdl vnc; do \
+	cp debian/Makefile.config.$$FBFE Makefile.config ; \
+	CFLAGS="$(CFLAGS)" $(MAKE) clean ; \
+	CFLAGS="$(CFLAGS)" $(MAKE) TARGET=framebuffer PREFIX=/usr  ; \
+	$(MAKE) TARGET=framebuffer PREFIX=/usr DESTDIR=$$(pwd)/debian/buildstage/$$FBFE install ; \
+	done	
+	touch $@
+
+clean:
+	dh_testdir
+	dh_testroot
+	rm -f build-stamp netsurf*.1
+	$(MAKE) TARGET=gtk clean
+	for F in linuxfb sdl vnc; do \
+	cp debian/Makefile.config.$$F Makefile.config ; \
+	$(MAKE) TARGET=framebuffer clean ; \
+	rm -f Makefile.config ; \
+	done
+	rm -fr debian/buildstage
+	dh_clean 
+
+install: build
+	dh_testdir
+	dh_testroot
+	dh_prep
+	dh_installdirs
+#netsurf-gtk
+	mkdir -p debian/netsurf-gtk
+	cp -R debian/buildstage/gtk/* debian/netsurf-gtk/
+	mv debian/netsurf-gtk/usr/bin/netsurf debian/netsurf-gtk/usr/bin/netsurf-gtk
+	convert gtk/res/netsurf.xpm -resize \!32x\!32 debian/netsurf-gtk/usr/share/pixmaps/netsurf.xpm
+	convert gtk/res/netsurf.xpm debian/netsurf-gtk/usr/share/pixmaps/netsurf.png
+	install -m 644 debian/netsurf.desktop debian/netsurf-gtk/usr/share/applications
+# Ensure doc files are not executable
+	chmod a-x debian/netsurf-gtk/usr/share/netsurf-gtk/docs/about/*
+#netsurf-framebuffer-common
+	mkdir -p debian/netsurf-framebuffer-common/usr/share/netsurf-framebuffer
+	cp -R debian/buildstage/linuxfb/usr/share/netsurf-framebuffer/* debian/netsurf-framebuffer-common/usr/share/netsurf-framebuffer
+#netsurf-linuxfb
+	mkdir -p debian/netsurf-linuxfb/usr/bin
+	cp debian/buildstage/linuxfb/usr/bin/netsurf-linux debian/netsurf-linuxfb/usr/bin/netsurf-linuxfb
+#netsurf-vnc
+	mkdir -p debian/netsurf-vnc/usr/bin
+	cp debian/buildstage/vnc/usr/bin/netsurf-vnc debian/netsurf-vnc/usr/bin/netsurf-vnc
+#netsurf-sdl
+	mkdir -p debian/netsurf-sdl/usr/bin
+	cp debian/buildstage/sdl/usr/bin/netsurf-sdl debian/netsurf-sdl/usr/bin/netsurf-sdl
+
+# Build architecture-independent files here.
+binary-indep: build install
+	dh_testdir -i
+	dh_testroot -i
+	dh_installdocs -i
+	dh_installchangelogs  -i
+	dh_installmenu -i
+	dh_installman -i
+	dh_link -i
+	dh_strip -i
+	dh_compress -i
+	dh_fixperms -i
+	dh_lintian -i
+	dh_installdeb -i
+	dh_gencontrol -i
+	dh_md5sums -i
+	dh_builddeb -i
+
+
+# Build architecture-dependent files here.
+binary-arch: build install
+	dh_testdir -a
+	dh_testroot -a
+	dh_installdocs -a
+	dh_installchangelogs  -a
+	dh_installmenu -a
+	dh_installman -a
+	dh_link -a
+	dh_strip -a
+	dh_compress -a
+	dh_fixperms -a
+	dh_lintian -a
+	dh_installdeb -a
+	dh_shlibdeps -a
+	dh_gencontrol -a
+	dh_md5sums -a
+	dh_builddeb -a
+
+binary: binary-indep binary-arch
+.PHONY: build clean binary-indep binary-arch binary install 

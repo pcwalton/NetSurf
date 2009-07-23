@@ -1,0 +1,65 @@
+netsurf (2.1-1) unstable; urgency=low
+
+  * New upstream release (Closes: #533463)
+    - Now produces variants for linux framebuffer, VNC server and SDL,
+      along with the SDL release from before.
+    - Wikipedia CSS images now rendered properly (Closes: #434964)
+    - Open File now bound to Control+O (Closes: #482755)
+    - No longer asserts on huge box objects (Closes: #471719)
+  
+ -- Daniel Silverstone <dsilvers@debian.org>  Mon, 20 Jul 2009 10:30:48 +0200
+
+netsurf (2.0-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Daniel Silverstone <dsilvers@debian.org>  Tue, 21 Apr 2009 22:58:52 +0100
+
+netsurf (1.2-1) unstable; urgency=low
+
+  * New upstream (Closes: #472599)
+  * Fixes segfault (Closes: #442466)
+  * Form input no longer confuses non-alphanumeric keys (Closes: #435319)
+  * Blank lines in preformatted blocks are displayed correctly (Closes: #435013)
+
+ -- Vincent Sanders <vince@debian.org>  Sat, 05 Apr 2008 00:48:41 +0000
+
+netsurf (1.1-2.1) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * Add missing assert.h inclusion in css.h to fix FTBFS (Closes: #470248),
+    thanks Kumar Appaiah for the patch.
+
+ -- Nico Golde <nion@debian.org>  Wed, 19 Mar 2008 17:24:40 +0100
+
+netsurf (1.1-2) unstable; urgency=low
+
+  * Fix unusable select widget (Closes: #434963)
+  * Add www-browser provides (Closes: #445376)
+  * Fix memory cache size option.
+  * Fix proxy option handling.
+  * Fix out of bounds window scrolling.
+  * Fix handling of CSS colour values.
+
+ -- Vincent Sanders <vince@debian.org>  Sun, 07 Oct 2007 10:59:41 +0000
+
+netsurf (1.1-1) unstable; urgency=low
+
+  * New upstream (Closes: #435463, #437624)
+  * Build against correct library packages (Closes: #433523)
+
+ -- Vincent Sanders <vince@debian.org>  Tue, 14 Aug 2007 22:21:05 +0000
+
+netsurf (1.0-1) unstable; urgency=low
+
+  * Initial release (Closes: #427399)
+  * Correct logging output verbosity control switch.
+  * Corrected build to allow for source directory to be renamed.
+  * Correct handling of file: URI when browsing directories.
+  * Fix for crash when viewing sites with frames.
+  * Fix for runaway cpu usage on sites with frames.
+  * Fix for cookie handling.
+  * Fix scrollbar handling for anchors.
+  
+ -- Vincent Sanders <vince@debian.org>  Sun,  3 Jun 2007 18:14:27 +0100
+

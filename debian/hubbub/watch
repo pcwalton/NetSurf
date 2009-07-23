@@ -1,0 +1,3 @@
+version=3
+http://www.netsurf-browser.org/projects/hubbub/ \
+   \.\./releases/hubbub-([\d\.]*)-src.tar.gz

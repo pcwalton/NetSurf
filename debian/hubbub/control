@@ -1,0 +1,42 @@
+Source: hubbub
+Section: libs
+Priority: optional
+Maintainer: Debian/Ubuntu NetSurf Package Team <deb@netsurf-browser.org>
+Uploaders: Daniel Silverstone <dsilvers@debian.org>, Vincent Sanders <vince@debian.org>
+Standards-Version: 3.8.2.0
+Build-Depends: debhelper (>= 7), libparserutils0-dev, pkg-config
+
+Package: libhubbub0
+Architecture: any
+Depends: ${shlibs:Depends}
+Description: HTML5 Parser
+ Hubbub is a flexible HTML parser. It aims to comply with the HTML5
+ specification.
+ .
+ Hubbub provides a SAX-like event interface to allow the host app
+ to produce a document model in whatever format it requires.
+ 
+Package: libhubbub0-dev
+Architecture: any
+Provides: libhubbub-dev
+Conflicts: libhubbub-dev
+Section: libdevel
+Depends: libhubbub0 (= ${binary:Version}), libparserutils0-dev
+Description: HTML5 Parser - Development
+ Hubbub is a flexible HTML parser. It aims to comply with the HTML5
+ specification.
+ .
+ This package includes the headers and symlinks needed to build software
+ against libhubbub.
+
+Package: libhubbub0-dbg
+Architecture: any
+Depends: libhubbub0 (= ${binary:Version})
+Section: debug
+Priority: extra
+Description: HTML5 Parser - Debug symbols
+ Hubbub is a flexible HTML parser. It aims to comply with the HTML5
+ specification.
+ .
+ This package includes the debugging symbols for libhubbub0.
+ 

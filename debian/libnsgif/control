@@ -1,0 +1,35 @@
+Source: libnsgif
+Section: libs
+Priority: optional
+Maintainer: Debian/Ubuntu NetSurf Package Team <deb@netsurf-browser.org>
+Uploaders: Daniel Silverstone <dsilvers@debian.org>, Vincent Sanders <vince@debian.org>
+Standards-Version: 3.8.2.0
+Build-Depends: debhelper (>= 7)
+
+Package: libnsgif0
+Architecture: any
+Depends: ${shlibs:Depends}
+Description: NetSurf GIF decoder
+ libnsgif is a decoder for the GIF image format for NetSurf applications.
+ 
+Package: libnsgif0-dev
+Architecture: any
+Provides: libnsgif-dev
+Conflicts: libnsgif-dev
+Section: libdevel
+Depends: libnsgif0 (= ${binary:Version})
+Description: NetSurf GIF decoder - Development files
+ libnsgif is a decoder for the GIF image format for NetSurf applications.
+ .
+ This package includes the headers and symlinks needed to build software
+ against libnsgif.
+
+Package: libnsgif0-dbg
+Architecture: any
+Depends: libnsgif0 (= ${binary:Version})
+Section: debug
+Priority: extra
+Description: NetSurf GIF decoder - Debugging symbols
+ libnsgif is a decoder for the GIF image format for NetSurf applications.
+ .
+ This package includes the debugging symbols for libnsgif0.

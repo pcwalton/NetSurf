@@ -1,0 +1,10 @@
+libnsbmp.so.0 libnsbmp0 #MINVER#
+ bmp_analyse@Base 0.0.1
+ bmp_create@Base 0.0.1
+ bmp_decode@Base 0.0.1
+ bmp_decode_trans@Base 0.0.1
+ bmp_finalise@Base 0.0.1
+ ico_analyse@Base 0.0.1
+ ico_collection_create@Base 0.0.1
+ ico_finalise@Base 0.0.1
+ ico_find@Base 0.0.1

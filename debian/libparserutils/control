@@ -1,0 +1,56 @@
+Source: libparserutils
+Section: libs
+Priority: optional
+Maintainer: Debian/Ubuntu NetSurf Package Team <deb@netsurf-browser.org>
+Uploaders: Daniel Silverstone <dsilvers@debian.org>, Vincent Sanders <vince@debian.org>
+Standards-Version: 3.8.2.0
+Build-Depends: debhelper (>= 7)
+
+Package: libparserutils0
+Architecture: any
+Depends: ${shlibs:Depends}
+Description: A utility library for parser building
+ LibParserUtils provides various pieces of functionality that are useful
+ when writing parsers. These are:
+ .
+ + A number of character set convertors
+ + Mapping of character set names to/from MIB enum values
+ + UTF-8 and UTF-16 (host endian) support functions
+ + Various simple data structures (resizable buffer, stack, vector)
+ + A UTF-8 input stream
+
+Package: libparserutils0-dev
+Architecture: any
+Provides: libparserutils-dev
+Conflicts: libparserutils-dev
+Depends: libparserutils0 (= ${binary:Version})
+Section: libdevel
+Description: A utility library for parser building - Development files
+ LibParserUtils provides various pieces of functionality that are useful
+ when writing parsers. These are:
+ .
+ + A number of character set convertors
+ + Mapping of character set names to/from MIB enum values
+ + UTF-8 and UTF-16 (host endian) support functions
+ + Various simple data structures (resizable buffer, stack, vector)
+ + A UTF-8 input stream
+ .
+ This package includes the headers and symlinks needed to build software
+ against libparserutils.
+
+Package: libparserutils0-dbg
+Architecture: any
+Depends: libparserutils0 (= ${binary:Version})
+Priority: extra
+Section: debug
+Description: A utility library for parser building - Debug symbols
+ LibParserUtils provides various pieces of functionality that are useful
+ when writing parsers. These are:
+ .
+ + A number of character set convertors
+ + Mapping of character set names to/from MIB enum values
+ + UTF-8 and UTF-16 (host endian) support functions
+ + Various simple data structures (resizable buffer, stack, vector)
+ + A UTF-8 input stream
+ .
+ This package provides the debugging symbols for libparserutils0.

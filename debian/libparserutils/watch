@@ -1,0 +1,3 @@
+version=3
+http://www.netsurf-browser.org/projects/libparserutils/ \
+    \.\./releases/libparserutils-([\d\.]*)-src.tar.gz

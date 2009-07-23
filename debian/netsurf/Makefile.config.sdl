@@ -1,0 +1,11 @@
+# Debian/Ubuntu configuration for NetSurf Browser (SDL)
+
+override NETSURF_FB_FRONTEND := sdl
+override NETSURF_FB_FONTLIB := freetype
+
+override NETSURF_USE_HARU_PDF := NO
+override NETSURF_USE_MNG := NO
+override NETSURF_USE_PNG := YES
+
+override NETSURF_FB_RESPATH_sdl := $(PREFIX)/share/netsurf-framebuffer/
+

@@ -1,0 +1,3 @@
+?package(netsurf-gtk):needs="X11" section="Applications/Network/Web Browsing"\
+  title="Netsurf Web Browser" command="/usr/bin/netsurf-gtk" hints="Web Browsers" \
+  icon="/usr/share/pixmaps/netsurf.xpm"

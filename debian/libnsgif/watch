@@ -1,0 +1,3 @@
+version=3
+http://www.netsurf-browser.org/projects/libnsgif/ \
+  \.\./releases/libnsgif-([\d\.]*)-src.tar.gz

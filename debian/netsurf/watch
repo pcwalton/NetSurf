@@ -1,0 +1,3 @@
+version=3
+http://www.netsurf-browser.org/downloads/source/ \
+   /downloads/releases/netsurf-([\d\.]*)-src.tar.gz

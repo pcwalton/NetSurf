@@ -1,0 +1,82 @@
+Source: netsurf
+Section: web
+Priority: extra
+Maintainer: Debian/Ubuntu NetSurf Package Team <deb@netsurf-browser.org>
+Uploaders: Vincent Sanders <vince@debian.org>, Daniel Silverstone <dsilvers@debian.org>
+Build-Depends: debhelper (>= 7), libglade2-dev, libcurl4-openssl-dev, libxml2-dev, libpng-dev, lemon, re2c, imagemagick, xsltproc, docbook-xsl, librsvg2-dev, libhubbub0-dev, libnsbmp0-dev, libnsgif0-dev, libvncserver-dev, libsdl1.2-dev, libfreetype6-dev, pkg-config, liblcms1-dev
+Standards-Version: 3.8.2
+
+Package: netsurf
+Architecture: all
+Depends: netsurf-gtk
+Provides: www-browser
+Description: Small portable web browser with CSS and Unicode support - Transition package
+ NetSurf is a multi-platform lightweight web browser. Its aim is to provide
+ comprehensive rendering of HTML 5 with CSS 2 in a small resource footprint 
+ while remaining fast. 
+ .
+ This package assists in the transition to the netsurf-gtk package
+
+Package: netsurf-gtk
+Architecture: any
+Depends: ${shlibs:Depends}
+Provides: www-browser
+Recommends: mime-support
+Conflicts: netsurf (<< 2.0-1)
+Description: Small portable web browser with CSS and Unicode support - GTK version
+ NetSurf is a multi-platform lightweight web browser. Its aim is to provide
+ comprehensive rendering of HTML 5 with CSS 2 in a small resource footprint 
+ while remaining fast. 
+
+Package: netsurf-framebuffer-common
+Architecture: all
+Recommends: netsurf-linuxfb | netsurf-sdl | netsurf-vnc
+Description: Common resources for all NetSurf framebuffer targets
+ NetSurf is a multi-platform lightweight web browser. Its aim is to provide
+ comprehensive rendering of HTML 5 with CSS 2 in a small resource footprint 
+ while remaining fast. 
+ .
+ This package provides the common resources for framebuffer targets 
+
+Package: netsurf-linuxfb
+Architecture: any
+Depends: netsurf-framebuffer-common (= ${source:Version}), ${shlibs:Depends}
+Provides: www-browser
+Recommends: mime-support
+Conflicts: netsurf (<< 2.0-1)
+Description: Small portable web browser with CSS and Unicode support - LinuxFB version
+ NetSurf is a multi-platform lightweight web browser. Its aim is to provide
+ comprehensive rendering of HTML 5 with CSS 2 in a small resource footprint 
+ while remaining fast. 
+ .
+ Note: this version runs on the Linux Framebuffer and as such you
+ should not attempt to launch it from inside X11.
+
+Package: netsurf-sdl
+Architecture: any
+Depends: netsurf-framebuffer-common (= ${source:Version}), ${shlibs:Depends}
+Provides: www-browser
+Recommends: mime-support
+Conflicts: netsurf (<< 2.0-1)
+Description: Small portable web browser with CSS and Unicode support - SDL version
+ NetSurf is a multi-platform lightweight web browser. Its aim is to provide
+ comprehensive rendering of HTML 5 with CSS 2 in a small resource footprint 
+ while remaining fast. 
+ .
+ Note: this version runs in SDL and as such, uses whichever SDL backend you have
+ configured.
+
+Package: netsurf-vnc
+Architecture: any
+Depends: netsurf-framebuffer-common (= ${source:Version}), ${shlibs:Depends}
+Provides: www-browser
+Recommends: mime-support
+Suggests: xvncviewer
+Conflicts: netsurf (<< 2.0-1)
+Description: Small portable web browser with CSS and Unicode support - VNC server version
+ NetSurf is a multi-platform lightweight web browser. Its aim is to provide
+ comprehensive rendering of HTML 5 with CSS 2 in a small resource footprint 
+ while remaining fast. 
+ .
+ Note this version of NetSurf provides a VNC server which then has to
+ be connected to before the browser will be displayed.

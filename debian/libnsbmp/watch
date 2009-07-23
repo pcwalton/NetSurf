@@ -1,0 +1,3 @@
+version=3
+http://www.netsurf-browser.org/projects/libnsbmp/ \
+  \.\./releases/libnsbmp-([\d\.]*)-src.tar.gz

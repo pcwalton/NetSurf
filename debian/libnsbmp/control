@@ -1,0 +1,35 @@
+Source: libnsbmp
+Section: libs
+Priority: optional
+Maintainer: Debian/Ubuntu NetSurf Package Team <deb@netsurf-browser.org>
+Uploaders: Daniel Silverstone <dsilvers@debian.org>, Vincent Sanders <vince@debian.org>
+Standards-Version: 3.8.2.0
+Build-Depends: debhelper (>= 7)
+
+Package: libnsbmp0
+Architecture: any
+Depends: ${shlibs:Depends}
+Description: NetSurf BMP decoder
+ libnsbmp is a decoder for the BMP image format for NetSurf applications.
+ 
+Package: libnsbmp0-dev
+Architecture: any
+Provides: libnsbmp-dev
+Conflicts: libnsbmp-dev
+Depends: libnsbmp0 (= ${binary:Version})
+Section: libdevel
+Description: NetSurf BMP decoder - Development files
+ libnsbmp is a decoder for the BMP image format for NetSurf applications.
+ .
+ This package includes the headers and symlinks needed to build software
+ against libnsbmp.
+
+Package: libnsbmp0-dbg
+Architecture: any
+Depends: libnsbmp0 (= ${binary:Version})
+Section: debug
+Priority: extra
+Description: NetSurf BMP decoder - Debug files
+ libnsbmp is a decoder for the BMP image format for NetSurf applications.
+ .
+ This package provides the debugging symbols for libnsbmp0

@@ -1,0 +1,6 @@
+# Debian/Ubuntu configuration for NetSurf Browser (GTK)
+
+override NETSURF_USE_HARU_PDF := NO
+override NETSURF_USE_MNG := NO
+override NETSURF_USE_PNG := YES
+override NETSURF_GTK_RESOURCES := $(PREFIX)/share/netsurf-gtk/
