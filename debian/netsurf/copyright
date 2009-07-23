@@ -4,7 +4,7 @@ This package was debianized by the Debian/Ubuntu NetSurf Package Team
 
 It was downloaded from: http://www.netsurf-browser.org/download/netsurf-2.1-src.tar.gz
 
-Upstream Authors: John M Bell, James Bursa, Philip Pemberton, Phil Mellor, Rob Jackson, Richard Wilson, Andrew Timmins, John Tytgat, Kevin Bagust, Adrian Lees, Daniel Silverstone, Rob Kendrick, Daniel Stenberg, Andrew Tridgell, François Revel, Chris Young, Adam Blokus, Sean Fox, Mike Lester, Mark Benjamin, Chris Tarnowski
+Upstream Authors: John M Bell, James Bursa, Philip Pemberton, Phil Mellor, Rob Jackson, Richard Wilson, Andrew Timmins, John Tytgat, Kevin Bagust, Adrian Lees, Daniel Silverstone, Rob Kendrick, Daniel Stenberg, Andrew Tridgell, François Revel, Chris Young, Adam Blokus, Sean Fox, Mike Lester, Mark Benjamin, Chris Tarnowski, Michael Drake
 
 Copyright: 2003 - 2009 John M Bell <jmb202@ecs.soton.ac.uk>
            2003 - 2009 James Bursa <bursa@users.sourceforge.net>
@@ -28,6 +28,7 @@ Copyright: 2003 - 2009 John M Bell <jmb202@ecs.soton.ac.uk>
 	   2008 - 2009 Mike Lester
 	   2009 Mark Benjamin
 	   2009 Chris Tarnowski
+	   2008-2009 Michael Drake <tlsa@netsurf-browser.org>
            
 
 License:
