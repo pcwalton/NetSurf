@@ -115,9 +115,9 @@
 <table class="progress">
 <tr><th class="progresstitle">Title</th><th class="progressstatus">Status</th><th>Notes</th></tr>
 <tr class="nearlydone"><td>Selectors</td><td>Nearly done</td><td>CSS 1 and CSS 2 selectors implemented. A few CSS 3 selectors are implemented too.</td></tr>
-<tr class="notstarted"><td>Pseudo-classes</td><td>Not started</td><td></td></tr>
-<tr class="notstarted"><td>Pseudo-elements</td><td>Not started</td><td></td></tr>
-<tr class="juststarted"><td>Media types</td><td>Just started</td><td>NetSurf doesn't handle @media.</td></tr>
+<tr class="juststarted"><td>Pseudo-classes</td><td>Just started</td><td></td></tr>
+<tr class="juststarted"><td>Pseudo-elements</td><td>Just started</td><td></td></tr>
+<tr class="nearlydone"><td>Media types</td><td>Nearly done</td><td>NetSurf currently only uses the screen-targetted CSS, even when printing.</td></tr>
 <tr class="complete"><td>@import</td><td>Complete</td><td></td></tr>
 <tr class="nearlydone"><td>Cascade</td><td>Nearly done</td><td>!important is not implemented. There is no user stylesheet.</td></tr>
 </table>
