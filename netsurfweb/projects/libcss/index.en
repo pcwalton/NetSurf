@@ -29,7 +29,7 @@
 
 <h2>What is LibCSS?</h2>
 
-<p>LibCSS is a CSS parser and selection engine, written in C. It aims to parse the forward compatible CSS grammar. It is currently in development for use with <a href="/">NetSurf</a> and is intended to be suitable for use in other projects too. For further details, see the <a href="http://source.netsurf-browser.org/trunk/libcss/README">readme</a>.</p>
+<p>LibCSS is a CSS parser and selection engine, written in C. It aims to parse the forward compatible CSS grammar. It was developed as part of the <a href="/">NetSurf</a> project and is available for use by other software under the MIT licence. For further details, see the <a href="http://source.netsurf-browser.org/trunk/libcss/README">readme</a>.</p>
 
 <h2>Source code</h2>
 
