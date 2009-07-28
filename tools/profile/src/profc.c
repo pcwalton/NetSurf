@@ -22,7 +22,7 @@ extern void profile_save(struct profile **table, int size, void *ro_base)
 	const char *fname;
 	unsigned int offset;
 
-	fp = fopen("$.profile_save", "w");
+	fp = fopen("$.profile_save/csv", "w");
 	if (!fp)
 		return;
 
