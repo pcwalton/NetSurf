@@ -78,7 +78,11 @@ __cyg_profile_func_enter:
 
 		LDR	r2,[r1,#exclusive_time]
 		LDR	r3,[r1,#exclusive_time + 4]
-		SUB	r5,r0,r8
+		CMP	r0,r8			@; wrapped around?
+		MOVLO	r5,#-1
+		SUBLO	r5,r5,r8		@; diff = UINT_MAX - last
+		ADDLO	r5,r5,r0		@; diff += now
+		SUBHS	r5,r0,r8		@; diff = last - now
 		ADDS	r2,r2,r5
 		ADC	r3,r3,#0
 		STR	r2,[r1,#exclusive_time]
@@ -171,11 +175,21 @@ __cyg_profile_func_exit:
 
 		LDMIB	r2,{r3-r6}		@; load times
 
-		SUB	r7,r0,r8		@; update exclusive
+		@; update exclusive
+		CMP	r0,r8			@; wrapped around?
+		MOVLO	r7,#-1
+		SUBLO	r7,r7,r8		@; diff = UINT_MAX - last
+		ADDLO	r7,r7,r0		@; diff += now
+		SUBHS	r7,r0,r8		@; diff = last - now
 		ADDS	r3,r3,r7
 		ADC	r4,r4,#0
 
-		SUB	r7,r0,r1		@; update inclusive
+		@; update inclusive
+		CMP	r0,r1			@; wrapped around?
+		MOVLO	r7,#-1
+		SUBLO	r7,r7,r1		@; diff = UINT_MAX - last
+		ADDLO	r7,r7,r0		@; diff += now
+		SUBHS	r7,r0,r1		@; diff = last - now
 		ADDS	r5,r5,r7
 		ADC	r6,r6,#0
 
