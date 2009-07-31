@@ -87,26 +87,32 @@ command("make TARGET=riscos PREFIX=/home/riscos/env");
 
 chdir "$root/libparserutils";
 command("svn update --non-interactive");
+command("make TARGET=riscos uninstall");
 command("make TARGET=riscos install");
 
 chdir "$root/libwapcaplet";
 command("svn update --non-interactive");
+command("make TARGET=riscos uninstall");
 command("make TARGET=riscos install");
 
 chdir "$root/hubbub";
 command("svn update --non-interactive");
+command("make TARGET=riscos uninstall");
 command("make TARGET=riscos install");
 
 chdir "$root/libcss";
 command("svn update --non-interactive");
-command("make TARGET=riscos install");
+command("make TARGET=riscos uninstall");
+command("make TARGET=riscos OPTCFLAGS=-O2 install");
 
 chdir "$root/libnsbmp";
 command("svn update --non-interactive");
+command("make TARGET=riscos uninstall");
 command("make TARGET=riscos install");
 
 chdir "$root/libnsgif";
 command("svn update --non-interactive");
+command("make TARGET=riscos uninstall");
 command("make TARGET=riscos install");
 
 # build RISC OS version
