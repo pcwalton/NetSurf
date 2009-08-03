@@ -271,7 +271,7 @@ foreach my $lang (@langs) {
 
 # create zip for regular build
 chdir "$root/riscos-zip";
-command('/home/riscos/cross/bin/zip -9vr, ../netsurf.zip *');
+command('/home/riscos/env/bin/zip -9vr, ../netsurf.zip *');
 chdir $root;
 command("mv --verbose netsurf.zip $outputdir/");
 
@@ -298,7 +298,7 @@ END
 	command('rm --recursive --verbose --force netsurfpkg/Apps/!NetSurf');
 	command('mv --verbose riscos-zip/!NetSurf netsurfpkg/Apps/');
 	chdir "$root/netsurfpkg";
-	command("/home/riscos/cross/bin/zip -9vr, " .
+	command("/home/riscos/env/bin/zip -9vr, " .
 			"../$outputdir/riscpkg/netsurf-$pkg_version.zip " .
 			'Apps/!NetSurf RiscPkg/Control RiscPkg/Copyright');
 	chdir "$root/$outputdir/riscpkg";
