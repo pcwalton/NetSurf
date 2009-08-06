@@ -137,12 +137,12 @@
 <h2 id="news">Latest news</h2>
 
 <dl class="frontnews">
+<dt><a href="http://vlists.pepperfish.net/pipermail/netsurf-dev-netsurf-browser.org/2009-August/001457.html">New developers sought</a> <span>06 Aug 2009</span></dt>
+<dd>A maintainer is required for the RISC OS front end. Also anyone with Perl scripting ability could help overhaul the autobuilder.</dd>
 <dt><a href="/downloads/">NetSurf 2.1 released</a> <span>23 May 2009</span></dt>
 <dd>NetSurf 2.1 is a bug fix release. It contains some improvements to page rendering as well as some front-end specific fixes. Full details in the change log. We recommend all users upgrade.</dd>
 <dt><a href="http://www.linuxdevices.com/articles/AT8912553591.html">NetSurf as an embedded web kiosk</a> <span>12 May 2009</span></dt>
 <dd>Media watch: LinuxDevices has put up a tutorial for setting up NetSurf's framebuffer front end on embedded linux devices and creating a web kiosk.</dd>
-<dt><a href="/downloads/">NetSurf 2.0 released</a> <span>25 Apr 2009</span></dt>
-<dd>NetSurf 2 is a major update over the 1.x release series, and represents almost two years of development. New features include a new HTML parser, SVG support, PDF export, improved page layout and a more complete GTK interface. This is also the first release for our new framebuffer target and the native ports to AmigaOS, BeOS and Haiku.</dd>
 </dl>
 <p class="more"><a href="/about/news" class="seemore">See more news</a></p>
 
