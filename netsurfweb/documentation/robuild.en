@@ -57,102 +57,34 @@
 
 <ul>
 <li><a href="#Requirements">Requirements</a></li>
-<li><a href="#QuickStart">Quick start</a></li>
-<li><a href="#UnpackingTheLibraries">Fetching and unpacking the libraries</a></li>
-<li><a href="#AcquiringAndCompilingTheSource">Acquiring and compiling the source</a></li>
+<li><a href="#GettingStarted">Getting started</a></li>
 </ul>
 
-<p class="updated">Last updated 21 March 2008</p>
+<p class="updated">Last updated 10 August 2009</p>
 
 <h2 id="Requirements">Requirements</h2>
 
 <ul>
 <li>A Filing System which supports long filenames</li>
-<li>!GCC 3.4.6 release 3 or later (<a href="http://gccsdk.riscos.info/">http://gccsdk.riscos.info/</a>)</li>
+<li>GCC 3.4.6 release 3 or later (<a href="http://gccsdk.riscos.info/">http://gccsdk.riscos.info/</a>)</li>
 <li>OSLib 6.80 or later (<a href="http://ro-oslib.sourceforge.net/">http://ro-oslib.sourceforge.net/</a>)</li>
 <li>Perl 5.8.8 or later (<a href="http://www.cp15.org/programming/">http://www.cp15.org/programming/</a>)</li>
 <li>RISC OS SVN client (<a href="http://www.cp15.org/versioncontrol/">http://www.cp15.org/versioncontrol/</a>)</li>
+<li>NSTools <a href="/downloads/other/nstools.zip">http://www.netsurf-browser.org/downloads/other/nstools.zip</a>.</li>
 </ul>
 
-<h2 id="QuickStart">Quick start</h2>
+<h2 id="GettingStarted">Getting started</h2>
 
 <p>This section details quick-start instructions for getting NetSurf compiled under RISC OS. If you want more detail, see the rest of this document.</p>
 
 <ol>
 <li>Download and install the <a href="#Requirements">requirements</a> listed above.</li>
-<li>Download and install the pre-assembled <a href="/downloads/other/nstools.zip">tool and library tree (2.3MB)</a>.</li>
-<li>Force the RISC OS SVN client to handle ,xxx extensions correctly by issuing <code>*Set svn$filetypeext &quot;&quot;</code>.</li>
-<li>Check out the latest source code from SVN.
-<pre>svn co svn://svn.netsurf-browser.org/trunk/netsurf</pre></li>
-<li>Set the CSD appropriately, set the next slot to 6000k and invoke <code>make</code> from a TaskWindow.</li>
-</ol>
-
-<h2 id="UnpackingTheLibraries">Fetching and unpacking the libraries</h2>
-
-<ol>
-<li>Download and unpack the pre-assembled <a href="/downloads/other/nstools.zip">tool and library tree (2.6MB)</a>.</li>
-<li>Double-click on !NSTools to open the tree.</li>
-<li>Consult the !NSTools.!Help file in conjunction with <a href="http://netsurf.strcprstskrzkrk.co.uk/developer/">http://netsurf.strcprstskrzkrk.co.uk/developer/</a> in order to determine if any libraries need updating.</li>
-<li>If necessary, merge any updated libraries into the !NSTools directory structure, renaming files into RISC OS format as appropriate (i.e. <code>foo/h</code> becomes <code>h.foo</code>). This should produce a directory tree like:
-
-<pre>    !NSTools
-      |
-      | -- bin
-      |       |
-      |       | -- c
-      |
-      | -- include
-      |       |
-      |       | -- curl
-      |       |     |
-      |       |     | -- h
-      |       |
-      |       | -- h
-      |       |
-      |       | -- libxml
-      |       |      |
-      |       |      | -- h
-      |       |
-      |       | -- openssl
-      |       |      |
-      |       |      | -- h
-      |
-      | -- lib
-              |
-              | -- o</pre>
-
-with the headers in the &quot;h&quot; directories. [This step may not be required, depending upon the naming format used for the pre-built libraries]</li>
-<li>Remove any filename extensions from the files in the lib directory (e.g. <code>libxml2/a</code> becomes <code>libxml2</code>)</li>
-</ol>
-
-<h2 id="AcquiringAndCompilingTheSource">Acquiring and compiling the source</h2>
-
-<ol>
 <li>Force the RISC OS SVN client to handle ,xxx extensions correctly by issuing <code>*Set svn$filetypeext &quot;&quot;</code>. (This may be set permanently by uncommenting the appropriate line in !SVN's !Boot file)</li>
-<li>Use the RISC OS SVN client to check the source out from SVN, using the following command:
-
-<pre>svn checkout svn://svn.netsurf-browser.org/trunk/netsurf</pre>
-
-This will check the latest sources out into a subfolder in the currently selected directory (CSD) entitled &quot;netsurf&quot;. This folder is the root of the source tree. Diagrammatically:
-   
-<pre>     netsurf
-       |
-       | -- !NetSurf
-       | -- content
-       | -- css
-       | -- debug
-       | -- desktop
-       | -- gtk
-       | -- Docs
-       | -- image
-       | -- render
-       | -- riscos
-       | -- utils</pre>
-
-<li>Set the netsurf directory as your CSD, set the next slot to 6000k and invoke <code>make</code> from a TaskWindow</li>
-<li>Go and make a cup of tea whilst the build happens (it takes approximately 30 minutes on a StrongARM RiscPC)</li>
+<li>Check out the latest source code from SVN, by issuing the following command in a TaskWindow:
+<pre>*svn co svn://svn.netsurf-browser.org/trunk/netsurf</pre></li>
+<li>Open the &quot;netsurf&quot; directory that gets created, this now contains all the source code.</li>
+<li>Read the &quot;BUILDING-RISC_OS&quot; document in the &quot;Docs&quot; directory. This explains how to actually get NetSurf to build.</li>
 </ol>
-
 
 <div class="footer">
 <p>Copyright 2003 - 2009 The NetSurf Developers</p>
