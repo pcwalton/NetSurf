@@ -70,7 +70,7 @@
 <li>OSLib 6.80 or later (<a href="http://ro-oslib.sourceforge.net/">http://ro-oslib.sourceforge.net/</a>)</li>
 <li>Perl 5.8.8 or later (<a href="http://www.cp15.org/programming/">http://www.cp15.org/programming/</a>)</li>
 <li>RISC OS SVN client (<a href="http://www.cp15.org/versioncontrol/">http://www.cp15.org/versioncontrol/</a>)</li>
-<li>NSTools <a href="/downloads/other/nstools.zip">http://www.netsurf-browser.org/downloads/other/nstools.zip</a>.</li>
+<li>NSTools (<a href="/downloads/other/nstools.zip">http://www.netsurf-browser.org/downloads/other/nstools.zip</a>)</li>
 </ul>
 
 <h2 id="GettingStarted">Getting started</h2>
@@ -79,7 +79,9 @@
 
 <ol>
 <li>Download and install the <a href="#Requirements">requirements</a> listed above.</li>
-<li>Force the RISC OS SVN client to handle ,xxx extensions correctly by issuing <code>*Set svn$filetypeext &quot;&quot;</code>. (This may be set permanently by uncommenting the appropriate line in !SVN's !Boot file)</li>
+<li>Force the RISC OS SVN client to handle ,xxx extensions correctly by issuing:
+<pre>*Set svn$filetypeext &quot;&quot;</pre>
+This may be set permanently by uncommenting the appropriate line in !SVN's !Boot file.</li>
 <li>Check out the latest source code from SVN, by issuing the following command in a TaskWindow:
 <pre>*svn co svn://svn.netsurf-browser.org/trunk/netsurf</pre></li>
 <li>Open the &quot;netsurf&quot; directory that gets created, this now contains all the source code.</li>
