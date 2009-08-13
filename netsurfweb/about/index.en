@@ -114,6 +114,7 @@
 <tr><th>Sep 2008</th><td>Framebuffer port available</td></tr>
 <tr><th>Apr 2009</th><td>NetSurf 2.0 released</td></tr>
 <tr><th>May 2009</th><td>NetSurf 2.1 released</td></tr>
+<tr><th>Jul 2009</th><td>LibCSS used by NetSurf development builds</td></tr>
 </table>
 
 <div class="frontscreen"><p class="frontscreen"><a href="screenshots/fullsize/roarstechnica.png"><img src="screenshots/thumbnails/roarstechnica.png" alt="GTK NetSurf screenshot."></a> <span>A more recent NetSurf showing <em>Ars Technica</em>.</span></p></div>
