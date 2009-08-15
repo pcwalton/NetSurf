@@ -30,7 +30,7 @@
 
 <h2>What is LibWapcaplet?</h2>
 
-<p>LibWapcaplet is a string internment library, written in C. It provides reference counted string interment and rapic string comparison functionality. It was developed as part of the <a href="/">NetSurf</a> project and is available for use by other software under the MIT licence. For further details, see the <a href="http://source.netsurf-browser.org/trunk/libwapcaplet/README">readme</a>.</p>
+<p>LibWapcaplet is a string internment library, written in C. It provides reference counted string interment and rapid string comparison functionality. It was developed as part of the <a href="/">NetSurf</a> project and is available for use by other software under the MIT licence. For further details, see the <a href="http://source.netsurf-browser.org/trunk/libwapcaplet/README">readme</a>.</p>
 
 <h2>Source code</h2>
 
