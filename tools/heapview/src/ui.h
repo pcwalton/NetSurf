@@ -1,11 +1,13 @@
+#ifndef heapview_ui_h_
+#define heapview_ui_h_
+
 #include <bitset>
 #include <set>
 
 #include <gtkmm/main.h>
 #include <gtkmm/window.h>
 
-class Heap::Client;
-class Heap::Chunk;
+#include "heap.h"
 
 class UI : public Heap::Client
 {
@@ -67,3 +69,5 @@ private:
 	static void bytesForChunk(const Heap::Chunk &chunk, uint64_t rowbase,
 			size_t &first, size_t &last);
 };
+
+#endif

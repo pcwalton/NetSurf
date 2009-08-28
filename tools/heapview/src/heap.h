@@ -1,3 +1,6 @@
+#ifndef heapview_heap_h_
+#define heapview_heap_h_
+
 #include <set>
 #include <vector>
 
@@ -72,3 +75,5 @@ private:
 	void processEvent(const Op &op);
 	void dispatchModified(Client::Type type, const Chunk &chunk);
 };
+
+#endif
