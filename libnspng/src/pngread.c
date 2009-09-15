@@ -448,8 +448,6 @@ static nspng_error process_idat_process_scanline(nspng_ctx *ctx,
 	nspng_adaptive_filter_type filter = ctx->scanline_filter;
 	uint32_t max_idx;
 	uint32_t i;
-	int32_t aidx;
-	uint32_t ppidx;
 
 	/* Clamp maximum bytes to that remaining for this scanline */
 	if (avail > bytes_remaining)
@@ -465,55 +463,57 @@ static nspng_error process_idat_process_scanline(nspng_ctx *ctx,
 		brfs++;
 	}
 
-	/* Calculate initial indices for a and c */
-	aidx = (int32_t) (brfs - 1 - fbo);
-	ppidx = (brfs - 1) % fbo;
+	if (filter == ADAPTIVE_FILTER_NONE) {
+		memcpy(src_scanline + brfs - 1, data, avail - 1);
+	} else {
+		/* Calculate initial indices for a and c */
+		int32_t aidx = (int32_t) (brfs - 1 - fbo);
+		uint32_t ppidx = (brfs - 1) % fbo;
 
-	/* Process remaining bytes, starting where we left off */
-	for (i = brfs - 1; i < max_idx; i++) {
-		uint32_t a, x = *(data++);
+		/* Process remaining bytes, starting where we left off */
+		for (i = brfs - 1; i < max_idx; i++) {
+			uint32_t a, x = *(data++);
 
-		/* Safe, as scanline points fbo bytes into scanline 
-		 * buffer, buffer is fbo bytes oversized, and the 
-		 * first fbo bytes are zero */
-		a = src_scanline[aidx++];
+			/* Safe, as scanline points fbo bytes into scanline 
+			 * buffer, buffer is fbo bytes oversized, and the 
+			 * first fbo bytes are zero */
+			a = src_scanline[aidx++];
 
-		/* Reconstruct original byte value */
-		if (filter == ADAPTIVE_FILTER_NONE) {
-			/* Nothing to do */
-		} else if (filter == ADAPTIVE_FILTER_SUB) {
-			x += a;
-		} else if (filter == ADAPTIVE_FILTER_UP) {
-			uint32_t b = src_scanline[i];
-			x += b;
-		} else if (filter == ADAPTIVE_FILTER_AVERAGE) {
-			uint32_t b = src_scanline[i];
-			x += ((a + b) >> 1);
-		} else if (filter == ADAPTIVE_FILTER_PAETH) {
-			uint32_t b = src_scanline[i];
-			uint32_t c = ppixel[ppidx];
-			uint32_t p = a + b - c;
-			uint32_t pa = abs(p - a);
-			uint32_t pb = abs(p - b);
-			uint32_t pc = abs(p - c);
-
-			if (pa <= pb && pa <= pc) {
+			/* Reconstruct original byte value */
+			if (filter == ADAPTIVE_FILTER_SUB) {
 				x += a;
-			} else if (pb <= pc) {
+			} else if (filter == ADAPTIVE_FILTER_UP) {
+				uint32_t b = src_scanline[i];
 				x += b;
-			} else {
-				x += c;
+			} else if (filter == ADAPTIVE_FILTER_AVERAGE) {
+				uint32_t b = src_scanline[i];
+				x += ((a + b) >> 1);
+			} else if (filter == ADAPTIVE_FILTER_PAETH) {
+				uint32_t b = src_scanline[i];
+				uint32_t c = ppixel[ppidx];
+				uint32_t p = a + b - c;
+				uint32_t pa = abs(p - a);
+				uint32_t pb = abs(p - b);
+				uint32_t pc = abs(p - c);
+
+				if (pa <= pb && pa <= pc) {
+					x += a;
+				} else if (pb <= pc) {
+					x += b;
+				} else {
+					x += c;
+				}
+
+				ppixel[ppidx] = b;
+
+				if (++ppidx == fbo) {
+					ppidx -= fbo;
+				}
 			}
 
-			ppixel[ppidx] = b;
-
-			if (++ppidx == fbo) {
-				ppidx -= fbo;
-			}
+			/* Write out calculated source byte */
+			src_scanline[i] = x;
 		}
-
-		/* Write out calculated source byte */
-		src_scanline[i] = x;
 	}
 
 	if (max_idx + 1 > bps) { 
@@ -521,7 +521,7 @@ static nspng_error process_idat_process_scanline(nspng_ctx *ctx,
 		uint32_t written;
 
 		/* Create/extend image buffer */
-#define OUTPUT_CHUNK_SIZE 8192
+#define OUTPUT_CHUNK_SIZE (16*1024)
 		while (image->data_len + bps > image->data_alloc) {
 			temp = ctx->alloc(image->data, 
 					image->data_alloc + OUTPUT_CHUNK_SIZE, 
