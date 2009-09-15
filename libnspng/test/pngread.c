@@ -7,6 +7,8 @@
 
 #include <libnspng.h>
 
+#include "../src/internal.h"
+
 #define UNUSED(x) ((x)=(x))
 
 static void *myrealloc(void *ptr, size_t len, void *pw)
@@ -51,13 +53,15 @@ int main(int argc, char **argv)
 	uint32_t height;
 	nspng_error error;
 
+	uint64_t full = 0, comp = 0;
+
 	UNUSED(argc);
 
-	for (int i = 0; i < 20; i++) {
+	for (int i = 1; i < argc; i++) {
 
-		fp = fopen(argv[1], "rb");
+		fp = fopen(argv[i], "rb");
 		if (fp == NULL) {
-			printf("FAIL: couldn't open %s\n", argv[1]);
+			printf("FAIL: couldn't open %s\n", argv[i]);
 			return 1;
 		}
 
@@ -114,10 +118,25 @@ int main(int argc, char **argv)
 		printf("Render : %d cs\n", endTime - startTime);
 #endif
 
+		fseek(fp, 0, SEEK_END);
+		long fsize = ftell(fp);
+
+		full += ctx->image.height * ctx->image.bytes_per_scanline;
+		comp += ctx->image.data_len;
+
+		printf("%s: %lu (%u) -> %u = %.2f%%\n", argv[i], fsize, 
+			ctx->image.height * ctx->image.bytes_per_scanline,
+			ctx->image.data_len,
+			(float) ctx->image.data_len * 100 / 
+			(float) (ctx->image.height * ctx->image.bytes_per_scanline));
+
 		nspng_ctx_destroy(ctx);
 
 		fclose(fp);
 	}
+
+	printf("Mean: %lu -> %lu = %.2f%%\n", full, comp, 
+		(float) comp * 100 / (float) full);
 
 	//printf("PASS\n");
 

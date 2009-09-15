@@ -84,7 +84,7 @@ static void get_scanline_data(const nspng_image *image, uint32_t row,
 }
 
 static void process_scanline(nspng_ctx *ctx, const uint8_t *data, uint32_t len,
-		uint8_t *scanline, uint32_t pass, uint32_t *rowbuf)
+		uint32_t pass, uint32_t *rowbuf)
 {
 	static const uint32_t pix_init[7] = { 0, 4, 0, 2, 0, 1, 0 };
 	static const uint32_t pix_step[7] = { 8, 8, 4, 4, 2, 2, 1 };
@@ -96,15 +96,12 @@ static void process_scanline(nspng_ctx *ctx, const uint8_t *data, uint32_t len,
 	const uint32_t *palette = image->palette;
 	const uint32_t step = pix_step[pass];
 	uint32_t *curpix = rowbuf + pix_init[pass];
-	int32_t aidx = 0 - image->filtered_byte_offset;
 	uint32_t bytes_read_for_pixel = 0;
 	uint32_t rgba = 0;
 
 	for (uint32_t byte = 0; byte < len; byte++) {
 		/* Reconstruct original byte value */
-		uint32_t x = data[byte] + scanline[aidx++];
-
-		scanline[byte] = x;
+		uint32_t x = data[byte];
 
 		/* Unpack pixel data from byte into rowbuf */
 		if (colour_type != COLOUR_TYPE_INDEXED && bit_depth >= 8) {
@@ -161,9 +158,7 @@ nspng_error nspng_render(nspng_ctx *ctx, const nspng_rect *clip,
 		nspng_row_callback callback, void *pw)
 {
 	const nspng_image *image = &ctx->image;
-	uint8_t *scanline_buf;
 	uint8_t *scanline;
-	uint32_t *rowbuf;
 	nspng_error error = NSPNG_OK;
 
 	if (ctx == NULL || clip == NULL || callback == NULL)
@@ -172,23 +167,15 @@ nspng_error nspng_render(nspng_ctx *ctx, const nspng_rect *clip,
 	if (ctx->state != STATE_HAD_IEND)
 		return NSPNG_INVALID;
 
-	/* Allocate filtered_byte_offset more bytes than needed, so there
-	 * is no need to check for indices being within the array bounds */
-	scanline_buf = ctx->alloc(NULL, 
-			image->bytes_per_scanline + image->filtered_byte_offset,
-			ctx->pw);
-	if (scanline_buf == NULL)
-		return NSPNG_NOMEM;
-	/* Ensure these bytes are zero, as they are never written to */
-	memset(scanline_buf, 0, image->filtered_byte_offset);
+	scanline = ctx->src_scanline + image->filtered_byte_offset;
 
-	rowbuf = ctx->alloc(NULL, image->width * sizeof(uint32_t), ctx->pw);
-	if (rowbuf == NULL) {
-		ctx->alloc(scanline_buf, 0, ctx->pw);
-		return NSPNG_NOMEM;
+	if (ctx->rowbuf == NULL) {
+		ctx->rowbuf = ctx->alloc(NULL, 
+				image->width * sizeof(uint32_t), ctx->pw);
+		if (ctx->rowbuf == NULL) {
+			return NSPNG_NOMEM;
+		}
 	}
-
-	scanline = scanline_buf + image->filtered_byte_offset;
 
 	/* Process scanlines */
 	for (uint32_t row = clip->y0; row < clip->y1; row++) {
@@ -207,8 +194,8 @@ nspng_error nspng_render(nspng_ctx *ctx, const nspng_rect *clip,
 				get_scanline_data(image, idx, scanline,
 						&data, &len);
 
-				process_scanline(ctx, data, len, scanline,
-						pass, rowbuf);
+				process_scanline(ctx, data, len, pass, 
+						ctx->rowbuf);
 			}
 		} else {
 			/* Image is not interlaced */
@@ -217,20 +204,16 @@ nspng_error nspng_render(nspng_ctx *ctx, const nspng_rect *clip,
 
 			/* Just use the logic for pass 7 
 			 * (i.e. all pixels in scanline) */
-			process_scanline(ctx, data, len, scanline, 
-					6, rowbuf);
+			process_scanline(ctx, data, len, 6, ctx->rowbuf);
 		}
 
-		error = callback((uint8_t *) rowbuf, 
+		error = callback((uint8_t *) ctx->rowbuf, 
 				image->width * sizeof(uint32_t),
 				row, 0, pw);
 		if (error != NSPNG_OK) {
 			break;
 		}
 	}
-
-	ctx->alloc(rowbuf, 0, ctx->pw);
-	ctx->alloc(scanline_buf, 0, ctx->pw);
 
 	return error;
 }

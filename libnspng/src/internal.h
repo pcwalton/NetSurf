@@ -146,7 +146,8 @@ struct nspng_ctx {
 	nspng_adaptive_filter_type scanline_filter;
 	uint8_t prev_pixel[8];
 	uint8_t *src_scanline;
-	uint8_t *dst_scanline;
+
+	uint32_t *rowbuf;
 
 	z_stream zlib_stream;
 

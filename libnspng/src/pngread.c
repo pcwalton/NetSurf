@@ -444,7 +444,6 @@ static nspng_error process_idat_process_scanline(nspng_ctx *ctx,
 	const uint32_t bytes_remaining = bps + 1 - brfs;
 	/* Compensate for oversize buffer */
 	uint8_t *src_scanline = ctx->src_scanline + fbo;
-	uint8_t *dst_scanline = ctx->dst_scanline;
 	uint8_t *ppixel = ctx->prev_pixel;
 	nspng_adaptive_filter_type filter = ctx->scanline_filter;
 	uint32_t max_idx;
@@ -515,9 +514,6 @@ static nspng_error process_idat_process_scanline(nspng_ctx *ctx,
 
 		/* Write out calculated source byte */
 		src_scanline[i] = x;
-
-		/* Re-encode using SUB filter */
-		dst_scanline[i] = x - a;
 	}
 
 	if (max_idx + 1 > bps) { 
@@ -540,14 +536,14 @@ static nspng_error process_idat_process_scanline(nspng_ctx *ctx,
 #undef OUTPUT_CHUNK_SIZE
 
 		/* Compress scanline into buffer */
-		written = lzf_compress(dst_scanline, 
+		written = lzf_compress(src_scanline, 
 				bps, 
 				image->data + image->data_len, 
 				bps - 1);
 		if (written == 0) {
 			/* Would be larger - use uncompressed */
 			memcpy(image->data + image->data_len,
-				dst_scanline,
+				src_scanline,
 				bps);
 		}
 
@@ -605,14 +601,6 @@ static nspng_error process_idat(nspng_ctx *ctx)
 		}
 		/* Set the initial filtered_byte_offset bytes to 0 */
 		memset(ctx->src_scanline, 0, image->filtered_byte_offset);
-	}
-
-	if (ctx->dst_scanline == NULL) {
-		ctx->dst_scanline = ctx->alloc(NULL, image->bytes_per_scanline, 
-				ctx->pw);
-		if (ctx->dst_scanline == NULL) {
-			return NSPNG_NOMEM;
-		}
 	}
 
 	/* Set up the input */
@@ -1037,8 +1025,8 @@ nspng_error nspng_ctx_destroy(nspng_ctx *ctx)
 	if (ctx->src_scanline != NULL)
 		ctx->alloc(ctx->src_scanline, 0, ctx->pw);
 
-	if (ctx->dst_scanline != NULL)
-		ctx->alloc(ctx->dst_scanline, 0, ctx->pw);
+	if (ctx->rowbuf != NULL)
+		ctx->alloc(ctx->rowbuf, 0, ctx->pw);
 
 	inflateEnd(&ctx->zlib_stream);
 
