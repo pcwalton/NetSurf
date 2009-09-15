@@ -135,7 +135,7 @@ int main(int argc, char **argv)
 		fclose(fp);
 	}
 
-	printf("Mean: %lu -> %lu = %.2f%%\n", full, comp, 
+	printf("Mean: %u -> %u = %.2f%%\n", (uint32_t) full, (uint32_t) comp, 
 		(float) comp * 100 / (float) full);
 
 	//printf("PASS\n");
