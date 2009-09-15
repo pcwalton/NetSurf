@@ -139,7 +139,7 @@
 <h2 id="news">Latest news</h2>
 
 <dl class="frontnews">
-<dt><a href="http://vlists.pepperfish.net/pipermail/netsurf-users-netsurf-browser.org/2009-September/008959.html">Google Summer of Code Roundup</a> <span>15 September 2009</span></dt>
+<dt><a href="http://vlists.pepperfish.net/pipermail/netsurf-users-netsurf-browser.org/2009-September/008959.html">Google Summer of Code Roundup</a> <span>15 Sep 2009</span></dt>
 <dd>As many of you know, NetSurf has participated in Google Summer of Code for a second consecutive year. This year we ran three projects which have all been of great benefit to the project.</dd>
 <dt><a href="http://vlists.pepperfish.net/pipermail/netsurf-dev-netsurf-browser.org/2009-August/001457.html">New developers sought</a> <span>06 Aug 2009</span></dt>
 <dd>A maintainer is required for the RISC OS front end. Also anyone with Perl scripting ability could help overhaul the autobuilder.</dd>
