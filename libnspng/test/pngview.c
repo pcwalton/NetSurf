@@ -33,17 +33,14 @@ static nspng_error row_handler(const uint8_t *row, uint32_t rowbytes,
 	UNUSED(pass);
 
 	for (col = 0; col != rowbytes >> 2; col++) {
-		const void *ppix = row + col * 4;
-		uint32_t pix = *((const uint32_t *) ppix);
-		uint32_t r = (pix >> 24) & 0xff;
-		uint32_t g = (pix >> 16) & 0xff;
-		uint32_t b = (pix >>  8) & 0xff;
-		uint32_t a = 0xff - ((pix >>  0) & 0xff); /* SDL is inverse */
+		const uint8_t *pix = row + col * 4;
 
-		*(scanline + col) = (r << ctx->screen->format->Rshift) |
-				    (g << ctx->screen->format->Gshift) |
-				    (b << ctx->screen->format->Bshift) |
-				    (a << ctx->screen->format->Ashift);
+		*(scanline + col) = (pix[0] << ctx->screen->format->Rshift) |
+				    (pix[1] << ctx->screen->format->Gshift) |
+				    (pix[2] << ctx->screen->format->Bshift) |
+				    /* SDL alpha is inverse */
+				    ((0xff - pix[3]) << 
+						ctx->screen->format->Ashift);
 	}
 
 	return NSPNG_OK;

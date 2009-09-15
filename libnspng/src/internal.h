@@ -147,7 +147,7 @@ struct nspng_ctx {
 	uint8_t prev_pixel[8];
 	uint8_t *src_scanline;
 
-	uint32_t *rowbuf;
+	uint8_t *rowbuf;
 
 	z_stream zlib_stream;
 
