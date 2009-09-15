@@ -83,8 +83,8 @@ static void get_scanline_data(const nspng_image *image, uint32_t row,
 	}
 }
 
-static void process_scanline(nspng_ctx *ctx, const uint8_t *data, uint32_t len,
-		uint32_t pass, uint8_t *rowbuf)
+static void process_scanline_slow(nspng_ctx *ctx, const uint8_t *data, 
+		uint32_t len, uint32_t pass, uint8_t *rowbuf)
 {
 	/* LUTs for interlacing */
 	/* Byte offsets for initial pixel in pass N */
@@ -101,8 +101,9 @@ static void process_scanline(nspng_ctx *ctx, const uint8_t *data, uint32_t len,
 	const uint32_t step = pix_step[pass];
 	uint8_t *curpix = rowbuf + pix_init[pass];
 	uint32_t bytes_read_for_pixel = 0;
+	uint32_t byte;
 
-	for (uint32_t byte = 0; byte < len; byte++) {
+	for (byte = 0; byte < len; byte++) {
 		/* Reconstruct original byte value */
 		const uint8_t x = data[byte];
 
@@ -151,6 +152,49 @@ static void process_scanline(nspng_ctx *ctx, const uint8_t *data, uint32_t len,
 				curpix += step;
 			}
 		}
+	}
+}
+
+static void process_scanline(nspng_ctx *ctx, const uint8_t *data, uint32_t len,
+		uint32_t pass, uint8_t *rowbuf)
+{
+	const uint32_t colour_type = ctx->image.colour_type;
+	uint32_t byte;
+
+	/* Optimise for non-interlaced, non-paletted, 8bpc scanlines */
+	if (pass == 6 && ctx->image.bit_depth == 8 && 
+			colour_type != COLOUR_TYPE_INDEXED) {
+		if (colour_type == COLOUR_TYPE_RGBA) {
+			memcpy(rowbuf, data, len);
+		} else if (colour_type == COLOUR_TYPE_GREY_A) {
+			for (byte = 0; byte < len - 1; byte += 2) {
+				const uint8_t g = data[byte + 0];
+
+				*rowbuf++ = g;
+				*rowbuf++ = g;
+				*rowbuf++ = g;
+				*rowbuf++ = data[byte + 1];
+			}
+		} else if (colour_type == COLOUR_TYPE_RGB) {
+			for (byte = 0; byte < len - 2; byte += 3) {
+				*rowbuf++ = data[byte + 0];
+				*rowbuf++ = data[byte + 1];
+				*rowbuf++ = data[byte + 2];
+				*rowbuf++ = 0xff;
+			}
+		} else if (colour_type == COLOUR_TYPE_GREY) {
+			for (byte = 0; byte < len; byte++) {
+				const uint8_t g = data[byte];
+
+				*rowbuf++ = g;
+				*rowbuf++ = g;
+				*rowbuf++ = g;
+				*rowbuf++ = 0xff;
+			}
+		}
+	} else {
+		/* Fall back to the slow code for the unhelpful cases */
+		process_scanline_slow(ctx, data, len, pass, rowbuf);
 	}
 }
 
