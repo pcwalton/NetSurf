@@ -45,7 +45,7 @@ static nspng_error row_handler(const uint8_t *row, uint32_t rowbytes,
 int main(int argc, char **argv)
 {
 	FILE *fp;
-	uint8_t buf[4096];
+	static uint8_t buf[4096];
 	size_t read;
 	nspng_ctx *ctx;
 	nspng_rect clip;
