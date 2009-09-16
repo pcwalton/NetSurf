@@ -106,7 +106,7 @@
  * NOTE: this breaks the prototype in lzf.h.
  */
 #ifndef LZF_STATE_ARG
-# define LZF_STATE_ARG 0
+# define LZF_STATE_ARG 1
 #endif
 
 /*
@@ -123,10 +123,6 @@
 
 /*****************************************************************************/
 /* nothing should be changed below */
-
-typedef unsigned char u8;
-
-typedef const u8 *LZF_STATE[1 << (HLOG)];
 
 #if !STRICT_ALIGN
 /* for unaligned accesses we need a 16 bit datatype. */

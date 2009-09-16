@@ -15,8 +15,6 @@
 
 #include "internal.h"
 
-#include "liblzf/lzf.h"
-
 typedef enum nspng_chunk_type {
 	CHUNK_IHDR = ('I' << 24) | ('H' << 16) | ('D' << 8) | 'R',
 	CHUNK_PLTE = ('P' << 24) | ('L' << 16) | ('T' << 8) | 'E',
@@ -539,7 +537,8 @@ static nspng_error process_idat_process_scanline(nspng_ctx *ctx,
 		written = lzf_compress(src_scanline, 
 				bps, 
 				image->data + image->data_len, 
-				bps - 1);
+				bps - 1,
+				ctx->lzf_htab);
 		if (written == 0) {
 			/* Would be larger - use uncompressed */
 			memcpy(image->data + image->data_len,

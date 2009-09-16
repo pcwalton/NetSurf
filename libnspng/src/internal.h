@@ -14,6 +14,8 @@
 
 #include <libnspng.h>
 
+#include "liblzf/lzf.h"
+
 typedef enum nspng_state {
 	STATE_START,
 	STATE_VERIFIED_SIGNATURE,
@@ -150,6 +152,8 @@ struct nspng_ctx {
 	uint8_t *rowbuf;
 
 	z_stream zlib_stream;
+
+	LZF_STATE lzf_htab;
 
 	nspng_chunk chunk;
 

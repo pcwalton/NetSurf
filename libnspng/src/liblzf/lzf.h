@@ -49,6 +49,22 @@
 #define LZF_VERSION 0x0105 /* 1.5, API version */
 
 /*
+ * Size of hashtable is (1 << HLOG) * sizeof (char *)
+ * decompression is independent of the hash table size
+ * the difference between 15 and 14 is very small
+ * for small blocks (and 14 is usually a bit faster).
+ * For a low-memory/faster configuration, use HLOG == 13;
+ * For best compression, use 15 or 16 (or more, up to 23).
+ */
+#ifndef HLOG
+# define HLOG 16
+#endif
+
+typedef unsigned char u8;
+
+typedef const u8 *LZF_STATE[1 << (HLOG)];
+
+/*
  * Compress in_len bytes stored at the memory block starting at
  * in_data and write the result to out_data, up to a maximum length
  * of out_len bytes.
@@ -75,7 +91,8 @@
  */
 unsigned int 
 lzf_compress (const void *const in_data,  unsigned int in_len,
-              void             *out_data, unsigned int out_len);
+              void             *out_data, unsigned int out_len,
+              LZF_STATE         htab);
 
 /*
  * Decompress data compressed with some version of the lzf_compress
