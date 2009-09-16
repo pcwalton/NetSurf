@@ -95,88 +95,115 @@ static inline uint16_t read_halfword(const uint8_t *data)
 /**
  * Read a chunk from the data stream
  *
- * \param ctx  Decoder context
+ * \param ctx   Decoder context
  * \param data  Start of chunk to read
  * \param len   Length, in bytes, of available data
  * \return NSPNG_OK on success.
  */
 static nspng_error read_chunk(nspng_ctx *ctx, const uint8_t *data, size_t len)
 {
+	nspng_error error = NSPNG_OK;
+	nspng_chunk_state chunk_state;
+	nspng_chunk chunk;
+
 	assert(ctx != NULL);
 	assert(data != NULL);
 
-	while (len > 0 && ctx->chunk_state != CHUNK_STATE_HAD_CRC) {
-		ctx->chunk.amount_read++;
+	chunk_state = ctx->chunk_state;
+	chunk = ctx->chunk;
 
-		if (ctx->chunk_state == CHUNK_STATE_START) {
-			ctx->chunk.length = (ctx->chunk.length << 8) | *data;
+	while (len > 0 && chunk_state != CHUNK_STATE_HAD_CRC) {
+		if (chunk_state == CHUNK_STATE_START) {
+			chunk.length = (chunk.length << 8) | *data;
 
-			if (ctx->chunk.amount_read == 4) {
+			if (++chunk.amount_read == 4) {
 				/* Length should not exceed 2^31 - 1 bytes */
-				if (ctx->chunk.length > 0x7fffffff) {
-					return NSPNG_INVALID;
+				if (chunk.length > 0x7fffffff) {
+					error = NSPNG_INVALID;
+					break;
 				}
 
 				/* Initialise CRC */
-				ctx->chunk.computed_crc = crc32(0L, Z_NULL, 0);
+				chunk.computed_crc = crc32(0L, Z_NULL, 0);
 
-				ctx->chunk_state = CHUNK_STATE_HAD_LENGTH;
+				chunk_state = CHUNK_STATE_HAD_LENGTH;
 			}
-		} else if (ctx->chunk_state == CHUNK_STATE_HAD_LENGTH) {
-			ctx->chunk.type = (ctx->chunk.type << 8) | *data;
+
+			data++;
+			len--;
+		} else if (chunk_state == CHUNK_STATE_HAD_LENGTH) {
+			chunk.type = (chunk.type << 8) | *data;
 
 			/* CRC includes chunk type */
-			ctx->chunk.computed_crc = crc32(
-					ctx->chunk.computed_crc, data, 1);
+			chunk.computed_crc = crc32(chunk.computed_crc, data, 1);
 
-			if (ctx->chunk.amount_read == 8) {
-				if (ctx->chunk.length > ctx->chunk.data_alloc) {
+			if (++chunk.amount_read == 8) {
+				if (chunk.length > chunk.data_alloc) {
 					uint8_t *temp = ctx->alloc(
-							ctx->chunk.data, 
-							ctx->chunk.length, 
+							chunk.data, 
+							chunk.length, 
 							ctx->pw);
-					if (temp == NULL)
-						return NSPNG_NOMEM;
+					if (temp == NULL) {
+						error = NSPNG_NOMEM;
+						break;
+					}
 
-					ctx->chunk.data = temp;
-					ctx->chunk.data_alloc = 
-							ctx->chunk.length;
+					chunk.data = temp;
+					chunk.data_alloc = chunk.length;
 				}
 
-				if (ctx->chunk.length == 0) {
-					ctx->chunk_state = CHUNK_STATE_HAD_DATA;
+				if (chunk.length == 0) {
+					chunk_state = CHUNK_STATE_HAD_DATA;
 				} else {
-					ctx->chunk_state = CHUNK_STATE_HAD_TYPE;
+					chunk_state = CHUNK_STATE_HAD_TYPE;
 				}
 			}
-		} else if (ctx->chunk_state == CHUNK_STATE_HAD_TYPE) {
-			ctx->chunk.data[ctx->chunk.amount_read - 9] = *data;
 
-			ctx->chunk.computed_crc = crc32(
-					ctx->chunk.computed_crc, data, 1);
+			data++;
+			len--;
+		} else if (chunk_state == CHUNK_STATE_HAD_TYPE) {
+			const uint32_t needed = 
+					chunk.length - (chunk.amount_read - 8);
+			const uint32_t bytes = needed < len ? needed : len;
 
-			if (ctx->chunk.amount_read == ctx->chunk.length + 8) {
-				ctx->chunk_state = CHUNK_STATE_HAD_DATA;
+			memcpy(chunk.data + chunk.amount_read - 8, data, bytes);
+
+			chunk.computed_crc = crc32(chunk.computed_crc, data,
+					bytes);
+
+			if (chunk.amount_read + bytes == chunk.length + 8) {
+				chunk_state = CHUNK_STATE_HAD_DATA;
 			}
-		} else if (ctx->chunk_state == CHUNK_STATE_HAD_DATA) {
-			ctx->chunk.crc = (ctx->chunk.crc << 8) | *data;
 
-			if (ctx->chunk.amount_read == ctx->chunk.length + 12) {
+			chunk.amount_read += bytes;
+
+			data += bytes;
+			len -= bytes;
+		} else if (chunk_state == CHUNK_STATE_HAD_DATA) {
+			chunk.crc = (chunk.crc << 8) | *data;
+
+			if (++chunk.amount_read == chunk.length + 12) {
 				/* Ensure CRCs match */
-				if (ctx->chunk.computed_crc != ctx->chunk.crc) {
-					return NSPNG_INVALID;
+				if (chunk.computed_crc != chunk.crc) {
+					error = NSPNG_INVALID;
+					break;
 				}
 
-				ctx->chunk_state = CHUNK_STATE_HAD_CRC;
+				chunk_state = CHUNK_STATE_HAD_CRC;
 			}
-		}
 
-		data++;
-		len--;
+			data++;
+			len--;
+		}
 	}
 
-	return (ctx->chunk_state == CHUNK_STATE_HAD_CRC) ? NSPNG_OK 
-							 : NSPNG_NEEDDATA;
+	ctx->chunk = chunk;
+	ctx->chunk_state = chunk_state;
+
+	if (error == NSPNG_OK && ctx->chunk_state != CHUNK_STATE_HAD_CRC)
+		error = NSPNG_NEEDDATA;
+
+	return error;
 }
 
 static nspng_error process_ihdr(nspng_ctx *ctx)
