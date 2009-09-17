@@ -14,6 +14,7 @@ WARNFLAGS := -Wall -Wundef -Wpointer-arith -Wcast-align \
 ifneq ($(GCCVER),2)
   WARNFLAGS := $(WARNFLAGS) -Wextra
 endif
+
 CFLAGS := -D_BSD_SOURCE -I$(CURDIR)/include/ \
 	-I$(CURDIR)/src $(WARNFLAGS) $(CFLAGS)
 ifneq ($(GCCVER),2)
@@ -22,6 +23,9 @@ else
   # __inline__ is a GCCism
   CFLAGS := $(CFLAGS) -Dinline="__inline__"
 endif
+
+# Make rendering faster
+CFLAGS := $(CFLAGS) -funroll-loops
 
 # Zlib
 ifneq ($(findstring clean,$(MAKECMDGOALS)),clean)
