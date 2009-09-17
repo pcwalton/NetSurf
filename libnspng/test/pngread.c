@@ -121,14 +121,14 @@ int main(int argc, char **argv)
 		fseek(fp, 0, SEEK_END);
 		long fsize = ftell(fp);
 
-		full += ctx->image.height * ctx->image.bytes_per_scanline;
+		full += ctx->image.height * ctx->image.width * 4;
 		comp += ctx->image.data_len;
 
 		printf("%s: %lu (%u) -> %u = %.2f%%\n", argv[i], fsize, 
-			ctx->image.height * ctx->image.bytes_per_scanline,
+			ctx->image.height * ctx->image.width * 4,
 			ctx->image.data_len,
 			(float) ctx->image.data_len * 100 / 
-			(float) (ctx->image.height * ctx->image.bytes_per_scanline));
+			(float) (ctx->image.height * ctx->image.width * 4));
 
 		nspng_ctx_destroy(ctx);
 
