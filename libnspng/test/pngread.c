@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #ifdef __riscos__
 #include <swis.h>
@@ -21,6 +22,38 @@ static void *myrealloc(void *ptr, size_t len, void *pw)
 static nspng_error row_handler(const uint8_t *row, uint32_t rowbytes,
 		uint32_t rownum, int pass, void *pw)
 {
+#ifdef __riscos__
+	static uint8_t *screenbase;
+	static uint32_t screen_x;
+	static uint32_t screen_y;
+
+	/* NOTE: This assumes that the screen is 32bpp */
+
+	/* First time round, find the base address of the screen */
+	if (screenbase == NULL) {
+		uint32_t vdu_vars[] = { 11, 12, 148, -1 };
+
+		_swix(OS_ReadVduVariables, _INR(0,1), vdu_vars, vdu_vars);
+
+		/* Screen scanline width, in bytes */
+		screen_x = (vdu_vars[0] + 1) * 4;
+		/* Screen height, in scanlines */
+		screen_y = vdu_vars[1] + 1;
+		screenbase = (uint8_t *) vdu_vars[2];
+	}
+
+	/* Only draw this row if it fits on the screen */
+	if (rownum < screen_y) {
+		/* Clamp number of bytes to write to min(rowbytes, screen_x) */
+		const uint32_t bytes_to_write = 
+				rowbytes < screen_x ? rowbytes : screen_x;
+		/* Compute base address of scanline to output to */
+		uint8_t *screenrow = screenbase + (rownum * screen_x);
+
+		/* Draw it */
+		memcpy(screenrow, row, bytes_to_write);
+	}
+#endif
 //	uint32_t col;
 
 	UNUSED(row);
