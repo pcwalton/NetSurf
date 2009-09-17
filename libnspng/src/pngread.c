@@ -541,24 +541,25 @@ static nspng_error process_idat_process_scanline(nspng_ctx *ctx,
 		}
 	}
 
-	if (max_idx + 1 > bps) { 
+	if (max_idx + 1 > bps) {
+		const uint32_t required_size = image->data_len + bps;
 		uint8_t *temp;
 		uint32_t written;
 
 		/* Create/extend image buffer */
-#define OUTPUT_CHUNK_SIZE (16*1024)
-		while (image->data_len + bps > image->data_alloc) {
-			temp = ctx->alloc(image->data, 
-					image->data_alloc + OUTPUT_CHUNK_SIZE, 
-					ctx->pw);
+		if (required_size > image->data_alloc) {
+			/* Allocate an extra 12.5% to avoid heap thrashing */
+			const uint32_t new_size = required_size +
+					(required_size / 8);
+
+			temp = ctx->alloc(image->data, new_size, ctx->pw);
 			if (temp == NULL) {
 				return NSPNG_NOMEM;
 			}
 
 			image->data = temp;
-			image->data_alloc += OUTPUT_CHUNK_SIZE;
+			image->data_alloc = new_size;
 		}
-#undef OUTPUT_CHUNK_SIZE
 
 		/* Compress scanline into buffer */
 		written = lzf_compress(src_scanline, 
