@@ -30,6 +30,7 @@ Description: Small portable web browser with CSS and Unicode support - GTK versi
 
 Package: netsurf-framebuffer-common
 Architecture: all
+Depends: ttf-bitstream-vera
 Recommends: netsurf-linuxfb | netsurf-sdl | netsurf-vnc
 Description: Common resources for all NetSurf framebuffer targets
  NetSurf is a multi-platform lightweight web browser. Its aim is to provide
