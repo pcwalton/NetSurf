@@ -261,7 +261,7 @@
 <tr class="nearlydone"><td>Interactive Help (RISC&nbsp;OS)</td><td>Nearly done</td><td></td></tr>
 <tr class="nearlydone"><td>Interactive Help (GTK)</td><td>Nearly done</td><td>Extensive tool tips for GUI but none for rendering area.</td></tr>
 <tr class="complete"><td>Memory Cache</td><td>Complete</td><td></td></tr>
-<tr class="complete"><td>Printing (RISC&nbsp;OS)</td><td>Complete</td><td>Printing on RISC&nbsp;OS 5 doesn't work, due to lack of support in the Font Manager and printer drivers. Details on the <a href="roinfo#Unicode">RISC&nbsp;OS User Information</a> page.</td></tr>
+<tr class="complete"><td>Printing (RISC&nbsp;OS)</td><td>Complete</td><td>Details on the <a href="roinfo#Printing">RISC&nbsp;OS User Information</a> page.</td></tr>
 <tr class="complete"><td>Printing (GTK)</td><td>Complete</td><td></td></tr>
 <tr class="inprogress"><td>Proxy Support</td><td>In progress</td><td>Protocols other than HTTP are incorrectly proxied.</td></tr>
 <tr class="nearlydone"><td>Save as Drawfile (RISC&nbsp;OS)</td><td>Nearly done</td><td>Embedded drawfiles aren't exported when saving page as Draw. (Draw is a RISC OS vector graphics format.)</td></tr>

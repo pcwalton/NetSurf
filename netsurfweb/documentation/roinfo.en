@@ -69,6 +69,7 @@
 <li><a href="#UnicodeInstallingFonts">Installing more fonts</a></li>
 <li><a href="#UnicodeProblems">Problems and unimplemented features</a></li>
 </ul></li>
+<li><a href="#Printing">Printing</a></li>
 </ul>
 
 <p class="updated">Last updated 10 November 2007</p>
@@ -150,11 +151,19 @@
 <h3 id="UnicodeProblems">Problems and Unimplemented Features</h3>
 
 <ul>
-<li>Printing on RISC OS 5 using the standard RISC OS 5 release of the printer drivers doesn't work due to lack of Unicode support in the RISC OS 5 printer drivers. However, a patch to fix printing to non-PostScript printers has been submitted to RISC OS Open Ltd and a binary release of the &quot;Printers&quot; application including this <a href="http://www.riscosopen.co.uk/content/downloads/desktop-zipfiles">fix is available on their website</a>.  On the other hand, printing to PostScript printers with Unicode support is currently not possible but believed to be addressed in the near future by an <a href="http://www.drobe.co.uk/riscos/artifact1759.html">independant initiative</a>.</li>
 <li>Substituted characters are taken from the first font that contains them, even if a character which matches the weight or slant better is available.</li>
 <li>Unicode line breaking is not implemented.</li>
 <li>Right-to-left text (Hebrew, Arabic) is not implemented.</li>
 </ul>
+
+<h2 id="Printing">Printing</h2>
+
+<p>When NetSurf is run without the Unicode Font Manager, printing will work correctly. When printing with the Unicode Font Manager, as on RISC OS 5 or with a softloaded Unicode Font Manager, there are a couple of things you may need to install.</p>
+
+<ol>
+<li>Using the standard RISC OS 5 release of the printer drivers doesn't work due to lack of Unicode support in the RISC OS 5 printer drivers. However, a version of &quot;<a href="http://www.riscosopen.co.uk/content/downloads/desktop-zipfiles">Printers</a>&quot; that supports printing to non-PostScript printers is available from RISC OS Open Ltd.</li>
+<li>Printing to PostScript printers with Unicode support is not possible with the standard PostScript drivers.  In order to print correctly, the more advanced <a href="http://www.mw-software.com/software/ps3/ps3.html">PostScript 3 printer driver</a> by John Tytgat and Martin W&uuml;rthner is required.</li>
+</ol>
 
 
 <div class="footer">
