@@ -43,7 +43,7 @@ void __cyg_profile_func_enter(void *fn_address, void *call_site)
 
 void __cyg_profile_func_exit(void *fn_address, void *call_site)
 {
-	uint32_t i = depth;
+	uint32_t i = depth - 1;
 
 	(void) call_site;
 
