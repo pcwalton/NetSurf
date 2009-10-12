@@ -1,8 +1,8 @@
 #include <stdint.h>
 #include <stdio.h>
 
-extern void __cyg_profile_enter(void *, void *);
-extern void __cyg_profile_exit(void *, void *);
+extern void __cyg_profile_func_enter(void *, void *);
+extern void __cyg_profile_func_exit(void *, void *);
 
 extern void *image__ro__base;
 extern void *image__ro__limit;
@@ -22,7 +22,7 @@ static void print_function_name(void *fn_address)
 	}
 }
 
-void __cyg_profile_enter(void *fn_address, void *call_site)
+void __cyg_profile_func_enter(void *fn_address, void *call_site)
 {
 	uint32_t i = depth;
 
@@ -41,7 +41,7 @@ void __cyg_profile_enter(void *fn_address, void *call_site)
 	depth++;
 }
 
-void __cyg_profile_exit(void *fn_address, void *call_site)
+void __cyg_profile_func_exit(void *fn_address, void *call_site)
 {
 	uint32_t i = depth;
 
