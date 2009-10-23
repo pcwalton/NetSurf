@@ -107,6 +107,7 @@
 <li><a href="roinfo#UnicodeInstallingFonts">Installing more fonts</a></li>
 <li><a href="roinfo#UnicodeProblems">Problems and unimplemented features</a></li>
 </ul></li>
+<li><a href="roinfo#Printing">Printing</a></li>
 </ul></li>
 
 <li><strong><a href="guide">User Guide</a></strong>
@@ -184,9 +185,7 @@
 <li><strong><a href="robuild">Building NetSurf on RISC OS</a></strong>
 <ul>
 <li><a href="robuild#Requirements">Requirements</a></li>
-<li><a href="robuild#QuickStart">Quick start</a></li>
-<li><a href="robuild#UnpackingTheLibraries">Fetching and unpacking the libraries</a></li>
-<li><a href="robuild#AcquiringAndCompilingTheSource">Acquiring and compiling the source</a></li>
+<li><a href="robuild#GettingStarted">Getting started</a></li>
 </ul></li>
 </ul>
 
