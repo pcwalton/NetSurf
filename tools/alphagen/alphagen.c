@@ -12,7 +12,7 @@
  * Input:
  *     blackbg.png   - The image exported on a black background
  *     whitebg.png   - The image exported on a white background
- * Output
+ * Output:
  *     alpha.png     - The resultant image with alpha channel
  *
  * Note that black.png and white.png must be the same size.
@@ -117,28 +117,27 @@ bool image_init(struct image *img, int width, int height, int channels)
 	img->height = height;
 	img->channels = channels;
 
+	row_data_width = width * channels;
 	// Allocate memory for row pointers
 	img->d = (uint8_t**)malloc(height * size);
 	if (img->d == NULL)
 		return false;
 
-	row_data_width = width * channels;
-	for (int i = 0; i < height; i++) {
-		// Allocate memory for row data
-		img->d[i] = (uint8_t*)malloc(row_data_width);
-		if (img->d[i] == NULL)
-			return false;
+	// Allocate memory for image data
+	img->d[0] = (uint8_t*)malloc(height * row_data_width * size);
+	if (img->d[0] == NULL)
+		return false;
+
+	for (int i = 1; i < height; i++) {
+		// Set pointers to each row
+		img->d[i] = img->d[i - 1] + row_data_width;
 	}
 	return true;
 }
 
 void image_free(struct image *img)
 {
-	for (int i = 0; i < img->height; i++) {
-		// Free row data
-		free(img->d[i]);
-	}
-	// Free row pointers
+	free(img->d[0]);
 	free(img->d);
 }
 
