@@ -928,8 +928,11 @@ static bmp_result bmp_decode_mask(bmp_image *bmp, uint8_t *data, int bytes) {
 		for (x = 0; x < bmp->width; x++) {
 			if ((x & 7) == 0)
 				cur_byte = *data++;
-			if ((cur_byte & 128) == 0)
+			if ((cur_byte & 128) == 0) {
+				scanline[x] = read_uint32((uint8_t *)&scanline[x], 0);
 				scanline[x] |= (0xff << 24);
+				scanline[x] = read_uint32((uint8_t *)&scanline[x], 0);
+			}
 			cur_byte = cur_byte << 1;
 		}
 	}
