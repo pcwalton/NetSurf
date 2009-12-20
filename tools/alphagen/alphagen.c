@@ -15,7 +15,7 @@
  * Output:
  *     alpha.png     - The resultant image with alpha channel
  *
- * Note that black.png and white.png must be the same size.
+ * Note that blackbg.png and whitebg.png must be the same size.
  */
 
 #include <stdbool.h>
@@ -117,13 +117,13 @@ bool image_init(struct image *img, int width, int height, int channels)
 	img->height = height;
 	img->channels = channels;
 
-	row_data_width = width * channels;
 	// Allocate memory for row pointers
 	img->d = (uint8_t**)malloc(height * size);
 	if (img->d == NULL)
 		return false;
 
 	// Allocate memory for image data
+	row_data_width = width * channels;
 	img->d[0] = (uint8_t*)malloc(height * row_data_width * size);
 	if (img->d[0] == NULL)
 		return false;
@@ -228,10 +228,22 @@ bool image_write_png(char *file_name, struct image *img)
 	FILE *fp;
 	png_structp png_ptr;
 	png_infop info_ptr;
+	int colour_type;
 
-	if (img->channels != 4)
-		/* Only rgba can be saved, as that is the point of this */
+	switch (img->channels) {
+	case 1:
+		colour_type = PNG_COLOR_TYPE_GRAY;
+		break;
+	case 3:
+		colour_type = PNG_COLOR_TYPE_RGB;
+		break;
+	case 4:
+		colour_type = PNG_COLOR_TYPE_RGB_ALPHA;
+		break;
+	default:
+		/* Unsupported number of image channels */
 		return false;
+	}
 
 	/* open the file */
 	fp = fopen(file_name, "wb");
@@ -268,7 +280,7 @@ bool image_write_png(char *file_name, struct image *img)
 
 	/* Set the image information. */
 	png_set_IHDR(png_ptr, info_ptr, img->width, img->height, 8,
-			PNG_COLOR_TYPE_RGB_ALPHA, PNG_INTERLACE_ADAM7,
+			colour_type, PNG_INTERLACE_ADAM7,
 			PNG_COMPRESSION_TYPE_DEFAULT, PNG_FILTER_TYPE_DEFAULT);
 
 	/* TODO: ??? Maybe I should set gamma stuff, but I dunno what */
