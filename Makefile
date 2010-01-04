@@ -5,7 +5,7 @@
 usage:
 	@echo Please use one of the following targets:
 	@echo
-	@echo "  make beos      NetSurf for BeOS"
+	@echo "  make beos      NetSurf for BeOS and Haiku"
 	@echo "  make gtk       NetSurf with GTK interface"
 	@echo "  make riscos    NetSurf for RISC OS"
 	@echo
@@ -36,6 +36,8 @@ beos:
 	$(MAKE) install --directory=libnsbmp TARGET=$(TARGET) PREFIX=$(PREFIX)
 	$(MAKE) install --directory=libnsgif TARGET=$(TARGET) PREFIX=$(PREFIX)
 	$(MAKE) install --directory=libsvgtiny TARGET=$(TARGET) PREFIX=$(PREFIX)
+	$(MAKE) install --directory=libwapcaplet TARGET=$(TARGET) PREFIX=$(PREFIX)
+	$(MAKE) install --directory=libcss TARGET=$(TARGET) PREFIX=$(PREFIX)
 	$(MAKE) --directory=netsurf TARGET=$(TARGET) PREFIX=$(PREFIX)
 
 gtk: export TARGET=gtk
