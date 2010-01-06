@@ -97,6 +97,8 @@ void try(rufl_code code, const char *context)
 
 int move_to(os_coord *to, void *user)
 {
+	(void) user;
+
 	printf("Move to (%d,%d)\n", to->x, to->y);
 
 	return 0;
@@ -105,6 +107,8 @@ int move_to(os_coord *to, void *user)
 
 int line_to(os_coord *to, void *user)
 {
+	(void) user;
+
 	printf("Line to (%d,%d)\n", to->x, to->y);
 
 	return 0;
@@ -114,6 +118,8 @@ int line_to(os_coord *to, void *user)
 int cubic_to(os_coord *control1, os_coord *control2, os_coord *to,
 		void *user)
 {
+	(void) user;
+
 	printf("Bezier to (%d,%d),(%d,%d),(%d,%d)\n",
 			control1->x, control1->y,
 			control2->x, control2->y,
@@ -128,6 +134,8 @@ void callback(void *context,
 		const char *s8, unsigned short *s16, unsigned int n,
 		int x, int y)
 {
+	(void) context;
+
 	printf("callback: \"%s\", %u, ", font_name, font_size);
 	if (s8)
 		printf("s8 \"%.*s\" ", n, s8);

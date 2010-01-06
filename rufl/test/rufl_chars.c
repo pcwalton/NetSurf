@@ -33,7 +33,7 @@ int main(void)
 			message_QUIT } };
 	wimp_t task;
 	wimp_menu *menu;
-	wimp_WINDOW(0) window = {
+	struct wimp_window_base window = {
 		{ 400, 400, 1700, 1200 },
 		0, 0,
 		wimp_TOP,
@@ -107,7 +107,7 @@ int main(void)
 			(wimp_COLOUR_BLACK << wimp_ICON_FG_COLOUR_SHIFT) |
 			(wimp_COLOUR_WHITE << wimp_ICON_BG_COLOUR_SHIFT);
 		menu->entries[10 + i].data.indirected_text.text =
-				rufl_family_list[i];
+				(char *) rufl_family_list[i];
 		menu->entries[10 + i].data.indirected_text.validation =
 				(char *) -1;
 		menu->entries[10 + i].data.indirected_text.size =

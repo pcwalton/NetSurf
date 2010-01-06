@@ -418,7 +418,7 @@ rufl_code rufl_process_span_old(rufl_action action,
 
 	/* Process the span in map-coherent chunks */
 	do {
-		struct rufl_unicode_map *map;
+		struct rufl_unicode_map *map = NULL;
 		struct rufl_unicode_map_entry *entry = NULL;
 		unsigned int j;
 

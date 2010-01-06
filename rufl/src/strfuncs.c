@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "strfuncs.h"
+
 char *strdup(const char *s)
 {
 	size_t len = strlen(s);
