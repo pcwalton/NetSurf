@@ -224,7 +224,7 @@ void pencil_free_item(struct pencil_item *item)
 void pencil_dump(struct pencil_diagram *diagram)
 {
 	printf("diagram %p: current group %p\n",
-			diagram, diagram->current_group);
+			(void *) diagram, (void *) diagram->current_group);
 	pencil_dump_item(diagram->root, 0);
 }
 
@@ -234,7 +234,7 @@ void pencil_dump_item(struct pencil_item *item, unsigned int depth)
 	for (unsigned int i = 0; i != depth; i++)
 		printf("  ");
 
-	printf("%p ", item);
+	printf("%p ", (void *) item);
 	switch (item->type) {
 	case pencil_GROUP:
 		printf("GROUP");

@@ -54,7 +54,7 @@ struct pencil_item {
 	pencil_pattern pattern;
 
 	int width, height;
-	const char *sprite;
+	const void *sprite;
 
 	struct {
 		int x0;

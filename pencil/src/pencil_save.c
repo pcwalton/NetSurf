@@ -36,8 +36,8 @@ struct pencil_save_context {
 	char **font_list;
 	unsigned int font_count;
 	struct pencil_item *item;
-	char *buffer;
-	char *b;
+	void *buffer;
+	void *b;
 	os_box bbox;
 };
 
@@ -65,10 +65,10 @@ pencil_code pencil_save_drawfile(struct pencil_diagram *diagram,
 			  { INT_MAX, INT_MAX, INT_MIN, INT_MIN } };
 	unsigned int i;
 	size_t size, font_table_size;
-	char *buffer;
+	void *buffer, *b;
 	drawfile_diagram *header;
 	drawfile_object *font_table;
-	char *b, *f;
+	char *f;
 
 	*drawfile_buffer = 0;
 	*drawfile_size = 0;
@@ -111,19 +111,19 @@ pencil_code pencil_save_drawfile(struct pencil_diagram *diagram,
 	for (i = strlen(source); i < 12; i++)
 		header->source[i] = ' ';
 	header->bbox = context.bbox;
-	b = buffer + sizeof(drawfile_diagram_base);
+	b = (char *) buffer + sizeof(drawfile_diagram_base);
 
 	/* font table */
 	font_table = (drawfile_object *) b;
 	font_table->type = drawfile_TYPE_FONT_TABLE;
 	font_table->size = font_table_size;
-	f = b + 8;
+	f = (char *) b + 8;
 	for (i = 0; i != context.font_count; i++) {
 		*f++ = i + 1;
 		strcpy(f, context.font_list[i]);
 		f += strlen(context.font_list[i]) + 1;
 	}
-	b += font_table_size;
+	b = (char *) b + font_table_size;
 
 	/* pass 2 */
 	context.buffer = buffer;
@@ -374,7 +374,7 @@ void pencil_save_pass2(struct pencil_save_context *context,
 		object->data.group.bbox.y0 = item->bbox.y0;
 		object->data.group.bbox.x1 = item->bbox.x1;
 		object->data.group.bbox.y1 = item->bbox.y1;
-		context->b += object->size;
+		context->b = (char *) context->b + object->size;
 		break;
 	case pencil_TEXT:
 		context->item = item;
@@ -412,7 +412,7 @@ void pencil_save_pass2(struct pencil_save_context *context,
 				object->data.path_with_pattern.pattern.
 					elements[0] = 1536 * item->thickness;
 		}
-		path = (int *) (context->b + object->size -
+		path = (int *) (void *) ((char *) context->b + object->size -
 				item->path_size * 4);
 		for (i = 0; i != item->path_size; ) {
 			switch (item->path[i]) {
@@ -439,7 +439,7 @@ void pencil_save_pass2(struct pencil_save_context *context,
 				assert(0);
 			}
 		}
-		context->b += object->size;
+		context->b = (char *) context->b + object->size;
 		break;
 	case pencil_SPRITE:
 		object->type = drawfile_TYPE_SPRITE;
@@ -451,7 +451,7 @@ void pencil_save_pass2(struct pencil_save_context *context,
 		object->data.sprite.bbox.y1 = item->bbox.y1;
 		memcpy(&object->data.sprite.header, item->sprite,
 				object->size - 24);
-		context->b += object->size;
+		context->b = (char *) context->b + object->size;
 		break;
 	default:
 		assert(0);
@@ -464,7 +464,7 @@ void pencil_save_pass2(struct pencil_save_context *context,
 	}
 
 	if (group)
-		object->size = context->b - (char *) object;
+		object->size = (char *) context->b - (char *) object;
 }
 
 
@@ -529,5 +529,5 @@ void pencil_save_pass2_text_callback(void *c,
 		object->size = 24 + 56 + ((utf8_length + 4) & ~3);
 	}
 
-	context->b += object->size;
+	context->b = (char *) context->b + object->size;
 }

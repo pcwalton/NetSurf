@@ -23,6 +23,9 @@ int main(int argc, char *argv[])
 {
 	rufl_code code;
 
+	(void) argc;
+	(void) argv;
+
 	code = rufl_init();
 	if (code != rufl_OK) {
 		printf("rufl_init failed: %i\n", code);
@@ -138,7 +141,8 @@ void test_pencil(void)
 	assert(drawfile_buffer);
 
 	error = xosfile_save_stamped("DrawFile", osfile_TYPE_DRAW,
-			drawfile_buffer, drawfile_buffer + drawfile_size);
+			(byte *) drawfile_buffer, 
+			(byte *) drawfile_buffer + drawfile_size);
 	if (error) {
 		printf("xosfile_save_stamped failed: 0x%x: %s\n",
 				error->errnum, error->errmess);
