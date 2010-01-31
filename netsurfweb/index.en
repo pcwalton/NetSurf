@@ -55,7 +55,7 @@
 <dd>HTML5 compliant parsing library</dd>
 <dt><a href="/projects/libcss/">LibCSS</a><dt>
 <dd>CSS parser and selection library<dd>
-<dt><a href="/projects/libdom/">Libdom</a></dt>
+<dt><a href="/projects/libdom/">LibDOM</a></dt>
 <dd>DOM library</dd>
 <dt><a href="/projects/libparserutils/">LibParserUtils</a><dt>
 <dd>Parser building library<dd>

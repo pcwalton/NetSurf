@@ -2,7 +2,7 @@
         "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 <head>
-<title>Libdom | DOM Library</title>
+<title>LibDOM | DOM Library</title>
 <link rel="stylesheet" type="text/css" href="/projects/projects.css">
 <link rel="icon" type="image/png" href="/webimages/favicon.png">
 </head>
@@ -13,7 +13,7 @@
 <li><a href="/">NetSurf</a></li>
 <li><a href="/projects/hubbub/">Hubbub</a></li>
 <li><a href="/projects/libcss/">LibCSS</a></li>
-<li><strong>Libdom</strong></li>
+<li><strong>LibDOM</strong></li>
 <li><a href="/projects/libparserutils/">LibParserUtils</a></li>
 <li><a href="/projects/libwapcaplet/">LibWapcaplet</a></li>
 <li><a href="/projects/libsvgtiny/">Libsvgtiny</a></li>
@@ -26,11 +26,11 @@
 </ul>
 </div>
 
-<h1>Libdom</h1>
+<h1>LibDOM</h1>
 
-<h2>What is Libdom?</h2>
+<h2>What is LibDOM?</h2>
 
-<p>Libdom is an implementation of the <a href="http://www.w3.org/DOM/">W3C DOM</a>, written in C. It is currently in development for use with <a href="/">NetSurf</a> and is intended to be suitable for use in other projects too. For further details, see the <a href="http://source.netsurf-browser.org/trunk/dom/README">readme</a>.</p>
+<p>LibDOM is an implementation of the <a href="http://www.w3.org/DOM/">W3C DOM</a>, written in C. It is currently in development for use with <a href="/">NetSurf</a> and is intended to be suitable for use in other projects too. For further details, see the <a href="http://source.netsurf-browser.org/trunk/dom/README">readme</a>.</p>
 
 <h2>Source code</h2>
 
@@ -38,11 +38,11 @@
 
 <p class="svncommand">$ svn co svn://svn.netsurf-browser.org/trunk/dom</p>
 
-<p>Libdom is licensed under the <a href="http://opensource.org/licenses/mit-license.php">MIT Licence</a>.</p>
+<p>LibDOM is licensed under the <a href="http://opensource.org/licenses/mit-license.php">MIT Licence</a>.</p>
 
 <h2>Contact</h2>
 
-<p>If you would like to help develop Libdom, or have questions about the library, please join the NetSurf <a href="http://www.netsurf-browser.org/lists/netsurf-dev">developer mailing list</a>.</p>
+<p>If you would like to help develop LibDOM, or have questions about the library, please join the NetSurf <a href="http://www.netsurf-browser.org/lists/netsurf-dev">developer mailing list</a>.</p>
 
 </body>
 </html>

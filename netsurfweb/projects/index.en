@@ -13,7 +13,7 @@
 <li><a href="/">NetSurf</a></li>
 <li><a href="/projects/hubbub/">Hubbub</a></li>
 <li><a href="/projects/libcss/">LibCSS</a></li>
-<li><a href="/projects/libdom/">Libdom</a></li>
+<li><a href="/projects/libdom/">LibDOM</a></li>
 <li><a href="/projects/libparserutils/">LibParserUtils</a></li>
 <li><a href="/projects/libwapcaplet/">LibWapcaplet</a></li>
 <li><a href="/projects/libsvgtiny/">Libsvgtiny</a></li>
@@ -39,7 +39,7 @@
 <dd>HTML5 compliant parsing library<dd>
 <dt><a href="/projects/libcss/">LibCSS</a><dt>
 <dd>CSS parser and selection library<dd>
-<dt><a href="/projects/libdom/">Libdom</a><dt>
+<dt><a href="/projects/libdom/">LibDOM</a><dt>
 <dd>DOM library<dd>
 <dt><a href="/projects/libparserutils/">LibParserUtils</a><dt>
 <dd>Parser building library<dd>
