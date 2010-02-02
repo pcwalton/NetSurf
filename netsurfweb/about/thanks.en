@@ -76,13 +76,18 @@
 
 <p>Our students completed our new HTML5 parser, vastly overhauled the GTK front end, implemented PDF export, added print functionality to the GTK version and split bits of NetSurf out into separate libraries, for ease of maintenance and use by other projects. In addition to all this, taking part in Google Summer of Code also raised NetSurf's profile in the wider open source community.</p>
 
-<h3>GSoC 2009</h3>
-
-<p>In the second year we participated, our students worked on several areas of the project. Much work was done on our new Document Object Model library. A set of core widgets like scrollbars and text inputs was created. Much previously RISC OS specific functionality was moved from the RISC OS front end to the multi-platform core. These include treeviews, global history, cookie management, and page text search. The GTK front end was much improved with interfaces for the new core functionality and other features like a search bar and favicons.</p>
-
 <ul>
 <li><a href="http://code.google.com/soc/2008/">Google Summer of Code 2008</a></li>
 <li><a href="http://code.google.com/soc/2008/netsurf/about.html">GSoC 2008 - NetSurf organisation listing</a></li>
+</ul>
+
+<h3>GSoC 2009</h3>
+
+<p>In the second year our students worked on several areas of the project. Much work was done on our new Document Object Model library. A set of core widgets like scrollbars and text inputs was created. Much previously RISC OS specific functionality was moved from the RISC OS front end to the multi-platform core. These include treeviews, global history, cookie management, and page text search. The GTK front end was much improved with interfaces for the new core functionality and other features like a search bar and favicons.</p>
+
+<ul>
+<li><a href="http://socghop.appspot.com/">Google Summer of Code</a></li>
+<li><a href="http://socghop.appspot.com/gsoc/org/home/google/gsoc2009/netsurf">GSoC 2009 - NetSurf organisation listing</a></li>
 </ul>
 
 <h2><img class="thankslogo" src="/webimages/logoppf.png" alt="">Pepperfish</h2>
