@@ -1,0 +1,69 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+        "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>LibROSprite | RISC OS Sprite Decoding Library</title>
+<link rel="stylesheet" type="text/css" href="/projects/projects.css">
+<link rel="icon" type="image/png" href="/webimages/favicon.png">
+</head>
+<body>
+
+<div class="projects">
+<ul>
+<li><a href="/">NetSurf</a></li>
+<li><a href="/projects/hubbub/">Hubbub</a></li>
+<li><a href="/projects/libcss/">LibCSS</a></li>
+<li><a href="/projects/libdom/">LibDOM</a></li>
+<li><a href="/projects/libparserutils/">LibParserUtils</a></li>
+<li><a href="/projects/libwapcaplet/">LibWapcaplet</a></li>
+<li><a href="/projects/libsvgtiny/">Libsvgtiny</a></li>
+<li><a href="/projects/libnsbmp/">Libnsbmp</a></li>
+<li><a href="/projects/libnsgif/">Libnsgif</a></li>
+<li><strong>LibROSprite</strong></li>
+<li><a href="/projects/iconv/">Iconv</a></li>
+<li><a href="/projects/rufl/">RUfl</a></li>
+<li><a href="/projects/tinct/">Tinct</a></li>
+<li><a href="/projects/libpencil/">Libpencil</a></li>
+</ul>
+</div>
+
+<h1>LibROSprite</h1>
+
+<h2>What is LibROSprite?</h2>
+
+<p>LibROSprite is a library for decoding RISC OS Sprite format bitmaps, written in C. It was developed as part of the <a href="/">NetSurf</a> project and is available for use by other software under the MIT licence.</p>
+
+<h2>Features</h2>
+
+<ul>
+<li>Simple C API</li>
+<li>Portable</li>
+<li>Supports old and new style Sprites</li>
+<li>Supports Sprites with custom palettes</li>
+<li>Supports standard RISC OS 1-bit, 2-bit, 4-bit and 8-bit palettes</li>
+<li>Supports CMYK colour Sprites</li>
+<li>Supports traditional 1-bit mask</li>
+<li>Supports both alpha channel Sprites (Tinct, Photodesk, Compo), and 8-bit mask Sprites (RISC OS Ltd)</li>
+</ul>
+
+<p>Future:</p>
+
+<ul>
+<li>RISC OS Sprite export?</li>
+<li>Available and packaged in major Linux distributions?</li>
+</ul>
+
+<h2>Source code</h2>
+
+<p>You can <a href="http://source.netsurf-browser.org/trunk/librosprite/">browse the source code</a> via the online interface. Alternatively, you can check it out of SVN:</p>
+
+<p class="svncommand">$ svn co svn://svn.netsurf-browser.org/trunk/librosprite</p>
+
+<p>LibROSprite is licensed under the <a href="http://opensource.org/licenses/mit-license.php">MIT Licence</a>.</p>
+
+<h2>Contact</h2>
+
+<p>If you would like to help develop LibROSprite, or have questions about the library, please join the NetSurf <a href="http://www.netsurf-browser.org/lists/netsurf-dev">developer mailing list</a>.</p>
+
+</body>
+</html>
