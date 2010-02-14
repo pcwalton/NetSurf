@@ -2,7 +2,7 @@
 # by Zeus, this file has no effect.  Talk to Rob Kendrick or Daniel Silverstone
 # if you need functionality changed.
 Options MultiViews
-AddDefaultCharset on
+#AddDefaultCharset on # Causes lots of warnings on octopus
 AddCharset iso-8859-1 .css
 DirectoryIndex index
 AddType text/html .de
