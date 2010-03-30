@@ -85,7 +85,7 @@
 
 <div class="content">
 <div class="frontpageintro">
-<p id="leader">Small as a mouse, fast as a cheetah and available for free. NetSurf is a multi-platform web browser for <a href="http://www.riscosopen.org/">RISC&nbsp;OS</a> and UNIX-like platforms, including Linux, and more.</p>
+<p id="leader">Small as a mouse, fast as a cheetah and available for free. NetSurf is a multi-platform web browser for <a href="http://www.riscosopen.org/">RISC&nbsp;OS</a>, UNIX-like platforms (including Linux) and more.</p>
 
 <p>Whether you want to check your webmail, read the news or post to discussion forums, NetSurf is your lightweight gateway to the world wide web. Actively developed, NetSurf is continually evolving and improving.</p>
 
@@ -124,10 +124,10 @@
 <div class="downloadcontent">
 <h2 id="downloadrelease"><a href="/downloads/">Download NetSurf&nbsp;2.1</a></h2>
 <ul>
-<li><a href="/downloads/">For RISC&nbsp;OS</a></li>
-<li><a href="/downloads/">For Linux</a></li>
+<li><a href="/downloads/riscos/">For RISC&nbsp;OS</a></li>
+<li><a href="/downloads/gtk/">For Linux</a></li>
 <li><a href="/downloads/">Other systems</a></li>
-<li><a href="/downloads/">Source code</a></li>
+<li><a href="/downloads/source/">Source code</a></li>
 </ul>
 </div>
 <div class="topleft"></div>
