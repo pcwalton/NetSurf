@@ -526,6 +526,9 @@ p.award a img {
 .downloadosselection li.amiga a {
 	background: url("webimages/dlamiga.png") no-repeat 0% 50%; }
 
+.downloadosselection li.windows a {
+	background: url("webimages/dlwindows.png") no-repeat 0% 50%; }
+
 .downloadosselection li.source a {
 	background: url("webimages/dlsource.png") no-repeat 0% 50%; }
 

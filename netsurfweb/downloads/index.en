@@ -58,6 +58,7 @@
 <li class="gtk"><a href="gtk/">Linux and other Unix-likes</a></li>
 <li class="beos"><a href="beos/">Haiku &amp; BeOS</a></li>
 <li class="amiga"><a href="amiga/">AmigaOS</a></li>
+<!--li class="windows"><a href="windows/">Windows</a></li-->
 </ul>
 
 <p>Alternatively, download NetSurf's source code:</p>
