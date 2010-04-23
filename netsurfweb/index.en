@@ -122,7 +122,7 @@
 <div class="downloadbox">
 <div class="downloadcontainer">
 <div class="downloadcontent">
-<h2 id="downloadrelease"><a href="/downloads/">Download NetSurf&nbsp;2.1</a></h2>
+<h2 id="downloadrelease"><a href="/downloads/">Download NetSurf&nbsp;2.5</a></h2>
 <ul>
 <li><a href="/downloads/riscos/">For RISC&nbsp;OS</a></li>
 <li><a href="/downloads/gtk/">For Linux</a></li>
@@ -150,9 +150,9 @@
 </dl>
 <p class="more"><a href="/about/news" class="seemore">See more news</a></p>
 
-<h2 id="features">NetSurf 2.1 features</h2>
+<h2 id="features">NetSurf 2.5 features</h2>
 
-<p>NetSurf 2.1 is available for RISC OS, Linux and other UNIX-like systems, BeOS, Haiku and AmigaOS.</p>
+<p>NetSurf 2.5 is available for: RISC OS; Linux and other UNIX-like systems; and AmigaOS 4.</p>
 
 <dl>
 <dt>General</dt>
@@ -168,7 +168,8 @@
 <li>URL completion</li>
 <li>Text selection</li>
 <li>Scale view</li>
-<li>PDF export</li>
+<li>Search-as-you-type text search highlighting</li>
+<li>Save pages complete with images</li>
 </ul>
 </dd>
 <dt>RISC OS only</dt>
@@ -178,7 +179,6 @@
 <li>Hotlist management (bookmarks)</li>
 <li>Cookie viewer</li>
 <li>Drawfile export</li>
-<li>Search-as-you-type text search highlighting</li>
 </ul>
 </dd>
 </dl>
