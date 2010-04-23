@@ -33,6 +33,23 @@
 
 <p>LibCSS is a CSS parser and selection engine, written in C. It aims to parse the forward compatible CSS grammar. It was developed as part of the <a href="/">NetSurf</a> project and is available for use by other software under the MIT licence. For further details, see the <a href="http://source.netsurf-browser.org/trunk/libcss/README">readme</a>.</p>
 
+<h2>Features</h2>
+
+<ul>
+<li>Parses CSS, good and bad</li>
+<li>Simple C API</li>
+<li>Low memory usage</li>
+<li>Fast selection engine</li>
+<li>Portable</li>
+<li>Shared library</li>
+</ul>
+
+<p>Future:</p>
+
+<ul>
+<li>Available and packaged in major Linux distributions</li>
+</ul>
+
 <h2>Source code</h2>
 
 <p>You can <a href="http://source.netsurf-browser.org/trunk/libcss/">browse the source code</a> via the online interface. Alternatively, you can check it out of SVN:</p>
@@ -40,6 +57,12 @@
 <p class="svncommand">$ svn co svn://svn.netsurf-browser.org/trunk/libcss</p>
 
 <p>LibCSS is licensed under the <a href="http://opensource.org/licenses/mit-license.php">MIT Licence</a>.</p>
+
+<h2>Releases</h2>
+
+<ul>
+<li><a href="../releases/libcss-0.0.1-src.tar.gz">LibCSS 0.0.1 tarball</a></li>
+</ul>
 
 <h2>Contact</h2>
 

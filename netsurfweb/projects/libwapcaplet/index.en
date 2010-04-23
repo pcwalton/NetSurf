@@ -41,6 +41,12 @@
 
 <p>LibWapcaplet is licensed under the <a href="http://opensource.org/licenses/mit-license.php">MIT Licence</a>.</p>
 
+<h2>Releases</h2>
+
+<ul>
+<li><a href="../releases/libwapcaplet-0.0.2-src.tar.gz">LibWapcaplet 0.0.2 tarball</a></li>
+</ul>
+
 <h2>Contact</h2>
 
 <p>If you would like to help develop LibWapcaplet, or have questions about the library, please join the NetSurf <a href="http://www.netsurf-browser.org/lists/netsurf-dev">developer mailing list</a>.</p>
