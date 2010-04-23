@@ -115,6 +115,7 @@
 <tr><th>Apr 2009</th><td>NetSurf 2.0 released</td></tr>
 <tr><th>May 2009</th><td>NetSurf 2.1 released</td></tr>
 <tr><th>Jul 2009</th><td>LibCSS used by NetSurf development builds</td></tr>
+<tr><th>Apr 2010</th><td>NetSurf 2.5 released</td></tr>
 </table>
 
 <div class="frontscreen"><p class="frontscreen"><a href="screenshots/fullsize/roarstechnica.png"><img src="screenshots/thumbnails/roarstechnica.png" alt="GTK NetSurf screenshot."></a> <span>A more recent NetSurf showing <em>Ars Technica</em>.</span></p></div>
@@ -155,7 +156,7 @@
 
 <h3>Releases vs Development trunk</h3>
 
-<p>NetSurf 2.1 is the latest version and is a bug fix release for NetSurf 2.0, which was released in April 2009. NetSurf 1.0 was released in May 2007. The NetSurf 1.x releases since then have comprised largely of bug fixes merged from NetSurf's main development trunk back to the 1.x branch.</p>
+<p>NetSurf 2.5 is the latest version and offers many improvements over NetSurf 2.0, which was released in April 2009. NetSurf 1.0 was released in May 2007. The NetSurf 1.x releases since then have comprised largely of bug fixes merged from NetSurf's main development trunk back to the 1.x branch.</p>
 
 <p>Users building NetSurf from source are encouraged to build the current HEAD, rather than a release, as it is most up-to-date and has features that may not yet have been released.</p>
 
