@@ -61,7 +61,7 @@
 <div class="downloadlatestouter">
 <div class="downloadlatest">
 <div class="downloadlatestbox">
-<p class="downloadmain downloadfirst"><a href="netsurf-2.1.lha"><span>NetSurf 2.1 for AmigaOS</span> <span>(5.1MB)</span> <span class="downloaddate">23 May 2009</span></a></p>
+<p class="downloadmain downloadfirst"><a href="netsurf-2.5.lha"><span>NetSurf 2.5 for AmigaOS</span> <span>(5.1MB)</span> <span class="downloaddate">18 Apr 2010</span></a></p>
 <!--<p class="downloadinstructions"><a href="/documentation/roinfo#GettingStartedInstallation">Installation instructions</a></p>-->
 <p class="preul">Requires:</p>
 <ul>
@@ -70,7 +70,7 @@
 </div>
 
 <div class="downloadlatestbox downloadlast">
-<p class="downloadmain"><a href="/downloads/releases/netsurf-2.1-src.tar.gz"><span>NetSurf 2.1 source code</span> <span>(1.4MB)</span> <span class="downloaddate">23 May 2009</span></a></p>
+<p class="downloadmain"><a href="/downloads/releases/netsurf-2.5-src.tar.gz"><span>NetSurf 2.5 source code</span> <span>(1.6MB)</span> <span class="downloaddate">18 Apr 2010</span></a></p>
 <p class="downloadinstructions"><a href="/downloads/source/#BuildInstructions">Build instructions</a></p>
 <p class="preul">Build NetSurf for:</p>
 <ul>
@@ -88,6 +88,13 @@
 
 <h2>Previous releases</h2>
 <dl>
+<dt>NetSurf 2.1</dt>
+<dd>
+<ul>
+<li><a href="netsurf-2.1.lha">NetSurf 2.1 browser for AmigaOS 4</a> (23 May 2009)</li>
+<li><a href="/downloads/releases/netsurf-2.1-src.tar.gz">NetSurf 2.1 source code</a> (23 May 2009)</li>
+</ul>
+</dd>
 <dt>NetSurf 2.0</dt>
 <dd>
 <ul>

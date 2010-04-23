@@ -62,7 +62,7 @@
 <div class="downloadlatestouter">
 <div class="downloadlatest">
 <div class="downloadlatestbox">
-<p class="downloadmain downloadfirst"><a href="/downloads/releases/netsurf-2.5.zip"><span>NetSurf 2.5 for RISC&nbsp;OS</span> <span>(2.5MB)</span> <span class="downloaddate">18 Apr 2010</span></a></p>
+<p class="downloadmain downloadfirst"><a href="/downloads/releases/netsurf-2.5.zip"><span>NetSurf 2.5 for RISC&nbsp;OS</span> <span>(2.6MB)</span> <span class="downloaddate">18 Apr 2010</span></a></p>
 <p class="downloadinstructions"><a href="/documentation/roinfo#GettingStartedInstallation">Installation instructions</a></p>
 <p class="preul">Binary download includes:</p>
 <ul>
@@ -80,7 +80,7 @@
 </div>
 
 <div class="downloadlatestbox downloadlast">
-<p class="downloadmain"><a href="/downloads/releases/netsurf-2.5-src.tar.gz"><span>NetSurf 2.5 source code</span> <span>(1.4MB)</span> <span class="downloaddate">18 Apr 2010</span></a></p>
+<p class="downloadmain"><a href="/downloads/releases/netsurf-2.5-src.tar.gz"><span>NetSurf 2.5 source code</span> <span>(1.6MB)</span> <span class="downloaddate">18 Apr 2010</span></a></p>
 <p class="downloadinstructions"><a href="/downloads/source/#BuildInstructions">Build instructions</a></p>
 <p class="preul">Build NetSurf for:</p>
 <ul>
