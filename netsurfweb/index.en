@@ -141,12 +141,12 @@
 <h2 id="news">Latest news</h2>
 
 <dl class="frontnews">
+<dt><a href="/downloads/">NetSurf 2.5 released</a> <span>24 Apr 2010</span></dt>
+<dd>NetSurf 2.5 contains many improvements over the previous release. The major changes are the use of our brand new CSS parser and selection engine (LibCSS), and a newly designed cache for fetched content. Full details in the change log. We recommend all users upgrade.</dd>
 <dt><a href="http://vlists.pepperfish.net/pipermail/netsurf-users-netsurf-browser.org/2010-January/009241.html">NetSurf at Wakefield Show 2010</a> <span>14 Jan 2010</span></dt>
 <dd>NetSurf 2.5 is expected to be released at the Wakefield RISC OS Show. The release will focus on the CSS engine, memory usage and speed, as well as fixing bugs. NetSurf 2.5 is likely to be the last release for RISC OS.</dd>
 <dt><a href="/about/awards">NetSurf in The Icon Bar Awards 2009</a> <span>01 Jan 2010</span></dt>
 <dd>NetSurf won in the category of &quot;Best non-commercial product&quot; in The Icon Bar's 2009 RISC OS awards. Thanks to everyone who voted for us!</dd>
-<dt><a href="http://vlists.pepperfish.net/pipermail/netsurf-users-netsurf-browser.org/2009-September/008959.html">Google Summer of Code Roundup</a> <span>15 Sep 2009</span></dt>
-<dd>As many of you know, NetSurf has participated in Google Summer of Code for a second consecutive year. This year we ran three projects which have all been of great benefit to the project.</dd>
 </dl>
 <p class="more"><a href="/about/news" class="seemore">See more news</a></p>
 
