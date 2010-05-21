@@ -57,37 +57,42 @@
 
 <h2 class="themename">Aquatic</h2>
 
-<p class="themeimage"><a href="Aquatic"><img src="Aquatici.png" alt="Install theme"></a></p>
+<p class="themeimage"><a href="Aquatic.theme"><img src="Aquatici.png" alt="Install theme"></a></p>
 <p class="themeauthor">Author: Matt Aubury (Port: <a href="http://www.richardspencer.freeuk.com/">Richard Spencer</a>)</p>
+
+<h2 class="themename">Dinky</h2>
+
+<p class="themeimage"><a href="Dinky.theme"><img src="Dinkyi.png" alt="Install theme"></a></p>
+<p class="themeauthor">Author: <a href="http://www.wra1th.plus.com/">Gavin Wraith</a></p>
 
 <h2 class="themename">IYONIX</h2>
 
-<p class="themeimage"><a href="Iyonix"><img src="Iyonixi.png" alt="Install theme"></a></p>
+<p class="themeimage"><a href="Iyonix.theme"><img src="Iyonixi.png" alt="Install theme"></a></p>
 <p class="themeauthor">Author: <a href="http://hallas.net/">Richard G. Hallas</a></p>
 
 <h2 class="themename">Kemp</h2>
 
-<p class="themeimage"><a href="Kemp"><img src="Kempi.png" alt="Install theme"></a></p>
+<p class="themeimage"><a href="Kemp.theme"><img src="Kempi.png" alt="Install theme"></a></p>
 <p class="themeauthor">Author: <a href="http://quadrone.org/">Arvid Axelsson</a> (Port: <a href="http://www.wra1th.plus.com/">Gavin Wraith</a>)</p>
 
 <h2 class="themename">Qute</h2>
 
-<p class="themeimage"><a href="Qute"><img src="Qutei.png" alt="Install theme"></a></p>
+<p class="themeimage"><a href="Qute.theme"><img src="Qutei.png" alt="Install theme"></a></p>
 <p class="themeauthor">Author: <a href="http://quadrone.org/">Arvid Axelsson</a> (Port: <a href="http://www.quantumsoft.co.uk/">Stuart Halliday</a>)</p>
 
 <h2 class="themename">Remembrance</h2>
 
-<p class="themeimage"><a href="Remembrance"><img src="Remembrancei.png" alt="Install theme"></a></p>
+<p class="themeimage"><a href="Remembrance.theme"><img src="Remembrancei.png" alt="Install theme"></a></p>
 <p class="themeauthor">Author: Matt Aubury (Port: <a href="http://www.richardspencer.freeuk.com/">Richard Spencer</a>)</p>
 
 <h2 class="themename">RISC OS 5</h2>
 
-<p class="themeimage"><a href="RO5"><img src="RO5i.png" alt="Install theme"></a></p>
+<p class="themeimage"><a href="RO5.theme"><img src="RO5i.png" alt="Install theme"></a></p>
 <p class="themeauthor">Author: <a href="http://hallas.net/">Richard G. Hallas</a></p>
 
 <h2 class="themename">Steel</h2>
 
-<p class="themeimage"><a href="Steel"><img src="Steeli.png" alt="Install theme"></a></p>
+<p class="themeimage"><a href="Steel.theme"><img src="Steeli.png" alt="Install theme"></a></p>
 <p class="themeauthor">Author: <a href="http://lym.iconbar.com/">Chris Wraight</a></p>
 
 
