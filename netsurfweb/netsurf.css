@@ -668,6 +668,14 @@ p.award a img {
 	margin: 0;
 	padding: 0; }
 
+.caution {
+	margin: 1.33em auto;
+	width: 60%;
+	min-height: 51px;
+	padding: 10px 10px 10px 110px;
+	background: #fff2a9 url("webimages/caution.png") no-repeat 5px center;
+	border: 3px solid #ffe85c;
+	font-weight: bold; }
 
 /*
  *  Recent SVN Activity

@@ -52,7 +52,9 @@
 
 <h1>RISC OS Development Builds</h1>
 
-<p>The development build available on this page is built automatically from the latest source code in SVN. <strong>It is likely to be unstable and may crash your machine.</strong></p>
+<p>The development build available on this page is built automatically from the latest source code in SVN.</p>
+
+<p class="caution">Notice:<br>At any given time these builds may be unstable or have verbose logging enabled which could compromise performance of the browser.</p>
 
 <!--#config timefmt="%d %b %Y %R %Z" sizefmt="abbrev"-->
 <ul class="developmentbuilds">
