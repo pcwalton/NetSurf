@@ -117,6 +117,7 @@ command("make TARGET=riscos install");
 
 # build RISC OS version
 chdir "$root/netsurf";
+command("make TARGET=riscos clean");
 command("make TARGET=riscos");
 chdir $root;
 command("rm --recursive --force --verbose riscos-zip/!NetSurf");
