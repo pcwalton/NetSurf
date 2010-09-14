@@ -7,15 +7,17 @@
  * http://www.opensource.org/licenses/mit-license.php
  *
  * AlphaGen is a tool for obtaining a bitmap image with an alpha channel from
- * software which lacks this facility itself.
+ * software which lacks this facility itself.  It recovers alpha channel
+ * information from two input images; one with a black baground and one with a
+ * white background.
  *
- * Input:
- *     blackbg.png   - The image exported on a black background
- *     whitebg.png   - The image exported on a white background
+ * Inputs required:
+ *     + The input image exported on a _black_ background.
+ *     + The input image exported on a _white_ background.
  * Output:
- *     alpha.png     - The resultant image with alpha channel
+ *     + The resultant image with an alpha channel.
  *
- * Note that blackbg.png and whitebg.png must be the same size.
+ * Note that both images must be the same size.
  */
 
 #include <stdbool.h>
@@ -33,13 +35,37 @@ struct image {
 	uint8_t **d;
 };
 
+/* Main functionality of AlphaGen. */
+bool alphagen(char *black_name, char *white_name, char *alpha_name);
+
 /* image_* functions, so the libpng stuff is kept hidden */
 bool image_init(struct image *img, int width, int height, int channels);
 void image_free(struct image *img);
 bool image_read_png(char *file_name, struct image *img);
 bool image_write_png(char *file_name, struct image *img);
 
+
 int main(int argc, char** argv)
+{
+	/* Validate execution arguments. */
+	if (argc != 4) {
+		/* Too few arguments */
+		printf("Usage: %s <black> <white> <output>\n", argv[0]);
+		return EXIT_FAILURE;
+	}
+
+	/* Generate the alpha channel bitmap. */
+	if (!alphagen(argv[1], argv[2], argv[3])) {
+		return EXIT_FAILURE;
+	}
+
+	return EXIT_SUCCESS;
+}
+
+
+/* Performs alpha channel recovery on an image provided with black and white
+ * backgrounds. */
+bool alphagen(char *black_name, char *white_name, char *alpha_name)
 {
 	struct image b, w, a;
 	unsigned int row_data_width;
@@ -50,24 +76,26 @@ int main(int argc, char** argv)
 	const uint8_t bg = 255;
 
 	/* Load input PNGs */
-	if (!image_read_png("blackbg.png", &b)) {
-		printf("Problem loading blackbg.\n");
-		return EXIT_FAILURE;
+	if (!image_read_png(black_name, &b)) {
+		printf("Could not load \"%s\" as black background input.\n",
+				black_name);
+		return false;
 	}
-	if (!image_read_png("whitebg.png", &w)) {
-		printf("Problem loading whitebg.\n");
-		return EXIT_FAILURE;
+	if (!image_read_png(white_name, &w)) {
+		printf("Could not load \"%s\" as white background input.\n",
+				white_name);
+		return false;
 	}
 	/* Check both input images are the same size */
 	if (b.width != w.width || b.height != w.height) {
 		printf("Input images have different dimensions.\n");
-		return EXIT_FAILURE;
+		return false;
 	}
 
 	/* Prepare output image */
 	if (!image_init(&a, b.width, b.height, 4)) {
 		printf("Couldn't create output image.\n");
-		return EXIT_FAILURE;
+		return false;
 	}
 
 	/* Recover true image colours and alpha channel for the image */
@@ -94,9 +122,9 @@ int main(int argc, char** argv)
 	}
 
 	/* Save PNG with recovered colour and alpha data */
-	if (!image_write_png("alpha.png", &a)) {
-		printf("Couldn't write output image.\n");
-		return EXIT_FAILURE;
+	if (!image_write_png(alpha_name, &a)) {
+		printf("Couldn't write output file \"%s\".\n", alpha_name);
+		return false;
 	}
 
 	/* Free image memory */
@@ -104,9 +132,11 @@ int main(int argc, char** argv)
 	image_free(&w);
 	image_free(&a);
 
-	return EXIT_SUCCESS;
+	return true;
 }
 
+
+/* Initialise an image, allocating memory for it. */
 bool image_init(struct image *img, int width, int height, int channels)
 {
 	int size = sizeof(uint8_t**);
@@ -135,11 +165,14 @@ bool image_init(struct image *img, int width, int height, int channels)
 	return true;
 }
 
+
+/* Free an image. */
 void image_free(struct image *img)
 {
 	free(img->d[0]);
 	free(img->d);
 }
+
 
 /* Read RGB PNG with no alpha channel into img. */
 bool image_read_png(char *file_name, struct image *img)
@@ -219,7 +252,6 @@ bool image_read_png(char *file_name, struct image *img)
 
 	return true;
 }
-
 
 
 /* Save output PNG file with alpha channel with img data */
