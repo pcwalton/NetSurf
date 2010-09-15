@@ -1,5 +1,5 @@
 /*
- * Copyright 2009 Michael Drake <tlsa@netsurf-browser.org>
+ * Copyright 2009-2010 Michael Drake <tlsa@netsurf-browser.org>
  *
  * This file is part of AlphaGen.
  *

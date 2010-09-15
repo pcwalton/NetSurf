@@ -1,0 +1,39 @@
+--------------------------------------------------------------------------------
+  AlphaGen README
+--------------------------------------------------------------------------------
+
+  AlphaGen is a utility for recovering alpha channel information for bitmaps.
+  It requires two copies of the input image, one on a black background and
+  one on a white background.
+
+  Usage:
+
+      alphagen <black.png> <white.png> <output.png>
+
+  It outputs a PNG with an alpha channel.
+
+
+  Building AlphaGen
+===================
+
+  To compile AlphaGen:
+
+      $ make
+
+  To cross-compile AlphaGen:
+
+      $ make TARGET=<target-platform>
+
+  LibPNG is required to build.
+
+
+  Obtaining AlphaGen
+====================
+
+  AlphaGen is available from the NetSurf source repository:
+
+      Subversion: svn://svn.netsurf-browser.org/trunk/tools/alphagen/
+
+  Michael Drake's web site is:
+
+      http://www.smoothartist.com/
