@@ -1,15 +1,28 @@
-# Makefile for building AlphaGen on RISC OS.
+#
+# Makefile for building AlphaGen
+#
 
-# Needs NSTools for libpng and libz.
-#     http://www.netsurf-browser.org/downloads/other/nstools.zip
 
-.SUFFIXES: .c .o
-.c.o:
-	gcc -I<NSLibs$$Dir>/include -mpoke-function-name -mthrowback -c -O2 $<
+# Component settings
+COMPONENT := alphagen
+COMPONENT_TYPE := binary
+COMPONENT_VERSION := 1.0.0
 
-SRC = $(wildcard *.c)
+# Setup the tooling
+include build/makefiles/Makefile.tools
 
-OBJ = $(SRC:.c=.o)
+# Toolchain flags
+WARNFLAGS := -Wall -W -Wundef -Wpointer-arith -Wcast-align \
+	-Wwrite-strings -Wstrict-prototypes -Wmissing-prototypes \
+	-Wmissing-declarations -Wnested-externs -pedantic
 
-nslog: $(OBJ)
-	gcc -L<NSLibs$$Dir>/lib -lpng -lz -o alphagen $(OBJ)
+# libpng and libz
+ifneq ($(findstring clean,$(MAKECMDGOALS)),clean)
+  CFLAGS := $(CFLAGS) -I$(PREFIX)/include
+  LDFLAGS := $(LDFLAGS) -lpng -lz
+endif
+
+# Grab the core makefile
+include build/makefiles/Makefile.top
+
+# Extra installation rules
