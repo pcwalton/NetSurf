@@ -70,7 +70,7 @@ bool alphagen(char *black_name, char *white_name, char *alpha_name)
 {
 	struct image b, w, a;
 	unsigned int row_data_width;
-	unsigned int z;
+	unsigned int x, y, z;
 	uint8_t ar, ag, ab;
 
 	/* Default background colour; 0 = black, 255 = white */
@@ -100,9 +100,9 @@ bool alphagen(char *black_name, char *white_name, char *alpha_name)
 
 	/* Recover true image colours and alpha channel for the image */
 	row_data_width = a.width * a.channels;
-	for (unsigned int y = 0; y < a.height; y++) {
+	for (y = 0; y < a.height; y++) {
 		z = 0; /* x-position in input images */
-		for (unsigned int x = 0; x < row_data_width; x += 4) {
+		for (x = 0; x < row_data_width; x += 4) {
 			/* Get alpha values first */
 			ar = 255 - w.d[y][z]   + b.d[y][z];
 			ag = 255 - w.d[y][z+1] + b.d[y][z+1];
@@ -140,6 +140,7 @@ bool alphagen(char *black_name, char *white_name, char *alpha_name)
 bool alphagen_check_inputs(struct image *b, struct image *w)
 {
 	unsigned int data_size;
+	unsigned int i;
 	bool opaque = true;
 
 	/* Check both input images are the same size */
@@ -159,7 +160,7 @@ bool alphagen_check_inputs(struct image *b, struct image *w)
 	/* Check that black background image is darker than white and check
 	 * for opaque image (identical input images). */
 	data_size = b->height * b->width * b->channels;
-	for (unsigned int i = 0; i < data_size; i++) {
+	for (i = 0; i < data_size; i++) {
 		if (b->d[0][i] > w->d[0][i]) {
 			/* Black bg image is brighter than white bg image. */
 			printf("Error: Black background input image has pixel "
@@ -189,6 +190,7 @@ bool alphagen_check_inputs(struct image *b, struct image *w)
 bool image_init(struct image *img, int width, int height, int channels)
 {
 	int row_data_width;
+	int i;
 
 	/* Set frame dimensions */
 	img->width = width;
@@ -206,7 +208,7 @@ bool image_init(struct image *img, int width, int height, int channels)
 	if (img->d[0] == NULL)
 		return false;
 
-	for (int i = 1; i < height; i++) {
+	for (i = 1; i < height; i++) {
 		/* Set pointers to each row */
 		img->d[i] = img->d[i - 1] + row_data_width;
 	}
@@ -231,6 +233,7 @@ bool image_read_png(char *file_name, struct image *img)
 	unsigned int row_data_width;
 	png_uint_32 width, height;
 	int bit_depth, color_type;
+	int i;
 	FILE *fp;
 
 	if ((fp = fopen(file_name, "rb")) == NULL)
@@ -288,7 +291,7 @@ bool image_read_png(char *file_name, struct image *img)
 	png_bytepp row_pointers = png_get_rows(png_ptr, info_ptr);
 
 	row_data_width = img->width * img->channels;
-	for (int i = 0; i < img->height; i++) {
+	for (i = 0; i < img->height; i++) {
 		memcpy(img->d[i], row_pointers[i], row_data_width);
 	}
 

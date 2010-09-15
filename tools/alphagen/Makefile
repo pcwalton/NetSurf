@@ -5,7 +5,7 @@
 
 .SUFFIXES: .c .o
 .c.o:
-	gcc -I<NSLibs$$Dir>/include -std=c9x -mpoke-function-name -mthrowback -c -O2 $<
+	gcc -I<NSLibs$$Dir>/include -mpoke-function-name -mthrowback -c -O2 $<
 
 SRC = $(wildcard *.c)
 
