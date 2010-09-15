@@ -88,6 +88,7 @@ bool alphagen(char *black_name, char *white_name, char *alpha_name)
 		return false;
 	}
 
+	/* Return failure if there's a problem with the input images. */
 	if (!alphagen_check_inputs(&b, &w)) {
 		return false;
 	}
