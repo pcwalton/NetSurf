@@ -37,6 +37,7 @@ struct image {
 
 /* Main functionality of AlphaGen. */
 bool alphagen(char *black_name, char *white_name, char *alpha_name);
+bool alphagen_check_inputs(struct image *b, struct image *w);
 
 /* image_* functions, so the libpng stuff is kept hidden */
 bool image_init(struct image *img, int width, int height, int channels);
@@ -77,18 +78,17 @@ bool alphagen(char *black_name, char *white_name, char *alpha_name)
 
 	/* Load input PNGs */
 	if (!image_read_png(black_name, &b)) {
-		printf("Could not load \"%s\" as black background input.\n",
+		printf("Couldn't load \"%s\" as black background input.\n",
 				black_name);
 		return false;
 	}
 	if (!image_read_png(white_name, &w)) {
-		printf("Could not load \"%s\" as white background input.\n",
+		printf("Couldn't load \"%s\" as white background input.\n",
 				white_name);
 		return false;
 	}
-	/* Check both input images are the same size */
-	if (b.width != w.width || b.height != w.height) {
-		printf("Input images have different dimensions.\n");
+
+	if (!alphagen_check_inputs(&b, &w)) {
 		return false;
 	}
 
@@ -136,30 +136,78 @@ bool alphagen(char *black_name, char *white_name, char *alpha_name)
 }
 
 
+/* Check input images for problems */
+bool alphagen_check_inputs(struct image *b, struct image *w)
+{
+	unsigned int data_size;
+	bool opaque = true;
+
+	/* Check both input images are the same size */
+	if (b->width != w->width || b->height != w->height) {
+		printf("Error: Input images have different dimensions.\n");
+		return false;
+	}
+
+	/* Check input images are both the same bit depth */
+	if (b->channels != w->channels || b->channels != 3) {
+		/* AlphaGen should load both as 24bpp, so it's not an input
+		 * error, but an internal error. */
+		printf("Error: Internal error.\n");
+		return false;
+	}
+
+	/* Check that black background image is darker than white and check
+	 * for opaque image (identical input images). */
+	data_size = b->height * b->width * b->channels;
+	for (unsigned int i = 0; i < data_size; i++) {
+		if (b->d[0][i] > w->d[0][i]) {
+			/* Black bg image is brighter than white bg image. */
+			printf("Error: Black background input image has pixel "
+					"brighter than White background\n"
+					"input image.\n");
+			return false;
+		}
+		if (b->d[0][i] < w->d[0][i]) {
+			/* White bg image data brighter than black bg image. */
+			opaque = false;
+		}
+	}
+
+	/* If input images were identical, the image is opaque and there
+	 * is no alpha channel to recover. */
+	if (opaque) {
+		printf("Error: Input images are identical.  "
+				"No alpha channel to recover.\n");
+		return false;
+	}
+
+	return true;
+}
+
+
 /* Initialise an image, allocating memory for it. */
 bool image_init(struct image *img, int width, int height, int channels)
 {
-	int size = sizeof(uint8_t**);
 	int row_data_width;
 
-	// Set frame dimensions
+	/* Set frame dimensions */
 	img->width = width;
 	img->height = height;
 	img->channels = channels;
 
-	// Allocate memory for row pointers
-	img->d = (uint8_t**)malloc(height * size);
+	/* Allocate memory for row pointers */
+	img->d = malloc(height * sizeof(uint8_t*));
 	if (img->d == NULL)
 		return false;
 
-	// Allocate memory for image data
+	/* Allocate memory for image data */
 	row_data_width = width * channels;
-	img->d[0] = (uint8_t*)malloc(height * row_data_width * size);
+	img->d[0] = malloc(height * row_data_width * sizeof(uint8_t));
 	if (img->d[0] == NULL)
 		return false;
 
 	for (int i = 1; i < height; i++) {
-		// Set pointers to each row
+		/* Set pointers to each row */
 		img->d[i] = img->d[i - 1] + row_data_width;
 	}
 	return true;
