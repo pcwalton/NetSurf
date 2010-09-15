@@ -25,7 +25,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "png.h"
+#include <png.h>
 
 
 struct image {
