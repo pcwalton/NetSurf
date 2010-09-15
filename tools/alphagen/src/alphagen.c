@@ -28,11 +28,12 @@
 #include <png.h>
 
 
+/* Bitmap image representation */
 struct image {
 	unsigned int width;
 	unsigned int height;
 	unsigned int channels;
-	uint8_t **d;
+	uint8_t **d; /* data */
 };
 
 /* Main functionality of AlphaGen. */
@@ -45,7 +46,9 @@ void image_free(struct image *img);
 bool image_read_png(char *file_name, struct image *img);
 bool image_write_png(char *file_name, struct image *img);
 
-
+/**
+ * Main entry point from OS.
+ */
 int main(int argc, char** argv)
 {
 	/* Validate execution arguments. */
@@ -64,8 +67,15 @@ int main(int argc, char** argv)
 }
 
 
-/* Performs alpha channel recovery on an image provided with black and white
- * backgrounds. */
+/**
+ * Performs alpha channel recovery on an image provided with black and white
+ * backgrounds.
+ *
+ * \param  black_name  filename for black background input PNG
+ * \param  white_name  filename for white background input PNG
+ * \param  alpha_name  filename for output PNG
+ * \return  true on success, false on error
+ */
 bool alphagen(char *black_name, char *white_name, char *alpha_name)
 {
 	struct image b, w, a;
@@ -137,7 +147,13 @@ bool alphagen(char *black_name, char *white_name, char *alpha_name)
 }
 
 
-/* Check input images for problems */
+/**
+ * Check input images for problems
+ *
+ * \param  b  black backgrounded input image
+ * \param  w  white backgrounded input image
+ * \return  true on success, false on error
+ */
 bool alphagen_check_inputs(struct image *b, struct image *w)
 {
 	unsigned int data_size;
@@ -187,7 +203,15 @@ bool alphagen_check_inputs(struct image *b, struct image *w)
 }
 
 
-/* Initialise an image, allocating memory for it. */
+/**
+ * Initialise an image, allocating memory for it.
+ *
+ * \param  img       pointer to image to initialise
+ * \param  width     required image width
+ * \param  height    required image height
+ * \param  channels  required number of colour channels
+ * \return  true on success, false on error
+ */
 bool image_init(struct image *img, int width, int height, int channels)
 {
 	int row_data_width;
@@ -217,7 +241,11 @@ bool image_init(struct image *img, int width, int height, int channels)
 }
 
 
-/* Free an image. */
+/**
+ * Free an image.
+ *
+ * \param  img  pointer to image to free
+ */
 void image_free(struct image *img)
 {
 	free(img->d[0]);
@@ -225,7 +253,13 @@ void image_free(struct image *img)
 }
 
 
-/* Read RGB PNG with no alpha channel into img. */
+/**
+ * Read RGB PNG with no alpha channel into img.
+ *
+ * \param  file_name  file to load
+ * \param  img        pointer to image to put data in
+ * \return  true on success, false on error
+ */
 bool image_read_png(char *file_name, struct image *img)
 {
 	png_structp png_ptr;
@@ -306,7 +340,13 @@ bool image_read_png(char *file_name, struct image *img)
 }
 
 
-/* Save output PNG file with alpha channel with img data */
+/**
+ * Save output PNG file with alpha channel with img data
+ *
+ * \param  file_name  file to write PNG out to
+ * \param  img        image data to generate PNG from
+ * \returnreturn  true on success, false on error
+ */
 bool image_write_png(char *file_name, struct image *img)
 {
 	FILE *fp;
@@ -394,4 +434,3 @@ bool image_write_png(char *file_name, struct image *img)
 
 	return true;
 }
-
