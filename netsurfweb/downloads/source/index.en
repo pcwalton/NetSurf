@@ -84,6 +84,8 @@
 <p>The source code for each release version of NetSurf is also available.</p>
 
 <ul>
+<li><a href="/downloads/releases/netsurf-2.6-src.tar.gz">NetSurf 2.6 source code</a> (21 Sep 2010)</li>
+<li><a href="/downloads/releases/netsurf-2.5-src.tar.gz">NetSurf 2.5 source code</a> (18 Apr 2010)</li>
 <li><a href="/downloads/releases/netsurf-2.1-src.tar.gz">NetSurf 2.1 source code</a> (23 May 2009)</li>
 <li><a href="/downloads/releases/netsurf-2.0-src.tar.gz">NetSurf 2.0 source code</a> (25 Apr 2009)</li>
 <li><a href="/downloads/releases/netsurf-1.2-src.tar.gz">NetSurf 1.2 source code</a> (22 Mar 2008)</li>
@@ -93,7 +95,7 @@
 
 
 <div class="footer">
-<p>Copyright 2003 - 2009 The NetSurf Developers</p>
+<p>Copyright 2003 - 2010 The NetSurf Developers</p>
 </div>
 
 </div>
