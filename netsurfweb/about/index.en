@@ -116,6 +116,7 @@
 <tr><th>May 2009</th><td>NetSurf 2.1 released</td></tr>
 <tr><th>Jul 2009</th><td>LibCSS used by NetSurf development builds</td></tr>
 <tr><th>Apr 2010</th><td>NetSurf 2.5 released</td></tr>
+<tr><th>Sep 2010</th><td>NetSurf 2.6 released</td></tr>
 </table>
 
 <div class="frontscreen"><p class="frontscreen"><a href="screenshots/fullsize/roarstechnica.png"><img src="screenshots/thumbnails/roarstechnica.png" alt="GTK NetSurf screenshot."></a> <span>A more recent NetSurf showing <em>Ars Technica</em>.</span></p></div>
@@ -141,24 +142,26 @@
 
 <h3>Framebuffer front end</h3>
 
-<p>NetSurf's framebuffer front end has no particular operating system or GUI toolkit requirements. Its mouse pointer, all its widgets etc, are drawn though NetSurf's internal plotters, the same rendering interface used to draw web pages. This makes the framebuffer front end highly portable. Currently the framebuffer can target the following:</p>
+<p>NetSurf's framebuffer front end has no particular operating system or GUI toolkit requirements. Its mouse pointer, all its widgets etc, are drawn though NetSurf's internal plotters, the same rendering interface used to draw web pages. This makes the framebuffer front end highly portable. Currently the framebuffer front end can target the following framebuffer surface providers:</p>
 
 <dl>
 <dt>The Linux framebuffer</dt>
 <dd>Output to a Linux framebuffer and input from Linux input event device nodes. The output device may be specified and defaults to <code style="color:#46a;">/dev/fb0</code>. The input node search path may also be specified, and defaults to <code style="color:#46a;">/dev/input/</code>.</dd>
 <dt>SDL</dt>
-<dd>The SDL frontend is a straightforward port to the SDL library which is available for many operating systems. This allows the framebuffer NetSurf front end to be run inside a desktop window, making development easier.</dd>
+<dd>The SDL surface is a straightforward port to the SDL library which is available for many operating systems. This allows the framebuffer NetSurf front end to be run inside a desktop window, making development easier.</dd>
+<dt>X</dt>
+<dd>The X surface uses the XCB. This allows the framebuffer NetSurf front end to be run inside an X desktop window, making development easier.</dd>
 <dt>VNC</dt>
-<dd>The VNC server frontend uses the libvncserver library to provide a straightforward unsecured VNC server. Multiple clients may connect.</dd>
+<dd>The VNC server surface uses the libvncserver library to provide a straightforward unsecured VNC server. Multiple clients may connect.</dd>
 <dt>The ABLE framebuffer</dt>
-<dd>This front end runs on the ABLE bootloader shipped with hardware from Simtec.</dd>
+<dd>This surface handler enables NetSurf's framebuffer front end to run directly on the ABLE bootloader, shipped with hardware from Simtec.</dd>
 </dl>
 
 <h3>Releases vs Development trunk</h3>
 
-<p>NetSurf 2.5 is the latest version and offers many improvements over NetSurf 2.0, which was released in April 2009. NetSurf 1.0 was released in May 2007. The NetSurf 1.x releases since then have comprised largely of bug fixes merged from NetSurf's main development trunk back to the 1.x branch.</p>
+<p>Users can run our release versions of NetSurf, or they can run development versions. Our release versions are tested and released when we are happy with them. Development versions are snapshots of the current state of the code, as the developers are working on it. These versions may have newer features or bug fixes that haven't made it into a release yet, however (depending on what the developers are doing) they might also have new bugs, instability, or they may produce reams of debugging output.</p>
 
-<p>Users building NetSurf from source are encouraged to build the current HEAD, rather than a release, as it is most up-to-date and has features that may not yet have been released.</p>
+<p>We recommend users use the release versions, unless they particularly want to help us by reporting issues with development versions. People building NetSurf from source are encouraged to build the current HEAD, rather than a release, as it is most up-to-date and has features that may not yet have been released.</p>
 
 <h2 id="NetSurfInAction">NetSurf in Action</h2>
 
@@ -181,7 +184,7 @@
 
 
 <div class="footer">
-<p>Copyright 2003 - 2009 The NetSurf Developers</p>
+<p>Copyright 2003 - 2010 The NetSurf Developers</p>
 </div>
 
 </div>

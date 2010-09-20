@@ -124,7 +124,7 @@
 <div class="downloadbox">
 <div class="downloadcontainer">
 <div class="downloadcontent">
-<h2 id="downloadrelease"><a href="/downloads/">Download NetSurf&nbsp;2.5</a></h2>
+<h2 id="downloadrelease"><a href="/downloads/">Download NetSurf&nbsp;2.6</a></h2>
 <ul>
 <li><a href="/downloads/riscos/">For RISC&nbsp;OS</a></li>
 <li><a href="/downloads/gtk/">For Linux</a></li>
@@ -143,18 +143,18 @@
 <h2 id="news">Latest news</h2>
 
 <dl class="frontnews">
+<dt><a href="/downloads/">NetSurf 2.6 released</a> <span>21 Sep 2010</span></dt>
+<dd>NetSurf 2.6 is primarily a bug fix release. It contains some improvements to page rendering, fetching &amp; caching, memory usage, as well as some front-end specific fixes. Full details in the change log. We recommend all users upgrade.</dd>
 <dt><a href="/downloads/">NetSurf 2.5 released</a> <span>24 Apr 2010</span></dt>
 <dd>NetSurf 2.5 contains many improvements over the previous release. The major changes are the use of our brand new CSS parser and selection engine (LibCSS), and a newly designed cache for fetched content. Full details in the change log. We recommend all users upgrade.</dd>
 <dt><a href="http://vlists.pepperfish.net/pipermail/netsurf-users-netsurf-browser.org/2010-January/009241.html">NetSurf at Wakefield Show 2010</a> <span>14 Jan 2010</span></dt>
 <dd>NetSurf 2.5 is expected to be released at the Wakefield RISC OS Show. The release will focus on the CSS engine, memory usage and speed, as well as fixing bugs. NetSurf 2.5 is likely to be the last release for RISC OS.</dd>
-<dt><a href="/about/awards">NetSurf in The Icon Bar Awards 2009</a> <span>01 Jan 2010</span></dt>
-<dd>NetSurf won in the category of &quot;Best non-commercial product&quot; in The Icon Bar's 2009 RISC OS awards. Thanks to everyone who voted for us!</dd>
 </dl>
 <p class="more"><a href="/about/news" class="seemore">See more news</a></p>
 
-<h2 id="features">NetSurf 2.5 features</h2>
+<h2 id="features">NetSurf 2.6 features</h2>
 
-<p>NetSurf 2.5 is available for: RISC OS; Linux and other UNIX-like systems; and AmigaOS 4.</p>
+<p>NetSurf 2.6 is available for: RISC OS; Linux and other UNIX-like systems; and AmigaOS 4.</p>
 
 <dl>
 <dt>General</dt>
@@ -196,7 +196,7 @@
 </div>
 
 <div class="footer">
-<p>Copyright 2003 - 2009 The NetSurf Developers</p>
+<p>Copyright 2003 - 2010 The NetSurf Developers</p>
 </div>
 </div>
 
