@@ -110,11 +110,12 @@
 <tr><th>May 2008</th><td>LibCSS CSS parser started</td></tr>
 <tr><th>Jun 2008</th><td>BeOS &amp; Haiku port available</td></tr>
 <tr><th>Aug 2008</th><td>AmigaOS 4 port available</td></tr>
-<tr><th>Aug 2008</th><td>Hubbub used by NetSurf development builds</td></tr>
+<tr><th>Aug 2008</th><td>Hubbub used in NetSurf builds</td></tr>
 <tr><th>Sep 2008</th><td>Framebuffer port available</td></tr>
 <tr><th>Apr 2009</th><td>NetSurf 2.0 released</td></tr>
 <tr><th>May 2009</th><td>NetSurf 2.1 released</td></tr>
-<tr><th>Jul 2009</th><td>LibCSS used by NetSurf development builds</td></tr>
+<tr><th>Jul 2009</th><td>LibCSS used in NetSurf builds</td></tr>
+<tr><th>Mar 2010</th><td>New cache designed and used in NetSurf</td></tr>
 <tr><th>Apr 2010</th><td>NetSurf 2.5 released</td></tr>
 <tr><th>Sep 2010</th><td>NetSurf 2.6 released</td></tr>
 </table>
