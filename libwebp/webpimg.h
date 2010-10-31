@@ -38,9 +38,12 @@
 extern "C" {
 #endif  /* __cplusplus */
 
-//#include <exec/types.h>
+#ifdef __amigaos4__
+#include <exec/types.h>
+#else
 typedef unsigned char uint8;
 typedef unsigned int uint32;
+#endif
 typedef enum WebPResultType {
   webp_success = 0,
   webp_failure = -1

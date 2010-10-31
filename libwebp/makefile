@@ -32,6 +32,7 @@ all:	libwebp.a
 ######################################################################
 
 libwebp.a: libwebp.o
+	rm libwebp.a
 	$(AR) -q libwebp.a libwebp.o
 
 libwebp.o: webpimg.c
