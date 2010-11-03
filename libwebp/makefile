@@ -14,15 +14,14 @@
 # - limitations under the License.
 #*===========================================================================*/
 
-CC = gcc -Werror -fPIC
+CC = gcc
 AR = ar
 
 OPTIMIZE =	-O2
-OPTIONS =
+OPTIONS = -Werror -DDECLSPEC_DEPRECATED="//"
 INCLUDES =
 
 CFLAGS =	$(OPTIMIZE) $(OPTIONS)
-VPX_LIB = -lvpx -lpthread
 
 ######################################################################
 
@@ -32,7 +31,7 @@ all:	libwebp.a
 ######################################################################
 
 libwebp.a: libwebp.o
-	rm libwebp.a
+	rm -f libwebp.a
 	$(AR) -q libwebp.a libwebp.o
 
 libwebp.o: webpimg.c
