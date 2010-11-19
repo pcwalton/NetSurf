@@ -16,6 +16,7 @@
 
 #include <stdbool.h>
 #include <stdint.h>
+#include <stddef.h>
 
 /* bmp flags */
 #define BMP_NEW			0
@@ -99,7 +100,7 @@ typedef struct ico_collection {
   	ico_image *first;
 } ico_collection;
 
-void bmp_create(bmp_image *gif, bmp_bitmap_callback_vt *bitmap_callbacks);
+void bmp_create(bmp_image *bmp, bmp_bitmap_callback_vt *bitmap_callbacks);
 void ico_collection_create(ico_collection *ico, 
 		bmp_bitmap_callback_vt *bitmap_callbacks);
 bmp_result bmp_analyse(bmp_image *bmp, size_t size, uint8_t *data);
