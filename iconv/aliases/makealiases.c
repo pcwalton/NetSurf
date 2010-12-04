@@ -35,7 +35,7 @@ struct extra {
 	{ "ISO-10646-UCS-4", "UCS-4 UCS4" },
 	{ "ISO-10646-UCS-2", "UCS-2 UCS2" },
 	{ "GB2312", "EUC-CN EUCCN CN-GB" },
-	{ "Big5", "BIG-FIVE BIG-5 CN-BIG5 BIG_FIVE" },
+	{ "Big5", "BIG-FIVE BIG-5 CN-BIG5 BIG_FIVE x-x-big5" },
 	{ "macintosh", "MACROMAN MAC-ROMAN X-MAC-ROMAN" },
 	{ "windows-1250", "CP1250 MS-EE" },
 	{ "windows-1251", "CP1251 MS-CYRL" },
