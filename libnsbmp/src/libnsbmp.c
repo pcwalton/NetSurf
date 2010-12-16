@@ -258,9 +258,20 @@ bmp_result ico_analyse(ico_collection *ico, size_t size, uint8_t *data) {
 		image->bmp.bmp_data = ico->ico_data + read_uint32(data, 12);
 		image->bmp.ico = true;
 		data += ICO_DIR_ENTRY_SIZE;
+
+		/* Ensure that the bitmap data resides in the buffer */
+		if (image->bmp.bmp_data - ico->ico_data >= ico->buffer_size)
+			return BMP_DATA_ERROR;
+
+		/* Ensure that we have sufficient data to read the bitmap */
+		if (image->bmp.buffer_size - ICO_DIR_ENTRY_SIZE >= 
+		    ico->buffer_size - (ico->ico_data - data))
+			return BMP_INSUFFICIENT_DATA;
+
 		result = bmp_analyse_header(&image->bmp, image->bmp.bmp_data);
 		if (result != BMP_OK)
 			return result;
+
 		/* adjust the size based on the images available */
 		area = image->bmp.width * image->bmp.height;
 		if (area > max_area) {
