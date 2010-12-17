@@ -260,7 +260,9 @@ bmp_result ico_analyse(ico_collection *ico, size_t size, uint8_t *data) {
 		data += ICO_DIR_ENTRY_SIZE;
 
 		/* Ensure that the bitmap data resides in the buffer */
-		if (image->bmp.bmp_data - ico->ico_data >= ico->buffer_size)
+		if (image->bmp.bmp_data - ico->ico_data >= 0 &&
+				(uint32_t)(image->bmp.bmp_data -
+				ico->ico_data) >= ico->buffer_size)
 			return BMP_DATA_ERROR;
 
 		/* Ensure that we have sufficient data to read the bitmap */
