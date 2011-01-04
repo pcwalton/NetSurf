@@ -284,7 +284,7 @@ Priority: Optional
 Section: Web
 Maintainer: NetSurf developers <netsurf-develop\@lists.sourceforge.net>
 Version: $pkg_version
-Depends: SharedUnixLibrary (>=1.0.7), Tinct (>=0.1.3), Iconv (>=0.1.0), RiscPkg (>=0.3.1.1)
+Depends: SharedUnixLibrary (>=1.0.7), Tinct (>=0.1.3), Iconv (>=0.1.1), RiscPkg (>=0.3.1.1)
 Licence: Free
 Standards-Version: 0.1.0
 Description: Web browser
