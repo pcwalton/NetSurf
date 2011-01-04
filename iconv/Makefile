@@ -1,6 +1,6 @@
 # Component settings
 COMPONENT := iconv
-COMPONENT_VERSION := 0.11.0
+COMPONENT_VERSION := 0.12.0
 # Default to a static library
 COMPONENT_TYPE ?= lib-static
 
