@@ -1,6 +1,6 @@
 # Component settings
 COMPONENT := iconv
-COMPONENT_VERSION := 0.10.0
+COMPONENT_VERSION := 0.11.0
 # Default to a static library
 COMPONENT_TYPE ?= lib-static
 
@@ -43,11 +43,11 @@ ifeq ($(COMPONENT_TYPE),riscos-module)
 
   # TODO: Make this sensible. Preferably by making use of the install target.
   riscos-dist: all
-	$(Q)svn export riscos riscos-dist
+	$(Q)svn export -q riscos riscos-dist
 	$(Q)$(CP) $(CPFLAGS) riscos/!Boot/Resources/!Unicode/Files/Aliases \
 			riscos-dist/!Boot/Resources/!Unicode/Files/
 	$(Q)$(CP) $(CPFLAGS) $(BUILDDIR)/iconv,ffa riscos-dist/!System/310/Modules/Iconv,ffa
-	$(Q)svn export doc riscos-dist/doc
+	$(Q)svn export -q doc riscos-dist/doc
 	$(Q)$(RM) $(RMFLAGS) -r riscos-dist/doc/Standards
 	$(Q)$(CP) $(CPFLAGS) include/iconv/iconv.h riscos-dist/stubs/
 	$(Q)(cd riscos-dist ; $(GCCSDK_INSTALL_CROSSBIN)/zip -9r, ../iconv.zip *)
@@ -56,7 +56,7 @@ ifeq ($(COMPONENT_TYPE),riscos-module)
 	$(Q)$(MV) $(MVFLAGS) riscos-dist/!System riscos-dist/System
 	$(Q)$(RM) $(RMFLAGS) -r riscos-dist/doc riscos-dist/stubs 
 	$(Q)$(RM) $(RMFLAGS) riscos-dist/ReadMe
-	$(Q)svn export riscpkg/RiscPkg riscos-dist/RiscPkg
+	$(Q)svn export -q riscpkg/RiscPkg riscos-dist/RiscPkg
 	$(Q)$(CP) $(CPFLAGS) COPYING riscos-dist/RiscPkg/Copyright
 	$(Q)(cd riscos-dist ; $(GCCSDK_INSTALL_CROSSBIN)/zip -9r, ../iconv-pkg.zip *)
 	$(Q)$(RM) $(RMFLAGS) -r riscos-dist
