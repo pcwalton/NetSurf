@@ -50,7 +50,7 @@ ifeq ($(COMPONENT_TYPE),riscos-module)
 	$(Q)svn export doc riscos-dist/doc
 	$(Q)$(RM) $(RMFLAGS) -r riscos-dist/doc/Standards
 	$(Q)$(CP) $(CPFLAGS) include/iconv/iconv.h riscos-dist/stubs/
-	$(Q)(cd riscos-dist ; $(GCCSDK_INSTALL_ENV)/bin/zip -9r, ../iconv.zip *)
+	$(Q)(cd riscos-dist ; $(GCCSDK_INSTALL_CROSSBIN)/zip -9r, ../iconv.zip *)
 	$(Q)$(MV) $(MVFLAGS) riscos-dist/!Boot/Resources riscos-dist
 	$(Q)$(RM) $(RMFLAGS) -r riscos-dist/!Boot
 	$(Q)$(MV) $(MVFLAGS) riscos-dist/!System riscos-dist/System
@@ -58,7 +58,7 @@ ifeq ($(COMPONENT_TYPE),riscos-module)
 	$(Q)$(RM) $(RMFLAGS) riscos-dist/ReadMe
 	$(Q)svn export riscpkg/RiscPkg riscos-dist/RiscPkg
 	$(Q)$(CP) $(CPFLAGS) COPYING riscos-dist/RiscPkg/Copyright
-	$(Q)(cd riscos-dist ; $(GCCSDK_INSTALL_ENV)/bin/zip -9r, ../iconv-pkg.zip *)
+	$(Q)(cd riscos-dist ; $(GCCSDK_INSTALL_CROSSBIN)/zip -9r, ../iconv-pkg.zip *)
 	$(Q)$(RM) $(RMFLAGS) -r riscos-dist
 
 endif
