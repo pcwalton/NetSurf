@@ -97,9 +97,10 @@ Iconv Changelog
   - Fix handling of illegal UTF-8 byte sequences
   - Fix handling of incomplete multibyte input sequences.
 
-0.11 XX-XXX-2009
+0.11 xx-Jan-2011
 ----------------
 
   - Detect missing mapping file when using 8bit codecs. This prevents spurious
     memory exhaustion errors.
+  - Toolchain used to build 0.10 turns out to have produced broken code.
 
