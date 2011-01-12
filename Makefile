@@ -40,6 +40,29 @@ beos:
 	$(MAKE) install --directory=libcss TARGET=$(TARGET) PREFIX=$(PREFIX)
 	$(MAKE) --directory=netsurf TARGET=$(TARGET) PREFIX=$(PREFIX)
 
+cocoa: export TARGET=cocoa
+cocoa:
+	@echo -----------------------------------------------------------------
+	@echo
+	@echo Building NetSurf for Darwin with the following options:
+	@echo
+	@echo TARGET = $(TARGET)
+	@echo PREFIX = $(PREFIX)
+	@echo PKG_CONFIG_PATH = $(PKG_CONFIG_PATH)
+	@echo
+	@echo -----------------------------------------------------------------
+	@echo
+	mkdir -p $(PREFIX)/include
+	mkdir -p $(PREFIX)/lib
+	$(MAKE) install --directory=libparserutils TARGET=$(TARGET) PREFIX=$(PREFIX)
+	$(MAKE) install --directory=hubbub TARGET=$(TARGET) PREFIX=$(PREFIX)
+	$(MAKE) install --directory=libnsbmp TARGET=$(TARGET) PREFIX=$(PREFIX)
+	$(MAKE) install --directory=libnsgif TARGET=$(TARGET) PREFIX=$(PREFIX)
+	$(MAKE) install --directory=libsvgtiny TARGET=$(TARGET) PREFIX=$(PREFIX)
+	$(MAKE) install --directory=libwapcaplet TARGET=$(TARGET) PREFIX=$(PREFIX)
+	$(MAKE) install --directory=libcss TARGET=$(TARGET) PREFIX=$(PREFIX)
+	$(MAKE) --directory=netsurf TARGET=$(TARGET) PREFIX=$(PREFIX)
+
 gtk: export TARGET=gtk
 gtk:
 	@echo -----------------------------------------------------------------
