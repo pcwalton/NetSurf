@@ -38,6 +38,6 @@ libwebp.o: webpimg.c
 	$(CC) -c $(CFLAGS) -o libwebp.o webpimg.c
 
 clean:
-	rm *.o *.a
+	rm -f *.o *.a
 
 ######################################################################
