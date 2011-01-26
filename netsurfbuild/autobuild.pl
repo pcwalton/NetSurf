@@ -81,10 +81,6 @@ chdir "$root/libsvgtiny";
 command("svn update --non-interactive");
 command("make TARGET=riscos install");
 
-chdir "$root/libharu";
-command("svn update --non-interactive");
-command("make TARGET=riscos PREFIX=/home/riscos/env");
-
 chdir "$root/libparserutils";
 command("svn update --non-interactive");
 command("make TARGET=riscos uninstall");
