@@ -82,6 +82,8 @@ gtk:
 	make install --directory=libnsbmp TARGET=$(TARGET) PREFIX=$(PREFIX)
 	make install --directory=libnsgif TARGET=$(TARGET) PREFIX=$(PREFIX)
 	make install --directory=libsvgtiny TARGET=$(TARGET) PREFIX=$(PREFIX)
+	make install --directory=libwapcaplet TARGET=$(TARGET) PREFIX=$(PREFIX)
+	make install --directory=libcss TARGET=$(TARGET) PREFIX=$(PREFIX)
 	make --directory=netsurf TARGET=$(TARGET) PREFIX=$(PREFIX)
 
 riscos: export TARGET=riscos
@@ -103,6 +105,8 @@ riscos:
 	make install --directory=libnsbmp TARGET=$(TARGET) PREFIX=$(PREFIX)
 	make install --directory=libnsgif TARGET=$(TARGET) PREFIX=$(PREFIX)
 	make install --directory=libsvgtiny TARGET=$(TARGET) PREFIX=$(PREFIX)
+	make install --directory=libwapcaplet TARGET=$(TARGET) PREFIX=$(PREFIX)
+	make install --directory=libcss TARGET=$(TARGET) PREFIX=$(PREFIX)
 	make install --directory=pencil TARGET=$(TARGET) PREFIX=$(PREFIX)
 	make install --directory=rufl TARGET=$(TARGET) PREFIX=$(PREFIX)
 	make install --directory=tools PREFIX=$(PREFIX)
