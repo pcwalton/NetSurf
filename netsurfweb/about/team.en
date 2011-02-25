@@ -166,10 +166,28 @@
 <li>SVN name: chris_y</li>
 </ul>
 
+<h2>Steve Fryatt</h2>
+
+<p>Steve maintains the RISC&nbsp;OS port of NetSurf, having rashly volunteered himself in an attempt to stop the platform losing yet another web browser.  His involvement with the core is limited, not least by the fact that he still hasn't had the time to work out what a lot of it does.</p>
+
+<p>His development work is done on Ubuntu Linux using the GCCSDK for cross-compiling, with testing done on RPCEmu and an Iyonix.</p>
+
+<ul>
+<li>First check in: 14 February 2010</li>
+<li>IRC name: sff, SVN name: stevef</li>
+</ul>
+
+<h2>Sven Weidauer</h2>
+
+<ul>
+<li>First check in: 12 January 2011</li>
+<li>IRC name: swdr, SVN name: swdr</li>
+</ul>
+
 
 
 <div class="footer">
-<p>Copyright 2003 - 2009 The NetSurf Developers</p>
+<p>Copyright 2003 - 2011 The NetSurf Developers</p>
 </div>
 
 </div>
