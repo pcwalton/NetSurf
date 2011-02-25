@@ -64,9 +64,7 @@
 
 <h2>John-Mark Bell</h2>
 
-<p>John-Mark spends most of his time avoiding the layout engine, as he thinks that overexposure to it will result in the early onset of dementia. Over the years, he has contributed to a number of areas of NetSurf &ndash; particularly anything that doesn't involve touching any user interface code. He has also spent a great deal of time tracking down and fixing Richard's bugs.</p>
-
-<p>In the past, most of his development work was undertaken on an Iyonix, using a Linux desktop running Debian for compilation purposes. Nowadays, development occurs on the Linux desktop using RPCemu for testing purposes.</p>
+<p>John-Mark spends most of his time avoiding the layout engine, as he thinks that overexposure to it will result in the early onset of dementia. Over the years, he has contributed to a number of areas of NetSurf &ndash; particularly anything that doesn't involve touching any user interface code. He is also responsible for creating many of the project's core libraries.</p>
 
 <ul>
 <li>First check in: 25 May 2003</li>
