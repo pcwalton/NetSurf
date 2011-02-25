@@ -73,9 +73,9 @@
 
 <h2>Michael Drake</h2>
 
-<p>Michael contributes to several areas of the project. He is most interested in developing the layout code and has worked on other areas including text export and text selection. Before he started programming for the project, he worked on the documentation, testing and graphics. He designs promotional material such as posters and banners, as well as toolbar and interface icons. Creating and maintaining NetSurf's web site is also one of Michael's responsibilities.</p>
+<p>Michael is involved most in developing the layout and rendering engine. He also contributes to other areas of the core code and usually seeks to evade front end work. When he is induced to work on platform specific code, it is typically to address interaction with the core, or to implement, fix, or improve performance of the front end's rendering code.</p>
 
-<p>Michael uses an Iyonix for most of his work on the NetSurf project. He also has a VirtualRPC Laptop for testing on RISCOS Ltd's brand of RISC OS and an Ubuntu machine for playing with nsgtk.</p>
+<p>He is responsible for most of the project's web site, and has worked on the project graphics and documentation.</p>
 
 <ul>
 <li>First check in: 26 September 2003</li>
@@ -86,7 +86,7 @@
 
 <p>When he finds time away from his day job as an international man of mystery, Richard enjoys flailing his arms towards a keyboard and trying to make NetSurf as beautiful as the contours of a Cuban virgin's thighs.</p>
 
-<p>He is responsible for implementing various sections of NetSurf &ndash; the ones he'll admit to include GIF, BMP and ICO support, the current frames implementation, minor sections of the CSS and layout code, the hotlist and global history, toolbars and themes, URL auto-completion, buffered rendering, interactive help, the RISC OS GUI and image rendering code, RISC&nbsp;OS image virtual memory / compression, and probably 90% of the bugs.</p>
+<p>He is responsible for implementing various sections of NetSurf &ndash; the ones he'll admit to include GIF, BMP and ICO support, the current frames implementation, minor sections of the CSS and layout code, the hotlist and global history, toolbars and themes, URL auto-completion, buffered rendering, interactive help, the RISC&nbsp;OS GUI and image rendering code, RISC&nbsp;OS image virtual memory / compression, and probably 90% of the bugs.</p>
 
 <p>Unfortunately Richard has had precious little time for development work recently, but an aged RiscPC is his partner when he does.</p>
 
