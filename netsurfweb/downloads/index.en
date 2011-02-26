@@ -60,6 +60,7 @@
 <li class="amiga"><a href="amiga/">AmigaOS</a></li>
 <!--li class="windows"><a href="windows/">Windows</a></li-->
 <!--li class="atari"><a href="atari/">Atari</a></li-->
+<!--li class="macosx"><a href="macosx/">Mac OS X</a></li-->
 </ul>
 
 <p>Alternatively, download NetSurf's source code:</p>
