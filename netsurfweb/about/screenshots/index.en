@@ -55,39 +55,91 @@
 
 <h1>Screenshot Gallery</h1>
 
-<ul class="screenshotgallery">
-<li><a href="fullsize/roamazon.png"><img alt="" src="thumbnails/roamazon.png"></a> <span><a href="http://www.amazon.co.uk/">Amazon</a> (RISC OS)</span></li>
-<li><a href="fullsize/roarstechnica.png"><img alt="" src="thumbnails/roarstechnica.png"></a> <span><a href="http://arstechnica.com/">Ars Technica</a> (RISC OS)</span></li>
-<li><a href="fullsize/gtkbbcnews.png"><img alt="" src="thumbnails/gtkbbcnews.png"></a> <span><a href="http://news.bbc.co.uk/">BBC News</a> (GTK)</span></li>
-<li><a href="fullsize/gtkdigg.png"><img alt="" src="thumbnails/gtkdigg.png"></a> <span><a href="http://digg.com/">Digg</a> (GTK)</span></li>
-<li><a href="fullsize/rodrobe.png"><img alt="" src="thumbnails/rodrobe.png"></a> <span><a href="http://www.drobe.co.uk/">Drobe</a> (RISC OS)</span></li>
-<li><a href="fullsize/rogoogle.png"><img alt="" src="thumbnails/rogoogle.png"></a> <span><a href="http://www.google.co.uk/">Google</a> (RISC OS)</span></li>
-<li><a href="fullsize/gtkgoogle.png"><img alt="" src="thumbnails/gtkgoogle.png"></a> <span><a href="http://www.google.co.uk/">Google</a> (GTK)</span></li>
-<li><a href="fullsize/gtkhistory.png"><img alt="" src="thumbnails/gtkhistory.png"></a> <span><a href="/documentation/guide#HistoryLocal">Local history</a> (GTK)</span></li>
-<li><a href="fullsize/roiconbar.png"><img alt="" src="thumbnails/roiconbar.png"></a> <span><a href="http://www.iconbar.com/">Iconbar</a> (RISC OS)</span></li>
-<li><a href="fullsize/gtkiconbar.png"><img alt="" src="thumbnails/gtkiconbar.png"></a> <span><a href="http://www.iconbar.com/">Iconbar</a> (GTK)</span></li>
-<li><a href="fullsize/gtkiconbar130.png"><img alt="" src="thumbnails/gtkiconbar130.png"></a> <span><a href="/documentation/guide#BrowserWindowMenuDisplayScale">Scaled view</a> (GTK)</span></li>
-<li><a href="fullsize/ronetsurf.png"><img alt="" src="thumbnails/ronetsurf.png"></a> <span><a href="http://www.netsurf-browser.org/">NetSurf</a> (RISC OS)</span></li>
-<li><a href="fullsize/roslashdot.png"><img alt="" src="thumbnails/roslashdot.png"></a> <span><a href="http://slashdot.org/">Slashdot</a> (RISC OS)</span></li>
-<li><a href="fullsize/gtkslashdot.png"><img alt="" src="thumbnails/gtkslashdot.png"></a> <span><a href="http://slashdot.org/">Slashdot</a> (GTK)</span></li>
-<li><a href="fullsize/row3c.png"><img alt="" src="thumbnails/row3c.png"></a> <span><a href="http://www.w3.org/">W3C</a> (RISC OS)</span></li>
-<li><a href="fullsize/rowikipedia.png"><img alt="" src="thumbnails/rowikipedia.png"></a> <span><a href="http://en.wikipedia.org/wiki/Main_Page">Wikipedia</a> (RISC OS)</span></li>
-<li><a href="fullsize/rowikipedia125.png"><img alt="" src="thumbnails/rowikipedia125.png"></a> <span><a href="/documentation/guide#BrowserWindowMenuDisplayScale">Scaled view</a> (RISC OS)</span></li>
-<li><a href="fullsize/royahoojp.png"><img alt="" src="thumbnails/royahoojp.png"></a> <span><a href="http://www.yahoo.co.jp/">Unicode text</a> (RISC OS)</span></li>
-<li><a href="fullsize/gtkyahoojp.png"><img alt="" src="thumbnails/gtkyahoojp.png"></a> <span><a href="http://www.yahoo.co.jp/">Unicode text</a> (GTK)</span></li>
-</ul>
-
-<h2>Work in Progress</h2>
+<p>NetSurf is available for various platforms.</p>
 
 <ul>
-<li>AmigaOS port: [<a href="wip/amigaos1.jpg">Browsing with Tabs</a>], [<a href="wip/amigaos2.jpg">Unicode text</a>]</li>
-<li>BeOS/Haiku port: [<a href="wip/beos1.png">Screenshot</a>]</li>
-<li>Framebuffer port: [<a href="wip/fb1.png">Screenshot</a>], [<a href="wip/fb2.png">Screenshot</a>]</li>
-<li>Mac OS X port: [<a href="wip/cocoa1.png">Screenshot</a>], [<a href="wip/cocoa2.png">Browsing with Tabs</a>]</li>
+<li><a href="#riscos">RISC OS</a></li>
+<li><a href="#gtk">GTK (e.g. Linux, BSDs, etc...)</a></li>
+<li><a href="#macosx">Mac OS X</a></li>
+<li><a href="#amigaos">AmigaOS 4</a></li>
+<li><a href="#framebuffer">Framebuffer</a></li>
+<li><a href="#haiku">Haiku &amp; BeOS</a></li>
+<li><a href="#windows">Windows</a></li>
+<li><a href="#atari">Atari OS</a></li>
+</ul>
+
+<h2 id="riscos">RISC OS</h2>
+
+<p>The NetSurf project started out on RISC OS in 2002. Since then, it has gone on to become the platform's premier browser.</p>
+
+<ul class="screenshotgallery">
+<li><a href="images/riscos-bbc.png"><img alt="" src="images/riscosthumb-bbc.png"></a> <span><a href="http://www.bbc.co.uk/">BBC</a></span></li>
+<li><a href="images/riscos-netsurf.png"><img alt="" src="images/riscosthumb-netsurf.png"></a> <span><a href="http://www.netsurf-browser.org/">NetSurf</a></span></li>
+<li><a href="images/riscos-wikipedia.png"><img alt="" src="images/riscosthumb-wikipedia.png"></a> <span><a href="http://en.wikipedia.org/wiki/Main_Page">Wikipedia</a></span></li>
+</ul>
+
+<h2 id="gtk">GTK (e.g. Linux, BSDs, etc...)</h2>
+
+<ul class="screenshotgallery">
+<li><a href="images/gtk-bbc.png"><img alt="" src="images/gtkthumb-bbc.png"></a> <span><a href="http://www.bbc.co.uk/">BBC</a></span></li>
+<li><a href="images/gtk-netsurf.png"><img alt="" src="images/gtkthumb-netsurf.png"></a> <span><a href="http://www.netsurf-browser.org/">NetSurf</a></span></li>
+<li><a href="images/gtk-wikipedia.png"><img alt="" src="images/gtkthumb-wikipedia.png"></a> <span><a href="http://en.wikipedia.org/wiki/Main_Page">Wikipedia</a></span></li>
+</ul>
+
+<h2 id="macosx">Mac OS X</h2>
+
+<ul class="screenshotgallery">
+<li><a href="images/cocoa-bbc.png"><img alt="" src="images/cocoathumb-bbc.png"></a> <span><a href="http://www.bbc.co.uk/">BBC</a></span></li>
+<li><a href="images/cocoa-netsurf.png"><img alt="" src="images/cocoathumb-netsurf.png"></a> <span><a href="http://www.netsurf-browser.org/">NetSurf</a></span></li>
+<li><a href="images/cocoa-wikipedia.png"><img alt="" src="images/cocoathumb-wikipedia.png"></a> <span><a href="http://en.wikipedia.org/wiki/Main_Page">Wikipedia</a></span></li>
+</ul>
+
+<h2 id="amigaos">AmigaOS 4</h2>
+
+<ul class="screenshotgallery">
+<li><a href="images/-bbc.png"><img alt="" src="images/thumb-bbc.png"></a> <span><a href="http://www.bbc.co.uk/">BBC</a></span></li>
+<li><a href="images/-netsurf.png"><img alt="" src="images/thumb-netsurf.png"></a> <span><a href="http://www.netsurf-browser.org/">NetSurf</a></span></li>
+<li><a href="images/-wikipedia.png"><img alt="" src="images/thumb-wikipedia.png"></a> <span><a href="http://en.wikipedia.org/wiki/Main_Page">Wikipedia</a></span></li>
+</ul>
+
+<h2 id="framebuffer">Framebuffer</h2>
+
+<p>The framebuffer front end lets NetSurf run on any system that can provide a framebuffer surface and user input. It has no operating system or GUI toolkit requirements.</p>
+
+<ul class="screenshotgallery">
+<li><a href="images/framebuffer-bbc.png"><img alt="" src="images/framebufferthumb-bbc.png"></a> <span><a href="http://www.bbc.co.uk/">BBC</a></span></li>
+<li><a href="images/framebuffer-netsurf.png"><img alt="" src="images/framebufferthumb-netsurf.png"></a> <span><a href="http://www.netsurf-browser.org/">NetSurf</a></span></li>
+<li><a href="images/framebuffer-wikipedia.png"><img alt="" src="images/framebufferthumb-wikipedia.png"></a> <span><a href="http://en.wikipedia.org/wiki/Main_Page">Wikipedia</a></span></li>
+</ul>
+
+<h2 id="haiku">Haiku &amp; BeOS</h2>
+
+<ul class="screenshotgallery">
+<li><a href="images/-bbc.png"><img alt="" src="images/thumb-bbc.png"></a> <span><a href="http://www.bbc.co.uk/">BBC</a></span></li>
+<li><a href="images/-netsurf.png"><img alt="" src="images/thumb-netsurf.png"></a> <span><a href="http://www.netsurf-browser.org/">NetSurf</a></span></li>
+<li><a href="images/-wikipedia.png"><img alt="" src="images/thumb-wikipedia.png"></a> <span><a href="http://en.wikipedia.org/wiki/Main_Page">Wikipedia</a></span></li>
+</ul>
+
+<h2 id="atari">Atari OS</h2>
+
+<ul class="screenshotgallery">
+<li><a href="images/-bbc.png"><img alt="" src="images/thumb-bbc.png"></a> <span><a href="http://www.bbc.co.uk/">BBC</a></span></li>
+<li><a href="images/-netsurf.png"><img alt="" src="images/thumb-netsurf.png"></a> <span><a href="http://www.netsurf-browser.org/">NetSurf</a></span></li>
+<li><a href="images/-wikipedia.png"><img alt="" src="images/thumb-wikipedia.png"></a> <span><a href="http://en.wikipedia.org/wiki/Main_Page">Wikipedia</a></span></li>
+</ul>
+
+<h2 id="windows">Windows</h2>
+
+<p>Currently very basic, the Windows port is really just a demonstration at the moment.</p>
+
+<ul class="screenshotgallery">
+<li><a href="images/-bbc.png"><img alt="" src="images/thumb-bbc.png"></a> <span><a href="http://www.bbc.co.uk/">BBC</a></span></li>
+<li><a href="images/-netsurf.png"><img alt="" src="images/thumb-netsurf.png"></a> <span><a href="http://www.netsurf-browser.org/">NetSurf</a></span></li>
+<li><a href="images/-wikipedia.png"><img alt="" src="images/thumb-wikipedia.png"></a> <span><a href="http://en.wikipedia.org/wiki/Main_Page">Wikipedia</a></span></li>
 </ul>
 
 <div class="footer">
-<p>Copyright 2003 - 2009 The NetSurf Developers</p>
+<p>Copyright 2003 - 2011 The NetSurf Developers</p>
 </div>
 
 </div>

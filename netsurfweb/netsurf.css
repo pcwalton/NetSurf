@@ -296,7 +296,7 @@ div.frontscreen {
 
 div.frontscreen p.frontscreen {
 	margin: 0 auto;
-	width: 253px;
+	width: 252px;
 	border: 2px solid #c5d3ff; }
 
 div.frontscreen a {
@@ -304,7 +304,7 @@ div.frontscreen a {
 	margin: 0; }
 
 div.frontscreen a img {
-	width: 251px;
+	width: 250px;
 	display: block;
 	margin: 0;
 	padding: 0;
@@ -740,19 +740,18 @@ p.award a img {
  */
 
 ul.screenshotgallery {
-	margin: 0;
-	padding: 0; }
+	margin: 1em 0;
+	padding: 0;
+	overflow: auto; }
 
 ul.screenshotgallery li {
 	float: left;
 	font-size: 90%;
 	display: block;
 	border: 2px solid #c5d3ff;
-	margin: 10px; }
+	margin: 7px; }
 
 ul.screenshotgallery li > a {
-	height: 195px;
-	width: 251px;
 	display: block;
 	margin: 0;
 	padding: 0;

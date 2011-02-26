@@ -91,7 +91,7 @@
 
 <p>Whether you want to check your webmail, read the news or post to discussion forums, NetSurf is your lightweight gateway to the world wide web. Actively developed, NetSurf is continually evolving and improving.</p>
 
-<div class="frontscreen"><p class="frontscreen"><a href="/about/screenshots/"><img src="about/screenshots/thumbnails/rowikipedia.png" alt="NetSurf screenshot"> <span class="seemore">See more screenshots</span></a></p></div>
+<div class="frontscreen"><p class="frontscreen"><a href="about/screenshots/"><img src="about/screenshots/images/riscosthumb-wikipedia.png" alt="NetSurf screenshot"> <span class="seemore">See more screenshots</span></a></p></div>
 
 <p>Written in C, this award winning open source project features its own layout engine. It is licensed under GPL version 2.</p>
 
@@ -196,7 +196,7 @@
 </div>
 
 <div class="footer">
-<p>Copyright 2003 - 2010 The NetSurf Developers</p>
+<p>Copyright 2003 - 2011 The NetSurf Developers</p>
 </div>
 </div>
 

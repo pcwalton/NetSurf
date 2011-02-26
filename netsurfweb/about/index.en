@@ -122,7 +122,7 @@
 <tr><th>Jan 2011</th><td>Mac OS X port available</td></tr>
 </table>
 
-<div class="frontscreen"><p class="frontscreen"><a href="screenshots/fullsize/roarstechnica.png"><img src="screenshots/thumbnails/roarstechnica.png" alt="GTK NetSurf screenshot."></a> <span>A more recent NetSurf showing <em>Ars Technica</em>.</span></p></div>
+<div class="frontscreen"><p class="frontscreen"><a href="screenshots/images/riscos-wikipedia.png"><img src="screenshots/images/riscosthumb-wikipedia.png" alt="GTK NetSurf screenshot."></a> <span>A more recent NetSurf showing <em>Wikipedia</em>.</span></p></div>
 
 <p>Get the latest version from our <a href="/downloads/">download</a> section.</p>
 
@@ -139,7 +139,7 @@
 
 <p>The RISC OS front end is suitable for RISC OS 4 and greater. The AmigaOS front end is suitable for AmigaOS 4. The BeOS front end works on BeOS, Zeta and Haiku. The Mac OS X port requires at least version 10.5.</p>
 
-<div class="frontscreen"><p class="frontscreen"><a href="screenshots/fullsize/gtkbbcnews.png"><img src="screenshots/thumbnails/gtkbbcnews.png" alt="GTK NetSurf screenshot."></a> <span>NetSurf's GTK front end showing <em>BBC News</em> in a tab.</span></p></div>
+<div class="frontscreen"><p class="frontscreen"><a href="screenshots/images/gtk-bbc.png"><img src="screenshots/images/gtkthumb-bbc.png" alt="GTK NetSurf screenshot."></a> <span>NetSurf's GTK front end showing the <em>BBC Homepage</em>.</span></p></div>
 
 <p>NetSurf's GTK front end works on Unix-like systems, including Linux, FreeBSD, NetBSD, Solaris and others. There are no native Windows or MacOS X ports of NetSurf at the moment, however the GTK front end can be built for those platforms. The GTK front end is available from the package repositories of many Linux distributions including Debian and Ubuntu.</p>
 
@@ -187,7 +187,7 @@
 
 
 <div class="footer">
-<p>Copyright 2003 - 2010 The NetSurf Developers</p>
+<p>Copyright 2003 - 2011 The NetSurf Developers</p>
 </div>
 
 </div>
