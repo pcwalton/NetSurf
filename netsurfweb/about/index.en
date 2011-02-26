@@ -118,6 +118,8 @@
 <tr><th>Mar 2010</th><td>New cache designed and used in NetSurf</td></tr>
 <tr><th>Apr 2010</th><td>NetSurf 2.5 released</td></tr>
 <tr><th>Sep 2010</th><td>NetSurf 2.6 released</td></tr>
+<tr><th>Jan 2011</th><td>Atari port available</td></tr>
+<tr><th>Jan 2011</th><td>Mac OS X port available</td></tr>
 </table>
 
 <div class="frontscreen"><p class="frontscreen"><a href="screenshots/fullsize/roarstechnica.png"><img src="screenshots/thumbnails/roarstechnica.png" alt="GTK NetSurf screenshot."></a> <span>A more recent NetSurf showing <em>Ars Technica</em>.</span></p></div>
@@ -131,11 +133,11 @@
 
 <h2 id="PortsAvailability">Ports &amp; Availability</h2>
 
-<p>This section explains the various NetSurf front ends and should cover whether NetSurf is available for your system. NetSurf currently has five different front ends. These are for RISC OS, GTK, BeOS, AmigaOS and dumb framebuffers.</p>
+<p>This section explains the various NetSurf front ends and should cover whether NetSurf is available for your system. NetSurf currently has seven different front ends. These are for RISC OS, GTK, BeOS, AmigaOS, Atari, Mac OS X and dumb framebuffers.</p>
 
 <h3>Desktop front ends</h3>
 
-<p>The RISC OS front end is suitable for RISC OS 4 and greater. The AmigaOS front end is suitable for AmigaOS 4. The BeOS front end works on BeOS, Zeta and Haiku.</p>
+<p>The RISC OS front end is suitable for RISC OS 4 and greater. The AmigaOS front end is suitable for AmigaOS 4. The BeOS front end works on BeOS, Zeta and Haiku. The Mac OS X port requires at least version 10.5.</p>
 
 <div class="frontscreen"><p class="frontscreen"><a href="screenshots/fullsize/gtkbbcnews.png"><img src="screenshots/thumbnails/gtkbbcnews.png" alt="GTK NetSurf screenshot."></a> <span>NetSurf's GTK front end showing <em>BBC News</em> in a tab.</span></p></div>
 
