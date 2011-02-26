@@ -532,6 +532,9 @@ p.award a img {
 .downloadosselection li.atari a {
 	background: url("webimages/dlatari.png") no-repeat 0% 50%; }
 
+.downloadosselection li.macosx a {
+	background: url("webimages/dlapple.png") no-repeat 0% 50%; }
+
 .downloadosselection li.source a {
 	background: url("webimages/dlsource.png") no-repeat 0% 50%; }
 
