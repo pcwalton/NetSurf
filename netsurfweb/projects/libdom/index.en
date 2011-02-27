@@ -32,13 +32,13 @@
 
 <h2>What is LibDOM?</h2>
 
-<p>LibDOM is an implementation of the <a href="http://www.w3.org/DOM/">W3C DOM</a>, written in C. It is currently in development for use with <a href="/">NetSurf</a> and is intended to be suitable for use in other projects too. For further details, see the <a href="http://source.netsurf-browser.org/trunk/dom/README">readme</a>.</p>
+<p>LibDOM is an implementation of the <a href="http://www.w3.org/DOM/">W3C DOM</a>, written in C. It is currently in development for use with <a href="/">NetSurf</a> and is intended to be suitable for use in other projects too. For further details, see the <a href="http://source.netsurf-browser.org/trunk/libdom/README">readme</a>.</p>
 
 <h2>Source code</h2>
 
-<p>You can <a href="http://source.netsurf-browser.org/trunk/dom/">browse the source code</a> via the online interface. Alternatively, you can check it out of SVN:</p>
+<p>You can <a href="http://source.netsurf-browser.org/trunk/libdom/">browse the source code</a> via the online interface. Alternatively, you can check it out of SVN:</p>
 
-<p class="svncommand">$ svn co svn://svn.netsurf-browser.org/trunk/dom</p>
+<p class="svncommand">$ svn co svn://svn.netsurf-browser.org/trunk/libdom</p>
 
 <p>LibDOM is licensed under the <a href="http://opensource.org/licenses/mit-license.php">MIT Licence</a>.</p>
 
