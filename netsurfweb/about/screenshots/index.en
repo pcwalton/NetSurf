@@ -99,7 +99,7 @@
 <ul class="screenshotgallery">
 <li><a href="images/amiga-bbc.jpg"><img alt="" src="images/amigathumb-bbc.png"></a> <span><a href="http://www.bbc.co.uk/">BBC</a></span></li>
 <li><a href="images/amiga-netsurf.jpg"><img alt="" src="images/amigathumb-netsurf.png"></a> <span><a href="http://www.netsurf-browser.org/">NetSurf</a></span></li>
-<li><a href="images/amiga-wikipedia.jpg"><img alt="" src="images/amigathumb-wikipedia.png"></a> <span><a href="http://en.wikipedia.org/wiki/Main_Page">Wikipedia</a></span></li>
+<li><a href="images/amiga-wikipedia.png"><img alt="" src="images/amigathumb-wikipedia.png"></a> <span><a href="http://en.wikipedia.org/wiki/Main_Page">Wikipedia</a></span></li>
 </ul>
 
 <h2 id="framebuffer">Framebuffer</h2>
