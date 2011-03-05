@@ -1,7 +1,7 @@
 TTF2f Changelog
 ===============
 
-0.04 (XX-XXX-2009)
+0.04 (05-Mar-2011)
 ~~~~~~~~~~~~~~~~~~
 Output the first 256 glyphs in Acorn Latin1 order so converted fonts
 are useful in applications that don't ask for a specific font encoding.
