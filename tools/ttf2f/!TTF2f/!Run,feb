@@ -15,17 +15,21 @@ RMEnsure FPEmulator 4.03 Error TTF2f requires FPEmulator 4.03 or later
 RMEnsure SharedCLibrary 5.17 RMLoad System:Modules.CLib
 RMEnsure SharedCLibrary 5.34 Error TTF2f requires SharedCLibrary 5.34 or later
 
-| Toolbox modules - version numbers correspond to those distributed with 5.03
+| SharedUnixLibrary
+RMEnsure SharedUnixLibrary 1.07 RMLoad System:Modules.SharedULib
+RMEnsure SharedUnixLibrary 1.07 Error TTF2f requires SharedUnixLibrary 1.07 or later. This can be downloaded from http://www.riscos.info/downloads/gccsdk/sharedunixlib/system.zip
+
+| Toolbox modules
 RMEnsure Toolbox  0.00 RMLoad System:Modules.Toolbox.Toolbox
-|RMEnsure Toolbox  1.52 Error TTF2f requires the Toolbox module
+RMEnsure Toolbox  0.00 Error TTF2f requires the Toolbox module
 RMEnsure Window   0.00 RMLoad System:Modules.Toolbox.Window
-|RMEnsure Window   1.69 Error TTF2f requires the Window module
+RMEnsure Window   0.00 Error TTF2f requires the Window module
 RMEnsure Iconbar  0.00 RMLoad System:Modules.Toolbox.Iconbar
-|RMEnsure Iconbar  1.20 Error TTF2f requires the Iconbar module
+RMEnsure Iconbar  0.00 Error TTF2f requires the Iconbar module
 RMEnsure Menu     0.00 RMLoad System:Modules.Toolbox.Menu
-|RMEnsure Menu     0.36 Error TTF2f requires the Menu module
+RMEnsure Menu     0.00 Error TTF2f requires the Menu module
 RMEnsure ProgInfo 0.00 RMLoad System:Modules.Toolbox.ProgInfo
-|RMEnsure ProgInfo 0.17 Error TTF2f requires the ProgInfo module
+RMEnsure ProgInfo 0.00 Error TTF2f requires the ProgInfo module
 
 WimpSlot -min 1800k -max 1800k
 /<TTF2f$Dir>.!RunImage %*0 2>null:
