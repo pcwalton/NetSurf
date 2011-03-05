@@ -38,7 +38,7 @@ struct char_data {
 	char  flags;
 	char  x0y0[3];
 	char  xsys[3];
-};
+} __attribute__((packed));
 
 #define CHAR_12BIT_COORDS 0x01
 #define CHAR_1BPP         0x02

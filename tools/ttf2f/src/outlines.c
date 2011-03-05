@@ -112,6 +112,7 @@ ttf2f_result outlines_write(const char *savein, const char *name,
 	current_chunk_offset += 42 + strlen(ctx->metrics->name_full) +
 				strlen(ctx->metrics->name_copyright);
 
+	/* Word align */
 	while (current_chunk_offset % 4) {
 		if (fputc(0x0, output) == EOF) goto error_write;
 		current_chunk_offset++;
