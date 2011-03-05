@@ -20,8 +20,13 @@ CFLAGS := $(CFLAGS) -std=c99 -D_BSD_SOURCE -D_POSIX_C_SOURCE \
 # Freetype2
 ifneq ($(findstring clean,$(MAKECMDGOALS)),clean)
   ifneq ($(PKGCONFIG),)
-    CFLAGS := $(CFLAGS) $(shell $(PKGCONFIG) freetype2 --cflags)
-    LDFLAGS := $(LDFLAGS) $(shell $(PKGCONFIG) freetype2 --libs)
+    ifeq ($(TARGET),riscos)
+      CFLAGS := $(CFLAGS) $(shell $(PKGCONFIG) freetype2 --cflags --static)
+      LDFLAGS := $(LDFLAGS) $(shell $(PKGCONFIG) freetype2 --libs --static)
+    else
+      CFLAGS := $(CFLAGS) $(shell $(PKGCONFIG) freetype2 --cflags)
+      LDFLAGS := $(LDFLAGS) $(shell $(PKGCONFIG) freetype2 --libs)
+    endif
   else
     CFLAGS := $(CFLAGS) -I$(PREFIX)/include/freetype2
     LDFLAGS := $(LDFLAGS) -lfreetype -lz
