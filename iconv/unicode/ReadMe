@@ -3,13 +3,6 @@ Unicode library
 
 The contents of this directory must be obtained from RISC OS Open.
 
-For the timebeing, it is necessary to apply the supplied patch to the
-UnicodeLib source tree. Something like:
-
-  patch -p0 -i unicode.jmb1.p
-
-should do the trick.
-
 The include directory should contain the exported headers:
 
  + autojp.h
