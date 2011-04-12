@@ -26,7 +26,7 @@
 <input type="hidden" name="cx" value="!partner-pub-2827028264017539:8068601809" />
 <input type="hidden" name="ie" value="UTF-8" />
 <input type="text" name="q" size="42" maxlength="255" />
-<input type="submit" name="btnG" value="Google検索" />
+<input type="submit" name="btnG" value="Google Search" />
 </div>
 </form>
 
