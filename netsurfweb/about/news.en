@@ -56,6 +56,8 @@
 <h1>News</h1>
 
 <dl class="news">
+<dt><a href="/downloads/">NetSurf 2.7 released</a> <span>16 Apr 2011</span></dt>
+<dd>NetSurf 2.7 contains many improvements over the previous release. The most significant change is the addition of core global history, bookmarks and cookie management features. Full details in the change log. We recommend all users upgrade.</dd>
 <dt><a href="http://vlists.pepperfish.net/pipermail/netsurf-users-netsurf-browser.org/2011-January/009869.html">Mac OS X port and other frontend news</a> <span>20 Jan 2011</span></dt>
 <dd>A new Mac OS X port has been created. It can be built from source, following the instructions in the source tree. An Atari port has also been created, and the Windows, AmigaOS, GTK and RISC OS ports all continue to be developed.</dd>
 <dt><a href="/downloads/">NetSurf 2.6 released</a> <span>21 Sep 2010</span></dt>

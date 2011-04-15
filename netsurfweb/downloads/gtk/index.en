@@ -63,7 +63,7 @@
 <div class="downloadlatestouter">
 <div class="downloadlatest">
 <div class="downloadlatestbox downloadlast">
-<p class="downloadmain downloadfirst"><a href="/downloads/releases/netsurf-2.6-src.tar.gz"><span>NetSurf 2.6 source code</span> <span>(1.6MB)</span> <span class="downloaddate">21 Sep 2010</span></a></p>
+<p class="downloadmain downloadfirst"><a href="/downloads/releases/netsurf-2.7-src.tar.gz"><span>NetSurf 2.7 source code</span> <span>(2.3MB)</span> <span class="downloaddate">16 Apr 2011</span></a></p>
 <p class="downloadinstructions"><a href="/downloads/source/#BuildInstructions">Build instructions</a></p>
 <p class="preul">Build NetSurf for:</p>
 <ul>
@@ -93,7 +93,7 @@
 <li><a href="">Ubuntu i386 package</a></li>
 </ul>
 </dd>
-</dl>-->
+</dl>
 
 <h2>Externally Hosted Packages</h2>
 
@@ -121,10 +121,16 @@
 <dd><ul>
 <li><a href="http://distro.ibiblio.org/pub/linux/distributions/puppylinux/pet_packages-4/">Puppy Linux</a></li>
 </ul></dd>
-</dl>
+</dl>-->
 
 <h2>Previous releases</h2>
 <dl>
+<dt>NetSurf 2.6</dt>
+<dd>
+<ul>
+<li><a href="/downloads/releases/netsurf-2.6-src.tar.gz">NetSurf 2.6 source code</a> (21 Sep 2010)</li>
+</ul>
+</dd>
 <dt>NetSurf 2.5</dt>
 <dd>
 <ul>
@@ -171,7 +177,7 @@
 
 
 <div class="footer">
-<p>Copyright 2003 - 2010 The NetSurf Developers</p>
+<p>Copyright 2003 - 2011 The NetSurf Developers</p>
 </div>
 
 </div>

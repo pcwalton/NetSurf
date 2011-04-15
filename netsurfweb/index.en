@@ -87,7 +87,7 @@
 
 <div class="content">
 <div class="frontpageintro">
-<p id="leader">Small as a mouse, fast as a cheetah and available for free. NetSurf is a multi-platform web browser for <a href="http://www.riscosopen.org/">RISC&nbsp;OS</a>, UNIX-like platforms (including Linux) and more.</p>
+<p id="leader">Small as a mouse, fast as a cheetah and available for free. NetSurf is a multi-platform web browser for <a href="http://www.riscosopen.org/">RISC&nbsp;OS</a>, UNIX-like platforms (including Linux), Mac OS X, and more.</p>
 
 <p>Whether you want to check your webmail, read the news or post to discussion forums, NetSurf is your lightweight gateway to the world wide web. Actively developed, NetSurf is continually evolving and improving.</p>
 
@@ -124,7 +124,7 @@
 <div class="downloadbox">
 <div class="downloadcontainer">
 <div class="downloadcontent">
-<h2 id="downloadrelease"><a href="/downloads/">Download NetSurf&nbsp;2.6</a></h2>
+<h2 id="downloadrelease"><a href="/downloads/">Download NetSurf&nbsp;2.7</a></h2>
 <ul>
 <li><a href="/downloads/riscos/">For RISC&nbsp;OS</a></li>
 <li><a href="/downloads/gtk/">For Linux</a></li>
@@ -143,18 +143,18 @@
 <h2 id="news">Latest news</h2>
 
 <dl class="frontnews">
+<dt><a href="/downloads/">NetSurf 2.7 released</a> <span>16 Apr 2011</span></dt>
+<dd>NetSurf 2.7 contains many improvements over the previous release. The most significant change is the addition of core global history, bookmarks and cookie management features. Full details in the change log. We recommend all users upgrade.</dd>
 <dt><a href="http://vlists.pepperfish.net/pipermail/netsurf-users-netsurf-browser.org/2011-January/009869.html">Mac OS X port and other frontend news</a> <span>20 Jan 2011</span></dt>
 <dd>A new Mac OS X port has been created. It can be built from source, following the instructions in the source tree. An Atari port has also been created, and the Windows, AmigaOS, GTK and RISC OS ports all continue to be developed.</dd>
 <dt><a href="/downloads/">NetSurf 2.6 released</a> <span>21 Sep 2010</span></dt>
 <dd>NetSurf 2.6 is primarily a bug fix release. It contains some improvements to page rendering, fetching &amp; caching, memory usage, as well as some front-end specific fixes. Full details in the change log. We recommend all users upgrade.</dd>
-<dt><a href="/downloads/">NetSurf 2.5 released</a> <span>24 Apr 2010</span></dt>
-<dd>NetSurf 2.5 contains many improvements over the previous release. The major changes are the use of our brand new CSS parser and selection engine (LibCSS), and a newly designed cache for fetched content. Full details in the change log. We recommend all users upgrade.</dd>
 </dl>
 <p class="more"><a href="/about/news" class="seemore">See more news</a></p>
 
-<h2 id="features">NetSurf 2.6 features</h2>
+<h2 id="features">NetSurf 2.7 features</h2>
 
-<p>NetSurf 2.6 is available for: RISC OS; Linux and other UNIX-like systems; and AmigaOS 4.</p>
+<p>NetSurf 2.7 is available for: RISC OS; Linux and other UNIX-like systems; Mac OS X; and AmigaOS 4.</p>
 
 <dl>
 <dt>General</dt>
@@ -167,19 +167,20 @@
 <li>Web page thumbnailing</li>
 <li>Local history trees</li>
 <li>Global history</li>
+<li>Hotlist manager (bookmarks)</li>
+<li>Cookie manager</li>
 <li>URL completion</li>
 <li>Text selection</li>
 <li>Scale view</li>
 <li>Search-as-you-type text search highlighting</li>
 <li>Save pages complete with images</li>
+<li>Fast, lightweight layout and rendering engine</li>
 </ul>
 </dd>
 <dt>RISC OS only</dt>
 <dd>
 <ul>
 <li>Image formats: Sprite, Drawfile and ArtWorks</li>
-<li>Hotlist management (bookmarks)</li>
-<li>Cookie viewer</li>
 <li>Drawfile export</li>
 </ul>
 </dd>
