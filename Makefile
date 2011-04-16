@@ -81,7 +81,6 @@ gtk:
 	make install --directory=hubbub TARGET=$(TARGET) PREFIX=$(PREFIX)
 	make install --directory=libnsbmp TARGET=$(TARGET) PREFIX=$(PREFIX)
 	make install --directory=libnsgif TARGET=$(TARGET) PREFIX=$(PREFIX)
-	make install --directory=libsvgtiny TARGET=$(TARGET) PREFIX=$(PREFIX)
 	make install --directory=libwapcaplet TARGET=$(TARGET) PREFIX=$(PREFIX)
 	make install --directory=libcss TARGET=$(TARGET) PREFIX=$(PREFIX)
 	make --directory=netsurf TARGET=$(TARGET) PREFIX=$(PREFIX)
