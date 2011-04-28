@@ -80,22 +80,19 @@
 
 <p>Check out the <a href="/downloads/releases/ChangeLog.txt">change log</a> to see what's changed since the last release.</p>
 
-<!--<h2>Packages</h2>
+<h2>Packages</h2>
 <p>We provide packages for installation of NetSurf releases on various systems.</p>
 
 <dl class="packagelist">
-<dt>NetSurf 1.1</dt>
+<dt>NetSurf 2.7</dt>
 <dd>
 <ul>
-<li><a href="">Debian Etch AMD64 package</a></li>
-<li><a href="">Debian Etch i386 package</a></li>
-<li><a href="">Ubuntu AMD64 package</a></li>
-<li><a href="">Ubuntu i386 package</a></li>
+<li><a href="../debian/squeeze/netsurf-gtk_2.7-2_amd64.deb">Debian Squeeze AMD64 package</a></li>
 </ul>
 </dd>
 </dl>
 
-<h2>Externally Hosted Packages</h2>
+<!--h2>Externally Hosted Packages</h2>
 
 <p>NetSurf is available in some distributions' package repositories.</p>
 
