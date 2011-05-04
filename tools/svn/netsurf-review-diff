@@ -30,7 +30,7 @@ echo "Changed files"
 echo
 echo
 
-TMPFILE=$(mktemp -t)
+TMPFILE=$(mktemp -t "ns-review-diff")
 
 if [ ! -f ${TMPFILE} ]; then
     echo temporary file creation failed >&2
