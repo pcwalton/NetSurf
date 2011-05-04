@@ -8,16 +8,26 @@ if test "x$NETSURF_REALNAME" = "x"; then
   NETSURF_REALNAME=$(getent passwd $(whoami) | cut -d: -f 5 | cut -d, -f1)
 fi
 
-SENDCMD="/usr/lib/sendmail -t -r ${NETSURF_USERNAME}@netsurf-browser.org"
+for f in /usr/lib/sendmail /usr/sbin/sendmail; do
+    test -x "$f" && SENDMAIL="$f" && break
+done
+
+test -n "$SENDMAIL" || {
+    echo "Unable to find sendmail"
+    exit 1
+}
+
+# Darwin lacks tempfile
+type tempfile 1>/dev/null 2>&1 || tempfile () { mktemp -t ns-review-diff-list; }
+
+# Darwin lacks /usr/bin/editor
+test -n "$EDITOR" || EDITOR=/usr/bin/editor
+
+SENDCMD="$SENDMAIL -t -r ${NETSURF_USERNAME}@netsurf-browser.org"
 if test "x$1" = "x--test"; then
     SENDCMD="less -S"
     shift
 fi
-
-test -x /usr/lib/sendmail || {
-    echo "Unable to find /usr/lib/sendmail"
-    exit 1
-}
 
 SUBJECT="$*"
 
@@ -48,7 +58,7 @@ yesno ()
 do_precis ()
 {
     PRECISFILE=$(tempfile)
-    /usr/bin/editor "$PRECISFILE"
+    "$EDITOR" "$PRECISFILE"
     test -s "$PRECISFILE" && return 0
     yesno yes "You did not enter a precis. Do you wish to abort?" && exit 1
     yesno yes "You did not enter a precis. Do you want to try again?" && do_precis
