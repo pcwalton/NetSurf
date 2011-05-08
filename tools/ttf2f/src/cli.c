@@ -155,14 +155,18 @@ error_out:
 		}
 	}
 
-	free(ctx.metrics->name_copyright);
-	free(ctx.metrics->name_full);
-	free(ctx.metrics->name_version);
-	free(ctx.metrics->name_ps);
-	free(ctx.metrics);
+	if (ctx.metrics != NULL) {
+		free(ctx.metrics->name_copyright);
+		free(ctx.metrics->name_full);
+		free(ctx.metrics->name_version);
+		free(ctx.metrics->name_ps);
+		free(ctx.metrics);
+	}
+
 	free(ctx.glyphs);
 
-	close_font(ctx.face);
+	if (ctx.face != NULL)
+		close_font(ctx.face);
 
 	ft_fini();
 	glyph_destroy_list();
