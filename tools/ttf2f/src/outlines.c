@@ -124,7 +124,8 @@ ttf2f_result outlines_write(const char *savein, const char *name,
 		unsigned int chunk_size;
 		ttf2f_result err;
 
-		callback((chunk_table_entry * 100) / ((slots + 31) + ~31) / 32);
+		callback((chunk_table_entry * 100) / 
+				(((slots + 31) & ~31) / 32));
 		ttf2f_poll(1);
 
 		/* Write chunk offset */
