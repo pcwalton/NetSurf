@@ -29,8 +29,6 @@ beos: export TARGET=beos
 beos: export PKG_CONFIG_PATH=
 beos: export GCCVER=2
 beos clean-beos:
-	echo $(LIBGOAL)
-	#exit 1
 	@echo -----------------------------------------------------------------
 	@echo
 	@echo Building NetSurf for BeOS with the following options:
