@@ -15,10 +15,22 @@ export ROOT = $(shell pwd)
 export PKG_CONFIG_PATH = $(PREFIX)/lib/pkgconfig
 export PREFIX ?= $(ROOT)/prefix-$(TARGET)
 
+ifneq ($(filter clean,$(MAKECMDGOALS)),)
+LIBGOAL := clean
+NSGOAL  := clean
+endif
+LIBGOAL ?= install
+
+.PHONY: clean
+
+clean:
+
 beos: export TARGET=beos
 beos: export PKG_CONFIG_PATH=
 beos: export GCCVER=2
-beos:
+beos clean-beos:
+	echo $(LIBGOAL)
+	#exit 1
 	@echo -----------------------------------------------------------------
 	@echo
 	@echo Building NetSurf for BeOS with the following options:
@@ -31,14 +43,14 @@ beos:
 	@echo
 	mkdir -p $(PREFIX)/include
 	mkdir -p $(PREFIX)/lib
-	$(MAKE) install --directory=libparserutils TARGET=$(TARGET) PREFIX=$(PREFIX)
-	$(MAKE) install --directory=hubbub TARGET=$(TARGET) PREFIX=$(PREFIX)
-	$(MAKE) install --directory=libnsbmp TARGET=$(TARGET) PREFIX=$(PREFIX)
-	$(MAKE) install --directory=libnsgif TARGET=$(TARGET) PREFIX=$(PREFIX)
-	$(MAKE) install --directory=libsvgtiny TARGET=$(TARGET) PREFIX=$(PREFIX)
-	$(MAKE) install --directory=libwapcaplet TARGET=$(TARGET) PREFIX=$(PREFIX)
-	$(MAKE) install --directory=libcss TARGET=$(TARGET) PREFIX=$(PREFIX)
-	$(MAKE) --directory=netsurf TARGET=$(TARGET) PREFIX=$(PREFIX)
+	$(MAKE) $(LIBGOAL) --directory=libparserutils TARGET=$(TARGET) PREFIX=$(PREFIX)
+	$(MAKE) $(LIBGOAL) --directory=hubbub TARGET=$(TARGET) PREFIX=$(PREFIX)
+	$(MAKE) $(LIBGOAL) --directory=libnsbmp TARGET=$(TARGET) PREFIX=$(PREFIX)
+	$(MAKE) $(LIBGOAL) --directory=libnsgif TARGET=$(TARGET) PREFIX=$(PREFIX)
+	$(MAKE) $(LIBGOAL) --directory=libsvgtiny TARGET=$(TARGET) PREFIX=$(PREFIX)
+	$(MAKE) $(LIBGOAL) --directory=libwapcaplet TARGET=$(TARGET) PREFIX=$(PREFIX)
+	$(MAKE) $(LIBGOAL) --directory=libcss TARGET=$(TARGET) PREFIX=$(PREFIX)
+	$(MAKE) $(NSGOAL) --directory=netsurf TARGET=$(TARGET) PREFIX=$(PREFIX)
 
 cocoa: export TARGET=cocoa
 cocoa:
@@ -54,14 +66,14 @@ cocoa:
 	@echo
 	mkdir -p $(PREFIX)/include
 	mkdir -p $(PREFIX)/lib
-	$(MAKE) install --directory=libparserutils TARGET=$(TARGET) PREFIX=$(PREFIX)
-	$(MAKE) install --directory=hubbub TARGET=$(TARGET) PREFIX=$(PREFIX)
-	$(MAKE) install --directory=libnsbmp TARGET=$(TARGET) PREFIX=$(PREFIX)
-	$(MAKE) install --directory=libnsgif TARGET=$(TARGET) PREFIX=$(PREFIX)
-	$(MAKE) install --directory=libsvgtiny TARGET=$(TARGET) PREFIX=$(PREFIX)
-	$(MAKE) install --directory=libwapcaplet TARGET=$(TARGET) PREFIX=$(PREFIX)
-	$(MAKE) install --directory=libcss TARGET=$(TARGET) PREFIX=$(PREFIX)
-	$(MAKE) --directory=netsurf TARGET=$(TARGET) PREFIX=$(PREFIX)
+	$(MAKE) $(LIBGOAL) --directory=libparserutils TARGET=$(TARGET) PREFIX=$(PREFIX)
+	$(MAKE) $(LIBGOAL) --directory=hubbub TARGET=$(TARGET) PREFIX=$(PREFIX)
+	$(MAKE) $(LIBGOAL) --directory=libnsbmp TARGET=$(TARGET) PREFIX=$(PREFIX)
+	$(MAKE) $(LIBGOAL) --directory=libnsgif TARGET=$(TARGET) PREFIX=$(PREFIX)
+	$(MAKE) $(LIBGOAL) --directory=libsvgtiny TARGET=$(TARGET) PREFIX=$(PREFIX)
+	$(MAKE) $(LIBGOAL) --directory=libwapcaplet TARGET=$(TARGET) PREFIX=$(PREFIX)
+	$(MAKE) $(LIBGOAL) --directory=libcss TARGET=$(TARGET) PREFIX=$(PREFIX)
+	$(MAKE) $(NSGOAL) --directory=netsurf TARGET=$(TARGET) PREFIX=$(PREFIX)
 
 gtk: export TARGET=gtk
 gtk:
@@ -77,13 +89,13 @@ gtk:
 	@echo
 	mkdir -p $(PREFIX)/include
 	mkdir -p $(PREFIX)/lib
-	make install --directory=libparserutils TARGET=$(TARGET) PREFIX=$(PREFIX)
-	make install --directory=hubbub TARGET=$(TARGET) PREFIX=$(PREFIX)
-	make install --directory=libnsbmp TARGET=$(TARGET) PREFIX=$(PREFIX)
-	make install --directory=libnsgif TARGET=$(TARGET) PREFIX=$(PREFIX)
-	make install --directory=libwapcaplet TARGET=$(TARGET) PREFIX=$(PREFIX)
-	make install --directory=libcss TARGET=$(TARGET) PREFIX=$(PREFIX)
-	make --directory=netsurf TARGET=$(TARGET) PREFIX=$(PREFIX)
+	make $(LIBGOAL) --directory=libparserutils TARGET=$(TARGET) PREFIX=$(PREFIX)
+	make $(LIBGOAL) --directory=hubbub TARGET=$(TARGET) PREFIX=$(PREFIX)
+	make $(LIBGOAL) --directory=libnsbmp TARGET=$(TARGET) PREFIX=$(PREFIX)
+	make $(LIBGOAL) --directory=libnsgif TARGET=$(TARGET) PREFIX=$(PREFIX)
+	make $(LIBGOAL) --directory=libwapcaplet TARGET=$(TARGET) PREFIX=$(PREFIX)
+	make $(LIBGOAL) --directory=libcss TARGET=$(TARGET) PREFIX=$(PREFIX)
+	make $(NSGOAL) --directory=netsurf TARGET=$(TARGET) PREFIX=$(PREFIX)
 
 riscos: export TARGET=riscos
 riscos:
@@ -99,15 +111,15 @@ riscos:
 	@echo
 	mkdir -p $(PREFIX)/include
 	mkdir -p $(PREFIX)/lib
-	make install --directory=libparserutils --makefile=Makefile-riscos TARGET=$(TARGET) PREFIX=$(PREFIX)
-	make install --directory=hubbub --makefile=Makefile-riscos TARGET=$(TARGET) PREFIX=$(PREFIX)
-	make install --directory=libnsbmp TARGET=$(TARGET) PREFIX=$(PREFIX)
-	make install --directory=libnsgif TARGET=$(TARGET) PREFIX=$(PREFIX)
-	make install --directory=libsvgtiny TARGET=$(TARGET) PREFIX=$(PREFIX)
-	make install --directory=libwapcaplet TARGET=$(TARGET) PREFIX=$(PREFIX)
-	make install --directory=libcss TARGET=$(TARGET) PREFIX=$(PREFIX)
-	make install --directory=pencil TARGET=$(TARGET) PREFIX=$(PREFIX)
-	make install --directory=rufl TARGET=$(TARGET) PREFIX=$(PREFIX)
-	make install --directory=tools PREFIX=$(PREFIX)
-	make --directory=netsurf TARGET=$(TARGET) PREFIX=$(PREFIX)
+	make $(LIBGOAL) --directory=libparserutils --makefile=Makefile-riscos TARGET=$(TARGET) PREFIX=$(PREFIX)
+	make $(LIBGOAL) --directory=hubbub --makefile=Makefile-riscos TARGET=$(TARGET) PREFIX=$(PREFIX)
+	make $(LIBGOAL) --directory=libnsbmp TARGET=$(TARGET) PREFIX=$(PREFIX)
+	make $(LIBGOAL) --directory=libnsgif TARGET=$(TARGET) PREFIX=$(PREFIX)
+	make $(LIBGOAL) --directory=libsvgtiny TARGET=$(TARGET) PREFIX=$(PREFIX)
+	make $(LIBGOAL) --directory=libwapcaplet TARGET=$(TARGET) PREFIX=$(PREFIX)
+	make $(LIBGOAL) --directory=libcss TARGET=$(TARGET) PREFIX=$(PREFIX)
+	make $(LIBGOAL) --directory=pencil TARGET=$(TARGET) PREFIX=$(PREFIX)
+	make $(LIBGOAL) --directory=rufl TARGET=$(TARGET) PREFIX=$(PREFIX)
+	make $(LIBGOAL) --directory=tools PREFIX=$(PREFIX)
+	make $(NSGOAL) --directory=netsurf TARGET=$(TARGET) PREFIX=$(PREFIX)
 
