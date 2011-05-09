@@ -19,25 +19,63 @@ export PREFIX ?= $(ROOT)/prefix-$(TARGET)
 
 NSLIBS := libparserutils hubbub libnsbmp libnsgif libsvgtiny libwapcaplet libcss 
 
-ifneq ($(filter clean,$(MAKECMDGOALS)),)
-LIBGOAL := clean
-NSGOAL  := clean
-ACTION  := Cleaning
-endif
-LIBGOAL ?= install
-ACTION  ?= Building
 
-.PHONY: clean
+ifeq ($(filter clean,$(MAKECMDGOALS)),)
+$(MAKECMDGOALS): build
+endif
+
+
+ifneq ($(filter beos,$(MAKECMDGOALS)),)
+export TARGET=beos
+export TARGETNAME=BeOS
+export PKG_CONFIG_PATH=
+export GCCVER=2
+endif
+
+ifneq ($(filter cocoa,$(MAKECMDGOALS)),)
+export TARGET=cocoa
+export TARGETNAME=Darwin
+export PKG_CONFIG_PATH=
+endif
+
+ifneq ($(filter gtk,$(MAKECMDGOALS)),)
+export TARGET=gtk
+export TARGETNAME=GTK interface
+export PKG_CONFIG_PATH=
+endif
+
+ifneq ($(filter riscos,$(MAKECMDGOALS)),)
+export TARGET=riscos
+export TARGETNAME=RISC OS
+export PKG_CONFIG_PATH=
+NSLIBS += pencil rufl tools
+endif
+
+
+.PHONY: clean beos cocoa gtk riscos
+
+# avoid "nothing to be done for..."
+beos cocoa gtk riscos:
+	@true
+
 
 clean:
-
-beos: export TARGET=beos
-beos: export PKG_CONFIG_PATH=
-beos: export GCCVER=2
-beos:
 	@echo -----------------------------------------------------------------
 	@echo
-	@echo Building NetSurf for BeOS with the following options:
+	@echo Cleaning NetSurf for $(TARGETNAME)...
+	@echo
+	@echo -----------------------------------------------------------------
+	@echo
+	@for d in $(NSLIBS); do \
+		echo Cleaning $$d...; \
+		$(MAKE) clean --directory=$$d TARGET=$(TARGET) PREFIX=$(PREFIX) || exit $?; \
+	done
+	$(MAKE) clean --directory=netsurf TARGET=$(TARGET) PREFIX=$(PREFIX)
+
+build:
+	@echo -----------------------------------------------------------------
+	@echo
+	@echo Building NetSurf for $(TARGETNAME) with the following options:
 	@echo
 	@echo TARGET = $(TARGET)
 	@echo PREFIX = $(PREFIX)
@@ -47,83 +85,8 @@ beos:
 	@echo
 	mkdir -p $(PREFIX)/include
 	mkdir -p $(PREFIX)/lib
-	$(MAKE) $(LIBGOAL) --directory=libparserutils TARGET=$(TARGET) PREFIX=$(PREFIX)
-	$(MAKE) $(LIBGOAL) --directory=hubbub TARGET=$(TARGET) PREFIX=$(PREFIX)
-	$(MAKE) $(LIBGOAL) --directory=libnsbmp TARGET=$(TARGET) PREFIX=$(PREFIX)
-	$(MAKE) $(LIBGOAL) --directory=libnsgif TARGET=$(TARGET) PREFIX=$(PREFIX)
-	$(MAKE) $(LIBGOAL) --directory=libsvgtiny TARGET=$(TARGET) PREFIX=$(PREFIX)
-	$(MAKE) $(LIBGOAL) --directory=libwapcaplet TARGET=$(TARGET) PREFIX=$(PREFIX)
-	$(MAKE) $(LIBGOAL) --directory=libcss TARGET=$(TARGET) PREFIX=$(PREFIX)
-	$(MAKE) $(NSGOAL) --directory=netsurf TARGET=$(TARGET) PREFIX=$(PREFIX)
-
-cocoa: export TARGET=cocoa
-cocoa:
-	@echo -----------------------------------------------------------------
-	@echo
-	@echo Building NetSurf for Darwin with the following options:
-	@echo
-	@echo TARGET = $(TARGET)
-	@echo PREFIX = $(PREFIX)
-	@echo PKG_CONFIG_PATH = $(PKG_CONFIG_PATH)
-	@echo
-	@echo -----------------------------------------------------------------
-	@echo
-	mkdir -p $(PREFIX)/include
-	mkdir -p $(PREFIX)/lib
-	$(MAKE) $(LIBGOAL) --directory=libparserutils TARGET=$(TARGET) PREFIX=$(PREFIX)
-	$(MAKE) $(LIBGOAL) --directory=hubbub TARGET=$(TARGET) PREFIX=$(PREFIX)
-	$(MAKE) $(LIBGOAL) --directory=libnsbmp TARGET=$(TARGET) PREFIX=$(PREFIX)
-	$(MAKE) $(LIBGOAL) --directory=libnsgif TARGET=$(TARGET) PREFIX=$(PREFIX)
-	$(MAKE) $(LIBGOAL) --directory=libsvgtiny TARGET=$(TARGET) PREFIX=$(PREFIX)
-	$(MAKE) $(LIBGOAL) --directory=libwapcaplet TARGET=$(TARGET) PREFIX=$(PREFIX)
-	$(MAKE) $(LIBGOAL) --directory=libcss TARGET=$(TARGET) PREFIX=$(PREFIX)
-	$(MAKE) $(NSGOAL) --directory=netsurf TARGET=$(TARGET) PREFIX=$(PREFIX)
-
-gtk: export TARGET=gtk
-gtk:
-	@echo -----------------------------------------------------------------
-	@echo
-	@echo Building NetSurf with GTK interface with the following options:
-	@echo
-	@echo TARGET = $(TARGET)
-	@echo PREFIX = $(PREFIX)
-	@echo PKG_CONFIG_PATH = $(PKG_CONFIG_PATH)
-	@echo
-	@echo -----------------------------------------------------------------
-	@echo
-	mkdir -p $(PREFIX)/include
-	mkdir -p $(PREFIX)/lib
-	make $(LIBGOAL) --directory=libparserutils TARGET=$(TARGET) PREFIX=$(PREFIX)
-	make $(LIBGOAL) --directory=hubbub TARGET=$(TARGET) PREFIX=$(PREFIX)
-	make $(LIBGOAL) --directory=libnsbmp TARGET=$(TARGET) PREFIX=$(PREFIX)
-	make $(LIBGOAL) --directory=libnsgif TARGET=$(TARGET) PREFIX=$(PREFIX)
-	make $(LIBGOAL) --directory=libwapcaplet TARGET=$(TARGET) PREFIX=$(PREFIX)
-	make $(LIBGOAL) --directory=libcss TARGET=$(TARGET) PREFIX=$(PREFIX)
-	make $(NSGOAL) --directory=netsurf TARGET=$(TARGET) PREFIX=$(PREFIX)
-
-riscos: export TARGET=riscos
-riscos:
-	@echo -----------------------------------------------------------------
-	@echo
-	@echo Building NetSurf for RISC OS with the following options:
-	@echo
-	@echo TARGET = $(TARGET)
-	@echo PREFIX = $(PREFIX)
-	@echo PKG_CONFIG_PATH = $(PKG_CONFIG_PATH)
-	@echo
-	@echo -----------------------------------------------------------------
-	@echo
-	mkdir -p $(PREFIX)/include
-	mkdir -p $(PREFIX)/lib
-	make $(LIBGOAL) --directory=libparserutils --makefile=Makefile-riscos TARGET=$(TARGET) PREFIX=$(PREFIX)
-	make $(LIBGOAL) --directory=hubbub --makefile=Makefile-riscos TARGET=$(TARGET) PREFIX=$(PREFIX)
-	make $(LIBGOAL) --directory=libnsbmp TARGET=$(TARGET) PREFIX=$(PREFIX)
-	make $(LIBGOAL) --directory=libnsgif TARGET=$(TARGET) PREFIX=$(PREFIX)
-	make $(LIBGOAL) --directory=libsvgtiny TARGET=$(TARGET) PREFIX=$(PREFIX)
-	make $(LIBGOAL) --directory=libwapcaplet TARGET=$(TARGET) PREFIX=$(PREFIX)
-	make $(LIBGOAL) --directory=libcss TARGET=$(TARGET) PREFIX=$(PREFIX)
-	make $(LIBGOAL) --directory=pencil TARGET=$(TARGET) PREFIX=$(PREFIX)
-	make $(LIBGOAL) --directory=rufl TARGET=$(TARGET) PREFIX=$(PREFIX)
-	make $(LIBGOAL) --directory=tools PREFIX=$(PREFIX)
-	make $(NSGOAL) --directory=netsurf TARGET=$(TARGET) PREFIX=$(PREFIX)
-
+	for d in $(NSLIBS); do \
+		echo Installing $$d...; \
+		$(MAKE) install --directory=$$d TARGET=$(TARGET) PREFIX=$(PREFIX) || exit $?; \
+	done
+	$(MAKE) --directory=netsurf TARGET=$(TARGET) PREFIX=$(PREFIX)
