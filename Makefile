@@ -5,21 +5,27 @@
 usage:
 	@echo Please use one of the following targets:
 	@echo
-	@echo "  make beos      NetSurf for BeOS and Haiku"
-	@echo "  make gtk       NetSurf with GTK interface"
-	@echo "  make riscos    NetSurf for RISC OS"
+	@echo "  make beos            NetSurf for BeOS and Haiku"
+	@echo "  make cocoa           NetSurf for OSX with the Cocoa interface"
+	@echo "  make gtk             NetSurf with GTK interface"
+	@echo "  make riscos          NetSurf for RISC OS"
+	@echo "  make <target> clean  Clean the build for <target>"
 	@echo
-	@echo Optionally append PREFIX=...
+	@echo "Optionally append PREFIX=..."
 
 export ROOT = $(shell pwd)
 export PKG_CONFIG_PATH = $(PREFIX)/lib/pkgconfig
 export PREFIX ?= $(ROOT)/prefix-$(TARGET)
 
+NSLIBS := libparserutils hubbub libnsbmp libnsgif libsvgtiny libwapcaplet libcss 
+
 ifneq ($(filter clean,$(MAKECMDGOALS)),)
 LIBGOAL := clean
 NSGOAL  := clean
+ACTION  := Cleaning
 endif
 LIBGOAL ?= install
+ACTION  ?= Building
 
 .PHONY: clean
 
@@ -28,7 +34,7 @@ clean:
 beos: export TARGET=beos
 beos: export PKG_CONFIG_PATH=
 beos: export GCCVER=2
-beos clean-beos:
+beos:
 	@echo -----------------------------------------------------------------
 	@echo
 	@echo Building NetSurf for BeOS with the following options:
