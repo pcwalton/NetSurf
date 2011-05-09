@@ -5,10 +5,11 @@
 usage:
 	@echo Please use one of the following targets:
 	@echo
-	@echo "  make beos            NetSurf for BeOS and Haiku"
-	@echo "  make cocoa           NetSurf for OSX with the Cocoa interface"
-	@echo "  make gtk             NetSurf with GTK interface"
-	@echo "  make riscos          NetSurf for RISC OS"
+	@echo "  make beos             NetSurf for BeOS and Haiku"
+	@echo "  make cocoa            NetSurf for OSX with the Cocoa interface"
+	@echo "  make gtk              NetSurf with GTK interface"
+	@echo "  make riscos           NetSurf for RISC OS"
+	@echo "  make <target> netsurf NetSurf only <target>, without the libraries"
 	@echo "  make <target> clean  Clean the build for <target>"
 	@echo
 	@echo "Optionally append PREFIX=..."
@@ -20,8 +21,12 @@ export PREFIX ?= $(ROOT)/prefix-$(TARGET)
 NSLIBS := libparserutils hubbub libnsbmp libnsgif libsvgtiny libwapcaplet libcss 
 
 
-ifeq ($(filter clean,$(MAKECMDGOALS)),)
-$(MAKECMDGOALS): build
+ifneq ($(filter clean,$(MAKECMDGOALS)),)
+else
+ifneq  ($(filter netsurf,$(MAKECMDGOALS)),)
+else
+$(MAKECMDGOALS): full
+endif
 endif
 
 
@@ -52,7 +57,7 @@ NSLIBS += pencil rufl tools
 endif
 
 
-.PHONY: clean beos cocoa gtk riscos
+.PHONY: clean netsurf full beos cocoa gtk riscos
 
 # avoid "nothing to be done for..."
 beos cocoa gtk riscos:
@@ -72,7 +77,20 @@ clean:
 	done
 	$(MAKE) clean --directory=netsurf TARGET=$(TARGET) PREFIX=$(PREFIX)
 
-build:
+netsurf:
+	@echo -----------------------------------------------------------------
+	@echo
+	@echo Building NetSurf only for $(TARGETNAME) with the following options:
+	@echo
+	@echo TARGET = $(TARGET)
+	@echo PREFIX = $(PREFIX)
+	@echo PKG_CONFIG_PATH = $(PKG_CONFIG_PATH)
+	@echo
+	@echo -----------------------------------------------------------------
+	@echo
+	$(MAKE) --directory=netsurf TARGET=$(TARGET) PREFIX=$(PREFIX)
+
+full:
 	@echo -----------------------------------------------------------------
 	@echo
 	@echo Building NetSurf for $(TARGETNAME) with the following options:
@@ -90,3 +108,4 @@ build:
 		$(MAKE) install --directory=$$d TARGET=$(TARGET) PREFIX=$(PREFIX) || exit $?; \
 	done
 	$(MAKE) --directory=netsurf TARGET=$(TARGET) PREFIX=$(PREFIX)
+
