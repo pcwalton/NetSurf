@@ -113,6 +113,19 @@ dl.instructions dd > p + p {
 	margin: 1em 0 0 0;
 	padding: 0; }
 
+dl.releases {
+	overflow: hidden; }
+
+dl.releases > dt {
+	float: left;
+	clear: both; }
+
+dl.releases > dd {
+	float: left; }
+
+dl.changes > dd > ul {
+	margin: 0.2em 0 0.6em 0; }
+
 p.screenshot {
 	float: right;
 	padding: 0 0 1em 0; }

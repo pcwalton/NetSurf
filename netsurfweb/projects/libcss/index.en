@@ -32,7 +32,7 @@
 
 <h2>What is LibCSS?</h2>
 
-<p>LibCSS is a CSS parser and selection engine, written in C. It aims to parse the forward compatible CSS grammar. It was developed as part of the <a href="/">NetSurf</a> project and is available for use by other software under the MIT licence. For further details, see the <a href="http://source.netsurf-browser.org/trunk/libcss/README">readme</a>.</p>
+<p>LibCSS is a CSS (Cascading Style Sheet) parser and selection engine, written in C. It was developed as part of the <a href="/">NetSurf</a> project and is available for use by other software under the MIT licence. For further details, see the <a href="http://source.netsurf-browser.org/trunk/libcss/README">readme</a>.</p>
 
 <h2>Features</h2>
 
@@ -61,11 +61,60 @@
 
 <h2>Releases</h2>
 
-<ul>
-<li><a href="../releases/libcss-0.1.0-src.tar.gz">LibCSS 0.1.0 tarball</a></li>
-<li><a href="../releases/libcss-0.0.2-src.tar.gz">LibCSS 0.0.2 tarball</a></li>
-<li><a href="../releases/libcss-0.0.1-src.tar.gz">LibCSS 0.0.1 tarball</a></li>
-</ul>
+<p>Most recent first:</p>
+
+<dl class="releases">
+<dt>LibCSS 0.1.0</dt>
+<dd><a href="../releases/libcss-0.1.0-src.tar.gz">Tarball</a> &ndash; <a href="#changes-0.1.0">Changes</a></dd>
+<dt>LibCSS 0.0.2</dt>
+<dd><a href="../releases/libcss-0.0.2-src.tar.gz">Tarball</a> &ndash; <a href="#changes-0.0.2">Changes</a></dd>
+<dt>LibCSS 0.0.1</dt>
+<dd><a href="../releases/libcss-0.0.1-src.tar.gz">Tarball</a> &ndash; First release</dd>
+</dl>
+
+<h2>Changes</h2>
+
+<dl class="changes">
+<dt id="changes-0.1.0">LibCSS 0.1.0</dt>
+<dd><ul>
+<li>Fixed destruction of bytecode for clip property.</li>
+<li>Added scoping for use from C++ programs.</li>
+<li>Removed need for library initialisation and finalisation.</li>
+<li>Added support for CSS2 system colours.</li>
+<li>Added support for CSS2 system fonts.</li>
+<li>Altered external representation of colours to aarrggbb.</li>
+<li>Added support for CSS3 rgba() colour specifier.</li>
+<li>Added support for CSS3 'transparent' colour keyword.</li>
+<li>Added support for CSS3 hsl() and hsla() colour specifiers.</li>
+<li>Added support for CSS3 'currentColor' colour keyword.</li>
+<li>Added support for CSS3 'opacity' property.</li>
+<li>Added support for CSS3 selectors.</li>
+<li>Added support for CSS3 namespaces.</li>
+<li>Enabled clients to fetch imported stylesheets in parallel.</li>
+<li>Made internal bytecode 64-bit safe.</li>
+<li>Fixed leaking of strings.</li>
+<li>Rewritten property parsers.</li>
+<li>Certain property parsers auto-generated at build time.</li>
+<li>Added clang build support.</li>
+<li>Various portability enhancements.</li>
+<li>Fixed selection for pseudo elements.</li>
+<li>Added simultaneous selection for base and pseudo elements.</li>
+<li>Namespaced all global symbols.</li>
+<li>Updated test suite.</li>
+<li>Future-proofed ABI.</li>
+<li>Ensured fixed point maths saturates instead of overflowing.</li>
+<li>Fixed clip property handling.</li>
+<li>Fixed selection and cascade of &quot;uncommon&quot; CSS properties.</li>
+<li>Added structure versioning for client input.</li>
+</ul></dd>
+<dt id="changes-0.0.2">LibCSS 0.0.2</dt>
+<dd><ul>
+<li>Allow stylesheets to be used in multiple contexts simultaneously.</li>
+<li>Fix possible stylesheet reuse crash.</li>
+</ul></dd>
+<dt id="changes-0.0.1">LibCSS 0.0.1</dt>
+<dd>First release.</dd>
+</dl>
 
 <h2>Contact</h2>
 
