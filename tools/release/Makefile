@@ -73,6 +73,11 @@ define do_checkout
 
 endef
 
+define do_export
+	svn export --quiet $(SVNURI)$1 $2
+
+endef
+
 define do_export_and_tar
 	svn export --quiet $(SVNURI)$1 $(NETSURF_TARG)/$2
 	tar -C $(NETSURF_TARG) -czf $2-src.tar.gz $2
@@ -120,7 +125,7 @@ $(NETSURF_TARG)-full-src.tar.gz:
 autobuild:
 	$(call do_export,/trunk/netsurfbuild,$(ABDIR))
 	mkdir -p $(ABDIR)/downloads/releases
-	$(call do_export,/trunk/netsurfweb,$(ABDIR)/netsurfweb)
+	$(call do_checkout,/trunk/netsurfweb,$(ABDIR)/netsurfweb)
 	$(foreach L,$(ABLIBS) $(NETSURF_TARG), \
-		$(call do_export,/tags/$(subst -,/,$(L)),$(ABDIR)/$(firstword $(subst -, ,$(L)))))
+		$(call do_checkout,/tags/$(subst -,/,$(L)),$(ABDIR)/$(firstword $(subst -, ,$(L)))))
 
