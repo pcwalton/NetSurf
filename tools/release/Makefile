@@ -68,8 +68,8 @@ SOURCELIBS := $(ABLIBS) $(LIBNSFB_TARG) $(LIBPENCIL_TARG) \
 SVNURI := svn://svn.netsurf-browser.org
 ABDIR := netsurfbuild-v$(NETSURF_VERS)
 
-define do_export
-	svn export --quiet $(SVNURI)$1 $2
+define do_checkout
+	svn checkout --quiet $(SVNURI)$1 $2
 
 endef
 
