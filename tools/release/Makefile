@@ -115,9 +115,10 @@ clean:
 	$(MAKE) clean --directory=$(NETSURF_TARG) TARGET=$(TARGET)
 
 source: $(NETSURF_TARG)-full-src.tar.gz
-$(NETSURF_TARG)-full-src.tar.gz:
+$(NETSURF_TARG)-full-src.tar.gz: Makefile
 	$(RM) -r $(NETSURF_TARG)
 	mkdir $(NETSURF_TARG)
+	cp Makefile $(NETSURF_TARG)/Makefile
 	$(foreach L,$(SOURCELIBS) $(NETSURF_TARG), \
 		$(call do_export_and_tar,/tags/$(subst -,/,$(L)),$(L)))
 	tar -czf $@ $(NETSURF_TARG)
