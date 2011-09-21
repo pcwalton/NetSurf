@@ -36,6 +36,25 @@ LIBNSGIF_BASE = libnsgif
 LIBNSGIF_VERS = 0.0.3
 LIBNSGIF_TARG = $(LIBNSGIF_BASE)-$(LIBNSGIF_VERS)
 
+LIBNSFB_BASE = libnsfb
+LIBNSFB_VERS = 0.0.1
+LIBNSFB_TARG = $(LIBNSFB_BASE)-$(LIBNSFB_VERS)
+
+LIBPENCIL_BASE = libpencil
+LIBPENCIL_VERS = 0.0.1
+LIBPENCIL_TARG = $(LIBPENCIL_BASE)-$(LIBPENCIL_VERS)
+
+LIBROSPRITE_BASE = librosprite
+LIBROSPRITE_VERS = 0.0.1
+LIBROSPRITE_TARG = $(LIBROSPRITE_BASE)-$(LIBROSPRITE_VERS)
+
+LIBRUFL_BASE = librufl
+LIBRUFL_VERS = 0.0.1
+LIBRUFL_TARG = $(LIBRUFL_BASE)-$(LIBRUFL_VERS)
+
+LIBSVGTINY_BASE = libsvgtiny
+LIBSVGTINY_VERS = 0.0.1
+LIBSVGTINY_TARG = $(LIBSVGTINY_BASE)-$(LIBSVGTINY_VERS)
 
 #Library Target list
 NSLIBTARG := $(LIBPARSERUTILS_TARG) $(LIBWAPCAPLET_TARG) $(LIBCSS_TARG) $(LIBHUBBUB_TARG) $(LIBNSBMP_TARG) $(LIBNSGIF_TARG)
@@ -89,6 +108,16 @@ $(NETSURF_TARG)-full-src.tar.gz:Makefile
 	$(MAKE) --directory=$(NETSURF_TARG) $(LIBNSBMP_TARG)-src.tar.gz
 	svn export svn://svn.netsurf-browser.org/tags/$(subst -,/,$(LIBNSGIF_TARG)) $(NETSURF_TARG)/$(LIBNSGIF_TARG)
 	$(MAKE) --directory=$(NETSURF_TARG) $(LIBNSGIF_TARG)-src.tar.gz
+	svn export svn://svn.netsurf-browser.org/tags/$(subst -,/,$(LIBNSFB_TARG)) $(NETSURF_TARG)/$(LIBNSFB_TARG)
+	$(MAKE) --directory=$(NETSURF_TARG) $(LIBNSFB_TARG)-src.tar.gz
+	svn export svn://svn.netsurf-browser.org/tags/$(subst -,/,$(LIBPENCIL_TARG)) $(NETSURF_TARG)/$(LIBPENCIL_TARG)
+	$(MAKE) --directory=$(NETSURF_TARG) $(LIBPENCIL_TARG)-src.tar.gz
+	svn export svn://svn.netsurf-browser.org/tags/$(subst -,/,$(LIBROSPRITE_TARG)) $(NETSURF_TARG)/$(LIBROSPRITE_TARG)
+	$(MAKE) --directory=$(NETSURF_TARG) $(LIBROSPRITE_TARG)-src.tar.gz
+	svn export svn://svn.netsurf-browser.org/tags/$(subst -,/,$(LIBRUFL_TARG)) $(NETSURF_TARG)/$(LIBRUFL_TARG)
+	$(MAKE) --directory=$(NETSURF_TARG) $(LIBRUFL_TARG)-src.tar.gz
+	svn export svn://svn.netsurf-browser.org/tags/$(subst -,/,$(LIBSVGTINY_TARG)) $(NETSURF_TARG)/$(LIBSVGTINY_TARG)
+	$(MAKE) --directory=$(NETSURF_TARG) $(LIBSVGTINY_TARG)-src.tar.gz
 	svn export svn://svn.netsurf-browser.org/tags/$(subst -,/,$(NETSURF_TARG)) $(NETSURF_TARG)/$(NETSURF_TARG)
 	$(MAKE) --directory=$(NETSURF_TARG) $(NETSURF_TARG)-src.tar.gz
 	tar -czf $@ $(NETSURF_TARG)
