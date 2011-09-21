@@ -1,4 +1,4 @@
-#!/bin/amke
+#!/bin/make
 #
 # NetSurf Source makefile for libries and browser
 
@@ -67,17 +67,28 @@ clean:
 	$(MAKE) clean --directory=netsurf TARGET=$(TARGET) PREFIX=$(TMP_PREFIX)
 
 
-source:$(NETSURF_TARG)-source.tar.gz
+source:$(NETSURF_TARG)-full-src.tar.gz
 
-$(NETSURF_TARG)-source.tar.gz:Makefile
+%-src.tar.gz:Makefile
+	tar -czf $@ $*
+	mv $@ ..
+
+$(NETSURF_TARG)-full-src.tar.gz:Makefile
 	$(RM) -r $(NETSURF_TARG)
 	mkdir $(NETSURF_TARG)
-	svn export svn://svn.netsurf-browser.org/tags/$(subst -,/,$(LIBPARSERUTILS_TARG))  $(NETSURF_TARG)/$(LIBPARSERUTILS_TARG)
-	svn export svn://svn.netsurf-browser.org/tags/$(subst -,/,$(LIBWAPCAPLET_TARG))  $(NETSURF_TARG)/$(LIBWAPCAPLET_TARG)
-	svn export svn://svn.netsurf-browser.org/tags/$(subst -,/,$(LIBCSS_TARG)) $(NETSURF_TARG)/$(LIBCSS_TARG)
-	svn export svn://svn.netsurf-browser.org/tags/$(subst -,/,$(LIBHUBBUB_TARG)) $(NETSURF_TARG)/$(LIBHUBBUB_TARG)
-	svn export svn://svn.netsurf-browser.org/tags/$(subst -,/,$(LIBNSBMP_TARG)) $(NETSURF_TARG)/$(LIBNSBMP_TARG)
-	svn export svn://svn.netsurf-browser.org/tags/$(subst -,/,$(LIBNSGIF_TARG)) $(NETSURF_TARG)/$(LIBNSGIF_TARG)
-	svn export svn://svn.netsurf-browser.org/tags/$(subst -,/,$(NETSURF_TARG)) $(NETSURF_TARG)/$(NETSURF_TARG)
 	cp Makefile $(NETSURF_TARG)/Makefile
+	svn export svn://svn.netsurf-browser.org/tags/$(subst -,/,$(LIBPARSERUTILS_TARG))  $(NETSURF_TARG)/$(LIBPARSERUTILS_TARG)
+	$(MAKE) --directory=$(NETSURF_TARG) $(LIBPARSERUTILS_TARG)-src.tar.gz
+	svn export svn://svn.netsurf-browser.org/tags/$(subst -,/,$(LIBWAPCAPLET_TARG))  $(NETSURF_TARG)/$(LIBWAPCAPLET_TARG)
+	$(MAKE) --directory=$(NETSURF_TARG) $(LIBWAPCAPLET_TARG)-src.tar.gz
+	svn export svn://svn.netsurf-browser.org/tags/$(subst -,/,$(LIBCSS_TARG)) $(NETSURF_TARG)/$(LIBCSS_TARG)
+	$(MAKE) --directory=$(NETSURF_TARG) $(LIBCSS_TARG)-src.tar.gz
+	svn export svn://svn.netsurf-browser.org/tags/$(subst -,/,$(LIBHUBBUB_TARG)) $(NETSURF_TARG)/$(LIBHUBBUB_TARG)
+	$(MAKE) --directory=$(NETSURF_TARG) $(LIBHUBBUB_TARG)-src.tar.gz
+	svn export svn://svn.netsurf-browser.org/tags/$(subst -,/,$(LIBNSBMP_TARG)) $(NETSURF_TARG)/$(LIBNSBMP_TARG)
+	$(MAKE) --directory=$(NETSURF_TARG) $(LIBNSBMP_TARG)-src.tar.gz
+	svn export svn://svn.netsurf-browser.org/tags/$(subst -,/,$(LIBNSGIF_TARG)) $(NETSURF_TARG)/$(LIBNSGIF_TARG)
+	$(MAKE) --directory=$(NETSURF_TARG) $(LIBNSGIF_TARG)-src.tar.gz
+	svn export svn://svn.netsurf-browser.org/tags/$(subst -,/,$(NETSURF_TARG)) $(NETSURF_TARG)/$(NETSURF_TARG)
+	$(MAKE) --directory=$(NETSURF_TARG) $(NETSURF_TARG)-src.tar.gz
 	tar -czf $@ $(NETSURF_TARG)
