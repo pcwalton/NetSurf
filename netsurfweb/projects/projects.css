@@ -126,6 +126,42 @@ dl.releases > dd {
 dl.changes > dd > ul {
 	margin: 0.2em 0 0.6em 0; }
 
+div.testimonial {
+	position: relative;
+	float: right;
+	font-family: Garamond, Times, serif;
+	background: #fdb;
+	margin: 1em;
+	padding: 0;
+	max-width: 33%; }
+
+div.testimonial > div {
+	position: relative;
+	margin: 0;
+	padding: 0.2em 0.2em; }
+
+div.testimonial > div > span {
+	position:absolute;
+	font-size: 400%;
+	left: 0.2em;
+	top: 0; }
+
+div.testimonial > div > p {
+	background: #ffd;
+	padding: 1em 1.3em; }
+
+div.testimonial > div > p + span {
+	float: right;
+	position: relative;
+	left: -0.2em;
+	top: -0.4em; }
+
+div.testimonial > p {
+	font-size: 90%;
+	text-align: right;
+	margin: 2em 0 0 0;
+	padding: 0; }
+
 p.screenshot {
 	float: right;
 	padding: 0 0 1em 0; }
