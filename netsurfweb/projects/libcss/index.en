@@ -64,6 +64,8 @@
 <p>Most recent first:</p>
 
 <dl class="releases">
+<dt>LibCSS 0.1.1</dt>
+<dd><a href="../releases/libcss-0.1.1-src.tar.gz">Tarball</a> &ndash; <a href="#changes-0.1.1">Changes</a></dd>
 <dt>LibCSS 0.1.0</dt>
 <dd><a href="../releases/libcss-0.1.0-src.tar.gz">Tarball</a> &ndash; <a href="#changes-0.1.0">Changes</a></dd>
 <dt>LibCSS 0.0.2</dt>
@@ -75,6 +77,13 @@
 <h2>Changes</h2>
 
 <dl class="changes">
+<dt id="changes-0.1.1">LibCSS 0.1.1</dt>
+<dd><ul>
+<li>Improved build tree cleaning.</li>
+<li>Fixed build with GCC 4.6.</li>
+<li>Added support for selection of page-break properties.</li>
+<li>Optimised style selection.</li>
+</ul></dd>
 <dt id="changes-0.1.0">LibCSS 0.1.0</dt>
 <dd><ul>
 <li>Fixed destruction of bytecode for clip property.</li>
