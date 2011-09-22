@@ -103,11 +103,11 @@ $(TMP_PREFIX)/build-stamp:
 	mkdir -p $(TMP_PREFIX)/include
 	mkdir -p $(TMP_PREFIX)/lib
 	$(foreach L,$(NSLIBTARG),$(call do_prefix_install,$(L)))
-	$(MAKE) --directory=$(NETSURF_TARG) PREFIX=$(TMP_PREFIX) TARGET=$(TARGET)
+	$(MAKE) --directory=$(NETSURF_TARG) PREFIX=$(PREFIX) TARGET=$(TARGET)
 	touch $@
 
 install: $(TMP_PREFIX)/build-stamp
-	$(MAKE) install --directory=$(NETSURF_TARG) TARGET=$(TARGET) PREFIX= DESTDIR=$(DESTDIR)
+	$(MAKE) install --directory=$(NETSURF_TARG) TARGET=$(TARGET) PREFIX=$(PREFIX) DESTDIR=$(DESTDIR)
 
 clean:
 	$(RM) -r $(TMP_PREFIX)
