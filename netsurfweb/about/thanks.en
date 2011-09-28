@@ -57,7 +57,17 @@
 
 <p>We would like to thank the following organisations for their kind generosity and the help they have given us:</p>
 
-<h2><img class="thankslogo" src="/webimages/logoadv6.png" alt="">Advantage Six</h2>
+<ul>
+<li><a href="#AdvSix">Advantage Six</a></li>
+<li><a href="#Foundry">The Foundry</a></li>
+<li><a href="#GSoC">Google Summer of Code</a></li>
+<li><a href="#Pepperfish">Pepperfish</a></li>
+<li><a href="#Simtec">Simtec Electronics</a></li>
+</ul>
+
+<p class="updated">Last updated 28 September 2011</p>
+
+<h2 id="AdvSix"><img class="thankslogo" src="/webimages/logoadv6.png" alt="">Advantage Six</h2>
 
 <p>Advantage Six Ltd offer design, manufacture and support services for OEM customers. One of their products is the A9home computer which runs the RISC OS operating system.</p>
 
@@ -68,7 +78,17 @@
 <li><a href="http://www.advantagesix.co.uk/products/A9home.html">A9home computer</a></li>
 </ul>
 
-<h2><img class="thankslogo" src="/webimages/logogsoc2008.png" alt="">Google Summer of Code</h2>
+<h2 id="Foundry"><img class="thankslogo" src="/webimages/logofoundry.png" alt="">The Foundry</h2>
+
+<p>The Foundry is a world-leading innovator of visual effects and image processing technologies that boost productivity in motion picture and video post-production. Users of their software include Hollywood movie makers such as Warner Bros, The Moving Picture Company, Weta Digital, Sony Pictures, and more.</p>
+
+<p>The Foundry donated a 1.66 GHz intel core duo powered Mac Mini running Mac OS X 10.6.8 to the NetSurf project. It has been set up to allow developers to log in and use remotely, enabling us to build and test the browser on Mac OS X.</p>
+
+<ul>
+<li><a href="http://www.thefoundry.co.uk/">The Foundry</a></li>
+</ul>
+
+<h2 id="GSoC"><img class="thankslogo" src="/webimages/logogsoc2008.png" alt="">Google Summer of Code</h2>
 
 <p>Google Summer of Code generously offers funding for students to work on open source projects over the summer. NetSurf was selected to participate as a mentoring organisation in both the 2008 and 2009 programmes. Several excellent students worked with us and the experience proved a great success for NetSurf.</p>
 
@@ -90,7 +110,7 @@
 <li><a href="http://socghop.appspot.com/gsoc/org/home/google/gsoc2009/netsurf">GSoC 2009 - NetSurf organisation listing</a></li>
 </ul>
 
-<h2><img class="thankslogo" src="/webimages/logoppf.png" alt="">Pepperfish</h2>
+<h2 id="Pepperfish"><img class="thankslogo" src="/webimages/logoppf.png" alt="">Pepperfish</h2>
 
 <p>Pepperfish is a small independent hosting provider. They generously host the NetSurf web site, mailing lists and downloads. They also take care of all our web server setup and configuration needs.</p>
 
@@ -98,7 +118,7 @@
 <li><a href="http://www.pepperfish.net/">Pepperfish</a></li>
 </ul>
 
-<h2><img class="thankslogo" src="/webimages/logosimtec.png" alt="">Simtec Electronics</h2>
+<h2 id="Simtec"><img class="thankslogo" src="/webimages/logosimtec.png" alt="">Simtec Electronics</h2>
 
 <p>Simtec Electronics is an experienced electronics development and design consultancy. In addition to their range of design and manufacture services, they provide an extensive range of standard hardware and software products that include ARM processor evaluation boards, I/O modules, the ABLE boot loader firmware and an embedded USB host stack.</p>
 
@@ -110,7 +130,7 @@
 </ul>
 
 <div class="footer">
-<p>Copyright 2003 - 2009 The NetSurf Developers</p>
+<p>Copyright 2003 - 2011 The NetSurf Developers</p>
 </div>
 
 </div>
