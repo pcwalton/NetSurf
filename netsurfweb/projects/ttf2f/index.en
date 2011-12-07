@@ -35,8 +35,6 @@
 
 <p>TTF2f is a utility for converting TrueType (.ttf), OpenType (.otf), and other font formats supported by <a href="http://www.freetype.org/">FreeType2</a> to RISC OS fonts.  It is written in C, and available under the Simplified BSD Licence.</p>
 
-<p class="screenshot"><img src="images/rufl_chars.png" alt="" title="Screenshot of rufl_chars"></p>
-
 <h2>Features</h2>
 
 <ul>
@@ -65,7 +63,7 @@
 
 <h2>Contact</h2>
 
-<p>Please report any problems with this software to the <a href="http://www.netsurf-browser.org/lists/netsurf-dev">developer mailing list</a>.</p>
+<p>Please report any problems with this software to the <a href="http://www.netsurf-browser.org/lists/netsurf-users">user mailing list</a>.  If you would like to contribute to TTF2f, please get in touch via the <a href="http://www.netsurf-browser.org/lists/netsurf-dev">developer mailing list</a>.</p>
 
 </body>
 </html>
