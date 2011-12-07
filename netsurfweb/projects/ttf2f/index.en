@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+        "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>TrueType, OpenType, etc font to RISC OS font converter</title>
+<link rel="stylesheet" type="text/css" href="/projects/projects.css">
+<link rel="icon" type="image/png" href="/webimages/favicon.png">
+</head>
+<body>
+
+<div class="projects">
+<ul>
+<li><a href="/">NetSurf</a></li>
+<li><a href="/projects/hubbub/">Hubbub</a></li>
+<li><a href="/projects/libcss/">LibCSS</a></li>
+<li><a href="/projects/libdom/">LibDOM</a></li>
+<li><a href="/projects/libparserutils/">LibParserUtils</a></li>
+<li><a href="/projects/libwapcaplet/">LibWapcaplet</a></li>
+<li><a href="/projects/libsvgtiny/">Libsvgtiny</a></li>
+<li><a href="/projects/libnsfb/">LibNSFB</a></li>
+<li><a href="/projects/libnsbmp/">Libnsbmp</a></li>
+<li><a href="/projects/libnsgif/">Libnsgif</a></li>
+<li><a href="/projects/librosprite/">LibROSprite</a></li>
+<li><a href="/projects/iconv/">Iconv</a></li>
+<li><a href="/projects/rufl/">RUfl</a></li>
+<li><strong>TTF2f</strong></li>
+<li><a href="/projects/tinct/">Tinct</a></li>
+<li><a href="/projects/libpencil/">Libpencil</a></li>
+</ul>
+</div>
+
+<h1>TTF2f</h1>
+
+<h2>What is TTF2f?</h2>
+
+<p>TTF2f is a utility for converting TrueType (.ttf), OpenType (.otf), and other font formats supported by <a href="http://www.freetype.org/">FreeType2</a> to RISC OS fonts.  It is written in C, and available under the Simplified BSD Licence.</p>
+
+<p class="screenshot"><img src="images/rufl_chars.png" alt="" title="Screenshot of rufl_chars"></p>
+
+<h2>Features</h2>
+
+<ul>
+<li>Converts multiple foreign font formats into RISC OS fonts</li>
+<li>Handles large fonts with good Unicode coverage</li>
+<li>Multi-platform CLI utility</li>
+<li>RISC OS GUI front end</li>
+<li>Simplified BSD licence</li>
+</ul>
+
+<h2>Download</h2>
+
+<p>Please download TTF2f:</p>
+
+<ul>
+<li><a href="downloads/ttf2f-004.zip">TTF2f 0.04</a> (Full RISC OS GUI version)</li>
+</ul>
+
+<h2>Source code</h2>
+
+<p>You can <a href="http://source.netsurf-browser.org/trunk/tools/ttf2f/">browse the source code</a> via the online interface. Alternatively, you can check it out of SVN:</p>
+
+<p class="svncommand">$ svn co svn://svn.netsurf-browser.org/trunk/tools/ttf2f</p>
+
+<p>TTF2f is licensed under the <a href="http://opensource.org/licenses/BSD-2-Clause">Simplified BSD Licence</a>.</p>
+
+<h2>Contact</h2>
+
+<p>Please report any problems with this library to the <a href="http://www.netsurf-browser.org/lists/netsurf-dev">developer mailing list</a>.</p>
+
+</body>
+</html>
