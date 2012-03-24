@@ -18,7 +18,7 @@ export ROOT = $(shell pwd)
 export PKG_CONFIG_PATH = $(PREFIX)/lib/pkgconfig
 export PREFIX ?= $(ROOT)/prefix-$(TARGET)
 
-NSLIBS := libparserutils hubbub libnsbmp libnsgif libsvgtiny libwapcaplet libcss 
+NSLIBS := libparserutils hubbub libnsbmp libnsgif libsvgtiny libwapcaplet libcss libdom
 
 
 ifneq ($(filter clean,$(MAKECMDGOALS)),)
