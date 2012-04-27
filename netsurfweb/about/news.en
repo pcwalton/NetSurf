@@ -56,6 +56,10 @@
 <h1>News</h1>
 
 <dl class="news">
+<dt><a href="/downloads/">NetSurf 2.9 released</a> <span>28 Apr 2012</span></dt>
+<dd>NetSurf 2.9 contains many improvements over the previous release. The most significant changes are new multi-tasking behaviour, optimised URL handling, fetcher optimisations, cache optimisations, and faster CSS selection. Full details in the change log. We recommend all users upgrade.</dd>
+<dt><a href="http://vincentsanders.blogspot.co.uk/2012/03/netsurf-developer-workshop.html">LibDOM progress</a> <span>26 Mar 2012</span></dt>
+<dd>The NetSurf Developers held a <a href="http://vincentsanders.blogspot.co.uk/2012/03/netsurf-developer-workshop.html">developer workshop</a> over the weekend, during which much progress was made on <a href="/projects/libdom/">LibDOM</a> which sits at the heart of our <a href="http://wiki.netsurf-browser.org/Development_Plan">NetSurf 3.0 plans</a>. NetSurf trunk is now using the LibDOM library in place of LibXML2, and we hope to extract several benefits from this change over the coming months. Thanks to <a href="http://www.collabora.com/">Collabora</a> who kindly hosted the workshop.</dd>
 <dt><a href="/projects/ttf2f/">New home for TTF2f</a> <span>07 Dec 2011</span></dt>
 <dd>The RISC OS font conversion utility TTF2f has a new web page here, on the NetSurf site.  It is capable of converting TrueType, OpenType and other formats to the native RISC OS format.  It supports conversion of large fonts with wide Unicode coverage.  Anyone wishing to develop TTF2f further should get in touch!</dd>
 <dt><a href="/downloads/">NetSurf 2.8 released</a> <span>21 Sep 2011</span></dt>
@@ -134,7 +138,7 @@
 
 
 <div class="footer">
-<p>Copyright 2003 - 2010 The NetSurf Developers</p>
+<p>Copyright 2003 - 2012 The NetSurf Developers</p>
 </div>
 
 </div>

@@ -62,7 +62,7 @@
 <div class="downloadlatestouter">
 <div class="downloadlatest">
 <div class="downloadlatestbox">
-<p class="downloadmain downloadfirst"><a href="/downloads/releases/netsurf-2.8.zip"><span>NetSurf 2.8 for RISC&nbsp;OS</span> <span>(2.8MB)</span> <span class="downloaddate">21 Sep 2011</span></a></p>
+<p class="downloadmain downloadfirst"><a href="/downloads/releases/netsurf-2.9.zip"><span>NetSurf 2.9 for RISC&nbsp;OS</span> <span>(2.8MB)</span> <span class="downloaddate">27 Mar 2012</span></a></p>
 <p class="downloadinstructions"><a href="/documentation/roinfo#GettingStartedInstallation">Installation instructions</a></p>
 <p class="preul">Binary download includes:</p>
 <ul>
@@ -80,7 +80,7 @@
 </div>
 
 <div class="downloadlatestbox downloadlast">
-<p class="downloadmain"><a href="/downloads/releases/netsurf-2.8-src.tar.gz"><span>NetSurf 2.8 source code</span> <span>(2.3MB)</span> <span class="downloaddate">21 Sep 2011</span></a></p>
+<p class="downloadmain"><a href="/downloads/releases/netsurf-2.9-src.tar.gz"><span>NetSurf 2.9 source code</span> <span>(2.5MB)</span> <span class="downloaddate">27 Mar 2012</span></a></p>
 <p class="downloadinstructions"><a href="/downloads/source/#BuildInstructions">Build instructions</a></p>
 <p class="preul">Build NetSurf for:</p>
 <ul>
@@ -99,6 +99,13 @@
 
 <h2>Previous releases</h2>
 <dl>
+<dt>NetSurf 2.8</dt>
+<dd>
+<ul>
+<li><a href="/downloads/releases/netsurf-2.8.zip">NetSurf 2.8 browser for RISC OS</a> (21 Sep 2011)</li>
+<li><a href="/downloads/releases/netsurf-2.8-src.tar.gz">NetSurf 2.8 source code</a> (21 Sep 2011)</li>
+</ul>
+</dd>
 <dt>NetSurf 2.7</dt>
 <dd>
 <ul>
@@ -159,7 +166,7 @@
 
 
 <div class="footer">
-<p>Copyright 2003 - 2011 The NetSurf Developers</p>
+<p>Copyright 2003 - 2012 The NetSurf Developers</p>
 </div>
 
 </div>

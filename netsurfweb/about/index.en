@@ -123,6 +123,8 @@
 <tr><th>Apr 2011</th><td>NetSurf 2.7 released</td></tr>
 <tr><th>Sep 2011</th><td>Frames and iframes in NetSurf core</td></tr>
 <tr><th>Sep 2011</th><td>NetSurf 2.8 released</td></tr>
+<tr><th>Mar 2012</th><td>LibDOM used in NetSurf builds</td></tr>
+<tr><th>Apr 2012</th><td>NetSurf 2.9 released</td></tr>
 </table>
 
 <div class="frontscreen"><p class="frontscreen"><a href="screenshots/images/riscos-wikipedia.png"><img src="screenshots/images/riscosthumb-wikipedia.png" alt="GTK NetSurf screenshot."></a> <span>A more recent NetSurf showing <em>Wikipedia</em>.</span></p></div>
@@ -190,7 +192,7 @@
 
 
 <div class="footer">
-<p>Copyright 2003 - 2011 The NetSurf Developers</p>
+<p>Copyright 2003 - 2012 The NetSurf Developers</p>
 </div>
 
 </div>
